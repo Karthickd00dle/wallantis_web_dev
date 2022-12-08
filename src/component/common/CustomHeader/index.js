@@ -15,9 +15,7 @@ import { history } from "service/helpers";
 import {
   conditionalLoad,
   getUserDetailsBasedToken,
-  ternaryCondition,
 } from "service/helperFunctions";
-import { settingsForAdminMenu, settingsMenu } from "config";
 
 const Theme = createTheme({
   palette: {
@@ -44,7 +42,7 @@ export const CustomHeader = () => {
   };
 
   const userDetails = getUserDetailsBasedToken();
-  const { isAdmin, name: userName } = userDetails;
+  const { name: userName } = userDetails;
 
   return (
     <ThemeProvider theme={Theme}>
@@ -98,22 +96,9 @@ export const CustomHeader = () => {
                   open={Boolean(optionItems)}
                   onClose={handleCloseUserMenu}
                 >
-                  {ternaryCondition(
-                    isAdmin,
-                    settingsForAdminMenu,
-                    settingsMenu
-                  ).map(({ id, titleLabel, changeUrl }) => (
-                    <>
-                      <MenuItem
-                        key={id}
-                        onClick={() =>
-                          handleCloseUserMenu(changeUrl, titleLabel)
-                        }
-                      >
-                        <label>{titleLabel}</label>
-                      </MenuItem>
-                    </>
-                  ))}
+                  <MenuItem>
+                    <label></label>
+                  </MenuItem>
                 </Menu>
               </Box>
             </div>

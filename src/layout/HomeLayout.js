@@ -3,7 +3,7 @@ import { CustomHeader } from "component/common";
 import "assets/scss/layouts/AdminLayout.scss";
 import { routerAuthTokenGuard } from "service/helperFunctions";
 
-export class AdminLayout extends Component {
+export class HomeLayout extends Component {
   state = {
     isMenuOpen: true,
   };

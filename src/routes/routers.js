@@ -2,7 +2,23 @@ const routers = [
   {
     path: "/",
     exact: true,
-    redirect: "/auth/login",
+    redirect: "/home",
+  },
+  {
+    component: "HomeLayout",
+    path: "/home",
+    auth: false,
+    exact: false,
+    childrens: [
+      {
+        component: "HomePage",
+        path: "/",
+        componentPath: "pages/HomePage",
+        name: "HomePage",
+        auth: false,
+        exact: true,
+      },
+    ],
   },
   {
     component: "AuthLayout",
@@ -15,14 +31,6 @@ const routers = [
         path: "/login",
         componentPath: "pages/Auth/Login",
         name: "Login",
-        auth: false,
-        exact: true,
-      },
-      {
-        component: "RegistrationPage",
-        path: "/registration",
-        componentPath: "pages/Admin/RegistrationPage/RegistrationPage",
-        name: "ForgotPassword",
         auth: false,
         exact: true,
       },
