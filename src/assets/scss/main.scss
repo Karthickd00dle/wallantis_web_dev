@@ -1,0 +1,576 @@
+@import "../scss/abstracts/abstracts.scss";
+@import "../scss/abstracts/abstracts";
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+.ellipsis-container {
+  width: 220px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* scrollbar design */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b9b5b5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+.serviceImages {
+  width: 200px;
+  height: 200px;
+}
+
+.service-ellipsis {
+  white-space: nowrap;
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button {
+  &.fullWidth {
+    width: max-content;
+  }
+
+  &.btn {
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: fontSize(18px);
+    height: 45px;
+    padding: 12px;
+    min-width: 188px;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+    &.normal-btn {
+      background: $primary-color;
+      color: $white;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      min-width: 140px !important;
+      padding: 0 0.3em;
+
+      &:hover {
+        background-color: $c5 !important;
+        color: $white;
+        border: 1px solid $c5;
+      }
+    }
+
+    &.white-btn {
+      background: $white;
+      color: $black;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      border: 1px solid $black;
+      transition: 0.2s all;
+      min-width: 50px !important;
+      padding: 0 2em;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+        border: 1px solid $primary-color;
+      }
+    }
+
+    &.primary2-btn {
+      background: $primary-color;
+      border-radius: 25.5px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 27px;
+      border: 1px solid transparent;
+      color: $white;
+
+      &:hover {
+        color: $primary2;
+        background: transparent;
+        border: 1px solid $primary2;
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    &.outlineBtn {
+      background: $white;
+      color: $c1;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      border: 1px solid $c1;
+      transition: 0.2s all;
+      padding: 0 2em;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+        border: 1px solid $primary-color;
+      }
+    }
+
+    &.outlineBtnRadius {
+      background: $white;
+      color: $c1;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      border: 1px solid $c1;
+      transition: 0.2s all;
+      border-radius: 25.5px;
+      padding: 0 2em;
+
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+        border: 1px solid $primary-color;
+      }
+    }
+
+    &.brandBtn {
+      background: $c1;
+      border-radius: 5px;
+      color: $white;
+    }
+
+    &.addBtn {
+      background: #2ea657;
+      border-radius: 5px;
+      min-width: 130px !important;
+      color: $white;
+      font-size: 16px !important;
+      height: 35px;
+      justify-content: space-evenly;
+
+      label {
+        text-align: center;
+      }
+    }
+
+    &.removeBtn {
+      background: #d17b3d;
+      border-radius: 5px;
+      min-width: 130px !important;
+      color: $white;
+      font-size: 16px !important;
+      height: 35px;
+      justify-content: space-evenly;
+
+      label {
+        text-align: center;
+      }
+    }
+
+    &.green {
+      background: $c6;
+      border-radius: 5px;
+      min-width: 95px !important;
+      color: $white;
+      font-size: 16px !important;
+    }
+
+    &.viewBtn {
+      background: $primary-color;
+      color: $white;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      min-width: 100px !important;
+      height: 45px !important;
+      padding: 0 0.3em;
+
+      &:hover {
+        background-color: $c5 !important;
+        color: $white;
+        border: 1px solid $c5;
+      }
+    }
+  }
+}
+
+.word-break-normal {
+  word-break: normal;
+}
+
+.btn:focus,
+.btn.focus,
+input:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  color: $text-black-1a;
+  outline: 0;
+  background-color: $white !important;
+  box-shadow: none;
+}
+
+.text-black {
+  color: $black;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.view-service-wrapper {
+  img {
+    width: 100%;
+    height: 230px;
+    padding: 1em 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+  }
+
+  div {
+    label {
+      font-size: 18px;
+      margin: 0.5em 0;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 0.5em 0;
+    }
+  }
+}
+
+//Hide Arrows in input
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+//Hide Arrows in input
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.modal-content {
+  border: none;
+  padding: 0;
+  height: 100%;
+}
+
+.Select__dropdown-indicator {
+  .icon-up {
+    padding-bottom: 2px;
+  }
+}
+
+.form-control {
+  &:disabled {
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $text-black-1a;
+    opacity: 0.9;
+    background-color: $white;
+    cursor: not-allowed;
+  }
+}
+
+.sticky-top {
+  z-index: 0;
+}
+
+.sticky-left {
+  z-index: 0;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.brand-font {
+  font-family: "Nunito", sans-serif;
+}
+
+.font-poppins {
+  font-family: "Nunito", sans-serif !important;
+}
+
+.scrollbar-container {
+  position: fixed !important;
+  height: 98%;
+  width: 251px;
+  background: $white;
+  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.1);
+}
+
+//tabs
+.input-tabs {
+  position: relative;
+
+  input {
+    border: none !important;
+    background-color: #f5f7f9 !important;
+    font-size: 14px;
+  }
+
+  .normal-input {
+    width: 30%;
+    position: absolute;
+    top: -79px;
+    right: 0;
+    border: none !important;
+  }
+}
+
+// input,
+
+.h-70 {
+  height: 70px;
+}
+
+.not-found {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: -10px;
+  margin: 2em 0 0 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.maintableStriped table {
+  thead {
+    position: sticky;
+    top: 0;
+    border: #333333;
+  }
+}
+
+.add-service-wrapper {
+
+  div,
+  section {
+    label {
+      font-size: 18px;
+      margin-bottom: 1em 0;
+    }
+
+    .pricing_grey {
+      font-size: 16px;
+      color: #919191;
+    }
+
+    img {
+      width: 70px;
+      height: 79px;
+    }
+  }
+
+  .tick {
+    width: 70px;
+    height: 79px;
+    text-align: center;
+    margin-top: 0.5em;
+  }
+}
+
+.input-tab {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1em 0 2em 0;
+
+  .sortWrapper {
+    position: absolute;
+    top: -79px;
+  }
+
+  .inputview {
+    border: none !important;
+    background-color: #f5f7f9 !important;
+    font-size: 14px;
+    color: #333 !important;
+  }
+
+  .normal-input {
+    width: 30%;
+    border: none !important;
+  }
+}
+
+.input-tab-admin {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1em;
+  background-color: $white;
+
+  .normal-input {
+    width: 30%;
+    right: 0;
+    left: 0;
+    border: none !important;
+  }
+
+  input {
+    border: none !important;
+    background-color: #f5f7f9 !important;
+    font-size: 14px;
+  }
+}
+
+.grid-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 30px;
+  width: 100%;
+
+  @media screen and (max-width: 920px) {
+    grid-template-columns: auto;
+  }
+
+  .input-grid {
+    margin: 1em 0;
+
+    input {
+      background: $gray_input;
+      border: 0;
+    }
+  }
+}
+
+.input-gray {
+  input {
+    background: $gray_input;
+    border: 0;
+    height: 50px;
+  }
+}
+
+.form-controls {
+  label {
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    color: $black;
+  }
+}
+
+.iconCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.actionTableDD {
+  padding: 0.4em 2em;
+
+  &:hover {
+    background-color: $c1;
+    color: $white;
+  }
+}
+
+.text-ellipsis {
+  max-width: 150px;
+}
+
+.pagination .page-item a {
+  width: auto !important;
+  background-color: white;
+}
+
+.pagination .page-item {
+  width: auto !important;
+}
+
+.page-item.disabled .page-link {
+  font-weight: 500;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.heading {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 38px;
+}
+
+.table-heading {
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.cursor_pointer_arrow {
+  cursor: pointer !important;
+}
+
+.error_msg_text {
+  color: #dc3545;
+  font-size: 16px;
+}
+
+.listed-menu {
+  .MuiMenu-list {
+    .MuiMenuItem-root {
+      label {
+        cursor: pointer;
+      }
+    }
+
+    .MuiMenuItem-root:last-child {
+      color: #c00102;
+    }
+
+    .MuiMenuItem-root:not(:last-child) {
+      border-bottom: 1px solid #c7c7c7;
+    }
+  }
+}
+
+.font_nunito {
+  font-family: "Nunito", sans-serif !important;
+}

@@ -1,0 +1,30 @@
+* {
+    font-family: "Nunito", sans-serif;
+}
+
+.common_radio_container {
+    label {
+        font-weight: 500;
+        font-size: 16px;
+        color: #898A8D;
+    }
+
+    .MuiFormGroup-root {
+        .MuiFormControlLabel-root {
+            .MuiTypography-root {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 16px;
+                display: flex;
+                align-items: center;
+                color: #000000;
+                font-family: "Nunito", sans-serif;
+            }
+
+            .MuiSvgIcon-root {
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}

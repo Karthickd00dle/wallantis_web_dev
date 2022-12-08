@@ -1,0 +1,48 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
+
+* {
+    font-family: "Nunito", sans-serif;
+}
+
+.custom_select_container {
+    label {
+        @include fontNunitoStyle(22px, 500, #000000, 26px);
+
+        @media screen and (max-width: 667px) {
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+
+    .MuiInputBase-root {
+        height: 54px;
+        background: #FDFDFD;
+        border: 0.5px solid #606060;
+        border-radius: 8px;
+
+        :focus {
+            outline: none;
+            box-shadow: none;
+            border-color: none;
+        }
+
+        .MuiSelect-select {
+            border: none;
+            font-family: "Nunito", sans-serif;
+
+            .MuiInputBase-input {
+                :focus {
+                    outline: none;
+                    box-shadow: none;
+                    border-color: none;
+                }
+            }
+        }
+
+        .MuiOutlinedInput-notchedOutline {
+            border: white
+        }
+
+    }
+
+}

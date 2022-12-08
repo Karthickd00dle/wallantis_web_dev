@@ -1,0 +1,121 @@
+@import "../../../assets/scss/abstracts/abstracts";
+
+.navbar {
+  height: 72px;
+  background: $white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2 !important;
+
+  .layout-logo {
+    img {
+      height: 100%;
+    }
+  }
+
+  .location-area {
+    background: #dcdcdc;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+  }
+}
+
+.profile-dropdown {
+  position: relative;
+
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: $white;
+    padding: 0 15px;
+    border-radius: 8px;
+    z-index: 5;
+    min-width: 175px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+    display: none;
+
+    li {
+      padding: 10px 0;
+      color: $black-00;
+      list-style: none;
+      font-size: fontSize(14px);
+    }
+
+    &.active {
+      color: $black-00;
+      font-size: fontSize(14px);
+      font-weight: 600;
+      display: block;
+    }
+
+    li:hover {
+      color: $black-00;
+      font-size: fontSize(14px);
+      display: block;
+    }
+  }
+}
+
+.brand-logo-navbar {
+  height: 50px;
+  width: 150px;
+
+  @media screen and (max-width: 667px) {
+    height: 32px;
+    width: 117px;
+  }
+}
+
+.navbar-appbar {
+  @media screen and (max-width: 667px) {
+    box-shadow: none !important;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .avatar {
+    border: 2px solid #d9d9d9;
+    @media screen and (max-width: 667px) {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .expand-icon {
+    @media screen and (max-width: 667px) {
+      height: 18px;
+      width: 18px;
+    }
+  }
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  @media screen and (max-width: 667px) {
+    font-size: 13px;
+  }
+}
+
+.user-access {
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.2px;
+  color: #c4c4c4;
+  font-size: 15px;
+  @media screen and (max-width: 667px) {
+    font-size: 13px;
+  }
+
+  span {
+    @media screen and (max-width: 667px) {
+      font-size: 11px;
+    }
+    font-size: 13px;
+    color: #000;
+  }
+}

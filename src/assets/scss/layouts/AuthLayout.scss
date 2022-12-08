@@ -1,0 +1,57 @@
+@import "../abstracts/abstracts.scss";
+
+.login-wrapper {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: $primary-color;
+  width: 100%;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .login_bg_image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 80%;
+      position: relative;
+      left: 10%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      width: 0%;
+    }
+  }
+
+  .login_form_content {
+    width: 50%;
+    padding: 30px 0;
+
+    .card {
+      width: 75%;
+      padding: 50px 45px 20px 45px;
+      border-radius: 9px;
+      margin-left: 1.5em;
+
+      @media only screen and (max-width: 768px) {
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .card {
+        width: 90%;
+        padding: 50px 10px;
+      }
+    }
+  }
+}

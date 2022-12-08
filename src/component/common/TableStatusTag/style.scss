@@ -1,0 +1,26 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
+
+.custom_tag_color {
+  height: 31px;
+  background: #04bb05;
+  border-radius: 5px;
+  width: 70px;
+  @include display_justify_align_center();
+
+  label {
+    @include fontNunitoStyle(14px, 500, #ffffff);
+    letter-spacing: 0.1px;
+  }
+}
+
+.custom_tag_color.green_tag {
+  background: #04bb05;
+}
+
+.custom_tag_color.yellow_tag {
+  background: #d3d005;
+}
+
+.custom_tag_color.red_tag {
+  background: #e91f20;
+}

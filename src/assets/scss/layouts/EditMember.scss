@@ -1,0 +1,30 @@
+@import "../abstracts/abstracts.scss";
+
+.comments {
+  @include fontNunitoStyle(15px, #000, bold);
+  background: #fdfdfd;
+  border: 0.5px solid #aca0a0;
+  border-radius: 8px;
+  outline: none;
+  padding: 10px;
+}
+
+.mainText {
+  color: #898a8d;
+}
+
+.subText {
+  font-weight: 600;
+  color: black;
+}
+
+.submit-btn {
+  @include fontNunitoStyle(22px, 600, #ffffff, 26px);
+  background: #003975;
+  border-radius: 8px;
+  border: none;
+  padding: 7px 0;
+  width: 100%;
+  padding-bottom: 9px;
+  margin-top: 5px;
+}

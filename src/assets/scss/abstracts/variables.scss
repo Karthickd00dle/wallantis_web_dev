@@ -1,0 +1,65 @@
+$primary-color: #d3b24d;
+$secondary-color: #545454;
+$white: #fff;
+$gray: #a8a8a8;
+$black: #000000;
+$red: #c00102;
+$green-18: #189c5c;
+$blue-2c: #2c5282;
+$blue-24: #243d63;
+$text-black-1a: #1a202c;
+$primary2: #d44b5d;
+$grey-c7: #7c7c7c;
+$black-00: #002449;
+$grey_39: #898a8d;
+$light_bg: #000000;
+$gray_input: #e8e8e8;
+$c1: #d3b24d;
+$c1-0: #fed10f1a;
+$c2: #545454;
+$c3: #972020;
+$c4: #424242;
+$c5: #f1c338;
+$c6: #35a333;
+$c7: #7c7c7c;
+$c8: #c4c4c4;
+$c9: #eeeeee;
+$c10: #3d4856;
+
+$font-Nunito: "Nunito", sans-serif !important;
+
+$myColors: (
+  "c1": $c1,
+  "c1-0": $c1-0,
+  "c2": $c2,
+  "c3": $c3,
+  "c4": $c4,
+  "c5": $c5,
+  "c6": $c6,
+  "c7": $c7,
+  "c8": $c8,
+  "c9": $c9,
+  "c10": $c10,
+  "primary-color": $primary-color,
+  "secondary-color": #545454,
+  "primary2": $primary2,
+  "grey-c7": $grey-c7,
+  "blue-24": $blue-24,
+  "black-00": $black-00,
+  "light_bg": $light_bg,
+  "gray_input": $gray_input,
+  "gray": $gray,
+  "grey_39": $grey_39,
+  "red": $red,
+);
+
+@each $name,
+$colors in $myColors {
+  .text-#{$name} {
+    color: $colors;
+  }
+
+  .bg-#{$name} {
+    background-color: $colors;
+  }
+}
