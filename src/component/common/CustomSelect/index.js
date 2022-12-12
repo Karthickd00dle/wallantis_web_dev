@@ -38,7 +38,7 @@ export const CustomSelect = (props) => {
         </div>
       ) : null}
       <BootstrapInput
-        className="w-100"
+        className="w-100 d-flex align-items-center"
         id="demo-customized-textbox"
         IconComponent={ExpandMoreRoundedIcon}
         defaultValue={"placeholder"}
@@ -58,13 +58,15 @@ export const CustomSelect = (props) => {
             {placeholder}
           </MenuItem>
         )}
-        {menuItemList.map(({ label, value }, index) => {
-          return (
-            <MenuItem name={label} value={value} key={index}>
-              {label}
-            </MenuItem>
-          );
-        })}
+        {menuItemList &&
+          menuItemList.map(({ label, value, icon }, index) => {
+            return (
+              <MenuItem name={label} value={value} key={index}>
+                <img src={icon} height="25px" width="25px" alt={label} />
+                <label className="ps-1 ">{label}</label>
+              </MenuItem>
+            );
+          })}
       </BootstrapInput>
     </div>
   );

@@ -27,10 +27,10 @@ const routers = [
     exact: false,
     childrens: [
       {
-        component: "Login",
+        component: "LoginPage",
         path: "/login",
-        componentPath: "pages/Auth/Login",
-        name: "Login",
+        componentPath: "pages/Auth/LoginPage",
+        name: "LoginPage",
         auth: false,
         exact: true,
       },

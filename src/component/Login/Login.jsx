@@ -7,7 +7,6 @@ import { loginApi } from "action/AuthAct";
 import { NormalInput } from "component/common";
 import useValidator from "service/useValidator";
 import { errorMessageToDisplay } from "service/helperFunctions";
-import { locationSwitchList } from "config";
 
 export const LoginComponentMain = ({ loginApiCall }) => {
   const buttonstyles = {
@@ -34,7 +33,6 @@ export const LoginComponentMain = ({ loginApiCall }) => {
       loginApiCall(loginFormValue).then((res) => {
         localStorage.setItem("authToken", res);
         history.push("/");
-        localStorage.setItem("location", locationSwitchList[0]?.value);
       });
     } else {
       showValidationMessage(true);
@@ -135,7 +133,4 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-export const LoginComponent = connect(
-  null,
-  mapDispatchToProps
-)(LoginComponentMain);
+export const Login = connect(null, mapDispatchToProps)(LoginComponentMain);

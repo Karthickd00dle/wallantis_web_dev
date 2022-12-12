@@ -1,10 +1,11 @@
+import { Home } from "component/Home/Home";
 import React, { Component } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class LoginClass extends Component {
+export class HomePageClass extends Component {
   render() {
-    return;
+    return <Home />;
   }
 }
-export const Login = connect(null, null)(LoginClass);
+export const HomePage = connect(null, null)(HomePageClass);

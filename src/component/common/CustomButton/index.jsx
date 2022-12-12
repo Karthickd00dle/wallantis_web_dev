@@ -12,7 +12,9 @@ export const CustomButton = ({
 }) => {
   const customStyle = {
     ...style,
+    backgroundColor: "#A26220",
     fontFamily: "Nunito",
+    textTransform: "none",
   };
   return (
     <div>
