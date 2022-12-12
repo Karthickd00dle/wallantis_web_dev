@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { CustomHeader } from "component/common";
 import "assets/scss/layouts/AdminLayout.scss";
 import { routerAuthTokenGuard } from "service/helperFunctions";
+import { NormalFooter } from "component/common/Footer";
 
 export class HomeLayout extends Component {
   state = {
@@ -28,6 +29,7 @@ export class HomeLayout extends Component {
       <>
         <CustomHeader handleSideBar={this.handleSideBar} />
         <div className="container_bg">{this.props.children}</div>
+        <NormalFooter />
       </>
     );
   }
