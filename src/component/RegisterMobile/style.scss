@@ -1,0 +1,61 @@
+.RegisterMobile_entries{
+    .RegisterMobile_number{
+        margin-top: 64px;
+        margin-left: 62px;
+        input{
+            border: none;
+            border-bottom: 2px solid#D4D4D4;
+            background-color: unset;
+            outline: none;
+            font-size: 20px;
+            width: 80%;
+          }
+    }
+}
+
+.RegisterMobile_policy{
+    position: absolute;
+    width: 571px;
+    height: 34px;
+    left: 38%;
+    top: 230px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: 1px;
+    color: #000000;
+}
+.Login_continue_button{
+    align-items: center;
+    padding: 9px 156px;
+    color: white;
+    position: absolute;
+    width: 50%;
+    height: 58px;
+    left: 38%;
+    top: 43%;
+    background: #A26220;
+    border-color: #A26220;
+    border-radius: 5px;
+    font-size: 18px;
+    }
+
+    .Existing_button{
+        display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 132px;
+    position: absolute;
+    width: 50%;
+    height: 58px;
+    left: 38%;
+    top: 60%;
+    color: #2A71F9;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    border-color: #FFFFFF;
+    font-size: 18px;
+    }

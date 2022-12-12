@@ -1,0 +1,95 @@
+.ForgotPassword_entries{
+    form{
+        position: relative;
+    }
+  input{
+    border: none;
+    border-bottom: 2px solid#D4D4D4;
+    background-color: unset;
+    outline: none;
+    font-size: 18px;
+    width: 80%;
+  }
+}
+
+.ForgotPassword_number{
+    margin-top: 64px;
+    margin-left: 90px;
+    label{
+        position: absolute;
+        left: 74%;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: #2A71F9;
+}
+}
+
+.ForgotPassword_OTP_sent{
+    span{
+        position: absolute;
+        width: 200px;
+        left: 95px;
+        top: 90px;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: #9A9999;
+    }
+
+    label{
+        position: absolute;
+        width: 56px;
+        left: 74%;
+        top: 90px;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        color: #2A71F9;
+    }
+}
+
+.ForgotPassword_enterotp{
+    margin-top: 13%;
+    margin-left: 90px;
+    input{
+        border: none;
+        border-bottom: 2px solid#D4D4D4;
+        background-color: unset;
+        outline: none;
+        font-size: 18px;
+        width: 80%;
+      }
+}
+
+.ForgotPassword_setpassword{
+    margin-top: 8%;
+    margin-left: 90px;
+    input{
+        border: none;
+        border-bottom: 2px solid#D4D4D4;
+        background-color: unset;
+        outline: none;
+        font-size: 18px;
+        width: 80%;
+      }
+}
+
+.Login_forgot_button{
+    align-items: center;
+    padding: 9px 156px;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    width: 75%;
+    height: 58px;
+    left: 8%;
+    top: 120%;
+    background: #A26220;
+    border-color: #A26220;
+    border-radius: 5px;
+    }

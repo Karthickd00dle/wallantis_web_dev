@@ -1,0 +1,86 @@
+.Login_Entries{
+
+    form{
+        position: relative;
+    }
+  input{
+    border: none;
+    border-bottom: 2px solid#D4D4D4;
+    background-color: unset;
+    outline: none;
+    font-size: 20px;
+    width: 80%;
+  }
+  label{
+    position: absolute;
+    left: 0;
+  }
+}
+
+.Login_EnterEmail{
+  margin-top: 64px;
+  margin-left: 74px;
+}
+
+
+.Login_EnterPassword{
+  margin-top: 64px;
+  margin-left: 74px;
+}
+
+.Login_Forgot{
+  position: absolute;
+// width: 52px;
+height: 17px;
+left:75%;
+top: 144px;
+font-weight: 700;
+font-size: 18px;
+letter-spacing: 0.04em;
+color: #2A71F9;
+cursor: pointer;
+}
+
+.Login_Terms{
+  position: absolute;
+  width: 586px;
+  left: 8%;
+  top: 233px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+.Login_button{
+align-items: center;
+padding: 9px 156px;
+color: white;
+font-size: 20px;
+position: absolute;
+width: 75%;
+height: 58px;
+left: 8%;
+top: 335px;
+background: #A26220;
+border-color: #A26220;
+border-radius: 5px;
+}
+
+.Login_register{
+  position: absolute;
+width: 330px;
+left: 31%;
+top: 420px;
+// font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 17px;
+letter-spacing: 0.04em;
+color: #9A9999;
+label{
+  margin-left: 62%;
+  color: #2A71F9;
+}
+}

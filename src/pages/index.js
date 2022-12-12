@@ -1,1 +1,2 @@
-export { Login } from "./Auth";
+export { Login,ForgotPass,RegisterMobilePass,RegisterAgainPass} from "./Auth";
+

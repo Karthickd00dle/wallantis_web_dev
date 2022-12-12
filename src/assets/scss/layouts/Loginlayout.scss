@@ -1,0 +1,39 @@
+.Layout_Login{
+    position: absolute;
+width: 33%;
+height: 100%;
+// left: -1px;
+top: 0px;
+background: radial-gradient(93.07% 93.07% at 19.34% 7.32%, #165147 0%, #113630 76.59%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+img{
+    position: absolute;
+    width: 133px;
+    height: 111px;
+    left: 51px;
+    top: 57px;
+}
+
+span{ 
+    position: absolute;
+    top: 33%;
+    left: 66px;
+    // width: 97px;
+    height: 47px;
+    font-weight: 600;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+label{
+    position: absolute;
+    top: 42%;
+    left: 62px;
+    width: 396px;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+
+}
