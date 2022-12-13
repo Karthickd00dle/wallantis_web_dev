@@ -13,7 +13,7 @@ export const CustomButton = ({
   const customStyle = {
     ...style,
     backgroundColor: "#A26220",
-    fontFamily: "Nunito",
+    fontFamily: "Lato, sans-serif",
     textTransform: "none",
   };
   return (

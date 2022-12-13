@@ -8,7 +8,7 @@
   @include display_justify_align_center();
 
   label {
-    @include fontNunitoStyle(14px, 500, #ffffff);
+    @include fontLatoStyle(14px, 500, #ffffff);
     letter-spacing: 0.1px;
   }
 }

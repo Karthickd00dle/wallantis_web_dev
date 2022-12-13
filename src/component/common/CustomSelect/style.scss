@@ -1,12 +1,12 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
 
 * {
-  font-family: "Nunito", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .custom_select_container {
   label {
-    @include fontNunitoStyle(15px, 500, #000000, 18px);
+    @include fontLatoStyle(15px, 500, #000000, 18px);
 
     @media screen and (max-width: 667px) {
       font-size: 18px;
@@ -28,7 +28,7 @@
     }
     .MuiSelect-select {
       border: none;
-      font-family: "Nunito", sans-serif;
+      font-family: "Lato", sans-serif;
 
       .MuiInputBase-input {
         :focus {

@@ -1,7 +1,7 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
 
 * {
-  font-family: "Nunito", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .navigation-container {
@@ -20,7 +20,7 @@
     }
 
     label {
-      @include fontNunitoStyle(22px, 800, #25282b);
+      @include fontLatoStyle(22px, 800, #25282b);
 
       @media screen and (max-width: 667px) {
         font-size: 14px;

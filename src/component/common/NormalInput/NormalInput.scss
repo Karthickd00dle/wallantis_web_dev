@@ -1,7 +1,7 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
 
 * {
-  font-family: "Nunito", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 .fs-18 {
   font-size: 18px !important;
@@ -13,7 +13,7 @@
   position: relative;
 
   label {
-    @include fontNunitoStyle("", 500, #000000, 26px);
+    @include fontLatoStyle("", 500, #000000, 26px);
 
     @media screen and (max-width: 667px) {
       font-size: 16px;
@@ -48,7 +48,7 @@
   }
 
   input::placeholder {
-    @include fontNunitoStyle(16px, 500, #b7b7b7);
+    @include fontLatoStyle(16px, 500, #b7b7b7);
   }
 }
 
@@ -70,7 +70,7 @@
   }
 
   input::placeholder {
-    @include fontNunitoStyle(15px, 500, #003975);
+    @include fontLatoStyle(15px, 500, #003975);
     letter-spacing: -0.11px;
   }
 }
@@ -84,7 +84,7 @@
 
   .normal-input {
     input::placeholder {
-      @include fontNunitoStyle(14px, 500, #b7b7b7);
+      @include fontLatoStyle(14px, 500, #b7b7b7);
     }
   }
 }

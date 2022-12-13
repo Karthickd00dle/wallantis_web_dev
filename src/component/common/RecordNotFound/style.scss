@@ -1,7 +1,7 @@
 @import "../../../assets/scss/abstracts/abstracts";
 
 * {
-  font-family: "Nunito", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .record_not_found {
@@ -12,10 +12,10 @@
   left: 45%;
 
   @include media-breakpoint-mobile-port {
-    position: initial
+    position: initial;
   }
 
   label {
-    @include fontNunitoStyle(18px, 600, $black);
+    @include fontLatoStyle(18px, 600, $black);
   }
 }

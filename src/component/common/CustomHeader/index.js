@@ -19,6 +19,7 @@ import { NormalSearch } from "../NormalSearch";
 import { CustomSelect } from "../CustomSelect";
 import { LanguageMenuList } from "config";
 import { CustomButton } from "..";
+import { history } from "service/helpers";
 
 export const CustomHeader = () => {
   return (
@@ -43,6 +44,9 @@ export const CustomHeader = () => {
             <CustomButton
               style={{ width: "110px", height: "48px" }}
               variant="contained"
+              onClick={() => {
+                history.push("/auth/login");
+              }}
             >
               Login
             </CustomButton>

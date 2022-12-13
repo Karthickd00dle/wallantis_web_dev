@@ -1,1 +1,2 @@
-export { LoginComponent } from "./Login/Login";
+export { Login } from "./Login/Login";
+export { ForgotPassword } from "./ForgotPassword";

@@ -1,7 +1,7 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
 
 * {
-  font-family: "Nunito", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .sidedrawer-container {
@@ -31,7 +31,7 @@
     }
 
     .text-sub-title {
-      @include fontNunitoStyle(18px, 700, $black, 20px, 0.1px);
+      @include fontLatoStyle(18px, 700, $black, 20px, 0.1px);
     }
 
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);

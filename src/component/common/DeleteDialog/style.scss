@@ -53,7 +53,7 @@
 }
 
 .button_area {
-  @include displayWithJustifyAlign(flex, space-evenly)
+  @include displayWithJustifyAlign(flex, space-evenly);
 }
 
 .button_area button {
@@ -79,7 +79,7 @@
 }
 
 .comments {
-  @include fontNunitoStyle(15px, #000, bold);
+  @include fontLatoStyle(15px, #000, bold);
   background: #fdfdfd;
   border: 0.5px solid #aca0a0;
   border-radius: 8px;
