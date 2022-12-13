@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export function RegisterMobile() {
   return (
     <div>
-      <div className="row">
+      <div className="d-flex">
         <div className="col-md-5"></div>
         <div className="col-md-7  RegisterMobile_entries">
           <form>

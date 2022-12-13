@@ -4,7 +4,7 @@ import "./style.scss";
 export const RegisterAgain = () => {
   return (
     <div>
-      <div className="row">
+      <div className="d-flex">
         <div className="col-md-5"></div>
         <div className="col-md-7  RegisterAgain_entries">
           <form>

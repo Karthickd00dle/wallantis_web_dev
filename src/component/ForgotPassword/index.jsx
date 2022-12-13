@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export const ForgotPassword = () => {
   return (
     <div>
-      <div className="row">
+      <div className="d-flex">
         <div className="col-md-4"></div>
         <div className="col-md-8 ForgotPassword_entries">
           <form>

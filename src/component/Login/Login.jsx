@@ -103,7 +103,7 @@ export const LoginComponentMain = ({ loginApiCall }) => {
     //   </div>
     // </>
     <>
-      <div className="row">
+      <div className="d-flex">
         <div className="col-md-5" />
         <div className="col-md-7 login-entries">
           <form>
