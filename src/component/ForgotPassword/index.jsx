@@ -7,7 +7,7 @@ import LoginLayout from 'layout/LoginLayout'
 export const ForgotPassword= () => {
   return (
     <div>
-     <div className="row">
+     <div className="d-flex">
       <div className="col-md-4">
       <LoginLayout name="Login" content="Get access to your orders, wishlist and recommendations"/>
       </div>
@@ -29,7 +29,7 @@ export const ForgotPassword= () => {
           <input type="number" id="number" placeholder="Set Password"/>
           </div>
            <NavLink to="/auth/registermobile">
-          <button className="Login_forgot_button">Login</button></NavLink>
+          <button className="Login_forgot_button">Continue</button></NavLink>
         </form>
       </div>
       </div>

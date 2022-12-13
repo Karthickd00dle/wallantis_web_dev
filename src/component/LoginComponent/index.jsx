@@ -127,7 +127,7 @@ export const LoginComponentMain = ({ loginApiCall }) => {
     //   </div>
     // </>
     <>
-    <div className="row">
+    <div className="d-flex">
       <div className="col-md-4">
         <h1>
           Login Image

@@ -6,7 +6,7 @@ import LoginLayout from 'layout/LoginLayout'
 export const RegisterAgain= () => {
   return (
     <div>
-     <div className="row">
+     <div className="d-flex">
       <div className="col-md-4">
         <LoginLayout name="Create a Account"  content="Register with your Mobile number to get started"/>
       </div>
