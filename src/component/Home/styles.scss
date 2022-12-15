@@ -1,0 +1,67 @@
+.home-content-container {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+
+  .home-wall-mural {
+    height: 880px;
+    width: 100%;
+    background-color: grey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    .home-wall-mural--title {
+      font-family: "Calisto MT";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 76px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+
+    .home-wall-mural--title-two {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 62px;
+
+      color: #ffffff;
+    }
+
+    .card-one-container {
+      position: relative;
+      top: 400px;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      -webkit-box-pack: center;
+      justify-content: center;
+
+      .card-one-inner-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+    }
+  }
+}
