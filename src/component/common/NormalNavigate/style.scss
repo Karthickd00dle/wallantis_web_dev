@@ -3,28 +3,3 @@
 * {
   font-family: "Lato", sans-serif;
 }
-
-.navigation-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 70px;
-  margin-bottom: 20px;
-
-  .navigate_back_container {
-    display: flex;
-    align-items: center;
-
-    img {
-      cursor: pointer;
-    }
-
-    label {
-      @include fontLatoStyle(22px, 800, #25282b);
-
-      @media screen and (max-width: 667px) {
-        font-size: 14px;
-      }
-    }
-  }
-}

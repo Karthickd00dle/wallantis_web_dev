@@ -14,7 +14,6 @@
   label {
     @include fontLatoStyle(34px, 600, #ffffff, 47px, 0.04em);
     padding-top: 50px;
-    text-transform: capitalize;
   }
   p {
     @include fontLatoStyle(20px, 500, #ffffff, 20px, 0.04em);

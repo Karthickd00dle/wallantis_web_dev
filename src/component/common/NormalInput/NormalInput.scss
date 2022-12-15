@@ -29,8 +29,8 @@
     font-size: 16px;
     color: black;
     background: #fdfdfd;
-    border: 0.5px solid #606060;
-    border-radius: 8px;
+    border: 0.5px solid #cbcbcb;
+    border-radius: 2px;
     padding: 16px 18px 18px 16px;
 
     &:disabled {
@@ -41,7 +41,6 @@
     &:focus {
       background: #fdfdfd;
       border: 0.5px solid #606060;
-      border-radius: 8px;
       outline: none;
       box-shadow: none;
     }
@@ -59,7 +58,7 @@
     border: 1px solid #003975;
     font-size: 16px;
     color: black;
-    border-radius: 6px;
+
     background-repeat: no-repeat;
     background-position: 6% 45%;
     padding-left: 38px;
@@ -71,7 +70,6 @@
 
   input::placeholder {
     @include fontLatoStyle(15px, 500, #003975);
-    letter-spacing: -0.11px;
   }
 }
 

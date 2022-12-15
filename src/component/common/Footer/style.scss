@@ -1,8 +1,20 @@
 .footer-container {
-  position: absolute;
+  position: static;
   left: 0%;
   right: 0%;
-  top: 50%;
   bottom: 0%;
   background-color: #0c2621;
+  color: #ffffff;
+  .footer-inner-container {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .footer-subject {
+    width: 385px;
+  }
+  .footer-trademark {
+    border-top: 1px solid #ffffff;
+  }
 }

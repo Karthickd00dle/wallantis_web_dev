@@ -4,12 +4,7 @@ import { connect } from "react-redux";
 export const HomeComponentMain = () => {
   return (
     <>
-      <div
-        className="
-      "
-      >
-        Helloo
-      </div>
+      <div className="">Helloo</div>
     </>
   );
 };
