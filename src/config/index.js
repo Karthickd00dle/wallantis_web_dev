@@ -78,7 +78,7 @@ export const FeaturesList = [
   { id: 9, Icon: ECatalogueIcon, label: "E-Catalouge" },
 ];
 
-const historyNavigation = [
+export const historyNavigation = [
   { id: 1, label: "home", route_to: "/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
 ];

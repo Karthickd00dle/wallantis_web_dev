@@ -15,33 +15,49 @@ import { FeaturesList } from "config";
 import { Menu, MenuItem } from "@mui/material";
 
 const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const open = Boolean(toggleMenu);
-  const handleClick = (event) => {
-    setToggleMenu(event.currentTarget);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setTimeout(setToggleMenu(null), 5000);
-    console.log("handle close mouse hover dropdown");
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
   };
+
   return (
     <>
       <div
+        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-haspopup="true"
         key={id}
-        onMouseEnter={(e) => handleClick(e)}
-        onMouseLeave={() => handleClose}
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
         className="d-flex flex-column align-items-center"
       >
         <Icon />
         <label className="py-2">{label}</label>
       </div>
       <Menu
-        id="demo-customized-menu"
-        MenuListProps={{
-          "aria-labelledby": "demo-customized-button",
+        className="menulist-container"
+        id="mouse-over-popover"
+        sx={{
+          pointerEvents: "none",
         }}
-        anchorEl={toggleMenu}
         open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        onMouseLeave={handlePopoverClose}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
       >
         {menuitems?.map((dat) => (
           <MenuItem>{dat}</MenuItem>

@@ -1,4 +1,5 @@
 import { Link } from "@mui/material";
+import { historyNavigation } from "config";
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { conditionalLoad } from "service/helperFunctions";
@@ -6,16 +7,18 @@ import { history } from "service/helpers";
 import "./style.scss";
 
 const NavigateHistory = ({ data, index, paramSize, arrowStyle, linkStyle }) => {
+  const routehistory = historyNavigation.filter(
+    ({ label }, index) => label === data.replace(" ", "-")
+  );
   return (
     <>
       <Link
         key={index}
         sx={{ textTransform: "capitalize" }}
         className={`
-         ${linkStyle}`}
-        href={data.replace(" ", "-")}
+         ${linkStyle} cursor-pointer`}
         underline="hover"
-        onClick={() => history.push(data.replace(" ", "-"))}
+        onClick={() => history.push(routehistory[0].route_to)}
       >
         {data}
       </Link>
