@@ -2,27 +2,19 @@ const routers = [
   {
     path: "/",
     exact: true,
-    redirect: "/home",
+    redirect: "/",
   },
   {
     component: "HomeLayout",
-    path: "/home",
+    path: "/",
     auth: false,
-    exact: false,
+    exact: true,
     childrens: [
       {
         component: "HomePage",
         path: "/",
         componentPath: "pages/HomePage",
         name: "HomePage",
-        auth: false,
-        exact: true,
-      },
-      {
-        component: "AboutUsPage",
-        path: "/about-us",
-        componentPath: "pages/AboutUsPage",
-        name: "AboutUsPage",
         auth: false,
         exact: true,
       },

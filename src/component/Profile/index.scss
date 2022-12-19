@@ -1,0 +1,96 @@
+.profile-main {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  gap: 20px;
+}
+
+.card-main {
+  width: 530px;
+  height: 120px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.tab-menus {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.card-info {
+  width: 1047px;
+  height: 420px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  padding: 0px !important;
+}
+
+.react-tabs__tab {
+  border-bottom: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-transform: capitalize;
+  height: 70px;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 40px !important;
+}
+
+.react-tabs__tab--selected {
+  background: #e7f3ff;
+  border-bottom: none;
+  color: #2a71f9;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-transform: capitalize;
+  height: 70px;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 40px !important;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: none !important;
+
+  bottom: 0px !important;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.card-content h6,
+h2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+}
