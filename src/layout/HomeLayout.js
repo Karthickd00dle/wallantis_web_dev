@@ -1,36 +1,15 @@
-import React, { Component } from "react";
-import { CustomHeader } from "component/common";
+import React from "react";
+import { CustomHeader, NormalNavigate } from "component/common";
 import "assets/scss/layouts/AdminLayout.scss";
-import { routerAuthTokenGuard } from "service/helperFunctions";
 import { NormalFooter } from "component/common/Footer";
+import "assets/scss/layouts/HomeLayout.scss";
 
-export class HomeLayout extends Component {
-  state = {
-    isMenuOpen: true,
-  };
-
-  handleSideBar = () => {
-    let { isMenuOpen } = this.state;
-    this.setState({
-      isMenuOpen: !isMenuOpen,
-    });
-  };
-
-  componentDidMount() {
-    routerAuthTokenGuard(this.props);
-  }
-
-  componentDidUpdate() {
-    routerAuthTokenGuard(this.props);
-  }
-
-  render() {
-    return (
-      <>
-        <CustomHeader handleSideBar={this.handleSideBar} />
-        <div className="container_bg">{this.props.children}</div>
-        <NormalFooter />
-      </>
-    );
-  }
+export function HomeLayout({ children }) {
+  return (
+    <>
+      <CustomHeader />
+      <div className="container-layout">{children}</div>
+      <NormalFooter />
+    </>
+  );
 }

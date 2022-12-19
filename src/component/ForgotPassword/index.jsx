@@ -7,7 +7,7 @@ export const ForgotPassword = () => {
     <div>
       <div className="d-flex">
         <div className="col-md-4"></div>
-        <div className="col-md-8 ForgotPassword_entries">
+        <div className="col-md-7 ForgotPassword_entries">
           <form>
             <div className="ForgotPassword_number">
               <input type="number" id="number" placeholder="+91 56846 84686 " />
