@@ -21,6 +21,22 @@ const routers = [
     ],
   },
   {
+    component: "ProfileLayout",
+    path: "/profile",
+    auth: false,
+    exact: true,
+    childrens: [
+      {
+        component: "Profile",
+        path: "/",
+        componentPath: "pages/Profile",
+        name: "Profile",
+        auth: false,
+        exact: true,
+      },
+    ],
+  },
+  {
     component: "AuthLayout",
     path: "/auth",
     auth: false,
