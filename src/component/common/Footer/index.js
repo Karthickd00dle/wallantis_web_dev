@@ -9,6 +9,8 @@ import { ReactComponent as TwitterIcon } from "assets/icons/FooterIcons/Twitter.
 import { ReactComponent as GPSIcon } from "assets/icons/FooterIcons/GPS-Icon.svg";
 import { ReactComponent as PhoneIcon } from "assets/icons/FooterIcons/Phone-Logo.svg";
 import { ReactComponent as MessageIcon } from "assets/icons/FooterIcons/Message-Icon.svg";
+import GooglePlayIcon from "assets/images/FooterIcons/GooglePlayIcon.png";
+import AppStoreIcon from "assets/images/FooterIcons/AppStoreIcon.png";
 import { NormalInput } from "../NormalInput";
 
 export const NormalFooter = () => {
@@ -27,6 +29,14 @@ export const NormalFooter = () => {
               <FBIcon className="mx-1" />
               <IGIcon className="mx-1" />
               <LinkedINIcon className="ms-1" />
+            </div>
+            <div className="pt-5 mt-3 w-100">
+              <label className="pb-3">Subscribe for our Newsletter</label>
+              <NormalInput
+                placeholder="Enter your email address"
+                isSubmitButton
+                submitButtonLabel="Subscribe"
+              />
             </div>
           </div>
           <div className="footer-options  ms-5 col-md-2">
@@ -50,7 +60,7 @@ export const NormalFooter = () => {
             </div>
           </div>
           <div className="footer-options ms-4 col-md-4">
-            <label className="ps-5 brand-info">Customer Support</label>
+            <label className="ps-3 brand-info">Customer Support</label>
             <div className="pt-5 d-flex flex-column">
               <div className="d-flex align-items-center">
                 <GPSIcon width={"10%"} />
@@ -67,18 +77,28 @@ export const NormalFooter = () => {
                 <MessageIcon width={"10%"} />
                 <label className="w-75">support@gmail.com</label>
               </div>
+              <div className="ps-2 pt-5">
+                <label className=" brand-info">Download Our App</label>
+                <div className="d-flex justify-content-between w-50 pt-3">
+                  <img
+                    src={GooglePlayIcon}
+                    height={50}
+                    width={135}
+                    alt="Get_it_on_Google_Play"
+                  />
+                  <img
+                    className="ms-3"
+                    src={AppStoreIcon}
+                    height={50}
+                    width={135}
+                    alt="Get_it_on_App_Store"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="pt-5">
-          <label className="pb-3">Subscribe for our Newsletter</label>
-          <NormalInput
-            className="w-25"
-            placeholder="Enter your email address"
-            isSubmitButton
-            submitButtonLabel="Subscribe"
-          />
-        </div>
+
         <div className="footer-trademark mt-5">
           <label className="pt-2">
             © 2022 company name. All Rights Reserved.
