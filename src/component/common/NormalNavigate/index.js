@@ -37,10 +37,10 @@ export const NormalNavigate = (props) => {
     if (d !== "") return `${d.replace("-", " ")}`;
   });
 
-  const { children, arrowStyle, linkStyle } = props;
+  const { children, arrowStyle, linkStyle, navigationStyle } = props;
   return (
     <>
-      <div>
+      <div className={`${navigationStyle}`}>
         {paramPath.map((val, index) => (
           <>
             <NavigateHistory
