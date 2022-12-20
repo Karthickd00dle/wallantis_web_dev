@@ -6,6 +6,8 @@ import HomeCardOne from "./subcomponents/CardOne";
 import CollectionSVGComponent from "assets/svg/collection";
 import CardTwo from "./subcomponents/CardTwo";
 
+import CardThree from "./subcomponents/CardThree";
+
 export const HomeComponentMain = () => {
   return (
     <>
@@ -31,19 +33,63 @@ export const HomeComponentMain = () => {
           <div className="why-wallantics--title">Why WALLANTICS ?</div>
 
           <div className="why-wallantics-card-container">
-         <CardTwo type="transparent-bg"/>
-         <CardTwo type="transparent-bg"/>
-         <CardTwo type="white-bg"/>
-         <CardTwo type="transparent-bg"/>
-         <CardTwo type="transparent-bg"/>
+            <CardTwo type="transparent-bg" />
+            <CardTwo type="transparent-bg" />
+            <CardTwo type="white-bg" />
+            <CardTwo type="transparent-bg" />
+            <CardTwo type="transparent-bg" />
           </div>
         </div>
+
+        <div className="main-container">
+          <div className="main-header">
+            <div className="main-title">Recently Viewed</div>
+            <div className="view-all-but">VIEW ALL</div>
+          </div>
+
+          <div className="home-main-card-container">
+            <CardThree />
+            <CardThree />
+            <CardThree />
+            <CardThree />
+          </div>
+        </div>
+       
+        <div className="main-container">
+          <div className="main-header">
+            <div className="main-title">Best Seller</div>
+            <div className="view-all-but">VIEW ALL</div>
+          </div>
+
+          <div className="home-main-card-container">
+            <CardThree />
+            <CardThree />
+            <CardThree />
+            <CardThree />
+          </div>
+        </div>
+
+        <div className="main-container">
+          <div className="main-header">
+            <div className="main-title">New Arrivals</div>
+            <div className="view-all-but">VIEW ALL</div>
+          </div>
+
+          <div className="home-main-card-container">
+          <CardThree/>
+          <CardThree/>
+          <CardThree/>
+          <CardThree/>
+          </div>
+        </div>
+        <div className="main-container"></div>
+        <div className="main-container"></div>
+        <div className="main-container"></div>
+        <div className="main-container"></div>
+        <div className="main-container"></div>
       </div>
     </>
   );
 };
 
 export const Home = connect(null, null)(HomeComponentMain);
-
-  
-  

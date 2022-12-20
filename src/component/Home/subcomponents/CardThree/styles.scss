@@ -1,0 +1,89 @@
+.card-three-container {
+    height: 400px;
+    width: 400px;
+    margin-bottom: 50px;
+    cursor: pointer;
+
+    .card-three-image-section {
+      height: 233px;
+      
+      width: 100%;
+      margin-bottom: 24px;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      
+
+      .icon-container {
+        height: 50px;
+        
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 16px;
+
+        .icon-1 {
+          height: 40px;
+          width: 40px;
+          border-radius: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          margin-right: 8px;
+          cursor: pointer;
+          
+        }
+
+        .icon-2 {
+          height: 40px;
+          width: 40px;
+          border-radius: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          
+        }
+      }
+    }
+
+    .card-three-title {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 29px;
+      line-height: 35px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      color: #000000;
+    }
+
+    .card-three-price {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 26px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      color: #696969;
+    }
+
+    .card-three-info-txt {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 23px;
+      /* identical to box height */
+
+      display: flex;
+      align-items: center;
+
+      color: #696969;
+    }
+  }
