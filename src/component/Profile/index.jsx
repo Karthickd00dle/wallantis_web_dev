@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import profileUser from "assets/images/profileUser.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import ProfileForm from "./ProfileForm";
+import SavedAddresses from "./SavedAddress";
+import chatIcon from "assets/images/chatIcon.png";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 
 export default function Profile() {
+  const [inputData, setInputData] = useState({});
+  const handleInput = (event) => {
+    let input = { [event.target.name]: event.target.value };
+    setInputData({ ...inputData, ...input });
+  };
+  console.log(inputData);
   return (
     <div className="profile-main">
       <div>
@@ -27,12 +36,26 @@ export default function Profile() {
             <Tab>Change Password</Tab>
             <Tab>Sign Out</Tab>
           </TabList>
+
           <div className="card-info">
+            <img src={chatIcon} className="chatIcon" />
             <TabPanel>
-              <h2>Any content 1</h2>
+              <ProfileForm handleInput={handleInput} inputData={inputData} />
             </TabPanel>
             <TabPanel>
               <h2>Any content 2</h2>
+            </TabPanel>
+            <TabPanel>
+              <h2>Any content 3</h2>
+            </TabPanel>
+            <TabPanel>
+              <SavedAddresses />
+            </TabPanel>
+            <TabPanel>
+              <h2>Any content 5</h2>
+            </TabPanel>
+            <TabPanel>
+              <h2>Any content 6</h2>
             </TabPanel>
           </div>
         </Tabs>

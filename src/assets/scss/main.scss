@@ -78,6 +78,17 @@ button {
       }
     }
 
+    &.save-btn {
+      background: $saveColor;
+      border-radius: 6px;
+      color: $c9;
+      &:hover {
+        background-color: $c5 !important;
+        color: $white;
+        border: 1px solid $c5;
+      }
+    }
+
     &.white-btn {
       background: $white;
       color: $black;
@@ -572,4 +583,10 @@ input[type="number"] {
 
 .font_lato {
   font-family: "Lato", sans-serif !important;
+}
+
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }

@@ -1,0 +1,38 @@
+.grid-main {
+  display: flex;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.input-container {
+  width: 100%;
+  position: relative;
+}
+
+label {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.change-text {
+  position: absolute;
+  top: 55px;
+  right: 10px;
+  color: #2a71f9;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.disabled {
+  background-color: #f9f9f9 !important;
+  border: 1px solid #d5d5d5 !important;
+}
