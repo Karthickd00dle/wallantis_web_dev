@@ -7,7 +7,7 @@ export default function ProfileForm({ handleInput, inputData }) {
   const [isEmailDisabled, setEmailDisabled] = useState(true);
   const [isMobileDisabled, setMobileDisabled] = useState(true);
   return (
-    <div>
+    <div className="profile-form">
       <label>Personal Information </label>
       <div className="grid-main mt-3">
         <div className="input-container">
