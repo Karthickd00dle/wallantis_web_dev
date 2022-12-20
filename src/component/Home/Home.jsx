@@ -83,6 +83,7 @@ export const HomeComponentMain = () => {
             <CardThree />
           </div>
         </div>
+
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">E-Catalouge</div>
@@ -94,7 +95,25 @@ export const HomeComponentMain = () => {
             <CardCatalogue CatalogueBg={CatalogueBg} />
             <CardCatalogue CatalogueBg={CatalogueBg} />
             <CardCatalogue CatalogueBg={CatalogueBg} />
-            
+          </div>
+        </div>
+
+        <div className="main-container">
+          <div className="main-header">
+            <div className="main-title">Testimonials</div>
+          </div>
+
+          <div className="home-main-card-container">
+            <div className="testimonial-card-container">
+              <div className="img-section"></div>
+              <div className="testimonial-card-title">James Pradip</div>
+              <div className="testimonial-card-location">Bangalore</div>
+              <div className="testimonial-card-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua,
+                lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -103,4 +122,3 @@ export const HomeComponentMain = () => {
 };
 
 export const Home = connect(null, null)(HomeComponentMain);
-
