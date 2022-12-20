@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import "./styles.scss";
 import wallpaperPng from "../../assets/images/wallpaperCard.png";
 import HomeCardOne from "./subcomponents/CardOne";
-import CollectionSVGComponent from "assets/svg/collection";
 import CardTwo from "./subcomponents/CardTwo";
-
 import CardThree from "./subcomponents/CardThree";
+
+import CatalogueBg from "../../assets/images/catalogueCardBackground.png";
+import CardCatalogue from "./subcomponents/CardCatalogue";
 
 export const HomeComponentMain = () => {
   return (
@@ -54,7 +55,7 @@ export const HomeComponentMain = () => {
             <CardThree />
           </div>
         </div>
-       
+
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Best Seller</div>
@@ -76,20 +77,30 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-          <CardThree/>
-          <CardThree/>
-          <CardThree/>
-          <CardThree/>
+            <CardThree />
+            <CardThree />
+            <CardThree />
+            <CardThree />
           </div>
         </div>
-        <div className="main-container"></div>
-        <div className="main-container"></div>
-        <div className="main-container"></div>
-        <div className="main-container"></div>
-        <div className="main-container"></div>
+        <div className="main-container">
+          <div className="main-header">
+            <div className="main-title">E-Catalouge</div>
+            <div className="view-all-but">VIEW ALL</div>
+          </div>
+          <div className="home-main-card-container">
+            <CardCatalogue CatalogueBg={CatalogueBg} />
+            <CardCatalogue CatalogueBg={CatalogueBg} />
+            <CardCatalogue CatalogueBg={CatalogueBg} />
+            <CardCatalogue CatalogueBg={CatalogueBg} />
+            <CardCatalogue CatalogueBg={CatalogueBg} />
+            
+          </div>
+        </div>
       </div>
     </>
   );
 };
 
 export const Home = connect(null, null)(HomeComponentMain);
+
