@@ -8,6 +8,7 @@ import CardThree from "./subcomponents/CardThree";
 
 import CatalogueBg from "../../assets/images/catalogueCardBackground.png";
 import CardCatalogue from "./subcomponents/CardCatalogue";
+import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
 
 export const HomeComponentMain = () => {
   return (
@@ -105,14 +106,21 @@ export const HomeComponentMain = () => {
 
           <div className="home-main-card-container">
             <div className="testimonial-card-container">
+              <div  className="testimonial-card-inner-container">
+              <div>
               <div className="img-section"></div>
               <div className="testimonial-card-title">James Pradip</div>
               <div className="testimonial-card-location">Bangalore</div>
+              </div>
+              <QuotesSVGComponent className="quotes"/>
+              </div>
               <div className="testimonial-card-content">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua,
                 lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </div>
+             
+           
             </div>
           </div>
         </div>
