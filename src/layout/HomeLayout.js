@@ -11,7 +11,7 @@ export function HomeLayout({ children }) {
   let param = location.pathname;
   return (
     <>
-      {/* <CustomHeader /> */}
+      <CustomHeader />
       <div className="container-layout">
         {conditionalLoad(param !== "/home", <NormalNavigate />)}
         {children}
