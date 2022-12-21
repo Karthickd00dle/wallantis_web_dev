@@ -3,6 +3,7 @@ import profileUser from "assets/images/profileUser.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
+import ChangePassword from "./ChangePassword";
 import chatIcon from "assets/images/chatIcon.png";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
@@ -52,7 +53,7 @@ export default function Profile() {
               <SavedAddresses />
             </TabPanel>
             <TabPanel>
-              <h2>Any content 5</h2>
+              <ChangePassword />
             </TabPanel>
             <TabPanel>
               <h2>Any content 6</h2>
