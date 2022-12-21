@@ -1,4 +1,4 @@
-export { HomePage, AboutUsPage } from "./Home";
+export { HomePage, AboutUsPage, ProductListingPage } from "./Home";
 export {
   LoginPage,
   ForgotPass,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./header.scss";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,7 +16,6 @@ import { Menu, MenuItem } from "@mui/material";
 
 const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
 
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -25,45 +24,32 @@ const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-
+  const open = Boolean(anchorEl);
   return (
-    <>
+    <div className="">
       <div
-        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-owns={open ? "menu-list-grow" : undefined}
         aria-haspopup="true"
-        key={id}
         onMouseEnter={handlePopoverOpen}
-        onMouseLeave={handlePopoverClose}
-        className="d-flex flex-column align-items-center"
+        key={id}
+        className="d-flex flex-column align-items-center test-outer"
       >
         <Icon />
         <label className="py-2">{label}</label>
+        <Menu
+          className="menulist-container"
+          id="menu-list-grow
+        "
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handlePopoverClose}
+        >
+          {menuitems?.map((dat) => (
+            <MenuItem>{dat}</MenuItem>
+          ))}
+        </Menu>
       </div>
-      <Menu
-        className="menulist-container"
-        id="mouse-over-popover"
-        sx={{
-          pointerEvents: "none",
-        }}
-        open={open}
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        onMouseLeave={handlePopoverClose}
-        onClose={handlePopoverClose}
-        disableRestoreFocus
-      >
-        {menuitems?.map((dat) => (
-          <MenuItem>{dat}</MenuItem>
-        ))}
-      </Menu>
-    </>
+    </div>
   );
 };
 

@@ -16,7 +16,17 @@ const routers = [
         componentPath: "pages/HomePage",
         name: "HomePage",
         auth: false,
-        exact: true,
+        exact: false,
+        childrens: [
+          {
+            component: "ProductListingPage",
+            path: "/productlisting",
+            componentPath: "pages/ProductListingPage",
+            name: "ProductListingPage",
+            auth: false,
+            exact: true,
+          },
+        ],
       },
       {
         component: "AboutUsPage",

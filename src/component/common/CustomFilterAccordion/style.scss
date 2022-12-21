@@ -1,0 +1,60 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
+
+.filter-title {
+  @include fontLatoStyle(16px, 600, #000000, 20px);
+}
+.filter-item {
+  @include fontLatoStyle(15px, 400, #000000, 22px);
+}
+.filter-item-count {
+  color: #2a71f9;
+}
+
+.MuiPaper-root.MuiAccordion-root {
+  box-shadow: none;
+  border-bottom: 1px solid #d5d5d5;
+
+  .MuiButtonBase-root.MuiAccordionSummary-root {
+    flex-direction: row-reverse;
+    padding: 0 7px;
+    .MuiAccordionSummary-content {
+      margin-left: 2%;
+    }
+  }
+  .MuiCollapse-root {
+    padding-bottom: 2%;
+    padding-left: 1%;
+    .MuiCollapse-wrapper {
+      .MuiCollapse-wrapperInner {
+        .MuiAccordion-region {
+          .MuiAccordionDetails-root {
+            padding: 5px 0;
+            ul {
+              padding: 0;
+
+              li {
+                div {
+                  padding: 0;
+                  width: 55%;
+                  span {
+                    padding: 0;
+                    svg {
+                      height: 18px;
+                      width: 18px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.MuiPaper-root.MuiAccordion-root::before {
+  background-color: transparent;
+}
+.MuiPaper-root.MuiAccordion-root.Mui-expanded {
+  margin: 0;
+}

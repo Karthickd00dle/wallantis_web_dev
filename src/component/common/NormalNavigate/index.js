@@ -8,7 +8,7 @@ import "./style.scss";
 
 const NavigateHistory = ({ data, index, paramSize, arrowStyle, linkStyle }) => {
   const routehistory = historyNavigation.filter(
-    ({ label }, index) => label === data.replace(" ", "-")
+    ({ label }) => label === data.replace(" ", "-")
   );
   return (
     <>
