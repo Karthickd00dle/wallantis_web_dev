@@ -1,7 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./index.scss";
 
-export default function SavedAddresses() {
+export default function SavedAddresses({ showAddressForm }) {
+  let history = useHistory();
   return (
     <div className="saved-address">
       <div className="card">
@@ -36,6 +38,8 @@ export default function SavedAddresses() {
           Tamil Nadu.
         </p>
       </div>
+
+      <button onClick={showAddressForm}>Add New Address</button>
     </div>
   );
 }

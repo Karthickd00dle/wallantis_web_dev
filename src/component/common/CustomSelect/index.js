@@ -62,7 +62,11 @@ export const CustomSelect = (props) => {
           menuItemList.map(({ label, value, icon }, index) => {
             return (
               <MenuItem name={label} value={value} key={index}>
-                <img src={icon} height="25px" width="25px" alt={label} />
+                {icon ? (
+                  <img src={icon} height="25px" width="25px" alt={label} />
+                ) : (
+                  ""
+                )}
                 <label className="ps-1 ">{label}</label>
               </MenuItem>
             );

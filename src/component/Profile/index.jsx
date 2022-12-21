@@ -3,6 +3,7 @@ import profileUser from "assets/images/profileUser.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
+import AddNewAddress from "component/Profile/AddNewAddress";
 import ChangePassword from "./ChangePassword";
 import chatIcon from "assets/images/chatIcon.png";
 import "react-tabs/style/react-tabs.css";
@@ -10,12 +11,15 @@ import "./index.scss";
 
 export default function Profile() {
   const [inputData, setInputData] = useState({});
+  const [isAddressForm, setAddressForm] = useState(true);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });
   };
-  console.log(inputData);
-  return (
+  const showAddressForm = () => {
+    setAddressForm(!isAddressForm);
+  };
+  return !isAddressForm ? (
     <div className="profile-main">
       <div>
         <div className="card-main">
@@ -50,7 +54,7 @@ export default function Profile() {
               <h2>Any content 3</h2>
             </TabPanel>
             <TabPanel>
-              <SavedAddresses />
+              <SavedAddresses showAddressForm={showAddressForm} />
             </TabPanel>
             <TabPanel>
               <ChangePassword />
@@ -62,5 +66,7 @@ export default function Profile() {
         </Tabs>
       </div>
     </div>
+  ) : (
+    <AddNewAddress />
   );
 }
