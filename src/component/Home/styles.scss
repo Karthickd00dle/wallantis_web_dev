@@ -5,6 +5,26 @@
   height: -moz-fit-content;
   height: fit-content;
 
+  .main-container-bg {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #faf5ef 0%,
+      #faf5ef 53.65%,
+      #faf5ef 100%
+    );
+
+    .grass-txt {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      /* or 130% */
+      margin-bottom: 20px;
+      color: #1a2323;
+    }
+  }
+
   .main-container {
     height: fit-content;
     width: 100%;
@@ -33,7 +53,7 @@
         box-shadow: inset 0px 2px 13px rgba(230, 193, 86, 0.18);
         border-radius: 10px;
 
-        .testimonial-card-inner-container{
+        .testimonial-card-inner-container {
           display: flex;
           justify-content: space-between;
         }

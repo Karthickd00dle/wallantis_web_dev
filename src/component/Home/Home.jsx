@@ -57,6 +57,26 @@ export const HomeComponentMain = () => {
           </div>
         </div>
 
+        <div className="main-container main-container-bg">
+          <div className="main-header">
+            <div className="main-title">Artificial Grass</div>
+            <div className="view-all-but">VIEW ALL</div>
+          </div>
+
+          <div className="grass-txt">
+            The art of green space for luxury interiors are mostly planned by
+            using our quality artificial artificial grass in large sectors of
+            corporate industry, residences , commercial shops and other
+            decorative elements. Some designers used to hung in walls to give a
+            pleasant wall   finish to their customers.
+          </div>
+          <div className="home-main-card-container">
+          <CardThree />
+          <CardThree />
+          <CardThree />
+          </div>
+        </div>
+
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Best Seller</div>
@@ -106,21 +126,19 @@ export const HomeComponentMain = () => {
 
           <div className="home-main-card-container">
             <div className="testimonial-card-container">
-              <div  className="testimonial-card-inner-container">
-              <div>
-              <div className="img-section"></div>
-              <div className="testimonial-card-title">James Pradip</div>
-              <div className="testimonial-card-location">Bangalore</div>
-              </div>
-              <QuotesSVGComponent className="quotes"/>
+              <div className="testimonial-card-inner-container">
+                <div>
+                  <div className="img-section"></div>
+                  <div className="testimonial-card-title">James Pradip</div>
+                  <div className="testimonial-card-location">Bangalore</div>
+                </div>
+                <QuotesSVGComponent className="quotes" />
               </div>
               <div className="testimonial-card-content">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua,
                 lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </div>
-             
-           
             </div>
           </div>
         </div>
