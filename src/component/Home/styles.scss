@@ -20,7 +20,7 @@
       font-size: 20px;
       line-height: 26px;
       /* or 130% */
-      margin-bottom: 20px;
+      margin-bottom: 50px;
       color: #1a2323;
     }
   }
@@ -34,12 +34,106 @@
     padding-top: 80px;
     margin-bottom: 20px;
 
+    .room-vis-conatiner {
+      display: flex;
+      .section-one {
+        flex: 1;
+      }
+
+      .section-two {
+        flex: 1;
+
+        .room-vis-txt {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 24px;
+          margin-bottom: 50px;
+          color: #2f2f2f;
+        }
+
+        .room-vis-try-now--but {
+          width: 275px;
+          height: 57px;
+          cursor: pointer;
+          background: #ffffff;
+          /* Gold 2 */
+
+          border: 1.5px solid #af763a;
+          border-radius: 6px;
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+
+          /* Gold 2 */
+          margin-bottom: 60px;
+          color: #af763a;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .dwnld-app-txt {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 21px;
+
+          color: #000000;
+        }
+      }
+    }
+
     .home-main-card-container {
       display: flex;
       height: fit-content;
       width: 100%;
       justify-content: space-between;
       flex-wrap: wrap;
+
+      .blog-container {
+        width: 513px;
+        .blog-post-img {
+          margin-bottom: 20px;
+          width: 100%;
+          height: 276px;
+          object-fit: cover;
+          border-radius: 10px 0px 0px 0px;
+        }
+
+        .blog-post-date {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 48px;
+          color: #cd9c69;
+        }
+
+        .blog-post-title {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 45px;
+          color: #000000;
+          margin-bottom: 13px;
+        }
+
+        .blog-post-content {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 29px;
+
+          color: #838383;
+        }
+      }
 
       .testimonial-card-container {
         width: 662px;
@@ -312,5 +406,9 @@
         }
       }
     }
+  }
+
+  .footer-margin {
+    margin-bottom: 200px;
   }
 }

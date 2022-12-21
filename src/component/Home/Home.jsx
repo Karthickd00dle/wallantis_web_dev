@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import "./styles.scss";
 import wallpaperPng from "../../assets/images/wallpaperCard.png";
+import Blogbg from "assets/images/blogBg.png";
+import googlePlay from "assets/images/googlePlay.png";
+import qrSample from "assets/images/qrSample.png";
+import appStore from "assets/images/appStore.png";
 import HomeCardOne from "./subcomponents/CardOne";
 import CardTwo from "./subcomponents/CardTwo";
 import CardThree from "./subcomponents/CardThree";
@@ -68,12 +72,12 @@ export const HomeComponentMain = () => {
             using our quality artificial artificial grass in large sectors of
             corporate industry, residences , commercial shops and other
             decorative elements. Some designers used to hung in walls to give a
-            pleasant wall   finish to their customers.
+            pleasant wall finish to their customers.
           </div>
           <div className="home-main-card-container">
-          <CardThree />
-          <CardThree />
-          <CardThree />
+            <CardThree />
+            <CardThree />
+            <CardThree />
           </div>
         </div>
 
@@ -105,6 +109,38 @@ export const HomeComponentMain = () => {
           </div>
         </div>
 
+        <div className="main-container main-container-bg">
+          
+            <div className="room-vis-conatiner">
+            <div className="section-two">
+              <div className="main-header">
+                <div className="main-title">Room Visualizer</div>
+              </div>
+
+              <div className="room-vis-txt">
+                Take inspiration to the next level with Room Visualizer Reinvent
+                your room with new wallpaper using virtual design tool. Snap a
+                photo of your room and select the options in wallpaper in
+                seconds.
+              </div>
+
+              <div className="room-vis-try-now--but">Try Now</div>
+
+              <div className="dwnld-app-txt">Also Download our App</div>
+
+              <div className="dwnld-app-link-container">
+                <img src={googlePlay} />
+                <img src={appStore} />
+               <span> &ensp;or</span>
+                <img src={qrSample} />
+              </div>
+            </div>
+
+            <div className="section-one"></div>
+          </div>
+         
+        </div>
+
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">E-Catalouge</div>
@@ -120,6 +156,18 @@ export const HomeComponentMain = () => {
         </div>
 
         <div className="main-container">
+          <div className="main-header">
+            <div className="main-title">Latest Blog</div>
+            <div className="view-all-but">VIEW ALL</div>
+          </div>
+          <div className="home-main-card-container">
+            <CardBlog Blogbg={Blogbg} />
+            <CardBlog Blogbg={Blogbg} />
+            <CardBlog Blogbg={Blogbg} />
+          </div>
+        </div>
+
+        <div className="main-container footer-margin">
           <div className="main-header">
             <div className="main-title">Testimonials</div>
           </div>
@@ -148,3 +196,18 @@ export const HomeComponentMain = () => {
 };
 
 export const Home = connect(null, null)(HomeComponentMain);
+
+function CardBlog({ Blogbg }) {
+  return (
+    <div className="blog-container">
+      <img className="blog-post-img" src={Blogbg} />
+      <div className="blog-post-date">11.10.2022</div>
+      <div className="blog-post-title">
+        Trending Wallpaper Designs for Dining Room by E...
+      </div>
+      <div className="blog-post-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
+      </div>
+    </div>
+  );
+}
