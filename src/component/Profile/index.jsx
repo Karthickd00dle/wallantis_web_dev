@@ -5,6 +5,7 @@ import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
 import AddNewAddress from "component/Profile/AddNewAddress";
 import ChangePassword from "./ChangePassword";
+import MyOrders from "./MyOrders";
 import chatIcon from "assets/images/chatIcon.png";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
@@ -19,7 +20,7 @@ export default function Profile() {
   const showAddressForm = () => {
     setAddressForm(!isAddressForm);
   };
-  return !isAddressForm ? (
+  return isAddressForm ? (
     <div className="profile-main">
       <div>
         <div className="card-main">
@@ -41,14 +42,13 @@ export default function Profile() {
             <Tab>Change Password</Tab>
             <Tab>Sign Out</Tab>
           </TabList>
-
+          <img src={chatIcon} className="chatIcon" />
           <div className="card-info">
-            <img src={chatIcon} className="chatIcon" />
             <TabPanel>
               <ProfileForm handleInput={handleInput} inputData={inputData} />
             </TabPanel>
             <TabPanel>
-              <h2>Any content 2</h2>
+              <MyOrders />
             </TabPanel>
             <TabPanel>
               <h2>Any content 3</h2>

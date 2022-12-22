@@ -1,0 +1,128 @@
+.custom-select {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.orders-card {
+  width: 900px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.title {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+
+  color: #000000;
+}
+
+.del-date {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 29px;
+  margin-top: 7px;
+  /* identical to box height */
+  margin-left: 100px;
+  color: #000000;
+}
+
+.color {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+
+  color: #696969;
+}
+
+.amount {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: -30px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.del-confirmation {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.payment-mode {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+
+  color: #000000;
+}
+
+.payment-bank {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: -20px;
+  color: #000000;
+}
+
+.product-rating {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: #2a71f9;
+}
+
+.installation-expectation {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.edit {
+  font-family: "Lato";
+  text-decoration-line: underline;
+
+  color: #2a71f9;
+  cursor: pointer;
+}
+
+.installation-charges {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+
+  color: #6b7280;
+}
+
+.installation-amount {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+
+  color: #1a2323;
+}
+
+.star-image {
+  margin-top: -5px;
+}
