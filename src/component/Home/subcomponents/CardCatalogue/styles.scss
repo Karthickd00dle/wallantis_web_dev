@@ -1,0 +1,42 @@
+
+      .catalogue-card-container {
+        width: 300px;
+        margin-bottom: 50px;
+
+        img {
+          height: 230px;
+          width: 100%;
+          object-fit: cover;
+          margin-bottom: 24px;
+        }
+
+        .catalogue-card-title {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 29px;
+          line-height: 35px;
+          margin-bottom: 16px;
+          /* identical to box height */
+
+          display: flex;
+          align-items: center;
+
+          color: #000000;
+        }
+
+        .catalogue-card-view {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 19px;
+          line-height: 23px;
+          /* identical to box height */
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          text-decoration-line: underline;
+
+          color: #2a71f9;
+        }
+      }
