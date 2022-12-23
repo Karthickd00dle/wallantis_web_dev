@@ -5,6 +5,7 @@ import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
 import AddNewAddress from "component/Profile/AddNewAddress";
 import ChangePassword from "./ChangePassword";
+import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
 import chatIcon from "assets/images/chatIcon.png";
 import "react-tabs/style/react-tabs.css";
@@ -51,7 +52,7 @@ export default function Profile() {
               <MyOrders />
             </TabPanel>
             <TabPanel>
-              <h2>Any content 3</h2>
+              <WishList />
             </TabPanel>
             <TabPanel>
               <SavedAddresses showAddressForm={showAddressForm} />
