@@ -612,3 +612,15 @@ input[type="number"] {
 .direction-col {
   flex-direction: column;
 }
+
+.single-col {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.equal-widths {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 30px;
+}
