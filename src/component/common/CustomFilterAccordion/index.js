@@ -24,7 +24,7 @@ export const CustomFilterAccordion = ({ itemheader, itemlist, index }) => {
                 <Checkbox />
                 <label className="ps-1 filter-item">{itemlabel}</label>
               </div>
-              <label className="filter-item-count">{`(${itemcount})`}</label>
+              <label className="filter-item-count pe-3">{`(${itemcount})`}</label>
             </ListItem>
           </List>
         </AccordionDetails>

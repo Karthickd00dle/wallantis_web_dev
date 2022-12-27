@@ -40,15 +40,3 @@
     }
   }
 }
-.test-outer {
-  position: relative;
-  display: inline-block;
-}
-.menulist-container {
-  position: absolute;
-  display: block;
-  z-index: 1;
-}
-.test-outer:hover.menulist-container {
-  display: block;
-}

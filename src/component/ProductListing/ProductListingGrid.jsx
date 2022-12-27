@@ -8,6 +8,7 @@ const ProductListingGrid = () => {
       <div className="filter-container">
         {wallpapersProductListing.map(({ itemheader, itemlist }, index) => (
           <CustomFilterAccordion
+            key={index}
             itemheader={itemheader}
             itemlist={itemlist}
             index={index}

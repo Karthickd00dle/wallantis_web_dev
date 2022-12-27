@@ -33,9 +33,10 @@
               padding: 0;
 
               li {
+                justify-content: space-between;
                 div {
                   padding: 0;
-                  width: 55%;
+                  width: 100%;
                   span {
                     padding: 0;
                     svg {

@@ -79,7 +79,7 @@ export const FeaturesList = [
 ];
 
 export const historyNavigation = [
-  { id: 1, label: "home", route_to: "/home" },
+  { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
 ];
 
@@ -110,5 +110,24 @@ export const wallpapersProductListing = [
       { itemlabel: "Texture", itemcount: 6 },
       { itemlabel: "Wood", itemcount: 3 },
     ],
+  },
+];
+
+export const SortingMenuList = [
+  {
+    label: "Best Selling",
+    value: 1,
+  },
+  {
+    label: "Popularity",
+    value: 2,
+  },
+  {
+    label: "High to Low",
+    value: 3,
+  },
+  {
+    label: "Low to High",
+    value: 4,
   },
 ];
