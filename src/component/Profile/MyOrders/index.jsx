@@ -4,9 +4,11 @@ import wallImage from "assets/images/wallImage.png";
 import greenDot from "assets/images/greenDot.png";
 import Star from "assets/images/Star.png";
 import ticked from "assets/images/ticked.png";
+import { useHistory } from "react-router-dom";
 import "./index.scss";
 
 export default function MyOrders() {
+  let history = useHistory();
   return (
     <div>
       <div className="d-flex align-items-center">
@@ -33,7 +35,12 @@ export default function MyOrders() {
           <img src={wallImage} />
           <div className="direction-col left-margin">
             <div className="flex space-between">
-              <p className="title">Diamond Wallpaper</p>
+              <p
+                className="title"
+                onClick={() => history.push("/profile/order-details")}
+              >
+                Diamond Wallpaper
+              </p>
               <p className="del-date">
                 <img src={greenDot} />
                 &nbsp; Out for delivery on Oct 11
@@ -83,7 +90,12 @@ export default function MyOrders() {
           <img src={wallImage} />
           <div className="direction-col left-margin">
             <div className="flex space-between">
-              <p className="title">Diamond Wallpaper</p>
+              <p
+                className="title"
+                onClick={() => history.push("/profile/order-details")}
+              >
+                Diamond Wallpaper
+              </p>
               <p className="del-date">
                 <img src={greenDot} />
                 &nbsp; Out for delivery on Oct 11
