@@ -42,6 +42,14 @@ const routers = [
         auth: false,
         exact: true,
       },
+      {
+        component: "ReturnOrderPage",
+        path: "/return-order",
+        componentPath: "pages/Profile/ReturnOrderPage",
+        name: "ReturnOrderPage",
+        auth: false,
+        exact: true,
+      },
     ],
   },
   {
