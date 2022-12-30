@@ -40,12 +40,12 @@ export const NormalNavigate = (props) => {
   const { children, arrowStyle, linkStyle, navigationStyle } = props;
   return (
     <>
-      <div className={`${navigationStyle}`}>
+      <div className={`navigation ${navigationStyle}`}>
         {paramPath.map((val, index) => (
           <>
             <NavigateHistory
-              arrowStyle={arrowStyle}
-              linkStyle={linkStyle}
+              arrowStyle={`style-arrow ${arrowStyle}`}
+              linkStyle={`style-link ${linkStyle}`}
               data={val}
               index={index}
               paramSize={param.length}

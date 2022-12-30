@@ -81,6 +81,7 @@ export const FeaturesList = [
 export const historyNavigation = [
   { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
+  { id: 2, label: "cart-summary", route_to: "/home/cart-summary" },
 ];
 
 export const wallpapersProductListing = [
@@ -129,5 +130,29 @@ export const SortingMenuList = [
   {
     label: "Low to High",
     value: 4,
+  },
+];
+
+export const CartSummaryItems = [
+  {
+    id: 1,
+    item_picture: "assets/images/OrderSummary/custom-recipe-wallpaper.png",
+    label: "Custom Wallpaper recipe, handwritten recipe",
+    color: "Green",
+    stock_status: "In Stock",
+    delivery_date: "Fri Oct 21",
+    delivery_price: "Free",
+    installation_date: "Mon Oct 24",
+    item_price: "₹3500",
+  },
+  {
+    id: 1,
+    label: "Brown Wallpaper",
+    color: "Brown",
+    stock_status: "In Stock",
+    delivery_date: "Fri Oct 21",
+    delivery_price: "Free",
+    installation_date: "Mon Oct 24",
+    item_price: "₹3500",
   },
 ];

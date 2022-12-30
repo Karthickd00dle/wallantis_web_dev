@@ -5,6 +5,7 @@ $gray: #a8a8a8;
 $black: #000000;
 $red: #c00102;
 $green-18: #189c5c;
+$green-15: #48b715;
 $blue-2c: #2c5282;
 $blue-24: #243d63;
 $text-black-1a: #1a202c;
@@ -41,8 +42,9 @@ $myColors: (
   "c9": $c9,
   "c10": $c10,
   "primary-color": $primary-color,
-  "secondary-color": #545454,
+  "secondary-color": $secondary-color,
   "primary2": $primary2,
+  "green-15": $green-15,
   "grey-c7": $grey-c7,
   "blue-24": $blue-24,
   "black-00": $black-00,
@@ -55,7 +57,7 @@ $myColors: (
 
 @each $name, $colors in $myColors {
   .text-#{$name} {
-    color: $colors;
+    color: $colors !important;
   }
 
   .bg-#{$name} {
