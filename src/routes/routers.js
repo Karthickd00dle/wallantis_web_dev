@@ -21,6 +21,22 @@ const routers = [
     ],
   },
   {
+    component: "RoomLayout",
+    path: "/room-layout",
+    auth: false,
+    exact: true,
+    childrens: [
+      {
+        component: "RoomVisualizerPage",
+        path: "/",
+        componentPath: "pages/Rooms/RoomVisualizer",
+        name: "RoomVisualizerPage",
+        auth: false,
+        exact: true,
+      },
+    ],
+  },
+  {
     component: "ProfileLayout",
     path: "/profile",
     auth: false,

@@ -11,3 +11,5 @@ export {
   RegisterMobilePass,
   RegisterAgainPass,
 } from "./Auth";
+
+export { RoomVisualizerPage } from "./Rooms";

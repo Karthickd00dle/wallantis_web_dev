@@ -9,7 +9,7 @@ export default function ProfileForm({ handleInput, inputData }) {
   return (
     <div className="profile-form">
       <label>Personal Information </label>
-      <div className="grid-main mt-3">
+      <div className="flex-main mt-3">
         <div className="input-container">
           <NormalInput
             name={"firstName"}
@@ -27,7 +27,7 @@ export default function ProfileForm({ handleInput, inputData }) {
           />
         </div>
       </div>
-      <div className="mt-3 grid-main">
+      <div className="mt-3 flex-main">
         <div className="input-container">
           <label>Profile / Role</label>
           <NormalInput
@@ -53,7 +53,7 @@ export default function ProfileForm({ handleInput, inputData }) {
           </div>
         </div>
       </div>
-      <div className="mt-3 grid-main">
+      <div className="mt-3 flex-main">
         <div className="input-container">
           <label>Email Address</label>
           <NormalInput
