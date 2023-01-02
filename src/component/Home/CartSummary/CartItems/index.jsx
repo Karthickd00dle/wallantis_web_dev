@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import productImage from "assets/images/OrderSummary/custom-recipe-wallpaper.png";
 import "./style.scss";
-import { NormalInput } from "component/common";
+import { CustomButton, NormalButton, NormalInput } from "component/common";
 import { CartSummaryItems } from "config";
 
 const ItemsRow = ({
@@ -57,12 +57,21 @@ const ItemsRow = ({
 
 const CartItemsMain = () => {
   return (
-    <div className="cart-items-container">
-      {CartSummaryItems.map((itemData) => (
-        <div className="item-container-main">
-          <ItemsRow itemData={itemData} />
-        </div>
-      ))}
+    <div>
+      <div className="cart-items-container">
+        {CartSummaryItems.map((itemData) => (
+          <div className="item-container-main">
+            <ItemsRow itemData={itemData} />
+          </div>
+        ))}
+      </div>
+      <CustomButton
+        className="mt-5"
+        style={{ width: "225px", height: "48px" }}
+        variant="contained"
+      >
+        Proceed to Checkout
+      </CustomButton>
     </div>
   );
 };

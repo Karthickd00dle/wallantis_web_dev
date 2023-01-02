@@ -74,6 +74,14 @@ const routers = [
         auth: false,
         exact: true,
       },
+      {
+        component: "OrderSuccessPage",
+        path: "/success-page",
+        componentPath: "pages/OrderSuccessPage",
+        name: "OrderSuccessPage",
+        auth: false,
+        exact: true,
+      },
     ],
   },
 ];
