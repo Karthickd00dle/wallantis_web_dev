@@ -1,5 +1,10 @@
 export { HomePage, AboutUsPage } from "./Home";
-export { ProfilePage, OrderDetailsPage, ReturnOrderPage } from "./Profile";
+export {
+  ProfilePage,
+  OrderDetailsPage,
+  ReturnOrderPage,
+  ReviewPage,
+} from "./Profile";
 export {
   LoginPage,
   ForgotPass,

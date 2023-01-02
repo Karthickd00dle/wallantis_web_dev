@@ -50,6 +50,14 @@ const routers = [
         auth: false,
         exact: true,
       },
+      {
+        component: "ReviewPage",
+        path: "/review-order",
+        componentPath: "pages/Profile/ReviewPage",
+        name: "ReviewPage",
+        auth: false,
+        exact: true,
+      },
     ],
   },
   {

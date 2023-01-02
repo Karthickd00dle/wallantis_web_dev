@@ -41,6 +41,20 @@
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   margin-top: 20px;
+
+  .add-bank-account {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+
+    color: #2a71f9;
+  }
+
+  .action-btn {
+    display: flex;
+    gap: 20px;
+  }
 }
 
 .payment-mode-name {
