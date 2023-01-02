@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap");
+.home-content-container {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+
+  .main-container-bg {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #faf5ef 0%,
+      #faf5ef 53.65%,
+      #faf5ef 100%
+    );
+
+    .grass-txt {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      /* or 130% */
+      margin-bottom: 50px;
+      color: #1a2323;
+    }
+  }
+
+  .main-container {
+    height: fit-content;
+    width: 100%;
+
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-top: 80px;
+    margin-bottom: 20px;
+
+    .room-vis-conatiner {
+      display: flex;
+      .section-one {
+        flex: 1;
+      }
+
+      .section-two {
+        flex: 1;
+
+        .room-vis-txt {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 24px;
+          margin-bottom: 50px;
+          color: #2f2f2f;
+        }
+
+        .room-vis-try-now--but {
+          width: 275px;
+          height: 57px;
+          cursor: pointer;
+          background: #ffffff;
+          /* Gold 2 */
+
+          border: 1.5px solid #af763a;
+          border-radius: 6px;
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+
+          /* Gold 2 */
+          margin-bottom: 60px;
+          color: #af763a;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .dwnld-app-txt {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 21px;
+
+          color: #000000;
+        }
+      }
+    }
+
+    .home-main-card-container {
+      display: flex;
+      height: fit-content;
+      width: 100%;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .blog-container {
+        width: 513px;
+        .blog-post-img {
+          margin-bottom: 20px;
+          width: 100%;
+          height: 276px;
+          object-fit: cover;
+          border-radius: 10px 0px 0px 0px;
+        }
+
+        .blog-post-date {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 48px;
+          color: #cd9c69;
+        }
+
+        .blog-post-title {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 45px;
+          color: #000000;
+          margin-bottom: 13px;
+        }
+
+        .blog-post-content {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 29px;
+
+          color: #838383;
+        }
+      }
+
+      .testimonial-card-container {
+        width: 662px;
+        height: 353px;
+        padding: 36px;
+
+        background: #ffffff;
+        /* Gold 1 */
+
+        border: 1.5px solid #cd9c69;
+        box-shadow: inset 0px 2px 13px rgba(230, 193, 86, 0.18);
+        border-radius: 10px;
+
+        .testimonial-card-inner-container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .img-section {
+          width: 86px;
+          height: 86px;
+          border-radius: 86px;
+          margin-bottom: 8px;
+          background-color: #ced3dc;
+        }
+
+        .testimonial-card-title {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 32px;
+          line-height: 47px;
+          /* identical to box height, or 147% */
+
+          margin-bottom: 8px;
+          color: #000000;
+        }
+
+        .testimonial-card-location {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 26px;
+          line-height: 47px;
+          /* identical to box height, or 181% */
+
+          color: #7a6e6e;
+        }
+
+        .testimonial-card-content {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 24px;
+
+          color: #838383;
+        }
+      }
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      .view-all-but {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 600;
+        line-height: 47px;
+        /* identical to box height, or 196% */
+        cursor: pointer;
+        color: #2a71f9;
+      }
+      .main-title {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 58px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+      }
+    }
+  }
+  .home-wall-mural {
+    height: 1100px;
+    width: 100%;
+
+    .home-wall-mural-inner-container {
+      background: url("../../assets/images/homeMain.jpeg");
+      background-size: cover;
+      height: 880px;
+      background-color: grey;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .home-wall-mural--title {
+      font-family: "Calisto MT";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 76px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+
+    .home-wall-mural--title-two {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 62px;
+
+      color: #ffffff;
+    }
+
+    .card-one-container {
+      position: relative;
+      top: 400px;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      -webkit-box-pack: center;
+      justify-content: center;
+
+      .card-one-inner-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+    }
+  }
+
+  .why-wallantics-container {
+    margin-top: 145px;
+    width: 100%;
+
+    .why-wallantics--title {
+      width: 100%;
+      height: 60px;
+
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 60px;
+      /* identical to box height */
+
+      display: -webkit-box;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      display: -ms-flexbox;
+
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      color: #000000;
+    }
+
+    .why-wallantics-card-container {
+      height: 450px;
+      width: 100%;
+
+      padding: 200px;
+
+      display: -webkit-box;
+
+      display: -ms-flexbox;
+
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+
+      background: -o-radial-gradient(
+        50.62% 41.31%,
+        88.26% 88.26%,
+        rgba(241, 224, 206, 0.33) 0%,
+        rgba(237, 217, 196, 0.2739) 52.6%,
+        rgba(235, 167, 98, 0) 100%
+      );
+
+      background: radial-gradient(
+        88.26% 88.26% at 50.62% 41.31%,
+        rgba(241, 224, 206, 0.33) 0%,
+        rgba(237, 217, 196, 0.2739) 52.6%,
+        rgba(235, 167, 98, 0) 100%
+      );
+      -webkit-filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+      filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+
+      .card-two {
+        height: 351px;
+        width: 268px;
+
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        .card-two-img {
+          height: 100px;
+          width: 100px;
+          margin-bottom: 40px;
+        }
+
+        .card-two-title {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 800;
+          font-size: 34px;
+          line-height: 41px;
+          /* identical to box height */
+
+          color: #000000;
+        }
+
+        .card-two-content {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 29px;
+          /* identical to box height */
+
+          letter-spacing: 0.04em;
+
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .footer-margin {
+    margin-bottom: 200px;
+  }
+}
