@@ -26,3 +26,17 @@
   padding-left: 11%;
   padding-right: 11%;
 }
+.menulist-container {
+  .MuiList-root.MuiMenu-list {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-width: 200px;
+
+    .MuiButtonBase-root.MuiMenuItem-root:hover {
+      background-color: #54cfbd;
+    }
+    .MuiButtonBase-root.MuiMenuItem-root.Mui-focusVisible {
+      background-color: #54cfbd;
+    }
+  }
+}

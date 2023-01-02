@@ -1,3 +1,4 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
 .footer-container {
   position: static;
   left: 0%;
@@ -10,11 +11,24 @@
     padding-bottom: 1%;
     padding-left: 5%;
     padding-right: 5%;
+
+    .footer-options {
+      padding-top: 4%;
+      .brand-info {
+        font-weight: 700;
+        font-size: 20px;
+      }
+    }
   }
   .footer-subject {
     width: 385px;
   }
   .footer-trademark {
+    display: flex;
+    justify-content: space-between;
     border-top: 1px solid #ffffff;
+    .company-branding {
+      font-weight: 600;
+    }
   }
 }
