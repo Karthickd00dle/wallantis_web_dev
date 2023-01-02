@@ -1,14 +1,109 @@
 .product-detail-container {
-  display: flex;
-  height: 100vh;
   padding-left: 150px;
   padding-right: 150px;
+  height: max-content;
+
+  .other-products-title {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 58px;
+    /* identical to box height */
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+  }
+
+  .other-products-list {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.product-detail-inner-container {
+  display: flex;
+  height: max-content;
+  margin-bottom: 120px;
 
   & > div {
     flex: 1;
   }
 
   .product-info-section {
+    .instructions-box-container {
+      width: 787px;
+      height: 510px;
+      padding: 25px;
+      border: 1px solid #a2a2a2;
+      border-radius: 3px;
+    }
+
+    .gold-button-xl {
+      margin-right: 20px;
+      width: 788px;
+      height: 66px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 22px;
+      color: #a26220;
+      cursor: pointer;
+
+      border: 1px solid #a26220;
+      border-radius: 4px;
+    }
+
+    .gold-button-container {
+      display: flex;
+      margin-top: 45px;
+      margin-bottom: 45px;
+
+      .gold-button {
+        margin-right: 20px;
+        width: 385.57px;
+        height: 66px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 22px;
+        color: #a26220;
+        cursor: pointer;
+
+        border: 1px solid #a26220;
+        border-radius: 4px;
+      }
+
+      .gold-button-fill {
+        width: 385.57px;
+        height: 66px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 22px;
+        color: #ffffff;
+        cursor: pointer;
+
+        background: #a26220;
+
+        border: 1px solid #a26220;
+        border-radius: 4px;
+      }
+    }
     .info-title {
       font-family: "Lato";
       font-style: normal;
@@ -32,6 +127,21 @@
       color: #8f8f8f;
     }
 
+    .info-title-2 {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 22px;
+      /* identical to box height, or 110% */
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+
+      color: #000000;
+    }
+
     .info-heading-one {
       font-family: "Lato";
       font-style: normal;
@@ -51,6 +161,7 @@
 
     .color-picker-container {
       display: flex;
+      margin-bottom: 30px;
 
       .color-picker-item {
         margin-right: 10px;
@@ -67,6 +178,37 @@
 
       .selected-item {
         border: 1px solid #000000 !important;
+      }
+    }
+
+    .button-container {
+      display: flex;
+      margin-bottom: 40px;
+      .blue-button {
+        width: max-content;
+        height: 70px;
+        border: 1px solid #2a71f9;
+        filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 33px;
+        padding-right: 33px;
+        margin-right: 24px;
+
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        /* identical to box height, or 122% */
+
+        display: flex;
+        align-items: center;
+
+        color: #2a71f9;
       }
     }
   }
