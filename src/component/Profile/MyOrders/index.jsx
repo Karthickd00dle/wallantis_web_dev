@@ -60,7 +60,10 @@ export default function MyOrders() {
                 <p className="payment-bank">Net Banking: Kotak Bank</p>
               </div>
               <div>
-                <p className="product-rating">
+                <p
+                  className="product-rating"
+                  onClick={() => history.push("/profile/review-order")}
+                >
                   <img src={Star} className="star-image" />
                   &nbsp; Rate & Review Product
                 </p>
@@ -115,7 +118,10 @@ export default function MyOrders() {
                 <p className="payment-bank">Net Banking: Kotak Bank</p>
               </div>
               <div>
-                <p className="product-rating">
+                <p
+                  className="product-rating"
+                  onClick={() => history.push("/profile/review-order")}
+                >
                   <img src={Star} className="star-image" />
                   &nbsp; Rate & Review Product
                 </p>

@@ -2,11 +2,14 @@ import React from "react";
 import "./index.scss";
 import Paytm from "assets/images/Paytm.png";
 import downloadImage from "assets/images/downloadImage.png";
+import { useHistory } from "react-router-dom";
 import wallImage from "assets/images/wallImage.png";
 import Star from "assets/images/Star.png";
 import Cancel from "assets/images/Cancel.png";
+import Return from "assets/images/Return.png";
 
 export default function OrderDetails() {
+  let history = useHistory();
   return (
     <div>
       <div className="order-details">
@@ -51,6 +54,14 @@ export default function OrderDetails() {
             <div className="single-col">
               <img src={Cancel} className="image" />
               <p className="name">Cancel Product </p>
+            </div>
+
+            <div
+              className="single-col"
+              onClick={() => history.push("/profile/return-order")}
+            >
+              <img src={Return} className="image" />
+              <p className="name">Return Product </p>
             </div>
           </div>
         </div>
@@ -151,7 +162,10 @@ export default function OrderDetails() {
         </div>
 
         <div>
-          <button className="review-btn">
+          <button
+            className="review-btn"
+            onClick={() => history.push("/profile/review-order")}
+          >
             <img src={Star} className="star-image" />
             &nbsp; Rate & Review
           </button>
