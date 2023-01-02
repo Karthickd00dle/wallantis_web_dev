@@ -8,6 +8,12 @@ export { HomePage, AboutUsPage, ProductListingPage ,AboutWallanticsPage,
   Careerseg,
   Genaralmanagereg,Returnpolicyeg,Privacypolicyeg,Termsconditionseg} from "./Home";
 export {
+  ProfilePage,
+  OrderDetailsPage,
+  ReturnOrderPage,
+  ReviewPage,
+} from "./Profile";
+export {
   LoginPage,
   ForgotPass,
   RegisterMobilePass,

@@ -1,0 +1,22 @@
+.address-form {
+  display: flex;
+  margin-left: 10%;
+  flex-direction: column;
+}
+
+.address-form h1 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: #000000;
+}
+
+label {
+  font-family: "Gotham";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+
+  color: #000000;
+}

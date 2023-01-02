@@ -1,0 +1,35 @@
+.saved-address {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: auto;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-top: -20px;
+  padding: 20px;
+  border: none !important;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 600;
+  width: 650px;
+}
+
+.edit {
+  font-family: "Lato";
+  text-decoration-line: underline;
+
+  color: #2a71f9;
+  cursor: pointer;
+}
+
+.delete {
+  font-family: "Lato";
+
+  text-decoration-line: underline;
+  cursor: pointer;
+  color: #ef3039;
+}

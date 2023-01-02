@@ -7,6 +7,7 @@ import "./style.scss";
 export const CommonRadioGroup = ({
   titleLabel,
   labelSize,
+  name,
   radioOptions = [],
   value,
   onChange: handleChange,
@@ -22,7 +23,7 @@ export const CommonRadioGroup = ({
       <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
+        name={name}
         value={value}
         onChange={handleChange}
       >

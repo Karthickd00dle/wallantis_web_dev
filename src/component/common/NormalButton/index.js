@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./index.scss";
 
 export class NormalButton extends Component {
   render() {
@@ -9,6 +10,7 @@ export class NormalButton extends Component {
       id,
       disabled = false,
       normal = false,
+      saveBtn = false,
       isPrimay = false,
       sortButton = false,
       primary2 = false,
@@ -31,6 +33,7 @@ export class NormalButton extends Component {
           className={`btn cursor_pointer_arrow px-2
           ${fullWidth ? "fullWidth" : ""}
           ${normal ? "normal-btn" : ""}
+          ${saveBtn ? "save-btn" : ""}
           ${whiteBtn ? "white-btn" : ""}
           ${primary2 ? "primary2-btn" : ""}
           ${isPrimay ? "primary-btn" : ""}
