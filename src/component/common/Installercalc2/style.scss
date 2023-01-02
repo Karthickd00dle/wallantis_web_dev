@@ -1,0 +1,100 @@
+.installercalc2{
+    width: 68%;
+height: 800px;
+background: #FCFCFC;
+border-style: inset;
+border-color: 1px solid #9A9999;
+label{
+    font-weight: 700;
+    font-size: 32px;
+    color: #000000;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+img{
+    width: 2%;
+    position: relative;
+    left: 58%;
+    bottom: 3%;
+}
+p{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    color: #9A9999;
+    position: relative;
+    right: 42px;
+    top: 21px;
+}
+}
+.installercalc2entries{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    input{
+        width: 18%;
+        padding: 13px 1px 19px 56px;
+        border: none;
+        border-bottom: 1px solid #9A9999;
+    }
+    label{
+        font-weight: 700;
+font-size: 24px;
+color: #000000;
+position: relative;
+bottom: 20px;
+
+    }
+  
+}
+.installer2enteragain{
+    display: flex;
+    gap: 5%;
+    label{
+        font-weight: 500;
+font-size: 19px;
+color: #8D8D8D;
+
+    }
+}
+.installer2values{
+    display: flex;
+    gap: 23%;
+    margin-left: 58px;
+    label{
+        font-weight: 500;
+font-size: 27px;
+color: #000000;
+    }
+
+    .installer2contents{
+        p{
+            font-weight: 500;
+font-size: 22px;
+line-height: 10px;
+color: #545454;
+        }
+    }
+}
+.installer2buttons{
+    display: flex;
+    margin-left: 25%;
+    margin-top: 5%;
+    gap: 7%;
+    .installer2reset{
+        width: 286px;
+        height: 68px;
+        background:white;
+        border-radius: 10px;
+        color:#A26220;
+        border-color:#A26220;
+    }
+    .installer2continue{
+        width: 286px;
+        height: 68px;
+        background: #A26220;
+        border-radius: 10px;
+        color: #FCFCFC;
+        border-color: #A26220;
+    }
+}

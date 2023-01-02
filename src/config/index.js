@@ -79,7 +79,7 @@ export const FeaturesList = [
 ];
 
 export const historyNavigation = [
-  { id: 1, label: "home", route_to: "/home" },
+  { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
 ];
 

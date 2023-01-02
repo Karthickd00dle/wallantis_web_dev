@@ -1,0 +1,241 @@
+.detail-head{
+    height: 300px;
+    background-color:#54CFBD;
+  }
+  .mainmenu{
+    font-weight: 700;
+    font-size: 39px;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+  }
+  .wallanticsteam{
+    label{
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        color: #4D4D4D;
+        margin-left: 130px;
+        margin-top: 80px;
+    }
+    p{ 
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 38px;
+        color: #636363;
+        width: 60%;
+        margin-top: 20px;
+        margin-left: 135px;
+    }
+}
+
+.GM{
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #3F434A;
+    margin-left: 132px;
+    margin-top: 20px;
+}
+
+.generalhead{
+    display: inline-flex;
+    gap: 13px;
+    margin-top: 29px;
+    .sharejob{
+        font-family: 'Lato';
+font-style: normal;
+font-weight: 500;
+font-size: 19px;
+color: #2A71F9;
+    }
+    .shareicon{
+        color: #2A71F9;
+        margin-top: 7px;
+    }
+   
+}
+
+.generalcombine{
+    display: flex;
+    gap: 60%;
+}
+.locationicon{
+    color: #2A71F9;
+}
+
+.gmcontents{
+    margin-top: 24px;
+    margin-left: 8%;
+}
+
+.aboutposition{
+    label{
+        font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+color: #4D4D4D;
+margin-left: 8%;
+    margin-top: 39px;
+    }
+    p{
+        font-family: 'Lato';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+color: #636363;
+margin-top: 15px;
+margin-left: 8%;
+line-height: 35px;
+    }
+}
+
+.qualifications{
+    ul{
+    margin-top: 20px;
+    }
+    label{
+        font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 47px;
+color: #3F434A;
+margin-left: 8%;
+    margin-top: 14px;
+    }
+    li{
+        font-family: 'Lato';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+color: #636363;
+margin-left: 3%;
+margin-top: 20px;
+width: 600px;
+    }
+}
+.gmfname{
+    label{
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        color: #5A5A5A;
+        margin-left: 8%;
+        margin-top: 7%;
+    
+    }
+    input{
+        box-sizing: border-box;
+        width: 941px;
+        height: 56px;
+        background: #FFFFFF;
+        border: 1px solid #BEBEBE;
+        margin-left: 8%;
+        margin-top: 15px;
+        font-size: 15px;
+        padding: 2px 2px 2px 26px;
+    }
+}
+
+.gmlname{
+    label{
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        color: #5A5A5A;
+        margin-left: 8%;
+        margin-top: 20px
+    
+    }
+    input{
+        box-sizing: border-box;
+        width: 941px;
+    height: 56px;
+    background: #FFFFFF;
+    border: 1px solid #BEBEBE;
+    margin-left: 8%;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 2px 2px 2px 26px;
+    }
+}
+
+
+.gmsummary{
+    label{
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 21px;
+        color: #5A5A5A;
+        margin-left: 8%;
+        margin-top: 20px
+    
+    }
+    input{
+        box-sizing: border-box;
+        width: 941px;
+        height: 180px;
+        background: #FFFFFF;
+        border: 1px solid #BEBEBE;
+        margin-left: 8%;
+        margin-top: 15px;
+        font-size: 15px;
+        padding: 2px 2px 2px 26px;
+    }
+
+   
+    }
+    .gmresume{
+        label{
+            font-family: "Lato";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 21px;
+            color: #5A5A5A;
+            margin-left: 8%;
+            margin-top: 20px
+        
+        }
+        input{
+            box-sizing: border-box;
+            width: 941px;
+            height: 180px;
+            background: #FFFFFF;
+            border: 1px solid #BEBEBE;
+            margin-left: 8%;
+            margin-top: 15px;
+            font-size: 15px;
+            padding: 2px 2px 2px 26px;
+        }
+}
+.gm-apply{
+    width: 941px;
+height: 60px;
+color: #FFFFFF;
+background: #A26220;
+border-radius: 6px;
+margin-left: 8%;
+border-color: #A26220;
+margin-top: 50px;
+margin-bottom: 100px;
+}
+.gmentries{
+    margin-top: 5%;
+    width: 70%;
+height: 10%;
+background: #F5F5F5;
+margin-left: 8%;
+}
+.gm-h{
+    height: 30vh;
+}
