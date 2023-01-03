@@ -10,3 +10,4 @@ export {
   RegisterMobilePass,
   RegisterAgainPass,
 } from "./Auth";
+export { PaymentPage, ProductDetailsPage } from "./ProductDetails";

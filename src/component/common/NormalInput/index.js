@@ -1,4 +1,6 @@
+import { Input, InputAdornment, TextField } from "@mui/material";
 import React from "react";
+import { history } from "service/helpers";
 import { CustomButton } from "..";
 import "./NormalInput.scss";
 
@@ -66,5 +68,30 @@ export const NormalInput = ({
         <span className="icon">{icon}</span>
       </div>
     </div>
+  );
+};
+
+export const CustomInput = ({
+  variant,
+  label,
+  className,
+  placeholder,
+  type,
+  startAdornment,
+  endAdornment,
+}) => {
+  return (
+    <>
+      <Input
+        id="standard-adornment-password"
+        label={label}
+        variant={variant}
+        placeholder={placeholder}
+        className={className}
+        startAdornment={startAdornment}
+        endAdornment={endAdornment}
+        type={type}
+      />
+    </>
   );
 };

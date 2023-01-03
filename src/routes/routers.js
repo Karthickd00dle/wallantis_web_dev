@@ -82,6 +82,22 @@ const routers = [
         auth: false,
         exact: true,
       },
+      {
+        component: "ProductDetailsPage",
+        path: "/product-details",
+        componentPath: "pages/ProductDetailsPage",
+        name: "ProductDetailsPage",
+        auth: false,
+        exact: true,
+      },
+      {
+        component: "PaymentPage",
+        path: "/product-details/payment-page",
+        componentPath: "pages/PaymentPage",
+        name: "PaymentPage",
+        auth: false,
+        exact: true,
+      },
     ],
   },
 ];
