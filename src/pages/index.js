@@ -12,4 +12,8 @@ export {
   RegisterAgainPass,
 } from "./Auth";
 
-export { RoomVisualizerPage, CustomizedWallpaperPage } from "./Rooms";
+export {
+  RoomVisualizerPage,
+  CustomizedWallpaperPage,
+  RotationWallpaperPage,
+} from "./Rooms";

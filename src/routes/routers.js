@@ -42,6 +42,14 @@ const routers = [
         auth: false,
         exact: true,
       },
+      {
+        component: "RotationWallpaperPage",
+        path: "/rotate-view",
+        componentPath: "pages/Rooms/RotationWallpaper",
+        name: "RotationWallpaperPage",
+        auth: false,
+        exact: true,
+      },
     ],
   },
   {
