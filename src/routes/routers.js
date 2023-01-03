@@ -24,13 +24,21 @@ const routers = [
     component: "RoomLayout",
     path: "/room-layout",
     auth: false,
-    exact: true,
+    exact: false,
     childrens: [
       {
         component: "RoomVisualizerPage",
-        path: "/",
+        path: "/room-visualizer",
         componentPath: "pages/Rooms/RoomVisualizer",
         name: "RoomVisualizerPage",
+        auth: false,
+        exact: true,
+      },
+      {
+        component: "CustomizedWallpaperPage",
+        path: "/custom-wallpaper",
+        componentPath: "pages/Rooms/CustomizedWallpaper",
+        name: "CustomizedWallpaperPage",
         auth: false,
         exact: true,
       },
