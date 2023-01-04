@@ -39,6 +39,100 @@
       padding: 25px;
       border: 1px solid #a2a2a2;
       border-radius: 3px;
+
+      .ib-container {
+        display: flex;
+
+        .ib-checkBox {
+          margin-right: 30px;
+          height: 34px;
+          width: 34px;
+        }
+
+        .ib-body {
+          .ib-body-title {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 22px;
+            margin-bottom: 11px;
+            color: #000000;
+          }
+
+          .ib-body-txt {
+            font-family: "Lato";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 22px;
+            color: #000000;
+            margin-bottom: 10px;
+          }
+
+          .ib-body-price {
+            ont-family: "Lato";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+
+            color: #000000;
+          }
+        }
+      }
+
+      .ib-body-2 {
+        display: flex;
+
+        .travel-container {
+          margin-right: 30px;
+        }
+
+        .ib-body-2-title {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 22px;
+          /* identical to box height, or 100% */
+          margin-bottom: 20px;
+          text-decoration-line: underline;
+
+          color: #000000;
+        }
+
+        .ib-body-2-txt-tilte {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 17px;
+          line-height: 22px;
+          color: #000000;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+
+        ul {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 22px;
+
+          color: #696969;
+        }
+
+        .ib-body-2-txt {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 22px;
+
+          color: #696969;
+        }
+      }
     }
 
     .gold-button-xl {
@@ -211,8 +305,8 @@
         color: #2a71f9;
       }
     }
-   
-    .product-details-2-container{
+
+    .product-details-2-container {
       max-width: 800px;
     }
     .product-details-section-header {
@@ -248,6 +342,65 @@
       flex: 3;
     }
 
+    .customer-reviews-container {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 22px;
+      color: #000000;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+
+    .review-item-container {
+      display: flex;
+      max-width: 800px;
+
+      .review-item-img {
+        flex: 1;
+        height: 64px;
+        width: 64px;
+        border-radius: 64px;
+
+        background-color: #a2a2a2;
+      }
+
+      .review-item-body {
+        flex: 3;
+        margin-left: 10px;
+        .review-item-title {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 22px;
+          color: #000000;
+          margin-bottom: 6px;
+        }
+
+        .review-item-title-2 {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          color: #000000;
+          margin-bottom: 6px;
+        }
+
+        .review-item-txt {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 15px;
+          line-height: 22px;
+          color: #000000;
+          margin-bottom: 6px;
+        }
+      }
+    }
+
     .custom-recipe-title {
       font-family: "Lato";
       font-style: normal;
@@ -260,17 +413,15 @@
       color: #000000;
     }
 
-    .custom-recipe-txt{
-      font-family: 'Lato';
+    .custom-recipe-txt {
+      font-family: "Lato";
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
       line-height: 22px;
       /* or 157% */
-      
-      
-      
-      color: #8F8F8F;
+
+      color: #8f8f8f;
     }
   }
 }

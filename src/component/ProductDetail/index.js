@@ -1,6 +1,14 @@
+import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import CardThree from "component/Home/subcomponents/CardThree";
 import React from "react";
 import styles from "./styles.scss";
+
+
+//TODO - s
+// 1 Add Magnifier to Image
+// 2 Stars for review Sections
+// 3 Extract Components 
+// 4 Implement Calculators
 
 function ProductDetailComponent() {
   return (
@@ -70,49 +78,62 @@ function ProductDetailComponent() {
           <div className="info-title-2">Check availability in your area </div>
 
           <div className="instructions-box-container">
-            <div>
-              <div></div>
+            <div className="ib-container">
               <div>
-                <div>Installation by Paperwall</div>
-                <div>
+                <input className="ib-checkBox" type="checkbox" />
+              </div>
+              <div className="ib-body">
+                <div className="ib-body-title">Installation by Paperwall</div>
+                <div className="ib-body-txt">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut dolore magna aliqua. Ut enim
                   ad minim veniam.
                 </div>
-                <div>
-                  ₹800/Roll *Need to Pay at the time of booking the order{" "}
+                <div className="ib-body-price">
+                  ₹800/Roll &ensp;*Need to Pay at the time of booking the order{" "}
                 </div>
               </div>
             </div>
             <hr />
-            <div>
-              <div></div>
-              <div>
-                <div>Insructions on Application of Wallpaper </div>
-                <div>Priming and Levelling</div>
-                <div>Sealing</div>
-                <div>Glue Application</div>
+            <div className="ib-body-2">
+              <div className="travel-container">
+                <TravelGuideSVGComponent />
               </div>
-
-              <div>
-                <div> 2. Installation</div>
-                <div>
-                  STEP 1: Hang the frst strip using a plumb line to get a
-                  perfect vertical.
-                </div>
-                <div>
-                  STEP 2: Smoothen out all the bubbles using Nilaya Wallcovering
-                  Smoother or Smart Care Roller as required.
-                </div>
-                <div>
-                  STEP 3: Hang the subsequent strips relative to the frst strip,
-                  matching pattern as required.
-                </div>
-              </div>
-
               <div>
                 <div>
-                  3. Wallpaper corners & Tricky areas to be taken care of{" "}
+                  <div className="ib-body-2-title">
+                    Insructions on Application of Wallpaper{" "}
+                  </div>
+                  <div className="ib-body-2-txt-tilte">1. Prepare your surface/wall</div>
+                  <ul>
+                  <li>Priming and Levelling</li>
+                  <li>Sealing</li>
+                  <li>Glue Application</li>
+                  </ul>
+                
+                </div>
+
+                <div>
+                  <div className="ib-body-2-txt-tilte"> 2. Installation</div>
+                  <div className="ib-body-2-txt">
+                  <div>
+                    STEP 1:&ensp;Hang the frst strip using a plumb line to get a
+                    perfect vertical.
+                  </div>
+                  <div>
+                    STEP 2:&ensp;Smoothen out all the bubbles using Nilaya
+                    Wallcovering Smoother or Smart Care Roller as required.
+                  </div>
+                  <div>
+                    STEP 3:&ensp;Hang the subsequent strips relative to the frst
+                    strip, matching pattern as required.
+                  </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="ib-body-2-txt-tilte">
+                    3. Wallpaper corners & Tricky areas to be taken care of{" "}
+                  </div>
                 </div>
               </div>
             </div>
@@ -157,15 +178,19 @@ function ProductDetailComponent() {
           </div>
 
           <div className="customer-reviews-container">
-            <div className="customer-reviews-title"></div>
+            <div className="customer-reviews-title">Customer Reviews</div>
           </div>
 
-          <div>
-            <div className="cust-review-img"></div>
+          <div className="review-item-container">
             <div>
-              <div>John Doe</div>
-              <div>Nice Product</div>
-              <div>
+              {" "}
+              <div className="review-item-img"></div>
+            </div>
+
+            <div className="review-item-body">
+              <div className="review-item-title">John Doe</div>
+              <div className="review-item-title-2">Nice Product</div>
+              <div className="review-item-txt">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
