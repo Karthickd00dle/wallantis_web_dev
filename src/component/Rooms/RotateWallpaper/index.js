@@ -7,9 +7,10 @@ import BrownWallpaper from "assets/images/brownBack.png";
 import Illiusion from "assets/images/illusion.png";
 import DayDream from "assets/images/daydream.png";
 import BackIcon from "assets/images/backIcon.png";
-import NoLayer from "assets/images/noLayer.png";
-import Cart from "assets/images/Cart.png";
-import Undo from "assets/images/Undo.png";
+import Cart from "assets/svg/Cart";
+import Undo from "assets/svg/Undo";
+import LikeBtn from "assets/svg/LikeBtn";
+import NoLayer from "assets/svg/NoLayer";
 import "./index.scss";
 
 export default function RotateWallpaper() {
@@ -27,9 +28,18 @@ export default function RotateWallpaper() {
           </button>
         </div>
         <div className="action-btns">
-          <img src={NoLayer} className="action-btn" />
-          <img src={Cart} className="action-btn" />
-          <img src={Undo} className="action-btn" />
+          <div className="button-outline">
+            <NoLayer />
+          </div>
+          <div className="button-outline">
+            <Cart />
+          </div>
+          <div className="button-outline">
+            <Undo />
+          </div>
+          <div className="button-outline">
+            <LikeBtn />
+          </div>
         </div>
         <div className="container">
           <div className="image-stack">
