@@ -211,6 +211,67 @@
         color: #2a71f9;
       }
     }
+   
+    .product-details-2-container{
+      max-width: 800px;
+    }
+    .product-details-section-header {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 22px;
+      /* identical to box height, or 92% */
+      margin-top: 45px;
+      margin-bottom: 44px;
+      display: flex;
+      align-items: center;
+
+      color: #000000;
+    }
+
+    .pd-container {
+      display: flex;
+      margin-bottom: 40px;
+    }
+
+    .pd-1 {
+      flex: 1;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      color: #000000;
+    }
+
+    .pd-2 {
+      flex: 3;
+    }
+
+    .custom-recipe-title {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+
+      color: #000000;
+    }
+
+    .custom-recipe-txt{
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 22px;
+      /* or 157% */
+      
+      
+      
+      color: #8F8F8F;
+    }
   }
 }
 
