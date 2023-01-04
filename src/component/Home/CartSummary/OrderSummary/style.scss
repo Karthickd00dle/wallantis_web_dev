@@ -6,6 +6,9 @@
   padding: 30px 30px 30px 30px;
   border: 1px solid #d3d3d3;
   border-radius: 8px;
+  .item-label {
+    @include fontLatoStyle(18px, 500, #474747, 24px);
+  }
   .text-title {
     @include fontLatoStyle(26px, 700, #000000, 36px);
   }

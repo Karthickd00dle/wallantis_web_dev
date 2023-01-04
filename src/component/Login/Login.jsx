@@ -53,18 +53,32 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
           className="password-input-field mt-4"
           type="password"
           endAdornment={
-            <InputAdornment position="end">
-              <label
-                onClick={() => {
-                  history.push("/auth/forgotpassword");
-                }}
-                className="forget-text-inputfield cursor-pointer"
-              >
-                Forget?
-              </label>
-            </InputAdornment>
+            ownProps.postlogin && (
+              <InputAdornment position="end">
+                <label
+                  onClick={() => {
+                    history.push("/auth/forgotpassword");
+                  }}
+                  className="forget-text-inputfield cursor-pointer"
+                >
+                  Forget?
+                </label>
+              </InputAdornment>
+            )
           }
         />
+        {!ownProps.postlogin && (
+          <div className="d-flex justify-content-end">
+            <label
+              onClick={() => {
+                history.push("/auth/forgotpassword");
+              }}
+              className="forget-text-inputfield cursor-pointer pt-3"
+            >
+              Forget?
+            </label>
+          </div>
+        )}
       </div>
       <div className="login-terms">
         <label>
@@ -73,7 +87,8 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
         </label>
       </div>
       <CustomButton className="login-button">Login</CustomButton>
-      <div className="login-register">
+
+      <div className="login-register-post">
         Don’t have an account
         <a
           className="ps-2 cursor-pointer"
@@ -84,6 +99,21 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
           Create a account
         </a>
       </div>
+      {!ownProps.postlogin && (
+        <div className="login-register">
+          <label className="dont-have-account-text">
+            Don’t have an account?
+          </label>
+          <label
+            className="register-now-text ps-2 cursor-pointer"
+            onClick={() => {
+              history.push("/auth/register");
+            }}
+          >
+            Register Now
+          </label>
+        </div>
+      )}
     </div>
   );
 };

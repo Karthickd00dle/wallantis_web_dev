@@ -19,7 +19,9 @@ export const OrderSummary = () => {
           alt="product icon"
         />
         <div className="ps-3">
-          <p className=" w-75">Custom Recipe wallpaper, Handwritten Recipe</p>
+          <p className="item-label">
+            Custom Recipe wallpaper, Handwritten Recipe
+          </p>
           <div className="d-flex justify-content-between order-count-container">
             <div className="me-1 order-count cursor-pointer">-</div>
             <NormalInput max="2" className="mx-1 order-count-input" />

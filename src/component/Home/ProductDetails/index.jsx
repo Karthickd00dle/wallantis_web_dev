@@ -1,11 +1,8 @@
-import { Login } from "component";
 import React from "react";
+import { Payment } from "./Payment";
+
 import "./style.scss";
 
 export const ProductDetails = () => {
-  return (
-    <div>
-      <Login postlogin className="login-container-style" />
-    </div>
-  );
+  return <div></div>;
 };

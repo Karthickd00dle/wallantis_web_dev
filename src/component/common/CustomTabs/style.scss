@@ -1,70 +1,51 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
 
-.custom_tabs {
-  padding: 0px 28px 0px 28px;
-
-  .nav.nav-tabs {
-    background: #ffffff;
-
-    .nav-item {
-      height: 43px;
-      width: 162px;
-
-      .nav-link {
-        font-weight: 700;
-        font-size: 16px;
-        letter-spacing: 0.2px;
-        color: #25282b;
-        vertical-align: middle;
-        text-align: center;
-        margin-bottom: 0px;
-        cursor: pointer;
-        border: none;
+.tabs-container {
+  width: fit-content;
+  .MuiTabs-scroller {
+    .MuiTabs-flexContainer {
+      border: 1px solid #e2e2e2;
+      .MuiButtonBase-root.MuiTab-root.Mui-selected {
+        color: black;
+        background: #ecffee;
+        border: 1px solid #5be167;
       }
-
-      .nav-link:hover {
-        border: none;
-        outline: none;
+      .MuiButtonBase-root.MuiTab-root {
+        text-transform: none;
+        white-space: unset;
+        padding: 0;
+        min-width: 12%;
       }
     }
-
-    .nav-item.active {
-      border: 1px solid #eeeeee;
-      border-bottom: 2px solid #003975;
-
-      .nav-link {
-        color: #003975;
-      }
+    .MuiTabs-indicator {
+      display: none;
     }
   }
-}
 
-@include media-breakpoint-mobile-port {
-  .custom_tabs {
-    margin-top: 20px;
-    padding: 0;
-
-    .nav.nav-tabs {
-      padding: 0px 28px 0px 28px;
-
-      .nav-item {
-        width: 50%;
-
-        .nav-link {
-          font-weight: 700;
-          font-size: 12px;
-          color: #898a8d;
-        }
-      }
-
-      .nav-item.active {
-        border: none;
-        border-bottom: 2px solid #003975;
-
-        .nav-link {
-          color: #003975;
-        }
-      }
-    }
+  .payment-billing-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 60px 20px 30px;
+  }
+  .login-signup-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 50px 20px 20px;
+  }
+  .geo-location-container {
+    padding-left: 40px;
+    padding-right: 41px;
+    height: 100%;
+    border-left: 1px solid #d9d9d9;
+    border-right: 1px solid #d9d9d9;
+    display: flex;
+    align-items: center;
+  }
+  .login-signup-container,
+  .geo-location-container,
+  .payment-billing-container {
+    @include fontLatoStyle(16px, 600, #000000, 23px);
   }
 }

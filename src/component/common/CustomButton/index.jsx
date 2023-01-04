@@ -18,7 +18,7 @@ export const CustomButton = ({
     textTransform: "none",
   };
   return (
-    <div>
+    <>
       <Button
         style={customStyle}
         className={className}
@@ -29,6 +29,6 @@ export const CustomButton = ({
       >
         {children}
       </Button>
-    </div>
+    </>
   );
 };

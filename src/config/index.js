@@ -82,6 +82,12 @@ export const historyNavigation = [
   { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
   { id: 2, label: "cart-summary", route_to: "/home/cart-summary" },
+  { id: 2, label: "product-details", route_to: "/home/product-details" },
+  {
+    id: 2,
+    label: "payment-page",
+    route_to: "/home/product-details/payment-page",
+  },
 ];
 
 export const wallpapersProductListing = [
