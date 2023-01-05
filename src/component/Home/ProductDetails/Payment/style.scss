@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .payment-container {
   padding-top: 4%;
   padding-bottom: 5%;
@@ -5,5 +7,39 @@
   padding-right: 6%;
   .order-summary-contain {
     padding-top: 5%;
+  }
+}
+.address-container {
+  .address-data-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 50px 20px 50px;
+    width: 775px;
+    height: 100%;
+    border: 1px solid #c5c5c5;
+    border-radius: 6px;
+    .address-info-container {
+      display: flex;
+      padding-top: 10px;
+      flex-direction: column;
+      .address-name {
+        @include fontLatoStyle(20px, 600, #000000, 26px);
+      }
+      .address-phone {
+        @include fontLatoStyle(20px, 700, #000000, 26px);
+      }
+      .address-address {
+        @include fontLatoStyle(20px, 500, #000000, 26px);
+        width: 75%;
+      }
+      .deliver-here-button {
+        width: 220px;
+        height: 50px;
+      }
+    }
+    .edit-address-info {
+      @include fontLatoStyle(18px, 500, #2a71f9, 22px);
+      text-decoration-line: underline;
+    }
   }
 }

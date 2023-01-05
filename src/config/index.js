@@ -162,3 +162,20 @@ export const CartSummaryItems = [
     item_price: "₹3500",
   },
 ];
+
+export const savedAddress = [
+  {
+    id: "1",
+    name: "John Doe",
+    phoneno: "+91 56843 54862",
+    address:
+      "No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034, Tamil Nadu.",
+  },
+  {
+    id: "2",
+    name: "John",
+    phoneno: "+91 56843 54862",
+    address:
+      "No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034, Tamil Nadu.",
+  },
+];
