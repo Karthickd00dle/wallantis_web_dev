@@ -12,5 +12,5 @@ export {
   ForgotPass,
   RegisterMobilePass,
   RegisterAgainPass,
-
 } from "./Auth";
+

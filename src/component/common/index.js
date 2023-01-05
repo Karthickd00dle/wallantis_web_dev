@@ -9,7 +9,7 @@ export { Accordion } from "./Accordion";
 export { CustomTabs } from "./CustomTabs";
 export { CustomHeader } from "./CustomHeader";
 export { SideDrawer } from "./SideDrawer";
-export { DeleteDialog } from "./DeleteDialog";
+export { CustomDialog } from "./CustomDialog";
 export { CustomSelect } from "./CustomSelect";
 export { CustomTextArea } from "./CustomTextArea";
 export { CommonRadioGroup } from "./CommonRadioGroup";

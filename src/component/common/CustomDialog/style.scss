@@ -1,0 +1,214 @@
+// @import "../../../assets/scss/abstracts/abstracts.scss";
+
+.dialog-container {
+  .MuiDialog-container {
+    .MuiDialog-paper {
+      overflow-y: none;
+      margin: 0;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+// .delete_details_container {
+//   padding: 15px 12px 0px 12px;
+
+//   .delete_title {
+//     font-size: 16px;
+//     color: #aca0a0;
+//   }
+
+//   .delete_details {
+//     font-size: 16px;
+//     display: block;
+//   }
+// }
+
+// .delete_popup {
+//   width: 490px;
+//   padding: 30px 0px;
+
+//   .delete_error {
+//     margin: auto;
+//     width: 350px;
+//   }
+
+//   @media screen and (max-width: 480px) {
+//     height: 100%;
+//     width: 100%;
+//     padding: 25px 0px 0px 0px;
+//   }
+// }
+
+// .popup-description {
+//   font-weight: 700;
+//   font-size: 18px;
+//   text-align: center;
+// }
+
+// .button_area {
+//   @include displayWithJustifyAlign(flex, space-evenly);
+// }
+
+// .button_area button {
+//   cursor: pointer;
+//   mix-blend-mode: normal;
+//   border-radius: 6px;
+//   outline: none;
+//   border: none;
+//   font-size: 18px;
+//   width: 140px;
+//   padding: 8px;
+// }
+
+// .button_area_Confirm {
+//   background: #003975;
+//   color: white;
+// }
+
+// .button_area_cancel {
+//   background: white;
+//   color: black;
+//   border: 1px solid #003975 !important;
+// }
+
+// .comments {
+//   @include fontLatoStyle(15px, #000, bold);
+//   background: #fdfdfd;
+//   border: 0.5px solid #aca0a0;
+//   border-radius: 8px;
+//   outline: none;
+//   padding: 10px;
+//   margin: auto;
+//   display: block;
+//   margin-top: 15px;
+//   width: 350px;
+// }
+
+// .submit_button {
+//   background: #003975;
+//   color: white;
+//   mix-blend-mode: normal;
+//   border-radius: 6px;
+//   outline: none;
+//   border: none;
+//   font-size: 18px;
+//   width: 100%;
+//   padding: 10px;
+//   margin-top: 15px;
+//   cursor: pointer;
+// }
+.Instructions{
+width: 1500px;
+height: 1000px;
+.verticalblinds{
+  h5{
+    font-weight: 700;
+font-size: 24px;
+margin-left: 40%;
+margin-top: 5%;
+  }
+}
+.instruction-mountinginside{
+  margin-left: 22%;
+  label{
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+    margin-left: 5%;
+    margin-top: 16%;
+    width: 413px;
+  }
+  ul {
+    list-style-position: outside;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 500px;
+  }
+}
+
+.instruction-mountingoutside{
+  label{
+  font-weight: 600;
+  font-size: 24px;
+color: #000000;
+margin-left: 8.5%;
+margin-top: 10px;
+  }
+  ul {
+    list-style-position: outside;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    margin-left: 9%;
+    margin-top: 2%;
+  }
+}
+
+.instruction-attaching{
+  label{
+  font-weight: 600;
+  font-size: 24px;
+color: #000000;
+margin-left: 8.5%;
+margin-top: 3%;
+  }
+  ul {
+    list-style-position: outside;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    margin-left: 9%;
+    margin-top: 2%;
+  }
+}
+
+.customvideo{
+  margin-left: 30%;
+  border-radius: 10px;
+  margin-top: 100px;
+}
+
+.www{
+  height: 10vh;
+}
+
+.Instructions-collab{
+  display: flex;
+  gap: 33%;
+}
+
+.inst-download{
+  margin-top: 4%;
+  img{
+    width: 134%;
+  }
+}
+
+.downloadpdf{
+  width: 299px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.92);
+  border-radius: 6px;
+  display: flex;
+  grid-gap: 1%;
+  gap: 55%;
+  position: relative;
+  left: 66.5%;
+  bottom: 4%;
+  padding: 8px;
+  a{
+    text-decoration: none;
+    color: aliceblue;
+  }
+  span{
+    margin-left: 4px;
+  }
+
+}
+
+}
