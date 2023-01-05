@@ -21,6 +21,38 @@ const routers = [
     ],
   },
   {
+    component: "RoomLayout",
+    path: "/room-layout",
+    auth: false,
+    exact: false,
+    childrens: [
+      {
+        component: "RoomVisualizerPage",
+        path: "/room-visualizer",
+        componentPath: "pages/Rooms/RoomVisualizer",
+        name: "RoomVisualizerPage",
+        auth: false,
+        exact: true,
+      },
+      {
+        component: "CustomizedWallpaperPage",
+        path: "/custom-wallpaper",
+        componentPath: "pages/Rooms/CustomizedWallpaper",
+        name: "CustomizedWallpaperPage",
+        auth: false,
+        exact: true,
+      },
+      {
+        component: "RotationWallpaperPage",
+        path: "/rotate-view",
+        componentPath: "pages/Rooms/RotationWallpaper",
+        name: "RotationWallpaperPage",
+        auth: false,
+        exact: true,
+      },
+    ],
+  },
+  {
     component: "ProfileLayout",
     path: "/profile",
     auth: false,
