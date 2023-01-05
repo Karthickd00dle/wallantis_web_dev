@@ -96,7 +96,7 @@
       flex-wrap: wrap;
 
       .blog-container {
-        width: 513px;
+        width: 45%;
         .blog-post-img {
           margin-bottom: 20px;
           width: 100%;
@@ -275,6 +275,7 @@
       height: -webkit-fit-content;
       height: -moz-fit-content;
       height: fit-content;
+      padding: 50px;
       width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;

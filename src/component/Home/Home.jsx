@@ -110,8 +110,7 @@ export const HomeComponentMain = () => {
         </div>
 
         <div className="main-container main-container-bg">
-          
-            <div className="room-vis-conatiner">
+          <div className="room-vis-conatiner">
             <div className="section-two">
               <div className="main-header">
                 <div className="main-title">Room Visualizer</div>
@@ -131,14 +130,13 @@ export const HomeComponentMain = () => {
               <div className="dwnld-app-link-container">
                 <img src={googlePlay} />
                 <img src={appStore} />
-               <span> &ensp;or</span>
+                <span> &ensp;or</span>
                 <img src={qrSample} />
               </div>
             </div>
 
             <div className="section-one"></div>
           </div>
-         
         </div>
 
         <div className="main-container">
@@ -200,7 +198,7 @@ export const Home = connect(null, null)(HomeComponentMain);
 function CardBlog({ Blogbg }) {
   return (
     <div className="blog-container">
-      <img className="blog-post-img" src={Blogbg} />
+      <img className="blog-post-img mt-3" src={Blogbg} />
       <div className="blog-post-date">11.10.2022</div>
       <div className="blog-post-title">
         Trending Wallpaper Designs for Dining Room by E...
