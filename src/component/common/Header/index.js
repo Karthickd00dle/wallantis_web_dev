@@ -1,5 +1,13 @@
+import ArtificialGrassSVGComponent from "assets/svg/Header/artificialGrass";
+import BlindsSVGComponent from "assets/svg/Header/blinds";
+import CatalogueSVGComponent from "assets/svg/Header/catalogue";
 import FlooringSVGComponent from "assets/svg/Header/flooring";
+import PVCSVGComponent from "assets/svg/Header/foamSheet";
+import GymFlooringSVGComponent from "assets/svg/Header/gymflooring";
+import PanelSVGComponent from "assets/svg/Header/panel";
+import RoomVisSVGComponent from "assets/svg/Header/roomvis";
 import WallpaperSVGComponent from "assets/svg/Header/wallpaper";
+
 import React, { useState } from "react";
 import "./styles.scss";
 
@@ -11,9 +19,7 @@ function Header() {
       subMenuItems: [
         {
           name: "Sticker Wallpaper",
-          callBack: () => {
-            console.log("clicked SW");
-          },
+          route: "",
         },
       ],
     },
@@ -23,12 +29,81 @@ function Header() {
       subMenuItems: [
         {
           name: "Flooring Wallpaper",
-          callBack: () => {
-            console.log("clicked FW");
-          },
+          route: "",
         },
       ],
     },
+    {
+        tilte: "3D Panel",
+        icon: <PanelSVGComponent />,
+        subMenuItems: [
+          {
+            name: "PanelSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      {
+        tilte: "Blinds",
+        icon: <BlindsSVGComponent/>,
+        subMenuItems: [
+          {
+            name: "BlindsSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      {
+        tilte: "Artificial Grass",
+        icon: <ArtificialGrassSVGComponent/>,
+        subMenuItems: [
+          {
+            name: "ArtificialGrassSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      {
+        tilte: "PVC Foam Sheet",
+        icon: <PVCSVGComponent/>,
+        subMenuItems: [
+          {
+            name: "PVCSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      {
+        tilte: "GYM Flooring",
+        icon: <GymFlooringSVGComponent/>,
+        subMenuItems: [
+          {
+            name: "GymFlooringSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      {
+        tilte: "Room Visualizer",
+        icon: <RoomVisSVGComponent/>,
+        subMenuItems: [
+          {
+            name: "RoomVisSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      {
+        tilte: "E-Catalouge",
+        icon: <CatalogueSVGComponent/>,
+        subMenuItems: [
+          {
+            name: "CatalogueSVGComponent",
+            route: "",
+          },
+        ],
+      },
+      
   ];
   return (
     <div>
@@ -77,13 +152,7 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
           onMouseLeave={handleMouseOut}
         >
           {menuItem?.map((item) => {
-            return (
-              <div
-                onClick={item?.callBack}
-              >
-                {item?.name}
-              </div>
-            );
+            return <div onClick={item?.route}>{item?.name}</div>;
           })}
         </ul>
       ) : null}

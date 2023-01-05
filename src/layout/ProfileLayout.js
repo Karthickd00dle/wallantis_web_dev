@@ -8,8 +8,8 @@ import Header from "component/common/Header";
 export function ProfileLayout({ children }) {
   return (
     <>
-      {/* <CustomHeader /> */}
-      <Header/>
+      <CustomHeader />
+      {/* <Header/> */}
       <div className="container-layout">{children}</div>
       <NormalFooter />
     </>

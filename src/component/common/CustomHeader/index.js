@@ -16,6 +16,7 @@ import { Menu, MenuItem } from "@mui/material";
 import JohnDoe1 from "../../../assets/images/JohnDoe1.svg"
 import { FaAngleDown } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import Header from "../Header";
 
 const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -116,13 +117,9 @@ export const CustomHeader = () => {
             </CustomButton>}
           </div>
         </Toolbar>
-        {/* <Toolbar>
-          <div className="header-bottom-container">
-            {FeaturesList.map((val, index) => (
-              <FeatureHeader data={val} />
-            ))}
-          </div>
-        </Toolbar> */}
+        
+         <Header/>
+       
       </Container>
     </AppBar>
   );
