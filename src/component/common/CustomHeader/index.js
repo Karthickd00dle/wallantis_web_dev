@@ -116,13 +116,13 @@ export const CustomHeader = () => {
             </CustomButton>}
           </div>
         </Toolbar>
-        <Toolbar>
+        {/* <Toolbar>
           <div className="header-bottom-container">
             {FeaturesList.map((val, index) => (
               <FeatureHeader data={val} />
             ))}
           </div>
-        </Toolbar>
+        </Toolbar> */}
       </Container>
     </AppBar>
   );
