@@ -29,7 +29,7 @@ export const NormalInput = ({
       ) : null}
       <div className="d-flex w-100 align-items-center">
         <input
-          className={`form-control  ${className}`}
+          className={`form-control ${className}`}
           name={name}
           type={type}
           disabled={disabled}

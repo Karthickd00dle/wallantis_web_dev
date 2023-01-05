@@ -1,0 +1,118 @@
+.profile-main {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  gap: 20px;
+}
+
+.card-main {
+  width: 400px;
+  height: 120px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+  margin-left: -550px;
+  margin-top: 50px;
+}
+
+.tab-menus {
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 400px;
+  min-height: 500px;
+  height: auto;
+  margin-left: -550px;
+  margin-top: 20px;
+  // border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.card-info {
+  margin-left: 430px;
+  margin-top: -560px;
+  // position: absolute;
+  // top: 30%;
+  width: 650px;
+  min-height: 640px;
+  height: auto;
+  // background: #ffffff;
+  // box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  // border-radius: 5px;
+  position: relative;
+
+  align-items: center;
+  padding: 20px 20px;
+  gap: 20px;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  padding: 0px !important;
+}
+
+.react-tabs__tab {
+  border-bottom: none;
+  font-family: "Lato";
+  font-style: normal;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-transform: capitalize;
+  height: 70px;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 40px !important;
+}
+
+.react-tabs__tab--selected {
+  background: #e7f3ff;
+  border-bottom: none;
+
+  color: #2a71f9;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  width: 100%;
+  /* identical to box height */
+
+  text-transform: capitalize;
+  height: 70px;
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 40px !important;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: none !important;
+
+  bottom: 0px !important;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.card-content h6,
+h2 {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+}
+
+.chatIcon {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  z-index: 99;
+  cursor: pointer;
+}
