@@ -9,7 +9,6 @@ export function ProfileLayout({ children }) {
   return (
     <>
       <CustomHeader />
-      {/* <Header/> */}
       <div className="container-layout">{children}</div>
       <NormalFooter />
     </>
