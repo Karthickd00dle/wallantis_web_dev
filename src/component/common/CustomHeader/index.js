@@ -13,7 +13,7 @@ import { CustomButton } from "..";
 import { history } from "service/helpers";
 import { FeaturesList } from "config";
 import { Menu, MenuItem } from "@mui/material";
-import JohnDoe1 from "../../../assets/images/JohnDoe1.svg"
+import JohnDoe1 from "../../../assets/images/JohnDoe1.svg";
 import { FaAngleDown } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Header from "../Header";
@@ -30,7 +30,6 @@ const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
   };
   const open = Boolean(anchorEl);
 
- 
   return (
     <div className="">
       <div
@@ -60,26 +59,21 @@ const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
 };
 
 export const CustomHeader = () => {
-  const [showBanner,setShowBanner]=useState(false);
-  const [open,setOpen]=useState(false);
+  const [showBanner, setShowBanner] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  function FaAngleDown(props){
-    return(
-      <div className="dropdownItem">
-        {props.text}
-      </div>
-    )
+  function FaAngleDown(props) {
+    return <div className="dropdownItem">{props.text}</div>;
   }
   return (
-
     <AppBar className="navbar-appbar" position="fixed">
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <div className="header-top-container">
-            <BrandLogo className="custom-brandlogo"/>
+            <BrandLogo className="custom-brandlogo" />
             <NormalSearch />
             <div className="d-flex align-items-center">
-              <SupportPersonLogo width="60" height="30"/>
+              <SupportPersonLogo width="60" height="30" />
               <div className="ps-0 d-flex flex-column">
                 <label>Need Help?</label>
                 <label>+044 65483 46823</label>
@@ -90,36 +84,42 @@ export const CustomHeader = () => {
               <CartIcon />
               <label className="ps-1">Cart</label>
             </div>
-          { showBanner ? 
-          <div className="custom-john">
-            <img src={JohnDoe1} onClick={()=>{setOpen(!open)}}/> 
-            <span>John Doe</span>&nbsp;<RiArrowDropDownLine size="20"/>
-            <div className={`FaAngleDown ${open? 'active' : 'inactive'}`}>
-            <ul>
-            <FaAngleDown text={"My Profile"}/>
-            <FaAngleDown text={"My Orders"}/>
-            <FaAngleDown text={"Refer a Friend"}/>
-            <FaAngleDown text={"Saved Addesses"}/>
-            <FaAngleDown text={"Change Password"}/>
-            <FaAngleDown text={"Logout"}/>
-            </ul>
-            </div>
-            </div> 
-            :
-            <CustomButton
-              style={{ width: "110px", height: "48px" }}
-              variant="contained"
-              onClick={() => {
-                setShowBanner(true)
-              }}
-            >
-              Login
-            </CustomButton>}
+            {showBanner ? (
+              <div className="custom-john">
+                <img
+                  src={JohnDoe1}
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
+                />
+                <span>John Doe</span>&nbsp;
+                <RiArrowDropDownLine size="20" />
+                <div className={`FaAngleDown ${open ? "active" : "inactive"}`}>
+                  <ul>
+                    <FaAngleDown text={"My Profile"} />
+                    <FaAngleDown text={"My Orders"} />
+                    <FaAngleDown text={"Refer a Friend"} />
+                    <FaAngleDown text={"Saved Addesses"} />
+                    <FaAngleDown text={"Change Password"} />
+                    <FaAngleDown text={"Logout"} />
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <CustomButton
+                style={{ width: "110px", height: "48px" }}
+                variant="contained"
+                onClick={() => {
+                  setShowBanner(true);
+                }}
+              >
+                Login
+              </CustomButton>
+            )}
           </div>
         </Toolbar>
-        
-         <Header/>
-       
+
+        <Header />
       </Container>
     </AppBar>
   );

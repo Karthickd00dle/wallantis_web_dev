@@ -6,9 +6,9 @@ const routers = [
   },
   {
     component: "HomeLayout",
-    path: "/",
+    path: "/home",
     auth: false,
-    exact: true,
+    exact: false,
     childrens: [
       {
         component: "HomePage",
@@ -16,7 +16,7 @@ const routers = [
         componentPath: "pages/HomePage",
         name: "HomePage",
         auth: false,
-        exact: false,
+        exact: true,
       },
       {
         component: "ProductListingPage",
@@ -212,12 +212,8 @@ const routers = [
         auth: false,
         exact: true,
       },
-    
-      
-    ],    
+    ],
   },
- 
- 
 ];
 
 export default routers;
