@@ -34,76 +34,75 @@ function Header() {
       ],
     },
     {
-        tilte: "3D Panel",
-        icon: <PanelSVGComponent />,
-        subMenuItems: [
-          {
-            name: "PanelSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      {
-        tilte: "Blinds",
-        icon: <BlindsSVGComponent/>,
-        subMenuItems: [
-          {
-            name: "BlindsSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      {
-        tilte: "Artificial Grass",
-        icon: <ArtificialGrassSVGComponent/>,
-        subMenuItems: [
-          {
-            name: "ArtificialGrassSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      {
-        tilte: "PVC Foam Sheet",
-        icon: <PVCSVGComponent/>,
-        subMenuItems: [
-          {
-            name: "PVCSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      {
-        tilte: "GYM Flooring",
-        icon: <GymFlooringSVGComponent/>,
-        subMenuItems: [
-          {
-            name: "GymFlooringSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      {
-        tilte: "Room Visualizer",
-        icon: <RoomVisSVGComponent/>,
-        subMenuItems: [
-          {
-            name: "RoomVisSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      {
-        tilte: "E-Catalouge",
-        icon: <CatalogueSVGComponent/>,
-        subMenuItems: [
-          {
-            name: "CatalogueSVGComponent",
-            route: "",
-          },
-        ],
-      },
-      
+      tilte: "3D Panel",
+      icon: <PanelSVGComponent />,
+      subMenuItems: [
+        {
+          name: "PanelSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "Blinds",
+      icon: <BlindsSVGComponent />,
+      subMenuItems: [
+        {
+          name: "BlindsSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "Artificial Grass",
+      icon: <ArtificialGrassSVGComponent />,
+      subMenuItems: [
+        {
+          name: "ArtificialGrassSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "PVC Foam Sheet",
+      icon: <PVCSVGComponent />,
+      subMenuItems: [
+        {
+          name: "PVCSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "GYM Flooring",
+      icon: <GymFlooringSVGComponent />,
+      subMenuItems: [
+        {
+          name: "GymFlooringSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "Room Visualizer",
+      icon: <RoomVisSVGComponent />,
+      subMenuItems: [
+        {
+          name: "RoomVisSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "E-Catalouge",
+      icon: <CatalogueSVGComponent />,
+      subMenuItems: [
+        {
+          name: "CatalogueSVGComponent",
+          route: "",
+        },
+      ],
+    },
   ];
   return (
     <div>
@@ -152,7 +151,7 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
           onMouseLeave={handleMouseOut}
         >
           {menuItem?.map((item) => {
-            return <div onClick={item?.route}>{item?.name}</div>;
+            return <div className="menu-list-item" onClick={item?.route}>{item?.name}</div>;
           })}
         </ul>
       ) : null}
