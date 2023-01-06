@@ -1,4 +1,12 @@
-export { HomePage, AboutUsPage } from "./Home";
+export { HomePage, AboutUsPage, ProductListingPage ,AboutWallanticsPage,
+  Contactuseg,
+  Catalogueg,
+  Latestblogseg,
+  Blogdetailseg,
+  FAQeg,
+  Dealershipeg,
+  Careerseg,
+  Genaralmanagereg,Returnpolicyeg,Privacypolicyeg,Termsconditionseg} from "./Home";
 export {
   ProfilePage,
   OrderDetailsPage,

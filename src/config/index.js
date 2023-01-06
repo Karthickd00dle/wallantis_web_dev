@@ -79,6 +79,36 @@ export const FeaturesList = [
 ];
 
 export const historyNavigation = [
-  { id: 1, label: "home", route_to: "/home" },
+  { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
+];
+
+export const wallpapersProductListing = [
+  {
+    itemheader: "Categories",
+    itemlist: [
+      { itemlabel: "Sticker Wallpaper", itemcount: 3 },
+      { itemlabel: "Wallpaper", itemcount: 20 },
+      { itemlabel: "Wall Murals", itemcount: 6 },
+    ],
+  },
+  {
+    itemheader: "Sub Categories",
+    itemlist: [
+      { itemlabel: "Abstract", itemcount: 3 },
+      { itemlabel: "Animal", itemcount: 20 },
+      { itemlabel: "Botanicals", itemcount: 6 },
+      { itemlabel: "Brick", itemcount: 10 },
+      { itemlabel: "Classic", itemcount: 5 },
+      { itemlabel: "Floral", itemcount: 6 },
+      { itemlabel: "Kids", itemcount: 3 },
+      { itemlabel: "Marble", itemcount: 3 },
+      { itemlabel: "Modern", itemcount: 20 },
+      { itemlabel: "Nature", itemcount: 6 },
+      { itemlabel: "Royal", itemcount: 10 },
+      { itemlabel: "Stripes", itemcount: 5 },
+      { itemlabel: "Texture", itemcount: 6 },
+      { itemlabel: "Wood", itemcount: 3 },
+    ],
+  },
 ];

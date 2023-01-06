@@ -1,0 +1,54 @@
+.Howhelp{
+    width: 505px;
+height: 580px;
+background: #FDFDFD;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+  label{
+    font-weight: 700;
+font-size: 32px;
+color: #000000;
+margin-left: 102px;
+margin-top: 17px;
+}
+img{
+    position:relative;
+    left: 25%;
+    width: 7%;
+    bottom: 47px;
+}
+input{
+    width: 420px;
+height: 56px;
+background: #FCFCFC;
+border: 1px solid #DBDADA;
+border-radius: 8px;
+margin-left: 30px;
+margin-top: 35px;
+    font-size: 19px;
+    padding: 8px 20px 13px 34px;
+}
+}
+.chatboxmessage{
+    input{
+    width: 420px;
+    height: 156px;
+    background: #FCFCFC;
+    border: 1px solid #DBDADA;
+    border-radius: 8px;
+    margin-left: 30px;
+    margin-top: 35px;
+        font-size: 19px;
+        padding: 8px 20px 13px 34px;
+    }
+    button{
+        width: 424px;
+        height: 57px;
+        background: #AF763A;
+        border-radius: 6px;
+        border-color: #AF763A;
+        color: #FDFDFD;
+        margin-left: 26px;
+        margin-top: 29px;
+    }
+}

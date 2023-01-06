@@ -1,9 +1,9 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
 .footer-container {
-  position: static;
-  left: 0%;
-  right: 0%;
-  bottom: 0%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #0c2621;
   color: #ffffff;
   .footer-inner-container {
