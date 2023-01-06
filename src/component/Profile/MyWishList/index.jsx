@@ -19,14 +19,14 @@ export default function WishList() {
           <img src={wallImage} />
           <div className="direction-col left-margin">
             <div className="flex space-between">
-              <p className="title">Diamond Wallpaper</p>
+              <div className="title">Diamond Wallpaper</div>
             </div>
 
             <div className="flex space-between">
-              <p className="color">Color - Green </p>
+              <div className="color">Color - Green </div>
             </div>
             <div className="flex space-between mt-5">
-              <p className="amount mt-4">₹3500</p>
+              <div className="amount mt-4">₹3500</div>
             </div>
           </div>
         </div>

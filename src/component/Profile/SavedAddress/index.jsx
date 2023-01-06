@@ -8,99 +8,99 @@ export default function SavedAddresses({ showAddressForm }) {
     <div className="saved-address">
       <div className="card">
         <div className="display-flex">
-          <p>John Doe</p>
+          <div>John Doe</div>
 
           <div className="display-flex">
-            <p className="edit">EDIT</p>
-            <p className="delete">DELETE</p>
+            <div className="edit">EDIT</div>
+            <div className="delete">DELETE</div>
           </div>
         </div>
-        <p>+91 56843 54862</p>
+        <div>+91 56843 54862</div>
 
-        <p>
+        <div>
           No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034,
           Tamil Nadu.
-        </p>
+        </div>
       </div>
       <div className="card">
         <div className="display-flex">
-          <p>John Doe</p>
+          <div>John Doe</div>
 
           <div className="display-flex">
-            <p className="edit">EDIT</p>
-            <p className="delete">DELETE</p>
+            <div className="edit">EDIT</div>
+            <div className="delete">DELETE</div>
           </div>
         </div>
-        <p>+91 56843 54862</p>
+        <div>+91 56843 54862</div>
 
-        <p>
+        <div>
           No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034,
           Tamil Nadu.
-        </p>
+        </div>
       </div>
       <div className="card">
         <div className="display-flex">
-          <p>John Doe</p>
+          <div>John Doe</div>
 
           <div className="display-flex">
-            <p className="edit">EDIT</p>
-            <p className="delete">DELETE</p>
+            <div className="edit">EDIT</div>
+            <div className="delete">DELETE</div>
           </div>
         </div>
-        <p>+91 56843 54862</p>
+        <div>+91 56843 54862</div>
 
-        <p>
+        <div>
           No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034,
           Tamil Nadu.
-        </p>
+        </div>
       </div>
       <div className="card">
         <div className="display-flex">
-          <p>John Doe</p>
+          <div>John Doe</div>
 
           <div className="display-flex">
-            <p className="edit">EDIT</p>
-            <p className="delete">DELETE</p>
+            <div className="edit">EDIT</div>
+            <div className="delete">DELETE</div>
           </div>
         </div>
-        <p>+91 56843 54862</p>
+        <div>+91 56843 54862</div>
 
-        <p>
+        <div>
           No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034,
           Tamil Nadu.
-        </p>
+        </div>
       </div>
       <div className="card">
         <div className="display-flex">
-          <p>John Doe</p>
+          <div>John Doe</div>
 
           <div className="display-flex">
-            <p className="edit">EDIT</p>
-            <p className="delete">DELETE</p>
+            <div className="edit">EDIT</div>
+            <div className="delete">DELETE</div>
           </div>
         </div>
-        <p>+91 56843 54862</p>
+        <div>+91 56843 54862</div>
 
-        <p>
+        <div>
           No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034,
           Tamil Nadu.
-        </p>
+        </div>
       </div>
       <div className="card">
         <div className="display-flex">
-          <p>John Doe</p>
+          <div>John Doe</div>
 
           <div className="display-flex">
-            <p className="edit">EDIT</p>
-            <p className="delete">DELETE</p>
+            <div className="edit">EDIT</div>
+            <div className="delete">DELETE</div>
           </div>
         </div>
-        <p>+91 56843 54862</p>
+        <div>+91 56843 54862</div>
 
-        <p>
+        <div>
           No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034,
           Tamil Nadu.
-        </p>
+        </div>
       </div>
       <button onClick={showAddressForm}>Add New Address</button>
     </div>
