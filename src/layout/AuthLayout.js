@@ -12,7 +12,7 @@ const FetchParams = () => {
 
 export function AuthLayout({ children }) {
   return (
-    <div>
+    <div className="d-flex ">
       <div className="auth-layout">
         <BrandLogo height="95px" width="110px" />
         <div>

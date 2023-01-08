@@ -14,6 +14,12 @@ export {
   ReviewPage,
 } from "./Profile";
 export {
+  HomePage,
+  ProductListingPage,
+  CartSummaryPage,
+  OrderSuccessPage,
+} from "./Home";
+export {
   LoginPage,
   ForgotPass,
   RegisterMobilePass,
@@ -25,3 +31,4 @@ export {
   CustomizedWallpaperPage,
   RotationWallpaperPage,
 } from "./Rooms";
+export { PaymentPage, ProductDetailsPage } from "./ProductDetails";

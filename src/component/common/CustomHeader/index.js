@@ -31,28 +31,17 @@ const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
   const open = Boolean(anchorEl);
 
   return (
-    <div className="">
-      <div
-        aria-owns={open ? "menu-list-grow" : undefined}
-        aria-haspopup="true"
-        onMouseEnter={handlePopoverOpen}
-        key={id}
-        className="d-flex flex-column align-items-center test-outer"
-      >
+    <div className="dropdown">
+      <div key={id} className="d-flex flex-column align-items-center dropbtn">
         <Icon />
         <label className="py-2">{label}</label>
-        <Menu
-          className="menulist-container"
-          id="menu-list-grow
-        "
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handlePopoverClose}
-        >
+      </div>
+      <div>
+        {/* <List className="dropdown-content">
           {menuitems?.map((dat) => (
             <MenuItem>{dat}</MenuItem>
           ))}
-        </Menu>
+        </List> */}
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 export { HomePage } from "./HomePage";
-export { AboutUsPage } from "./AboutUsPage";
 export { ProductListingPage } from "./ProductListingPage";
 export {AboutWallanticsPage} from "./AboutWallanticsPage";
 export {Contactuseg} from "./Contactus";
@@ -13,3 +12,5 @@ export {Genaralmanagereg} from "./GeneralManager";
 export {Returnpolicyeg} from "./Returnpolicy";
 export {Privacypolicyeg} from "./Privacypolicy";
 export {Termsconditionseg} from "./Termsconditions"
+export { CartSummaryPage } from "./CartSummaryPage";
+export { OrderSuccessPage } from "./OrderSuccessPage";

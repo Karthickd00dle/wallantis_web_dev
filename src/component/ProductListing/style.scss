@@ -1,9 +1,48 @@
 @import "../../assets//scss//abstracts/abstracts.scss";
 
+.product-banner-container {
+  position: relative;
+  .product-banner-label-container {
+    position: absolute;
+    width: 450px;
+    height: 75px;
+    top: 70%;
+    left: 4%;
+    background: rgba(0, 0, 0, 0.62);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    .product-banner-label {
+      @include fontLatoStyle(36px, 700, #ffffff, 46px);
+    }
+  }
+}
+
 .product-listing-container {
   padding-left: 6%;
   padding-right: 6%;
+  .card-container {
+    margin-left: 4%;
+    padding-top: 2%;
+  }
 }
 .filter-container {
-  width: 25%;
+  width: 20%;
+}
+
+.sorting-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #d5d5d5;
+  border-bottom: 1px solid #d5d5d5;
+  max-height: 150px;
+
+  margin-left: 4%;
+}
+
+.sort-by-text {
+  color: #818181;
 }

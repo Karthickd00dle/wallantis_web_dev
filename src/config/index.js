@@ -81,6 +81,13 @@ export const FeaturesList = [
 export const historyNavigation = [
   { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },
+  { id: 2, label: "cart-summary", route_to: "/home/cart-summary" },
+  { id: 2, label: "product-details", route_to: "/home/product-details" },
+  {
+    id: 2,
+    label: "payment-page",
+    route_to: "/home/product-details/payment-page",
+  },
 ];
 
 export const wallpapersProductListing = [
@@ -110,5 +117,65 @@ export const wallpapersProductListing = [
       { itemlabel: "Texture", itemcount: 6 },
       { itemlabel: "Wood", itemcount: 3 },
     ],
+  },
+];
+
+export const SortingMenuList = [
+  {
+    label: "Best Selling",
+    value: 1,
+  },
+  {
+    label: "Popularity",
+    value: 2,
+  },
+  {
+    label: "High to Low",
+    value: 3,
+  },
+  {
+    label: "Low to High",
+    value: 4,
+  },
+];
+
+export const CartSummaryItems = [
+  {
+    id: 1,
+    item_picture: "assets/images/OrderSummary/custom-recipe-wallpaper.png",
+    label: "Custom Wallpaper recipe, handwritten recipe",
+    color: "Green",
+    stock_status: "In Stock",
+    delivery_date: "Fri Oct 21",
+    delivery_price: "Free",
+    installation_date: "Mon Oct 24",
+    item_price: "₹3500",
+  },
+  {
+    id: 1,
+    label: "Brown Wallpaper",
+    color: "Brown",
+    stock_status: "In Stock",
+    delivery_date: "Fri Oct 21",
+    delivery_price: "Free",
+    installation_date: "Mon Oct 24",
+    item_price: "₹3500",
+  },
+];
+
+export const savedAddress = [
+  {
+    id: "1",
+    name: "John Doe",
+    phoneno: "+91 56843 54862",
+    address:
+      "No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034, Tamil Nadu.",
+  },
+  {
+    id: "2",
+    name: "John",
+    phoneno: "+91 56843 54862",
+    address:
+      "No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034, Tamil Nadu.",
   },
 ];

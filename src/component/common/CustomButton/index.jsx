@@ -13,12 +13,13 @@ export const CustomButton = ({
 }) => {
   const customStyle = {
     ...style,
-    backgroundColor: backgroundColor,
+    color: "#FFFFFF",
+    backgroundColor: "#A26220",
     fontFamily: "Lato, sans-serif",
     textTransform: "none",
   };
   return (
-    <div>
+    <>
       <Button
         style={customStyle}
         className={className}
@@ -29,6 +30,6 @@ export const CustomButton = ({
       >
         {children}
       </Button>
-    </div>
+    </>
   );
 };

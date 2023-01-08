@@ -1,5 +1,11 @@
-@import "../../../assets/scss/abstracts/abstracts.scss";
+@import "assets/scss/abstracts/abstracts.scss";
 
-* {
-  font-family: "Lato", sans-serif;
+.navigation {
+  padding: 2% 6% 0 6%;
+  .style-arrow {
+    @include fontRobotoStyle(14px, 400, #2a71f9, 22px);
+  }
+  .style-link {
+    @include fontRobotoStyle(14px, 400, #2a71f9, 22px);
+  }
 }
