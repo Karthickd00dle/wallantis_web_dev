@@ -14,7 +14,7 @@ const ProductListing = () => {
         <div className="d-flex flex-column w-100">
           <ProductSorting />
           <div className="card-container">
-            <CardThree />
+            <CardThree onClick={()=>{}} />
           </div>
         </div>
       </div>

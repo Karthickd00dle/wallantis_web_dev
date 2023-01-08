@@ -20,7 +20,7 @@ function Header() {
       subMenuItems: [
         {
           name: "Wallpaper",
-          route: "",
+          route: "/home/productlisting",
         },
         {
           name: "Sticker Wallpaper",
@@ -230,7 +230,7 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
             return (
               <div
                 className="menu-list-item"
-                // onClick={() => history.push(item?.route)}
+                 onClick={() => history.push(item?.route)}
               >
                 {item?.name}
               </div>

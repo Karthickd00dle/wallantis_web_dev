@@ -51,6 +51,14 @@ export const CustomHeader = () => {
   const [showBanner, setShowBanner] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const handleCartIcon = () => {
+    history.push("/home/cart-summary");
+  };
+
+  const handleLogoClick = () => {
+    history.push("/home/home");
+  };
+
   function FaAngleDown(props) {
     return <div className="dropdownItem">{props.text}</div>;
   }
@@ -59,7 +67,7 @@ export const CustomHeader = () => {
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <div className="header-top-container">
-            <BrandLogo className="custom-brandlogo" />
+            <BrandLogo onClick={handleLogoClick} className="custom-brandlogo" />
             <NormalSearch />
             <div className="d-flex align-items-center">
               <SupportPersonLogo width="60" height="30" />
@@ -69,9 +77,12 @@ export const CustomHeader = () => {
               </div>
             </div>
             <CustomSelect menuItemList={LanguageMenuList} />
-            <div className="d-flex align-items-center">
+            <div
+              className="d-flex align-items-center cart-icon"
+              onClick={handleCartIcon}
+            >
               <CartIcon />
-              <label className="ps-1">Cart</label>
+              <label className="ps-1 cart-icon">Cart</label>
             </div>
             {showBanner ? (
               <div className="custom-john">
