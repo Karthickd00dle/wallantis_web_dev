@@ -1,4 +1,7 @@
-export { HomePage, AboutUsPage, ProductListingPage ,AboutWallanticsPage,
+export {
+  HomePage,
+  ProductListingPage,
+  AboutWallanticsPage,
   Contactuseg,
   Catalogueg,
   Latestblogseg,
@@ -6,19 +9,20 @@ export { HomePage, AboutUsPage, ProductListingPage ,AboutWallanticsPage,
   FAQeg,
   Dealershipeg,
   Careerseg,
-  Genaralmanagereg,Returnpolicyeg,Privacypolicyeg,Termsconditionseg} from "./Home";
+  Genaralmanagereg,
+  Returnpolicyeg,
+  Privacypolicyeg,
+  Termsconditionseg,
+  CartSummaryPage,
+  OrderSuccessPage,
+} from "./Home";
 export {
   ProfilePage,
   OrderDetailsPage,
   ReturnOrderPage,
   ReviewPage,
 } from "./Profile";
-export {
-  HomePage,
-  ProductListingPage,
-  CartSummaryPage,
-  OrderSuccessPage,
-} from "./Home";
+
 export {
   LoginPage,
   ForgotPass,
