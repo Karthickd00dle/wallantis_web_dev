@@ -269,6 +269,14 @@ const routers = [
         auth: false,
         exact: true,
       },
+      {
+        component: "ProductDetail",
+        path: "/product-details/details",
+        componentPath: "pages/ProductDetail",
+        name: "ProductDetail",
+        auth: false,
+        exact: true,
+      },
     ],
   },
 ];

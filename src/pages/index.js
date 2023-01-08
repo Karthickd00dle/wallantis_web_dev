@@ -15,6 +15,7 @@ export {
   Termsconditionseg,
   CartSummaryPage,
   OrderSuccessPage,
+  ProductDetail
 } from "./Home";
 export {
   ProfilePage,
