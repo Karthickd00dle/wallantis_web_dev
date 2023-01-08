@@ -228,7 +228,12 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
         <ul className="menu-list" onMouseEnter={handleMouseOver}>
           {menuItem?.map((item) => {
             return (
-              <div onClick={() => history.push(item?.route)}>{item?.name}</div>
+              <div
+                className="menu-list-item"
+                // onClick={() => history.push(item?.route)}
+              >
+                {item?.name}
+              </div>
             );
           })}
         </ul>
