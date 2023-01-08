@@ -1,9 +1,12 @@
-import React from 'react'
+import ProductDetailComponent from "component/ProductDetail";
+import React from "react";
 
 function ProductDetail() {
   return (
-    <div>ProductDetail</div>
-  )
+    <div>
+     <ProductDetailComponent/>
+    </div>
+  );
 }
 
-export {ProductDetail}
+export { ProductDetail };

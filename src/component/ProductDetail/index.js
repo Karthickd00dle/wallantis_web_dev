@@ -1,6 +1,7 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import CardThree from "component/Home/subcomponents/CardThree";
 import React from "react";
+import { history } from "service/helpers";
 import styles from "./styles.scss";
 
 
@@ -11,6 +12,7 @@ import styles from "./styles.scss";
 // 4 Implement Calculators
 
 function ProductDetailComponent() {
+  
   return (
     <div className="product-detail-container">
       <div className="product-detail-inner-container">
@@ -141,7 +143,7 @@ function ProductDetailComponent() {
 
           <div className="gold-button-container">
             <div className="gold-button">Add to Cart</div>
-            <div className="gold-button-fill">Buy Now</div>
+            <div className="gold-button-fill" onClick={()=>{history.push("/home/product-details/payment-page")} }>Buy Now</div>
           </div>
 
           <div className="gold-button-xl">Room Visualizer</div>

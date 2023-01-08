@@ -3,10 +3,11 @@ import CardThreeBackground from "assets/images/CardThreeBackground.png";
 import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
 import "./styles.scss";
-function CardThree({}) {
+function CardThree({ onClick }) {
   const [iconVisibility, seticonVisibility] = useState(false);
   return (
     <div
+      onClick={onClick}
       className="card-three-container"
       onMouseEnter={() => {
         seticonVisibility(true);
