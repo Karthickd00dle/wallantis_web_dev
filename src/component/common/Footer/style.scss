@@ -1,22 +1,24 @@
 @import "../../../assets/scss/abstracts/abstracts.scss";
-.footer-container {
+.footer-containerr {
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: #0c2621;
   color: #ffffff;
-  .footer-inner-container {
+  .footer-inner-containerr {
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 5%;
     padding-right: 5%;
+    color: #ffffff;
 
     .footer-options {
       padding-top: 4%;
-      .brand-info {
+      .brand-infoo {
         font-weight: 700;
         font-size: 20px;
+        color: #ffffff;
       }
     }
   }

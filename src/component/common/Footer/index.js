@@ -17,8 +17,8 @@ import { useHistory } from "react-router-dom";
 export const NormalFooter = () => {
   const history = useHistory()
   return (
-    <Container className="footer-container" maxWidth="xxl">
-      <div className="footer-inner-container">
+    <Container className="footer-containerr" maxWidth="xxl">
+      <div className="footer-inner-containerr">
         <div className="d-flex">
           <div className="col-md-4">
             <BrandLogo viewBox="0 0 90 60" height="120px" width="200px" />
@@ -42,7 +42,7 @@ export const NormalFooter = () => {
             </div>
           </div>
           <div className="footer-options  ms-5 col-md-2">
-            <label className="brand-info">Useful Links</label>
+            <label className="brand-infoo">Useful Links</label>
             <div className="pt-5 d-flex flex-column">
               <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/about-wallantics')}>About Us</label>
               <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/latestblogs')}>Blog</label>

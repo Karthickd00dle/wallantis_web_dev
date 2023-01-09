@@ -1,108 +1,65 @@
-.dealership-head{
-    height: 300px;
-    background-color:#54CFBD;
-  }
-  .mainmenu{
-    font-weight: 700;
-    font-size: 39px;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    margin-top: 90px;
-  }
-  .dealershiphead{
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    color: #000000;
-    margin-left: 7%;
-    margin-top: 50px;
+.dealership-head {
+  height: 300px;
+  background-color: #54cfbd;
 }
-.dcontentscollab{
+.mainmenu {
+  font-weight: 700;
+  font-size: 39px;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+.dealershiphead {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  color: #000000;
+  margin-left: 7%;
+  margin-top: 50px;
+}
+.dcontentscollab {
   display: flex;
 }
 
-.dealercontents{
-    img{
-      width: 510%;
-      margin-top: 25px;
-      margin-left: 104px;
-    }
+.dealercontents {
+  img {
+    width: 510%;
+    margin-top: 25px;
+    margin-left: 104px;
+  }
 }
 
-.dealerinfo{
-    p{
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      text-align: justify;
-      color: #6D6363;
-      margin-left: 45%;
-      width: 50%;
-      margin-top: 37px;
-    }
+.dealerinfo {
+  p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    text-align: justify;
+    color: #6d6363;
+    margin-left: 45%;
+    width: 50%;
+    margin-top: 37px;
+  }
 }
 
-
-.getintouch{
+.getintouch {
   font-family: "Lato";
   font-style: normal;
   font-weight: 700;
   font-size: 26px;
   color: #000000;
   margin-left: 45%;
-margin-top: 50px;
+  margin-top: 50px;
 }
 
-.names{
-.first-name{
-  margin-top: 35px;
-    span {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 40px;
-      color: #000000;
-      margin-right: 61%;
-    }
-    input {
-        width: 162%;
-        height: 47px;
-        top: 1380px;
-        border: 1px solid #969696;
-        border-radius: 10px;
-        padding: 2px 2px 2px  24px;
-    }
-  }
-  .last-name{
-    margin-top: 38px;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    color: #000000;
-    line-height: 35px;
-    }
-    input{
-     box-sizing: border-box;
-     width: 245%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-     padding: 2px 2px 2px  24px;
-    }
-  }
-}
-
-.enumber{
-  .Email{
+.names {
+  .first-name {
     margin-top: 35px;
     span {
-      font-family: 'Lato';
+      font-family: "Lato";
       font-style: normal;
       font-weight: 500;
       font-size: 17px;
@@ -111,43 +68,40 @@ margin-top: 50px;
       margin-right: 61%;
     }
     input {
-        width: 190%;
-        height: 47px;
-        top: 1380px;
-        border: 1px solid #969696;
-        border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+      width: 162%;
+      height: 47px;
+      top: 1380px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
     }
   }
-
-
-  .mobilenumber{
+  .last-name {
     margin-top: 38px;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    color: #000000;
-    line-height: 40px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      color: #000000;
+      line-height: 35px;
     }
-    input{
-     box-sizing: border-box;
-     width: 245%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-     padding: 2px 2px 2px  24px;
+    input {
+      box-sizing: border-box;
+      width: 245%;
+      height: 45px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
     }
   }
 }
 
-
-.countries{
-  .country{
+.enumber {
+  .Email {
     margin-top: 35px;
     span {
-      font-family: 'Lato';
+      font-family: "Lato";
       font-style: normal;
       font-weight: 500;
       font-size: 17px;
@@ -156,40 +110,41 @@ margin-top: 50px;
       margin-right: 61%;
     }
     input {
-        width: 176%;
-        height: 47px;
-        top: 1380px;
-        border: 1px solid #969696;
-        border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+      width: 190%;
+      height: 47px;
+      top: 1380px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
     }
   }
 
-  .state{
+  .mobilenumber {
     margin-top: 38px;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    color: #000000;
-    line-height: 40px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      color: #000000;
+      line-height: 40px;
     }
-    input{
-     box-sizing: border-box;
-     width: 245%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-     padding: 2px 2px 2px  24px;
+    input {
+      box-sizing: border-box;
+      width: 245%;
+      height: 45px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
     }
   }
 }
-.citycode{
-  .city{
+
+.countries {
+  .country {
     margin-top: 35px;
     span {
-      font-family: 'Lato';
+      font-family: "Lato";
       font-style: normal;
       font-weight: 500;
       font-size: 17px;
@@ -198,165 +153,240 @@ margin-top: 50px;
       margin-right: 61%;
     }
     input {
-        width: 199%;
-        height: 47px;
-        top: 1380px;
-        border: 1px solid #969696;
-        border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+      width: 176%;
+      height: 47px;
+      top: 1380px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
     }
   }
 
-  .pincode{
+  .state {
+    margin-top: 38px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      color: #000000;
+      line-height: 40px;
+    }
+    input {
+      box-sizing: border-box;
+      width: 245%;
+      height: 45px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
+    }
+  }
+}
+.citycode {
+  .city {
+    margin-top: 35px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 40px;
+      color: #000000;
+      margin-right: 61%;
+    }
+    input {
+      width: 199%;
+      height: 47px;
+      top: 1380px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
+    }
+  }
+
+  .pincode {
     margin-top: 38px;
     margin-left: 270px;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
-    color: #000000;
-    line-height: 40px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      color: #000000;
+      line-height: 40px;
     }
-    input{
-     box-sizing: border-box;
-     width: 245%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-     padding: 2px 2px 2px  24px;
+    input {
+      box-sizing: border-box;
+      width: 245%;
+      height: 45px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
     }
   }
 }
-  .companyname{
-    .companynamecol{
-        // margin-top: 10px;
-        label{
-          font-family: 'Lato';
-          font-style: normal;
-          font-weight: 500;
-          font-size: 17px;
-          line-height: 40px;
-          color: #000000;
-          margin-right: 61%;
-        }
-        input {
-            width: 134%;
-            height: 47px;
-            top: 1380px;
-            border: 1px solid #969696;
-            border-radius: 10px;
-            padding: 2px 2px 2px  24px;
-        }
-      }
-    
-      .companyregistration{
-        // margin-top: 38px;  
-        margin-left: 260px;
-        label{
-          font-family: 'Lato';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 17px;
-        color: #000000;
-        line-height: 40px;
-        }
-        input{
-         box-sizing: border-box;
-         width: 200%;
-         height: 45px;
-         border: 1px solid #969696;
-         border-radius: 10px;
-         padding: 2px 2px 2px  24px;
-        }
-      }
-  }
-  .message{
-    margin-top: 35px;
-    span{
-    margin-top: 40px;
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-color: #000000;
-line-height: 39px;
-margin-left: 20%;
+.companyname {
+  .companynamecol {
+    // margin-top: 10px;
+    label {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 40px;
+      color: #000000;
+      margin-right: 61%;
     }
-input{
-  width: 66%;
+    input {
+      width: 134%;
+      height: 47px;
+      top: 1380px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
+    }
+  }
+
+  .companyregistration {
+    // margin-top: 38px;
+    margin-left: 260px;
+    label {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      color: #000000;
+      line-height: 40px;
+    }
+    input {
+      box-sizing: border-box;
+      width: 200%;
+      height: 45px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
+    }
+  }
+}
+.message {
+  margin-top: 35px;
+  span {
+    margin-top: 40px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+    line-height: 39px;
+    margin-left: 20%;
+  }
+  input {
+    width: 66%;
     height: 250px;
     margin-left: 66px;
     border: 1px solid #969696;
     border-radius: 10px;
-    padding: 2px 2px 2px  24px;
+    padding: 2px 2px 2px 24px;
     margin-left: 20%;
-}
   }
+}
 
+.dealercontacthead {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 54px;
+  color: #000000;
+  margin-left: 48%;
+  margin-top: 40px;
+}
 
-  .dealercontacthead{    
-    font-family: 'Lato';
+// .dealeraddress{
+//     width: 304px;
+// height: 200px;
+// margin-top: 20px;
+// margin-left: 30px;
+// background: #FFFFFF;
+// box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+// border-radius: 6px;
+//   span{
+//     font-family: 'Lato';
+// font-style: normal;
+// font-weight: 600;
+// font-size: 20px;
+// color: #000000;
+// position: relative;
+// top: 40px;
+// left: 120px;
+//   }
+//   p{
+//     font-family: 'Lato';
+// font-style: normal;
+// font-weight: 400;
+// font-size: 14px;
+// color: #000000;
+// margin-top: 50px;
+// position: relative;
+// right: 55px;
+//   }
+// }3
+
+.dealeraddress {
+  width: 464px;
+  height: 269px;
+  background: #ffffff;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  span {
+    font-family: "Lato";
     font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 54px;
-    color: #000000;
-    margin-left: 48%;
-    margin-top: 40px;
-}
-
-.dealeraddress{
-    width: 304px;
-height: 200px;
-margin-top: 20px;
-margin-left: 30px;
-background: #FFFFFF;
-box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
-border-radius: 6px;
-  span{
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-color: #000000;
-position: relative;
-top: 40px;
-left: 120px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
   }
-  p{
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-color: #000000;
-margin-top: 50px;
-position: relative;
-right: 55px;
+
+  p {
+    margin-top: 30px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 189.5%;
+    /* or 34px */
+
+    text-align: center;
+    width: 80%;
   }
 }
 
-.dealer-enquire{
+.dealer-enquire {
   width: 255.15px;
-height: 50px;
-background: #A26220;
-border-radius: 4px;
-border-color: #A26220;
-color: #FFFFFF;
-margin-left: 45%;
-margin-top: 40px;
+  height: 50px;
+  background: #a26220;
+  border-radius: 4px;
+  border-color: #a26220;
+  color: #ffffff;
+  margin-left: 45%;
+  margin-top: 40px;
 }
 
-.dealercontactcall{
-    width: 304px;
-    height: 200px;
-    margin-top: 20px;
-    margin-left: 30px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-    span{
-        font-family: 'Lato';
+.dealercontactcall {
+  width: 304px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 30px;
+  background: #ffffff;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  span {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -364,35 +394,34 @@ margin-top: 40px;
     position: relative;
     top: 40px;
     left: 120px;
-      }
-      p{
-        font-family: 'Lato';
+  }
+  p {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     color: #000000;
     margin-top: 50px;
-      }
-      Small{
-        font-weight: 400;
-        font-size: 14px;
-        color: #2A71F9;
-        margin-left: 100px;
-      }
-    
+  }
+  Small {
+    font-weight: 400;
+    font-size: 14px;
+    color: #2a71f9;
+    margin-left: 100px;
+  }
 }
 
-.dealercontactemail{
-    width: 304px;
-    height: 200px;
-    margin-top: 20px;
-    margin-left: 30px;
-    background: #FFFFFF;
-    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
+.dealercontactemail {
+  width: 304px;
+  height: 200px;
+  margin-top: 20px;
+  margin-left: 30px;
+  background: #ffffff;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
 
-    span{
-        font-family: 'Lato';
+  span {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -400,25 +429,24 @@ margin-top: 40px;
     position: relative;
     top: 40px;
     left: 120px;
-      }
-      p{
-        font-family: 'Lato';
+  }
+  p {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     color: #000000;
     margin-top: 50px;
-  
-      }
-      Small{
-        font-weight: 400;
-        font-size: 14px;
-        color: #2A71F9;
-        margin-left: 100px;
-      }
+  }
+  Small {
+    font-weight: 400;
+    font-size: 14px;
+    color: #2a71f9;
+    margin-left: 100px;
+  }
 }
 
-.dealercontactcards{
+.dealercontactcards {
   margin-left: 24%;
   margin-top: 24px;
   margin-bottom: 10%;
