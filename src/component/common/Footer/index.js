@@ -12,8 +12,10 @@ import { ReactComponent as MessageIcon } from "assets/icons/FooterIcons/Message-
 import GooglePlayIcon from "assets/images/FooterIcons/GooglePlayIcon.png";
 import AppStoreIcon from "assets/images/FooterIcons/AppStoreIcon.png";
 import { NormalInput } from "../NormalInput";
+import { useHistory } from "react-router-dom";
 
 export const NormalFooter = () => {
+  const history = useHistory()
   return (
     <Container className="footer-container" maxWidth="xxl">
       <div className="footer-inner-container">
@@ -42,21 +44,21 @@ export const NormalFooter = () => {
           <div className="footer-options  ms-5 col-md-2">
             <label className="brand-info">Useful Links</label>
             <div className="pt-5 d-flex flex-column">
-              <label className="pb-2">About Us</label>
-              <label className="py-2">Blog</label>
-              <label className="py-2">FAQ</label>
-              <label className="py-2">Contact Us</label>
-              <label className="pt-2">Careers</label>
+              <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/about-wallantics')}>About Us</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/latestblogs')}>Blog</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/faq')}>FAQ</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/contactus')}>Contact Us</label>
+              <label className="pt-2 cursor-pointer" onClick={()=>history.push('/profile/careers')}>Careers</label>
             </div>
           </div>
           <div className="footer-options col-md-2">
             <div className="pt-5 mt-4 d-flex flex-column">
-              <label className="pb-2">Dealership</label>
-              <label className="py-2">Installer Price Calculator</label>
-              <label className="py-2">Refund Policies</label>
-              <label className="py-2">E-Catalogue</label>
-              <label className="py-2">Terms & Conditions</label>
-              <label className="pt-2">Privacy Policies</label>
+              <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/dealership')}>Dealership</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('')}>Installer Price Calculator</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/returnpolicy')}>Refund Policies</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/catalogue')}>E-Catalogue</label>
+              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/termsconditions')}>Terms & Conditions</label>
+              <label className="pt-2 cursor-pointer" onClick={()=>history.push('/profile/privacypolicy')}>Privacy Policies</label>
             </div>
           </div>
           <div className="footer-options ms-4 col-md-4">
