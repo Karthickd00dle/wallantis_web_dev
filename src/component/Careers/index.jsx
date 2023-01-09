@@ -16,7 +16,7 @@ export const Careers = () => {
     return (
         <div>
         <div>
-            <NormalNavigate navigationStyle="careers-head"><div className='mainmenu'><label>Careers at Paperwall</label></div></NormalNavigate>
+            <NormalNavigate navigationStyle="careers-head"><div className='maincont'><label>Careers at Paperwall</label></div></NormalNavigate>
         </div>
         <div>
         <div className="careershead">

@@ -18,7 +18,7 @@ export const AboutWallantics = () => {
     return (
     <div>
         <div>
-            <NormalNavigate navigationStyle="abtwallantics-head"><div className='mainmenu'><label>About Us</label></div></NormalNavigate>
+            <NormalNavigate navigationStyle="abtwallantics-head"><div className='maincont'><label>About Us</label></div></NormalNavigate>
         </div>
         <div className='d-flex wallat-abt'>
           <div className='col-md-4 Aboutus-Main'>
