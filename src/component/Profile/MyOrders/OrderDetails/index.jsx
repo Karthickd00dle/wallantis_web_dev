@@ -102,7 +102,7 @@ export default function OrderDetails() {
           </div>
         </div>
 
-        <div>
+        <div className="order-confirmation">
           <div className="single-col">
             <div className="order-status">
               <div>
