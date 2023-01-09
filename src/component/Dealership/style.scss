@@ -302,38 +302,8 @@
   margin-top: 40px;
 }
 
-// .dealeraddress{
-//     width: 304px;
-// height: 200px;
-// margin-top: 20px;
-// margin-left: 30px;
-// background: #FFFFFF;
-// box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
-// border-radius: 6px;
-//   span{
-//     font-family: 'Lato';
-// font-style: normal;
-// font-weight: 600;
-// font-size: 20px;
-// color: #000000;
-// position: relative;
-// top: 40px;
-// left: 120px;
-//   }
-//   p{
-//     font-family: 'Lato';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 14px;
-// color: #000000;
-// margin-top: 50px;
-// position: relative;
-// right: 55px;
-//   }
-// }3
-
 .dealeraddress {
-  width: 464px;
+  width: 434px;
   height: 269px;
   background: #ffffff;
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
@@ -377,77 +347,86 @@
   margin-top: 40px;
 }
 
-.dealercontactcall {
-  width: 304px;
-  height: 200px;
-  margin-top: 20px;
-  margin-left: 30px;
+.dealercontactcall{
+  width: 434px;
+  height: 269px;
   background: #ffffff;
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
   span {
     font-family: "Lato";
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    color: #000000;
-    position: relative;
-    top: 40px;
-    left: 120px;
+    font-size: 24px;
+    line-height: 29px;
   }
+
   p {
+    margin-top: 30px;
     font-family: "Lato";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    color: #000000;
-    margin-top: 50px;
+    font-size: 18px;
+    line-height: 189.5%;
+    text-align: center;
+    width: 80%;
   }
   Small {
-    font-weight: 400;
-    font-size: 14px;
-    color: #2a71f9;
-    margin-left: 100px;
-  }
+        font-weight: 400;
+        font-size: 14px;
+        color: #2a71f9;
+       
+      }
 }
 
-.dealercontactemail {
-  width: 304px;
-  height: 200px;
-  margin-top: 20px;
-  margin-left: 30px;
+.dealercontactemail{
+  width: 434px;
+  height: 269px;
   background: #ffffff;
   box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 
   span {
     font-family: "Lato";
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
-    color: #000000;
-    position: relative;
-    top: 40px;
-    left: 120px;
+    font-size: 24px;
+    line-height: 29px;
   }
+
   p {
+    margin-top: 30px;
     font-family: "Lato";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    color: #000000;
-    margin-top: 50px;
+    font-size: 18px;
+    line-height: 189.5%;
+    text-align: center;
+    width: 80%;
   }
   Small {
-    font-weight: 400;
-    font-size: 14px;
-    color: #2a71f9;
-    margin-left: 100px;
-  }
+        font-weight: 400;
+        font-size: 14px;
+        color: #2a71f9;
+       
+      }
 }
 
 .dealercontactcards {
-  margin-left: 24%;
+  margin-left: 12%;
   margin-top: 24px;
   margin-bottom: 10%;
+  display: flex;
+  gap: 3%;
 }
