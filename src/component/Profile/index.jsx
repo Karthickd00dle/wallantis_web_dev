@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import profileUser from "assets/images/profileUser.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import BreadCrumbs from "component/common/BreadCrumb";
 import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
 import AddNewAddress from "component/Profile/AddNewAddress";
@@ -22,51 +23,56 @@ export default function Profile() {
     setAddressForm(!isAddressForm);
   };
   return isAddressForm ? (
-    <div className="profile-main">
-      <div>
-        <div className="card-main">
-          <div>
-            <img src={profileUser} />
+    <>
+      <div className="profile-main">
+        <div>
+          <div className="breadcrumbs">
+            <BreadCrumbs crumbs={["Home", "Profile"]} />
           </div>
-          <div className="card-content">
-            <h6>Hello,</h6>
-            <h2>John Doe</h2>
+          <div className="card-main">
+            <div>
+              <img src={profileUser} />
+            </div>
+            <div className="card-content">
+              <h6>Hello,</h6>
+              <h2>John Doe</h2>
+            </div>
           </div>
-        </div>
 
-        <Tabs className="tab-menus">
-          <TabList className="tab-list">
-            <Tab>Profile</Tab>
-            <Tab>My Orders</Tab>
-            <Tab>My Wishlist</Tab>
-            <Tab>Saved Addresses</Tab>
-            <Tab>Change Password</Tab>
-            <Tab>Sign Out</Tab>
-          </TabList>
-          <img src={chatIcon} className="chatIcon" />
-          <div className="card-info">
-            <TabPanel>
-              <ProfileForm handleInput={handleInput} inputData={inputData} />
-            </TabPanel>
-            <TabPanel>
-              <MyOrders />
-            </TabPanel>
-            <TabPanel>
-              <WishList />
-            </TabPanel>
-            <TabPanel>
-              <SavedAddresses showAddressForm={showAddressForm} />
-            </TabPanel>
-            <TabPanel>
-              <ChangePassword />
-            </TabPanel>
-            <TabPanel>
-              <h2>Any content 6</h2>
-            </TabPanel>
-          </div>
-        </Tabs>
+          <Tabs className="tab-menus">
+            <TabList className="tab-list">
+              <Tab>Profile</Tab>
+              <Tab>My Orders</Tab>
+              <Tab>My Wishlist</Tab>
+              <Tab>Saved Addresses</Tab>
+              <Tab>Change Password</Tab>
+              <Tab>Sign Out</Tab>
+            </TabList>
+            <img src={chatIcon} className="chatIcon" />
+            <div className="card-info">
+              <TabPanel>
+                <ProfileForm handleInput={handleInput} inputData={inputData} />
+              </TabPanel>
+              <TabPanel>
+                <MyOrders />
+              </TabPanel>
+              <TabPanel>
+                <WishList />
+              </TabPanel>
+              <TabPanel>
+                <SavedAddresses showAddressForm={showAddressForm} />
+              </TabPanel>
+              <TabPanel>
+                <ChangePassword />
+              </TabPanel>
+              <TabPanel>
+                <h2>Any content 6</h2>
+              </TabPanel>
+            </div>
+          </Tabs>
+        </div>
       </div>
-    </div>
+    </>
   ) : (
     <AddNewAddress />
   );
