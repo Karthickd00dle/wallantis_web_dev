@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header-background {
+  background-color: #c5caff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  height: 77px;
+  display: flex;
+  align-items: center;
+  width: 1590px;
+  p {
+    align-items: center;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+}
+
+.overview-card {
+  display: flex;
+  justify-content: center;
+}
+
+.overview {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  width: auto;
+  margin-left: 0px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  p {
+    align-items: center;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+  }
+}
+
+.overview-cards {
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .purple {
+    background-color: #c6cbff;
+  }
+  .pink {
+    background-color: #fcdae5;
+  }
+  .green {
+    background-color: #e9faf5;
+  }
+  .yellow {
+    background-color: #f9f3d3;
+  }
+
+  .overview-card {
+    min-width: 250px;
+    padding: 20px 20px;
+
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .amount {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 28px;
+    }
+
+    .order-number {
+      font-family: "Lato";
+      font-style: normal;
+      color: #696969;
+      font-size: 14px;
+      margin-top: -25px;
+    }
+
+    .purple {
+      background-color: #b2b6e7;
+    }
+    .pink {
+      background-color: #f4d5df;
+    }
+    .green {
+      background-color: #d6e6e3;
+    }
+    .yellow {
+      background-color: #e5e0c4;
+    }
+  }
+}
+
+.arrow-container {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.charts-card {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  height: auto;
+  border-radius: 10px;
+  padding: 30px;
+  width: 92%;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .map-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    .map-legend {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+
+      p {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+
+    .legend-color {
+      width: 24px;
+      height: 24px;
+      background-color: #bad6f2;
+    }
+  }
+
+  .title {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #9a9999;
+    margin-top: -2%;
+  }
+
+  .amount {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    color: #000000;
+    margin-top: -2%;
+  }
+
+  .select-option {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+}
+
+.single-col {
+  display: flex;
+  gap: 10px;
+}
+
+.gap {
+  gap: 30px;
+}
+
+.align-items {
+  align-items: center;
+}
+
+.justify-content-SB {
+  justify-content: space-between;
+}
+
+.grid-main {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+  padding: 30px;
+}
+
+.two-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+.leaflet-container {
+  width: 100wh;
+  height: 100vh;
+}
