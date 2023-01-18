@@ -3,6 +3,7 @@ import "./index.scss";
 import Paytm from "assets/images/Paytm.png";
 import downloadImage from "assets/images/downloadImage.png";
 import { useHistory } from "react-router-dom";
+import BreadCrumbs from "component/common/BreadCrumb";
 import wallImage from "assets/images/wallImage.png";
 import Star from "assets/images/Star.png";
 import Cancel from "assets/images/Cancel.png";
@@ -12,6 +13,11 @@ export default function OrderDetails() {
   let history = useHistory();
   return (
     <div>
+      <div className="breadcrumbs">
+        <BreadCrumbs
+          crumbs={["Home", "My Profile", "My Orders", "Order Details"]}
+        />
+      </div>
       <div className="order-details">
         <div className="info-cards">
           <div>
@@ -111,7 +117,7 @@ export default function OrderDetails() {
               <div className="success-circle">
                 <div className="green-progress"></div>
               </div>
-              <div className="mt-3 order-state-date">Sun, 9th Oct </div>
+              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
             </div>
             <div className="order-status">
               <div>
@@ -120,7 +126,7 @@ export default function OrderDetails() {
               <div className="pending-circle">
                 <div className="grey-progress"></div>
               </div>
-              <div className="mt-3 order-state-date">Sun, 9th Oct </div>
+              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
             </div>
             <div className="order-status">
               <div>
@@ -129,14 +135,14 @@ export default function OrderDetails() {
               <div className="pending-circle">
                 <div className="grey-progress"></div>
               </div>
-              <div className="mt-3 order-state-date">Sun, 9th Oct </div>
+              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
             </div>
             <div className="order-status">
               <div>
                 <p className="order-state-name">Delivered</p>
               </div>
               <div className="pending-circle"></div>
-              <div className="mt-3 order-state-date">Sun, 9th Oct </div>
+              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
             </div>
           </div>
           <div className="order-status-details">

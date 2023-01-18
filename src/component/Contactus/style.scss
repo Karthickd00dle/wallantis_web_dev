@@ -1,8 +1,9 @@
-.contactus-head{
+.contact-us {
+  .contactus-head {
     height: 300px;
-    background-color:#54CFBD;
+    background-color: #54cfbd;
   }
-  .mainmenu{
+  .mainmenu {
     font-weight: 700;
     font-size: 39px;
     color: #000000;
@@ -11,380 +12,376 @@
     margin-top: 90px;
   }
 
-  .contacthead{    
-    font-family: 'Lato';
+  .contacthead {
+    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
     margin-left: 38.5%;
     margin-top: 85px;
     color: #000000;
-}
-
-.address{
-    width: 304px;
-height: 200px;
-margin-top: 20px;
-margin-left: 30px;
-background: #FFFFFF;
-box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
-border-radius: 6px;
-  span{
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-color: #000000;
-position: relative;
-top: 26px;
-left: 112px;
   }
-  p{
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-color: #000000;
-margin-top: 50px;
-position: relative;
-right: 55px;
-  }
-}
 
-.contactcall{
+  .address {
     width: 304px;
     height: 200px;
     margin-top: 20px;
     margin-left: 30px;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
-    span{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    color: #000000;
-    position: relative;
-    top: 26px;
-    left: 112px;
-      }
-      p{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: #000000;
-    position: relative;
-    top: 49px;
-    right: 32px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      color: #000000;
+      position: relative;
+      top: 26px;
+      left: 112px;
+    }
+    p {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      color: #000000;
+      margin-top: 50px;
+      position: relative;
+      right: 55px;
+    }
+  }
 
-      }
-      Small{
-        font-weight: 400;
-        font-size: 15px;
-        color: #2A71F9;
-        position: relative;
-        left: 27%;
-        top: 20%;    
-      }
-    
-}
-
-.contactemail{
+  .contactcall {
     width: 304px;
     height: 200px;
     margin-top: 20px;
     margin-left: 30px;
-    background: #FFFFFF;
+    background: #ffffff;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      color: #000000;
+      position: relative;
+      top: 26px;
+      left: 112px;
+    }
+    p {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000000;
+      position: relative;
+      top: 49px;
+      right: 32px;
+    }
+    Small {
+      font-weight: 400;
+      font-size: 15px;
+      color: #2a71f9;
+      position: relative;
+      left: 27%;
+      top: 20%;
+    }
+  }
+
+  .contactemail {
+    width: 304px;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 30px;
+    background: #ffffff;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
 
-    span{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    color: #000000;
-    position: relative;
-    top: 26px;
-    left: 112px;
-      }
-      p{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    color: #000000;
-    position: relative;
-    top: 49px;
-    right: 32px;
-      }
-      Small{
-        font-weight: 400;
-        font-size: 15px;
-        color: #2A71F9;
-        position: relative;
-        left: 27%;
-        top: 20%;
-      }
-}
+    span {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      color: #000000;
+      position: relative;
+      top: 26px;
+      left: 112px;
+    }
+    p {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000000;
+      position: relative;
+      top: 49px;
+      right: 32px;
+    }
+    Small {
+      font-weight: 400;
+      font-size: 15px;
+      color: #2a71f9;
+      position: relative;
+      left: 27%;
+      top: 20%;
+    }
+  }
 
-.contactcards{
+  .contactcards {
     // justify-content: space-evenly;
     margin-left: 18%;
+  }
 
-}
-
-.contactmessage{
+  .contactmessage {
     height: 100%;
     width: 8%;
     margin-top: 40px;
     margin-left: 24px;
-}
+  }
 
-.getdirections{
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-text-decoration-line: underline;
-color: #2A71F9;
-margin-top: 55px;
+  .getdirections {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration-line: underline;
+    color: #2a71f9;
+    margin-top: 55px;
     display: flex;
     /* align-items: center; */
     justify-content: center;
-}
+  }
 
-.needhelp{
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-color: #000000;
-margin-top: 80px;
-display: flex;
-justify-content: center;
-}
+  .needhelp {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #000000;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+  }
 
-.names{
-  gap: 23%;
+  .names {
+    gap: 23%;
     margin-left: 20%;
-.first-Name{
-  margin-top: 35px;
-    span {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 17px;
-      color: #000000;
-      margin-right: 61%;
-    }
-    input {
+    .first-Name {
+      margin-top: 35px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        margin-right: 61%;
+      }
+      input {
         width: 150%;
         height: 47px;
         border: 1px solid #969696;
         border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+        padding: 2px 2px 2px 24px;
+      }
+    }
+    .last-Name {
+      margin-top: 35px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+      }
+      input {
+        box-sizing: border-box;
+        width: 150%;
+        height: 45px;
+        border: 1px solid #969696;
+        border-radius: 10px;
+        margin-right: 98px;
+        padding: 2px 2px 2px 24px;
+      }
     }
   }
-  .last-Name{
-    margin-top: 35px;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 17px;
-    color: #000000;
-    }
-    input{
-     box-sizing: border-box;
-     width: 150%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-     margin-right: 98px;
-     padding: 2px 2px 2px  24px;
-    }
-  }
-}
 
-.enumber{
-  gap: 26.5%;
-  margin-left: 20%;
-  .contact-email{
-    margin-top: 35px;
-    span {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 17px;
-      color: #000000;
-      margin-right: 61%;
-    }
-    input {
+  .enumber {
+    gap: 26.5%;
+    margin-left: 20%;
+    .contact-email {
+      margin-top: 35px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        margin-right: 61%;
+      }
+      input {
         width: 174%;
         height: 47px;
         border: 1px solid #969696;
         border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+        padding: 2px 2px 2px 24px;
+      }
     }
-  }
 
-
-  .contact-mobilenumber{
-    margin-top: 35px;
-    span {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 17px;
-      color: #000000;
-    }
-    input {
+    .contact-mobilenumber {
+      margin-top: 35px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+      }
+      input {
         width: 218%;
         height: 47px;
         border: 1px solid #969696;
         border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+        padding: 2px 2px 2px 24px;
+      }
     }
   }
-}
 
-
-.countries{
-  gap: 25%;
-  margin-left: 20%;
-  .contact-country{
-    margin-top: 35px;
-    span {
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 17px;
-      color: #000000;
-      margin-right: 65%;
-      line-height: 39px;
-    }
-    input {
+  .countries {
+    gap: 25%;
+    margin-left: 20%;
+    .contact-country {
+      margin-top: 35px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        margin-right: 65%;
+        line-height: 39px;
+      }
+      input {
         width: 161%;
         height: 47px;
         top: 1380px;
         border: 1px solid #969696;
         border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+        padding: 2px 2px 2px 24px;
+      }
     }
-  }
 
-  .contact-state{
-    margin-top: 35px;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 17px;
-    color: #000000;
-    margin-right: 83%;
-    line-height: 39px;
-    }
-    input{
-     box-sizing: border-box;
-     width: 217%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-    //  margin-right: 84px;
-     padding: 2px 2px 2px  24px;
+    .contact-state {
+      margin-top: 35px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        margin-right: 83%;
+        line-height: 39px;
+      }
+      input {
+        box-sizing: border-box;
+        width: 217%;
+        height: 45px;
+        border: 1px solid #969696;
+        border-radius: 10px;
+        //  margin-right: 84px;
+        padding: 2px 2px 2px 24px;
+      }
     }
   }
-}
-.citycode{
-  gap:7.5%;
-  margin-left: 20%;
-  .contact-city{
-    margin-top: 30px;
-    span {
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 17px;
-    color: #000000;
-    margin-right: 70%;
-    line-height: 39px;
-    }
-    input {
+  .citycode {
+    gap: 7.5%;
+    margin-left: 20%;
+    .contact-city {
+      margin-top: 30px;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        margin-right: 70%;
+        line-height: 39px;
+      }
+      input {
         width: 181%;
         height: 47px;
         top: 1380px;
         border: 1px solid #969696;
         border-radius: 10px;
-        padding: 2px 2px 2px  24px;
+        padding: 2px 2px 2px 24px;
+      }
     }
-  }
 
-  .contact-pincode{
-    margin-top: 30px;
-    margin-left: 20%;
-    span{
-      font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 17px;
-    color: #000000;
-    line-height: 39px;
-    }
-    input{
-     box-sizing: border-box;
-     width: 217%;
-     height: 45px;
-     border: 1px solid #969696;
-     border-radius: 10px;
-     padding: 2px 2px 2px  24px;
+    .contact-pincode {
+      margin-top: 30px;
+      margin-left: 20%;
+      span {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        line-height: 39px;
+      }
+      input {
+        box-sizing: border-box;
+        width: 217%;
+        height: 45px;
+        border: 1px solid #969696;
+        border-radius: 10px;
+        padding: 2px 2px 2px 24px;
+      }
     }
   }
-}
-  .companyname{
+  .companyname {
     margin-top: 56px;
     margin-left: 20%;
-    span{
+    span {
       margin-right: 74%;
       line-height: 39px;
     }
-    input{
+    input {
       width: 77%;
       border: 1px solid #969696;
       border-radius: 10px;
       height: 55px;
       margin-right: 42px;
-      padding: 2px 2px 2px  24px;
+      padding: 2px 2px 2px 24px;
     }
   }
 
-  .contact-message{
+  .contact-message {
     margin-top: 40px;
-    font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-color: #000000;
-margin-left: 20%;
-line-height: 39px;
-input{
-  width: 77%;
-    height: 180px;
-    border: 1px solid #969696;
-    border-radius: 10px;
-    padding: 2px 2px 2px  24px;
-}
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+    margin-left: 20%;
+    line-height: 39px;
+    input {
+      width: 77%;
+      height: 180px;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      padding: 2px 2px 2px 24px;
+    }
   }
-  .contact-Enquire{
+  .contact-Enquire {
     width: 255px;
-height: 58px;
-background: #A26220;
-border-radius: 4px;
-margin-top: 40px;
-color: #FFFFFF;
-border-color: #A26220;
-margin-left: 42%;
-margin-bottom: 80px
+    height: 58px;
+    background: #a26220;
+    border-radius: 4px;
+    margin-top: 40px;
+    color: #ffffff;
+    border-color: #a26220;
+    margin-left: 42%;
+    margin-bottom: 80px;
   }
+}

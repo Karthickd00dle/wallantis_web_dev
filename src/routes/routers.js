@@ -279,6 +279,33 @@ const routers = [
       },
     ],
   },
+  {
+    component: "AdminLayout",
+    path: "/admin",
+    auth: false,
+    exact: false,
+    redirect: "/admin/dashboard",
+    childrens: [
+      {
+        component: "AdminPage",
+        path: "/",
+        componentPath: "pages/AdminPage",
+        name: "AdminPage",
+        auth: false,
+        exact: true,
+        childrens: [
+          {
+            component: "Dashboard",
+            path: "/dashboard",
+            componentPath: "pages/Menus/Dashbord",
+            name: "Dashboard",
+            auth: false,
+            exact: false,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default routers;
