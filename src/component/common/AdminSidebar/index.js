@@ -15,7 +15,9 @@ export default function AdminSidebar() {
           {sidebarItems?.map((item) => {
             return (
               <div className={`flex`}>
-                <img className="sidebar-icon" src={item.icon} />
+                {history.location.pathname === item.route
+                  ? item.icon.active
+                  : item.icon.normal}
                 <p
                   className={` ${
                     history.location.pathname === item.route ? "active" : ""
