@@ -43,7 +43,7 @@ export const NormalFooter = () => {
           </div>
           <div className="footer-options  ms-5 col-md-2">
             <label className="brand-infoo">Useful Links</label>
-            <div className="pt-5 d-flex flex-column">
+            <div className="pt-5 d-flex flex-column footer-links">
               <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/about-wallantics')}>About Us</label>
               <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/latestblogs')}>Blog</label>
               <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/faq')}>FAQ</label>
@@ -52,7 +52,7 @@ export const NormalFooter = () => {
             </div>
           </div>
           <div className="footer-options col-md-2">
-            <div className="pt-5 mt-4 d-flex flex-column">
+            <div className="pt-5 mt-4 d-flex flex-column footer-links">
               <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/dealership')}>Dealership</label>
               <label className="py-2 cursor-pointer" onClick={()=>history.push('')}>Installer Price Calculator</label>
               <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/returnpolicy')}>Refund Policies</label>

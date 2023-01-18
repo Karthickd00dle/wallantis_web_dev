@@ -15,11 +15,11 @@
 
     .footer-options {
       padding-top: 4%;
-      .brand-infoo {
-        font-weight: 700;
-        font-size: 20px;
-        color: #ffffff;
-      }
+    }
+    .brand-info{
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
     }
   }
   .footer-subject {
@@ -34,4 +34,11 @@
     }
   }
 }
+
+.footer-links{
+  label{
+    color: #ffffff;
+  }
+}
+
 
