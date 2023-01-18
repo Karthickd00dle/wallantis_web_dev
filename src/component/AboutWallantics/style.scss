@@ -6,7 +6,7 @@
     height: 300px;
     background-color:#54CFBD;
   }
-  .mainmenu{
+  .maincont{
     font-weight: 700;
     font-size: 39px;
     color: #000000;
@@ -40,7 +40,7 @@
             line-height: 179%;
             color: #000000;
             position: relative;
-            right: 25px
+            left: 73px;
         }
         label{
             width: 79%;
@@ -297,17 +297,16 @@
     }
     .teamname{
         display: flex;
-        gap: 21%;
-        margin-left: 5%;
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
+        justify-content: space-around;
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
     }
     
     .teamcontent{
         display: flex;
-        margin-right: 3%;
+        justify-content: space-around;
         font-family: 'Lato';
     font-style: normal;
     font-weight: 700;

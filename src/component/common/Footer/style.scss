@@ -18,14 +18,11 @@
     }
     .footer-options {
       padding-top: 4%;
-      .brand-info {
-        font-weight: 700;
-        font-size: 20px;
-        color: #ffffff;
-      }
-      .footer-link {
-        @include fontLatoStyle(16px, 500, #ffffff, 37px);
-      }
+    }
+    .brand-info {
+      font-weight: 700;
+      font-size: 20px;
+      color: #ffffff;
     }
   }
   .footer-subject {
@@ -44,5 +41,11 @@
     .company-branding {
       font-weight: 600;
     }
+  }
+}
+
+.footer-links {
+  label {
+    color: #ffffff;
   }
 }
