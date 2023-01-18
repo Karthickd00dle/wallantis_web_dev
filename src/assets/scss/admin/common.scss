@@ -197,7 +197,7 @@ body {
   justify-content: space-between;
 }
 
-.grid-main {
+.cards-grid-main {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 20px;
@@ -213,4 +213,13 @@ body {
 .leaflet-container {
   width: 100wh;
   height: 100vh;
+}
+
+@media only screen and (max-width: 1366px) and (max-height: 786px) {
+  .cards-grid-main {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    padding: 30px;
+  }
 }

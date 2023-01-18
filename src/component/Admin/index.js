@@ -1,6 +1,8 @@
 import React from "react";
 import Dashboard from "component/Admin/DashboardPages/Dashboard/Dashboard";
 import SettingsComponent from "component/Admin/DashboardPages/Settings";
+import Customer from "component/Admin/DashboardPages/Customer";
+import ReportModules from "component/Admin/DashboardPages/ReportModule";
 import { history } from "service/helpers";
 
 export default function AdminComponent() {
@@ -9,6 +11,10 @@ export default function AdminComponent() {
       return <Dashboard />;
     } else if (history.location.pathname.includes("settings")) {
       return <SettingsComponent />;
+    } else if (history.location.pathname.includes("customer")) {
+      return <Customer />;
+    } else if (history.location.pathname.includes("report-management")) {
+      return <ReportModules />;
     }
   };
   return (
