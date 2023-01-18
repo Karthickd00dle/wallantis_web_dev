@@ -10,7 +10,7 @@ import {
   import visibility from "../../../../assets/images/visibility.svg"
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
 
-export default function ProductManagement() {
+export default function productManagement() {
 
     const staffHead = [
         {

@@ -7,11 +7,10 @@ import {
     DropdownMenu,
   } from 'reactstrap';
   import { HiDotsHorizontal } from 'react-icons/hi';
-  import visibility from "../../../../assets/images/visibility.svg";
-  import { Pagination } from "../../common/CustomPagination";
+  import visibility from "../../../../assets/images/visibility.svg"
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
 
-export default function Customer() {
+export default function InventoryManagement() {
 
     const staffHead = [
         {
@@ -68,9 +67,6 @@ export default function Customer() {
               </tr>
             ))}
       </TableWrapper>
-      <div className="StaffPagination">
-            {staffHead.length > 0 && <Pagination totalPages={2} />}
-          </div>
 
     </div>
   )
