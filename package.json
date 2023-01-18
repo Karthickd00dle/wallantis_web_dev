@@ -10,17 +10,20 @@
     "@mui/styles": "^5.11.0",
     "axios": "^0.23.0",
     "bootstrap": "^5.2.2",
+    "chart.js": "^3.7.1",
     "dotenv": "^10.0.0",
     "dotenv-cli": "^4.1.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.0.0-rc.1",
+    "react-chartjs-2": "^4.1.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-js-pagination": "^3.0.3",
+    "react-leaflet": "^4.2.0",
     "react-loader-spinner": "^4.0.0",
     "react-notifications": "^1.7.0",
     "react-perfect-scrollbar": "^1.5.8",
@@ -64,5 +67,8 @@
       "not dead",
       "not op_mini all"
     ]
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }

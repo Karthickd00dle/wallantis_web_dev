@@ -4,7 +4,7 @@ const CouponManagement = (props) => (
   <svg
     width={30}
     height={30}
-    fill="none"
+    fill={props.fill}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

@@ -18,7 +18,7 @@ const CareerManagement = (props) => (
     </g>
     <defs>
       <clipPath id="a">
-        <path fill="#fff" d="M0 0h30v30H0z" />
+        <path fill={props.fill} d="M0 0h30v30H0z" />
       </clipPath>
     </defs>
   </svg>
