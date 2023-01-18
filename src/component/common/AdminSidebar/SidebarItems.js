@@ -1,94 +1,134 @@
 import React from "react";
-import Dashboard from "assets/icons/SidebarIcons/Dashboard";
-import StaffManagement from "assets/icons/SidebarIcons/StaffManagement";
-import Customer from "assets/icons/SidebarIcons/Customer";
-import OrderManagement from "assets/icons/SidebarIcons/OrderManagement";
-import CouponManagement from "assets/icons/SidebarIcons/CouponManagement";
-import ProductManagement from "assets/icons/SidebarIcons/ProductManagement";
-import InventoryMangement from "assets/icons/SidebarIcons/InventoryMangement";
-import LeadManagement from "assets/icons/SidebarIcons/LeadManagement";
-import BlogManagement from "assets/icons/SidebarIcons/BlogManagement";
-import ReportModules from "assets/icons/SidebarIcons/ReportModules";
-import ContentManagement from "assets/icons/SidebarIcons/ContentManagement";
-import CareerManagement from "assets/icons/SidebarIcons/CareerMangement";
-import CatalogueManagement from "assets/icons/SidebarIcons/CatalogueManagement";
-import Settings from "assets/icons/SidebarIcons/Settings";
-import Logout from "assets/icons/SidebarIcons/Logout";
+
+import DashboardIconSVGComponent from "assets/svg/Admin/Dashboard";
+import CustomerIconSVGComponent from "assets/svg/Admin/Customer";
+import OrderManagentIconSVGComponent from "assets/svg/Admin/OrderManagement";
+import ProductManagementSVGComponent from "assets/svg/Admin/ProductManagement";
+import CouponManagementSVGComponent from "assets/svg/Admin/CouponMangement";
+import { Inventory } from "@mui/icons-material";
+import InventoryIconSVGComponent from "assets/svg/Admin/InventoryManagement";
+import LeadIconSVGComponent from "assets/svg/Admin/LeadManagement";
+
 
 export const sidebarItems = [
   {
     name: "Dashboard",
-    icon: <Dashboard />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/dashboard",
   },
   {
     name: "Customer",
-    icon: <Customer />,
+    icon: {
+      normal: <CustomerIconSVGComponent fill={"white"}/>,
+      active: <CustomerIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/customer",
   },
   {
     name: "Order Management",
-    icon: <OrderManagement />,
+    icon: {
+      normal: <OrderManagentIconSVGComponent fill={"white"}/>,
+      active: <OrderManagentIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/order-management",
   },
   {
     name: "Product Management",
-    icon: <ProductManagement />,
+    icon: {
+      normal: <ProductManagementSVGComponent fill={"white"}/>,
+      active: <ProductManagementSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/product-management",
   },
   {
     name: "Coupon Management",
-    icon: <CouponManagement />,
+    icon: {
+      normal: <CouponManagementSVGComponent fill={"white"}/>,
+      active: <CouponManagementSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/coupon-management",
   },
   {
     name: "Inventory Management",
-    icon: <InventoryMangement />,
+    icon: {
+      normal: <InventoryIconSVGComponent fill={"white"}/>,
+      active: <InventoryIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/inventory-management",
   },
   {
     name: "Lead Management",
-    icon: <LeadManagement />,
+    icon: {
+      normal: <LeadIconSVGComponent fill={"white"}/>,
+      active: <LeadIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/lead-management",
   },
   {
     name: "Blog Management",
-    icon: <BlogManagement />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/blog-management",
   },
   {
     name: "Report Modules ",
-    icon: <ReportModules />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/report-management",
   },
   {
     name: "Staff Management",
-    icon: <StaffManagement />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/staff-management",
   },
   {
     name: "Content Management",
-    icon: <ContentManagement />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/content-management",
   },
   {
     name: "Career Management",
-    icon: <CareerManagement />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/career-management",
   },
   {
     name: "Catalogue Management",
-    icon: <CatalogueManagement />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/catalogue-management",
   },
   {
     name: "Settings",
-    icon: <Settings />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/settings",
   },
   {
     name: "Logout",
-    icon: <Logout />,
+    icon: {
+      normal: <DashboardIconSVGComponent fill={"white"}/>,
+      active: <DashboardIconSVGComponent fill={"#C5CAFF"}/>
+    },
     route: "/admin/logout",
   },
 ];
