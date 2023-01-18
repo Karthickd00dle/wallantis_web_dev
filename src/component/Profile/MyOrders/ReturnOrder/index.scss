@@ -4,6 +4,7 @@
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   padding: 20px;
+  margin-top: 50px;
 }
 
 .delivery-card-inner {
@@ -20,13 +21,14 @@
   border: 1px solid #d3d3d3;
   border-radius: 8px;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .return-order-main {
   display: flex;
   justify-content: center;
   gap: 30px;
-
+  margin-top: 30px;
   .name {
     font-family: "Lato";
     font-style: normal;

@@ -53,7 +53,7 @@ export const NormalNavigate = (props) => {
           </>
         ))}
         
-        {children}
+        {children} 
       </div>
     </>
   );
