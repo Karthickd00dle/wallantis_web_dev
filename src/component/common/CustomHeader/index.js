@@ -59,8 +59,16 @@ export const CustomHeader = () => {
     history.push("/home/home");
   };
 
+  const handleMyProfile = () => {
+    history.push("/profile/profile-page");
+  };
+
   function FaAngleDown(props) {
-    return <div className="dropdownItem">{props.text}</div>;
+    return (
+      <div className="dropdownItem" onClick={props.onClick}>
+        {props.text}
+      </div>
+    );
   }
   return (
     <AppBar className="navbar-appbar" position="fixed">
@@ -91,23 +99,26 @@ export const CustomHeader = () => {
                   onClick={() => {
                     setOpen(!open);
                   }}
-                />&nbsp;&nbsp;
+                />
+                &nbsp;&nbsp;
                 <span>John Doe</span>
                 <RiArrowDropDownLine size="20" />
                 {/* <div className={`FaAngleDown ${open ? "active" : "inactive"}`}> */}
-                { open && (
-                <div className="FaAngleDown">
-                <ul className="cursor-pointer">
-                  <FaAngleDown text={"My Profile"} />
-                  <FaAngleDown text={"My Orders"} />
-                  <FaAngleDown text={"Refer a Friend"} />
-                  <FaAngleDown text={"Saved Addesses"} />
-                  <FaAngleDown text={"Change Password"} />
-                  <FaAngleDown text={"Logout"} />
-                </ul>
-              </div>
+                {open && (
+                  <div className="FaAngleDown">
+                    <ul className="cursor-pointer">
+                      <FaAngleDown
+                        text={"My Profile"}
+                        onClick={handleMyProfile}
+                      />
+                      <FaAngleDown text={"My Orders"} />
+                      <FaAngleDown text={"Refer a Friend"} />
+                      <FaAngleDown text={"Saved Addesses"} />
+                      <FaAngleDown text={"Change Password"} />
+                      <FaAngleDown text={"Logout"} />
+                    </ul>
+                  </div>
                 )}
-                
               </div>
             ) : (
               <CustomButton
