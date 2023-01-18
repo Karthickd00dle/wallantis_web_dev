@@ -1,80 +1,94 @@
 import React from "react";
-import DashboardIcon from "assets/icons/SidebarIcons/Dashboard.png";
+import Dashboard from "assets/icons/SidebarIcons/Dashboard";
+import StaffManagement from "assets/icons/SidebarIcons/StaffManagement";
+import Customer from "assets/icons/SidebarIcons/Customer";
+import OrderManagement from "assets/icons/SidebarIcons/OrderManagement";
+import CouponManagement from "assets/icons/SidebarIcons/CouponManagement";
+import ProductManagement from "assets/icons/SidebarIcons/ProductManagement";
+import InventoryMangement from "assets/icons/SidebarIcons/InventoryMangement";
+import LeadManagement from "assets/icons/SidebarIcons/LeadManagement";
+import BlogManagement from "assets/icons/SidebarIcons/BlogManagement";
+import ReportModules from "assets/icons/SidebarIcons/ReportModules";
+import ContentManagement from "assets/icons/SidebarIcons/ContentManagement";
+import CareerManagement from "assets/icons/SidebarIcons/CareerMangement";
+import CatalogueManagement from "assets/icons/SidebarIcons/CatalogueManagement";
+import Settings from "assets/icons/SidebarIcons/Settings";
+import Logout from "assets/icons/SidebarIcons/Logout";
 
 export const sidebarItems = [
   {
     name: "Dashboard",
-    icon: DashboardIcon,
+    icon: <Dashboard />,
     route: "/admin/dashboard",
   },
   {
     name: "Customer",
-    icon: DashboardIcon,
+    icon: <Customer />,
     route: "/admin/customer",
   },
   {
     name: "Order Management",
-    icon: DashboardIcon,
+    icon: <OrderManagement />,
     route: "/admin/order-management",
   },
   {
     name: "Product Management",
-    icon: DashboardIcon,
+    icon: <ProductManagement />,
     route: "/admin/product-management",
   },
   {
     name: "Coupon Management",
-    icon: DashboardIcon,
+    icon: <CouponManagement />,
     route: "/admin/coupon-management",
   },
   {
     name: "Inventory Management",
-    icon: DashboardIcon,
+    icon: <InventoryMangement />,
     route: "/admin/inventory-management",
   },
   {
     name: "Lead Management",
-    icon: DashboardIcon,
+    icon: <LeadManagement />,
     route: "/admin/lead-management",
   },
   {
     name: "Blog Management",
-    icon: DashboardIcon,
+    icon: <BlogManagement />,
     route: "/admin/blog-management",
   },
   {
     name: "Report Modules ",
-    icon: DashboardIcon,
+    icon: <ReportModules />,
     route: "/admin/report-management",
   },
   {
     name: "Staff Management",
-    icon: DashboardIcon,
+    icon: <StaffManagement />,
     route: "/admin/staff-management",
   },
   {
     name: "Content Management",
-    icon: DashboardIcon,
+    icon: <ContentManagement />,
     route: "/admin/content-management",
   },
   {
     name: "Career Management",
-    icon: DashboardIcon,
+    icon: <CareerManagement />,
     route: "/admin/career-management",
   },
   {
     name: "Catalogue Management",
-    icon: DashboardIcon,
+    icon: <CatalogueManagement />,
     route: "/admin/catalogue-management",
   },
   {
     name: "Settings",
-    icon: DashboardIcon,
+    icon: <Settings />,
     route: "/admin/settings",
   },
   {
     name: "Logout",
-    icon: DashboardIcon,
+    icon: <Logout />,
     route: "/admin/logout",
   },
 ];

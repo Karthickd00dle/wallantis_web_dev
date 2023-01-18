@@ -4,6 +4,10 @@ import { history } from "service/helpers";
 import "./index.scss";
 
 export default function AdminSidebar() {
+  const redirect = (route) => {
+    localStorage.setItem("active", route);
+    history.push(route);
+  };
   return (
     <div>
       <div className="sidebar-main">
@@ -15,12 +19,12 @@ export default function AdminSidebar() {
           {sidebarItems?.map((item) => {
             return (
               <div className={`flex`}>
-                <img className="sidebar-icon" src={item.icon} />
+                <div className="sidebar-icon">{item.icon}</div>
                 <p
                   className={` ${
                     history.location.pathname === item.route ? "active" : ""
                   }`}
-                  onClick={() => history.push(item.route)}
+                  onClick={() => redirect(item.route)}
                 >
                   {item.name}
                 </p>
