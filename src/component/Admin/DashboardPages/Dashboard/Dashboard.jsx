@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ArrowUp from "assets/icons/Admin/arrowUp.png";
-// import { LineChart } from "./LineChart";
-// import { DonutChart } from "./DonutChart";
-// import { VerticalBarChart } from "./VerticalBarChart";
-// import { PieChart } from "./PieChart";
-// import { HorizontalBarChart } from "./HorizontalBarChart";
+import { LineChart } from "./LineChart";
+import { DonutChart } from "./DonutChart";
+import { VerticalBarChart } from "./VerticalBarChart";
+import { PieChart } from "./PieChart";
+import { HorizontalBarChart } from "./HorizontalBarChart";
 
 import CommonSelect from "component/Admin/common/CommonSelect";
 // import Map, { Marker, Popup } from "react-map-gl";
@@ -17,12 +17,12 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-
+var L = window.L;
 export default function Dashboard() {
-  // const newicon = new L.icon({
-  //   iconUrl: MapMarker,
-  //   iconSize: [20, 20],
-  // });
+  const newicon = new L.icon({
+    iconUrl: MapMarker,
+    iconSize: [20, 20],
+  });
   const [markers, setMarkers] = useState([]);
   const [viewport, setViewport] = useState({
     latitude: 20.7679,
@@ -50,11 +50,11 @@ export default function Dashboard() {
   }, []);
   return (
     <div className="dashboard-main">
-      {/* <div className="header-background">
+      <div className="header-background">
         <p>Dashboard</p>
-      </div> */}
+      </div>
 
-      <div className="overview-card">
+      <div className="dashboard-card">
         <div className="overview">
           <p>Overview</p>
 
@@ -102,7 +102,7 @@ export default function Dashboard() {
               <CommonSelect />
             </div>
           </div>
-          {/* <LineChart /> */}
+          <LineChart />
         </div>
         <div className="chart-card">
           <div className="chart-header">
@@ -113,7 +113,7 @@ export default function Dashboard() {
               <CommonSelect />
             </div>
           </div>
-          {/* <DonutChart /> */}
+          <DonutChart />
         </div>
         <div className="chart-card">
           <div className="chart-header">
@@ -125,7 +125,7 @@ export default function Dashboard() {
               <CommonSelect />
             </div>
           </div>
-          {/* <VerticalBarChart /> */}
+          <VerticalBarChart />
         </div>
         <div className="chart-card">
           <div className="chart-header">
@@ -136,7 +136,7 @@ export default function Dashboard() {
               <CommonSelect />
             </div>
           </div>
-          {/* <PieChart /> */}
+          <PieChart />
         </div>
         <div className="chart-card">
           <div className="chart-header">
@@ -161,7 +161,7 @@ export default function Dashboard() {
                 return (
                   <Marker
                     position={[coordinates.lat, coordinates.lng]}
-                    // icon={newicon}
+                    icon={newicon}
                   >
                     <Popup>
                       Lat: {coordinates.lat}, Long: {coordinates.lng}
@@ -199,7 +199,7 @@ export default function Dashboard() {
             </div>
             <div className="select-option"></div>
           </div>
-          {/* <VerticalBarChart /> */}
+          <VerticalBarChart />
         </div>
         <div className="chart-card">
           <div className="chart-header">
@@ -210,7 +210,7 @@ export default function Dashboard() {
               <CommonSelect />
             </div>
           </div>
-          {/* <HorizontalBarChart /> */}
+          <HorizontalBarChart />
         </div>
       </div>
     </div>
