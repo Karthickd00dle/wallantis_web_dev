@@ -20,13 +20,21 @@
 
   .menu-items {
     padding: 20px;
+    
+    .menu-item-list{
+      display: flex;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
     p {
       font-family: "Lato";
       font-style: normal;
       font-weight: 500;
       font-size: 20px;
       margin-left: 20px;
-      padding: 10px 0px;
+    
+      // padding: 10px 0px;
       cursor: pointer;
       color: #ffffff;
     }

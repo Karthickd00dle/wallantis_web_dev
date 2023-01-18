@@ -18,7 +18,7 @@ export default function AdminSidebar() {
         <div className="menu-items">
           {sidebarItems?.map((item) => {
             return (
-              <div className={`flex`}>
+              <div className={`menu-item-list`}>
                 {history.location.pathname === item.route
                   ? item.icon.active
                   : item.icon.normal}
