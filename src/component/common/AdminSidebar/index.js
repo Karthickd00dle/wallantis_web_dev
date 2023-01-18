@@ -4,6 +4,10 @@ import { history } from "service/helpers";
 import "./index.scss";
 
 export default function AdminSidebar() {
+  const redirect = (route) => {
+    localStorage.setItem("active", route);
+    history.push(route);
+  };
   return (
     <div>
       <div className="sidebar-main">
@@ -22,7 +26,7 @@ export default function AdminSidebar() {
                   className={` ${
                     history.location.pathname === item.route ? "active" : ""
                   }`}
-                  onClick={() => history.push(item.route)}
+                  onClick={() => redirect(item.route)}
                 >
                   {item.name}
                 </p>

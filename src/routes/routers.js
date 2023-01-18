@@ -284,6 +284,7 @@ const routers = [
     path: "/admin",
     auth: false,
     exact: false,
+    redirect: "/admin/dashboard",
     childrens: [
       {
         component: "AdminPage",
