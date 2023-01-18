@@ -67,7 +67,9 @@ export default function OrderManagement() {
               </tr>
             ))}
       </TableWrapper>
-
+      <div className="StaffPagination">
+            {staffHead.length > 0 && <Pagination totalPages={2} />}
+          </div>
     </div>
   )
 }
