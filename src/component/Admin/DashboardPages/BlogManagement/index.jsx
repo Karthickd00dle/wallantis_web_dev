@@ -9,6 +9,7 @@ import {
   import { HiDotsHorizontal } from 'react-icons/hi';
   import visibility from "../../../../assets/images/visibility.svg"
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
+  import { Pagination } from "../../common/CustomPagination";
 
 export default function BlogManagement() {
 

@@ -1,77 +1,343 @@
-import React from 'react'
-import { TableWrapper } from 'component/Admin/common/TableWrapper'
-import {
-    UncontrolledButtonDropdown,
-    DropdownToggle,
-    DropdownItem,
-    DropdownMenu,
-  } from 'reactstrap';
-  import { HiDotsHorizontal } from 'react-icons/hi';
-  import visibility from "../../../../assets/images/visibility.svg";
-  import { Pagination } from "../../common/CustomPagination";
-  import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
+import React,{useState} from 'react'
+import "./style.scss"
+import cdpm from "../../../../assets/images/cdpm.svg"
+import Diamondwallpaper from "../../../../assets/images/Diamondwallpaper.svg"
+// import { Bar } from 'react-chartjs-2';
+// import React, { PureComponent } from 'react';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-export default function Customer() {
+export default function Customerdetail() {
 
-    const staffHead = [
+    const [toggleState,setToggleState] = useState(1);
+    const [barState,setBarState] = useState(1)
+
+    const toggleTab = (index) => {
+        setToggleState(index)        
+      };
+
+      const barTab = (index) => {
+        setBarState(index)        
+      };
+
+      const data = [
         {
-          label: 'No'
+          name: 'Sunday',
+          FloralWallpaper:1500,
+          AbstractWallpaper:800,
         },
         {
-          label: 'Customer ID'
+          name: 'Monday',
+          AbstractWallpaper:1500,
         },
         {
-          label: 'Customer Name'
-        },
-    
-        {
-          label: 'Location'
+          name: 'Tuesday',
+          TextureWallpaper:1800,
         },
         {
-          label: 'Date'
+          name: 'Wednesday',
+          WoodWallpaper:500,
         },
         {
-          label: 'Total Spent'
+          name: 'Thursday',
+          WoodWallpaper:500,
+          TextureWallpaper:900,
         },
         {
-          label: 'Action'
+          name: 'Friday',
+          AbstractWallpaper:800,
+        },
+        {
+          name: 'Saturday',
+          AbstractWallpaper:800,
         },
       ];
   return (
     <div>
-       <TableWrapper  headers={staffHead}>
-      {StaffColumnValues?.map((data) => (
-              <tr>
-                <td>{data.No}</td>
-                <td>{data.CustomerID}</td>
-                <td>{data.CustomerName}</td>
-                <td>{data.Location}</td>
-                <td>{data.Date}</td>
-                <td>{data.TotalSpent}</td>
-
-                <td className="dropdown">
-                  <UncontrolledButtonDropdown>
-                    <DropdownToggle tag="span" data-toggle="dropdown">
-                      <div>
-                        <HiDotsHorizontal color="#C5CAFF" size="25" />
-                      </div>
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                        <DropdownItem>
-                          <img src={visibility} alt="visible" color="#4285F4" size="25" />
-
-                          <span className="dotactions">view</span>
-                        </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledButtonDropdown>
-                </td>
-              </tr>
-            ))}
-      </TableWrapper>
-      <div className="StaffPagination">
-            {staffHead.length > 0 && <Pagination totalPages={2} />}
+        <div className="cd-customercollab">
+        <div className="cd-projectmanager">
+            <div className="cd-pm">
+                <img src={cdpm}/>
+            </div>
+            <div className="cd-pmcontents">
+                <h2>Eren Yeager</h2>
+                <label>Project Manager</label><br/><br/>
+                <span>1-C Lakshmi Bhavan 432, Anna Salai, Chennai, Tamil Nadu 600006</span>
+                <div className="cd-contact">
+                   <h3>Eren.yeager@gmail.com</h3>
+                   <p>0987654321</p>
+                </div>
+            </div>
+        </div>
+        <div className="cd-processcollab">
+        <div className="cd-totalorders">
+         <span>8</span><br/>
+         <label>Total No.of Orders</label>
+        </div>
+        <div className="cd-onprocessing">
+         <span>2</span><br/>
+         <label>On Processing</label>
+        </div>
+        </div>
+        </div>
+         <div className="cd-chartscollab">
+        <div className="cd-mostordered">
+          <div className="cd-tabscollab">
+          <div className="cd-mostcontent">
+            <label>Most Ordered Product</label>
+            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id in turpis libero odio varius proin lectus.</h6>
           </div>
+        
 
+        <div className="container">
+      <div className="bloc-tabs">
+        <button
+          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(1)}
+        >
+          Monthly
+        </button>
+        <button
+          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(2)}
+        >
+         Weekly
+        </button>
+        <button
+          className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(3)}
+        >
+         Daily
+        </button>
+      </div>
+
+
+      </div>
+      
+    </div>
+    <div className="content-tabs">
+        <div
+          className={toggleState === 1 ? "content  active-content" : "content"}
+        >
+          <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+        <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+
+        <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+
+        <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+        <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+        <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+   
+        </div>
+
+        <div
+          className={toggleState === 2 ? "content  active-content" : "content"}
+        >
+           <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+        <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+        </div>
+
+        <div
+          className={toggleState === 3 ? "content  active-content" : "content"}
+        >
+          <div className="d-flex">
+          <div className="d-flex">
+          <div className="cd-diamondwall1">
+            <img src={Diamondwallpaper} width="150" height="120"/></div>
+            <div className="cd-diamondwallcontents1">
+            <h4>Diamond Wallpaper</h4>
+            <span>TEXTURED WALLPAPER</span><br/>
+            <small>Order ID #12345</small>
+          </div>
+        </div>
+        <div className="cd-diamondwall1price">
+          <h2>₹3500</h2>
+        </div>
+        </div>
+        <hr/>
+      
+        </div>
+        </div>
+    </div>
+
+
+
+    <div className="cd-mostordered">
+          <div className="cd-tabscollab">
+          <div className="cd-mostcontent">
+            <label>Most Ordered Product</label>
+            <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id in turpis libero odio varius proin lectus.</h6>
+          </div>
+        
+
+        <div className="container">
+      <div className="bloc-tabs">
+        <button
+          className={toggleState === 1 ? "tabs activebar-tabs" : "bartabs"}
+          onClick={() => barTab(1)}
+        >
+          Monthly
+        </button>
+        <button
+          className={toggleState === 2 ? "tabs activebar-tabs" : "bartabs"}
+          onClick={() => barTab(2)}
+        >
+         Weekly
+        </button>
+        <button
+          className={toggleState === 3 ? "tabs activebar-tabs" : "bartabs"}
+          onClick={() => barTab(3)}
+        >
+         Daily
+        </button>
+      </div>
+
+
+      </div>
+      
+    </div>
+    <div className="content-tabs">
+        <div
+          className={barState === 1 ? "content  active-content" : "content"}
+        >
+    <BarChart
+          width={700}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+            categoryPercentage:100,
+          }}
+          barSize={7}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+        
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="FloralWallpaper" fill="#E57C30" />
+          <Bar dataKey="AbstractWallpaper" fill="#EB281B" />
+          <Bar dataKey="TextureWallpaper" fill="#81D0FC" />
+          <Bar dataKey="WoodWallpaper" fill="#E1C844" />
+        </BarChart>
+     </div>
+     </div>
+     </div>
+     </div>
     </div>
   )
 }
