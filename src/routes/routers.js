@@ -329,7 +329,7 @@ const routers = [
           {
             component: "CustomerDetailPage",
             path: "/customerDetailPage",
-            componentPath: "pages/CustomerDetailPage",
+            componentPath: "pages/Admin/customerDetailPage",
             name: "CustomerDetailPage",
             auth: false,
             exact: false,
