@@ -11,8 +11,16 @@ import {
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
   import { Pagination } from "../../common/CustomPagination";
 
+  import { Router, Route, Link, useHistory } from 'react-router-dom';
+  import { createBrowserHistory, History } from 'history'
+
 export default function BlogManagement() {
 
+  const history = useHistory();
+
+  const goToblog=()=> {
+    history.push('/admin/blogDetailPage');
+  }
     const staffHead = [
         {
           label: 'No'
@@ -68,7 +76,7 @@ export default function BlogManagement() {
               </tr>
             ))}
       </TableWrapper>
-
+      <button onClick={goToblog}>NEXT</button>
     </div>
   )
 }

@@ -54,4 +54,11 @@ export {
   CareerManagementPage,
   CatalogueManagementPage,
   CustomerDetailPage,
+  OrderDetailPage,
+  ProductDetailPage,
+  BlogDetailPage,
+  CouponDetailPage,
+  StaffDetailPage,
+  CatalogueDetailPage,
+  CareerDetailPage,
 } from "./Admin";
