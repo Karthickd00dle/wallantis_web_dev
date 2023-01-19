@@ -12,7 +12,6 @@ export const CustomButton = ({
 }) => {
   const customStyle = {
     ...style,
-    color: "#FFFFFF",
     fontFamily: "Lato, sans-serif",
     textTransform: "none",
   };

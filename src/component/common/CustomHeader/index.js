@@ -91,27 +91,31 @@ export const CustomHeader = () => {
                   onClick={() => {
                     setOpen(!open);
                   }}
-                />&nbsp;&nbsp;
+                />
+                &nbsp;&nbsp;
                 <span>John Doe</span>
                 <RiArrowDropDownLine size="20" />
                 {/* <div className={`FaAngleDown ${open ? "active" : "inactive"}`}> */}
-                { open && (
-                <div className="FaAngleDown">
-                <ul className="cursor-pointer">
-                  <FaAngleDown text={"My Profile"} />
-                  <FaAngleDown text={"My Orders"} />
-                  <FaAngleDown text={"Refer a Friend"} />
-                  <FaAngleDown text={"Saved Addesses"} />
-                  <FaAngleDown text={"Change Password"} />
-                  <FaAngleDown text={"Logout"} />
-                </ul>
-              </div>
+                {open && (
+                  <div className="FaAngleDown">
+                    <ul className="cursor-pointer">
+                      <FaAngleDown text={"My Profile"} />
+                      <FaAngleDown text={"My Orders"} />
+                      <FaAngleDown text={"Refer a Friend"} />
+                      <FaAngleDown text={"Saved Addesses"} />
+                      <FaAngleDown text={"Change Password"} />
+                      <FaAngleDown text={"Logout"} />
+                    </ul>
+                  </div>
                 )}
-                
               </div>
             ) : (
               <CustomButton
-                style={{ width: "110px", height: "48px" }}
+                style={{
+                  width: "110px",
+                  height: "48px",
+                  backgroundColor: "#A26220",
+                }}
                 variant="contained"
                 onClick={() => {
                   setShowBanner(true);

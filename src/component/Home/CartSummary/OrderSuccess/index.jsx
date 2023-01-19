@@ -34,7 +34,7 @@ export const OrderSuccess = () => {
           </CustomButton>
         </div>
       </div>
-      <CatalogueManagement />
+      <InventoryManagement />
     </>
   );
 };
