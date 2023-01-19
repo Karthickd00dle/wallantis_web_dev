@@ -1,4 +1,3 @@
-import AdminComponent from "component/Admin";
 import React, { Component } from "react";
 // Redux Connection
 import { connect } from "react-redux";

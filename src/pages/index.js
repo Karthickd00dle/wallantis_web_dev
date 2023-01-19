@@ -37,4 +37,4 @@ export {
   RotationWallpaperPage,
 } from "./Rooms";
 export { PaymentPage, ProductDetailsPage } from "./ProductDetails";
-export { AdminPage, SomePage } from "./Admin";
+export { SomePage, ReportPage, SettingsPage, DashboardPage } from "./Admin";
