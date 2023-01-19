@@ -11,14 +11,25 @@ import {
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
   import { Pagination } from "../../common/CustomPagination";
 
+  import { Router, Route, Link, useHistory } from 'react-router-dom';
+  import { createBrowserHistory, History } from 'history' 
+
 
   import "./style.scss"
 import { CKEditor } from '@ckeditor/ckeditor5-react';       
 import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import DragDropfiles from "../../common/DragDropfiles"
 
+const history = useHistory();
+
 export default function productManagement() {
 
+ 
+  const goToAbout=()=> {
+    history.push('/admin/orderDetailPage');
+  }
+
+  
     const staffHead = [
         {
           label: 'No'
@@ -77,6 +88,7 @@ export default function productManagement() {
       <div className="StaffPagination">
             {staffHead.length > 0 && <Pagination totalPages={2} />}
           </div>
+          <button onClick={goToAbout}>NEXT</button>
     </div>
   )
 }

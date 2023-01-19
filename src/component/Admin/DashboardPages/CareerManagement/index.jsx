@@ -10,8 +10,16 @@ import {
   import visibility from "../../../../assets/images/visibility.svg"
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
   import { Pagination } from "../../common/CustomPagination";
+  import { Router, Route, Link, useHistory } from 'react-router-dom';
+  import { createBrowserHistory, History } from 'history' 
 
 export default function CareerManagement() {
+
+  const history = useHistory();
+
+  const goToAbout=()=> {
+    history.push('/admin/customerDetailPage');
+  }
 
     const staffHead = [
         {
@@ -68,7 +76,7 @@ export default function CareerManagement() {
               </tr>
             ))}
       </TableWrapper>
-
+      <button onClick={goToAbout}>NEXT</button>
     </div>
   )
 }

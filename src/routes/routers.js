@@ -284,15 +284,14 @@ const routers = [
     path: "/admin",
     auth: false,
     exact: false,
-    redirect: "/admin",
     childrens: [
       {
         component: "DashboardPage",
         path: "/dashboard",
-        componentPath: "pages/Admin/DashboardPage",
+        componentPath: "pages/DashboardPage",
         name: "DashboardPage",
         auth: false,
-        exact: false,
+        exact: true,
       },
       {
         component: "SomePage",
@@ -325,17 +324,70 @@ const routers = [
         name: "CustomerPage",
         auth: false,
         exact: false,
-        childrens: [
-          {
-            component: "CustomerDetailPage",
-            path: "/customerDetailPage",
-            componentPath: "pages/Admin/customerDetailPage",
-            name: "CustomerDetailPage",
-            auth: false,
-            exact: false,
-          },
-        ]
-
+      },
+      {
+        component: "CustomerDetailPage",
+        path: "/customerDetailPage",
+        componentPath: "pages/Admin/CustomerDetailPage",
+        name: "CustomerDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "OrderDetailPage",
+        path: "/orderDetailPage",
+        componentPath: "pages/Admin/OrderDetailPage",
+        name: "OrderDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "ProductDetailPage",
+        path: "/productDetailPage",
+        componentPath: "pages/Admin/ProductDetailPage",
+        name: "ProductDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "BlogDetailPage",
+        path: "/blogDetailPage",
+        componentPath: "pages/Admin/BlogDetailPage",
+        name: "BlogDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "CouponDetailPage",
+        path: "/couponDetailPage",
+        componentPath: "pages/Admin/CouponDetailPage",
+        name: "CouponDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "StaffDetailPage",
+        path: "/staffDetailPage",
+        componentPath: "pages/Admin/StaffDetailPage",
+        name: "StaffDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "CatalogueDetailPage",
+        path: "/catalogueDetailPage",
+        componentPath: "pages/Admin/CatalogueDetailPage",
+        name: "CatalogueDetailPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "CareerDetailPage",
+        path: "/careerDetailPage",
+        componentPath: "pages/Admin/CareerDetailPage",
+        name: "CareerDetailPage",
+        auth: false,
+        exact: false,
       },
       {
         component: "OrderManagementPage",
@@ -344,7 +396,6 @@ const routers = [
         name: "OrderManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "ProductManagementPage",
@@ -353,7 +404,6 @@ const routers = [
         name: "ProductManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "CouponManagementPage",
@@ -362,7 +412,6 @@ const routers = [
         name: "CouponManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "InventoryManagementPage",
@@ -371,7 +420,6 @@ const routers = [
         name: "InventoryManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "LeadManagementPage",
@@ -380,7 +428,6 @@ const routers = [
         name: "LeadManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "BlogManagementPage",
@@ -389,7 +436,6 @@ const routers = [
         name: "BlogManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "StaffManagementPage",
@@ -398,7 +444,6 @@ const routers = [
         name: "StaffManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "ContentManagementPage",
@@ -407,7 +452,6 @@ const routers = [
         name: "ContentManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "CareerManagementPage",
@@ -416,7 +460,6 @@ const routers = [
         name: "CareerManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "CatalogueManagementPage",
@@ -425,7 +468,6 @@ const routers = [
         name: "CatalogueManagementPage",
         auth: false,
         exact: false,
-        
       },
     ],
   },
