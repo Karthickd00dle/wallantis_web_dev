@@ -2,14 +2,10 @@
 
 .admin-auth-layout {
   position: absolute;
-  width: 40%;
+  width: 55%;
   height: 100%;
   top: 0px;
-  background: radial-gradient(
-    93.07% 93.07% at 19.34% 7.32%,
-    #165147 0%,
-    #113630 76.59%
-  );
+  background-image: url(".../../../../images/admin-login-background.png");
   padding: 60px 60px 0px 60px;
   label {
     @include fontLatoStyle(34px, 600, #ffffff, 47px, 0.04em);

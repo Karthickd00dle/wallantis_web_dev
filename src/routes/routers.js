@@ -216,16 +216,16 @@ const routers = [
     ],
   },
   {
-    component: "AuthLayout",
+    component: "AdminAuthLayout",
     path: "/admin",
     auth: false,
     exact: false,
     childrens: [
       {
-        component: "LoginPage",
+        component: "AdminLoginPage",
         path: "/login",
-        componentPath: "pages/Auth/LoginPage",
-        name: "LoginPage",
+        componentPath: "pages/Admin/Auth/AdminLoginPage",
+        name: "AdminLoginPage",
         auth: false,
         exact: true,
       },
@@ -295,7 +295,6 @@ const routers = [
       },
     ],
   },
-
 ];
 
 export default routers;

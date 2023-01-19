@@ -10,18 +10,10 @@ const FetchParams = () => {
   return ternaryCondition(param === "login", "Login", "Create an Account");
 };
 
-export function AuthLayout({ children }) {
+export function AdminAuthLayout({ children }) {
   return (
     <div className="d-flex ">
-      <div className="admin-auth-layout">
-        <BrandLogo height="95px" width="110px" />
-        <div>
-          <label>
-            <FetchParams />
-          </label>
-          <p>Get access to your orders, wishlist and recommendations</p>
-        </div>
-      </div>
+      <div className="admin-auth-layout" />
       {children}
     </div>
   );
