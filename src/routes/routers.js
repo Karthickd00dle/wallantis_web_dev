@@ -284,11 +284,11 @@ const routers = [
     path: "/admin",
     auth: false,
     exact: false,
-    redirect: "/admin/dashboard",
+    redirect: "/admin",
     childrens: [
       {
         component: "AdminPage",
-        path: "/",
+        path: "/dashboard",
         componentPath: "pages/AdminPage",
         name: "AdminPage",
         auth: false,
@@ -296,13 +296,21 @@ const routers = [
         childrens: [
           {
             component: "Dashboard",
-            path: "/dashboard",
+            path: "/dashboardPage",
             componentPath: "pages/Menus/Dashbord",
             name: "Dashboard",
             auth: false,
             exact: false,
           },
         ],
+      },
+      {
+        component: "SomePage",
+        path: "/something",
+        componentPath: "pages/SomePage",
+        name: "SomePage",
+        auth: false,
+        exact: false,
       },
     ],
   },
