@@ -11,7 +11,16 @@ import {
   import { Pagination } from "../../common/CustomPagination";
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
 
+  import { Router, Route, Link, useHistory } from 'react-router-dom';
+  import { createBrowserHistory, History } from 'history' 
+
 export default function Customer() {
+
+  const history = useHistory();
+
+  const goToAbout=()=> {
+    history.push('/admin/customerDetailPage');
+  }
 
     const staffHead = [
         {
@@ -71,6 +80,8 @@ export default function Customer() {
       <div className="StaffPagination">
             {staffHead.length > 0 && <Pagination totalPages={2} />}
           </div>
+
+          <button onClick={goToAbout}>NEXT</button>
 
     </div>
   )

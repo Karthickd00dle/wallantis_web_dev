@@ -30,7 +30,7 @@ export default function AdminComponent() {
     else if (history.location.pathname.includes("customer")) {
       return <Customer/>;
     }
-    else if (history.location.pathname.includes("order-management")) {
+    else if (history.location.pathname.includes("ordermanagement")) {
       return <OrderManagement/>;
     }
     else if (history.location.pathname.includes("product-management")) {

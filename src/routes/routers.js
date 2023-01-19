@@ -287,22 +287,12 @@ const routers = [
     redirect: "/admin",
     childrens: [
       {
-        component: "AdminPage",
+        component: "DashboardPage",
         path: "/dashboard",
-        componentPath: "pages/AdminPage",
-        name: "AdminPage",
+        componentPath: "pages/Admin/DashboardPage",
+        name: "DashboardPage",
         auth: false,
-        exact: true,
-        childrens: [
-          {
-            component: "Dashboard",
-            path: "/dashboardPage",
-            componentPath: "pages/Menus/Dashbord",
-            name: "Dashboard",
-            auth: false,
-            exact: false,
-          },
-        ],
+        exact: false,
       },
       {
         component: "SomePage",
@@ -311,6 +301,131 @@ const routers = [
         name: "SomePage",
         auth: false,
         exact: false,
+      },
+      {
+        component: "ReportPage",
+        path: "/report-management",
+        componentPath: "pages/Admin/ReportPage",
+        name: "ReportPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "SettingsPage",
+        path: "/settings",
+        componentPath: "pages/Admin/SettingsPage",
+        name: "SettingsPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "CustomerPage",
+        path: "/customer",
+        componentPath: "pages/Admin/CustomerPage",
+        name: "CustomerPage",
+        auth: false,
+        exact: false,
+        childrens: [
+          {
+            component: "CustomerDetailPage",
+            path: "/customerDetailPage",
+            componentPath: "pages/CustomerDetailPage",
+            name: "CustomerDetailPage",
+            auth: false,
+            exact: false,
+          },
+        ]
+
+      },
+      {
+        component: "OrderManagementPage",
+        path: "/order-management",
+        componentPath: "pages/Admin/OrderManagementPage",
+        name: "OrderManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "ProductManagementPage",
+        path: "/product-management",
+        componentPath: "pages/Admin/ProductManagementPage",
+        name: "ProductManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "CouponManagementPage",
+        path: "/coupon-management",
+        componentPath: "pages/Admin/CouponManagementPage",
+        name: "CouponManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "InventoryManagementPage",
+        path: "/inventory-management",
+        componentPath: "pages/Admin/InventoryManagementPage",
+        name: "InventoryManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "LeadManagementPage",
+        path: "/lead-management",
+        componentPath: "pages/Admin/LeadManagementPage",
+        name: "LeadManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "BlogManagementPage",
+        path: "/blog-management",
+        componentPath: "pages/Admin/BlogManagementPage",
+        name: "BlogManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "StaffManagementPage",
+        path: "/staff-management",
+        componentPath: "pages/Admin/StaffManagementPage",
+        name: "StaffManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "ContentManagementPage",
+        path: "/content-management",
+        componentPath: "pages/Admin/ContentManagementPage",
+        name: "ContentManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "CareerManagementPage",
+        path: "/career-management",
+        componentPath: "pages/Admin/CareerManagementPage",
+        name: "CareerManagementPage",
+        auth: false,
+        exact: false,
+        
+      },
+      {
+        component: "CatalogueManagementPage",
+        path: "/catalogue-management",
+        componentPath: "pages/Admin/CatalogueManagementPage",
+        name: "CatalogueManagementPage",
+        auth: false,
+        exact: false,
+        
       },
     ],
   },
