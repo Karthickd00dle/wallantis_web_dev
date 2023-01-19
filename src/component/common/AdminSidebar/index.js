@@ -18,7 +18,7 @@ export default function AdminSidebar() {
         {sidebarItems?.map((item) => {
           return (
             <div className={`menu-item-list`}>
-              {history.location.pathname === item.route
+              {history.location.pathname.includes(item.route)
                 ? item.icon.active
                 : item.icon.normal}
               <p

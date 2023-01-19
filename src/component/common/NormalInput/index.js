@@ -60,6 +60,7 @@ export const NormalInput = ({
               height: "55px",
               borderRadius: "0px 2px 2px 0px",
               color: "#FFFFFF",
+              backgroundColor: "#A26220",
             }}
           >
             {submitButtonLabel}

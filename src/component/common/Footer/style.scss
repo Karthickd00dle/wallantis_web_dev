@@ -1,22 +1,25 @@
-// @import "../../../assets/scss/abstracts/abstracts.scss";
-.footer-containerr {
+@import "assets/scss/abstracts/abstracts.scss";
+
+.footer-container {
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: #0c2621;
   color: #ffffff;
-  .footer-inner-containerr {
+  .footer-inner-container {
     padding-top: 1%;
     padding-bottom: 1%;
     padding-left: 5%;
     padding-right: 5%;
     color: #ffffff;
-
+    .subscribe-label {
+      @include fontLatoStyle(18px, 600, #ffffff, 42px);
+    }
     .footer-options {
       padding-top: 4%;
     }
-    .brand-info{
+    .brand-info {
       font-weight: 700;
       font-size: 20px;
       color: #ffffff;
@@ -24,22 +27,25 @@
   }
   .footer-subject {
     width: 385px;
-     color: #ffffff;
+    color: #ffffff;
   }
   .footer-trademark {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #ffffff;
+    label,
+    span {
+      @include fontLatoStyle(18px, 400, #ffffff, 18px);
+    }
+
     .company-branding {
       font-weight: 600;
     }
   }
 }
 
-.footer-links{
-  label{
+.footer-links {
+  label {
     color: #ffffff;
   }
 }
-
-

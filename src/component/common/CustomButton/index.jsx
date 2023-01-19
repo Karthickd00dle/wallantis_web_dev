@@ -9,12 +9,9 @@ export const CustomButton = ({
   startIcon,
   onClick,
   endIcon,
-  backgroundColor = "#A26220",
 }) => {
   const customStyle = {
     ...style,
-    color: "#FFFFFF",
-    backgroundColor: "#A26220",
     fontFamily: "Lato, sans-serif",
     textTransform: "none",
   };

@@ -15,10 +15,10 @@ import { NormalInput } from "../NormalInput";
 import { useHistory } from "react-router-dom";
 
 export const NormalFooter = () => {
-  const history = useHistory()
+  const history = useHistory();
   return (
-    <Container className="footer-containerr" maxWidth="xxl">
-      <div className="footer-inner-containerr">
+    <Container className="footer-container" maxWidth="xxl">
+      <div className="footer-inner-container">
         <div className="d-flex">
           <div className="col-md-4">
             <BrandLogo viewBox="0 0 90 60" height="120px" width="200px" />
@@ -33,7 +33,9 @@ export const NormalFooter = () => {
               <LinkedINIcon className="ms-1" />
             </div>
             <div className="pt-5 mt-3 w-100">
-              <label className="pb-3">Subscribe for our Newsletter</label>
+              <label className="pb-3 subscribe-label">
+                Subscribe for our Newsletter
+              </label>
               <NormalInput
                 placeholder="Enter your email address"
                 isSubmitButton
@@ -44,21 +46,76 @@ export const NormalFooter = () => {
           <div className="footer-options  ms-5 col-md-2">
             <label className="brand-infoo">Useful Links</label>
             <div className="pt-5 d-flex flex-column footer-links">
-              <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/about-wallantics')}>About Us</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/latestblogs')}>Blog</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/faq')}>FAQ</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/contactus')}>Contact Us</label>
-              <label className="pt-2 cursor-pointer" onClick={()=>history.push('/profile/careers')}>Careers</label>
+              <label
+                className="pb-2 cursor-pointer"
+                onClick={() => history.push("/profile/about-wallantics")}
+              >
+                About Us
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("/profile/latestblogs")}
+              >
+                Blog
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("/profile/faq")}
+              >
+                FAQ
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("/profile/contactus")}
+              >
+                Contact Us
+              </label>
+              <label
+                className="pt-2 cursor-pointer"
+                onClick={() => history.push("/profile/careers")}
+              >
+                Careers
+              </label>
             </div>
           </div>
           <div className="footer-options col-md-2">
             <div className="pt-5 mt-4 d-flex flex-column footer-links">
-              <label className="pb-2 cursor-pointer" onClick={()=>history.push('/profile/dealership')}>Dealership</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('')}>Installer Price Calculator</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/returnpolicy')}>Refund Policies</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/catalogue')}>E-Catalogue</label>
-              <label className="py-2 cursor-pointer" onClick={()=>history.push('/profile/termsconditions')}>Terms & Conditions</label>
-              <label className="pt-2 cursor-pointer" onClick={()=>history.push('/profile/privacypolicy')}>Privacy Policies</label>
+              <label
+                className="pb-2 cursor-pointer"
+                onClick={() => history.push("/profile/dealership")}
+              >
+                Dealership
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("")}
+              >
+                Installer Price Calculator
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("/profile/returnpolicy")}
+              >
+                Refund Policies
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("/profile/catalogue")}
+              >
+                E-Catalogue
+              </label>
+              <label
+                className="py-2 cursor-pointer"
+                onClick={() => history.push("/profile/termsconditions")}
+              >
+                Terms & Conditions
+              </label>
+              <label
+                className="pt-2 cursor-pointer"
+                onClick={() => history.push("/profile/privacypolicy")}
+              >
+                Privacy Policies
+              </label>
             </div>
           </div>
           <div className="footer-options ms-4 col-md-4">
@@ -66,18 +123,18 @@ export const NormalFooter = () => {
             <div className="pt-5 d-flex flex-column">
               <div className="d-flex align-items-center">
                 <GPSIcon width={"10%"} />
-                <label className="w-75">
+                <label className="w-75 footer-link">
                   115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
                   Tamil Nadu.
                 </label>
               </div>
               <div className="d-flex align-items-center py-4">
                 <PhoneIcon width={"10%"} />
-                <label className="w-75">+91 56846 28126</label>
+                <label className="w-75 footer-link">+91 56846 28126</label>
               </div>
               <div className="d-flex align-items-center">
                 <MessageIcon width={"10%"} />
-                <label className="w-75">support@gmail.com</label>
+                <label className="w-75 footer-link">support@gmail.com</label>
               </div>
               <div className="ps-2 pt-5">
                 <label className=" brand-info">Download Our App</label>

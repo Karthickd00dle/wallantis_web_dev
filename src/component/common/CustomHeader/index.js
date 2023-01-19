@@ -122,7 +122,11 @@ export const CustomHeader = () => {
               </div>
             ) : (
               <CustomButton
-                style={{ width: "110px", height: "48px" }}
+                style={{
+                  width: "110px",
+                  height: "48px",
+                  backgroundColor: "#A26220",
+                }}
                 variant="contained"
                 onClick={() => {
                   setShowBanner(true);

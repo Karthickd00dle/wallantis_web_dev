@@ -216,6 +216,22 @@ const routers = [
     ],
   },
   {
+    component: "AdminAuthLayout",
+    path: "/admin-auth",
+    auth: false,
+    exact: false,
+    childrens: [
+      {
+        component: "AdminLoginPage",
+        path: "/login",
+        componentPath: "pages/Admin/Auth/AdminLoginPage",
+        name: "AdminLoginPage",
+        auth: false,
+        exact: true,
+      },
+    ],
+  },
+  {
     component: "HomeLayout",
     path: "/home",
     auth: false,

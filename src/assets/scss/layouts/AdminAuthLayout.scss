@@ -1,0 +1,19 @@
+@import "../abstracts/abstracts.scss";
+
+.admin-auth-layout {
+  position: absolute;
+  width: 55%;
+  height: 100%;
+  top: 0px;
+  background-image: url(".../../../../images/admin-login-background.png");
+  padding: 60px 60px 0px 60px;
+  label {
+    @include fontLatoStyle(34px, 600, #ffffff, 47px, 0.04em);
+    padding-top: 50px;
+  }
+  p {
+    @include fontLatoStyle(20px, 500, #ffffff, 20px, 0.04em);
+    padding-top: 70px;
+    width: 70%;
+  }
+}
