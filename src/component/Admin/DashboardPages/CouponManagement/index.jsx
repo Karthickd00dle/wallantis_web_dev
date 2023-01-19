@@ -11,6 +11,11 @@ import {
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
   import { Pagination } from "../../common/CustomPagination";
 
+
+  import "./style.scss"
+  import { CKEditor } from '@ckeditor/ckeditor5-react';       
+import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+
 export default function CouponManagement() {
 
     const staffHead = [
@@ -68,7 +73,7 @@ export default function CouponManagement() {
               </tr>
             ))}
       </TableWrapper>
-
+  
     </div>
   )
 }

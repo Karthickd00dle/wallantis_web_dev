@@ -11,6 +11,12 @@ import {
   import { StaffColumnValues } from 'component/Admin/Data/staticDatas';
   import { Pagination } from "../../common/CustomPagination";
 
+
+  import "./style.scss"
+import { CKEditor } from '@ckeditor/ckeditor5-react';       
+import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import DragDropfiles from "../../common/DragDropfiles"
+
 export default function productManagement() {
 
     const staffHead = [

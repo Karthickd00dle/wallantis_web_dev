@@ -12,6 +12,7 @@ import StaffManagement from "component/Admin/DashboardPages/StaffManagement";
 import ContentManagement from "component/Admin/DashboardPages/ContentManagement";
 import CareerManagement from "component/Admin/DashboardPages/CareerManagement";
 import CatalogueManagement from "component/Admin/DashboardPages/CatalogueManagement"
+import Reports from "./DashboardPages/Report";
 import { history } from "service/helpers";
 
 
@@ -21,6 +22,10 @@ export default function AdminComponent() {
       return <Dashboard /> ;
     } else if (history.location.pathname.includes("settings")) {
       return <SettingsComponent />;
+    } else if (history.location.pathname.includes("customer")) {
+      return <Customer />;
+    } else if (history.location.pathname.includes("report-management")) {
+      return <Reports />;
     }
     else if (history.location.pathname.includes("customer")) {
       return <Customer/>;

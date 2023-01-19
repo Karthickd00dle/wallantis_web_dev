@@ -1,10 +1,10 @@
 import * as React from "react";
-const OrderManagentIconSVGComponent = (props) => (
+const OrderManagement = (props) => (
   <svg
     width={30}
     height={30}
     viewBox="0 0 30 30"
-    fill="none"
+    fill={props.fill}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
@@ -14,4 +14,4 @@ const OrderManagentIconSVGComponent = (props) => (
     />
   </svg>
 );
-export default OrderManagentIconSVGComponent;
+export default OrderManagement;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { TableWrapper } from 'component/Admin/common/TableWrapper'
 import {
     UncontrolledButtonDropdown,
@@ -12,6 +12,12 @@ import {
   import { Pagination } from "../../common/CustomPagination";
 
 export default function CatalogueManagement() {
+
+    const [toggleState, setToggleState] = useState(1);
+
+    const toggleTab = (index) => {
+      setToggleState(index);
+    };
 
     const staffHead = [
         {
@@ -68,7 +74,6 @@ export default function CatalogueManagement() {
               </tr>
             ))}
       </TableWrapper>
-
     </div>
   )
 }
