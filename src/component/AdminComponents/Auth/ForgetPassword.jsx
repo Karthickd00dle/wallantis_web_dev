@@ -33,7 +33,7 @@ const ForgetPassword = ({ open, handleClose }) => {
               />
             </div>
             <CustomButton
-              style={{ backgroundColor: "#5D5FEF" }}
+              style={{ backgroundColor: "#5D5FEF", color: "#FFFFFF" }}
               className="mt-5 p-2"
             >
               Reset Password

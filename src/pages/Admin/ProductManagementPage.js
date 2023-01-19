@@ -8,4 +8,7 @@ export class ProductManagementClass extends Component {
     return <ProductManagement />;
   }
 }
-export const ProductManagementPage = connect(null, null)(ProductManagementClass);
+export const ProductManagementPage = connect(
+  null,
+  null
+)(ProductManagementClass);

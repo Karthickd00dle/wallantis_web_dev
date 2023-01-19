@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 export class BlogDetailPageClass extends Component {
   render() {
-    return <BlogDetail/>;
+    return <BlogDetail />;
   }
 }
 export const BlogDetailPage = connect(null, null)(BlogDetailPageClass);

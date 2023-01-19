@@ -21,3 +21,4 @@ export { CouponDetailPage } from "./CouponDetailPage";
 export { StaffDetailPage } from "./StaffDetailPage";
 export { CatalogueDetailPage } from "./CatalogueDetailPage";
 export { CareerDetailPage } from "./CareerDetailPage";
+export { AdminLoginPage } from "./Auth/AdminLoginPage";

@@ -217,7 +217,7 @@ const routers = [
   },
   {
     component: "AdminAuthLayout",
-    path: "/admin",
+    path: "/admin-auth",
     auth: false,
     exact: false,
     childrens: [
