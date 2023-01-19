@@ -1,0 +1,78 @@
+.manage-reports {
+  width: 95%;
+  position: relative;
+  left: 10px;
+  top: 20px;
+
+  p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .date-picker-container {
+    position: relative;
+    left: 35px;
+    top: 60px;
+
+    p {
+      font-family: "Lato";
+      width: 100px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: 15px;
+    }
+  }
+
+  .select-option {
+    position: absolute;
+    right: 90px;
+  }
+
+  .cards-section {
+    margin-top: 80px;
+  }
+
+  .report-card {
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    position: relative;
+    .icons {
+      position: absolute;
+      right: 25px;
+      top: 20px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: auto auto;
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .orders {
+    .amount {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 32px;
+      color: #5d5fef;
+    }
+
+    .number {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      margin-top: -20px;
+      color: #000000;
+    }
+  }
+}

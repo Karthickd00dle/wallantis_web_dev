@@ -1,0 +1,50 @@
+.sidebar-main {
+  width: 333px;
+  min-height: 100vh;
+  background: #010101;
+  border-right: 1px solid #d5d5d5;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
+  .logo {
+    padding: 20px;
+    p {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 43px;
+
+      color: #c5caff;
+    }
+  }
+
+  .menu-items {
+    padding: 20px;
+    
+    .menu-item-list{
+      display: flex;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    p {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      margin-left: 20px;
+    
+      // padding: 10px 0px;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .sidebar-icon {
+      margin-top: 10px;
+    }
+
+    .active {
+      color: #c5caff;
+    }
+  }
+}

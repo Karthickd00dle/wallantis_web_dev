@@ -59,8 +59,16 @@ export const CustomHeader = () => {
     history.push("/home/home");
   };
 
+  const handleMyProfile = () => {
+    history.push("/profile/profile-page");
+  };
+
   function FaAngleDown(props) {
-    return <div className="dropdownItem">{props.text}</div>;
+    return (
+      <div className="dropdownItem" onClick={props.onClick}>
+        {props.text}
+      </div>
+    );
   }
   return (
     <AppBar className="navbar-appbar" position="fixed">
@@ -99,7 +107,10 @@ export const CustomHeader = () => {
                 {open && (
                   <div className="FaAngleDown">
                     <ul className="cursor-pointer">
-                      <FaAngleDown text={"My Profile"} />
+                      <FaAngleDown
+                        text={"My Profile"}
+                        onClick={handleMyProfile}
+                      />
                       <FaAngleDown text={"My Orders"} />
                       <FaAngleDown text={"Refer a Friend"} />
                       <FaAngleDown text={"Saved Addesses"} />

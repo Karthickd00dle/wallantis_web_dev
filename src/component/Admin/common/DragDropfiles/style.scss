@@ -1,0 +1,50 @@
+.dropzone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px dashed #D5D5D5;
+    width: 1329px;
+height: 247px;
+margin-left: 40px;
+h1{
+    font-weight: 500;
+font-size: 18px;
+display: flex;
+justify-content: center;
+}
+label{
+    font-weight: 500;
+font-size: 18px;
+display: flex;
+justify-content: center;
+}
+button{
+ margin-left: 45%;
+ margin-top: 10px;
+background: #5D5FEF;
+border-radius: 6px;
+// padding: 10px;
+width: 131px;
+height: 39px;
+color: #FFFFFF;
+font-weight: 500;
+font-size: 16px;
+}
+}
+
+.uploads{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px dashed #D5D5D5;
+    width: 1329px;
+height: 247px;  
+margin-left: 40px;
+}
+.Image-upload{
+    h1{
+    font-weight: 500;
+font-size: 18px;
+margin-left: 40px;
+    }
+}
