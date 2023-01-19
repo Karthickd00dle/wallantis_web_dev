@@ -23,7 +23,7 @@ export default function AdminSidebar() {
                 : item.icon.normal}
               <p
                 className={` ${
-                  history.location.pathname === item.route ? "active" : ""
+                  history.location.pathname.includes(item.route) ? "active" : ""
                 }`}
                 onClick={() => redirect(item.route)}
               >
