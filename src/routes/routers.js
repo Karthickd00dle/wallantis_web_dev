@@ -325,17 +325,14 @@ const routers = [
         name: "CustomerPage",
         auth: false,
         exact: false,
-        childrens: [
-          {
-            component: "CustomerDetailPage",
-            path: "/customerDetailPage",
-            componentPath: "pages/CustomerDetailPage",
-            name: "CustomerDetailPage",
-            auth: false,
-            exact: false,
-          },
-        ]
-
+      },
+      {
+        component: "CustomerDetailPage",
+        path: "/customerDetailPage",
+        componentPath: "pages/Admin/CustomerDetailPage",
+        name: "CustomerDetailPage",
+        auth: false,
+        exact: false,
       },
       {
         component: "OrderManagementPage",
@@ -344,7 +341,6 @@ const routers = [
         name: "OrderManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "ProductManagementPage",
@@ -353,7 +349,6 @@ const routers = [
         name: "ProductManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "CouponManagementPage",
@@ -362,7 +357,6 @@ const routers = [
         name: "CouponManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "InventoryManagementPage",
@@ -371,7 +365,6 @@ const routers = [
         name: "InventoryManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "LeadManagementPage",
@@ -380,7 +373,6 @@ const routers = [
         name: "LeadManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "BlogManagementPage",
@@ -389,7 +381,6 @@ const routers = [
         name: "BlogManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "StaffManagementPage",
@@ -398,7 +389,6 @@ const routers = [
         name: "StaffManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "ContentManagementPage",
@@ -407,7 +397,6 @@ const routers = [
         name: "ContentManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "CareerManagementPage",
@@ -416,7 +405,6 @@ const routers = [
         name: "CareerManagementPage",
         auth: false,
         exact: false,
-        
       },
       {
         component: "CatalogueManagementPage",
@@ -425,7 +413,6 @@ const routers = [
         name: "CatalogueManagementPage",
         auth: false,
         exact: false,
-        
       },
     ],
   },
