@@ -11,13 +11,13 @@ export default function SettingsComponent() {
   };
   return (
     <div className="settings-main">
-      {/* <div className="header-background">
+      <div className="header-background">
         <p>Settings</p>
-      </div> */}
+      </div>
       <div className="settings-comp">
         <p>Manage your Team Members</p>
 
-        <div className="tabs">
+        <div className="settings-tabs">
           <p
             className={activeTab === 1 ? "tab-name active-tab" : "tab-name"}
             onClick={() => changeTab(1)}
