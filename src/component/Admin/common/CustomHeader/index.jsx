@@ -68,8 +68,13 @@ export default function CustomHeader() {
     setAnchorEl(null);
   };
   return (
-    <AppBar position="static">
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+    <AppBar className="px-3" position="static">
+      <Toolbar
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
