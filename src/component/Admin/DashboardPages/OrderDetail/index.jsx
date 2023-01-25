@@ -7,6 +7,7 @@ import Adminclose from "../../../../assets/images/Adminclose.svg";
 import Adminadam from "../../../../assets/images/Adminadam.svg";
 import Adminphone from "../../../../assets/images/Adminphone.svg";
 import StarRating from 'component/common/StarRating';
+import { BsArrowLeftShort } from "react-icons/bs";
 
 export default function OrderDetail() {
   const [currentPosition,SetCurrentPosition]=useState(0);
@@ -14,13 +15,27 @@ export default function OrderDetail() {
   SetCurrentPosition(currentPosition+1)
   }
 
-  const labels = ["Order Confirmed","Shipped","In Transit","Delivery"];
-  const detail =["Sun, 9th Oct, 08:30am "]
+  const labels = [""];
+  const data =[
+    {
+      label:"Order Confirmed",
+      status:"Sun, 9th Oct, 08:30am ",
+    },
+    {
+      label:"Shipped",
+      status:"Sun, 11th Oct, 03:00pm ",
+    },
+     {
+      label:"In Transit",
+      status:"Sun, 15th Oct, 11:30am ",
+    },
+    {
+      label:"Delivery",
+      status:"Deliver by Oct 19",
+    },
+  ]
 
   const customStyles = {
-    stepIndicatorSize: 25,
-    currentStepIndicatorSize:30,
-    separatorStrokeWidth: 2,
     currentStepStrokeWidth: 3,
     stepStrokeCurrentColor: '#49E412',
     stepStrokeWidth: 3,
@@ -39,33 +54,13 @@ export default function OrderDetail() {
     labelColor: '#000000',
     labelSize: 13,
     currentStepLabelColor: '#49E412'
-  }
-  const data=[
-    {
-      label:"qwer",
-      staus:"ghj",
-      dateTime:"gvbhjn"
-    },
-    {
-      label:"qwer",
-      staus:"ghj",
-      dateTime:"gvbhjn"
-    },
-    {
-      label:"qwer",
-      staus:"ghj",
-      dateTime:"gvbhjn"
-    },
-    {
-      label:"qwer",
-      staus:"ghj",
-      dateTime:"gvbhjn"
-    },
-  ];
+  } 
   console.disableYellowBox = true;
   return (
     <div>
-      
+       <div className="header-back-order">
+      <BsArrowLeftShort size="30"/><span>Order Detail</span>
+      </div>
     <div className="admin-orderdetail">
         <h3>Order ID #12345</h3>
     </div>
@@ -171,18 +166,31 @@ export default function OrderDetail() {
      <h2>Order Tracking </h2>
     <div className="indicatorcontainer">
     <StepIndicator
+    stepCount={4}
       customStyles={customStyles}
       currentPosition={currentPosition}
       labels={labels}
      //  detail={detail}
       direction="vertical"
+      renderLabel={({position,stepstatus,label,crntPosition})=>{
+        return(
+          <div className="stepper-values">
+            {data.map((datas)=>(
+              <div>
+             <label> {datas.label}</label>
+             <h4> {datas.status}</h4>
+            </div>
+  ))}
+            </div>
+        )
+      }}
  />
 
  </div>
  </div>
  </div>
  </div>
-  <button onClick={()=> nextStep()}>Next</button>  
+  <button className="stepnextbtn" onClick={()=> nextStep()}>Next</button>  
  </div>
   )
 }

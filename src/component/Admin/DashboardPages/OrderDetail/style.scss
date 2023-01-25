@@ -1,14 +1,28 @@
+.header-back-order{
+    margin-top: 30px;
+    margin-left: 25px;
+    span{
+      font-weight: 600;
+  font-size: 20px;
+  margin-top: 8px;
+  margin-left: 10px;
+    }
+  }
 .admin-orderdetail{
     h3{
         color: #000000;
         font-weight: 600;
         font-size: 30px;
+        margin-left: 30px;
+        margin-top: 37px;
     }
 }
 .admin-orderheads{
     background: #C5CAFF;
     border-radius: 10px 10px 0px 0px;
-    width: 1056px;
+    width: 1007px;
+    margin-left: 30px;
+    margin-top: 30px;
     height: 83px;
     display: flex;
     h2{
@@ -29,7 +43,7 @@
         color: #000000;
         font-weight: 500;
         font-size: 20px; 
-        margin-left: 25px;
+        margin-left: 55px;
         margin-top: 30px;
     }
 }
@@ -37,13 +51,13 @@
     background: #FFFFFF;
 box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 border-radius: 10px;
-width: 1055px;
+width: 1002px;
+    margin-left: 33px;
 height: 482px;
 // position: absolute;
 .admin-item1{
     margin-left: 18px;
     display: flex;
-    gap: 15px;
     position: relative;
     top: 30px;
 
@@ -98,7 +112,8 @@ margin-top: 30px;
 .admin-installer{
     background: #FFFFFF;
 box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-width: 1055px;
+width: 1002px;
+    margin-left: 33px;
 height: 210px;
 margin-top: 50px;
 
@@ -205,9 +220,10 @@ font-size: 16px;
 .ordertracking{
     border: 1px solid #000000;
 border-radius: 14px;
-width: 348px;
+width: 328px;
 height: 825px;
-margin-left: 40px;
+margin-left: 30px;
+margin-top: 30px;
 h2{
     font-weight: 600;
 font-size: 25px;
@@ -217,4 +233,28 @@ margin-left: 25px;
 }
 .adminfinal-collab{
   display: flex;
+}
+
+
+.stepper-values{
+    padding: 258px 0px 273px 7px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 89px;
+    gap: 125px;
+    label{
+        font-weight: 500;
+        font-size: 16px;
+    }
+    h4{
+        color: #696969;
+        font-weight: 500;
+font-size: 14px;
+    }
+}
+.stepnextbtn{
+    margin-left: 90%;
+}
+.item1-cont{
+    margin-left: 10px;
 }
