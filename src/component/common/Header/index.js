@@ -155,6 +155,46 @@ function Header() {
       ],
     },
     {
+      tilte: "3D Panel",
+      icon: <PanelSVGComponent />,
+      subMenuItems: [
+        {
+          name: "PanelSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "Blinds",
+      icon: <BlindsSVGComponent />,
+      subMenuItems: [
+        {
+          name: "BlindsSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "Artificial Grass",
+      icon: <ArtificialGrassSVGComponent />,
+      subMenuItems: [
+        {
+          name: "ArtificialGrassSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
+      tilte: "PVC Foam Sheet",
+      icon: <PVCSVGComponent />,
+      subMenuItems: [
+        {
+          name: "PVCSVGComponent",
+          route: "",
+        },
+      ],
+    },
+    {
       tilte: "GYM Flooring",
       icon: <GymFlooringSVGComponent />,
       subMenuItems: [
@@ -227,14 +267,7 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
       {menu ? (
         <ul className="menu-list" onMouseEnter={handleMouseOver}>
           {menuItem?.map((item) => {
-            return (
-              <div
-                className="menu-list-item"
-                 onClick={() => history.push(item?.route)}
-              >
-                {item?.name}
-              </div>
-            );
+            return <div className="menu-list-item" onClick={item?.route}>{item?.name}</div>;
           })}
         </ul>
       ) : null}
