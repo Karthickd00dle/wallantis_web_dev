@@ -1,91 +1,138 @@
 import React from "react";
-import { TableWrapper } from "component/Admin/common/TableWrapper";
+import CustomTable from "component/Admin/common/CustomTable";
 import {
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-} from "reactstrap";
-import { HiDotsHorizontal } from "react-icons/hi";
-import visibility from "../../../../assets/images/visibility.svg";
-import { Pagination } from "../../common/Pagination";
-import { StaffColumnValues } from "component/Admin/Data/staticDatas";
+  MenuItem,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import CustomListMenu from "component/Admin/common/CustomListMenu";
+import CustomNavBar from "component/Admin/common/CustomNavBar";
+import "./style.scss";
+import {
+  EyeIcon,
+} from "assets/svg/Admin/InventoryMangement";
+import CustomPagination from "component/Admin/common/CustomPagination";
+import  { TabPanel } from "component/Admin/common/CustomTabs";
 
-import { Router, Route, Link, useHistory } from "react-router-dom";
-import { createBrowserHistory, History } from "history";
+const customersData = [
+  {
+    No: "1",
+    Customer_ID: "#98765",
+    Customer_Name: "John Doe",
+    Location: "Anna Nagar, Chennai",
+    Date: "Oct 18th, 2022",
+    Total_Spent:"₹7000",
+  },
+  {
+    No: "2",
+    Customer_ID: "#98765",
+    Customer_Name: "John Doe",
+    Location: "Anna Nagar, Chennai",
+    Date:"Oct 18th, 2022",
+    Total_Spent:"₹7000",
+  },
+];
 
-export default function Customer() {
-  const history = useHistory();
+const TableDataHeader = () => {
+  return (
+    <TableHead>
+      <TableRow>
+        <TableCell align="left">
+          <label className="table-head-cell-label">No</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Customer ID</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Customer Name</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Location</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Date</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Total Spent</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Action</label>
+        </TableCell>
+      </TableRow>
+    </TableHead>
+  );
+};
 
-  const goToAbout = () => {
-    history.push("/admin/customerDetailPage");
+const TableDataBody = ({
+  bodyData: {
+    No,
+    Customer_ID,
+    Customer_Name,
+    Location,
+    Date,
+    Total_Spent,
+  },
+}) => {
+  return (
+    <TableRow key={No}>
+      <TableCell component="th" scope="row">
+        <label className="table-body-cell-label">{No}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Customer_ID}</label>
+      </TableCell>
+      <TableCell align="left" className="d-flex align-items-center py-5">
+        <label className="ps-2 table-body-cell-label">{Customer_Name}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Location}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Date}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Total_Spent}</label>
+      </TableCell>
+      <TableCell align="left">
+        <CustomListMenu>
+          <MenuItem className="d-flex align-items-center">
+            <EyeIcon />
+            <label className="table-cell-menu-item ps-2">View Details</label>
+          </MenuItem>
+        </CustomListMenu>
+      </TableCell>
+    </TableRow>
+  );
+};
+
+export default function CustomerManagement() {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [value, setValue] = React.useState(0);
+  const handlePage = (event, value) => {
+    setCurrentPage(value);
   };
 
-  const staffHead = [
-    {
-      label: "No",
-    },
-    {
-      label: "Customer ID",
-    },
-    {
-      label: "Customer Name",
-    },
 
-    {
-      label: "Location",
-    },
-    {
-      label: "Date",
-    },
-    {
-      label: "Total Spent",
-    },
-    {
-      label: "Action",
-    },
-  ];
   return (
     <div>
-      <TableWrapper headers={staffHead}>
-        {StaffColumnValues?.map((data) => (
-          <tr>
-            <td>{data.No}</td>
-            <td>{data.CustomerID}</td>
-            <td>{data.CustomerName}</td>
-            <td>{data.Location}</td>
-            <td>{data.Date}</td>
-            <td>{data.TotalSpent}</td>
-
-            <td className="dropdown">
-              <UncontrolledButtonDropdown>
-                <DropdownToggle tag="span" data-toggle="dropdown">
-                  <div>
-                    <HiDotsHorizontal color="#C5CAFF" size="25" />
-                  </div>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <img
-                      src={visibility}
-                      alt="visible"
-                      color="#4285F4"
-                      size="25"
-                    />
-
-                    <span className="dotactions">view</span>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledButtonDropdown>
-            </td>
-          </tr>
-        ))}
-      </TableWrapper>
-      <div className="StaffPagination">
-        {staffHead.length > 0 && <Pagination totalPages={2} />}
-      </div>
-
-      <button onClick={goToAbout}>NEXT</button>
+      <CustomNavBar label="Customer" />
+        <TabPanel value={value} index={0}>
+          <CustomTable>
+            <TableDataHeader />
+            <TableBody>
+              {customersData?.map((bodyData) => (
+                <TableDataBody bodyData={bodyData} />
+              ))}
+            </TableBody>
+          </CustomTable>
+        </TabPanel>
+      <CustomPagination
+        pageCount={10}
+        currentPage={currentPage}
+        onChange={handlePage}
+      />
     </div>
   );
 }
