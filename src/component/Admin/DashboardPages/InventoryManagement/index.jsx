@@ -19,6 +19,8 @@ import {
   PencilIcon,
   StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
+import CustomPagination from "component/Admin/common/CustomPagination";
+import CustomTabs, { TabPanel } from "component/Admin/common/CustomTabs";
 
 const totalInstallersData = [
   {
@@ -42,6 +44,8 @@ const totalInstallersData = [
     Installer_Cost: 500,
   },
 ];
+
+const inventoryLabel = ["Total Installers", "Available Installers"];
 
 const TableDataHeader = () => {
   return (
@@ -101,12 +105,7 @@ const TableDataBody = ({
   },
 }) => {
   return (
-    <TableRow
-      key={No}
-      sx={{
-        "&:last-child td, &:last-child th": { border: 0 },
-      }}
-    >
+    <TableRow key={No}>
       <TableCell component="th" scope="row">
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
@@ -163,19 +162,46 @@ const TableDataBody = ({
 };
 
 export default function InventoryManagement() {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [value, setValue] = React.useState(0);
+  const handlePage = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  const handleTabs = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div>
       <CustomNavBar label="Inventory Management" />
-      <div className="p-5">
-        <CustomTable>
-          <TableDataHeader />
-          <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
-            ))}
-          </TableBody>
-        </CustomTable>
-      </div>
+      <CustomTabs tabLabel={inventoryLabel} value={value} onChange={handleTabs}>
+        <TabPanel value={value} index={0}>
+          <CustomTable>
+            <TableDataHeader />
+            <TableBody>
+              {totalInstallersData?.map((bodyData) => (
+                <TableDataBody bodyData={bodyData} />
+              ))}
+            </TableBody>
+          </CustomTable>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <CustomTable>
+            <TableDataHeader />
+            <TableBody>
+              {totalInstallersData?.map((bodyData) => (
+                <TableDataBody bodyData={bodyData} />
+              ))}
+            </TableBody>
+          </CustomTable>
+        </TabPanel>
+      </CustomTabs>
+      <CustomPagination
+        pageCount={10}
+        currentPage={currentPage}
+        onChange={handlePage}
+      />
     </div>
   );
 }
