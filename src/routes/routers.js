@@ -423,7 +423,7 @@ const routers = [
       },
       {
         component: "CouponManagementPage",
-        path: "/coupon-management",
+        path: "/coupon",
         componentPath: "pages/Admin/CouponManagementPage",
         name: "CouponManagementPage",
         auth: false,
