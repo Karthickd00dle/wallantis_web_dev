@@ -39,9 +39,9 @@ export default function Dashboard() {
   function LocationMarker() {
     useMapEvents({
       click(event) {
-        let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
-        setRandom([...random, r]);
-        setMarkers([...markers, event.latlng]);
+        // let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+        // setRandom([...random, r]);
+        // setMarkers([...markers, event.latlng]);
       },
     });
   }
