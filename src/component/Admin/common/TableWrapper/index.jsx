@@ -1,10 +1,10 @@
-import React from 'react'
-import { useMemo } from 'react';
-import { Table } from 'react-bootstrap';
-import PropTypes from 'prop-types';
+import React from "react";
+import { useMemo } from "react";
+import { Table } from "react-bootstrap";
+import PropTypes from "prop-types";
 
-import { Pagination } from '../CustomPagination';
-import './tableWrapper.scss';
+import { Pagination } from "../Pagination";
+import "./tableWrapper.scss";
 
 export function TableWrapper({
   isLoading,
@@ -12,18 +12,17 @@ export function TableWrapper({
   headers = [],
   handleSort,
   handlePageClick,
-  pageMetaData
+  pageMetaData,
 }) {
-
   const totalPages = useMemo(() => {
-    if (typeof pageMetaData?.totalPages === 'undefined') return 1;
+    if (typeof pageMetaData?.totalPages === "undefined") return 1;
 
     return pageMetaData.totalPages;
   }, [pageMetaData.totalPages]);
 
   return (
     <>
-      <Table responsive  className="custom-table-wrapper">
+      <Table responsive className="custom-table-wrapper">
         <thead className="custom-table-header">
           <tr>
             {headers.map(({ label, isSortable }) => (
@@ -87,13 +86,13 @@ TableWrapper.propTypes = {
     total: PropTypes.number,
     totalPages: PropTypes.number,
     page: PropTypes.string,
-    chunk: PropTypes.string
-  })
+    chunk: PropTypes.string,
+  }),
 };
 
 TableWrapper.defaultProps = {
   isLoading: false,
   handleSort: () => null,
   handlePageClick: () => null,
-  pageMetaData: {}
+  pageMetaData: {},
 };

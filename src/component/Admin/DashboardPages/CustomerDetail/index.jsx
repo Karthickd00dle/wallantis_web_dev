@@ -2,8 +2,7 @@ import React,{useState} from 'react'
 import "./style.scss"
 import cdpm from "../../../../assets/images/cdpm.svg"
 import Diamondwallpaper from "../../../../assets/images/Diamondwallpaper.svg"
-// import { Bar } from 'react-chartjs-2';
-// import React, { PureComponent } from 'react';
+import { BsArrowLeftShort } from "react-icons/bs";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function CustomerDetail() {
@@ -52,6 +51,9 @@ export default function CustomerDetail() {
     ];
   return (
     <div>
+      <div className="header-back">
+      <BsArrowLeftShort size="30"/><span>Customer List</span>
+      </div>
         <div className="cd-customercollab">
         <div className="cd-projectmanager">
             <div className="cd-pm">
@@ -272,7 +274,7 @@ export default function CustomerDetail() {
 
 
 
-    <div className="cd-mostordered">
+    <div className="cd-mostorderedbar">
           <div className="cd-tabscollab">
           <div className="cd-mostcontent">
             <label>Most Ordered Product</label>
@@ -281,7 +283,7 @@ export default function CustomerDetail() {
         
 
         <div className="container">
-      <div className="bloc-tabs">
+      <div className="bloc-bartabs">
         <button
           className={toggleState === 1 ? "tabs activebar-tabs" : "bartabs"}
           onClick={() => barTab(1)}
@@ -311,7 +313,7 @@ export default function CustomerDetail() {
           className={barState === 1 ? "content  active-content" : "content"}
         >
     <BarChart
-          width={700}
+          width={560}
           height={300}
           data={data}
           margin={{
@@ -327,7 +329,7 @@ export default function CustomerDetail() {
           <XAxis dataKey="name" />
         
           <Tooltip />
-          <Legend />
+          <Legend className="barlegend"/>
           <Bar dataKey="FloralWallpaper" fill="#E57C30" />
           <Bar dataKey="AbstractWallpaper" fill="#EB281B" />
           <Bar dataKey="TextureWallpaper" fill="#81D0FC" />

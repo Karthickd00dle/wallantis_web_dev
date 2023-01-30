@@ -3,7 +3,7 @@ import DashboardIconSVGComponent from "assets/svg/Admin/Dashboard";
 import CustomerIconSVGComponent from "assets/svg/Admin/Customer";
 import OrderManagentIconSVGComponent from "assets/svg/Admin/OrderManagement";
 import ProductManagementSVGComponent from "assets/svg/Admin/ProductManagement";
-import InventoryMangement from "assets/svg/Admin/InventoryMangement";
+import { InventoryMangement } from "assets/svg/Admin/InventoryMangement";
 import LeadIconSVGComponent from "assets/svg/Admin/LeadManagement";
 import CouponManagement from "assets/svg/Admin/CouponManagement";
 import BlogManagement from "assets/svg/Admin/BlogManagement";

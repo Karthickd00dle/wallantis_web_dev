@@ -9,22 +9,20 @@ import {
 import { HiDotsHorizontal } from "react-icons/hi";
 import visibility from "../../../../assets/images/visibility.svg";
 import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { Pagination } from "../../common/CustomPagination";
+import { Pagination } from "../../common/Pagination";
 
-import { Router, Route, Link, useHistory } from 'react-router-dom';
-import { createBrowserHistory, History } from 'history' 
+import { Router, Route, Link, useHistory } from "react-router-dom";
+import { createBrowserHistory, History } from "history";
 
 import "./style.scss";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 
 export default function CouponManagement() {
-
-  
   const history = useHistory();
 
-  const goToAbout=()=> {
-    history.push('/admin/couponDetailPage');
-  }
+  const goToAbout = () => {
+    history.push("/admin/couponDetailPage");
+  };
 
   const staffHead = [
     {

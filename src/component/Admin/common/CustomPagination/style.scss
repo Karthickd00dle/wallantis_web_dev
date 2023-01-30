@@ -1,0 +1,22 @@
+.pagination-style {
+  .MuiPagination-ul {
+    li {
+      .MuiButtonBase-root.MuiPaginationItem-root.Mui-selected {
+        background-color: none;
+      }
+      button:active {
+        background-color: none;
+      }
+    }
+  }
+}
+
+.pagination-style {
+  ul {
+    li {
+      button.Mui-selected {
+        background-color: none;
+      }
+    }
+  }
+}
