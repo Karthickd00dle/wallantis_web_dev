@@ -1,10 +1,21 @@
+.header-back{
+  margin-top: 30px;
+  margin-left: 55px;
+  span{
+    font-weight: 600;
+font-size: 20px;
+margin-top: 8px;
+margin-left: 10px;
+  }
+}
 .cd-customercollab{
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     border-radius: 17px;
-    width: 1432px;
+    width: 1294px;
     height: 291px;
-    margin-left: 6%;
+    margin-left: 4%;
+    margin-top: 40px;
     display: flex;
     gap: 18%;
 }
@@ -92,9 +103,18 @@ font-size: 16px;
     background: #FFFFFF;
 box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 border-radius: 27px;
-width: 707px;
+width: 645px;
 height: 200%;
-margin-left: 100px;
+margin-left: 69px;
+margin-top: 60px;
+}
+.cd-mostorderedbar{
+  background: #FFFFFF;
+box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+border-radius: 27px;
+width: 595px;
+height: 200%;
+margin-left: 69px;
 margin-top: 60px;
 }
 .cd-mostcontent{
@@ -136,7 +156,14 @@ margin-top: 60px;
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
-    width: 70%;
+    width: 94%;
+  }
+  .bloc-bartabs {
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    width: 94%;
   }
   .tabs {
     padding: 15px;
@@ -164,7 +191,9 @@ width: 37%;
     
   }
   .content-tabs {
-    // flex-grow : 1;
+    .datakey{
+       margin-top: 20px;
+    }
   }
   .content {
     display: none;

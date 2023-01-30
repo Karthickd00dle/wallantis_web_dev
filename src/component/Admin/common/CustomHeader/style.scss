@@ -1,0 +1,8 @@
+@import "assets/scss/abstracts/abstracts.scss";
+.admin-name-label {
+  @include fontLatoStyle(18px, 600, #000000, 22px);
+}
+.MuiPaper-root.MuiAppBar-root {
+  min-height: auto;
+  height: auto;
+}

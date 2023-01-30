@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import { HiDotsHorizontal } from "react-icons/hi";
 import visibility from "../../../../assets/images/visibility.svg";
-import { Pagination } from "../../common/CustomPagination";
+import { Pagination } from "../../common/Pagination";
 import { StaffColumnValues } from "component/Admin/Data/staticDatas";
 
 import { Router, Route, Link, useHistory } from "react-router-dom";
