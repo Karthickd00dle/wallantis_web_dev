@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const ReportModules = (props) => (
-  <svg width={30} height={30} xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg width={30} height={30}  {...props}>
     <path
       d="M9.375 16.875h7.5v1.875h-7.5v-1.875Zm0-4.688h11.25v1.876H9.375v-1.876Zm0 9.376h4.688v1.875H9.375v-1.875Z"
       fill={props.fill}
