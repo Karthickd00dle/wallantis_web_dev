@@ -15,14 +15,20 @@ import {
   Marker,
   Popup,
   useMapEvents,
+  CircleMarker,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 var L = window.L;
 export default function Dashboard() {
+  const redOptions = {
+    backgroundColor: "#7CB5EC",
+    border: "1px solid rgba(124, 181, 236)",
+  };
   const newicon = new L.icon({
     iconUrl: MapMarker,
     iconSize: [20, 20],
   });
+  const [random, setRandom] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [viewport, setViewport] = useState({
     latitude: 20.7679,
@@ -33,6 +39,8 @@ export default function Dashboard() {
   function LocationMarker() {
     useMapEvents({
       click(event) {
+        let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+        setRandom([...random, r]);
         setMarkers([...markers, event.latlng]);
       },
     });
@@ -156,17 +164,17 @@ export default function Dashboard() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
+
               <LocationMarker />
-              {markers.map((coordinates) => {
+              {markers.map((coordinates, index) => {
                 return (
-                  <Marker
-                    position={[coordinates.lat, coordinates.lng]}
-                    icon={newicon}
+                  <CircleMarker
+                    center={[coordinates.lat, coordinates.lng]}
+                    pathOptions={redOptions}
+                    radius={random[index]}
                   >
-                    <Popup>
-                      Lat: {coordinates.lat}, Long: {coordinates.lng}
-                    </Popup>
-                  </Marker>
+                    <Popup>Popup in CircleMarker</Popup>
+                  </CircleMarker>
                 );
               })}
             </MapContainer>
