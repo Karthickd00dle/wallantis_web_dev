@@ -5,19 +5,11 @@ import { DonutChart } from "./DonutChart";
 import { VerticalBarChart } from "./VerticalBarChart";
 import { PieChart } from "./PieChart";
 import { HorizontalBarChart } from "./HorizontalBarChart";
-
 import CommonSelect from "component/Admin/common/CommonSelect";
 
-import MapMarker from "assets/icons/Admin/mapMarker.png";
-import {
-  MapContainer,
-  TileLayer,
-  Popup,
-  useMapEvents,
-  CircleMarker,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Popup, CircleMarker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-var L = window.L;
+
 export default function Dashboard() {
   const redOptions = {
     backgroundColor: "#7CB5EC",
@@ -26,28 +18,12 @@ export default function Dashboard() {
 
   const [random] = useState([]);
   const [markers] = useState([]);
-  const [viewport, setViewport] = useState({
+  const [viewport] = useState({
     latitude: 20.7679,
     longitude: 87.8718,
     zoom: 4.4,
   });
 
-  function LocationMarker() {
-    useMapEvents({
-      click() {},
-    });
-  }
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((pos) => {
-      setViewport({
-        ...viewport,
-        latitude: pos.coords.latitude,
-        longitude: pos.coords.longitude,
-        zoom: 4.4,
-      });
-    });
-  }, []);
   return (
     <div className="dashboard-main">
       <div className="header-background">
@@ -157,7 +133,6 @@ export default function Dashboard() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 
-              <LocationMarker />
               {markers.map((coordinates, index) => {
                 return (
                   <CircleMarker
