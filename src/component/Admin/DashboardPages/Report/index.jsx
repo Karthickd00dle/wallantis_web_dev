@@ -12,7 +12,7 @@ export default function Reports() {
     startDate: null,
     endDate: null,
   });
-  console.log(datepicker);
+
   return (
     <div className="dashboard-main">
       <div className="header-background">
