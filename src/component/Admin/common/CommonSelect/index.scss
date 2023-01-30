@@ -5,7 +5,5 @@
   padding: 10px;
   outline: none;
   border: none;
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
+  @include fontLatoStyle(16px, 500, #000000, 19px);
 }

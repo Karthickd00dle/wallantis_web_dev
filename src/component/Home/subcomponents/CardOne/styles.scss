@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .home-card-one-container {
   width: auto;
   height: 372px;
@@ -13,23 +15,13 @@
   padding-left: 60px;
 
   .home-card-one--title {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 38px;
+    @include fontLatoStyle(32px, 500, #000000, 38px);
     margin-bottom: 20px;
-    color: #000000;
   }
 
   .home-card-one--title-two {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+    @include fontLatoStyle(18px, 400, #838383, 22px);
     margin-bottom: 40px;
-    color: #838383;
   }
 
   img {
@@ -42,18 +34,9 @@
     width: 191px;
     height: 57px;
     border: none;
-
-    /* buttons- gold */
-
+    @include fontLatoStyle(16px, 500, #ffffff, 19px);
     background: #a26220;
     border-radius: 6px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
     text-align: center;
-
-    color: #ffffff;
   }
 }

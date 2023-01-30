@@ -1,529 +1,417 @@
-.careers-head{
-    height: 300px;
-    background-color:#54CFBD;
-  }
-  .mainmenu{
-    font-weight: 700;
-    font-size: 39px;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    margin-top: 90px;
-  }
+@import "assets/scss/abstracts/abstracts.scss";
 
-  .careershead{
-    display: flex;
-    
-.growwallantics{
+.careers-head {
+  height: 300px;
+  background-color: #54cfbd;
+}
+.mainmenu {
+  font-weight: 700;
+  font-size: 39px;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.careershead {
+  display: flex;
+
+  .growwallantics {
     width: 792px;
     height: 353px;
-    background: #F5F5F5;
+    background: #f5f5f5;
     margin-left: 148px;
     margin-top: 26px;
-    label{
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 36px;
-        color: #4D4D4D;
-        margin-left: 63px;
-        margin-top: 40px;
+    label {
+      @include fontLatoStyle(36px, 700, #4d4d4d);
+      margin-left: 63px;
+      margin-top: 40px;
     }
-    p{
-        width: 689px;
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 189%;
-    margin-left: 63px;
-    margin-top: 32px;
+    p {
+      @include fontLatoStyle(17px, 600, #000000, 189%);
+      width: 689px;
+      margin-left: 63px;
+      margin-top: 32px;
     }
+  }
+
+  .careerswall {
+    img {
+      width: 75%;
+      margin-top: 24px;
+      margin-right: 25%;
+      background: #f5f5f5;
+    }
+  }
 }
 
-.careerswall{
-    img{
-        width: 75%;
-        margin-top: 24px;
-        margin-right: 25%;
-        background: #F5F5F5;
-    }
+.uropportunities {
+  label {
+    @include fontLatoStyle(32px, 700, #4d4d4d, 38px);
+    text-align: center;
+    margin-top: 25px;
+    margin-left: 42%;
+    margin-top: 70px;
+  }
 }
-}
-
-.uropportunities{
-    label{
-        font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 38px;
-text-align: center;
-margin-top: 25px;
-color: #4D4D4D;
-margin-left: 42%;
-margin-top: 70px;
-    }
-}
-.salesandmarket{
-    width: 524px;
-    height: 377px;
-    margin-left: 77px;
-    margin-top: 164px;
-    border: 1px solid #C8C8C8;
-    border-radius: 10px;
-    label{  
-font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 29px;
-color: #4D4D4D;
-margin-top: 111px;
-margin-left: 30%;
-    }
-    p{
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 189%;
-        text-align: justify;
-        margin: 24px 65px 9px;
-    }
+.salesandmarket {
+  width: 524px;
+  height: 377px;
+  margin-left: 77px;
+  margin-top: 164px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  label {
+    @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+    margin-top: 111px;
+    margin-left: 30%;
+  }
+  p {
+    @include fontLatoStyle(16px, 500, #000000, 189%);
+    text-align: justify;
+    margin: 24px 65px 9px;
+  }
 }
 
-.technology{
-    width: 524px;
-    height: 377px;
-    margin-left: 37px;
-    margin-top: 164px;
-    border: 1px solid #C8C8C8;
-    border-radius: 10px;
-    label{  
-font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 29px;
-color: #4D4D4D;
-margin-top: 111px;
-margin-left: 35%;
-    }
-    p{
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 189%;
-        text-align: justify;
-        margin: 24px 65px 9px;
-    }
+.technology {
+  width: 524px;
+  height: 377px;
+  margin-left: 37px;
+  margin-top: 164px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  label {
+    @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+    margin-top: 111px;
+    margin-left: 35%;
+  }
+  p {
+    @include fontLatoStyle(16px, 500, #000000, 189%);
+    text-align: justify;
+    margin: 24px 65px 9px;
+  }
 }
 
-.ecofriendly{
-    width: 524px;
-    height: 377px;
-    margin-left: 37px;
-    margin-top: 164px;
-    border: 1px solid #C8C8C8;
-    border-radius: 10px;
-    margin-right: 58px;
-    label{  
-font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 29px;
-color: #4D4D4D;
-margin-top: 111px;
-margin-left: 35%;
-    }
-    p{
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 189%;
-        text-align: justify;
-        margin: 24px 65px 9px;
-    }
+.ecofriendly {
+  width: 524px;
+  height: 377px;
+  margin-left: 37px;
+  margin-top: 164px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  margin-right: 58px;
+  label {
+    @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+    margin-top: 111px;
+    margin-left: 35%;
+  }
+  p {
+    @include fontLatoStyle(16px, 500, #000000, 189%);
+    text-align: justify;
+    margin: 24px 65px 9px;
+  }
 }
-.opportunitycollab{
-    .sales-img{
-        position: absolute;
+.opportunitycollab {
+  .sales-img {
+    position: absolute;
     width: 11%;
     left: 13%;
     top: 134%;
-    }
-    .tech-img{
-        position: absolute;
+  }
+  .tech-img {
+    position: absolute;
     width: 11%;
     left: 45%;
     top: 134%;
-    }
-    .eco-img{
-        position: absolute;
+  }
+  .eco-img {
+    position: absolute;
     width: 11%;
     left: 76%;
     top: 134%;
-    }
-    display: flex;
+  }
+  display: flex;
 }
 
-.currentopen{
-    label{
-        font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 33px;
-line-height: 58px;
-text-align: center;
-color: #4D4D4D;
-margin-top: 100px;
-margin-left: 42%;
-    }
+.currentopen {
+  label {
+    @include fontLatoStyle(33px, 700, #4d4d4d, 58px);
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 42%;
+  }
 }
-.openingsinput{
-    margin-left: 84px;
-    display: flex;
-    input{
-        width: 234.16px;
+.openingsinput {
+  margin-left: 84px;
+  display: flex;
+  input {
+    width: 234.16px;
     height: 45px;
     border: 1px solid #838383;
     border-radius: 6px;
     margin-top: 50px;
     padding: 2px 2px 2px 14px;
     margin-left: 25px;
-    }
-    button{
-       
+  }
+  button {
     width: 214.73px;
     height: 51px;
-    background: #A26220;
+    background: #a26220;
     border-radius: 4px;
-    border-color: #A26220;
-    color: #F5F5F5;
+    border-color: #a26220;
+    color: #f5f5f5;
     margin-top: 47px;
     margin-left: 31px;
-    }
+  }
 }
 
-.openingscontents{
-    width: 90%;
-    margin-left: 109px;
-    height: 199px;
-    border: 1px solid #838383;
-    border-radius: 6px;
-    margin-top: 95px;
-    .managerdetails{
-        display: flex;
+.openingscontents {
+  width: 90%;
+  margin-left: 109px;
+  height: 199px;
+  border: 1px solid #838383;
+  border-radius: 6px;
+  margin-top: 95px;
+  .managerdetails {
+    display: flex;
     justify-content: space-around;
     gap: 66%;
     margin-top: 57px;
-        label{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 30px;
-color: #3F434A;
-        }
-        span{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-color: #2A71F9;
-
-        }
+    label {
+      @include fontLatoStyle(30px, 600, #3f434a);
     }
-    .manageraddress{
-        margin-left: 50px;
-        margin-top: 23px;
-        label{
-        font-size: 19px;
-        }
-        span{
-            font-size: 19px;
-            }
+    span {
+      @include fontLatoStyle(22px, 600, #2a71f9);
     }
+  }
+  .manageraddress {
+    margin-left: 50px;
+    margin-top: 23px;
+    label {
+      font-size: 19px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
 }
 
-
-.openingscontentsmarket{
-    width: 90%;
-    margin-left: 109px;
-    height: 199px;
-    border: 1px solid #838383;
-    border-radius: 6px;
-    margin-top: 55px;
-    .marketingdetails{
-        display: flex;
+.openingscontentsmarket {
+  width: 90%;
+  margin-left: 109px;
+  height: 199px;
+  border: 1px solid #838383;
+  border-radius: 6px;
+  margin-top: 55px;
+  .marketingdetails {
+    display: flex;
     justify-content: space-around;
     gap: 66%;
     margin-top: 57px;
-        label{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 30px;
-color: #3F434A;
-        }
-        span{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-color: #2A71F9;
-        }
+    label {
+      @include fontLatoStyle(30px, 600, #3f434a);
     }
-    .marketingaddress{
-        margin-left: 50px;
-        margin-top: 23px;
-        label{
-        font-size: 19px;
-        }
-        span{
-            font-size: 19px;
-            }
+    span {
+      @include fontLatoStyle(22px, 600, #2a71f9);
     }
+  }
+  .marketingaddress {
+    margin-left: 50px;
+    margin-top: 23px;
+    label {
+      font-size: 19px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
 }
 
-
-.openingscontentservice{
-    width: 90%;
-    margin-left: 109px;
-    height: 199px;
-    border: 1px solid #838383;
-    border-radius: 6px;
-    margin-top: 55px;
-    .servicedetails{
-        display: flex;
+.openingscontentservice {
+  width: 90%;
+  margin-left: 109px;
+  height: 199px;
+  border: 1px solid #838383;
+  border-radius: 6px;
+  margin-top: 55px;
+  .servicedetails {
+    display: flex;
     justify-content: space-around;
     gap: 59%;
     margin-top: 57px;
-        label{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 30px;
-color: #3F434A;
-        }
-        span{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-color: #2A71F9;
-        }
+    label {
+      @include fontLatoStyle(30px, 600, #3f434a);
     }
-    .serviceaddress{
-        margin-left: 50px;
-        margin-top: 23px;
-        label{
-        font-size: 19px;
-        }
-        span{
-            font-size: 19px;
-            }
+    span {
+      @include fontLatoStyle(22px, 600, #2a71f9);
     }
+  }
+  .serviceaddress {
+    margin-left: 50px;
+    margin-top: 23px;
+    label {
+      font-size: 19px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
 }
-.openingscontentaccountant{
-    width: 90%;
-    margin-left: 109px;
-    height: 199px;
-    border: 1px solid #838383;
-    border-radius: 6px;
-    margin-top: 55px;
-    .accountantdetails{
-        display: flex;
+.openingscontentaccountant {
+  width: 90%;
+  margin-left: 109px;
+  height: 199px;
+  border: 1px solid #838383;
+  border-radius: 6px;
+  margin-top: 55px;
+  .accountantdetails {
+    display: flex;
     justify-content: space-around;
     gap: 59%;
     margin-top: 57px;
-        label{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 30px;
-color: #3F434A;
-        }
-        span{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-color: #2A71F9;
-margin-left: 9%;
-        }
+    label {
+      @include fontLatoStyle(30px, 600, #3f434a);
     }
-    .accountantaddress{
-        margin-left: 50px;
-        margin-top: 23px;
-        label{
-        font-size: 19px;
-        }
-        span{
-            font-size: 19px;
-            }
+    span {
+      @include fontLatoStyle(22px, 600, #2a71f9);
+      margin-left: 9%;
     }
+  }
+  .accountantaddress {
+    margin-left: 50px;
+    margin-top: 23px;
+    label {
+      font-size: 19px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
 }
 
-.openingscontenttech{
-    width: 90%;
-    margin-left: 109px;
-    height: 199px;
-    border: 1px solid #838383;
-    border-radius: 6px;
-    margin-top: 55px;
-    .techdetails{
-        display: flex;
+.openingscontenttech {
+  width: 90%;
+  margin-left: 109px;
+  height: 199px;
+  border: 1px solid #838383;
+  border-radius: 6px;
+  margin-top: 55px;
+  .techdetails {
+    display: flex;
     justify-content: space-around;
     gap: 68%;
     margin-top: 57px;
-        label{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 30px;
-color: #3F434A;
-        }
-        span{
-            font-family: 'Lato';
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-color: #2A71F9;
-        }
+    label {
+      @include fontLatoStyle(30px, 600, #3f434a);
     }
-    .techaddress{
-        margin-left: 50px;
-        margin-top: 23px;
-        label{
-        font-size: 19px;
-        }
-        span{
-            font-size: 19px;
-            }
+    span {
+      @include fontLatoStyle(22px, 600, #2a71f9);
     }
+  }
+  .techaddress {
+    margin-left: 50px;
+    margin-top: 23px;
+    label {
+      font-size: 19px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
 }
 
-.careercollab{
-    display: flex;
-    // justify-content: space-around;
-    margin-left: 94px;
-    gap: 21%;
+.careercollab {
+  display: flex;
+  // justify-content: space-around;
+  margin-left: 94px;
+  gap: 21%;
 }
 
-.careerpolices{
-    label{
-        font-family: 'Lato';
-font-style: normal;
-font-weight: 700;
-font-size: 38px;
-margin-left: 45%;
-color: #000000;
-margin-top: 121px;
-    }
+.careerpolices {
+  label {
+    @include fontLatoStyle(38px, 700, #000000);
+    margin-left: 45%;
+    margin-top: 121px;
+  }
 }
-.careerpolicycontents{
-    margin-top: 40px;
-    margin-left: 104px;
-    span{
-font-weight: 600;
-font-size: 20px;
-margin-left: 20px;
-    }
-    p{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
+.careerpolicycontents {
+  margin-top: 40px;
+  margin-left: 104px;
+  span {
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 20px;
+  }
+  p {
+    @include fontLatoStyle(17px, 500, #6d6363);
     width: 464px;
     text-align: justify;
-    color: #6D6363;
     margin-top: 25px;
     margin-right: 20%;
-    }
-    img{
-     
-    }
+  }
 }
 
-.careerpolicysupport{
-    margin-top: 40px;
-    img{
-        margin-left: 91px;
-    }
-    span{
-font-weight: 600;
-font-size: 20px;
-    }
-    p{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
+.careerpolicysupport {
+  margin-top: 40px;
+  img {
+    margin-left: 91px;
+  }
+  span {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  p {
+    @include fontLatoStyle(17px, 500, #6d6363);
     width: 464px;
     text-align: justify;
-    color: #6D6363;
     margin-left: 22%;
     margin-top: 25px;
-    }
+  }
 }
 
-
-.careercollab2{
-    display: flex;
-    gap: 24%;
-    margin-top: 40px;
-   
+.careercollab2 {
+  display: flex;
+  gap: 24%;
+  margin-top: 40px;
 }
 
-.careerpolicyhealth{
-    img{
-        margin-left: 194px;
-    }
-    span{
-font-weight: 600;
-font-size: 20px;
-    }
-    p{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
+.careerpolicyhealth {
+  img {
+    margin-left: 194px;
+  }
+  span {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  p {
+    @include fontLatoStyle(17px, 500, #6d6363);
     width: 464px;
     text-align: justify;
-    color: #6D6363;
     margin-left: 41%;
     margin-top: 25px;
-    }
+  }
 }
-.careerpolicyeducation{
-    margin-left: 8%;
-    margin-bottom: 80px;
-    img{
-        margin-left: 91px;
-    }
-    span{
-font-weight: 600;
-font-size: 20px;
-    }
-    p{
-        font-family: 'Lato';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
+.careerpolicyeducation {
+  margin-left: 8%;
+  margin-bottom: 80px;
+  img {
+    margin-left: 91px;
+  }
+  span {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  p {
+    @include fontLatoStyle(17px, 500, #6d6363);
     width: 464px;
     text-align: justify;
-    color: #6D6363;
     margin-left: 22%;
     margin-top: 25px;
-    }
+  }
 }
 
-.current-collab{
-    background: #F9F9F9;
-    margin-top: 150px;
-    height: 100%;
+.current-collab {
+  background: #f9f9f9;
+  margin-top: 150px;
+  height: 100%;
 }

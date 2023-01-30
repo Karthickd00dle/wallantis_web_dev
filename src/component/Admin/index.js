@@ -11,57 +11,41 @@ import BlogManagement from "component/Admin/DashboardPages/BlogManagement";
 import StaffManagement from "component/Admin/DashboardPages/StaffManagement";
 import ContentManagement from "component/Admin/DashboardPages/ContentManagement";
 import CareerManagement from "component/Admin/DashboardPages/CareerManagement";
-import CatalogueManagement from "component/Admin/DashboardPages/CatalogueManagement"
+import CatalogueManagement from "component/Admin/DashboardPages/CatalogueManagement";
 import Reports from "./DashboardPages/Report";
 import { history } from "service/helpers";
-
 
 export default function AdminComponent() {
   const Routing = () => {
     if (history.location.pathname.includes("dashboard")) {
-      return <Dashboard /> ;
+      return <Dashboard />;
     } else if (history.location.pathname.includes("settings")) {
       return <SettingsComponent />;
     } else if (history.location.pathname.includes("customer")) {
       return <Customer />;
     } else if (history.location.pathname.includes("report-management")) {
       return <Reports />;
+    } else if (history.location.pathname.includes("ordermanagement")) {
+      return <OrderManagement />;
+    } else if (history.location.pathname.includes("product-management")) {
+      return <ProductManagement />;
+    } else if (history.location.pathname.includes("coupon-management")) {
+      return <CouponManagement />;
+    } else if (history.location.pathname.includes("inventory-management")) {
+      return <InventoryManagement />;
+    } else if (history.location.pathname.includes("lead-management")) {
+      return <LeadManagement />;
+    } else if (history.location.pathname.includes("blog-management")) {
+      return <BlogManagement />;
+    } else if (history.location.pathname.includes("staff-management")) {
+      return <StaffManagement />;
+    } else if (history.location.pathname.includes("content-management")) {
+      return <ContentManagement />;
+    } else if (history.location.pathname.includes("career-management")) {
+      return <CareerManagement />;
+    } else if (history.location.pathname.includes("catalogue-management")) {
+      return <CatalogueManagement />;
     }
-    else if (history.location.pathname.includes("customer")) {
-      return <Customer/>;
-    }
-    else if (history.location.pathname.includes("ordermanagement")) {
-      return <OrderManagement/>;
-    }
-    else if (history.location.pathname.includes("product-management")) {
-      return <ProductManagement/>;
-    }
-    else if (history.location.pathname.includes("coupon-management")) {
-      return <CouponManagement/>;
-    }
-    else if (history.location.pathname.includes("inventory-management")) {
-      return <InventoryManagement/>;
-    }
-    else if (history.location.pathname.includes("lead-management")) {
-      return <LeadManagement/>;
-    }
-    else if (history.location.pathname.includes("blog-management")) {
-      return <BlogManagement/>;
-    }
-    else if (history.location.pathname.includes("staff-management")) {
-      return <StaffManagement/>;
-    }
-    else if (history.location.pathname.includes("content-management")) {
-      return <ContentManagement/>;
-    }
-    else if (history.location.pathname.includes("career-management")) {
-      return <CareerManagement/>;
-    }
-    else if (history.location.pathname.includes("catalogue-management")) {
-      return <CatalogueManagement/>;
-    }
-
-
   };
   return (
     <div>
