@@ -134,11 +134,7 @@
   }
   span {
     @include fontLatoStyle(15px, 700, #2a71f9);
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
     font-size: 15px;
-    color: #2a71f9;
     width: 76px;
   }
 }

@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .delivery-card {
   width: 1178px;
   height: 338px;
@@ -30,10 +32,7 @@
   gap: 30px;
   margin-top: 30px;
   .name {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
+    @include fontLatoStyle(32px, 700, #000000);
   }
 }
 
@@ -47,12 +46,7 @@
   margin-top: 20px;
 
   .add-bank-account {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-
-    color: #2a71f9;
+    @include fontLatoStyle(16px, 500, #2a71f9);
   }
 
   .action-btn {
@@ -62,35 +56,21 @@
 }
 
 .payment-mode-name {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
+  @include fontLatoStyle(16px, 700, #000000);
 }
 
 .payment-mode-type {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
+  @include fontLatoStyle(14px, 500, #000000);
   margin-top: -20px;
 }
 
 .eligibility-date {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  @include fontLatoStyle(16px, 500, #000000);
   margin-left: 5%;
 }
 
 .return-summary-title {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-
-  color: #2a71f9;
+  @include fontLatoStyle(24px, 600, #2a71f9);
 }
 
 .small-image {
@@ -100,46 +80,23 @@
 
 .return-summary-card {
   .date {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-
-    color: #2a71f9;
+    @include fontLatoStyle(15px, 600, #2a71f9);
   }
 
   .type {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-
-    color: #000000;
+    @include fontLatoStyle(16px, 600, #000000);
   }
 
   .color {
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
+    @include fontRobotoStyle(12px, 500, #696969);
     margin-top: -10px;
-    color: #696969;
   }
 
   .refund-text {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
-
-    color: #000000;
+    @include fontLatoStyle(22px, 400, #000000);
   }
 
   .refund-amount {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    color: #cd9c69;
+    @include fontLatoStyle(24px, 700, #cd9c69);
   }
 }

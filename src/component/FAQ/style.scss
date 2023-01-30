@@ -31,13 +31,7 @@
   .according-body {
     p {
       @include fontLatoStyle(17px, 500, #6d6363, 33px);
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 33px;
       text-align: justify;
-      color: #6d6363;
     }
   }
   .item1 {

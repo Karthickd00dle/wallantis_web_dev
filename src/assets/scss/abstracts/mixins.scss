@@ -97,6 +97,27 @@
   }
 }
 
+@mixin fontInterStyle(
+  $fontSize,
+  $fontWeight,
+  $fontColor,
+  $lineHeight: "",
+  $letterSpacing: ""
+) {
+  font-family: "Inter", sans-serif;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  color: $fontColor;
+
+  @if $lineHeight != "" {
+    line-height: $lineHeight;
+  }
+
+  @if $letterSpacing != "" {
+    letter-spacing: $letterSpacing;
+  }
+}
+
 @mixin fontCustomStyle(
   $fontSize: "",
   $fontWeight,
