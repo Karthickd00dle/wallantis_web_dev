@@ -2,17 +2,9 @@ import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import CardThree from "component/Home/subcomponents/CardThree";
 import React from "react";
 import { history } from "service/helpers";
-import styles from "./styles.scss";
-
-
-//TODO - s
-// 1 Add Magnifier to Image
-// 2 Stars for review Sections
-// 3 Extract Components 
-// 4 Implement Calculators
+import "./styles.scss";
 
 function ProductDetailComponent() {
-  
   return (
     <div className="product-detail-container">
       <div className="product-detail-inner-container">
@@ -106,30 +98,31 @@ function ProductDetailComponent() {
                   <div className="ib-body-2-title">
                     Insructions on Application of Wallpaper{" "}
                   </div>
-                  <div className="ib-body-2-txt-tilte">1. Prepare your surface/wall</div>
+                  <div className="ib-body-2-txt-tilte">
+                    1. Prepare your surface/wall
+                  </div>
                   <ul>
-                  <li>Priming and Levelling</li>
-                  <li>Sealing</li>
-                  <li>Glue Application</li>
+                    <li>Priming and Levelling</li>
+                    <li>Sealing</li>
+                    <li>Glue Application</li>
                   </ul>
-                
                 </div>
 
                 <div>
                   <div className="ib-body-2-txt-tilte"> 2. Installation</div>
                   <div className="ib-body-2-txt">
-                  <div>
-                    STEP 1:&ensp;Hang the frst strip using a plumb line to get a
-                    perfect vertical.
-                  </div>
-                  <div>
-                    STEP 2:&ensp;Smoothen out all the bubbles using Nilaya
-                    Wallcovering Smoother or Smart Care Roller as required.
-                  </div>
-                  <div>
-                    STEP 3:&ensp;Hang the subsequent strips relative to the frst
-                    strip, matching pattern as required.
-                  </div>
+                    <div>
+                      STEP 1:&ensp;Hang the frst strip using a plumb line to get
+                      a perfect vertical.
+                    </div>
+                    <div>
+                      STEP 2:&ensp;Smoothen out all the bubbles using Nilaya
+                      Wallcovering Smoother or Smart Care Roller as required.
+                    </div>
+                    <div>
+                      STEP 3:&ensp;Hang the subsequent strips relative to the
+                      frst strip, matching pattern as required.
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -143,7 +136,14 @@ function ProductDetailComponent() {
 
           <div className="gold-button-container">
             <div className="gold-button">Add to Cart</div>
-            <div className="gold-button-fill" onClick={()=>{history.push("/home/product-details/payment-page")} }>Buy Now</div>
+            <div
+              className="gold-button-fill"
+              onClick={() => {
+                history.push("/home/product-details/payment-page");
+              }}
+            >
+              Buy Now
+            </div>
           </div>
 
           <div className="gold-button-xl">Room Visualizer</div>
