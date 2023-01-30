@@ -6,17 +6,10 @@
   height: max-content;
 
   .other-products-title {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 48px;
-    line-height: 58px;
-    /* identical to box height */
+    @include fontLatoStyle(48px, 500, #000000, 58px);
     margin-bottom: 40px;
     display: flex;
     align-items: center;
-
-    color: #000000;
   }
 
   .other-products-list {
@@ -53,22 +46,12 @@
 
         .ib-body {
           .ib-body-title {
-            font-family: "Roboto";
-            font-style: normal;
-            font-weight: 600;
-            font-size: 22px;
-            line-height: 22px;
+            @include fontRobotoStyle(22px, 600, #000000, 22px);
             margin-bottom: 11px;
-            color: #000000;
           }
 
           .ib-body-txt {
-            font-family: "Lato";
-            font-style: normal;
-            font-weight: 400;
-            font-size: 15px;
-            line-height: 22px;
-            color: #000000;
+            @include fontLatoStyle(15px, 400, #000000, 22px);
             margin-bottom: 10px;
           }
 
@@ -86,66 +69,36 @@
         }
 
         .ib-body-2-title {
-          font-family: "Roboto";
-          font-style: normal;
-          font-weight: 600;
-          font-size: 22px;
-          line-height: 22px;
-          /* identical to box height, or 100% */
+          @include fontRobotoStyle(22px, 600, #000000, 22px);
           margin-bottom: 20px;
           text-decoration-line: underline;
-
-          color: #000000;
         }
 
         .ib-body-2-txt-tilte {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 600;
-          font-size: 17px;
-          line-height: 22px;
-          color: #000000;
+          @include fontLatoStyle(17px, 600, #000000, 22px);
           margin-top: 10px;
           margin-bottom: 10px;
         }
 
         ul {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 13px;
-          line-height: 22px;
-
-          color: #696969;
+          @include fontLatoStyle(13px, 400, #696969, 22px);
         }
 
         .ib-body-2-txt {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 13px;
-          line-height: 22px;
-
-          color: #696969;
+          @include fontLatoStyle(13px, 400, #696969, 22px);
         }
       }
     }
 
     .gold-button-xl {
+      @include fontRobotoStyle(20px, 400, #a26220, 22px);
       margin-right: 20px;
       width: 788px;
       height: 66px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 22px;
-      color: #a26220;
       cursor: pointer;
-
       border: 1px solid #a26220;
       border-radius: 4px;
     }
@@ -156,96 +109,55 @@
       margin-bottom: 45px;
 
       .gold-button {
+        @include fontRobotoStyle(20px, 400, #a26220, 22px);
         margin-right: 20px;
         width: 385.57px;
         height: 66px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 22px;
-        color: #a26220;
         cursor: pointer;
-
         border: 1px solid #a26220;
         border-radius: 4px;
       }
 
       .gold-button-fill {
+        @include fontRobotoStyle(20px, 400, #ffffff, 22px);
         width: 385.57px;
         height: 66px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 22px;
-        color: #ffffff;
         cursor: pointer;
-
         background: #a26220;
-
         border: 1px solid #a26220;
         border-radius: 4px;
       }
     }
     .info-title {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 26px;
-      line-height: 22px;
+      @include fontLatoStyle(26px, 700, #000000, 22px);
       margin-bottom: 30px;
     }
 
     .info-content {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 22px;
-      /* or 157% */
-
+      @include fontLatoStyle(14px, 400, #8f8f8f, 22px);
       display: flex;
       align-items: center;
       margin-bottom: 30px;
-      color: #8f8f8f;
     }
 
     .info-title-2 {
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 22px;
-      /* identical to box height, or 110% */
+      @include fontRobotoStyle(18px, 400, #000000, 22px);
       margin-bottom: 30px;
       display: flex;
       align-items: center;
       text-transform: uppercase;
-
-      color: #000000;
     }
 
     .info-heading-one {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      /* identical to box height */
-
+      @include fontLatoStyle(20px, 500, #000000, 24px);
       display: flex;
       align-items: center;
-
-      /* base/black */
-
-      color: #000000;
       margin-bottom: 20px;
     }
 
@@ -287,18 +199,9 @@
         padding-left: 33px;
         padding-right: 33px;
         margin-right: 24px;
-
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
-        /* identical to box height, or 122% */
-
+        @include fontRobotoStyle(18px, 500, #2a71f9, 22px);
         display: flex;
         align-items: center;
-
-        color: #2a71f9;
       }
     }
 
@@ -306,18 +209,11 @@
       max-width: 800px;
     }
     .product-details-section-header {
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 22px;
-      /* identical to box height, or 92% */
+      @include fontRobotoStyle(24px, 600, #000000, 22px);
       margin-top: 45px;
       margin-bottom: 44px;
       display: flex;
       align-items: center;
-
-      color: #000000;
     }
 
     .pd-container {
@@ -327,11 +223,7 @@
 
     .pd-1 {
       flex: 1;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      color: #000000;
+      @include fontRobotoStyle(20px, 600, #000000);
     }
 
     .pd-2 {
@@ -339,12 +231,7 @@
     }
 
     .customer-reviews-container {
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 22px;
-      color: #000000;
+      @include fontRobotoStyle(24px, 600, #000000, 22px);
       margin-bottom: 30px;
       margin-top: 30px;
     }
@@ -366,58 +253,31 @@
         flex: 3;
         margin-left: 10px;
         .review-item-title {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 22px;
-          color: #000000;
+          @include fontLatoStyle(16px, 400, #000000, 22px);
           margin-bottom: 6px;
         }
 
         .review-item-title-2 {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 22px;
-          color: #000000;
+          @include fontLatoStyle(18px, 500, #000000, 22px);
           margin-bottom: 6px;
         }
 
         .review-item-txt {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 15px;
-          line-height: 22px;
-          color: #000000;
+          @include fontLatoStyle(15px, 400, #000000, 22px);
           margin-bottom: 6px;
         }
       }
     }
 
     .custom-recipe-title {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 20px;
+      @include fontLatoStyle(20px, 400, #000000);
       margin-bottom: 10px;
       display: flex;
       align-items: center;
-
-      color: #000000;
     }
 
     .custom-recipe-txt {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 22px;
-      /* or 157% */
-
-      color: #8f8f8f;
+      @include fontLatoStyle(14px, 400, #8f8f8f, 22px);
     }
   }
 }
