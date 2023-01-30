@@ -7,12 +7,11 @@ import { PieChart } from "./PieChart";
 import { HorizontalBarChart } from "./HorizontalBarChart";
 
 import CommonSelect from "component/Admin/common/CommonSelect";
-// import Map, { Marker, Popup } from "react-map-gl";
+
 import MapMarker from "assets/icons/Admin/mapMarker.png";
 import {
   MapContainer,
   TileLayer,
-  Marker,
   Popup,
   useMapEvents,
   CircleMarker,
@@ -24,12 +23,9 @@ export default function Dashboard() {
     backgroundColor: "#7CB5EC",
     border: "1px solid rgba(124, 181, 236)",
   };
-  const newicon = new L.icon({
-    iconUrl: MapMarker,
-    iconSize: [20, 20],
-  });
-  const [random, setRandom] = useState([]);
-  const [markers, setMarkers] = useState([]);
+
+  const [random] = useState([]);
+  const [markers] = useState([]);
   const [viewport, setViewport] = useState({
     latitude: 20.7679,
     longitude: 87.8718,
@@ -38,11 +34,7 @@ export default function Dashboard() {
 
   function LocationMarker() {
     useMapEvents({
-      click(event) {
-        // let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
-        // setRandom([...random, r]);
-        // setMarkers([...markers, event.latlng]);
-      },
+      click() {},
     });
   }
 
