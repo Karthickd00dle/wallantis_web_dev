@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./style.scss";
 
 export const Instructions = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen] = useState(true);
   return (
     <div>
       <h1>Instructions</h1>

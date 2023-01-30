@@ -18,27 +18,6 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
     password: "",
   });
 
-  const handleSubmit = () => {
-    if (validator.allValid()) {
-      loginApiCall(loginFormValue).then((res) => {
-        localStorage.setItem("authToken", res);
-        history.push("/");
-      });
-    } else {
-      showValidationMessage(true);
-    }
-  };
-
-  const handleChange = ({ target: { name, value } }) => {
-    const tempErrors = { ...error };
-    tempErrors[name] = undefined;
-    setErrors({ ...error, ...tempErrors });
-    setLoginFormValue({
-      ...loginFormValue,
-      [name]: value,
-    });
-  };
-
   return (
     <div className={`login-entries ${ownProps.className}`}>
       <div className="d-flex flex-column">

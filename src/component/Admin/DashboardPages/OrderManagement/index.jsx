@@ -1,7 +1,6 @@
 import React from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
-  Avatar,
   IconButton,
   MenuItem,
   TableBody,
@@ -38,7 +37,7 @@ const totalInstallersData = [
     Date: "Oct 18th, 2022",
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
-    Amount:"₹3500",
+    Amount: "₹3500",
     Ongoing_Orders: 8,
     Installer_Cost: 500,
   },
@@ -154,38 +153,22 @@ const TableDataBody = ({
 
 export default function OrderManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [value, setValue] = React.useState(0);
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
-  };
-
-  const handleTabs = (event, newValue) => {
-    setValue(newValue);
   };
 
   return (
     <div>
       <CustomNavBar label="Order Management" />
-        <TabPanel value={value} index={0}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
+      <CustomTable>
+        <TableDataHeader />
+        <TableBody>
+          {totalInstallersData?.map((bodyData) => (
+            <TableDataBody bodyData={bodyData} />
+          ))}
+        </TableBody>
+      </CustomTable>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

@@ -16,8 +16,8 @@ export const CustomFilterAccordion = ({ itemheader, itemlist, index }) => {
       >
         <label className="filter-title cursor-pointer">{itemheader}</label>
       </AccordionSummary>
-      {itemlist.map(({ itemlabel, itemcount }, index) => (
-        <AccordionDetails key={index}>
+      {itemlist.map(({ itemlabel, itemcount }) => (
+        <AccordionDetails>
           <List>
             <ListItem disablePadding>
               <div className="d-flex align-items-center">

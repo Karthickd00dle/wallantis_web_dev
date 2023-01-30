@@ -15,17 +15,6 @@
   background-color: #f2f2f2;
   margin-left: 5%;
 }
-
-.return-summary-card {
-  width: 385px;
-  height: 393px;
-  background: #fffefe;
-  border: 1px solid #d3d3d3;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 50px;
-}
-
 .return-order-main {
   display: flex;
   justify-content: center;
@@ -79,6 +68,13 @@
 }
 
 .return-summary-card {
+  width: 385px;
+  height: 393px;
+  background: #fffefe;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 50px;
   .date {
     @include fontLatoStyle(15px, 600, #2a71f9);
   }
