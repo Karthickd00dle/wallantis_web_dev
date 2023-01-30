@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .RegisterAgain_entries {
   form {
     position: relative;
@@ -42,12 +44,7 @@
     width: 56px;
     left: 74%;
     top: 100px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    color: #2a71f9;
+    @include fontLatoStyle(16px, 700, #2a71f9, 20px, 0.04em);
   }
 }
 

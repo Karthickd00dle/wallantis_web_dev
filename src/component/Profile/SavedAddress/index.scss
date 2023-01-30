@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .saved-address {
   display: flex;
   flex-direction: column;
@@ -12,23 +14,18 @@
   margin-top: -20px;
   padding: 20px;
   border: none !important;
-  font-family: "Lato";
   font-style: normal;
   font-weight: 600;
   width: 650px;
 }
 
 .edit {
-  font-family: "Lato";
   text-decoration-line: underline;
-
   color: #2a71f9;
   cursor: pointer;
 }
 
 .delete {
-  font-family: "Lato";
-
   text-decoration-line: underline;
   cursor: pointer;
   color: #ef3039;

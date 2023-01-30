@@ -1,11 +1,8 @@
+@import "../../../assets/scss/abstracts/abstracts";
 .header-dropDown-container {
   width: 100vw;
   height: 100%;
   display: flex;
-
-  // box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.16);
-  // position: fixed;
-  // top: 0;
   justify-content: space-evenly;
 
   .header-dropDown-item-container {
@@ -19,7 +16,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      // margin-left: 100px;
       height: 100%;
       cursor: pointer;
       .header-dropDown-item-icon {
@@ -28,7 +24,6 @@
 
       .menu-list {
         position: absolute;
-        padding: 0;
         margin-top: 395px;
         height: 300px;
         width: 250px;
@@ -42,13 +37,7 @@
 
         .menu-list-item {
           padding: 10px;
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 19px;
-
-          color: #000000;
+          @include fontLatoStyle(16px, 400, #000000, 19px);
         }
 
         .menu-list-item:hover {
@@ -56,17 +45,9 @@
           display: flex;
           flex-direction: row;
           align-items: flex-start;
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 19px;
-
-          color: #000000;
-
+          @include fontLatoStyle(16px, 400, #000000, 19px);
           width: 100%;
           height: 39px;
-
           background: #54cfbd;
           border-radius: 2px;
         }
@@ -75,6 +56,6 @@
   }
 }
 
-.cart-icon{
+.cart-icon {
   cursor: pointer;
 }
