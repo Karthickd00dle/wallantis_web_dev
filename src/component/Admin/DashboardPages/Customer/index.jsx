@@ -10,11 +10,8 @@ import {
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
-import {
-  EyeIcon,
-} from "assets/svg/Admin/InventoryMangement";
+import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
-import  { TabPanel } from "component/Admin/common/CustomTabs";
 
 const customersData = [
   {
@@ -23,15 +20,15 @@ const customersData = [
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
     Date: "Oct 18th, 2022",
-    Total_Spent:"₹7000",
+    Total_Spent: "₹7000",
   },
   {
     No: "2",
     Customer_ID: "#98765",
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
-    Date:"Oct 18th, 2022",
-    Total_Spent:"₹7000",
+    Date: "Oct 18th, 2022",
+    Total_Spent: "₹7000",
   },
 ];
 
@@ -66,14 +63,7 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: {
-    No,
-    Customer_ID,
-    Customer_Name,
-    Location,
-    Date,
-    Total_Spent,
-  },
+  bodyData: { No, Customer_ID, Customer_Name, Location, Date, Total_Spent },
 }) => {
   return (
     <TableRow key={No}>
@@ -109,25 +99,24 @@ const TableDataBody = ({
 
 export default function CustomerManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [value, setValue] = React.useState(0);
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
   };
 
-
   return (
     <div>
       <CustomNavBar label="Customer" />
-        <TabPanel value={value} index={0}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {customersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
+
+      <CustomTable>
+        <TableDataHeader />
+        <TableBody>
+          {customersData?.map((bodyData) => (
+            <TableDataBody bodyData={bodyData} />
+          ))}
+        </TableBody>
+      </CustomTable>
+
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

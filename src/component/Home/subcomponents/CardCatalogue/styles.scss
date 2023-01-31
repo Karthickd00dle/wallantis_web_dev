@@ -1,42 +1,28 @@
+@import "assets/scss/abstracts/abstracts.scss";
 
-      .catalogue-card-container {
-        width: 300px;
-        margin-bottom: 50px;
+.catalogue-card-container {
+  width: 300px;
+  margin-bottom: 50px;
 
-        img {
-          height: 230px;
-          width: 100%;
-          object-fit: cover;
-          margin-bottom: 24px;
-        }
+  img {
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
 
-        .catalogue-card-title {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 29px;
-          line-height: 35px;
-          margin-bottom: 16px;
-          /* identical to box height */
+  .catalogue-card-title {
+    @include fontLatoStyle(29px, 500, #000000, 35px);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
 
-          display: flex;
-          align-items: center;
-
-          color: #000000;
-        }
-
-        .catalogue-card-view {
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 400;
-          font-size: 19px;
-          line-height: 23px;
-          /* identical to box height */
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          text-decoration-line: underline;
-
-          color: #2a71f9;
-        }
-      }
+  .catalogue-card-view {
+    @include fontLatoStyle(29px, 400, #2a71f9, 23px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+  }
+}

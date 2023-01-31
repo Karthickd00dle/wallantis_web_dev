@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .rotate-wallpaper {
   display: flex;
   gap: 20px;
@@ -20,9 +22,7 @@
         width: 200px;
         height: 70px;
         gap: 20px;
-        font-family: "SF Pro Display";
-        font-style: normal;
-        font-weight: 700;
+        @include fontPoppinsStyle(18px, 700, #000000);
         font-size: 18px;
         display: flex;
         align-items: center;
@@ -70,12 +70,12 @@
       position: absolute;
       right: 0;
       top: 0;
-      width: 100%; // this is an arbitrary width, depends on the design
+      width: 100%;
       z-index: -1;
     }
 
     .image-stack__item--top {
-      width: 100%; // arbitrary value
+      width: 100%;
     }
 
     img {
@@ -93,10 +93,7 @@
 
   .texture-container {
     h3 {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 36px;
+      @include fontLatoStyle(36pc, 700, #000000);
       margin-top: 3px;
     }
 
@@ -114,10 +111,7 @@
 
     .grid-child {
       p {
-        font-family: "Lato";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 20px;
+        @include fontLatoStyle(20pc, 700, #000000);
       }
 
       img {

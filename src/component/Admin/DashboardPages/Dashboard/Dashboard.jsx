@@ -161,7 +161,6 @@ export default function Dashboard() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 
-              <LocationMarker />
               {markers.map((coordinates, index) => {
                 return (
                   <CircleMarker

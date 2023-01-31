@@ -163,20 +163,24 @@ const TableDataBody = ({
 
 export default function InventoryManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [value, setValue] = React.useState(0);
+  const [tabvalue, setTabValue] = React.useState(0);
   const handlePage = (event, value) => {
     setCurrentPage(value);
   };
 
   const handleTabs = (event, newValue) => {
-    setValue(newValue);
+    setTabValue(newValue);
   };
 
   return (
     <div>
       <CustomNavBar label="Inventory Management" />
-      <CustomTabs tabLabel={inventoryLabel} value={value} onChange={handleTabs}>
-        <TabPanel value={value} index={0}>
+      <CustomTabs
+        tabLabel={inventoryLabel}
+        value={tabvalue}
+        onChange={handleTabs}
+      >
+        <TabPanel value={tabvalue} index={0}>
           <CustomTable>
             <TableDataHeader />
             <TableBody>
@@ -186,7 +190,7 @@ export default function InventoryManagement() {
             </TableBody>
           </CustomTable>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel value={tabvalue} index={1}>
           <CustomTable>
             <TableDataHeader />
             <TableBody>

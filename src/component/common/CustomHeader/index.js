@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./header.scss";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,41 +11,9 @@ import { CustomSelect } from "../CustomSelect";
 import { LanguageMenuList } from "config";
 import { CustomButton } from "..";
 import { history } from "service/helpers";
-import { FeaturesList } from "config";
-import { Menu, MenuItem } from "@mui/material";
 import JohnDoe1 from "../../../assets/images/JohnDoe1.svg";
-import { FaAngleDown } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Header from "../Header";
-
-const FeatureHeader = ({ data: { id, Icon, label, menuitems } }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
-
-  return (
-    <div className="dropdown">
-      <div key={id} className="d-flex flex-column align-items-center dropbtn">
-        <Icon />
-        <label className="py-2">{label}</label>
-      </div>
-      <div>
-        {/* <List className="dropdown-content">
-          {menuitems?.map((dat) => (
-            <MenuItem>{dat}</MenuItem>
-          ))}
-        </List> */}
-      </div>
-    </div>
-  );
-};
 
 export const CustomHeader = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -79,7 +47,7 @@ export const CustomHeader = () => {
             <NormalSearch />
             <div className="d-flex align-items-center">
               <SupportPersonLogo width="60" height="30" />
-              <div className="ps-0 d-flex flex-column">
+              <div className="ps-0 d-flex flex-column w-100">
                 <label>Need Help?</label>
                 <label>+044 65483 46823</label>
               </div>
@@ -103,7 +71,6 @@ export const CustomHeader = () => {
                 &nbsp;&nbsp;
                 <span>John Doe</span>
                 <RiArrowDropDownLine size="20" />
-                {/* <div className={`FaAngleDown ${open ? "active" : "inactive"}`}> */}
                 {open && (
                   <div className="FaAngleDown">
                     <ul className="cursor-pointer">
@@ -128,6 +95,7 @@ export const CustomHeader = () => {
                   backgroundColor: "#A26220",
                 }}
                 variant="contained"
+                className="ms-3"
                 onClick={() => {
                   setShowBanner(true);
                 }}

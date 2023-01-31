@@ -1,11 +1,10 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .breadcrumbs {
   position: absolute;
   margin-left: 100px;
   margin-top: 50px;
-  font-family: "Roboto" !important;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
+  @include fontRobotoStyle(14px, 400, #000000);
 }
 
 .order-details {
@@ -15,13 +14,7 @@
 }
 
 .order-status-details {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: #000000;
+  @include fontLatoStyle(16px, 700, #000000, 19px);
 }
 
 .info-cards {
@@ -33,34 +26,15 @@
 }
 
 .del-address {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #000000;
+  @include fontInterStyle(20px, 700, #000000, 29px);
 }
 
 .name {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  /* identical to box height */
-
-  color: #000000;
+  @include fontInterStyle(16px, 500, #000000, 22px);
 }
 
 .address {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-
-  color: #000000;
+  @include fontInterStyle(14px, 500, #000000);
 }
 
 .image {
@@ -113,28 +87,14 @@
   width: 216px;
   height: 60px;
   border: 1px solid #2a71f9;
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  /* identical to box height */
+  @include fontLatoStyle(20px, 700, #2a71f9, 24px);
   background-color: white;
-  color: #2a71f9;
 }
 
 .order-state-name {
-  color: #000000;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  @include fontRobotoStyle(16px, 500, #000000);
 }
 
 .order-state-date {
-  color: #696969;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  @include fontRobotoStyle(16px, 500, #696969);
 }

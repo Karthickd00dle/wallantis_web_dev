@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TableWrapper } from "component/Admin/common/TableWrapper";
 import {
   UncontrolledButtonDropdown,
@@ -9,15 +9,8 @@ import {
 import { HiDotsHorizontal } from "react-icons/hi";
 import visibility from "../../../../assets/images/visibility.svg";
 import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { Pagination } from "../../common/Pagination";
 
 export default function CatalogueManagement() {
-  const [toggleState, setToggleState] = useState(1);
-
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-
   const staffHead = [
     {
       label: "No",

@@ -1,44 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
 import { history } from "service/helpers";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loginApi } from "action/AuthAct";
-import useValidator from "service/useValidator";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { InputAdornment } from "@mui/material";
 
-export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
-  const [validator, showValidationMessage] = useValidator();
-  const [error, setErrors] = useState({});
-
-  const [loginFormValue, setLoginFormValue] = useState({
-    userName: "",
-    password: "",
-  });
-
-  const handleSubmit = () => {
-    if (validator.allValid()) {
-      loginApiCall(loginFormValue).then((res) => {
-        localStorage.setItem("authToken", res);
-        history.push("/");
-      });
-    } else {
-      showValidationMessage(true);
-    }
-  };
-
-  const handleChange = ({ target: { name, value } }) => {
-    const tempErrors = { ...error };
-    tempErrors[name] = undefined;
-    setErrors({ ...error, ...tempErrors });
-    setLoginFormValue({
-      ...loginFormValue,
-      [name]: value,
-    });
-  };
-
+export const LoginComponentMain = ({ ownProps }) => {
   return (
     <div className={`login-entries ${ownProps.className}`}>
       <div className="d-flex flex-column">

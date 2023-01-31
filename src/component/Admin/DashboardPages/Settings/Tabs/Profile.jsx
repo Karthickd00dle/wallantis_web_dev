@@ -2,7 +2,7 @@ import React from "react";
 import userImage from "assets/icons/Admin/userImage.png";
 import CloseIcon from "assets/icons/Admin/closeIcon.png";
 import CommonButton from "component/Admin/common/CommonButton";
-import CommonInput from "component/Admin/common/CommonInput";
+import { CommonInput } from "component/Admin/common/CommonInput";
 
 export default function Profile() {
   return (

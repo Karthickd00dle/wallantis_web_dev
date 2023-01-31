@@ -1,3 +1,4 @@
+@import "assets/scss/abstracts/abstracts.scss";
 .manage-reports {
   width: 95%;
   position: relative;
@@ -5,10 +6,7 @@
   top: 20px;
 
   p {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
+    @include fontLatoStyle(18px, 600, #000000);
   }
 
   .date-picker-container {
@@ -17,12 +15,8 @@
     top: 60px;
 
     p {
-      font-family: "Lato";
+      @include fontLatoStyle(14px, 500, #000000, 17px);
       width: 100px;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 17px;
       margin-top: 15px;
     }
   }
@@ -59,20 +53,12 @@
 
   .orders {
     .amount {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 32px;
-      color: #5d5fef;
+      @include fontLatoStyle(32px, 700, #5d5fef, 32px);
     }
 
     .number {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
+      @include fontLatoStyle(16px, 500, #000000);
       margin-top: -20px;
-      color: #000000;
     }
   }
 }

@@ -1,15 +1,11 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .input-container {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   .input-label {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 19px;
-
-    color: #000000;
+    @include fontLatoStyle(16px, 600, #000000, 19px);
   }
   .common-input {
     margin-top: 5px;
