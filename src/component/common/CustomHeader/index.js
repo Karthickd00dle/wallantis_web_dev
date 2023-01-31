@@ -47,7 +47,7 @@ export const CustomHeader = () => {
             <NormalSearch />
             <div className="d-flex align-items-center">
               <SupportPersonLogo width="60" height="30" />
-              <div className="ps-0 d-flex flex-column">
+              <div className="ps-0 d-flex flex-column w-100">
                 <label>Need Help?</label>
                 <label>+044 65483 46823</label>
               </div>
@@ -95,6 +95,7 @@ export const CustomHeader = () => {
                   backgroundColor: "#A26220",
                 }}
                 variant="contained"
+                className="ms-3"
                 onClick={() => {
                   setShowBanner(true);
                 }}
