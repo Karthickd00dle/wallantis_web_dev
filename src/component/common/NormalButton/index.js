@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ternaryCondition } from "service/helperFunctions";
-import "./index.scss";
 
 export class NormalButton extends Component {
   render() {
