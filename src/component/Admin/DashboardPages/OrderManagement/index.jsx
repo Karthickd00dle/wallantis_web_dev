@@ -38,7 +38,7 @@ const totalInstallersData = [
     Date: "Oct 18th, 2022",
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
-    Amount:"₹3500",
+    Amount: "₹3500",
     Ongoing_Orders: 8,
     Installer_Cost: 500,
   },
@@ -166,26 +166,26 @@ export default function OrderManagement() {
   return (
     <div>
       <CustomNavBar label="Order Management" />
-        <TabPanel value={value} index={0}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
+      <TabPanel value={value} index={0}>
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {totalInstallersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {totalInstallersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </TabPanel>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}
