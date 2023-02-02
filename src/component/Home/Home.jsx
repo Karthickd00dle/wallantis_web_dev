@@ -14,6 +14,21 @@ import CatalogueBg from "../../assets/images/catalogueCardBackground.png";
 import CardCatalogue from "./subcomponents/CardCatalogue";
 import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
 
+function CardBlog({ blogbg }) {
+  return (
+    <div className="blog-container">
+      <img className="blog-post-img mt-3" src={blogbg} />
+      <div className="blog-post-date">11.10.2022</div>
+      <div className="blog-post-title">
+        Trending Wallpaper Designs for Dining Room by E...
+      </div>
+      <div className="blog-post-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
+      </div>
+    </div>
+  );
+}
+
 export const HomeComponentMain = () => {
   return (
     <>
@@ -159,9 +174,9 @@ export const HomeComponentMain = () => {
             <div className="view-all-but">VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
-            <CardBlog Blogbg={Blogbg} />
-            <CardBlog Blogbg={Blogbg} />
-            <CardBlog Blogbg={Blogbg} />
+            <CardBlog blogbg={Blogbg} />
+            <CardBlog blogbg={Blogbg} />
+            <CardBlog blogbg={Blogbg} />
           </div>
         </div>
 
@@ -194,18 +209,3 @@ export const HomeComponentMain = () => {
 };
 
 export const Home = connect(null, null)(HomeComponentMain);
-
-function CardBlog({ Blogbg }) {
-  return (
-    <div className="blog-container">
-      <img className="blog-post-img mt-3" src={Blogbg} />
-      <div className="blog-post-date">11.10.2022</div>
-      <div className="blog-post-title">
-        Trending Wallpaper Designs for Dining Room by E...
-      </div>
-      <div className="blog-post-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
-      </div>
-    </div>
-  );
-}

@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .ForgotPassword_entries {
   form {
     position: relative;
@@ -42,12 +44,7 @@
     width: 56px;
     left: 74%;
     top: 90px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    color: #2a71f9;
+    @include fontLatoStyle(16px, 700, #2a71f9, 15px, 0.04em);
   }
 }
 

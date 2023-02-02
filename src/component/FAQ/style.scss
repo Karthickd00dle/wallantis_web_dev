@@ -1,3 +1,4 @@
+@import "assets/scss/abstracts/abstracts.scss";
 .accordion-page {
   .faq-head {
     height: 300px;
@@ -16,35 +17,21 @@
     width: 80%;
   }
   p {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    @include fontLatoStyle(14px, 500, #6d6363);
     text-align: justify;
-    color: #6d6363;
     margin-left: 96px;
     width: 80%;
   }
 
   .according-header {
     h6 {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 23px;
-      line-height: 36px;
-      color: #000000;
+      @include fontLatoStyle(23px, 700, #000000, 36px);
     }
   }
   .according-body {
     p {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 33px;
+      @include fontLatoStyle(17px, 500, #6d6363, 33px);
       text-align: justify;
-      color: #6d6363;
     }
   }
   .item1 {

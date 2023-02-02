@@ -1,7 +1,6 @@
 import React from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
-  Avatar,
   IconButton,
   MenuItem,
   TableBody,
@@ -19,7 +18,6 @@ import {
   StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
-import CustomTabs, { TabPanel } from "component/Admin/common/CustomTabs";
 
 const totalInstallersData = [
   {
@@ -154,38 +152,22 @@ const TableDataBody = ({
 
 export default function OrderManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [value, setValue] = React.useState(0);
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
-  };
-
-  const handleTabs = (event, newValue) => {
-    setValue(newValue);
   };
 
   return (
     <div>
       <CustomNavBar label="Order Management" />
-      <TabPanel value={value} index={0}>
-        <CustomTable>
-          <TableDataHeader />
-          <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
-            ))}
-          </TableBody>
-        </CustomTable>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <CustomTable>
-          <TableDataHeader />
-          <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
-            ))}
-          </TableBody>
-        </CustomTable>
-      </TabPanel>
+      <CustomTable>
+        <TableDataHeader />
+        <TableBody>
+          {totalInstallersData?.map((bodyData) => (
+            <TableDataBody bodyData={bodyData} />
+          ))}
+        </TableBody>
+      </CustomTable>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

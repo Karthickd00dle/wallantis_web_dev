@@ -1,5 +1,6 @@
 @import "assets/scss/abstracts/abstracts.scss";
 .login-entries {
+  top: 10%;
   left: 45%;
   position: absolute;
   .email-mobile-input-field {
@@ -31,7 +32,7 @@
 .login-terms {
   padding: 55px 0 45px;
   width: 80%;
-  @include fontLatoStyle(18px, 500, #000000, 24px, 0.04em);
+  @include fontLatoStyle(15px, 500, #000000, 24px, 0.04em);
 }
 
 .login-register-post {

@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .dealership-head {
   height: 400px;
   background-color: #54cfbd;
@@ -11,11 +13,7 @@
   margin-top: 60px;
 }
 .dealershiphead {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  color: #000000;
+  @include fontLatoStyle(26px, 700, #000000);
   margin-left: 7%;
   margin-top: 50px;
 }
@@ -33,12 +31,8 @@
 
 .dealerinfo {
   p {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 17px;
+    @include fontLatoStyle(17px, 500, #6d6363);
     text-align: justify;
-    color: #6d6363;
     margin-left: 45%;
     width: 50%;
     margin-top: 37px;
@@ -46,11 +40,7 @@
 }
 
 .getintouch {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 26px;
-  color: #000000;
+  @include fontLatoStyle(26px, 700, #000000);
   margin-left: 45%;
   margin-top: 50px;
 }
@@ -59,11 +49,7 @@
   .first-name {
     margin-top: 35px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 40px;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
       color: #000000;
       margin-right: 61%;
     }
@@ -79,12 +65,7 @@
   .last-name {
     margin-top: 38px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      color: #000000;
-      line-height: 35px;
+      @include fontLatoStyle(17px, 500, #000000, 35px);
     }
     input {
       box-sizing: border-box;
@@ -101,12 +82,7 @@
   .Email {
     margin-top: 35px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 40px;
-      color: #000000;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
       margin-right: 61%;
     }
     input {
@@ -122,12 +98,7 @@
   .mobilenumber {
     margin-top: 38px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      color: #000000;
-      line-height: 40px;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
     }
     input {
       box-sizing: border-box;
@@ -144,12 +115,7 @@
   .country {
     margin-top: 35px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 40px;
-      color: #000000;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
       margin-right: 61%;
     }
     input {
@@ -165,12 +131,7 @@
   .state {
     margin-top: 38px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      color: #000000;
-      line-height: 40px;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
     }
     input {
       box-sizing: border-box;
@@ -186,12 +147,7 @@
   .city {
     margin-top: 35px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 40px;
-      color: #000000;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
       margin-right: 61%;
     }
     input {
@@ -208,12 +164,7 @@
     margin-top: 38px;
     margin-left: 270px;
     span {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      color: #000000;
-      line-height: 40px;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
     }
     input {
       box-sizing: border-box;
@@ -227,14 +178,8 @@
 }
 .companyname {
   .companynamecol {
-    // margin-top: 10px;
     label {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      line-height: 40px;
-      color: #000000;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
       margin-right: 61%;
     }
     input {
@@ -248,15 +193,9 @@
   }
 
   .companyregistration {
-    // margin-top: 38px;
     margin-left: 260px;
     label {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 17px;
-      color: #000000;
-      line-height: 40px;
+      @include fontLatoStyle(17px, 500, #000000, 40px);
     }
     input {
       box-sizing: border-box;
@@ -271,19 +210,13 @@
 .message {
   margin-top: 35px;
   span {
+    @include fontLatoStyle(18px, 500, #000000, 39px);
     margin-top: 40px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    color: #000000;
-    line-height: 39px;
     margin-left: 20%;
   }
   input {
     width: 66%;
     height: 250px;
-    margin-left: 66px;
     border: 1px solid #969696;
     border-radius: 10px;
     padding: 2px 2px 2px 24px;
@@ -292,12 +225,7 @@
 }
 
 .dealercontacthead {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 54px;
-  color: #000000;
+  @include fontLatoStyle(30px, 700, #000000, 54px);
   margin-left: 48%;
   margin-top: 40px;
 }
@@ -315,22 +243,12 @@
   padding: 20px;
 
   span {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
+    @include fontLatoStyle(24px, 600, #000000, 29px);
   }
 
   p {
+    @include fontLatoStyle(18px, 400, #000000, 189.5%);
     margin-top: 30px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 189.5%;
-    /* or 34px */
-
     text-align: center;
     width: 80%;
   }
@@ -347,7 +265,7 @@
   margin-top: 40px;
 }
 
-.dealercontactcall{
+.dealercontactcall {
   width: 434px;
   height: 269px;
   background: #ffffff;
@@ -360,32 +278,23 @@
   padding: 20px;
 
   span {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
+    @include fontLatoStyle(24px, 600, #000000, 29px);
   }
 
   p {
+    @include fontLatoStyle(18px, 400, #000000, 189.5%);
     margin-top: 30px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 189.5%;
     text-align: center;
     width: 80%;
   }
   Small {
-        font-weight: 400;
-        font-size: 14px;
-        color: #2a71f9;
-       
-      }
+    font-weight: 400;
+    font-size: 14px;
+    color: #2a71f9;
+  }
 }
 
-.dealercontactemail{
+.dealercontactemail {
   width: 434px;
   height: 269px;
   background: #ffffff;
@@ -398,29 +307,20 @@
   padding: 20px;
 
   span {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
+    @include fontLatoStyle(24px, 600, #000000, 29px);
   }
 
   p {
+    @include fontLatoStyle(18px, 400, #000000, 189.5%);
     margin-top: 30px;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 189.5%;
     text-align: center;
     width: 80%;
   }
   Small {
-        font-weight: 400;
-        font-size: 14px;
-        color: #2a71f9;
-       
-      }
+    font-weight: 400;
+    font-size: 14px;
+    color: #2a71f9;
+  }
 }
 
 .dealercontactcards {

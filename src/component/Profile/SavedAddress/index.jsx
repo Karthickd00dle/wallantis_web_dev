@@ -1,9 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+
 import "./index.scss";
 
 export default function SavedAddresses({ showAddressForm }) {
-  let history = useHistory();
   return (
     <div className="saved-address">
       <div className="card">

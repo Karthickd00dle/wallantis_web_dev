@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .customized-wallpaper {
   display: flex;
   flex-direction: column;
@@ -12,10 +14,7 @@
       border-radius: 70px;
       height: 70px;
       gap: 20px;
-      font-family: "SF Pro Display";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 20px;
+      @include fontPoppinsStyle(20px, 700, #000000);
       display: flex;
       align-items: center;
       cursor: pointer;
@@ -26,10 +25,7 @@
     }
   }
   h3 {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
+    @include fontLatoStyle(40px, 700, #000000);
   }
 
   .tab-container {
@@ -44,10 +40,7 @@
   button {
     border: none;
     background-color: #f8f8f8;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
+    @include fontLatoStyle(26px, 500, #000000);
     padding: 0px 80px;
     cursor: pointer;
   }

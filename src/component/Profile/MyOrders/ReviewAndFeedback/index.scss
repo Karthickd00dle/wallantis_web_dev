@@ -1,7 +1,4 @@
-.review-card {
-  display: flex;
-  align-items: center;
-}
+@import "assets/scss/abstracts/abstracts.scss";
 
 .review-card-inner {
   width: 100%;
@@ -19,24 +16,14 @@
 }
 
 .review-card {
+  display: flex;
+  align-items: center;
   .name {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 38px;
-
-    color: #000000;
+    @include fontLatoStyle(32px, 700, #000000, 38px);
   }
 
   .purchased-on {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 25px;
-
-    color: #000000;
+    @include fontLatoStyle(21px, 700, #000000, 25px);
   }
 }
 
@@ -47,14 +34,7 @@
 }
 
 .overall-rating {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #000000;
+  @include fontLatoStyle(24px, 700, #000000, 29px);
 }
 
 .add-photos {
@@ -74,16 +54,13 @@
 }
 
 .upload-button {
+  @include fontLatoStyle(16px, 500, #000000);
   color: white;
   width: 200px;
   background-color: #2a71f9;
   padding: 8px 20px;
   border-radius: 8px;
   border: none;
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
   cursor: pointer;
 }
 

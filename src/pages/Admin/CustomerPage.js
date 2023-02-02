@@ -1,4 +1,3 @@
-// import Dashboard from "component/Admin/DashboardPages/Dashboard/Dashboard";
 import Customer from "component/Admin/DashboardPages/Customer";
 import React, { Component } from "react";
 // Redux Connection

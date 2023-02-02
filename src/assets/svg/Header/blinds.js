@@ -5,7 +5,6 @@ const BlindsSVGComponent = (props) => (
     height={38}
     viewBox="0 0 38 38"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path d="M7.125 22.75H30.875V34H7.125V22.75Z" fill="#68B1FC" />

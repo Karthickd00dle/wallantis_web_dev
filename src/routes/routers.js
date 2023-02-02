@@ -2,7 +2,7 @@ const routers = [
   {
     path: "/",
     exact: true,
-    redirect: "/",
+    redirect: "/home/home",
   },
   // {
   //   component: "HomeLayout",

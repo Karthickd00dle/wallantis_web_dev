@@ -80,12 +80,18 @@ export const CustomInput = ({
   type,
   startAdornment,
   endAdornment,
+  name,
+  value,
+  onChange,
 }) => {
   return (
     <>
       <Input
         id="standard-adornment-password"
         label={label}
+        name={name}
+        value={value}
+        onChange={onChange}
         variant={variant}
         placeholder={placeholder}
         className={className}

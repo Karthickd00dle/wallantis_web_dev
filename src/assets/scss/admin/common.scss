@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
+@import "assets/scss/abstracts/abstracts.scss";
 
 .header-background {
   background-color: #c5caff;
@@ -9,10 +9,7 @@
   width: 1600px;
   p {
     align-items: center;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
+    @include fontLatoStyle(24px, 500, #000000);
     margin-top: 10px;
     margin-left: 60px;
   }
@@ -33,11 +30,7 @@
   padding: 10px 30px;
   margin-top: 20px;
   p {
-    align-items: center;
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
+    @include fontLatoStyle(24px, 500, #000000);
   }
 }
 
@@ -70,17 +63,11 @@
     gap: 10px;
 
     .amount {
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 28px;
+      @include fontLatoStyle(28px, 700, #000000);
     }
 
     .order-number {
-      font-family: "Lato";
-      font-style: normal;
-      color: #696969;
-      font-size: 14px;
+      @include fontLatoStyle(14px, 400, #696969);
       margin-top: -25px;
     }
 
@@ -140,10 +127,7 @@
       right: 0px;
 
       p {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
+        @include fontPoppinsStyle(14px, 400, #000000);
       }
     }
 
@@ -155,20 +139,12 @@
   }
 
   .title {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    color: #9a9999;
+    @include fontLatoStyle(18px, 600, #9a9999);
     margin-top: -2%;
   }
 
   .amount {
-    font-family: "Lato";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    color: #000000;
+    @include fontLatoStyle(30px, 600, #000000);
     margin-top: -2%;
   }
 
@@ -210,7 +186,7 @@
 }
 
 .leaflet-container {
-  width: 100wh;
+  width: 100vh;
   height: 100vh;
 }
 
@@ -223,11 +199,7 @@
     align-items: center;
     width: 1100px;
     p {
-      align-items: center;
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 24px;
+      @include fontLatoStyle(24px, 500, #000000);
       margin-top: 10px;
       margin-left: 60px;
     }
@@ -279,17 +251,11 @@
       gap: 10px;
 
       .amount {
-        font-family: "Lato";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 28px;
+        @include fontLatoStyle(28px, 700, #000000);
       }
 
       .order-number {
-        font-family: "Lato";
-        font-style: normal;
-        color: #696969;
-        font-size: 14px;
+        @include fontLatoStyle(14px, 400, #696969);
         margin-top: -25px;
       }
 
@@ -318,11 +284,7 @@
     align-items: center;
     width: 1000px;
     p {
-      align-items: center;
-      font-family: "Lato";
-      font-style: normal;
-      font-weight: 500;
-      font-size: 24px;
+      @include fontLatoStyle(24px, 500, #000000);
       margin-top: 10px;
       margin-left: 60px;
     }
@@ -373,17 +335,11 @@
       gap: 10px;
 
       .amount {
-        font-family: "Lato";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 28px;
+        @include fontLatoStyle(28px, 700, #000000);
       }
 
       .order-number {
-        font-family: "Lato";
-        font-style: normal;
-        color: #696969;
-        font-size: 14px;
+        @include fontLatoStyle(14px, 400, #696969);
         margin-top: -25px;
       }
 
