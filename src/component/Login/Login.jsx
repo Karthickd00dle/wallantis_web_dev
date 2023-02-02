@@ -7,16 +7,19 @@ import { loginApi } from "action/AuthAct";
 import useValidator from "service/useValidator";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
-import { InputAdornment } from "@mui/material";
+import { Alert, AlertTitle, InputAdornment } from "@mui/material";
+import { errorMessageToDisplay } from "service/helperFunctions";
+import { Toast } from "service/toast";
 
 export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   const [validator, showValidationMessage] = useValidator();
   const [error, setErrors] = useState({});
 
   const [loginFormValue, setLoginFormValue] = useState({
-    userName: "",
+    mailId: "",
     password: "",
   });
+  const { mailId, password } = loginFormValue;
 
   const handleSubmit = () => {
     if (validator.allValid()) {
@@ -45,13 +48,25 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
         <CustomInput
           placeholder="Enter Email/Mobile number"
           variant="standard"
+          name="mailId"
+          value={mailId}
+          onChange={handleChange}
           className="email-mobile-input-field mt-4"
         />
+        {errorMessageToDisplay(
+          validator,
+          "Mail Id",
+          mailId,
+          "required|alpha_num_space"
+        )}
         <CustomInput
           placeholder="Enter Password"
           variant="standard"
           className="password-input-field mt-4"
           type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
           endAdornment={
             ownProps.postlogin && (
               <InputAdornment position="end">
@@ -67,6 +82,12 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             )
           }
         />
+        {errorMessageToDisplay(
+          validator,
+          "Password",
+          password,
+          "required|alpha_num_space"
+        )}
         {!ownProps.postlogin && (
           <div className="d-flex justify-content-end">
             <label
@@ -86,19 +107,26 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
           <a href="">Privacy policy</a>
         </label>
       </div>
-      <CustomButton className="login-button">Login</CustomButton>
-
-      <div className="login-register-post">
-        Don’t have an account
-        <a
-          className="ps-2 cursor-pointer"
-          onClick={() => {
-            history.push("/auth/register");
-          }}
-        >
-          Create a account
-        </a>
-      </div>
+      <CustomButton
+        style={{ backgroundColor: "#A26220", color: "#FFFFFF" }}
+        className="login-button"
+        onClick={handleSubmit}
+      >
+        Login
+      </CustomButton>
+      {ownProps.postlogin && (
+        <div className="login-register-post">
+          Don’t have an account
+          <a
+            className="ps-2 cursor-pointer"
+            onClick={() => {
+              history.push("/auth/register");
+            }}
+          >
+            Create a account
+          </a>
+        </div>
+      )}
       {!ownProps.postlogin && (
         <div className="login-register">
           <label className="dont-have-account-text">

@@ -51,7 +51,7 @@ const DeliveryAddress = ({ dataItems }) => {
 };
 
 export const Payment = () => {
-  const [activeStep, setActiveStep] = React.useState(1);
+  const [activeStep, setActiveStep] = React.useState(0);
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
