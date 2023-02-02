@@ -1,8 +1,7 @@
-import Profile from "component/Profile";
 import React, { Component } from "react";
 // Redux Connection
 import { connect } from "react-redux";
-
+const Profile = React.lazy(() => import("component/Profile"));
 export class ProfilePageClass extends Component {
   render() {
     return <Profile />;

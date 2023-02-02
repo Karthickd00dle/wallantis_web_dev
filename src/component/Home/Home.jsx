@@ -1,19 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./styles.scss";
-import wallpaperPng from "../../assets/images/wallpaperCard.png";
-import Blogbg from "assets/images/blogBg.png";
-import googlePlay from "assets/images/googlePlay.png";
-import qrSample from "assets/images/qrSample.png";
-import appStore from "assets/images/appStore.png";
-import HomeCardOne from "./subcomponents/CardOne";
-import CardTwo from "./subcomponents/CardTwo";
-import CardThree from "./subcomponents/CardThree";
 
-import CatalogueBg from "../../assets/images/catalogueCardBackground.png";
-import CardCatalogue from "./subcomponents/CardCatalogue";
-import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
-
+const wallpaperPng = React.lazy(() =>
+  import("../../assets/images/wallpaperCard.png")
+);
+const Blogbg = React.lazy(() => import("assets/images/blogBg.png"));
+const googlePlay = React.lazy(() => import("assets/images/googlePlay.png"));
+const qrSample = React.lazy(() => import("assets/images/qrSample.png"));
+const appStore = React.lazy(() => import("assets/images/appStore.png"));
+const HomeCardOne = React.lazy(() => import("./subcomponents/CardOne"));
+const CardTwo = React.lazy(() => import("./subcomponents/CardTwo"));
+const CardThree = React.lazy(() => import("./subcomponents/CardThree"));
+const CatalogueBg = React.lazy(() =>
+  import("../../assets/images/catalogueCardBackground.png")
+);
+const CardCatalogue = React.lazy(() => import("./subcomponents/CardCatalogue"));
+const QuotesSVGComponent = React.lazy(() =>
+  import("assets/svg/HomePage/qoutesSVG")
+);
 function CardBlog({ blogbg }) {
   return (
     <div className="blog-container">
