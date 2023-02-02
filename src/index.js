@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import { store } from "service/helpers";
 import "./assets/scss/abstracts/abstracts.scss";
 import "./assets/scss/main.scss";
-import "react-notifications/lib/notifications.css";
 import { ToastContainer } from "react-toastify";
 
 ReactDOM.render(

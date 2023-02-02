@@ -5,7 +5,6 @@ import Routers from "./routers";
 import * as Layout from "../layout";
 import * as Pages from "../pages";
 import { history } from "service/helpers";
-import { NotificationContainer } from "react-notifications";
 
 class RoutesClass extends Component {
   render() {
