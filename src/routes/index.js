@@ -74,8 +74,6 @@ class RoutesClass extends Component {
             );
           }
         )}
-
-        <NotificationContainer />
       </Router>
     );
   }
