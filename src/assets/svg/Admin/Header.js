@@ -5,7 +5,6 @@ export const SearchIcon = (props) => (
     width={25}
     height={24}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
@@ -22,7 +21,7 @@ export const BellIcon = (props) => (
     width={29}
     height={32}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path

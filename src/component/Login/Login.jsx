@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
 import { history } from "service/helpers";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loginApi } from "action/AuthAct";
-import useValidator from "service/useValidator";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { Alert, AlertTitle, InputAdornment } from "@mui/material";

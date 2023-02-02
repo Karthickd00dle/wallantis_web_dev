@@ -5,29 +5,21 @@ import { DonutChart } from "./DonutChart";
 import { VerticalBarChart } from "./VerticalBarChart";
 import { PieChart } from "./PieChart";
 import { HorizontalBarChart } from "./HorizontalBarChart";
-
 import CommonSelect from "component/Admin/common/CommonSelect";
-// import Map, { Marker, Popup } from "react-map-gl";
-import MapMarker from "assets/icons/Admin/mapMarker.png";
 import {
   MapContainer,
   TileLayer,
-  Marker,
   Popup,
   useMapEvents,
   CircleMarker,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-var L = window.L;
 export default function Dashboard() {
   const redOptions = {
     backgroundColor: "#7CB5EC",
     border: "1px solid rgba(124, 181, 236)",
   };
-  const newicon = new L.icon({
-    iconUrl: MapMarker,
-    iconSize: [20, 20],
-  });
+
   const [random, setRandom] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [viewport, setViewport] = useState({
@@ -36,7 +28,7 @@ export default function Dashboard() {
     zoom: 4.4,
   });
 
-  function LocationMarker() {
+  const LocationMarker = () => {
     useMapEvents({
       click(event) {
         let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
@@ -44,9 +36,9 @@ export default function Dashboard() {
         setMarkers([...markers, event.latlng]);
       },
     });
-  }
+  };
 
-  useEffect(() => {
+  const getCurrentPosition = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
       setViewport({
         ...viewport,
@@ -55,6 +47,10 @@ export default function Dashboard() {
         zoom: 4.4,
       });
     });
+  };
+
+  useEffect(() => {
+    getCurrentPosition();
   }, []);
   return (
     <div className="dashboard-main">
@@ -165,7 +161,6 @@ export default function Dashboard() {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 
-              <LocationMarker />
               {markers.map((coordinates, index) => {
                 return (
                   <CircleMarker

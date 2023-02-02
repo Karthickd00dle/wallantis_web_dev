@@ -9,10 +9,7 @@ import {
 import { HiDotsHorizontal } from "react-icons/hi";
 import visibility from "../../../../assets/images/visibility.svg";
 import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { Pagination } from "../../common/Pagination";
-
-import { Router, Route, Link, useHistory } from "react-router-dom";
-import { createBrowserHistory, History } from "history";
+import { useHistory } from "react-router-dom";
 
 export default function BlogManagement() {
   const history = useHistory();

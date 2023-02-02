@@ -5,6 +5,19 @@ import StickerWallpapers from "./Tabs/StickerWallpaper";
 import BackIcon from "assets/images/backIcon.png";
 import "./index.scss";
 
+function activePage(active) {
+  switch (active) {
+    case 1:
+      return <Wallpapers />;
+    case 2:
+      return <WallMurals />;
+    case 3:
+      return <StickerWallpapers />;
+    default:
+      return null;
+  }
+}
+
 export default function CustomizedWallpaper() {
   const [active, setActive] = useState(1);
   return (
@@ -37,18 +50,7 @@ export default function CustomizedWallpaper() {
           Sticker Wallpaper
         </button>
       </div>
-
-      {active === 1 ? (
-        <Wallpapers />
-      ) : active === 2 ? (
-        <>
-          <WallMurals />
-        </>
-      ) : (
-        <>
-          <StickerWallpapers />
-        </>
-      )}
+      {activePage(active)}
     </div>
   );
 }

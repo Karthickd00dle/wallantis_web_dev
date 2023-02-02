@@ -1,5 +1,4 @@
 import React from "react";
-import "assets/scss/layouts/AdminLayout.scss";
 import AdminSidebar from "component/common/AdminSidebar";
 import CustomHeader from "component/Admin/common/CustomHeader";
 

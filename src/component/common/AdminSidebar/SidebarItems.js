@@ -54,7 +54,7 @@ export const sidebarItems = [
       normal: <CouponManagement fill={"white"} />,
       active: <CouponManagement fill={"#C5CAFF"} />,
     },
-    route: "/admin/coupon-management",
+    route: "/admin/coupon",
   },
   {
     name: "Inventory Management",

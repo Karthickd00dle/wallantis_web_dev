@@ -5,7 +5,7 @@ const CatalogueManagement = (props) => (
     width={30}
     height={30}
     fill={props.fill}
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path d="M10.313 3.75h9.374v22.5h6.563V.937H10.312V3.75Z" fill="#fff" />

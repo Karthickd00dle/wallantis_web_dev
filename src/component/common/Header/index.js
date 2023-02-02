@@ -24,15 +24,15 @@ function Header() {
         },
         {
           name: "Sticker Wallpaper",
-          route: "/sticker-wallpaper",
+          route: "/home/productlisting/sticker-wallpaper",
         },
         {
           name: "Wall Murals",
-          route: "/wall-murals",
+          route: "/home/productlisting/wall-murals",
         },
         {
           name: "View all ",
-          route: "/all",
+          route: "/home/productlisting/all",
         },
       ],
     },
@@ -42,15 +42,15 @@ function Header() {
       subMenuItems: [
         {
           name: "Wooden flooring",
-          route: "/wooden-flooring",
+          route: "/home/productlisting/wooden-flooring",
         },
         {
           name: "LVP plank (Laminated)",
-          route: "/lvp-plank",
+          route: "/home/productlisting/lvp-plank",
         },
         {
           name: "View all ",
-          route: "/all-wooden-flooring",
+          route: "/home/productlisting/all-wooden-flooring",
         },
       ],
     },
@@ -60,31 +60,31 @@ function Header() {
       subMenuItems: [
         {
           name: "Vertical Blinds",
-          route: "/vertical-blinds",
+          route: "/home/productlisting/vertical-blinds",
         },
         {
           name: "Roller Blinds",
-          route: "/roller-blinds",
+          route: "/home/productlisting/roller-blinds",
         },
         {
           name: "Zebra Blinds",
-          route: "/zebra-blinds",
+          route: "/home/productlisting/zebra-blinds",
         },
         {
           name: "Chick Blinds ",
-          route: "/chick-blinds",
+          route: "/home/productlisting/chick-blinds",
         },
         {
           name: "Wooden Blinds ",
-          route: "/wooden-blinds",
+          route: "/home/productlisting/wooden-blinds",
         },
         {
           name: "Customized Blinds ",
-          route: "/customized-blinds  ",
+          route: "/home/productlisting/customized-blinds  ",
         },
         {
           name: "View all",
-          route: "/all-blinds",
+          route: "/home/productlisting/all-blinds",
         },
       ],
     },
@@ -94,31 +94,31 @@ function Header() {
       subMenuItems: [
         {
           name: "GYM Tiles Square",
-          route: "/gym-tiles-square",
+          route: "/home/productlisting/gym-tiles-square",
         },
         {
           name: "GYM Tiles Interlock",
-          route: "/gym-tiles-interlock",
+          route: "/home/productlisting/gym-tiles-interlock",
         },
         {
           name: "GYM Tiles Hexagonal",
-          route: "/gym-tiles-hexagonal",
+          route: "/home/productlisting/gym-tiles-hexagonal",
         },
         {
           name: "GYM Rolls",
-          route: "/gym-rolls",
+          route: "/home/productlisting/gym-rolls",
         },
         {
           name: "Sports Flooring",
-          route: "/gym-tiles-flooring",
+          route: "/home/productlisting/gym-tiles-flooring",
         },
         {
           name: "Yoga Mat",
-          route: "/yoga-mat",
+          route: "/home/productlisting/yoga-mat",
         },
         {
           name: "View all",
-          route: "/gym-tiles-all",
+          route: "/home/productlisting/gym-tiles-all",
         },
       ],
     },
@@ -128,62 +128,62 @@ function Header() {
       subMenuItems: [
         {
           name: "Vertical Gardens",
-          route: "/vertical-gardens",
+          route: "/home/productlisting/vertical-gardens",
         },
         {
           name: "Hanging Flowers",
-          route: "/hanging-flowers",
+          route: "/home/productlisting/hanging-flowers",
         },
         {
           name: "Artificial Grass",
-          route: "/artificial-grass",
+          route: "/home/productlisting/artificial-grass",
         },
         {
           name: "View all",
-          route: "/view-all-grass",
+          route: "/home/productlisting/view-all-grass",
         },
       ],
     },
-    {
-      tilte: "PVC Foam Sheet",
-      icon: <PVCSVGComponent />,
-      subMenuItems: [
-        {
-          name: "PVCSVGComponent",
-          route: "",
-        },
-      ],
-    },
-    {
-      tilte: "3D Panel",
-      icon: <PanelSVGComponent />,
-      subMenuItems: [
-        {
-          name: "PanelSVGComponent",
-          route: "",
-        },
-      ],
-    },
-    {
-      tilte: "Blinds",
-      icon: <BlindsSVGComponent />,
-      subMenuItems: [
-        {
-          name: "BlindsSVGComponent",
-          route: "",
-        },
-      ],
-    },
-    {
-      tilte: "Artificial Grass",
-      icon: <ArtificialGrassSVGComponent />,
-      subMenuItems: [
-        {
-          name: "ArtificialGrassSVGComponent",
-          route: "",
-        },
-      ],
-    },
+    // {
+    //   tilte: "PVC Foam Sheet",
+    //   icon: <PVCSVGComponent />,
+    //   subMenuItems: [
+    //     {
+    //       name: "PVCSVGComponent",
+    //       route: "",
+    //     },
+    //   ],
+    // },
+    // {
+    //   tilte: "3D Panel",
+    //   icon: <PanelSVGComponent />,
+    //   subMenuItems: [
+    //     {
+    //       name: "PanelSVGComponent",
+    //       route: "",
+    //     },
+    //   ],
+    // },
+    // {
+    //   tilte: "Blinds",
+    //   icon: <BlindsSVGComponent />,
+    //   subMenuItems: [
+    //     {
+    //       name: "BlindsSVGComponent",
+    //       route: "",
+    //     },
+    //   ],
+    // },
+    // {
+    //   tilte: "Artificial Grass",
+    //   icon: <ArtificialGrassSVGComponent />,
+    //   subMenuItems: [
+    //     {
+    //       name: "ArtificialGrassSVGComponent",
+    //       route: "",
+    //     },
+    //   ],
+    // },
     {
       tilte: "PVC Foam Sheet",
       icon: <PVCSVGComponent />,

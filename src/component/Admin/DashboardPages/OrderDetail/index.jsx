@@ -15,7 +15,6 @@ export default function OrderDetail() {
   };
 
   const labels = ["Order Confirmed", "Shipped", "In Transit", "Delivery"];
-  const detail = ["Sun, 9th Oct, 08:30am "];
 
   const customStyles = {
     stepIndicatorSize: 25,
@@ -40,28 +39,7 @@ export default function OrderDetail() {
     labelSize: 13,
     currentStepLabelColor: "#49E412",
   };
-  const data = [
-    {
-      label: "qwer",
-      staus: "ghj",
-      dateTime: "gvbhjn",
-    },
-    {
-      label: "qwer",
-      staus: "ghj",
-      dateTime: "gvbhjn",
-    },
-    {
-      label: "qwer",
-      staus: "ghj",
-      dateTime: "gvbhjn",
-    },
-    {
-      label: "qwer",
-      staus: "ghj",
-      dateTime: "gvbhjn",
-    },
-  ];
+
   console.disableYellowBox = true;
   return (
     <div>

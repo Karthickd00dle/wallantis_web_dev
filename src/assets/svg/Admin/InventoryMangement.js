@@ -5,7 +5,6 @@ export const InventoryMangement = (props) => (
     height={30}
     viewBox="0 0 30 30"
     fill={props.fill}
-    xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
     <path
@@ -24,7 +23,7 @@ export const AscendingDescendingArrow = (props) => (
     width={17}
     height={16}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path
@@ -42,7 +41,7 @@ export const EyeIcon = (props) => (
     width={20}
     height={20}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path
@@ -61,7 +60,7 @@ export const PencilIcon = (props) => (
     width={20}
     height={20}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path
@@ -76,7 +75,7 @@ export const DeleteIcon = (props) => (
     width={20}
     height={20}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path
@@ -95,7 +94,7 @@ export const StrikedEyeIcon = (props) => (
     width={20}
     height={20}
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    
     {...props}
   >
     <path

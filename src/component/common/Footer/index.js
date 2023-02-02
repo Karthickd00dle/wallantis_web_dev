@@ -44,7 +44,7 @@ export const NormalFooter = () => {
             </div>
           </div>
           <div className="footer-options  ms-5 col-md-2">
-            <label className="brand-infoo">Useful Links</label>
+            <label className="brand-info">Useful Links</label>
             <div className="pt-5 d-flex flex-column footer-links">
               <label
                 className="pb-2 cursor-pointer"
@@ -123,18 +123,18 @@ export const NormalFooter = () => {
             <div className="pt-5 d-flex flex-column">
               <div className="d-flex align-items-center">
                 <GPSIcon width={"10%"} />
-                <label className="w-75 footer-link">
+                <label className="w-75 footer-address-info">
                   115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
                   Tamil Nadu.
                 </label>
               </div>
               <div className="d-flex align-items-center py-4">
                 <PhoneIcon width={"10%"} />
-                <label className="w-75 footer-link">+91 56846 28126</label>
+                <label className="w-75 footer-address-info">+91 56846 28126</label>
               </div>
               <div className="d-flex align-items-center">
                 <MessageIcon width={"10%"} />
-                <label className="w-75 footer-link">support@gmail.com</label>
+                <label className="w-75 footer-address-info">support@gmail.com</label>
               </div>
               <div className="ps-2 pt-5">
                 <label className=" brand-info">Download Our App</label>

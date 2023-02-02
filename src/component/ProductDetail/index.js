@@ -2,13 +2,7 @@ import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import CardThree from "component/Home/subcomponents/CardThree";
 import React from "react";
 import { history } from "service/helpers";
-import styles from "./styles.scss";
-
-//TODO - s
-// 1 Add Magnifier to Image
-// 2 Stars for review Sections
-// 3 Extract Components
-// 4 Implement Calculators
+import "./styles.scss";
 
 function ProductDetailComponent() {
   return (

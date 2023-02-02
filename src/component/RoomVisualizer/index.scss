@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .room-visualizer {
   display: flex;
   justify-content: center;
@@ -5,7 +7,6 @@
   align-items: center;
   width: 100%;
   h2 {
-    font-family: "Lato";
     font-style: normal;
     font-weight: 700;
   }
@@ -21,10 +22,7 @@
       padding: 20px;
     }
     p {
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 19px;
+      @include fontInterStyle(19px, 400, #000000);
     }
   }
 

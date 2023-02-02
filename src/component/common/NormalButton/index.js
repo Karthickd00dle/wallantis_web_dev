@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./index.scss";
+import { ternaryCondition } from "service/helperFunctions";
 
 export class NormalButton extends Component {
   render() {
@@ -31,31 +31,36 @@ export class NormalButton extends Component {
         <button
           id={id}
           className={`btn cursor_pointer_arrow px-2
-          ${fullWidth ? "fullWidth" : ""}
-          ${normal ? "normal-btn" : ""}
-          ${saveBtn ? "save-btn" : ""}
-          ${whiteBtn ? "white-btn" : ""}
-          ${primary2 ? "primary2-btn" : ""}
-          ${isPrimay ? "primary-btn" : ""}
-          ${sortButton ? "sortButton" : ""}
-          ${outlineBtn ? "outlineBtn" : ""}
-          ${brandBtn ? "brandBtn" : ""}
-          ${viewBtn ? "viewBtn" : ""}
-          ${outlineBtnRadius ? "outlineBtnRadius" : ""}
-          ${addBtn ? "addBtn" : ""}
-          ${removeBtn ? "removeBtn" : ""}
+          
+          ${ternaryCondition(fullWidth, "fullWidth", "")}
+          ${ternaryCondition(normal, "normal-btn", "")}
+          ${ternaryCondition(saveBtn, "save-btn", "")}
+          ${ternaryCondition(whiteBtn, "white-btn", "")}
+          ${ternaryCondition(primary2, "primary2-btn", "")}
+          ${ternaryCondition(isPrimay, "primary-btn", "")}
+          ${ternaryCondition(sortButton, "sortButton", "")}
+          ${ternaryCondition(outlineBtn, "outlineBtn", "")}
+          ${ternaryCondition(brandBtn, "brandBtn", "")}
+          ${ternaryCondition(viewBtn, "viewBtn", "")}
+          ${ternaryCondition(outlineBtnRadius, "outlineBtnRadius", "")}
+          ${ternaryCondition(addBtn, "addBtn", "")}
+          ${ternaryCondition(removeBtn, "removeBtn", "")}
           ${className}`}
           onClick={onClick}
           disabled={disabled}
         >
-          {leftIcon !== "" ? (
-            <i className={`btn-right-icon ${leftIcon} mr-2`} />
-          ) : null}
+          {ternaryCondition(
+            leftIcon !== "",
+            <i className={`btn-right-icon ${leftIcon} mr-2`} />,
+            null
+          )}
           {label}
-          {rightIcon !== "" ? (
-            <i className={`btn-right-icon ml-2 ${rightIcon}`} />
-          ) : null}
-          {sortButton ? <span className="ml-3"></span> : null}
+          {ternaryCondition(
+            rightIcon !== "",
+            <i className={`btn-right-icon ml-2 ${rightIcon}`} />,
+            null
+          )}
+          {ternaryCondition(sortButton, <span className="ml-3" />, null)}
         </button>
       </>
     );

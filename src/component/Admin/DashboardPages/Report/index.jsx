@@ -8,12 +8,16 @@ import PdfIcon from "assets/icons/Admin/pdfIcon.png";
 import "./index.scss";
 
 export default function Reports() {
-  const [startDate, setStartDate] = useState(null);
+  const [datepicker, setDate] = useState({
+    startDate: null,
+    endDate: null,
+  });
+
   return (
     <div className="dashboard-main">
-      {/* <div className="header-background">
+      <div className="header-background">
         <p>Reports</p>
-      </div> */}
+      </div>
 
       <div className="manage-reports">
         <div className="single-col justify-content-SB manage-reports">
@@ -28,13 +32,17 @@ export default function Reports() {
             </div>
             <div className="single-col">
               <CommonDatePicker
-                startDate={startDate}
-                setStartDate={setStartDate}
+                startDate={datepicker?.startDate}
+                setStartDate={(date) =>
+                  setDate({ ...datepicker, startDate: date })
+                }
                 placeholderText="From date"
               />
               <CommonDatePicker
-                startDate={startDate}
-                setStartDate={setStartDate}
+                startDate={datepicker?.endDate}
+                setStartDate={(date) =>
+                  setDate({ ...datepicker, endDate: date })
+                }
                 placeholderText="To date"
               />
             </div>

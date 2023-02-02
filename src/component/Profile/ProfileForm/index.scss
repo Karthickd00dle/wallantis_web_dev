@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .profile-form {
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
@@ -5,7 +7,6 @@
   margin-top: -20px;
   padding: 20px;
   border: none !important;
-  font-family: "Lato";
   font-style: normal;
   font-weight: 600;
   width: 650px;
@@ -26,14 +27,7 @@
 }
 
 label {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height */
-
-  color: #000000;
+  @include fontLatoStyle(16px, 700, #000000, 24px);
 }
 
 .change-text {

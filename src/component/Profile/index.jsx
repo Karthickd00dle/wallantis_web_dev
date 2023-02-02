@@ -22,6 +22,10 @@ export default function Profile() {
   const showAddressForm = () => {
     setAddressForm(!isAddressForm);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
   return isAddressForm ? (
     <>
       <div className="profile-main">
@@ -39,7 +43,7 @@ export default function Profile() {
             </div>
           </div>
 
-          <Tabs className="tab-menus">
+          <Tabs className="tab-menus" onSelect={scrollToTop}>
             <TabList className="tab-list">
               <Tab>Profile</Tab>
               <Tab>My Orders</Tab>

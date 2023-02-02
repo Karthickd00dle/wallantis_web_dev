@@ -1,5 +1,5 @@
 import React from "react";
-import CommonInput from "component/Admin/common/CommonInput";
+import { CommonInput } from "component/Admin/common/CommonInput";
 export default function ChangePassword() {
   return (
     <div>
