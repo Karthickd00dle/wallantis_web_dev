@@ -247,7 +247,7 @@ const routers = [
       },
       {
         component: "ProductListingPage",
-        path: "/productlisting",
+        path: "/product-listing",
         componentPath: "pages/ProductListingPage",
         name: "ProductListingPage",
         auth: false,

@@ -1,4 +1,5 @@
 import CardThree from "component/Home/subcomponents/CardThree";
+import { wallpaperProducts } from "config";
 import React from "react";
 import { history } from "service/helpers";
 import ProductHeader from "./ProductHeader";
@@ -18,7 +19,13 @@ const ProductListing = () => {
         <div className="d-flex flex-column w-100">
           <ProductSorting />
           <div className="card-container">
-            <CardThree onClick={onClick} />
+            <div className="row">
+              {wallpaperProducts.map((prodData) => (
+                <div className="col-4">
+                  <CardThree onClick={onClick} prodData={prodData} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
