@@ -5,8 +5,7 @@ import Routers from "./routers";
 import * as Layout from "../layout";
 import * as Pages from "../pages";
 import { history } from "service/helpers";
-import { NotificationContainer } from "react-notifications";
-
+import { ToastContainer } from "react-toastify";
 class RoutesClass extends Component {
   render() {
     return (
@@ -76,7 +75,7 @@ class RoutesClass extends Component {
           }
         )}
 
-        <NotificationContainer />
+        <ToastContainer />
       </Router>
     );
   }
