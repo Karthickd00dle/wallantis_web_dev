@@ -9,6 +9,7 @@
     .image-stack {
       position: relative;
       width: 100%;
+      height: 20%;
     }
     .back-btn-container {
       position: absolute;
@@ -69,7 +70,8 @@
     .image-stack__item--bottom {
       position: absolute;
       right: 0;
-      top: 0;
+      top: 20px;
+      bottom: 100px;
       width: 100%;
       z-index: -1;
     }
@@ -94,7 +96,7 @@
 
   .texture-container {
     h3 {
-      @include fontLatoStyle(36pc, 700, #000000);
+      @include fontLatoStyle(36px, 700, #000000);
       margin-top: 3px;
     }
 
@@ -112,7 +114,7 @@
 
     .grid-child {
       p {
-        @include fontLatoStyle(20pc, 700, #000000);
+        @include fontLatoStyle(20px, 700, #000000);
       }
 
       img {

@@ -20,7 +20,6 @@ import bulbIcon from "assets/images/bulbIcon.png";
 import CustomerIcon from "assets/images/customersIcon.png";
 import Shield from "assets/images/Shield.png";
 import Delivery from "assets/images/delivery.png";
-import Blogbg from "assets/images/blogBg.png";
 import googlePlay from "assets/images/googlePlay.png";
 import qrSample from "assets/images/qrSample.png";
 import appStore from "assets/images/appStore.png";
