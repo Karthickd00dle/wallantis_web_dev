@@ -21,8 +21,6 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   const { mailId, password } = loginFormValue;
 
   const handleSubmit = () => {
-    console.log(loginFormValue);
-
     if (
       loginFormValue.mailId === "nishants440@gmail.com" &&
       loginFormValue.password === "nishant123@#"
