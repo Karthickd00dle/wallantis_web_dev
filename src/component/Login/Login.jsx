@@ -21,14 +21,26 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   const { mailId, password } = loginFormValue;
 
   const handleSubmit = () => {
-    if (validator.allValid()) {
-      loginApiCall(loginFormValue).then((res) => {
-        localStorage.setItem("authToken", res);
-        history.push("/");
-      });
-    } else {
-      showValidationMessage(true);
+    if (
+      loginFormValue.mailId === "nishants440@gmail.com" &&
+      loginFormValue.password === "nishant123@#"
+    ) {
+      localStorage.setItem("authToken", loginFormValue.mailId);
+      history.push("/home/home");
     }
+    // loginApiCall(loginFormValue).then((res) => {
+    //   console.log(res);
+    //   // localStorage.setItem("authToken", res);
+    //   // history.push("/");
+    // });
+    // if (validator.allValid()) {
+    //   loginApiCall(loginFormValue).then((res) => {
+    //     localStorage.setItem("authToken", res);
+    //     history.push("/");
+    //   });
+    // } else {
+    //   showValidationMessage(true);
+    // }
   };
 
   const handleChange = ({ target: { name, value } }) => {

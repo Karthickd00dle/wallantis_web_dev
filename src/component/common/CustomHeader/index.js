@@ -11,11 +11,13 @@ import { CustomSelect } from "../CustomSelect";
 import { LanguageMenuList } from "config";
 import { CustomButton } from "..";
 import { history } from "service/helpers";
-import JohnDoe1 from "../../../assets/images/JohnDoe1.svg";
+import JohnDoe1 from "assets/images/user.png";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import { routerAuthTokenGuard } from "service/helperFunctions";
 import Header from "../Header";
 
 export const CustomHeader = () => {
+  const authToken = localStorage.getItem("authToken");
   const [showBanner, setShowBanner] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -27,8 +29,8 @@ export const CustomHeader = () => {
     history.push("/home/home");
   };
 
-  const handleMyProfile = () => {
-    history.push("/profile/profile-page");
+  const handleMyProfile = (route) => {
+    history.push("/profile/profile-page", route);
   };
 
   function FaAngleDown(props) {
@@ -60,34 +62,7 @@ export const CustomHeader = () => {
               <CartIcon />
               <label className="ps-1 cart-icon">Cart</label>
             </div>
-            {showBanner ? (
-              <div className="custom-john">
-                <img
-                  src={JohnDoe1}
-                  onClick={() => {
-                    setOpen(!open);
-                  }}
-                />
-                &nbsp;&nbsp;
-                <span>John Doe</span>
-                <RiArrowDropDownLine size="20" />
-                {open && (
-                  <div className="FaAngleDown">
-                    <ul className="cursor-pointer">
-                      <FaAngleDown
-                        text={"My Profile"}
-                        onClick={handleMyProfile}
-                      />
-                      <FaAngleDown text={"My Orders"} />
-                      <FaAngleDown text={"Refer a Friend"} />
-                      <FaAngleDown text={"Saved Addesses"} />
-                      <FaAngleDown text={"Change Password"} />
-                      <FaAngleDown text={"Logout"} />
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ) : (
+            {!authToken ? (
               <CustomButton
                 style={{
                   width: "110px",
@@ -102,6 +77,48 @@ export const CustomHeader = () => {
               >
                 Login
               </CustomButton>
+            ) : (
+              <div
+                className="custom-john"
+                onClick={() => {
+                  setOpen(!open);
+                }}
+              >
+                <img src={JohnDoe1} />
+                &nbsp;&nbsp;
+                <span>John Doe</span>
+                <RiArrowDropDownLine size="20" />
+                {open && (
+                  <div className="FaAngleDown">
+                    <ul className="cursor-pointer">
+                      <FaAngleDown
+                        text={"My Profile"}
+                        onClick={() => handleMyProfile(0)}
+                      />
+                      <FaAngleDown
+                        text={"My Orders"}
+                        onClick={() => handleMyProfile(1)}
+                      />
+                      <FaAngleDown
+                        text={"Refer a Friend"}
+                        onClick={() => handleMyProfile(2)}
+                      />
+                      <FaAngleDown
+                        text={"Saved Addesses"}
+                        onClick={() => handleMyProfile(3)}
+                      />
+                      <FaAngleDown
+                        text={"Change Password"}
+                        onClick={() => handleMyProfile(4)}
+                      />
+                      <FaAngleDown
+                        text={"Logout"}
+                        onClick={routerAuthTokenGuard}
+                      />
+                    </ul>
+                  </div>
+                )}
+              </div>
             )}
           </div>
         </Toolbar>

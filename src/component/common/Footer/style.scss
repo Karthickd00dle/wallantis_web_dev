@@ -1,6 +1,7 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .footer-container {
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
@@ -50,6 +51,6 @@
     color: #ffffff;
   }
 }
-.footer-address-info{
+.footer-address-info {
   color: #ffffff;
 }

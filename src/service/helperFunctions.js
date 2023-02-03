@@ -1,5 +1,6 @@
 import React from "react";
 import jwt_decode from "jwt-decode";
+import { history } from "service/helpers";
 import moment from "moment";
 //add Query
 export const addQuery = (dataObject, apiObject) => {
@@ -79,10 +80,10 @@ export const generateQuery = (query) => {
   );
 };
 
-export const routerAuthTokenGuard = (propsItem) => {
-  if (!localStorage.getItem("authToken")) {
-    propsItem.history.push(`/auth/login`);
-    localStorage.clear();
+export const routerAuthTokenGuard = () => {
+  if (localStorage.getItem("authToken")) {
+    history.push(`/auth/login`);
+    localStorage.removeItem("authToken");
   }
 };
 

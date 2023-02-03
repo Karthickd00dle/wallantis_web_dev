@@ -1,8 +1,8 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .card-three-container {
-  height: 400px;
-  width: 400px;
+  height: 380px;
+  width: 100%;
   margin-bottom: 50px;
   cursor: pointer;
 
@@ -48,22 +48,16 @@
   }
 
   .card-three-title {
-    @include fontLatoStyle(29px, 500, #000000, 35px);
-    display: flex;
-    align-items: center;
-    margin-bottom: 14px;
+    @include fontLatoStyle(24px, 500, #000000, 35px);
+    margin-bottom: 12px;
   }
 
   .card-three-price {
-    @include fontLatoStyle(22px, 500, #696969, 26px);
-    display: flex;
-    align-items: center;
+    @include fontLatoStyle(18px, 500, #696969, 26px);
     margin-bottom: 8px;
   }
 
   .card-three-info-txt {
-    @include fontLatoStyle(19px, 400, #696969, 23px);
-    display: flex;
-    align-items: center;
+    @include fontLatoStyle(16px, 400, #696969, 23px);
   }
 }

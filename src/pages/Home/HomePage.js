@@ -1,6 +1,8 @@
 import React, { Component, Suspense } from "react";
 import { connect } from "react-redux";
 import { Home } from "component/Home/Home";
+
+// const Home = React.lazy(() => import("component/Home/Home"));
 // Redux Connection
 
 export class HomePageClass extends Component {

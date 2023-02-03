@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import profileUser from "assets/images/profileUser.png";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import BreadCrumbs from "component/common/BreadCrumb";
@@ -9,11 +9,16 @@ import ChangePassword from "./ChangePassword";
 import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
 import chatIcon from "assets/images/chatIcon.png";
+import { useLocation } from "react-router-dom";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 
 export default function Profile() {
+  let location = useLocation();
+  console.log(location?.state);
   const [inputData, setInputData] = useState({});
+  const [tabIndex, setTabIndex] = useState(location?.state);
+
   const [isAddressForm, setAddressForm] = useState(true);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
@@ -26,6 +31,10 @@ export default function Profile() {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [tabIndex]);
   return isAddressForm ? (
     <>
       <div className="profile-main">
@@ -43,7 +52,14 @@ export default function Profile() {
             </div>
           </div>
 
-          <Tabs className="tab-menus" onSelect={scrollToTop}>
+          <Tabs
+            className="tab-menus"
+            selectedIndex={tabIndex || 0}
+            onSelect={(index) => {
+              scrollToTop();
+              setTabIndex(index);
+            }}
+          >
             <TabList className="tab-list">
               <Tab>Profile</Tab>
               <Tab>My Orders</Tab>

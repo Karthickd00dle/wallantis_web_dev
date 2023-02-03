@@ -7,11 +7,12 @@ import BrownWallpaper from "assets/images/brownBack.png";
 import Illiusion from "assets/images/illusion.png";
 import DayDream from "assets/images/daydream.png";
 import BackIcon from "assets/images/backIcon.png";
-import Cart from "assets/svg/Cart";
-import Undo from "assets/svg/Undo";
-import LikeBtn from "assets/svg/LikeBtn";
-import NoLayer from "assets/svg/NoLayer";
 import "./index.scss";
+
+const Undo = React.lazy(() => import("assets/svg/Undo"));
+const LikeBtn = React.lazy(() => import("assets/svg/LikeBtn"));
+const NoLayer = React.lazy(() => import("assets/svg/NoLayer"));
+const Cart = React.lazy(() => import("assets/svg/Cart"));
 
 export default function RotateWallpaper() {
   const [currentWall, setCurrentWall] = useState(DiamondWallpaper);
