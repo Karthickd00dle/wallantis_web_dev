@@ -1,22 +1,44 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import CardThree from "component/Home/subcomponents/CardThree";
-import React from "react";
+import React,{useState} from "react";
 import { history } from "service/helpers";
 import "./styles.scss";
+import { ProductdetailImages } from "config";
+import { Calculatorsquare } from "component/common/Calculatorsquare";
 
 function ProductDetailComponent() {
+  const [selectedImg, setSelectedImg] = useState(ProductdetailImages[0]);  
+
   return (
     <div className="product-detail-container">
       <div className="product-detail-inner-container">
         <div className="image-section">
-          <div className="product-img-xl"></div>
+          {/* <div className="product-img-xl">
+          </div>
           <div className="product-img-sml">
             <div className="product-img-sml-item"></div>
             <div className="product-img-sml-item"></div>
             <div className="product-img-sml-item"></div>
             <div className="product-img-sml-item"></div>
             <div className="product-img-sml-item"></div>
-          </div>
+          </div> */}
+
+<div className="container">
+        <img src={selectedImg} alt="Selected" className="selected" />
+        <div className="imgContainer">
+          {ProductdetailImages.map((img, index) => (
+            <img
+              style={{ border: selectedImg === img ? "4px solid purple" : "" }}
+              key={index}
+              src={img}
+              alt="dog"
+              onClick={() => setSelectedImg(img)}
+            />
+          ))}
+        </div>
+      </div>
+
+
         </div>
         <div className="product-info-section">
           <div className="info-title">
@@ -68,6 +90,7 @@ function ProductDetailComponent() {
             <div className="blue-button">Calculate Rolls</div>
             <div className="blue-button">Installer Price Calculator</div>
           </div>
+
 
           <div className="info-title-2">Check availability in your area </div>
 
@@ -205,10 +228,10 @@ function ProductDetailComponent() {
       <div className="other-products-title">You may also like </div>
 
       <div className="other-products-list">
+        {/* <CardThree />
         <CardThree />
         <CardThree />
-        <CardThree />
-        <CardThree />
+        <CardThree /> */}
       </div>
     </div>
   );

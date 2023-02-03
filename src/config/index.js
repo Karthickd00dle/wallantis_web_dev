@@ -336,3 +336,11 @@ export const blogProducts=[
     title:"The Art of Inspiration",
   },
 ];
+
+export const ProductdetailImages =[
+  "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
+  "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+  "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+  "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+]

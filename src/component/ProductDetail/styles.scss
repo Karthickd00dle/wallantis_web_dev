@@ -4,6 +4,7 @@
   padding-left: 150px;
   padding-right: 150px;
   height: max-content;
+  margin-top: 20%;
 
   .other-products-title {
     @include fontLatoStyle(48px, 500, #000000, 58px);
@@ -284,7 +285,7 @@
   .product-img-xl {
     width: 747px;
     height: 720px;
-    background-color: beige;
+    // background-color: beige;
     margin-bottom: 30px;
     border-radius: 2px;
   }
@@ -293,12 +294,56 @@
     width: 100%;
     display: flex;
 
-    .product-img-sml-item {
-      width: 143px;
-      height: 150px;
-      background-color: beige;
-      border-radius: 2px;
-      margin-right: 8px;
-    }
+    // .product-img-sml-item {
+    //   width: 143px;
+    //   height: 150px;
+    //   background-color: beige;
+    //   border-radius: 2px;
+    //   margin-right: 8px;
+    // }
   }
 }
+
+
+
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+
+img {
+  display: block;
+  cursor: pointer;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  max-width: 540px;
+}
+
+.container .selected {
+  width: 747px;
+    height: 720px;
+  margin: 0 auto;
+}
+
+.container .imgContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 0 0 0;
+  /* width: 143px; */
+  height: 150px;
+  /* border-radius: 2px; */
+  flex-direction: column;
+}
+
+.container .imgContainer img {
+  width: 143px;
+  height: 150px;
+  margin: 5px 0;
+}
+
