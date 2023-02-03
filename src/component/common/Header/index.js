@@ -198,11 +198,13 @@ function Header() {
       tilte: "Room Visualizer",
       icon: <RoomVisSVGComponent />,
       subMenuItems: [],
+      route: "/room-layout/room-visualizer",
     },
     {
       tilte: "E-Catalouge",
       icon: <CatalogueSVGComponent />,
       subMenuItems: [],
+      route: "/profile/Catalogue",
     },
   ];
   return (
@@ -215,6 +217,7 @@ function Header() {
                 title={item?.tilte}
                 menuItem={item?.subMenuItems}
                 Icon={item?.icon}
+                route={item.route}
               />
             );
           })}
@@ -226,7 +229,7 @@ function Header() {
 
 export default Header;
 
-function HeaderDropDownItem({ title, menuItem, Icon }) {
+function HeaderDropDownItem({ title, menuItem, Icon, route }) {
   const [menu, setmenu] = useState(false);
 
   const handleMouseOver = () => {
@@ -241,6 +244,7 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
       className="header-dropDown-item"
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
+      onClick={() => history.push(route)}
     >
       <div className="header-dropDown-item-icon">{Icon}</div>
       <div className="header-dropDown-item-title">{title}</div>
