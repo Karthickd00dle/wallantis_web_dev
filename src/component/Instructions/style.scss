@@ -1,0 +1,99 @@
+.Instructions {
+  width: 900px;
+  height: 600px;
+  padding: 5% 6% 5% 6%;
+  .verticalblinds {
+    h5 {
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+  .instruction-mountinginside {
+    label {
+      font-weight: 600;
+      font-size: 24px;
+      color: #000000;
+      margin-top: 16%;
+      width: 413px;
+    }
+    ul {
+      list-style-position: outside;
+      font-weight: 400;
+      font-size: 20px;
+      color: #000000;
+      margin-top: 2%;
+      width: 500px;
+    }
+  }
+
+  .instruction-mountingoutside {
+    label {
+      font-weight: 600;
+      font-size: 24px;
+      color: #000000;
+      margin-top: 10px;
+    }
+    ul {
+      list-style-position: outside;
+      font-weight: 400;
+      font-size: 20px;
+      color: #000000;
+      margin-top: 2%;
+    }
+  }
+
+  .instruction-attaching {
+    label {
+      font-weight: 600;
+      font-size: 24px;
+      color: #000000;
+      margin-top: 3%;
+    }
+    ul {
+      list-style-position: outside;
+      font-weight: 400;
+      font-size: 20px;
+      color: #000000;
+      margin-top: 2%;
+    }
+  }
+
+  .customvideo {
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: 5%;
+  }
+
+  .Instructions-collab {
+    display: flex;
+    gap: 33%;
+  }
+
+  .inst-download {
+    margin-top: 4%;
+    img {
+      width: 134%;
+    }
+  }
+
+  .downloadpdf {
+    width: 299px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.92);
+    border-radius: 6px;
+    display: flex;
+    grid-gap: 1%;
+    gap: 55%;
+    position: relative;
+    left: 66.5%;
+    bottom: 4%;
+    padding: 8px;
+    a {
+      text-decoration: none;
+      color: aliceblue;
+    }
+    span {
+      margin-left: 4px;
+    }
+  }
+}
