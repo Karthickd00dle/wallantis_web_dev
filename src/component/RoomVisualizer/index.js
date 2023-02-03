@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.scss";
 import uploadImage from "assets/images/uploadImage.png";
 import Wall from "assets/images/Wall.png";
 
 export default function RoomVisualizer() {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div className="room-visualizer">
       <h2>Select a Room Space to Visualise</h2>

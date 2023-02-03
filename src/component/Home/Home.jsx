@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { history } from "service/helpers";
 import {
   recentlyviewedProducts,
   artificialgrassProducts,
@@ -19,10 +20,10 @@ import bulbIcon from "assets/images/bulbIcon.png";
 import CustomerIcon from "assets/images/customersIcon.png";
 import Shield from "assets/images/Shield.png";
 import Delivery from "assets/images/delivery.png";
-const Blogbg = React.lazy(() => import("assets/images/blogBg.png"));
-const googlePlay = React.lazy(() => import("assets/images/googlePlay.png"));
-const qrSample = React.lazy(() => import("assets/images/qrSample.png"));
-const appStore = React.lazy(() => import("assets/images/appStore.png"));
+import Blogbg from "assets/images/blogBg.png";
+import googlePlay from "assets/images/googlePlay.png";
+import qrSample from "assets/images/qrSample.png";
+import appStore from "assets/images/appStore.png";
 const HomeCardOne = React.lazy(() => import("./subcomponents/CardOne"));
 const CardTwo = React.lazy(() => import("./subcomponents/CardTwo"));
 const CardThree = React.lazy(() => import("./subcomponents/CardThree"));
@@ -179,7 +180,12 @@ export const HomeComponentMain = () => {
                 seconds.
               </div>
 
-              <div className="room-vis-try-now--but">Try Now</div>
+              <div
+                className="room-vis-try-now--but"
+                onClick={() => history.push("/room-layout/room-visualizer")}
+              >
+                Try Now
+              </div>
 
               <div className="dwnld-app-txt">Also Download our App</div>
 
