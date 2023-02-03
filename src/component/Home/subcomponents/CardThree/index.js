@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import CardThreeBackground from "assets/images/CardThreeBackground.png";
 import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
 import "./styles.scss";
-function CardThree({ onClick }) {
+function CardThree({onClick,prodData:{image,title,price}}) {
+
   const [iconVisibility, seticonVisibility] = useState(false);
   return (
     <div
@@ -18,7 +18,7 @@ function CardThree({ onClick }) {
     >
       <div
         className="card-three-image-section"
-        style={{ backgroundImage: `url(${CardThreeBackground})` }}
+        style={{ backgroundImage: `url(${image})` }}
       >
         {iconVisibility ? (
           <div className="icon-container">
@@ -34,9 +34,9 @@ function CardThree({ onClick }) {
         {/* <img src={CardThreeBackground} /> */}
       </div>
       <div className="card-three-title">
-        Bharat, Rich Indian Wallpaper Design
+        {title}
       </div>
-      <div className="card-three-price">₹4000/Roll</div>
+      <div className="card-three-price">{`₹${price}/Roll`}</div>
       <div className="card-three-info-txt">Included Tax | Free Shipping</div>
     </div>
   );

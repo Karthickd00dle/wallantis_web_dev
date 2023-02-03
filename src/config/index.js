@@ -179,3 +179,160 @@ export const savedAddress = [
       "No:110, MG Road, Nungambakkam, Opp to ICICI Bank, Chennai - 600 034, Tamil Nadu.",
   },
 ];
+
+export const wallanticsProducts=[
+  {
+    id:1,
+    image:"https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    title:"Bharat, Rich Indian Wallpaper Design",
+    price:4000
+  },
+  {
+    id:2,
+    image:"https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
+    title:"Vincent Van Gough Almond Blossom Wallpaper",
+    price:4000
+  },
+];
+
+export const recentlyviewedProducts=[
+  {
+    id:1,
+    image:"https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    title:"Bharat, Rich Indian Wallpaper Design",
+    price:4000
+  },
+  {
+    id:2,
+    image:"https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
+    title:"Vincent Van Gough Almond Blossom Wallpaper",
+    price:4000
+  },
+  {
+    id:3,
+    image:"https://buildingandinteriors.com/wp-content/uploads/2021/02/64d134b23490042718cca43a430e95d2.jpg",
+    title:"Banaras, Indian Carpet Design Wallpaper",
+    price:4000},
+  {
+    id:4,
+    image:"https://unikneeds.com/wp-content/uploads/2018/02/3d-wallpaper-1-500x500.jpg",
+    title:"A Story by the Garden Wallpaper",
+    price:4000
+  },
+];
+
+export const artificialgrassProducts=[
+  {
+    id:1,
+    image:"https://miro.medium.com/max/620/1*3pykkuNFvOzyme5EGBPYbQ.jpeg",
+    title:"Vertical Gardens",
+    price:4000
+  },
+  {
+    id:2,
+    image:"https://thumbs.dreamstime.com/b/white-wood-textures-174109872.jpg",
+    title:"Indoor Mats - Non UV",
+    price:4000
+  },
+  {
+    id:3,
+    image:"https://rukminim1.flixcart.com/image/850/850/kn6cxow0/wallpaper/j/9/1/228-40-decorative-wallpaper-wall-sticker-for-home-decor-living-original-imagfwtvzthnqyvc.jpeg?q=90",
+    title:"Outdoor Mats - UV Protect",
+    price:4000
+  },
+];
+
+export const bestsellerProducts=[
+  {
+    id:1,
+    image:"https://img.staticmb.com/mbcontent/images/uploads/2021/8/botanical-prints.jpg",
+    title:"Bharat, Rich Indian Wallpaper Design",
+    price:4000
+  },
+  {
+    id:2,
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
+    title:"Vincent Van Gough Almond Blossom Wallpaper",
+    price:4000
+  },
+  {
+    id:3,
+    image:"https://i.etsystatic.com/23287991/r/il/ec1109/3890392737/il_1080xN.3890392737_khaz.jpg",
+    title:"Banaras, Indian Carpet Design Wallpaper",
+    price:4000
+  },
+  {
+    id:4,
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fhcrQX7bjOwI-4O-4VsGt9vJe068qAcf5g&usqp=CAU",
+    title:"A Story by the Garden Wallpaper",
+    price:4000
+  },
+];
+
+export const newarrivalsProducts=[
+  {
+    id:1,
+    image:"https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+    title:"Bharat, Rich Indian Wallpaper Design",
+    price:4000
+  },
+  {
+    id:2,
+    image:"https://walldesign.in/wp-content/uploads/2020/05/Falling-Flower-Nature-wallpaper-For-Living-Room.jpg",
+    title:"Vincent Van Gough Almond Blossom Wallpaper",
+    price:4000
+  },
+  {
+    id:3,
+    image:"https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    title:"Banaras, Indian Carpet Design Wallpaper",
+    price:4000
+  },
+  {
+    id:4,
+    image:"https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
+    title:"A Story by the Garden Wallpaper",
+    price:4000
+  },
+];
+
+export const ecatalougeProducts=[
+  {
+    id:1,
+    image:"https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    title:"My Home. My Space",
+  },
+  {
+    id:2,
+    image:"https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    title:"Trendy Walls",
+  },
+  {
+    id:3,
+    image:"https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    title:"The Art of Inspiration",
+  },
+  {
+    id:4,
+    image:"https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
+    title:"Best of Living Walls",
+  },
+];
+
+export const blogProducts=[
+  {
+    id:1,
+    image:"https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    title:"My Home. My Space",
+  },
+  {
+    id:2,
+    image:"https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    title:"Trendy Walls",
+  },
+  {
+    id:3,
+    image:"https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    title:"The Art of Inspiration",
+  },
+];
