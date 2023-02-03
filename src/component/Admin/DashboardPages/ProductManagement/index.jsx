@@ -1,91 +1,176 @@
 import React from "react";
-import { TableWrapper } from "component/Admin/common/TableWrapper";
+import CustomTable from "component/Admin/common/CustomTable";
 import {
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-} from "reactstrap";
-import { HiDotsHorizontal } from "react-icons/hi";
-import visibility from "../../../../assets/images/visibility.svg";
-import { Pagination } from "../../common/Pagination";
-import { StaffColumnValues } from "component/Admin/Data/staticDatas";
+  Avatar,
+  IconButton,
+  MenuItem,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import CustomListMenu from "component/Admin/common/CustomListMenu";
+import CustomNavBar from "component/Admin/common/CustomNavBar";
+import "./style.scss";
+import {
+  AscendingDescendingArrow,
+  DeleteIcon,
+  EyeIcon,
+  PencilIcon,
+  StrikedEyeIcon,
+} from "assets/svg/Admin/InventoryMangement";
+import CustomPagination from "component/Admin/common/CustomPagination";
+import AdminDiamond from "../../../../assets/images/AdminDiamond.svg"
 
-import { Router, Route, Link, useHistory } from "react-router-dom";
-import { createBrowserHistory, History } from "history";
+const totalInstallersData = [
+  {
+    No: "1",
+    Title: "Diamond Wallpaper",
+    Date: "Oct 18th, 2022",
+    Customer_Name: "John Doe",
+    Location: "Anna Nagar, Chennai",
+    Amount: "₹3500",
+    Category: "Customized Wallpaper",
+  },
+  {
+    No: "2",
+    Title: "Diamond Wallpaper",
+    Date: "Oct 18th, 2022",
+    Customer_Name: "Derik",
+    Location: "Anna Nagar, Chennai",
+    Amount: "₹3500",
+    Category: "Wallpaper",
+  },
+];
+
+const TableDataHeader = () => {
+  return (
+    <TableHead>
+      <TableRow>
+        <TableCell align="left">
+          <label className="table-head-cell-label">No</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Title</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Date</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Customer Name</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Location</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Amount</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Category</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Action</label>
+        </TableCell>
+      </TableRow>
+    </TableHead>
+  );
+};
+
+const TableDataBody = ({
+  bodyData: {
+    No,
+    Title,
+    Date,
+    Customer_Name,
+    Location,
+    Amount,
+    Category,
+  },
+}) => {
+  return (
+    <TableRow key={No}>
+      <TableCell component="th" scope="row">
+        <label className="table-body-cell-label">{No}</label>
+      </TableCell>
+      <TableCell align="left" className="d-flex align-items-center py-4">
+      <Avatar
+          style={{ width: "40px", height: "40px" ,radius:"3px" }}
+          alt="Remy Sharp"
+          src={AdminDiamond}
+        />
+        <label className="ps-2 table-body-cell-label">{Title}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Date}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Customer_Name}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Location}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Amount}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Category}</label>
+      </TableCell>
+      <TableCell align="left">
+        <CustomListMenu>
+          <MenuItem className="d-flex align-items-center">
+            <EyeIcon />
+            <label className="table-cell-menu-item ps-2">View Details</label>
+          </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <PencilIcon />
+            <label className="table-cell-menu-item ps-2">Edit</label>
+          </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <DeleteIcon />
+            <label className="table-cell-menu-item ps-2">Delete</label>
+          </MenuItem>
+        </CustomListMenu>
+      </TableCell>
+    </TableRow>
+  );
+};
 
 export default function ProductManagement() {
-  const history = useHistory();
-
-  const goToAbout = () => {
-    history.push("/admin/productDetailPage");
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [tabvalue, setTabValue] = React.useState(0);
+  const handlePage = (event, value) => {
+    setCurrentPage(value);
   };
 
-  const staffHead = [
-    {
-      label: "No",
-    },
-    {
-      label: "Customer ID",
-    },
-    {
-      label: "Customer Name",
-    },
+  const handleTabs = (event, newValue) => {
+    setTabValue(newValue);
+  };
 
-    {
-      label: "Location",
-    },
-    {
-      label: "Date",
-    },
-    {
-      label: "Total Spent",
-    },
-    {
-      label: "Action",
-    },
-  ];
   return (
     <div>
-      <TableWrapper headers={staffHead}>
-        {StaffColumnValues?.map((data) => (
-          <tr>
-            <td>{data.No}</td>
-            <td>{data.CustomerID}</td>
-            <td>{data.CustomerName}</td>
-            <td>{data.Location}</td>
-            <td>{data.Date}</td>
-            <td>{data.TotalSpent}</td>
-
-            <td className="dropdown">
-              <UncontrolledButtonDropdown>
-                <DropdownToggle tag="span" data-toggle="dropdown">
-                  <div>
-                    <HiDotsHorizontal color="#C5CAFF" size="25" />
-                  </div>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <img
-                      src={visibility}
-                      alt="visible"
-                      color="#4285F4"
-                      size="25"
-                    />
-
-                    <span className="dotactions">view</span>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledButtonDropdown>
-            </td>
-          </tr>
-        ))}
-      </TableWrapper>
-      <div className="StaffPagination">
-        {staffHead.length > 0 && <Pagination totalPages={2} />}
-      </div>
-
-      <button onClick={goToAbout}>NEXT</button>
+      <CustomNavBar label="Product Management" />
+          <CustomTable>
+            <TableDataHeader />
+            <TableBody>
+              {totalInstallersData?.map((bodyData) => (
+                <TableDataBody bodyData={bodyData} />
+              ))}
+            </TableBody>
+          </CustomTable>
+      <CustomPagination
+        pageCount={10}
+        currentPage={currentPage}
+        onChange={handlePage}
+      />
     </div>
   );
 }

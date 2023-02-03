@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { history } from "service/helpers";
 import { bindActionCreators } from "redux";
@@ -6,9 +6,9 @@ import { connect } from "react-redux";
 import { loginApi } from "action/AuthAct";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
-import { Alert, AlertTitle, InputAdornment } from "@mui/material";
+import { InputAdornment } from "@mui/material";
 import { errorMessageToDisplay } from "service/helperFunctions";
-import { Toast } from "service/toast";
+import useValidator from "service/useValidator";
 
 export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   const [validator, showValidationMessage] = useValidator();
@@ -63,6 +63,8 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
           variant="standard"
           className="password-input-field mt-4"
           type="password"
+          min={8}
+          max={20}
           name="password"
           value={password}
           onChange={handleChange}

@@ -1,0 +1,31 @@
+@import "assets/scss/abstracts/abstracts.scss";
+.home-main-card-container {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    gap: 15px;
+
+    .blog-container {
+      width: 45%;
+      .blog-post-img {
+        margin-bottom: 20px;
+        width: 100%;
+        height: 276px;
+        object-fit: cover;
+        border-radius: 10px 0px 0px 0px;
+      }
+
+      .blog-post-date {
+        @include fontLatoStyle(20px, 600, #cd9c69, 48px);
+      }
+
+      .blog-post-title {
+        @include fontLatoStyle(32px, 600, #000000, 45px);
+        margin-bottom: 13px;
+      }
+
+      .blog-post-content {
+        @include fontLatoStyle(24px, 500, #838383, 29px);
+      }
+    }
+}

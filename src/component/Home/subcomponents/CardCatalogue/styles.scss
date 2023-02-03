@@ -1,5 +1,13 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
+.card-catalogue-image-section {
+  height: 233px;
+  width: 100%;
+  margin-bottom: 24px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .catalogue-card-container {
   width: 300px;
   margin-bottom: 50px;

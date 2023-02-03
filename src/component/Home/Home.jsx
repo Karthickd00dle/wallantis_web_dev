@@ -48,8 +48,8 @@ export const HomeComponentMain = () => {
             <div className="card-one-container">
               <div className="card-one-inner-container">
                 <HomeCardOne wallpaperPng={wallpaperPng} />
-                <HomeCardOne wallpaperPng={wallpaperPng} />
-                <HomeCardOne wallpaperPng={wallpaperPng} />
+                <Wallmuralscard wallmurals={Wallmurals} />
+                <Sticker sticker={sticker} />
               </div>
             </div>
           </div>
@@ -74,10 +74,9 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-            <CardThree />
-            <CardThree />
-            <CardThree />
-            <CardThree />
+            {recentlyviewedProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -95,9 +94,9 @@ export const HomeComponentMain = () => {
             pleasant wall finish to their customers.
           </div>
           <div className="home-main-card-container">
-            <CardThree />
-            <CardThree />
-            <CardThree />
+            {artificialgrassProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -108,10 +107,9 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-            <CardThree />
-            <CardThree />
-            <CardThree />
-            <CardThree />
+            {bestsellerProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -122,10 +120,9 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-            <CardThree />
-            <CardThree />
-            <CardThree />
-            <CardThree />
+            {newarrivalsProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -165,11 +162,9 @@ export const HomeComponentMain = () => {
             <div className="view-all-but">VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
-            <CardCatalogue CatalogueBg={CatalogueBg} />
-            <CardCatalogue CatalogueBg={CatalogueBg} />
-            <CardCatalogue CatalogueBg={CatalogueBg} />
-            <CardCatalogue CatalogueBg={CatalogueBg} />
-            <CardCatalogue CatalogueBg={CatalogueBg} />
+            {ecatalougeProducts.map((prodData) => (
+              <CardCatalogue prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -179,9 +174,9 @@ export const HomeComponentMain = () => {
             <div className="view-all-but">VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
-            <CardBlog blogbg={Blogbg} />
-            <CardBlog blogbg={Blogbg} />
-            <CardBlog blogbg={Blogbg} />
+            {blogProducts.map((prodData) => (
+              <CardBlog prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
