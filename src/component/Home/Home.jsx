@@ -1,26 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./styles.scss";
-import wallpaperPng from "../../assets/images/wallpaperCard.png";
-import Wallmurals from "../../assets/images/wallmurals.png"
-import sticker from "../../assets/images/sticker.png"
-import Blogbg from "assets/images/blogBg.png";
-import googlePlay from "assets/images/googlePlay.png";
-import qrSample from "assets/images/qrSample.png";
-import appStore from "assets/images/appStore.png";
-import HomeCardOne from "./subcomponents/CardOne";
-import CardTwo from "./subcomponents/CardTwo";
-import CardThree from "./subcomponents/CardThree";
-import Wallmuralscard from "./subcomponents/Wallmuralscard";
-import Sticker from "./subcomponents/Sticker";
-import CatalogueBg from "../../assets/images/catalogueCardBackground.png";
-import CardCatalogue from "./subcomponents/CardCatalogue";
-import CardBlog from "./subcomponents/Cardblog";
-import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
-import {recentlyviewedProducts,artificialgrassProducts,bestsellerProducts,newarrivalsProducts,ecatalougeProducts,blogProducts} from "config";
+
+const wallpaperPng = React.lazy(() =>
+  import("../../assets/images/wallpaperCard.png")
+);
+const Blogbg = React.lazy(() => import("assets/images/blogBg.png"));
+const googlePlay = React.lazy(() => import("assets/images/googlePlay.png"));
+const qrSample = React.lazy(() => import("assets/images/qrSample.png"));
+const appStore = React.lazy(() => import("assets/images/appStore.png"));
+const HomeCardOne = React.lazy(() => import("./subcomponents/CardOne"));
+const CardTwo = React.lazy(() => import("./subcomponents/CardTwo"));
+const CardThree = React.lazy(() => import("./subcomponents/CardThree"));
+const CatalogueBg = React.lazy(() =>
+  import("../../assets/images/catalogueCardBackground.png")
+);
+const CardCatalogue = React.lazy(() => import("./subcomponents/CardCatalogue"));
+const QuotesSVGComponent = React.lazy(() =>
+  import("assets/svg/HomePage/qoutesSVG")
+);
+function CardBlog({ blogbg }) {
+  return (
+    <div className="blog-container">
+      <img className="blog-post-img mt-3" src={blogbg} />
+      <div className="blog-post-date">11.10.2022</div>
+      <div className="blog-post-title">
+        Trending Wallpaper Designs for Dining Room by E...
+      </div>
+      <div className="blog-post-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
+      </div>
+    </div>
+  );
+}
 
 export const HomeComponentMain = () => {
-  
   return (
     <>
       <div className="home-content-container">
@@ -34,8 +48,8 @@ export const HomeComponentMain = () => {
             <div className="card-one-container">
               <div className="card-one-inner-container">
                 <HomeCardOne wallpaperPng={wallpaperPng} />
-                <Wallmuralscard wallmurals={Wallmurals}/>
-                <Sticker sticker={sticker}/>
+                <Wallmuralscard wallmurals={Wallmurals} />
+                <Sticker sticker={sticker} />
               </div>
             </div>
           </div>
@@ -60,10 +74,9 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-            {recentlyviewedProducts.map((prodData)=>
-            <CardThree prodData={prodData} key={prodData.id}/>
-            )}
-           
+            {recentlyviewedProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -81,9 +94,9 @@ export const HomeComponentMain = () => {
             pleasant wall finish to their customers.
           </div>
           <div className="home-main-card-container">
-          {artificialgrassProducts.map((prodData)=>
-            <CardThree prodData={prodData} key={prodData.id}/>
-            )}
+            {artificialgrassProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -94,9 +107,9 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-          {bestsellerProducts.map((prodData)=>
-            <CardThree prodData={prodData} key={prodData.id}/>
-            )}
+            {bestsellerProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -107,9 +120,9 @@ export const HomeComponentMain = () => {
           </div>
 
           <div className="home-main-card-container">
-          {newarrivalsProducts.map((prodData)=>
-            <CardThree prodData={prodData} key={prodData.id}/>
-            )}
+            {newarrivalsProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -149,9 +162,9 @@ export const HomeComponentMain = () => {
             <div className="view-all-but">VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
-            {ecatalougeProducts.map((prodData)=>
-            <CardCatalogue prodData={prodData} key={prodData.id}/>
-            )}
+            {ecatalougeProducts.map((prodData) => (
+              <CardCatalogue prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -161,9 +174,9 @@ export const HomeComponentMain = () => {
             <div className="view-all-but">VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
-          {blogProducts.map((prodData)=>
-            <CardBlog prodData={prodData} key={prodData.id}/>
-            )}
+            {blogProducts.map((prodData) => (
+              <CardBlog prodData={prodData} key={prodData.id} />
+            ))}
           </div>
         </div>
 
@@ -171,8 +184,8 @@ export const HomeComponentMain = () => {
           <div className="main-header">
             <div className="main-title">Testimonials</div>
           </div>
-         
-         <div className="home-main-card-container">
+
+          <div className="home-main-card-container">
             <div className="testimonial-card-container">
               <div className="testimonial-card-inner-container">
                 <div>
@@ -188,10 +201,9 @@ export const HomeComponentMain = () => {
                 lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </div>
             </div>
-          </div>    
+          </div>
         </div>
       </div>
-      
     </>
   );
 };

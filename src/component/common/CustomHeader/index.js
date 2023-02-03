@@ -97,7 +97,7 @@ export const CustomHeader = () => {
                 variant="contained"
                 className="ms-3"
                 onClick={() => {
-                  setShowBanner(true);
+                  history.push("/auth/login");
                 }}
               >
                 Login

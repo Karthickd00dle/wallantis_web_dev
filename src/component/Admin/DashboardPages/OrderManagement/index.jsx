@@ -19,7 +19,6 @@ import {
   StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
-import CustomTabs, { TabPanel } from "component/Admin/common/CustomTabs";
 
 const totalInstallersData = [
   {
