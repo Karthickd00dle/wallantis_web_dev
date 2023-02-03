@@ -187,42 +187,22 @@ function Header() {
     {
       tilte: "PVC Foam Sheet",
       icon: <PVCSVGComponent />,
-      subMenuItems: [
-        {
-          name: "PVCSVGComponent",
-          route: "",
-        },
-      ],
+      subMenuItems: [],
     },
     {
       tilte: "GYM Flooring",
       icon: <GymFlooringSVGComponent />,
-      subMenuItems: [
-        {
-          name: "GymFlooringSVGComponent",
-          route: "",
-        },
-      ],
+      subMenuItems: [],
     },
     {
       tilte: "Room Visualizer",
       icon: <RoomVisSVGComponent />,
-      subMenuItems: [
-        {
-          name: "RoomVisSVGComponent",
-          route: "",
-        },
-      ],
+      subMenuItems: [],
     },
     {
       tilte: "E-Catalouge",
       icon: <CatalogueSVGComponent />,
-      subMenuItems: [
-        {
-          name: "CatalogueSVGComponent",
-          route: "",
-        },
-      ],
+      subMenuItems: [],
     },
   ];
   return (
@@ -265,18 +245,22 @@ function HeaderDropDownItem({ title, menuItem, Icon }) {
       <div className="header-dropDown-item-icon">{Icon}</div>
       <div className="header-dropDown-item-title">{title}</div>
       {menu ? (
-        <ul className="menu-list" onMouseEnter={handleMouseOver}>
-          {menuItem?.map((item) => {
-            return (
-              <div
-                className="menu-list-item"
-                onClick={() => history.push(item?.route)}
-              >
-                {item?.name}
-              </div>
-            );
-          })}
-        </ul>
+        menuItem.length > 0 ? (
+          <ul className="menu-list" onMouseEnter={handleMouseOver}>
+            {menuItem?.map((item) => {
+              return (
+                <div
+                  className="menu-list-item"
+                  onClick={() => history.push(item?.route)}
+                >
+                  {item?.name}
+                </div>
+              );
+            })}
+          </ul>
+        ) : (
+          <></>
+        )
       ) : null}
     </div>
   );

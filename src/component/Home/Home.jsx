@@ -1,7 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import {
+  recentlyviewedProducts,
+  artificialgrassProducts,
+  bestsellerProducts,
+  newarrivalsProducts,
+  ecatalougeProducts,
+  blogProducts,
+} from "config";
 import "./styles.scss";
-
+import Wallmuralscard from "./subcomponents/Wallmuralscard";
+import sticker from "../../assets/images/sticker.png";
+import Sticker from "./subcomponents/Sticker";
+import Wallmurals from "../../assets/images/wallmurals.png";
 const wallpaperPng = React.lazy(() =>
   import("../../assets/images/wallpaperCard.png")
 );
