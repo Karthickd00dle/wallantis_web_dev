@@ -205,10 +205,10 @@ function ProductDetailComponent() {
       <div className="other-products-title">You may also like </div>
 
       <div className="other-products-list">
+        {/* <CardThree />
         <CardThree />
         <CardThree />
-        <CardThree />
-        <CardThree />
+        <CardThree /> */}
       </div>
     </div>
   );
