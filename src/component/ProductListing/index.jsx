@@ -18,7 +18,7 @@ const ProductListing = () => {
         <div className="d-flex flex-column w-100">
           <ProductSorting />
           <div className="card-container">
-            <CardThree onClick={onClick} />
+            {/* <CardThree onClick={onClick} /> */}
           </div>
         </div>
       </div>
