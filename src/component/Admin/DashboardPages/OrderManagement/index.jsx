@@ -1,5 +1,6 @@
 import React from "react";
 import CustomTable from "component/Admin/common/CustomTable";
+import "./style.scss"
 import {
   IconButton,
   MenuItem,
@@ -28,8 +29,7 @@ const totalInstallersData = [
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
     Amount: "₹3500",
-    Ongoing_Orders: 8,
-    Installer_Cost: 500,
+    Order_status : "New Order",
   },
   {
     No: "2",
@@ -38,8 +38,7 @@ const totalInstallersData = [
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
     Amount: "₹3500",
-    Ongoing_Orders: 8,
-    Installer_Cost: 500,
+    Order_status : "New Order",
   },
 ];
 const TableDataHeader = () => {
@@ -74,10 +73,10 @@ const TableDataHeader = () => {
           </IconButton>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Ongoing Orders</label>
-        </TableCell>
-        <TableCell align="left">
-          <label className="table-head-cell-label">Installer Cost</label>
+          <label className="table-head-cell-label">Order status </label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Action</label>
@@ -95,8 +94,7 @@ const TableDataBody = ({
     Customer_Name,
     Location,
     Amount,
-    Ongoing_Orders,
-    Installer_Cost,
+    Order_status,
   },
 }) => {
   return (
@@ -119,11 +117,9 @@ const TableDataBody = ({
       <TableCell align="left">
         <label className="table-body-cell-label">{Amount}</label>
       </TableCell>
-      <TableCell align="left">
-        <label className="table-body-cell-label">{Ongoing_Orders}</label>
-      </TableCell>
-      <TableCell align="left">
-        <label className="table-body-cell-label">{`₹${Installer_Cost}`}</label>
+      <TableCell align="left"  className="table-order-neworder">
+        <ul>
+        <li className="table-body-cell-label">{Order_status}</li></ul>
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>
@@ -138,12 +134,6 @@ const TableDataBody = ({
           <MenuItem className="d-flex align-items-center">
             <DeleteIcon />
             <label className="table-cell-menu-item ps-2">Delete</label>
-          </MenuItem>
-          <MenuItem className="d-flex align-items-center">
-            <StrikedEyeIcon />
-            <label className="table-cell-menu-item ps-2">
-              Mark as Inactive
-            </label>
           </MenuItem>
         </CustomListMenu>
       </TableCell>
