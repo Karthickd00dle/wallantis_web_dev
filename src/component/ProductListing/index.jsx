@@ -1,4 +1,5 @@
 import CardThree from "component/Home/subcomponents/CardThree";
+import { useLocation } from "react-router-dom";
 import { wallpaperProducts } from "config";
 import React from "react";
 import { history } from "service/helpers";
@@ -8,12 +9,14 @@ import ProductSorting from "./ProductSorting";
 import "./style.scss";
 
 const ProductListing = () => {
+  const location = useLocation();
+
   const onClick = () => {
     history.push("/home/product-details/details");
   };
   return (
     <div className="product-listing-container">
-      <ProductHeader />
+      <ProductHeader bannerLabel={location.state.name} />
       <div className="d-flex mt-4">
         <ProductListingGrid />
         <div className="d-flex flex-column w-100">
