@@ -114,7 +114,7 @@ const routers = [
         name: "Contactuseg",
       },
       {
-        component: "Catalogueg",
+        component: "Catalogue",
         path: "/catalogue",
         componentPath: "/Catalogue",
         name: "Catalogueg",
@@ -144,7 +144,7 @@ const routers = [
         name: "Dealershipeg",
       },
       {
-        component: "Careerseg",
+        component: "Careers",
         path: "/careers",
         componentPath: "/careers",
         name: "Careerseg",

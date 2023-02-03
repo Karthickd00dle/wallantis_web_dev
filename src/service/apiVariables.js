@@ -15,7 +15,7 @@ export const authApi = {
   loginApiUrl: {
     api: "login",
     method: "post",
-    baseURL: "user",
+    baseURL: "auth",
   },
 };
 

@@ -12,10 +12,13 @@ import "./styles.scss";
 import Wallmuralscard from "./subcomponents/Wallmuralscard";
 import sticker from "../../assets/images/sticker.png";
 import Sticker from "./subcomponents/Sticker";
-import Wallmurals from "../../assets/images/wallmurals.png";
-const wallpaperPng = React.lazy(() =>
-  import("../../assets/images/wallpaperCard.png")
-);
+import Wallmurals from "assets/images/wallmurals.png";
+import wallpaperPng from "assets/images/wallpaperCard.png";
+import celebrate from "assets/images/celebrate.png";
+import bulbIcon from "assets/images/bulbIcon.png";
+import CustomerIcon from "assets/images/customersIcon.png";
+import Shield from "assets/images/Shield.png";
+import Delivery from "assets/images/delivery.png";
 const Blogbg = React.lazy(() => import("assets/images/blogBg.png"));
 const googlePlay = React.lazy(() => import("assets/images/googlePlay.png"));
 const qrSample = React.lazy(() => import("assets/images/qrSample.png"));
@@ -30,14 +33,12 @@ const CardCatalogue = React.lazy(() => import("./subcomponents/CardCatalogue"));
 const QuotesSVGComponent = React.lazy(() =>
   import("assets/svg/HomePage/qoutesSVG")
 );
-function CardBlog({ blogbg }) {
+function CardBlog(prodData) {
   return (
     <div className="blog-container">
-      <img className="blog-post-img mt-3" src={blogbg} />
+      <img className="blog-post-img mt-3" src={prodData.prodData.image} />
       <div className="blog-post-date">11.10.2022</div>
-      <div className="blog-post-title">
-        Trending Wallpaper Designs for Dining Room by E...
-      </div>
+      <div className="blog-post-title">{prodData.prodData.title}</div>
       <div className="blog-post-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
       </div>
@@ -70,11 +71,38 @@ export const HomeComponentMain = () => {
           <div className="why-wallantics--title">Why WALLANTICS ?</div>
 
           <div className="why-wallantics-card-container">
-            <CardTwo type="transparent-bg" />
-            <CardTwo type="transparent-bg" />
-            <CardTwo type="white-bg" />
-            <CardTwo type="transparent-bg" />
-            <CardTwo type="transparent-bg" />
+            <CardTwo
+              type="transparent-bg"
+              title="1500+"
+              subtitle="Collections"
+              image={celebrate}
+            />
+            <CardTwo
+              type="transparent-bg"
+              title="10 Years"
+              subtitle="of Innovation"
+              image={bulbIcon}
+            />
+
+            <CardTwo
+              type="white-bg"
+              title="1 Million+"
+              subtitle="Customers"
+              image={CustomerIcon}
+            />
+
+            <CardTwo
+              type="transparent-bg"
+              title="Long life "
+              subtitle="Durability"
+              image={Shield}
+            />
+            <CardTwo
+              type="transparent-bg"
+              title="Free"
+              subtitle="24x7 Delivery"
+              image={Delivery}
+            />
           </div>
         </div>
 
