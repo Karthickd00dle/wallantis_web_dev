@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
 import "./styles.scss";
-function CardThree({ onClick, prodData: { image, title, price } }) {
+function CardThree({ onClick, prodData }) {
+  const { image, title, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
   return (
     <div
-      onClick={onClick}
+      onClick={() => onClick(prodData)}
       className="card-three-container"
       onMouseEnter={() => {
         seticonVisibility(true);

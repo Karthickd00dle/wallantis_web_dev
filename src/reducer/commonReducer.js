@@ -1,16 +1,22 @@
-import { sampleStateList } from "service/actionType";
+import { wallpaperProducts } from "config";
+import { commonStateList } from "service/actionType";
 
 const initialState = {
-  sampleState: [],
+  productListingState: wallpaperProducts,
+  productDetailState: {},
 };
 const commonReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
-    case sampleStateList.sample1:
+    case commonStateList.productListing:
       return {
         ...state,
-        sampleState: payload,
+        productListingState: payload,
       };
-
+    case commonStateList.productDetail:
+      return {
+        ...state,
+        productDetailState: payload,
+      };
     default:
       return state;
   }

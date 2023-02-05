@@ -1,14 +1,17 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import CardThree from "component/Home/subcomponents/CardThree";
 import React,{useState} from "react";
+import { Instructions } from "component/Instructions";
+import { connect } from "react-redux";
 import { history } from "service/helpers";
 import "./styles.scss";
 import { ProductdetailImages } from "config";
 import { Calculatorsquare } from "component/common/Calculatorsquare";
 
-function ProductDetailComponent() {
-  const [selectedImg, setSelectedImg] = useState(ProductdetailImages[0]);  
-  
+function ProductDetailFC({ productDetailData }) {
+  const [isOpen, setIsOpen] = useState();
+
+    const [selectedImg, setSelectedImg] = useState(ProductdetailImages[0]);  
 
   return (
     <div className="product-detail-container">
@@ -243,14 +246,9 @@ function ProductDetailComponent() {
     </div>
   );
 }
-
-export default ProductDetailComponent;
-
-
-
-
-
-
-
-
-
+const mapStateToProps = (state) => {
+  return {
+    productDetailData: state.commonStore.productDetailState,
+  };
+};
+export const ProductDetail = connect(mapStateToProps)(ProductDetailFC);
