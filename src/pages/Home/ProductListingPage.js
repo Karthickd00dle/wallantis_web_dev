@@ -1,4 +1,4 @@
-import ProductListing from "component/ProductListing";
+import { ProductListing } from "component/ProductListing";
 import React, { Component } from "react";
 // Redux Connection
 import { connect } from "react-redux";

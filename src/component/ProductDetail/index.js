@@ -1,12 +1,12 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
-import CardThree from "component/Home/subcomponents/CardThree";
 import { Instructions } from "component/Instructions";
 import React from "react";
 import { useState } from "react";
+import { connect } from "react-redux";
 import { history } from "service/helpers";
 import "./styles.scss";
 
-function ProductDetailComponent() {
+function ProductDetailFC({ productDetailData }) {
   const [isOpen, setIsOpen] = useState();
 
   return (
@@ -224,5 +224,9 @@ function ProductDetailComponent() {
     </>
   );
 }
-
-export default ProductDetailComponent;
+const mapStateToProps = (state) => {
+  return {
+    productDetailData: state.commonStore.productDetailState,
+  };
+};
+export const ProductDetail = connect(mapStateToProps)(ProductDetailFC);
