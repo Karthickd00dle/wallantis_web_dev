@@ -7,11 +7,12 @@ import {
   DropdownMenu,
 } from "reactstrap";
 import { HiDotsHorizontal } from "react-icons/hi";
-import visibility from "../../../../assets/images/visibility.svg";
 import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { Pagination } from "../../common/Pagination";
-import { Router, Route, Link, useHistory } from "react-router-dom";
-import { createBrowserHistory, History } from "history";
+import { useHistory } from "react-router-dom";
+
+const visibility = React.lazy(() =>
+  import("../../../../assets/images/visibility.svg")
+);
 
 export default function CareerManagement() {
   const history = useHistory();

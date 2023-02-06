@@ -1,6 +1,5 @@
-import { Input, InputAdornment, TextField } from "@mui/material";
+import { Input } from "@mui/material";
 import React from "react";
-import { history } from "service/helpers";
 import { CustomButton } from "..";
 import "./NormalInput.scss";
 

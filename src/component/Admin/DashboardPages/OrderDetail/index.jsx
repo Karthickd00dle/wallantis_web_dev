@@ -1,46 +1,31 @@
 import React, { useState } from "react";
 import "./style.scss";
-import StepIndicator from "react-native-step-indicator";
+// import StepIndicator from "react-native-step-indicator";
+// import StarRating from "component/common/StarRating";
 
-import Diamondwallpaper from "../../../../assets/images/Diamondwallpaper.svg";
-import Adminclose from "../../../../assets/images/Adminclose.svg";
-import Adminadam from "../../../../assets/images/Adminadam.svg";
-import Adminphone from "../../../../assets/images/Adminphone.svg";
-import StarRating from "component/common/StarRating";
+const Diamondwallpaper = React.lazy(() =>
+  import("../../../../assets/images/Diamondwallpaper.svg")
+);
+
+const Adminclose = React.lazy(() =>
+  import("../../../../assets/images/Adminclose.svg")
+);
+
+const Adminadam = React.lazy(() =>
+  import("../../../../assets/images/Adminadam.svg")
+);
+
+const Adminphone = React.lazy(() =>
+  import("../../../../assets/images/Adminphone.svg")
+);
+
+const StarRating = React.lazy(() => import("component/common/StarRating"));
 
 export default function OrderDetail() {
   const [currentPosition, SetCurrentPosition] = useState(0);
   const nextStep = () => {
     SetCurrentPosition(currentPosition + 1);
   };
-
-  const labels = ["Order Confirmed", "Shipped", "In Transit", "Delivery"];
-
-  const customStyles = {
-    stepIndicatorSize: 25,
-    currentStepIndicatorSize: 30,
-    separatorStrokeWidth: 2,
-    currentStepStrokeWidth: 3,
-    stepStrokeCurrentColor: "#49E412",
-    stepStrokeWidth: 3,
-    stepStrokeFinishedColor: "##49E412",
-    stepStrokeUnFinishedColor: "#D4D4D4",
-    separatorFinishedColor: "#49E412",
-    separatorUnFinishedColor: "#D4D4D4",
-    stepIndicatorFinishedColor: "#49E412",
-    stepIndicatorUnFinishedColor: "#D4D4D4",
-    stepIndicatorCurrentColor: "#49E412",
-    stepIndicatorLabelFontSize: 13,
-    currentStepIndicatorLabelFontSize: 13,
-    stepIndicatorLabelCurrentColor: "#49E412",
-    stepIndicatorLabelFinishedColor: "#49E412",
-    stepIndicatorLabelUnFinishedColor: "#49E412",
-    labelColor: "#000000",
-    labelSize: 13,
-    currentStepLabelColor: "#49E412",
-  };
-
-  console.disableYellowBox = true;
   return (
     <div>
       <div className="admin-orderdetail">
@@ -165,13 +150,13 @@ export default function OrderDetail() {
           <div className="ordertracking">
             <h2>Order Tracking </h2>
             <div className="indicatorcontainer">
-              <StepIndicator
+              {/* <StepIndicator
                 customStyles={customStyles}
                 currentPosition={currentPosition}
                 labels={labels}
                 //  detail={detail}
                 direction="vertical"
-              />
+              /> */}
             </div>
           </div>
         </div>

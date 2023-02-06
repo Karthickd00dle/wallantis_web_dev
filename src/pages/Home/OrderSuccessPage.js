@@ -1,5 +1,4 @@
 import { OrderSuccess } from "component";
-import { Home } from "component/Home/Home";
 import React, { Component } from "react";
 // Redux Connection
 import { connect } from "react-redux";

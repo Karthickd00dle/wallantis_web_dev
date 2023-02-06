@@ -1,5 +1,5 @@
 import React from "react";
-import { NormalSearch, CustomSelect } from "component/common";
+import { NormalSearch } from "component/common";
 import wallImage from "assets/images/wallImage.png";
 import DeleteIcon from "assets/images/deleteIcon.png";
 import "./index.scss";
