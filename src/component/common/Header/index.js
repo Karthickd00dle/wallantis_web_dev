@@ -20,7 +20,7 @@ function Header() {
       subMenuItems: [
         {
           name: "Wallpaper",
-          route: "/home/product-listing",
+          route: "/home/product-listing/wallpaper",
         },
         {
           name: "Sticker Wallpaper",
@@ -31,8 +31,8 @@ function Header() {
           route: "/home/product-listing/wall-murals",
         },
         {
-          name: "View all ",
-          route: "/home/product-listing/all",
+          name: "View All ",
+          route: "/home/product-listing/all-wallpaper",
         },
       ],
     },
@@ -41,15 +41,15 @@ function Header() {
       icon: <FlooringSVGComponent />,
       subMenuItems: [
         {
-          name: "Wooden flooring",
+          name: "Wooden Flooring",
           route: "/home/product-listing/wooden-flooring",
         },
         {
-          name: "LVP plank (Laminated)",
+          name: "LVP Plank (Laminated)",
           route: "/home/product-listing/lvp-plank",
         },
         {
-          name: "View all ",
+          name: "View All ",
           route: "/home/product-listing/all-wooden-flooring",
         },
       ],
@@ -83,7 +83,7 @@ function Header() {
           route: "/home/product-listing/customized-blinds  ",
         },
         {
-          name: "View all",
+          name: "View All",
           route: "/home/product-listing/all-blinds",
         },
       ],
@@ -139,7 +139,7 @@ function Header() {
           route: "/home/product-listing/artificial-grass",
         },
         {
-          name: "View all",
+          name: "View All",
           route: "/home/product-listing/view-all-grass",
         },
       ],
@@ -255,7 +255,7 @@ function HeaderDropDownItem({ title, menuItem, Icon, route }) {
               return (
                 <div
                   className="menu-list-item"
-                  onClick={() => history.push(item?.route)}
+                  onClick={() => history.push(item?.route, item)}
                 >
                   {item?.name}
                 </div>

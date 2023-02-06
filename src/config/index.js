@@ -362,7 +362,8 @@ export const wallpaperProducts = [
     image:
       "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/original/products/63640/63400/81NYsSmzIjL._SL1500___89962.1602915878.jpg",
     price: 4500,
-    category: "Floral",
+    category: "Sticker Wallpaper",
+    sub_category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
     room: "Bed Room",
@@ -374,7 +375,8 @@ export const wallpaperProducts = [
     image:
       "https://www.giffywalls.com/blog/wp-content/uploads/2021/03/Rosy-Pink-wallpaper-mural-scaled.jpg",
     price: 4500,
-    category: "Floral",
+    category: "Wallpaper",
+    sub_category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
     room: "Living Room",
@@ -496,3 +498,12 @@ export const wallpaperProducts = [
     size: "50cm x 45cm",
   },
 ];
+
+
+export const ProductdetailImages =[
+  "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
+  "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+  "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+  "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+]

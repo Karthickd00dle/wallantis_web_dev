@@ -43,6 +43,7 @@
     "react-tabs": "^6.0.0",
     "react-toastify": "^9.1.1",
     "react-video-js-player": "^1.1.1",
+    "react-zoom-pan-pinch": "^2.3.2",
     "reactstrap": "^8.9.0",
     "recharts": "^2.3.2",
     "redux": "^4.2.0",

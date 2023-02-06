@@ -3,8 +3,11 @@ import "./style.scss";
 import Closeblind from "../../../assets/images/Closeblind.svg"
 
 export function Calculatorsquare() {
+      const Modal = ({open,onClose})=>{
+        if (!open) return null;
+      }
   return (
-    <div>
+    <div  className="overlay">
     <div className="calculatorsquare">
         <label>Calculator Square Feet</label>
         <img src={Closeblind}/>
