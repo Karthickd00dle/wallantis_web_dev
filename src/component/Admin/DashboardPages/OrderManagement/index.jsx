@@ -1,6 +1,6 @@
 import React from "react";
 import CustomTable from "component/Admin/common/CustomTable";
-import "./style.scss"
+import "./style.scss";
 import {
   IconButton,
   MenuItem,
@@ -16,7 +16,6 @@ import {
   DeleteIcon,
   EyeIcon,
   PencilIcon,
-  StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 
@@ -28,7 +27,7 @@ const totalInstallersData = [
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
     Amount: "₹3500",
-    Order_status : "New Order",
+    Order_status: "New Order",
   },
   {
     No: "2",
@@ -37,7 +36,7 @@ const totalInstallersData = [
     Customer_Name: "John Doe",
     Location: "Anna Nagar, Chennai",
     Amount: "₹3500",
-    Order_status : "New Order",
+    Order_status: "New Order",
   },
 ];
 const TableDataHeader = () => {
@@ -86,15 +85,7 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: {
-    No,
-    Id,
-    Date,
-    Customer_Name,
-    Location,
-    Amount,
-    Order_status,
-  },
+  bodyData: { No, Id, Date, Customer_Name, Location, Amount, Order_status },
 }) => {
   return (
     <TableRow key={No}>
@@ -116,9 +107,10 @@ const TableDataBody = ({
       <TableCell align="left">
         <label className="table-body-cell-label">{Amount}</label>
       </TableCell>
-      <TableCell align="left"  className="table-order-neworder">
+      <TableCell align="left" className="table-order-neworder">
         <ul>
-        <li className="table-body-cell-label">{Order_status}</li></ul>
+          <li className="table-body-cell-label">{Order_status}</li>
+        </ul>
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>

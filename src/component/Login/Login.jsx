@@ -22,8 +22,8 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
 
   const handleSubmit = () => {
     if (
-      loginFormValue.mailId === "nishants440@gmail.com" &&
-      loginFormValue.password === "nishant123@#"
+      loginFormValue.mailId === "test@gmail.com" &&
+      loginFormValue.password === "test1234@#"
     ) {
       localStorage.setItem("authToken", loginFormValue.mailId);
       history.push("/home/home");

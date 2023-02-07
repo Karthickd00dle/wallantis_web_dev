@@ -34,7 +34,9 @@ export const NormalNavigate = (props) => {
   let location = useLocation();
   let param = location.pathname.split("/").slice(1);
   let paramPath = param.map((d) => {
-    if (d !== "") return `${d.replace("-", " ")}`;
+    if (d !== "") {
+      return `${d.replace("-", " ")}`;
+    }
   });
 
   const { children, arrowStyle, linkStyle, navigationStyle } = props;
@@ -52,8 +54,8 @@ export const NormalNavigate = (props) => {
             />
           </>
         ))}
-        
-        {children} 
+
+        {children}
       </div>
     </>
   );

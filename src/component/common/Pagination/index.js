@@ -10,10 +10,10 @@ export class Pagination extends Component {
   }
 
   //handle Pagination
-  handlePagination = (data, page) => {
-    this.setState({ currentPage: page });
-    this.props.change(data);
-  };
+  // handlePagination = (data, page) => {
+  //   this.setState({ currentPage: page });
+  //   this.props.change(data);
+  // };
 
   handlePagination = (direction) => {
     try {

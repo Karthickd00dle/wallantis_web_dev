@@ -7,9 +7,11 @@ import {
   DropdownMenu,
 } from "reactstrap";
 import { HiDotsHorizontal } from "react-icons/hi";
-import visibility from "../../../../assets/images/visibility.svg";
-import { StaffColumnValues } from "component/Admin/Data/staticDatas";
 
+import { StaffColumnValues } from "component/Admin/Data/staticDatas";
+const visibility = React.lazy(() =>
+  import("../../../../assets/images/visibility.svg")
+);
 export default function CatalogueManagement() {
   const staffHead = [
     {

@@ -1,10 +1,11 @@
 import { Checkbox, TextField } from "@mui/material";
-import PaperwallLogo from "assets/svg/PaperwallLogo";
 import { CustomButton } from "component/common";
 import React from "react";
 import { useState } from "react";
 import ForgetPassword from "./ForgetPassword";
 import "./style.scss";
+
+const PaperwallLogo = React.lazy(() => import("assets/svg/PaperwallLogo"));
 
 const Login = () => {
   const [checked, setChecked] = useState(false);
