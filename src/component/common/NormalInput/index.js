@@ -52,6 +52,7 @@ export const NormalInput = ({
             onChange(body);
           }}
         />
+
         {isSubmitButton && (
           <CustomButton
             style={{
@@ -82,6 +83,8 @@ export const CustomInput = ({
   name,
   value,
   onChange,
+  register,
+  errors,
 }) => {
   return (
     <>
@@ -91,6 +94,7 @@ export const CustomInput = ({
         name={name}
         value={value}
         onChange={onChange}
+        {...register(name, { required: true })}
         variant={variant}
         placeholder={placeholder}
         className={className}
@@ -98,6 +102,10 @@ export const CustomInput = ({
         endAdornment={endAdornment}
         type={type}
       />
+
+      <div className="error-message">
+        {errors[name]?.type && <span>This field is required</span>}
+      </div>
     </>
   );
 };

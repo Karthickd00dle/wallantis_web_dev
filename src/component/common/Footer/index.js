@@ -1,18 +1,27 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import "./style.scss";
-import { ReactComponent as BrandLogo } from "assets/svg/Brand-Logo.svg";
-import { ReactComponent as FBIcon } from "assets/icons/FooterIcons/Facebook.svg";
-import { ReactComponent as IGIcon } from "assets/icons/FooterIcons/Instagram.svg";
-import { ReactComponent as LinkedINIcon } from "assets/icons/FooterIcons/Linkedin.svg";
-import { ReactComponent as TwitterIcon } from "assets/icons/FooterIcons/Twitter.svg";
-import { ReactComponent as GPSIcon } from "assets/icons/FooterIcons/GPS-Icon.svg";
-import { ReactComponent as PhoneIcon } from "assets/icons/FooterIcons/Phone-Logo.svg";
-import { ReactComponent as MessageIcon } from "assets/icons/FooterIcons/Message-Icon.svg";
 import GooglePlayIcon from "assets/images/FooterIcons/GooglePlayIcon.png";
 import AppStoreIcon from "assets/images/FooterIcons/AppStoreIcon.png";
 import { NormalInput } from "../NormalInput";
 import { useHistory } from "react-router-dom";
+const BrandLogo = React.lazy(() => import("assets/svg/BrandLogo"));
+const FBIcon = React.lazy(() => import("assets/icons/FooterIcons/Facebook"));
+const IGIcon = React.lazy(() => import("assets/icons/FooterIcons/Instagram"));
+const LinkedINIcon = React.lazy(() =>
+  import("assets/icons/FooterIcons/Linkedin")
+);
+const TwitterIcon = React.lazy(() =>
+  import("assets/icons/FooterIcons/Twitter")
+);
+
+const GPSIcon = React.lazy(() => import("assets/icons/FooterIcons/GPSIcon"));
+const PhoneIcon = React.lazy(() =>
+  import("assets/icons/FooterIcons/PhoneIcon")
+);
+const MessageIcon = React.lazy(() =>
+  import("assets/icons/FooterIcons/MessageIcon")
+);
 
 export const NormalFooter = () => {
   const history = useHistory();
@@ -130,11 +139,15 @@ export const NormalFooter = () => {
               </div>
               <div className="d-flex align-items-center py-4">
                 <PhoneIcon width={"10%"} />
-                <label className="w-75 footer-address-info">+91 56846 28126</label>
+                <label className="w-75 footer-address-info">
+                  +91 56846 28126
+                </label>
               </div>
               <div className="d-flex align-items-center">
                 <MessageIcon width={"10%"} />
-                <label className="w-75 footer-address-info">support@gmail.com</label>
+                <label className="w-75 footer-address-info">
+                  support@gmail.com
+                </label>
               </div>
               <div className="ps-2 pt-5">
                 <label className=" brand-info">Download Our App</label>

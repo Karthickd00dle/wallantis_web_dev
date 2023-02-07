@@ -2,9 +2,7 @@ import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
-const Aboutus = React.lazy(() =>
-  import("../../assets/images/AboutUs-Main.svg")
-);
+const Aboutus = React.lazy(() => import("assets/images/AboutUs"));
 
 const ourgoals = React.lazy(() => import("../../assets/images/ourgoals.svg"));
 const team1 = React.lazy(() => import("../../assets/images/team1.svg"));
@@ -42,7 +40,7 @@ export const AboutWallantics = () => {
       </div>
       <div className="d-flex wallat-abt">
         <div className="col-md-4 Aboutus-Main">
-          <img src={Aboutus} />
+          <Aboutus />
         </div>
         <div className="Aboutus-contents">
           <h5>About Us</h5>

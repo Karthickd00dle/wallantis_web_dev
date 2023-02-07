@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "assets/scss/layouts/AuthLayout.scss";
-import { ReactComponent as BrandLogo } from "assets/svg/Brand-Logo.svg";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
+
+const BrandLogo = React.lazy(() => import("assets/svg/BrandLogo"));
 
 const FetchParams = () => {
   let location = useLocation();
@@ -12,17 +13,19 @@ const FetchParams = () => {
 
 export function AuthLayout({ children }) {
   return (
-    <div className="d-flex ">
-      <div className="auth-layout">
-        <BrandLogo height="95px" width="110px" />
-        <div>
-          <label>
-            <FetchParams />
-          </label>
-          <p>Get access to your orders, wishlist and recommendations</p>
+    <Suspense fallback={<h1>Loading..Please Wait</h1>}>
+      <div className="d-flex">
+        <div className="auth-layout">
+          <div className="brand-logo">
+            <BrandLogo />
+          </div>
+          <div>
+            <label>{/* <FetchParams /> */}</label>
+            <p>Get access to your orders, wishlist and recommendations</p>
+          </div>
         </div>
+        {children}
       </div>
-      {children}
-    </div>
+    </Suspense>
   );
 }
