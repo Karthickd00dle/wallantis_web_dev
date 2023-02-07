@@ -1,13 +1,15 @@
 import CardThree from "component/Home/subcomponents/CardThree";
 import { useLocation } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
-import { SortingMenuList, wallpapersProductListing } from "config";
+import { SortingMenuList, productListingFilter } from "config";
 import React from "react";
 import { history } from "service/helpers";
 import WallpapersHeader from "assets/images/ProductListing/Wallpapers-Header.png";
 import "./style.scss";
 import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
+import { bindActionCreators } from "redux";
+import { productListingApi } from "action/AuthAct";
 
 export const ProductHeader = ({ bannerLabel }) => {
   return (
@@ -48,7 +50,7 @@ export const ProductListingGrid = () => {
   return (
     <>
       <div className="filter-container">
-        {wallpapersProductListing.map(({ itemheader, itemlist }, index) => (
+        {productListingFilter.map(({ itemheader, itemlist }, index) => (
           <CustomFilterAccordion
             key={index}
             itemheader={itemheader}
@@ -65,13 +67,15 @@ const ProductListingFC = ({ productListingData }) => {
   const location = useLocation();
   const getLocation = location.state.name;
   const dispatch = useDispatch();
+
   const handleProductDetail = (prodData) => {
-    history.push("/home/product-details/details");
     dispatch({
       type: commonStateList.productDetail,
       payload: prodData,
     });
+    history.push("/home/product-details");
   };
+
   return (
     <div className="product-listing-container">
       <ProductHeader bannerLabel={getLocation} />
@@ -107,4 +111,14 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const ProductListing = connect(mapStateToProps, null)(ProductListingFC);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    { productListingApicall: productListingApi },
+    dispatch
+  );
+};
+
+export const ProductListing = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductListingFC);

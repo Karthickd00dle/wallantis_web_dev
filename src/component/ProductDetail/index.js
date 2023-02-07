@@ -1,35 +1,24 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
-import CardThree from "component/Home/subcomponents/CardThree";
 import React, { useState } from "react";
 import { Instructions } from "component/Instructions";
 import { connect } from "react-redux";
 import { history } from "service/helpers";
 import "./styles.scss";
-import { ProductdetailImages } from "config";
 
 function ProductDetailFC({ productDetailData }) {
+  console.log(productDetailData, "product detail");
   const [isOpen, setIsOpen] = useState();
-  const [selectedImg, setSelectedImg] = useState(ProductdetailImages[0]);
+  const [selectedImg, setSelectedImg] = useState();
 
   return (
     <>
       <div className="product-detail-container">
         <div className="product-detail-inner-container">
           <div className="image-section">
-            {/* <div className="product-img-xl">
-          </div>
-          <div className="product-img-sml">
-            <div className="product-img-sml-item"></div>
-            <div className="product-img-sml-item"></div>
-            <div className="product-img-sml-item"></div>
-            <div className="product-img-sml-item"></div>
-            <div className="product-img-sml-item"></div>
-          </div> */}
-
             <div className="container">
               <img src={selectedImg} alt="Selected" className="selected" />
               <div className="imgContainer">
-                {ProductdetailImages.map((img, index) => (
+                {productDetailData?.image?.map((img, index) => (
                   <img
                     style={{
                       border: selectedImg === img ? "4px solid purple" : "",
@@ -220,7 +209,6 @@ function ProductDetailFC({ productDetailData }) {
 
             <div className="review-item-container">
               <div>
-                {" "}
                 <div className="review-item-img"></div>
               </div>
 
@@ -240,12 +228,7 @@ function ProductDetailFC({ productDetailData }) {
 
         <div className="other-products-title">You may also like </div>
 
-        <div className="other-products-list">
-          {/* <CardThree />
-        <CardThree />
-        <CardThree />
-        <CardThree /> */}
-        </div>
+        <div className="other-products-list"></div>
       </div>
       <Instructions isOpen={isOpen} handleClose={() => setIsOpen(false)} />
     </>

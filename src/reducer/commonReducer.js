@@ -17,6 +17,7 @@ const commonReducer = (state = initialState, { type, payload } = {}) => {
         ...state,
         productDetailState: payload,
       };
+
     default:
       return state;
   }

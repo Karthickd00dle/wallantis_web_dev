@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
 import "./styles.scss";
+import { ternaryCondition } from "service/helperFunctions";
 function CardThree({ onClick, prodData }) {
   const { image, title, price } = prodData;
+
   const [iconVisibility, seticonVisibility] = useState(false);
   return (
     <div
@@ -18,7 +20,13 @@ function CardThree({ onClick, prodData }) {
     >
       <div
         className="card-three-image-section"
-        style={{ backgroundImage: `url(${image})` }}
+        style={{
+          backgroundImage: `url(${ternaryCondition(
+            Array.isArray(image),
+            image[0],
+            image
+          )})`,
+        }}
       >
         {iconVisibility ? (
           <div className="icon-container">
