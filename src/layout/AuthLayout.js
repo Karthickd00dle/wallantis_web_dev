@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import "assets/scss/layouts/AuthLayout.scss";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
+import { BrandLogoIcon } from "assets/icons/FooterIcons/FooterIcons";
 
 const BrandLogo = React.lazy(() => import("assets/svg/BrandLogo"));
 
@@ -13,16 +14,14 @@ const FetchParams = () => {
 
 export function AuthLayout({ children }) {
   return (
-    <Suspense fallback={<h1>Loading..Please Wait</h1>}>
-      <div className="d-flex">
-        <div className="auth-layout">
-          <div className="brand-logo">
-            <BrandLogo />
-          </div>
-          <div>
-            <label>{/* <FetchParams /> */}</label>
-            <p>Get access to your orders, wishlist and recommendations</p>
-          </div>
+    <div className="d-flex ">
+      <div className="auth-layout">
+        <BrandLogoIcon height="95px" width="110px" />
+        <div>
+          <label>
+            <FetchParams />
+          </label>
+          <p>Get access to your orders, wishlist and recommendations</p>
         </div>
         {children}
       </div>

@@ -4,28 +4,28 @@ import { NormalNavigate } from "component/common";
 
 const Aboutus = React.lazy(() => import("assets/images/AboutUs"));
 
-const ourgoals = React.lazy(() => import("../../assets/images/ourgoals.svg"));
-const team1 = React.lazy(() => import("../../assets/images/team1.svg"));
-const team2 = React.lazy(() => import("../../assets/images/team2.svg"));
-const team3 = React.lazy(() => import("../../assets/images/team3.svg"));
-const team4 = React.lazy(() => import("../../assets/images/team4.svg"));
+const ourgoals = React.lazy(() => import("assets/images/ourgoals.svg"));
+const team1 = React.lazy(() => import("assets/images/team1.svg"));
+const team2 = React.lazy(() => import("assets/images/team2.svg"));
+const team3 = React.lazy(() => import("assets/images/team3.svg"));
+const team4 = React.lazy(() => import("assets/images/team4.svg"));
 const Livingroomwallpaper = React.lazy(() =>
-  import("../../assets/images/Livingroomwallpaper.svg")
+  import("assets/images/Livingroomwallpaper.svg")
 );
 const Bedroomwallpaper = React.lazy(() =>
-  import("../../assets/images/Bedroomwallpaper.svg")
+  import("assets/images/Bedroomwallpaper.svg")
 );
 const Kidswallpaper = React.lazy(() =>
-  import("../../assets/images/Kidswallpaper.svg")
+  import("assets/images/Kidswallpaper.svg")
 );
 const Customizeswallpaper = React.lazy(() =>
-  import("../../assets/images/Customizeswallpaper.svg")
+  import("assets/images/Customizeswallpaper.svg")
 );
 const Stickerwallpaper = React.lazy(() =>
-  import("../../assets/images/Stickerwallpaper.svg")
+  import("assets/images/Stickerwallpaper.svg")
 );
 const Newlaunchwallpaper = React.lazy(() =>
-  import("../../assets/images/Newlaunchwallpaper.svg")
+  import("assets/images/Newlaunchwallpaper.svg")
 );
 
 export const AboutWallantics = () => {

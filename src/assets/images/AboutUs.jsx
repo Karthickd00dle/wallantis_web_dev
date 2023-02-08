@@ -1,5 +1,5 @@
 import * as React from "react";
-const AboutUs = (props) => (
+export const AboutUs = (props) => (
   <svg
     width={752}
     height={647}
@@ -26,4 +26,3 @@ const AboutUs = (props) => (
     </defs>
   </svg>
 );
-export default AboutUs;

@@ -17,8 +17,6 @@ const BootstrapInput = styled(Select)(() => ({
 
 export const CustomSelect = (props) => {
   const {
-    titleLabel = "",
-    labelSize = "",
     className,
     inputStyle,
     menuItemStyle,
@@ -33,13 +31,6 @@ export const CustomSelect = (props) => {
 
   return (
     <div className={`custom_select_container ${className}`}>
-      {titleLabel !== "" ? (
-        <div className="d-flex justify-content-start mb-1">
-          <label className={`font-weight-normal mb-1 ${labelSize}`}>
-            {titleLabel}
-          </label>
-        </div>
-      ) : null}
       <BootstrapInput
         className={`w-100 d-flex align-items-center ${inputStyle}`}
         id="demo-customized-textbox"
