@@ -2,6 +2,7 @@ import React from "react";
 import jwt_decode from "jwt-decode";
 import { history } from "service/helpers";
 import moment from "moment";
+import { sortingTypes } from "./helpers/Constants";
 //add Query
 export const addQuery = (dataObject, apiObject) => {
   if (!dataObject) {

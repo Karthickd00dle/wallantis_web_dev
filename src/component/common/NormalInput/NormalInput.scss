@@ -86,3 +86,8 @@
     }
   }
 }
+
+.error-message {
+  @include fontLatoStyle(16px, 600, rgb(211, 36, 36));
+  margin-top: 10px;
+}

@@ -18,7 +18,6 @@ import Header from "../Header";
 
 export const CustomHeader = () => {
   const authToken = localStorage.getItem("authToken");
-  const [showBanner, setShowBanner] = useState(false);
   const [open, setOpen] = useState(false);
 
   const handleCartIcon = () => {

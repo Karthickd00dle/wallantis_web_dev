@@ -1,46 +1,31 @@
 import React, { useState } from "react";
 import "./style.scss";
-import StepIndicator from "react-native-step-indicator";
+// import StepIndicator from "react-native-step-indicator";
+// import StarRating from "component/common/StarRating";
 
-import Diamondwallpaper from "../../../../assets/images/Diamondwallpaper.svg";
-import Adminclose from "../../../../assets/images/Adminclose.svg";
-import Adminadam from "../../../../assets/images/Adminadam.svg";
-import Adminphone from "../../../../assets/images/Adminphone.svg";
-import StarRating from "component/common/StarRating";
+// const Diamondwallpaper = React.lazy(() =>
+//   import("../../../../assets/images/Diamondwallpaper.svg")
+// );
+
+// const Adminclose = React.lazy(() =>
+//   import("../../../../assets/images/Adminclose.svg")
+// );
+
+// const Adminadam = React.lazy(() =>
+//   import("../../../../assets/images/Adminadam.svg")
+// );
+
+// const Adminphone = React.lazy(() =>
+//   import("../../../../assets/images/Adminphone.svg")
+// );
+
+const StarRating = React.lazy(() => import("component/common/StarRating"));
 
 export default function OrderDetail() {
   const [currentPosition, SetCurrentPosition] = useState(0);
   const nextStep = () => {
     SetCurrentPosition(currentPosition + 1);
   };
-
-  const labels = ["Order Confirmed", "Shipped", "In Transit", "Delivery"];
-
-  const customStyles = {
-    stepIndicatorSize: 25,
-    currentStepIndicatorSize: 30,
-    separatorStrokeWidth: 2,
-    currentStepStrokeWidth: 3,
-    stepStrokeCurrentColor: "#49E412",
-    stepStrokeWidth: 3,
-    stepStrokeFinishedColor: "##49E412",
-    stepStrokeUnFinishedColor: "#D4D4D4",
-    separatorFinishedColor: "#49E412",
-    separatorUnFinishedColor: "#D4D4D4",
-    stepIndicatorFinishedColor: "#49E412",
-    stepIndicatorUnFinishedColor: "#D4D4D4",
-    stepIndicatorCurrentColor: "#49E412",
-    stepIndicatorLabelFontSize: 13,
-    currentStepIndicatorLabelFontSize: 13,
-    stepIndicatorLabelCurrentColor: "#49E412",
-    stepIndicatorLabelFinishedColor: "#49E412",
-    stepIndicatorLabelUnFinishedColor: "#49E412",
-    labelColor: "#000000",
-    labelSize: 13,
-    currentStepLabelColor: "#49E412",
-  };
-
-  console.disableYellowBox = true;
   return (
     <div>
       <div className="admin-orderdetail">
@@ -58,7 +43,7 @@ export default function OrderDetail() {
           <div className="admin-ordercontent">
             <div className="admin-collab1">
               <div className="admin-item1">
-                <img src={Diamondwallpaper} />
+                {/* <img src={Diamondwallpaper} /> */}
 
                 <div className="item1-cont">
                   <h6>Textured Wallpaper</h6>
@@ -72,13 +57,13 @@ export default function OrderDetail() {
                 <div className="admin-price1">₹3500</div>
                 <div className="admin-totalprice1">₹17,500</div>
                 <div className="admin-close">
-                  <img src={Adminclose} />
+                  {/* <img src={Adminclose} /> */}
                 </div>
               </div>
             </div>
             <div className="admin-collab2">
               <div className="admin-item1">
-                <img src={Diamondwallpaper} />
+                {/* <img src={Diamondwallpaper} /> */}
 
                 <div className="item1-cont">
                   <h6>Textured Wallpaper</h6>
@@ -92,14 +77,14 @@ export default function OrderDetail() {
                 <div className="admin-price1">₹3500</div>
                 <div className="admin-totalprice1">₹17,500</div>
                 <div className="admin-close">
-                  <img src={Adminclose} />
+                  {/* <img src={Adminclose} /> */}
                 </div>
               </div>
             </div>
 
             <div className="admin-collab3">
               <div className="admin-item1">
-                <img src={Diamondwallpaper} />
+                {/* <img src={Diamondwallpaper} /> */}
 
                 <div className="item1-cont">
                   <h6>Textured Wallpaper</h6>
@@ -113,7 +98,7 @@ export default function OrderDetail() {
                 <div className="admin-price1">₹3500</div>
                 <div className="admin-totalprice1">₹17,500</div>
                 <div className="admin-close">
-                  <img src={Adminclose} />
+                  {/* <img src={Adminclose} /> */}
                 </div>
               </div>
             </div>
@@ -124,9 +109,7 @@ export default function OrderDetail() {
             </div>
             <div className="adamtime-collab">
               <div className="adam-collab">
-                <div className="Adminadam">
-                  <img src={Adminadam} />
-                </div>
+                <div className="Adminadam">{/* <img src={Adminadam} /> */}</div>
                 <div className="adam-info">
                   <h3>Adam</h3>
                   <span>ID - 41255</span>
@@ -136,9 +119,7 @@ export default function OrderDetail() {
               <div className="phonetime">
                 <div className="Adminphone">
                   <div className="adminphone-collab">
-                    <div>
-                      <img src={Adminphone} />
-                    </div>
+                    <div>{/* <img src={Adminphone} /> */}</div>
                     <div className="adminphone-info">
                       <h3>Phone</h3>
                       <span>+91-9876556781</span>
@@ -148,9 +129,7 @@ export default function OrderDetail() {
 
                 <div className="Admintime">
                   <div className="admintime-collab">
-                    <div>
-                      <img src={Adminphone} />
-                    </div>
+                    <div>{/* <img src={Adminphone} /> */}</div>
                     <div className="admintime-info">
                       <h3>Installation on</h3>
                       <span>25 Oct 2022</span>
@@ -165,13 +144,13 @@ export default function OrderDetail() {
           <div className="ordertracking">
             <h2>Order Tracking </h2>
             <div className="indicatorcontainer">
-              <StepIndicator
+              {/* <StepIndicator
                 customStyles={customStyles}
                 currentPosition={currentPosition}
                 labels={labels}
                 //  detail={detail}
                 direction="vertical"
-              />
+              /> */}
             </div>
           </div>
         </div>

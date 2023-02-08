@@ -23,16 +23,12 @@ import Delivery from "assets/images/delivery.png";
 import googlePlay from "assets/images/googlePlay.png";
 import qrSample from "assets/images/qrSample.png";
 import appStore from "assets/images/appStore.png";
-const HomeCardOne = React.lazy(() => import("./subcomponents/CardOne"));
-const CardTwo = React.lazy(() => import("./subcomponents/CardTwo"));
-const CardThree = React.lazy(() => import("./subcomponents/CardThree"));
-const CatalogueBg = React.lazy(() =>
-  import("../../assets/images/catalogueCardBackground.png")
-);
-const CardCatalogue = React.lazy(() => import("./subcomponents/CardCatalogue"));
-const QuotesSVGComponent = React.lazy(() =>
-  import("assets/svg/HomePage/qoutesSVG")
-);
+import HomeCardOne from "./subcomponents/CardOne";
+import CardTwo from "./subcomponents/CardTwo";
+import CardThree from "./subcomponents/CardThree";
+import CardCatalogue from "./subcomponents/CardCatalogue";
+import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
+
 function CardBlog(prodData) {
   return (
     <div className="blog-container">

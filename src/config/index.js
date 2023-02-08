@@ -90,7 +90,7 @@ export const historyNavigation = [
   },
 ];
 
-export const wallpapersProductListing = [
+export const productListingFilter = [
   {
     itemheader: "Categories",
     itemlist: [
@@ -359,8 +359,13 @@ export const wallpaperProducts = [
   {
     id: 1,
     title: "Vincent Van Gough Almond Blossom Wallpaper",
-    image:
+    image: [
       "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/original/products/63640/63400/81NYsSmzIjL._SL1500___89962.1602915878.jpg",
+      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
+      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    ],
     price: 4500,
     category: "Sticker Wallpaper",
     sub_category: "Floral",
@@ -372,9 +377,14 @@ export const wallpaperProducts = [
   {
     id: 2,
     title: "Banaras, Indian Carpet Design Wallpaper",
-    image:
+    image: [
       "https://www.giffywalls.com/blog/wp-content/uploads/2021/03/Rosy-Pink-wallpaper-mural-scaled.jpg",
-    price: 4500,
+      "http://cdn.shopify.com/s/files/1/0565/7080/6458/products/1155_54a600cf-1118-42aa-ba36-da0b7432a226.jpg?v=1659076658",
+      "https://www.giffywalls.com/blog/wp-content/uploads/2021/04/Navy-Flowers-wall-paper-1024x768.jpg",
+      "https://www.wallsauce.com/uploads/wallsauce-com/images/thumbs/536/2563c25d7fcbc58dac7295a7572e16b249bf8c07_800__R_N_90.jpg",
+      "https://cdn.shopify.com/s/files/1/0565/7080/6458/products/first-blossoms-in-deep-pool-wall-mural-living-room.jpg?v=1662022177",
+    ],
+    price: 3800,
     category: "Wallpaper",
     sub_category: "Floral",
     color: "Pink",
@@ -385,9 +395,15 @@ export const wallpaperProducts = [
   {
     id: 3,
     title: "A Story by the Garden Wallpaper",
-    image:
+    image: [
       "https://static.wixstatic.com/media/81d868_7502f3e3c4424fec924a82a9dd21455e~mv2.jpg/v1/fill/w_1200,h_1200,al_c,q_85/81d868_7502f3e3c4424fec924a82a9dd21455e~mv2.jpg",
-    price: 4500,
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1N0xIifbkGZkY4KOM1vh5zDQLymfNIdvgyw&usqp=CAU",
+      "https://media.architecturaldigest.com/photos/56d0e15d614bdaed547f54d8/4:3/w_1058,h_794,c_limit/floral-wallpaper-01.jpg",
+      "https://media.architecturaldigest.com/photos/6216b299643f8f6e8e605c91/16:9/w_2580,c_limit/60544285_030_b.jpeg",
+      "https://www.giffywalls.com/pub/media/catalog/product/-/_/-_15_-a632-floral-seamless-pattern_-somei-yoshino-sakura-flowers.jpeg",
+    ],
+
+    price: 2500,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -397,9 +413,15 @@ export const wallpaperProducts = [
   {
     id: 4,
     title: "Vincent Van Gough Almond Blossom Wallpaper",
-    image:
+    image: [
       "https://static.wixstatic.com/media/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.jpg/v1/fill/w_550,h_625,al_c,q_85,usm_0.66_1.00_0.01/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.webp",
-    price: 4500,
+      "https://i.etsystatic.com/21916349/r/il/8445f3/3012204607/il_fullxfull.3012204607_6kdr.jpg",
+      "http://cdn.shopify.com/s/files/1/0565/7080/6458/collections/Floral-Wallpaper-Purple-and-Pink-Dark-Floral-Wall-Mural.jpg?v=1632906538",
+      "https://ucarecdn.com/2da49d22-08b0-4ebd-a7fd-e97ceab220cf/",
+      "https://i.etsystatic.com/8591869/r/il/c53bfd/1456731054/il_570xN.1456731054_4789.jpg",
+    ],
+
+    price: 6000,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -409,8 +431,8 @@ export const wallpaperProducts = [
   {
     id: 5,
     title: "Banaras, Indian Carpet Design Wallpaper",
-    image: "https://m.media-amazon.com/images/I/91lO3dM+XPL._SL1500_.jpg",
-    price: 4500,
+    image: ["https://m.media-amazon.com/images/I/91lO3dM+XPL._SL1500_.jpg"],
+    price: 8000,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -420,9 +442,10 @@ export const wallpaperProducts = [
   {
     id: 6,
     title: "A Story by the Garden Wallpaper",
-    image:
+    image: [
       "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/living-room-wallpaper-ideas-19-eld0008-opal-mural-by-ella-doran-from-the-ella-doran-collection-at-surface-view-murals-from-40-per-sq-meter-www-surfaceview-co-uk-1615811197.jpg",
-    price: 4500,
+    ],
+    price: 2600,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -432,7 +455,10 @@ export const wallpaperProducts = [
   {
     id: 7,
     title: "Vincent Van Gough Almond Blossom Wallpaper",
-    price: 4500,
+    image: [
+      "https://i.etsystatic.com/8591869/r/il/c53bfd/1456731054/il_570xN.1456731054_4789.jpg",
+    ],
+    price: 3200,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -442,9 +468,10 @@ export const wallpaperProducts = [
   {
     id: 8,
     title: "Banaras, Indian Carpet Design Wallpaper",
-    image:
+    image: [
       "https://i.pinimg.com/736x/f1/e4/6b/f1e46b994968a67d88bb562bb2e0a6b4.jpg",
-    price: 4500,
+    ],
+    price: 5500,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -454,9 +481,10 @@ export const wallpaperProducts = [
   {
     id: 9,
     title: "A Story by the Garden Wallpaper",
-    image:
+    image: [
       "https://i.etsystatic.com/31418760/r/il/9f2307/3762635972/il_fullxfull.3762635972_45e1.jpg",
-    price: 4500,
+    ],
+    price: 7000,
     category: "Floral",
     color: "Pink",
     collection: "Pink Themed",
@@ -466,8 +494,8 @@ export const wallpaperProducts = [
   {
     id: 10,
     title: "Vincent Van Gough Almond Blossom Wallpaper",
-    image: "https://m.media-amazon.com/images/I/51+3rSj93UL._AC_.jpg",
-    price: 4500,
+    image: ["https://m.media-amazon.com/images/I/51+3rSj93UL._AC_.jpg"],
+    price: 4800,
     category: "Kids",
     color: "Pink",
     collection: "Pink Themed",
@@ -477,9 +505,10 @@ export const wallpaperProducts = [
   {
     id: 11,
     title: "Banaras, Indian Carpet Design Wallpaper",
-    image:
+    image: [
       "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/cb%2F9-wallpaper-in-kids-rooms",
-    price: 4500,
+    ],
+    price: 5600,
     category: "Kids",
     color: "Pink",
     collection: "Pink Themed",
@@ -489,8 +518,8 @@ export const wallpaperProducts = [
   {
     id: 12,
     title: "A Story by the Garden Wallpaper",
-    image: "https://m.media-amazon.com/images/I/61bqVFhvHYL.jpg",
-    price: 4500,
+    image: ["https://m.media-amazon.com/images/I/61bqVFhvHYL.jpg"],
+    price: 6300,
     category: "Kids",
     color: "Pink",
     collection: "Pink Themed",
@@ -499,11 +528,10 @@ export const wallpaperProducts = [
   },
 ];
 
-
-export const ProductdetailImages =[
+export const ProductdetailImages = [
   "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
   "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
   "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
   "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
-]
+];

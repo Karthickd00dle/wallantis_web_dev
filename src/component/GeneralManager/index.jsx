@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 import { BiShareAlt } from "react-icons/bi";
-import Calendar from "../../assets/images/Calendar.svg";
+// import Calendar from "../../assets/images/Calendar.svg";
 import { CiLocationOn } from "react-icons/ci";
 
 export const GeneralManager = () => {
@@ -35,7 +35,7 @@ export const GeneralManager = () => {
           </div>
         </div>
         <div className="gmcontents">
-          <img src={Calendar} /> &nbsp;<label>Full-Time</label> &nbsp;{" "}
+          {/* <img src={Calendar} /> &nbsp;<label>Full-Time</label> &nbsp;{" "} */}
           <CiLocationOn className="locationicon" size={22} />
           &nbsp;{" "}
           <span>

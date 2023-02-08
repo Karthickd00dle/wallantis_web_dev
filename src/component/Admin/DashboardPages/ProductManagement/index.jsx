@@ -17,10 +17,12 @@ import {
   DeleteIcon,
   EyeIcon,
   PencilIcon,
-  StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
-import AdminDiamond from "../../../../assets/images/AdminDiamond.svg"
+
+// const AdminDiamond = React.lazy(() =>
+//   import("../../../../assets/images/AdminDiamond.svg")
+// );
 
 const totalInstallersData = [
   {
@@ -86,15 +88,7 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: {
-    No,
-    Title,
-    Date,
-    Customer_Name,
-    Location,
-    Amount,
-    Category,
-  },
+  bodyData: { No, Title, Date, Customer_Name, Location, Amount, Category },
 }) => {
   return (
     <TableRow key={No}>
@@ -102,11 +96,11 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
       <TableCell align="left" className="d-flex align-items-center py-4">
-      <Avatar
-          style={{ width: "40px", height: "40px" ,radius:"3px" }}
+        {/* <Avatar
+          style={{ width: "40px", height: "40px", radius: "3px" }}
           alt="Remy Sharp"
           src={AdminDiamond}
-        />
+        /> */}
         <label className="ps-2 table-body-cell-label">{Title}</label>
       </TableCell>
       <TableCell align="left">
@@ -158,14 +152,14 @@ export default function ProductManagement() {
   return (
     <div>
       <CustomNavBar label="Product Management" />
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
+      <CustomTable>
+        <TableDataHeader />
+        <TableBody>
+          {totalInstallersData?.map((bodyData) => (
+            <TableDataBody bodyData={bodyData} />
+          ))}
+        </TableBody>
+      </CustomTable>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

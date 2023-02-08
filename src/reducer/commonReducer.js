@@ -4,6 +4,7 @@ import { commonStateList } from "service/actionType";
 const initialState = {
   productListingState: wallpaperProducts,
   productDetailState: {},
+  cartItemState:[],
 };
 const commonReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
@@ -17,6 +18,13 @@ const commonReducer = (state = initialState, { type, payload } = {}) => {
         ...state,
         productDetailState: payload,
       };
+
+      case commonStateList.cartItem:
+        return {
+          ...state,
+          cartItemState: payload,
+        };
+
     default:
       return state;
   }

@@ -1,13 +1,15 @@
 import CardThree from "component/Home/subcomponents/CardThree";
 import { useLocation } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
-import { SortingMenuList, wallpapersProductListing } from "config";
-import React from "react";
+import { SortingMenuList, productListingFilter } from "config";
+import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
 import WallpapersHeader from "assets/images/ProductListing/Wallpapers-Header.png";
 import "./style.scss";
 import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
+import { bindActionCreators } from "redux";
+import { sortingFunction } from "action/CommonAct";
 
 export const ProductHeader = ({ bannerLabel }) => {
   return (
@@ -25,7 +27,14 @@ export const ProductHeader = ({ bannerLabel }) => {
   );
 };
 
-export const ProductSorting = ({ itemCount, itemLabel }) => {
+export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
+  const dispatch = useDispatch();
+  const [sorting] = useState();
+
+  const handleSorting = ({ target: { value } }) => {
+    let sortedData = sortingFunction(value, itemData);
+    dispatch({ type: commonStateList.productListing, payload: sortedData });
+  };
   return (
     <div className="sorting-container ">
       <div>
@@ -38,6 +47,9 @@ export const ProductSorting = ({ itemCount, itemLabel }) => {
           menuItemList={SortingMenuList}
           inputStyle="selectdropdown"
           menuItemStyle="menu-item"
+          name="sorting"
+          value={sorting}
+          onChange={(testtarget) => handleSorting(testtarget)}
         />
       </div>
     </div>
@@ -48,7 +60,7 @@ export const ProductListingGrid = () => {
   return (
     <>
       <div className="filter-container">
-        {wallpapersProductListing.map(({ itemheader, itemlist }, index) => (
+        {productListingFilter.map(({ itemheader, itemlist }, index) => (
           <CustomFilterAccordion
             key={index}
             itemheader={itemheader}
@@ -63,15 +75,21 @@ export const ProductListingGrid = () => {
 
 const ProductListingFC = ({ productListingData }) => {
   const location = useLocation();
+  const [productData, setProductData] = useState(productListingData);
   const getLocation = location.state.name;
   const dispatch = useDispatch();
+
   const handleProductDetail = (prodData) => {
-    history.push("/home/product-details/details");
     dispatch({
       type: commonStateList.productDetail,
       payload: prodData,
     });
+    history.push("/home/product-details");
   };
+  useEffect(() => {
+    return () => setProductData(productListingData);
+  }, [productData]);
+
   return (
     <div className="product-listing-container">
       <ProductHeader bannerLabel={getLocation} />
@@ -81,10 +99,11 @@ const ProductListingFC = ({ productListingData }) => {
           <ProductSorting
             itemCount={productListingData.length + 1}
             itemLabel={getLocation}
+            itemData={productListingData}
           />
           <div className="card-container">
             <div className="row">
-              {productListingData.map((prodData) => (
+              {productData.map((prodData) => (
                 <div key={prodData.id} className="col-4">
                   <CardThree
                     onClick={(prodData) => handleProductDetail(prodData)}
@@ -107,4 +126,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export const ProductListing = connect(mapStateToProps, null)(ProductListingFC);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ sortingFunctioncall: sortingFunction }, dispatch);
+};
+
+export const ProductListing = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductListingFC);

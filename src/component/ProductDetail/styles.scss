@@ -185,26 +185,6 @@
       }
     }
 
-    .button-container {
-      display: flex;
-      margin-bottom: 40px;
-      .blue-button {
-        width: max-content;
-        height: 70px;
-        border: 1px solid #2a71f9;
-        filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
-        border-radius: 4px;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-left: 33px;
-        padding-right: 33px;
-        margin-right: 24px;
-        @include fontRobotoStyle(18px, 500, #2a71f9, 22px);
-      }
-    }
-
     .product-details-2-container {
       max-width: 800px;
     }
