@@ -20,9 +20,7 @@ import {
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 
-// const AdminDiamond = React.lazy(() =>
-//   import("../../../../assets/images/AdminDiamond.svg")
-// );
+const AdminDiamond = React.lazy(() => import("assets/images/AdminDiamond"));
 
 const totalInstallersData = [
   {

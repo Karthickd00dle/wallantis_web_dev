@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
-import JohnDoe from "../../assets/images/JohnDoe.svg";
-// import blogdetail1 from "../../assets/images/blogdetail1.svg";
-import Natureinspired from "../../assets/images/Natureinspired.svg";
+import JohnDoe from "../../assets/images/JohnDoe";
+import Blogdetail1 from "assets/images/BlogDetail1";
+import Natureinspired from "assets/images/Natureinspired";
 import Popularweek1 from "../../assets/images/Popularweek1.svg";
 import Popularweek2 from "../../assets/images/Popularweek2.svg";
 import Popularweek3 from "../../assets/images/Popularweek3.svg";
@@ -28,7 +28,7 @@ export const Blogdetails = () => {
               <h4>How to choose wallpapers for renovating homes this Diwali</h4>
             </div>
             <div className="detailjohn">
-              <img src={JohnDoe} />
+              <JohnDoe />
               <label>John Doe </label>&nbsp;
               <span>14 Oct’2022</span>
               <p>
@@ -43,7 +43,7 @@ export const Blogdetails = () => {
               </p>
             </div>
             <div className="getinspiration">
-              {/* <img src={blogdetail1} /> */}
+              <Blogdetail1 />
               <label>Get inspiration from Indian designed wallpapers!</label>
               <p>
                 it justo, magna elementum ornare a ut nunc donec. Viverra et
@@ -117,7 +117,7 @@ export const Blogdetails = () => {
                 feugiat. Tortor, non scelerisque auctor mattis euismod augue cum
                 vestibulum. Tristique dictum eu cras mauris nam et.
               </p>
-              <img src={Natureinspired} />
+              <Natureinspired />
             </div>
 
             <div className="kidsbedroom">

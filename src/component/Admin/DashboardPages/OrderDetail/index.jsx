@@ -3,21 +3,15 @@ import "./style.scss";
 // import StepIndicator from "react-native-step-indicator";
 // import StarRating from "component/common/StarRating";
 
-// const Diamondwallpaper = React.lazy(() =>
-//   import("../../../../assets/images/Diamondwallpaper.svg")
-// );
+const Diamondwallpaper = React.lazy(() =>
+  import("assets/images/Diamondwallpaper")
+);
 
-// const Adminclose = React.lazy(() =>
-//   import("../../../../assets/images/Adminclose.svg")
-// );
+const Adminclose = React.lazy(() => import("assets/images/Adminclose"));
 
-// const Adminadam = React.lazy(() =>
-//   import("../../../../assets/images/Adminadam.svg")
-// );
+const Adminadam = React.lazy(() => import("assets/images/Adminadam"));
 
-// const Adminphone = React.lazy(() =>
-//   import("../../../../assets/images/Adminphone.svg")
-// );
+const Adminphone = React.lazy(() => import("assets/images/Adminphone"));
 
 const StarRating = React.lazy(() => import("component/common/StarRating"));
 
@@ -43,7 +37,7 @@ export default function OrderDetail() {
           <div className="admin-ordercontent">
             <div className="admin-collab1">
               <div className="admin-item1">
-                {/* <img src={Diamondwallpaper} /> */}
+                <Diamondwallpaper />
 
                 <div className="item1-cont">
                   <h6>Textured Wallpaper</h6>
@@ -57,13 +51,13 @@ export default function OrderDetail() {
                 <div className="admin-price1">₹3500</div>
                 <div className="admin-totalprice1">₹17,500</div>
                 <div className="admin-close">
-                  {/* <img src={Adminclose} /> */}
+                  <Adminclose />
                 </div>
               </div>
             </div>
             <div className="admin-collab2">
               <div className="admin-item1">
-                {/* <img src={Diamondwallpaper} /> */}
+                <Diamondwallpaper />
 
                 <div className="item1-cont">
                   <h6>Textured Wallpaper</h6>
@@ -77,14 +71,14 @@ export default function OrderDetail() {
                 <div className="admin-price1">₹3500</div>
                 <div className="admin-totalprice1">₹17,500</div>
                 <div className="admin-close">
-                  {/* <img src={Adminclose} /> */}
+                  <Adminclose />
                 </div>
               </div>
             </div>
 
             <div className="admin-collab3">
               <div className="admin-item1">
-                {/* <img src={Diamondwallpaper} /> */}
+                <Diamondwallpaper />
 
                 <div className="item1-cont">
                   <h6>Textured Wallpaper</h6>
@@ -98,7 +92,7 @@ export default function OrderDetail() {
                 <div className="admin-price1">₹3500</div>
                 <div className="admin-totalprice1">₹17,500</div>
                 <div className="admin-close">
-                  {/* <img src={Adminclose} /> */}
+                  <Adminclose />
                 </div>
               </div>
             </div>
@@ -109,7 +103,9 @@ export default function OrderDetail() {
             </div>
             <div className="adamtime-collab">
               <div className="adam-collab">
-                <div className="Adminadam">{/* <img src={Adminadam} /> */}</div>
+                <div className="Adminadam">
+                  <Adminadam />
+                </div>
                 <div className="adam-info">
                   <h3>Adam</h3>
                   <span>ID - 41255</span>
@@ -119,7 +115,9 @@ export default function OrderDetail() {
               <div className="phonetime">
                 <div className="Adminphone">
                   <div className="adminphone-collab">
-                    <div>{/* <img src={Adminphone} /> */}</div>
+                    <div>
+                      <Adminphone />
+                    </div>
                     <div className="adminphone-info">
                       <h3>Phone</h3>
                       <span>+91-9876556781</span>
@@ -129,7 +127,9 @@ export default function OrderDetail() {
 
                 <div className="Admintime">
                   <div className="admintime-collab">
-                    <div>{/* <img src={Adminphone} /> */}</div>
+                    <div>
+                      <Adminphone />
+                    </div>
                     <div className="admintime-info">
                       <h3>Installation on</h3>
                       <span>25 Oct 2022</span>

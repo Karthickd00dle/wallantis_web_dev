@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
-import { ReactComponent as JohnDoe } from "assets/images/JohnDoe.svg";
+import JohnDoe from "assets/images/JohnDoe";
 
 export const Latestblogs = () => {
   return (

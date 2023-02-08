@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
-// import Dealershipimg from "../../assets/images/Dealershipimg.svg";
+import Dealershipimg from "assets/images/Dealershipimg";
 
 export const Dealership = () => {
   return (
@@ -15,7 +15,7 @@ export const Dealership = () => {
         <div className="dealershiphead">Why Dealership?</div>
         <div className="dcontentscollab">
           <div className="dealercontents">
-            {/* <img src={Dealershipimg} /> */}
+            <Dealershipimg />
           </div>
           <div className="dealerinfo">
             <p>
