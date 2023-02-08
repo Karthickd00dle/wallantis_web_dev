@@ -31,7 +31,7 @@
 
   .product-info-section {
     .instructions-box-container {
-      width: 787px;
+      width: 100%;
       height: 510px;
       padding: 25px;
       border: 1px solid #a2a2a2;
@@ -105,37 +105,6 @@
       border-radius: 4px;
     }
 
-    .gold-button-container {
-      display: flex;
-      margin-top: 45px;
-      margin-bottom: 45px;
-
-      .gold-button {
-        @include fontRobotoStyle(20px, 400, #a26220, 22px);
-        margin-right: 20px;
-        width: 385.57px;
-        height: 66px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border: 1px solid #a26220;
-        border-radius: 4px;
-      }
-
-      .gold-button-fill {
-        @include fontRobotoStyle(20px, 400, #ffffff, 22px);
-        width: 385.57px;
-        height: 66px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        background: #a26220;
-        border: 1px solid #a26220;
-        border-radius: 4px;
-      }
-    }
     .info-title {
       @include fontLatoStyle(26px, 700, #000000, 22px);
       margin-bottom: 30px;
@@ -285,14 +254,11 @@
   }
 }
 
-
-
 // * {
 //   box-sizing: border-box;
 //   margin: 0;
 //   padding: 0;
 // }
-
 
 img {
   display: block;
@@ -313,13 +279,12 @@ img {
 //   }
 // }
 
-
 .container .selected {
   width: 747px;
-    height: 720px;
+  height: 720px;
   margin: 0 auto;
 }
-.largeImage{
+.largeImage {
   width: 20px;
   height: 20px;
 }
@@ -340,4 +305,3 @@ img {
   height: 150px;
   margin: 5px 0;
 }
-
