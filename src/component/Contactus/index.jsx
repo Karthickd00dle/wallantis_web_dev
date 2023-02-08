@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
-import Chatmessage1 from "../../assets/images/Chatmessage1.svg";
+import Chatmessage1 from "assets/images/Chatmessage1";
 
 export const Contactus = () => {
   return (
@@ -36,7 +36,7 @@ export const Contactus = () => {
           <p>For any queries write to us on</p>
           <small>Support@gmail.com</small>
         </div>
-        <img className="contactmessage" src={Chatmessage1} />
+        <Chatmessage1 className="contactmessage" />
       </div>
 
       <div className="getdirections">GET DIRECTIONS</div>

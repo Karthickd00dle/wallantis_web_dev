@@ -1,5 +1,5 @@
 import * as React from "react";
-const Instructions = (props) => (
+const InstructionsImage = (props) => (
   <svg
     width={224}
     height={217}
@@ -27,4 +27,4 @@ const Instructions = (props) => (
     </defs>
   </svg>
 );
-export default Instructions;
+export default InstructionsImage;

@@ -76,7 +76,7 @@ export const ProductListingGrid = () => {
 const ProductListingFC = ({ productListingData }) => {
   const location = useLocation();
   const [productData, setProductData] = useState(productListingData);
-  const getLocation = location.state.name;
+  const getLocation = location?.state?.name;
   const dispatch = useDispatch();
 
   const handleProductDetail = (prodData) => {
@@ -88,8 +88,7 @@ const ProductListingFC = ({ productListingData }) => {
   };
   useEffect(() => {
     return () => setProductData(productListingData);
-  }, [productData]);
-
+  }, [productListingData]);
   return (
     <div className="product-listing-container">
       <ProductHeader bannerLabel={getLocation} />
@@ -103,7 +102,7 @@ const ProductListingFC = ({ productListingData }) => {
           />
           <div className="card-container">
             <div className="row">
-              {productData.map((prodData) => (
+              {productData?.map((prodData) => (
                 <div key={prodData.id} className="col-4">
                   <CardThree
                     onClick={(prodData) => handleProductDetail(prodData)}

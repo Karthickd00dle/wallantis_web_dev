@@ -4,28 +4,20 @@ import { NormalNavigate } from "component/common";
 import { BsFillPinAngleFill } from "react-icons/bs";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
-const careerswall = React.lazy(() =>
-  import("../../assets/images/careerswall.svg")
-);
+const Careerswall = React.lazy(() => import("assets/images/Careerswall"));
 const worklife = React.lazy(() => import("../../assets/images/worklife.svg"));
-const careerseducation = React.lazy(() =>
-  import("../../assets/images/careerseducation.svg")
+const Careerseducation = React.lazy(() =>
+  import("assets/images/Careerseducation")
 );
-const careershealth = React.lazy(() =>
-  import("../../assets/images/careerseducation.svg")
+const Careershealth = React.lazy(() =>
+  import("assets/images/Careerseducation")
 );
 const supportingfamilies = React.lazy(() =>
-  import("../../assets/images/supportingfamilies.svg")
+  import("assets/images/supportingfamilies.svg")
 );
-const Salesmarket = React.lazy(() =>
-  import("../../assets/images/Salesmarket.svg")
-);
-const Technology = React.lazy(() =>
-  import("../../assets/images/Technology.svg")
-);
-const Ecofriendly = React.lazy(() =>
-  import("../../assets/images/Ecofriendly.svg")
-);
+const Salesmarket = React.lazy(() => import("assets/images/Salesmarket.svg"));
+const Technology = React.lazy(() => import("assets/images/Technology.svg"));
+const Ecofriendly = React.lazy(() => import("assets/images/Ecofriendly"));
 
 export const Careers = () => {
   return (
@@ -53,7 +45,7 @@ export const Careers = () => {
             </p>
           </div>
           <div className="careerswall">
-            <img src={careerswall} />
+            <Careerswall />
           </div>
         </div>
         <div className="uropportunities">
@@ -62,7 +54,7 @@ export const Careers = () => {
         <div className="opportunitycollab">
           <img className="sales-img" src={Salesmarket} />
           <img className="tech-img" src={Technology} />
-          <img className="eco-img" src={Ecofriendly} />
+          <Ecofriendly className="eco-img" />
           <div className="salesandmarket">
             <label>Sales & Marketing</label>
             <p>
@@ -226,7 +218,7 @@ export const Careers = () => {
 
         <div className="careercollab2">
           <div className="careerpolicyhealth">
-            <img src={careershealth} />
+            <Careershealth />
             &nbsp;<span>HEALTH AND INSURANCE </span>
             <p>
               Eget faucibus laoreet et, laoreet vestibulum ut. Est scelerisque
@@ -238,7 +230,7 @@ export const Careers = () => {
           </div>
 
           <div className="careerpolicyeducation">
-            <img src={careerseducation} />
+            <Careerseducation />
             &nbsp;<span>CONTINUING EDUCATION </span>
             <p>
               Eget faucibus laoreet et, laoreet vestibulum ut. Est scelerisque

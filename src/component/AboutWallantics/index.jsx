@@ -10,22 +10,20 @@ const team2 = React.lazy(() => import("assets/images/team2.svg"));
 const team3 = React.lazy(() => import("assets/images/team3.svg"));
 const team4 = React.lazy(() => import("assets/images/team4.svg"));
 const Livingroomwallpaper = React.lazy(() =>
-  import("assets/images/Livingroomwallpaper.svg")
+  import("assets/images/Livingroomwallpaper")
 );
-const Bedroomwallpaper = React.lazy(() =>
-  import("assets/images/Bedroomwallpaper.svg")
-);
-const Kidswallpaper = React.lazy(() =>
-  import("assets/images/Kidswallpaper.svg")
-);
+// const Bedroomwallpaper = React.lazy(() =>
+//   import("assets/images/Bedroomwallpaper")
+// );
+const Kidswallpaper = React.lazy(() => import("assets/images/Kidswallpaper"));
 const Customizeswallpaper = React.lazy(() =>
-  import("assets/images/Customizeswallpaper.svg")
+  import("assets/images/Customizeswallpaper")
 );
 const Stickerwallpaper = React.lazy(() =>
   import("assets/images/Stickerwallpaper.svg")
 );
 const Newlaunchwallpaper = React.lazy(() =>
-  import("assets/images/Newlaunchwallpaper.svg")
+  import("assets/images/Newlaunchwallpaper")
 );
 
 export const AboutWallantics = () => {
@@ -117,19 +115,19 @@ export const AboutWallantics = () => {
 
         <div className="wallpapercollab1">
           <div className="wallpaper1">
-            <img src={Livingroomwallpaper} />
+            <Livingroomwallpaper />
             <br />
             <label>Living room wallpapers</label>
           </div>
 
           <div className="wallpaper1">
-            <img src={Bedroomwallpaper} />
+            {/* <Bedroomwallpaper /> */}
             <br />
             <label>Bedroom wallpapers</label>
           </div>
 
           <div className="wallpaper1">
-            <img src={Kidswallpaper} />
+            <Kidswallpaper />
             <br />
             <label>Kids Wallpaper</label>
           </div>
@@ -137,7 +135,7 @@ export const AboutWallantics = () => {
 
         <div className="wallpapercollab2">
           <div className="wallpaper2">
-            <img src={Customizeswallpaper} />
+            <Customizeswallpaper />
             <br />
             <label>Customized wallpapers</label>
           </div>
@@ -149,7 +147,7 @@ export const AboutWallantics = () => {
           </div>
 
           <div className="wallpaper2">
-            <img src={Newlaunchwallpaper} />
+            <Newlaunchwallpaper />
             <br />
             <label>New Launch </label>
           </div>

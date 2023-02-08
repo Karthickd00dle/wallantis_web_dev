@@ -2,9 +2,9 @@ import { CustomDialog } from "component/common";
 import React from "react";
 import VideoPlayer from "react-video-js-player";
 import Car from "assets/video/car.mp4";
-import InstructionsImage from "assets/images/Instructions.svg";
+import InstructionsImage from "assets/images/Instructions";
 import { BiDownload } from "react-icons/bi";
-import pdf from "assets/images/pdf.svg";
+import Pdf from "assets/images/Pdf";
 import "./style.scss";
 
 export const Instructions = ({ isOpen, handleClose }) => {
@@ -30,12 +30,13 @@ export const Instructions = ({ isOpen, handleClose }) => {
             </div>
 
             <div className="inst-download">
-              <img src={InstructionsImage} />
+              <InstructionsImage />
             </div>
           </div>
           <div className="downloadpdf">
-            <a href={InstructionsImage} download={InstructionsImage}>
-              <img src={pdf} width="20" />
+            {/* <a href={InstructionsImage} download={InstructionsImage}> */}
+            <a>
+              <Pdf width="20" />
               <span>View.pdf</span>
             </a>
             <BiDownload size="30" color="white" />
