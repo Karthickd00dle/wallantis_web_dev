@@ -40,7 +40,7 @@ export const AboutWallantics = () => {
       </div>
       <div className="d-flex wallat-abt">
         <div className="col-md-4 Aboutus-Main">
-          <img src={Aboutus} />
+          <Aboutus />
         </div>
         <div className="Aboutus-contents">
           <h5>About Us</h5>

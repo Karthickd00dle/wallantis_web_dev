@@ -9,6 +9,7 @@ export const CustomButton = ({
   startIcon,
   onClick,
   endIcon,
+  type = "submit",
 }) => {
   const customStyle = {
     ...style,
@@ -23,6 +24,7 @@ export const CustomButton = ({
         variant={variant}
         startIcon={startIcon}
         endIcon={endIcon}
+        type={type}
         onClick={onClick}
       >
         {children}
