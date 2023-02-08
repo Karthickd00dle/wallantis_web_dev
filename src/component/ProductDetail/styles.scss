@@ -15,7 +15,8 @@
 
   .other-products-list {
     display: flex;
-    justify-content: space-between;
+    gap: 25px;
+    // justify-content: space-between;
   }
 }
 
@@ -318,16 +319,29 @@ img {
   cursor: pointer;
 }
 
-.container {
-  margin: auto;
-  width: 100%;
-  max-width: 540px;
-}
+// .container {
+//   margin: auto;
+//   width: 100%;
+//   max-width: 540px;
+//   .selected{
+//     width: 100%;
+//     display: block;
+//     transition: transform 2s;
+//   }
+//   .selected:hover{
+//     transform: scale(1.3);
+//   }
+// }
+
 
 .container .selected {
   width: 747px;
     height: 720px;
   margin: 0 auto;
+}
+.largeImage{
+  width: 20px;
+  height: 20px;
 }
 
 .container .imgContainer {

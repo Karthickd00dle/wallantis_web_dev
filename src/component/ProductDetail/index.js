@@ -6,12 +6,16 @@ import { connect } from "react-redux";
 import { history } from "service/helpers";
 import "./styles.scss";
 import { ProductdetailImages } from "config";
+import ReactImageMagnify from 'react-image-magnify';
 import { Calculatorsquare } from "component/common/Calculatorsquare";
+import { newarrivalsProducts } from "config";
 
 function ProductDetailFC({ productDetailData }) {
   const [isOpen, setIsOpen] = useState();
 
-    const [selectedImg, setSelectedImg] = useState(ProductdetailImages[0]);  
+    const [selectedImg, setSelectedImg] = useState(ProductdetailImages[0]); 
+     
+     
 
   return (
     <div className="product-detail-container">
@@ -28,7 +32,25 @@ function ProductDetailFC({ productDetailData }) {
           </div> */}
 
 <div className="container">
-        <img src={selectedImg} alt="Selected" className="selected" />
+        {/* <img src={selectedImg} alt="Selected" className="selected" /> */}
+        <div className="selected">
+        <ReactImageMagnify {...{
+    smallImage: {
+        alt: 'Selected',
+        isFluidWidth: true,
+        src: selectedImg,
+        className:"small"
+    },
+    largeImage: {
+        src: selectedImg,
+        width: 800,
+        height: 800,
+        className:"largeImage"
+    },
+    
+    isHintEnabled:true,
+}} />
+</div>
         <div className="imgContainer">
           {ProductdetailImages.map((img, index) => (
             <img
@@ -238,10 +260,9 @@ function ProductDetailFC({ productDetailData }) {
       <div className="other-products-title">You may also like </div>
 
       <div className="other-products-list">
-        {/* <CardThree />
-        <CardThree />
-        <CardThree />
-        <CardThree /> */}
+      {newarrivalsProducts.map((prodData) => (
+              <CardThree prodData={prodData} key={prodData.id} />
+            ))}
       </div>
     </div>
   );
