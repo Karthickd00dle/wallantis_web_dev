@@ -25,6 +25,6 @@ export function AuthLayout({ children }) {
         </div>
         {children}
       </div>
-    </Suspense>
+    </div>
   );
 }

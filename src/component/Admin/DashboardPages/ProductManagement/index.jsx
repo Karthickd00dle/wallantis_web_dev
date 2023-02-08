@@ -20,9 +20,9 @@ import {
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 
-const AdminDiamond = React.lazy(() =>
-  import("../../../../assets/images/AdminDiamond.svg")
-);
+// const AdminDiamond = React.lazy(() =>
+//   import("../../../../assets/images/AdminDiamond.svg")
+// );
 
 const totalInstallersData = [
   {
@@ -96,11 +96,11 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
       <TableCell align="left" className="d-flex align-items-center py-4">
-        <Avatar
+        {/* <Avatar
           style={{ width: "40px", height: "40px", radius: "3px" }}
           alt="Remy Sharp"
           src={AdminDiamond}
-        />
+        /> */}
         <label className="ps-2 table-body-cell-label">{Title}</label>
       </TableCell>
       <TableCell align="left">

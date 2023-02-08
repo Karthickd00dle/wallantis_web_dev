@@ -1,12 +1,3 @@
-import ArtificialGrassSVGComponent from "assets/svg/Header/artificialGrass";
-import BlindsSVGComponent from "assets/svg/Header/blinds";
-import CatalogueSVGComponent from "assets/svg/Header/catalogue";
-import FlooringSVGComponent from "assets/svg/Header/flooring";
-import PVCSVGComponent from "assets/svg/Header/foamSheet";
-import GymFlooringSVGComponent from "assets/svg/Header/gymflooring";
-import PanelSVGComponent from "assets/svg/Header/panel";
-import RoomVisSVGComponent from "assets/svg/Header/roomvis";
-import WallpaperSVGComponent from "assets/svg/Header/wallpaper";
 import { history } from "service/helpers";
 
 import React, { useState } from "react";
@@ -16,7 +7,7 @@ function Header() {
   const hoverMenu = [
     {
       tilte: "Wallpaper",
-      icon: <WallpaperSVGComponent />,
+
       subMenuItems: [
         {
           name: "Wallpaper",
@@ -38,7 +29,7 @@ function Header() {
     },
     {
       tilte: "Flooring",
-      icon: <FlooringSVGComponent />,
+
       subMenuItems: [
         {
           name: "Wooden Flooring",
@@ -56,7 +47,7 @@ function Header() {
     },
     {
       tilte: "3D Panel",
-      icon: <PanelSVGComponent />,
+
       subMenuItems: [
         {
           name: "Vertical Blinds",
@@ -90,7 +81,7 @@ function Header() {
     },
     {
       tilte: "Blinds",
-      icon: <BlindsSVGComponent />,
+
       subMenuItems: [
         {
           name: "GYM Tiles Square",
@@ -124,7 +115,7 @@ function Header() {
     },
     {
       tilte: "Artificial Grass",
-      icon: <ArtificialGrassSVGComponent />,
+
       subMenuItems: [
         {
           name: "Vertical Gardens",
@@ -186,23 +177,23 @@ function Header() {
     // },
     {
       tilte: "PVC Foam Sheet",
-      icon: <PVCSVGComponent />,
+
       subMenuItems: [],
     },
     {
       tilte: "GYM Flooring",
-      icon: <GymFlooringSVGComponent />,
+
       subMenuItems: [],
     },
     {
       tilte: "Room Visualizer",
-      icon: <RoomVisSVGComponent />,
+
       subMenuItems: [],
       route: "/room-layout/room-visualizer",
     },
     {
       tilte: "E-Catalouge",
-      icon: <CatalogueSVGComponent />,
+
       subMenuItems: [],
       route: "/profile/Catalogue",
     },
@@ -216,7 +207,6 @@ function Header() {
               <HeaderDropDownItem
                 title={item?.tilte}
                 menuItem={item?.subMenuItems}
-                Icon={item?.icon}
                 route={item.route}
               />
             );
@@ -229,7 +219,7 @@ function Header() {
 
 export default Header;
 
-function HeaderDropDownItem({ title, menuItem, Icon, route }) {
+function HeaderDropDownItem({ title, menuItem, route }) {
   const [menu, setmenu] = useState(false);
 
   const handleMouseOver = () => {
@@ -246,7 +236,6 @@ function HeaderDropDownItem({ title, menuItem, Icon, route }) {
       onMouseLeave={handleMouseOut}
       onClick={() => history.push(route)}
     >
-      <div className="header-dropDown-item-icon">{Icon}</div>
       <div className="header-dropDown-item-title">{title}</div>
       {menu ? (
         menuItem.length > 0 ? (

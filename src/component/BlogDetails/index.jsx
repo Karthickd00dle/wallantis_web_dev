@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import JohnDoe from "../../assets/images/JohnDoe.svg";
-import blogdetail1 from "../../assets/images/blogdetail1.svg";
+// import blogdetail1 from "../../assets/images/blogdetail1.svg";
 import Natureinspired from "../../assets/images/Natureinspired.svg";
 import Popularweek1 from "../../assets/images/Popularweek1.svg";
 import Popularweek2 from "../../assets/images/Popularweek2.svg";
@@ -43,7 +43,7 @@ export const Blogdetails = () => {
               </p>
             </div>
             <div className="getinspiration">
-              <img src={blogdetail1} />
+              {/* <img src={blogdetail1} /> */}
               <label>Get inspiration from Indian designed wallpapers!</label>
               <p>
                 it justo, magna elementum ornare a ut nunc donec. Viverra et

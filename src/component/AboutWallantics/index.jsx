@@ -18,9 +18,9 @@ const Bedroomwallpaper = React.lazy(() =>
 const Kidswallpaper = React.lazy(() =>
   import("assets/images/Kidswallpaper.svg")
 );
-const Customizeswallpaper = React.lazy(() =>
-  import("assets/images/Customizeswallpaper.svg")
-);
+// const Customizeswallpaper = React.lazy(() =>
+//   import("assets/images/Customizeswallpaper.svg")
+// );
 const Stickerwallpaper = React.lazy(() =>
   import("assets/images/Stickerwallpaper.svg")
 );
@@ -137,7 +137,7 @@ export const AboutWallantics = () => {
 
         <div className="wallpapercollab2">
           <div className="wallpaper2">
-            <img src={Customizeswallpaper} />
+            {/* <img src={Customizeswallpaper} /> */}
             <br />
             <label>Customized wallpapers</label>
           </div>
