@@ -2,7 +2,6 @@ import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import { ReactComponent as ExpandIcon } from "assets/icons/ExpandIcon.svg";
-
 import { AccordionSummary, Checkbox, List, ListItem } from "@mui/material";
 import "./style.scss";
 

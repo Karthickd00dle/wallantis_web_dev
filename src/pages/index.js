@@ -15,7 +15,7 @@ export {
   Termsconditionseg,
   CartSummaryPage,
   OrderSuccessPage,
-  ProductDetail,
+  ProductDetailPageUser,
 } from "./Home";
 export {
   ProfilePage,
@@ -36,7 +36,7 @@ export {
   CustomizedWallpaperPage,
   RotationWallpaperPage,
 } from "./Rooms";
-export { PaymentPage, ProductDetailsPage } from "./ProductDetails";
+export { PaymentPage } from "./ProductDetails";
 export {
   SomePage,
   ReportPage,

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 export class ProductDetailPageClass extends Component {
   render() {
-    return <ProductDetail/>;
+    return <ProductDetail />;
   }
 }
 export const ProductDetailPage = connect(null, null)(ProductDetailPageClass);

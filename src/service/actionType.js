@@ -1,4 +1,4 @@
-export const sampleStateList = {
-  sample1: "SAMPLE1",
-  sample2: "SAMPLE2",
+export const commonStateList = {
+  productListing: "PRODUCT_LISTING",
+  productDetail: "PRODUCT_DETAIL",
 };

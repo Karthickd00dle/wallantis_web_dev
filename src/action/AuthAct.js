@@ -34,3 +34,7 @@ export const loginApi =
         });
     });
   };
+
+export const productListingApi = (body) => (dispatch, getState) => {
+  return console.log(dispatch, getState, "diss get statee");
+};

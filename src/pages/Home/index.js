@@ -14,4 +14,4 @@ export { Privacypolicyeg } from "./Privacypolicy";
 export { Termsconditionseg } from "./Termsconditions";
 export { CartSummaryPage } from "./CartSummaryPage";
 export { OrderSuccessPage } from "./OrderSuccessPage";
-export { ProductDetail } from "./ProductDetail";
+export { ProductDetailPageUser } from "./ProductDetailPageUser";
