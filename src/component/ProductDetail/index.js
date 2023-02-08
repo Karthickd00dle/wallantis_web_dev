@@ -1,22 +1,49 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import React, { useState } from "react";
 import { Instructions } from "component/Instructions";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
+import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
+import { CustomButton } from "component/common";
+import { addToCart } from "action/CommonAct";
+import { commonStateList } from "service/actionType";
 
-function ProductDetailFC({ productDetailData }) {
-  console.log(productDetailData, "product detail");
+function ProductDetailFC({ productDetailData, cartItemData }) {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
-  const [selectedImg, setSelectedImg] = useState();
-
+  const [selectedImg, setSelectedImg] = useState(productDetailData?.image[0]);
+  const handleAddtoCart = () => {
+    addToCart(productDetailData, cartItemData);
+    dispatch({ type: commonStateList.cartItem, payload: cartItemData });
+  };
   return (
     <>
       <div className="product-detail-container">
         <div className="product-detail-inner-container">
           <div className="image-section">
             <div className="container">
-              <img src={selectedImg} alt="Selected" className="selected" />
+              {/* <img src={selectedImg} alt="Selected" className="selected" /> */}
+              <div className="selected">
+                <ReactImageMagnify
+                  {...{
+                    smallImage: {
+                      alt: "Selected",
+                      isFluidWidth: true,
+                      src: selectedImg,
+                      className: "small",
+                    },
+                    largeImage: {
+                      src: selectedImg,
+                      width: 800,
+                      height: 800,
+                      className: "largeImage",
+                    },
+
+                    isHintEnabled: true,
+                  }}
+                />
+              </div>
               <div className="imgContainer">
                 {productDetailData?.image?.map((img, index) => (
                   <img
@@ -78,15 +105,20 @@ function ProductDetailFC({ productDetailData }) {
               <div className="info-heading-one">Quantity (Roll)</div>
             </div>
 
-            <div className="button-container">
-              <div className="blue-button">Calculate Rolls</div>
-              <div className="blue-button" onClick={() => setIsOpen(true)}>
+            <div className="button-container d-flex mb-3">
+              <CustomButton
+                variant="outlined"
+                className="me-3"
+                style={{ padding: "20px 40px 20px 40px" }}
+              >
+                Calculate Rolls
+              </CustomButton>
+              <CustomButton variant="outlined" onClick={() => setIsOpen(true)}>
                 Installer Price Calculator
-              </div>
+              </CustomButton>
             </div>
 
             <div className="info-title-2">Check availability in your area </div>
-
             <div className="instructions-box-container">
               <div className="ib-container">
                 <div>
@@ -151,16 +183,28 @@ function ProductDetailFC({ productDetailData }) {
               </div>
             </div>
 
-            <div className="gold-button-container">
-              <div className="gold-button">Add to Cart</div>
-              <div
-                className="gold-button-fill"
+            <div className="d-flex my-4 justify-content-between">
+              <CustomButton
+                variant="outlined"
+                style={{
+                  width: "385px",
+                  border: " 1px solid #A26220",
+                  color: "#A26220",
+                }}
+                className="py-3"
+                onClick={handleAddtoCart}
+              >
+                Add to Cart
+              </CustomButton>
+              <CustomButton
+                style={{ width: "385px", background: "#A26220" }}
+                variant="contained"
                 onClick={() => {
                   history.push("/home/product-details/payment-page");
                 }}
               >
                 Buy Now
-              </div>
+              </CustomButton>
             </div>
 
             <div
@@ -179,7 +223,6 @@ function ProductDetailFC({ productDetailData }) {
 
               <div className="pd-container">
                 <div className="pd-1">Product Name</div>
-
                 <div className="pd-2">
                   <div className="custom-recipe-title">
                     Custom Recipe Wallpaper, handwritten recipe{" "}
@@ -237,6 +280,7 @@ function ProductDetailFC({ productDetailData }) {
 const mapStateToProps = (state) => {
   return {
     productDetailData: state.commonStore.productDetailState,
+    cartItemData: state.commonStore.cartItemState,
   };
 };
-export const ProductDetail = connect(mapStateToProps)(ProductDetailFC);
+export const ProductDetail = connect(mapStateToProps, null)(ProductDetailFC);

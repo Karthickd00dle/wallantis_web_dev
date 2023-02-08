@@ -15,7 +15,8 @@
 
   .other-products-list {
     display: flex;
-    justify-content: space-between;
+    gap: 25px;
+    // justify-content: space-between;
   }
 }
 
@@ -30,7 +31,7 @@
 
   .product-info-section {
     .instructions-box-container {
-      width: 787px;
+      width: 100%;
       height: 510px;
       padding: 25px;
       border: 1px solid #a2a2a2;
@@ -104,37 +105,6 @@
       border-radius: 4px;
     }
 
-    .gold-button-container {
-      display: flex;
-      margin-top: 45px;
-      margin-bottom: 45px;
-
-      .gold-button {
-        @include fontRobotoStyle(20px, 400, #a26220, 22px);
-        margin-right: 20px;
-        width: 385.57px;
-        height: 66px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        border: 1px solid #a26220;
-        border-radius: 4px;
-      }
-
-      .gold-button-fill {
-        @include fontRobotoStyle(20px, 400, #ffffff, 22px);
-        width: 385.57px;
-        height: 66px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        background: #a26220;
-        border: 1px solid #a26220;
-        border-radius: 4px;
-      }
-    }
     .info-title {
       @include fontLatoStyle(26px, 700, #000000, 22px);
       margin-bottom: 30px;
@@ -181,26 +151,6 @@
 
       .selected-item {
         border: 1px solid #000000 !important;
-      }
-    }
-
-    .button-container {
-      display: flex;
-      margin-bottom: 40px;
-      .blue-button {
-        width: max-content;
-        height: 70px;
-        border: 1px solid #2a71f9;
-        filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
-        border-radius: 4px;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-left: 33px;
-        padding-right: 33px;
-        margin-right: 24px;
-        @include fontRobotoStyle(18px, 500, #2a71f9, 22px);
       }
     }
 
@@ -304,30 +254,39 @@
   }
 }
 
-
-
 // * {
 //   box-sizing: border-box;
 //   margin: 0;
 //   padding: 0;
 // }
 
-
 img {
   display: block;
   cursor: pointer;
 }
 
-.container {
-  margin: auto;
-  width: 100%;
-  max-width: 540px;
-}
+// .container {
+//   margin: auto;
+//   width: 100%;
+//   max-width: 540px;
+//   .selected{
+//     width: 100%;
+//     display: block;
+//     transition: transform 2s;
+//   }
+//   .selected:hover{
+//     transform: scale(1.3);
+//   }
+// }
 
 .container .selected {
   width: 747px;
-    height: 720px;
+  height: 720px;
   margin: 0 auto;
+}
+.largeImage {
+  width: 20px;
+  height: 20px;
 }
 
 .container .imgContainer {
@@ -346,4 +305,3 @@ img {
   height: 150px;
   margin: 5px 0;
 }
-

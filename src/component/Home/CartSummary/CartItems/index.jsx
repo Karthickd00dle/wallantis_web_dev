@@ -8,14 +8,14 @@ import { CartSummaryItems } from "config";
 const ItemsRow = ({
   itemData: {
     id,
-    item_picture,
-    label,
+    image,
+    title,
     color,
     stock_status,
     delivery_date,
     delivery_price,
     installation_date,
-    item_price,
+    price,
   },
 }) => {
   return (
@@ -23,13 +23,13 @@ const ItemsRow = ({
       <div className="d-flex justify-content-between">
         <div className="d-flex">
           <img
-            src={item_picture}
+            src={image[0]}
             height="200px"
             width="200px"
             alt="product-image"
           />
           <div className="d-flex ps-5 flex-column">
-            <label className="pb-2 item-title">{label}</label>
+            <label className="pb-2 item-title">{title}</label>
             <label className="py-2 item-color">{`Color - ${color}`}</label>
             <label className="py-2 item-status">{stock_status}</label>
             <label className="py-2 item-delivery-info">
@@ -40,7 +40,7 @@ const ItemsRow = ({
             </label>
           </div>
         </div>
-        <label className="pt-3 item-price">{item_price}</label>
+        <label className="pt-3 item-price">{price}</label>
       </div>
       <div className="d-flex justify-content-between align-items-center w-75 py-4">
         <div className="d-flex justify-content-between order-count-container">
@@ -55,11 +55,12 @@ const ItemsRow = ({
   );
 };
 
-const CartItemsMain = () => {
+const CartItemsMain = ({cartItemData}) => {
+
   return (
     <div>
       <div className="cart-items-container">
-        {CartSummaryItems.map((itemData) => (
+        {cartItemData.map((itemData) => (
           <div className="item-container-main">
             <ItemsRow itemData={itemData} />
           </div>
@@ -76,4 +77,10 @@ const CartItemsMain = () => {
   );
 };
 
-export const CartItems = connect(null, null)(CartItemsMain);
+
+const mapStateToProps = (state) => {
+  return {
+    cartItemData: state.commonStore.cartItemState,
+  };
+};
+export const CartItems = connect(mapStateToProps, null)(CartItemsMain);
