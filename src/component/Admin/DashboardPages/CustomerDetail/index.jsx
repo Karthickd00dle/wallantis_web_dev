@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.scss";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import Diamondwallpaper from "assets/images/Admin/Customer/diamond-wallpaper-ico.png";
 
 const Diamondwallpaper = React.lazy(() =>
   import("assets/images/Diamondwallpaper")
