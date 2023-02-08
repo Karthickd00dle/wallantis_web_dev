@@ -1,8 +1,8 @@
 import React from "react";
 import "assets/scss/layouts/AuthLayout.scss";
-import { ReactComponent as BrandLogo } from "assets/svg/Brand-Logo.svg";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
+import { BrandLogoIcon } from "assets/icons/FooterIcons/FooterIcons";
 
 const FetchParams = () => {
   let location = useLocation();
@@ -14,7 +14,7 @@ export function AuthLayout({ children }) {
   return (
     <div className="d-flex ">
       <div className="auth-layout">
-        <BrandLogo height="95px" width="110px" />
+        <BrandLogoIcon height="95px" width="110px" />
         <div>
           <label>
             <FetchParams />
