@@ -26,8 +26,8 @@ export {
 
 export {
   LoginPage,
-  ForgotPass,
-  RegisterMobilePass,
+  ForgotPasswordPage,
+  RegisterPage,
   RegisterAgainPass,
 } from "./Auth";
 
