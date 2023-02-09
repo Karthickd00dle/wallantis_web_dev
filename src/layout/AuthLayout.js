@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import "assets/scss/layouts/AuthLayout.scss";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
@@ -24,7 +24,7 @@ export function AuthLayout({ children }) {
             </label>
             <p>Get access to your orders, wishlist and recommendations</p>
           </div>
-          <div>{children}</div>
+          <div className="login-child">{children}</div>
         </div>
       </div>
     </div>

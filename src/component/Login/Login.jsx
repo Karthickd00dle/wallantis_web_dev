@@ -25,8 +25,8 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   };
 
   return (
-    <div className={`login-entries ${ownProps.className}`}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className={`login-entries ${ownProps.className}`}>
         <div className="d-flex flex-column">
           <CustomInput
             placeholder="Enter Email/Mobile number"
@@ -118,8 +118,8 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             </label>
           </div>
         )}
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 
