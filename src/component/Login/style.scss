@@ -35,7 +35,7 @@
   @include fontLatoStyle(15px, 500, #000000, 24px, 0.04em);
 
   label {
-    color: #000000;
+    @include fontLatoStyle(15px, 500, #000000, 24px, 0.04em);
   }
 }
 
