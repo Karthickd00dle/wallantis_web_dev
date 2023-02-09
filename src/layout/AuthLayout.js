@@ -16,14 +16,16 @@ export function AuthLayout({ children }) {
   return (
     <div className="d-flex ">
       <div className="auth-layout">
-        <BrandLogoIcon height="95px" width="110px" />
-        <div>
-          <label>
-            <FetchParams />
-          </label>
-          <p>Get access to your orders, wishlist and recommendations</p>
+        <BrandLogoIcon height="95px" width="500px" />
+        <div className="login-page">
+          <div>
+            <label>
+              <FetchParams />
+            </label>
+            <p>Get access to your orders, wishlist and recommendations</p>
+          </div>
+          <div>{children}</div>
         </div>
-        {children}
       </div>
     </div>
   );

@@ -7,10 +7,8 @@ import { loginApi } from "action/AuthAct";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { InputAdornment } from "@mui/material";
-import { errorMessageToDisplay } from "service/helperFunctions";
 
 import { useForm } from "react-hook-form";
-import useValidator from "service/useValidator";
 
 export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   const {
