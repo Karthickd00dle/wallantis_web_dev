@@ -49,7 +49,7 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
           menuItemStyle="menu-item"
           name="sorting"
           value={sorting}
-          onChange={(testtarget) => handleSorting(testtarget)}
+          onChange={(e) => handleSorting(e)}
         />
       </div>
     </div>

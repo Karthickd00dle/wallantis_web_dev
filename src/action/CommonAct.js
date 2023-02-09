@@ -19,6 +19,7 @@ export const addToCart = (data, newData) => {
   if (newData.includes(data)) {
     Toast({ type: "warning", message: "Item already added to Cart" });
   } else {
+    Toast({ type: "success", message: "Successfully added to Cart" });
     return newData.push(data);
   }
 };
