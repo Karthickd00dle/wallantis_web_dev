@@ -14,9 +14,8 @@ export const PostRegister = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {};
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit()}>
       <div className="post-register-container">
         <CustomInput
           type="number"
@@ -86,13 +85,12 @@ export const Register = () => {
     setShowPostRegister(true);
   };
 
-  const onSubmit = (data) => {};
   return (
     <>
       {conditionalLoad(
         !showPostRegister,
         <div className="d-flex register-container">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit()}>
             <CustomInput
               type="email"
               name="email"
