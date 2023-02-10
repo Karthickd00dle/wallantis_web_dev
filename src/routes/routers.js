@@ -100,10 +100,10 @@ const routers = [
         exact: true,
       },
       {
-        component: "AboutusPage",
+        component: "AboutUsPage",
         path: "/about-us",
-        componentPath: "pages/AboutusPage",
-        name: "AboutusPage",
+        componentPath: "pages/Profile/AboutUsPage",
+        name: "AboutUsPage",
         auth: false,
         exact: true,
       },
@@ -114,10 +114,10 @@ const routers = [
         name: "Contactuseg",
       },
       {
-        component: "Catalogue",
+        component: "CataloguePage",
         path: "/catalogue",
-        componentPath: "/Catalogue",
-        name: "Catalogueg",
+        componentPath: "pages/Profile/CataloguePage",
+        name: "CataloguePage",
       },
       {
         component: "Latestblogseg",
@@ -144,10 +144,10 @@ const routers = [
         name: "Dealershipeg",
       },
       {
-        component: "Careers",
+        component: "CareerPage",
         path: "/careers",
-        componentPath: "/careers",
-        name: "Careerseg",
+        componentPath: "pages/Profile/CareerPage",
+        name: "CareerPage",
       },
       {
         component: "Genaralmanagereg",

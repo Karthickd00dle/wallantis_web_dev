@@ -2,29 +2,20 @@ import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
-const Aboutus = React.lazy(() => import("assets/images/AboutUs"));
+// const Aboutus = React.lazy(() => import("assets/images/AboutUs"));
 
-const ourgoals = React.lazy(() => import("assets/images/ourgoals.svg"));
-const team1 = React.lazy(() => import("assets/images/team1.svg"));
-const team2 = React.lazy(() => import("assets/images/team2.svg"));
-const team3 = React.lazy(() => import("assets/images/team3.svg"));
-const team4 = React.lazy(() => import("assets/images/team4.svg"));
-const Livingroomwallpaper = React.lazy(() =>
-  import("assets/images/Livingroomwallpaper")
-);
-// const Bedroomwallpaper = React.lazy(() =>
-//   import("assets/images/Bedroomwallpaper")
-// );
-const Kidswallpaper = React.lazy(() => import("assets/images/Kidswallpaper"));
-const Customizeswallpaper = React.lazy(() =>
-  import("assets/images/Customizeswallpaper")
-);
-const Stickerwallpaper = React.lazy(() =>
-  import("assets/images/Stickerwallpaper.svg")
-);
-const Newlaunchwallpaper = React.lazy(() =>
-  import("assets/images/Newlaunchwallpaper")
-);
+// const ourgoals = React.lazy(() => import("assets/images/ourgoals.svg"));
+// const team1 = React.lazy(() => import("assets/images/team1.svg"));
+// const team2 = React.lazy(() => import("assets/images/team2.svg"));
+// const team3 = React.lazy(() => import("assets/images/team3.svg"));
+// const team4 = React.lazy(() => import("assets/images/team4.svg"));
+
+import Livingroomwallpaper from "assets/images/Livingroomwallpaper";
+import { ReactComponent as Bedroomwallpaper } from "assets/images/Bedroomwallpaper.svg";
+import Kidswallpaper from "assets/images/Kidswallpaper";
+import Customizeswallpaper from "assets/images/Customizeswallpaper";
+import StickerWallpaper from "assets/images/Stickerwallpaper";
+import Newlaunchwallpaper from "assets/images/Newlaunchwallpaper";
 
 export const AboutWallantics = () => {
   return (
@@ -37,9 +28,7 @@ export const AboutWallantics = () => {
         </NormalNavigate>
       </div>
       <div className="d-flex wallat-abt">
-        <div className="col-md-4 Aboutus-Main">
-          <Aboutus />
-        </div>
+        <div className="col-md-4 Aboutus-Main">{/* <Aboutus /> */}</div>
         <div className="Aboutus-contents">
           <h5>About Us</h5>
 
@@ -121,7 +110,7 @@ export const AboutWallantics = () => {
           </div>
 
           <div className="wallpaper1">
-            {/* <Bedroomwallpaper /> */}
+            <Bedroomwallpaper />
             <br />
             <label>Bedroom wallpapers</label>
           </div>
@@ -141,7 +130,7 @@ export const AboutWallantics = () => {
           </div>
 
           <div className="wallpaper2">
-            <img src={Stickerwallpaper} />
+            <StickerWallpaper />
             <br />
             <label>Sticker wallpapers</label>
           </div>
@@ -158,9 +147,7 @@ export const AboutWallantics = () => {
       {/* </div> */}
 
       <div className="d-flex our-goals">
-        <div className="col-md-4">
-          <img src={ourgoals} />
-        </div>
+        <div className="col-md-4">{/* <img src={ourgoals} /> */}</div>
 
         <div className="col-md-8">
           <div className="goals-content">
@@ -198,10 +185,10 @@ export const AboutWallantics = () => {
 
       <div className="meetteam">Meet the Team</div>
       <div className="teamimg">
-        <img src={team1} />
+        {/* <img src={team1} />
         <img src={team2} />
         <img src={team3} />
-        <img src={team4} />
+        <img src={team4} /> */}
       </div>
       <div>
         <div className="teamname">

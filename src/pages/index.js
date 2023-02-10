@@ -22,6 +22,9 @@ export {
   OrderDetailsPage,
   ReturnOrderPage,
   ReviewPage,
+  CareerPage,
+  AboutUsPage,
+  CataloguePage,
 } from "./Profile";
 
 export {
