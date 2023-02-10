@@ -7,22 +7,22 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 // const careerswall = React.lazy(() =>
 //   import("../../assets/images/careerswall.svg")
 // );
-const worklife = React.lazy(() => import("../../assets/images/worklife.svg"));
+// const worklife = React.lazy(() => import("../../assets/images/worklife.svg"));
 // const careerseducation = React.lazy(() =>
 //   import("../../assets/images/careerseducation.svg")
 // );
 // const careershealth = React.lazy(() =>
 //   import("../../assets/images/careerseducation.svg")
 // );
-const supportingfamilies = React.lazy(() =>
-  import("../../assets/images/supportingfamilies.svg")
-);
-const Salesmarket = React.lazy(() =>
-  import("../../assets/images/Salesmarket.svg")
-);
-const Technology = React.lazy(() =>
-  import("../../assets/images/Technology.svg")
-);
+// const supportingfamilies = React.lazy(() =>
+//   import("../../assets/images/supportingfamilies.svg")
+// );
+// const Salesmarket = React.lazy(() =>
+//   import("../../assets/images/Salesmarket.svg")
+// );
+// const Technology = React.lazy(() =>
+//   import("../../assets/images/Technology.svg")
+// );
 // const Ecofriendly = React.lazy(() =>
 //   import("../../assets/images/Ecofriendly.svg")
 // );
@@ -58,8 +58,8 @@ export const Careers = () => {
           <label>Your Opportunities</label>
         </div>
         <div className="opportunitycollab">
-          <img className="sales-img" src={Salesmarket} />
-          <img className="tech-img" src={Technology} />
+          {/* <img className="sales-img" src={Salesmarket} /> */}
+          {/* <img className="tech-img" src={Technology} /> */}
           {/* <img className="eco-img" src={Ecofriendly} /> */}
           <div className="salesandmarket">
             <label>Sales & Marketing</label>
@@ -198,7 +198,7 @@ export const Careers = () => {
         </div>
         <div className="careercollab">
           <div className="careerpolicycontents">
-            <img src={worklife} />
+            {/* <img src={worklife} /> */}
             &nbsp;<span>WORK-LIFE EFFECTIVENESS </span>
             <p>
               Eget faucibus laoreet et, laoreet vestibulum ut. Est scelerisque
@@ -210,7 +210,7 @@ export const Careers = () => {
           </div>
 
           <div className="careerpolicysupport">
-            <img src={supportingfamilies} />
+            {/* <img src={supportingfamilies} /> */}
             &nbsp;<span>SUPPORTING FAMILIES</span>
             <p>
               Eget faucibus laoreet et, laoreet vestibulum ut. Est scelerisque

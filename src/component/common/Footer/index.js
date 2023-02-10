@@ -15,6 +15,7 @@ import {
   PhoneIcon,
   TwitterIcon,
 } from "assets/icons/FooterIcons/FooterIcons";
+import ScrollToTop from "component/ScrollToTop";
 
 export const NormalFooter = () => {
   const history = useHistory();
@@ -48,9 +49,10 @@ export const NormalFooter = () => {
           <div className="footer-options  ms-5 col-md-2">
             <label className="brand-info">Useful Links</label>
             <div className="pt-5 d-flex flex-column footer-links">
+              <ScrollToTop/>
               <label
                 className="pb-2 cursor-pointer"
-                onClick={() => history.push("/profile/about-wallantics")}
+                onClick={() => history.push("/profile/about-us")}
               >
                 About Us
               </label>

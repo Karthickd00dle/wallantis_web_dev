@@ -20,7 +20,7 @@ export const Latestblogs = () => {
             <div className="latestblog1"></div>
             <div className="blog1contents">
               <div className="blog1img">
-                <JohnDoe />
+                <JohnDoe className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -41,7 +41,7 @@ export const Latestblogs = () => {
             <div className="latestblog2"></div>
             <div className="blog2contents">
               <div className="blog2img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -61,7 +61,7 @@ export const Latestblogs = () => {
             <div className="latestblog3"></div>
             <div className="blog3contents">
               <div className="blog3img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -83,7 +83,7 @@ export const Latestblogs = () => {
             <div className="latestblog4"></div>
             <div className="blog4contents">
               <div className="blog4img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -103,7 +103,7 @@ export const Latestblogs = () => {
             <div className="latestblog5"></div>
             <div className="blog5contents">
               <div className="blog5img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -123,7 +123,7 @@ export const Latestblogs = () => {
             <div className="latestblog6"></div>
             <div className="blog6contents">
               <div className="blog6img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -145,7 +145,7 @@ export const Latestblogs = () => {
             <div className="latestblog7"></div>
             <div className="blog7contents">
               <div className="blog7img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -165,7 +165,7 @@ export const Latestblogs = () => {
             <div className="latestblog8"></div>
             <div className="blog8contents">
               <div className="blog8img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
@@ -185,7 +185,7 @@ export const Latestblogs = () => {
             <div className="latestblog9"></div>
             <div className="blog9contents">
               <div className="blog9img">
-                <JohnDoe />
+                <JohnDoe  className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
                   <span>14 Oct’2022</span>
