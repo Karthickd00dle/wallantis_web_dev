@@ -20,8 +20,8 @@ export default function Dashboard() {
     border: "1px solid rgba(124, 181, 236)",
   };
 
-  const [random, setRandom] = useState([]);
-  const [markers, setMarkers] = useState([]);
+  const [random] = useState([]);
+  const [markers] = useState([]);
   const [viewport, setViewport] = useState({
     latitude: 20.7679,
     longitude: 87.8718,
