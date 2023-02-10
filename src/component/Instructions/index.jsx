@@ -2,7 +2,7 @@ import { CustomDialog } from "component/common";
 import React from "react";
 import VideoPlayer from "react-video-js-player";
 import Car from "assets/video/car.mp4";
-import InstructionsImage from "assets/images/Instructions";
+import InstructionsImage from "assets/images/InstructionsImage";
 import { BiDownload } from "react-icons/bi";
 import Pdf from "assets/images/Pdf";
 import "./style.scss";
