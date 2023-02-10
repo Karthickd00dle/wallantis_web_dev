@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
 export const Register = () => {
+  const history = useHistory();
+  const [showPostRegister, setShowPostRegister] = useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const handlePostRegister = () => {
+    setShowPostRegister(true);
+  };
 
   const onSubmit = (data) => {};
   return (
@@ -31,6 +38,7 @@ export const Register = () => {
           <CustomButton
             style={{ backgroundColor: "#A26220", color: " #FFFFFF" }}
             className="py-2 mb-3"
+            onClick={() => handlePostRegister()}
           >
             Continue
           </CustomButton>
@@ -41,6 +49,7 @@ export const Register = () => {
               boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.15)",
             }}
             className="py-2 mt-3"
+            onClick={() => history.push("/auth/login")}
           >
             Existing User? Log in
           </CustomButton>
