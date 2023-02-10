@@ -1,5 +1,4 @@
-import ArrowSVGComponent from "assets/svg/HomePage/ArrowSVGComponent
-";
+import ArrowSVGComponent from "assets/svg/HomePage/ArrowSVGComponent";
 import React from "react";
 import "./styles.scss";
 
