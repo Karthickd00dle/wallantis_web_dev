@@ -28,16 +28,6 @@ export default function Dashboard() {
     zoom: 4.4,
   });
 
-  const LocationMarker = () => {
-    useMapEvents({
-      click(event) {
-        let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
-        setRandom([...random, r]);
-        setMarkers([...markers, event.latlng]);
-      },
-    });
-  };
-
   const getCurrentPosition = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
       setViewport({

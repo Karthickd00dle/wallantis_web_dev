@@ -20,8 +20,6 @@ import {
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 
-const AdminDiamond = React.lazy(() => import("assets/images/AdminDiamond"));
-
 const totalInstallersData = [
   {
     No: "1",
@@ -94,11 +92,6 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
       <TableCell align="left" className="d-flex align-items-center py-4">
-        {/* <Avatar
-          style={{ width: "40px", height: "40px", radius: "3px" }}
-          alt="Remy Sharp"
-          src={AdminDiamond}
-        /> */}
         <label className="ps-2 table-body-cell-label">{Title}</label>
       </TableCell>
       <TableCell align="left">
@@ -138,13 +131,9 @@ const TableDataBody = ({
 
 export default function ProductManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [tabvalue, setTabValue] = React.useState(0);
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
-  };
-
-  const handleTabs = (event, newValue) => {
-    setTabValue(newValue);
   };
 
   return (

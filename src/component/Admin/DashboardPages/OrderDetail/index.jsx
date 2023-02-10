@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./style.scss";
-// import StepIndicator from "react-native-step-indicator";
-// import StarRating from "component/common/StarRating";
 
 const Diamondwallpaper = React.lazy(() =>
   import("assets/images/Diamondwallpaper")

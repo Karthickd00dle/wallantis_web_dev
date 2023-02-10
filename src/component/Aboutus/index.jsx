@@ -1,20 +1,12 @@
 import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
-import Aboutusimg from "assets/images/Dashboard/Aboutusimg.png"
-import OurGoals from "assets/images/Dashboard/OurGoals.png"
-import team1 from "assets/images/Dashboard/team1.png"
-import team2 from "assets/images/Dashboard/team2.png"
-import team3 from "assets/images/Dashboard/team3.png"
-import team4 from "assets/images/Dashboard/team4.png"
-
-// const Aboutus = React.lazy(() => import("assets/images/AboutUs"));
-
-// const ourgoals = React.lazy(() => import("assets/images/ourgoals.svg"));
-// const team1 = React.lazy(() => import("assets/images/team1.svg"));
-// const team2 = React.lazy(() => import("assets/images/team2.svg"));
-// const team3 = React.lazy(() => import("assets/images/team3.svg"));
-// const team4 = React.lazy(() => import("assets/images/team4.svg"));
+import Aboutusimg from "assets/images/Dashboard/Aboutusimg.png";
+import OurGoals from "assets/images/Dashboard/OurGoals.png";
+import team1 from "assets/images/Dashboard/team1.png";
+import team2 from "assets/images/Dashboard/team2.png";
+import team3 from "assets/images/Dashboard/team3.png";
+import team4 from "assets/images/Dashboard/team4.png";
 
 import Livingroomwallpaper from "assets/images/Livingroomwallpaper";
 import { ReactComponent as Bedroomwallpaper } from "assets/images/Bedroomwallpaper.svg";
@@ -22,7 +14,6 @@ import Kidswallpaper from "assets/images/Kidswallpaper";
 import Customizeswallpaper from "assets/images/Customizeswallpaper";
 import StickerWallpaper from "assets/images/Stickerwallpaper";
 import Newlaunchwallpaper from "assets/images/Newlaunchwallpaper";
-
 
 export const AboutWallantics = () => {
   return (
@@ -35,7 +26,9 @@ export const AboutWallantics = () => {
         </NormalNavigate>
       </div>
       <div className="d-flex wallat-abt">
-        <div className="col-md-4 Aboutus-Main"><img src={Aboutusimg}/></div>
+        <div className="col-md-4 Aboutus-Main">
+          <img src={Aboutusimg} />
+        </div>
         <div className="Aboutus-contents">
           <h5>About Us</h5>
 
@@ -154,7 +147,9 @@ export const AboutWallantics = () => {
       {/* </div> */}
 
       <div className="d-flex our-goals">
-        <div className="col-md-4"><img src={OurGoals}/></div>
+        <div className="col-md-4">
+          <img src={OurGoals} />
+        </div>
 
         <div className="col-md-8">
           <div className="goals-content">

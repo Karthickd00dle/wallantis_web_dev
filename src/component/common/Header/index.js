@@ -2,6 +2,7 @@ import { history } from "service/helpers";
 
 import React, { useState } from "react";
 import "./styles.scss";
+import { conditionalLoad } from "service/helperFunctions";
 
 function Header() {
   const hoverMenu = [
@@ -162,9 +163,10 @@ function Header() {
     <div>
       <div className="header-dropDown-container">
         <div className="header-dropDown-item-container">
-          {hoverMenu.map((item) => {
+          {hoverMenu.map((item, i) => {
             return (
               <HeaderDropDownItem
+                key={i}
                 title={item?.tilte}
                 menuItem={item?.subMenuItems}
                 route={item.route}
@@ -198,12 +200,15 @@ function HeaderDropDownItem({ title, menuItem, route }) {
       onClick={() => history.push(route)}
     >
       <div className="header-dropDown-item-title">{title}</div>
-      {menu ? (
-        menuItem.length > 0 ? (
+      {conditionalLoad(
+        menu,
+        conditionalLoad(
+          menuItem.length > 0,
           <ul className="menu-list" onMouseEnter={handleMouseOver}>
-            {menuItem?.map((item) => {
+            {menuItem?.map((item, i) => {
               return (
                 <div
+                  key={i}
                   className="menu-list-item"
                   onClick={() => history.push(item?.route, item)}
                   onMouseDown={handleMouseOver}
@@ -213,10 +218,8 @@ function HeaderDropDownItem({ title, menuItem, route }) {
               );
             })}
           </ul>
-        ) : (
-          <></>
         )
-      ) : null}
+      )}
     </div>
   );
 }
