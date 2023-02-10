@@ -7,7 +7,6 @@ import { loginApi } from "action/AuthAct";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { InputAdornment } from "@mui/material";
-
 import { useForm } from "react-hook-form";
 
 export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
@@ -36,7 +35,6 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             register={register}
             errors={errors}
           />
-
           <CustomInput
             placeholder="Enter Password"
             variant="standard"
@@ -67,11 +65,11 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             <div className="d-flex justify-content-end">
               <label
                 onClick={() => {
-                  history.push("/auth/forgotpassword");
+                  history.push("/auth/forgot-password");
                 }}
                 className="forget-text-inputfield cursor-pointer pt-3"
               >
-                Forget?
+                Forgot?
               </label>
             </div>
           )}

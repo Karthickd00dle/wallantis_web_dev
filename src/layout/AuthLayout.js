@@ -9,7 +9,16 @@ import { BrandLogoIcon } from "assets/icons/FooterIcons/FooterIcons";
 const FetchParams = () => {
   let location = useLocation();
   let param = location.pathname.split("/").slice(-1)[0];
-  return ternaryCondition(param === "login", "Login", "Create an Account");
+  switch (param) {
+    case "login":
+      return "Login";
+    case "register":
+      return "Create an Account";
+    case "forgot-password":
+      return "Login";
+    default:
+      return null;
+  }
 };
 
 export function AuthLayout({ children }) {
@@ -17,14 +26,14 @@ export function AuthLayout({ children }) {
     <div className="d-flex ">
       <div className="auth-layout">
         <BrandLogoIcon height="95px" width="500px" />
-        <div className="login-page">
+        <div className="d-flex">
           <div>
             <label>
               <FetchParams />
             </label>
             <p>Get access to your orders, wishlist and recommendations</p>
           </div>
-          <div className="login-child">{children}</div>
+          <div>{children}</div>
         </div>
       </div>
     </div>

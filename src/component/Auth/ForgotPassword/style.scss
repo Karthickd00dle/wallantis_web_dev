@@ -1,0 +1,53 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.forgot-password-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 100%;
+  top: 4%;
+  padding: 9% 12% 9% 12%;
+  .input-phonenumber,
+  .input-otp,
+  .input-password {
+    @include fontLatoStyle(14px, 700, #9a9999, 17px);
+    width: 500px;
+    .label-change {
+      @include fontLatoStyle(14px, 700, #2a71f9, 17px);
+      padding: 0;
+      width: 14%;
+    }
+  }
+
+  .otp-resend-container {
+    .label-otp-sent {
+      @include fontLatoStyle(14px, 500, #9a9999, 17px);
+      padding: 0;
+    }
+    .label-resend {
+      @include fontLatoStyle(14px, 700, #2a71f9, 17px);
+      padding: 0;
+    }
+  }
+}
+
+.ForgotPassword_OTP_sent {
+  span {
+    position: absolute;
+    width: 200px;
+    left: 95px;
+    top: 90px;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: 0.04em;
+    color: #9a9999;
+  }
+
+  label {
+    position: absolute;
+    width: 56px;
+    left: 74%;
+    top: 90px;
+    @include fontLatoStyle(16px, 700, #2a71f9, 15px, 0.04em);
+  }
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Login } from "component";
 import { OrderSummary } from "component/Home/CartSummary/OrderSummary";
 import "./style.scss";
 import {
@@ -12,6 +11,7 @@ import {
 import { conditionalLoad } from "service/helperFunctions";
 import { savedAddress } from "config";
 import { FormControlLabel, RadioGroup } from "@mui/material";
+import { Login } from "component/Auth/Login/Login";
 
 const DeliveryAddress = ({ dataItems }) => {
   const [value, setValue] = React.useState();

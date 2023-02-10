@@ -1,4 +1,4 @@
 export { LoginPage } from "./LoginPage";
-export { ForgotPass } from "./ForgotPassword";
-export { RegisterMobilePass } from "./RegisterMobile";
+export { ForgotPasswordPage } from "./ForgotPasswordPage";
+export { RegisterPage } from "./RegisterPage";
 export { RegisterAgainPass } from "./RegisterAgain";
