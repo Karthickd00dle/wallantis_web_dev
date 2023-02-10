@@ -56,24 +56,37 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
   );
 };
 
-export const ProductListingGrid = () => {
+export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
+  const handleCheck = (event) => {
+    const { name } = event.target;
+    if (event.target.checked) {
+      setCheckedValues([...checkedValues, name]);
+    } else {
+      setCheckedValues(checkedValues.filter((v) => v !== name));
+    }
+  };
   return (
     <>
       <div className="filter-container">
-        {productListingFilter.map(({ itemheader, itemlist }, index) => (
-          <CustomFilterAccordion
-            key={index}
-            itemheader={itemheader}
-            itemlist={itemlist}
-            index={index}
-          />
-        ))}
+        {productListingFilter.map(
+          ({ itemheader, itemlist, itemlabel }, index) => (
+            <CustomFilterAccordion
+              key={index}
+              itemheader={itemheader}
+              itemlabel={itemlabel}
+              itemlist={itemlist}
+              index={index}
+              onChange={handleCheck}
+            />
+          )
+        )}
       </div>
     </>
   );
 };
 
 const ProductListingFC = ({ productListingData }) => {
+  const [checkedValues, setCheckedValues] = useState([]);
   const location = useLocation();
   const [productData, setProductData] = useState(productListingData);
   const getLocation = location?.state?.name;
@@ -86,6 +99,16 @@ const ProductListingFC = ({ productListingData }) => {
     });
     history.push("/home/product-details");
   };
+
+  const filteredCheckedValues = checkedValues.filter((v) =>
+    productData
+      .map((item) => {
+        return item.category;
+      })
+      .includes(v)
+  );
+
+  console.log(filteredCheckedValues);
   useEffect(() => {
     return () => setProductData(productListingData);
   }, [productListingData]);
@@ -93,7 +116,10 @@ const ProductListingFC = ({ productListingData }) => {
     <div className="product-listing-container">
       <ProductHeader bannerLabel={getLocation} />
       <div className="d-flex mt-4">
-        <ProductListingGrid />
+        <ProductListingGrid
+          checkedValues={checkedValues}
+          setCheckedValues={setCheckedValues}
+        />
         <div className="d-flex flex-column w-100">
           <ProductSorting
             itemCount={productListingData.length + 1}
@@ -102,14 +128,27 @@ const ProductListingFC = ({ productListingData }) => {
           />
           <div className="card-container">
             <div className="row">
-              {productData?.map((prodData) => (
-                <div key={prodData.id} className="col-4">
-                  <CardThree
-                    onClick={(prodData) => handleProductDetail(prodData)}
-                    prodData={prodData}
-                  />
-                </div>
-              ))}
+              {checkedValues.length === 0
+                ? productData?.map((prodData) => (
+                    <div key={prodData.id} className="col-4">
+                      <CardThree
+                        onClick={(prodData) => handleProductDetail(prodData)}
+                        prodData={prodData}
+                      />
+                    </div>
+                  ))
+                : productData
+                    .filter((item) =>
+                      checkedValues.some((value) => value === item.category)
+                    )
+                    ?.map((prodData) => (
+                      <div key={prodData.id} className="col-4">
+                        <CardThree
+                          onClick={(prodData) => handleProductDetail(prodData)}
+                          prodData={prodData}
+                        />
+                      </div>
+                    ))}
             </div>
           </div>
         </div>

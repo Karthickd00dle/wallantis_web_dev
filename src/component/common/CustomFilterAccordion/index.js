@@ -6,14 +6,13 @@ import { AccordionSummary, Checkbox, List, ListItem } from "@mui/material";
 import "./style.scss";
 import { useState } from "react";
 
-export const CustomFilterAccordion = ({ itemheader, itemlist, index }) => {
-  const [filterArray, setFilterArray] = useState(itemlist);
-  console.log(filterArray, "arr");
-  const handleFilter = (e) => {
-    setFilterArray([...filterArray, e.target.name]);
-    console.log(filterArray);
-  };
-
+export const CustomFilterAccordion = ({
+  itemheader,
+  itemlist,
+  itemlabel,
+  index,
+  onChange,
+}) => {
   return (
     <Accordion key={index}>
       <AccordionSummary
@@ -30,8 +29,8 @@ export const CustomFilterAccordion = ({ itemheader, itemlist, index }) => {
               <div className="d-flex align-items-center">
                 <Checkbox
                   name={itemlabel}
-                  checked={filterArray.checked}
-                  onChange={handleFilter}
+                  // checked={filterArray.checked}
+                  onChange={onChange}
                 />
                 <label className="ps-1 filter-item">{itemlabel}</label>
               </div>
