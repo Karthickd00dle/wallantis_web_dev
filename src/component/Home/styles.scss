@@ -70,9 +70,9 @@
     .home-main-card-container {
       display: flex;
       height: fit-content;
-      width: 100%;
+      width: 80%;
       gap: 15px;
-
+      padding: 20px;
       .blog-container {
         width: 45%;
         .blog-post-img {
@@ -303,3 +303,29 @@
   background-color: green;
 }
 
+.carousel-main {
+  display: flex;
+  gap: 20px;
+}
+
+.ul-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn-active {
+  width: 15px;
+  height: 15px;
+  background-color: #af763a;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.carousel-btn-inactive {
+  width: 15px;
+  height: 15px;
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}

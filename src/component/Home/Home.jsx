@@ -12,6 +12,7 @@ import {
 import "./styles.scss";
 import Wallmuralscard from "./subcomponents/Wallmuralscard";
 import sticker from "../../assets/images/sticker.png";
+import AdvancedCarousel from "component/common/Carousel";
 import Sticker from "./subcomponents/Sticker";
 import Wallmurals from "assets/images/wallmurals.png";
 import wallpaperPng from "assets/images/wallpaperCard.png";
@@ -28,6 +29,35 @@ import CardTwo from "./subcomponents/CardTwo";
 import CardThree from "./subcomponents/CardThree";
 import CardCatalogue from "./subcomponents/CardCatalogue";
 import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
+
+const carouselData = [
+  {
+    name: "James Pradip 1",
+    location: "Bangalore",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+
+  {
+    name: "James Pradip 2",
+    location: "Bangalore",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    name: "James Pradip 3",
+    location: "Bangalore",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    name: "James Pradip 4",
+    location: "Bangalore",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    name: "James Pradip 5",
+    location: "Bangalore",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+];
 
 function CardBlog(prodData) {
   return (
@@ -125,9 +155,14 @@ export const HomeComponentMain = () => {
         <div className="main-container main-container-bg">
           <div className="main-header">
             <div className="main-title">Artificial Grass</div>
-            <div className="view-all-but" onClick={() =>
+            <div
+              className="view-all-but"
+              onClick={() =>
                 history.push("/home/product-listing/view-all-grass")
-              }>VIEW ALL</div>
+              }
+            >
+              VIEW ALL
+            </div>
           </div>
 
           <div className="grass-txt">
@@ -147,9 +182,14 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Best Seller</div>
-            <div className="view-all-but" onClick={() =>
+            <div
+              className="view-all-but"
+              onClick={() =>
                 history.push("/home/product-listing/all-wallpaper")
-              }>VIEW ALL</div>
+              }
+            >
+              VIEW ALL
+            </div>
           </div>
 
           <div className="home-main-card-container">
@@ -162,9 +202,14 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">New Arrivals</div>
-            <div className="view-all-but" onClick={() =>
+            <div
+              className="view-all-but"
+              onClick={() =>
                 history.push("/home/product-listing/all-wallpaper")
-              }>VIEW ALL</div>
+              }
+            >
+              VIEW ALL
+            </div>
           </div>
 
           <div className="home-main-card-container">
@@ -212,9 +257,12 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">E-Catalouge</div>
-            <div className="view-all-but" onClick={() =>
-                history.push("/profile/Catalogue")
-              }>VIEW ALL</div>
+            <div
+              className="view-all-but"
+              onClick={() => history.push("/profile/Catalogue")}
+            >
+              VIEW ALL
+            </div>
           </div>
           <div className="home-main-card-container">
             {ecatalougeProducts.map((prodData) => (
@@ -226,9 +274,12 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Latest Blog</div>
-            <div className="view-all-but" onClick={() =>
-                history.push("/profile/latestblogs")
-              }>VIEW ALL</div>
+            <div
+              className="view-all-but"
+              onClick={() => history.push("/profile/latestblogs")}
+            >
+              VIEW ALL
+            </div>
           </div>
           <div className="home-main-card-container">
             {blogProducts.map((prodData) => (
@@ -241,24 +292,33 @@ export const HomeComponentMain = () => {
           <div className="main-header">
             <div className="main-title">Testimonials</div>
           </div>
-
-          <div className="home-main-card-container">
-            <div className="testimonial-card-container">
-              <div className="testimonial-card-inner-container">
-                <div>
-                  <div className="img-section"></div>
-                  <div className="testimonial-card-title">James Pradip</div>
-                  <div className="testimonial-card-location">Bangalore</div>
-                </div>
-                <QuotesSVGComponent className="quotes" />
-              </div>
-              <div className="testimonial-card-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua,
-                lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-            </div>
-          </div>
+          <AdvancedCarousel carouselData={carouselData}>
+            {carouselData.map((item) => {
+              return (
+                <>
+                  <div className="home-main-card-container">
+                    <div className="testimonial-card-container">
+                      <div className="testimonial-card-inner-container">
+                        <div>
+                          <div className="img-section"></div>
+                          <div className="testimonial-card-title">
+                            {item.name}
+                          </div>
+                          <div className="testimonial-card-location">
+                            {item.location}
+                          </div>
+                        </div>
+                        <QuotesSVGComponent className="quotes" />
+                      </div>
+                      <div className="testimonial-card-content">
+                        {item.text}
+                      </div>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+          </AdvancedCarousel>
         </div>
       </div>
     </>
