@@ -190,7 +190,6 @@ function HeaderDropDownItem({ title, menuItem, route }) {
     setmenu(false);
   };
 
-  
   return (
     <div
       className="header-dropDown-item"
@@ -207,6 +206,7 @@ function HeaderDropDownItem({ title, menuItem, route }) {
                 <div
                   className="menu-list-item"
                   onClick={() => history.push(item?.route, item)}
+                  onMouseDown={handleMouseOver}
                 >
                   {item?.name}
                 </div>

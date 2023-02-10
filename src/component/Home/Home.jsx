@@ -105,7 +105,14 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Recently Viewed</div>
-            <div className="view-all-but">VIEW ALL</div>
+            <div
+              className="view-all-but"
+              onClick={() =>
+                history.push("/home/product-listing/all-wallpaper")
+              }
+            >
+              VIEW ALL
+            </div>
           </div>
 
           <div className="home-main-card-container">
@@ -118,7 +125,9 @@ export const HomeComponentMain = () => {
         <div className="main-container main-container-bg">
           <div className="main-header">
             <div className="main-title">Artificial Grass</div>
-            <div className="view-all-but">VIEW ALL</div>
+            <div className="view-all-but" onClick={() =>
+                history.push("/home/product-listing/view-all-grass")
+              }>VIEW ALL</div>
           </div>
 
           <div className="grass-txt">
@@ -138,7 +147,9 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Best Seller</div>
-            <div className="view-all-but">VIEW ALL</div>
+            <div className="view-all-but" onClick={() =>
+                history.push("/home/product-listing/all-wallpaper")
+              }>VIEW ALL</div>
           </div>
 
           <div className="home-main-card-container">
@@ -151,7 +162,9 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">New Arrivals</div>
-            <div className="view-all-but">VIEW ALL</div>
+            <div className="view-all-but" onClick={() =>
+                history.push("/home/product-listing/all-wallpaper")
+              }>VIEW ALL</div>
           </div>
 
           <div className="home-main-card-container">
@@ -199,7 +212,9 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">E-Catalouge</div>
-            <div className="view-all-but">VIEW ALL</div>
+            <div className="view-all-but" onClick={() =>
+                history.push("/profile/Catalogue")
+              }>VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
             {ecatalougeProducts.map((prodData) => (
@@ -211,7 +226,9 @@ export const HomeComponentMain = () => {
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Latest Blog</div>
-            <div className="view-all-but">VIEW ALL</div>
+            <div className="view-all-but" onClick={() =>
+                history.push("/profile/latestblogs")
+              }>VIEW ALL</div>
           </div>
           <div className="home-main-card-container">
             {blogProducts.map((prodData) => (
