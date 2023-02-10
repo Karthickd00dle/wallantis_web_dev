@@ -44,169 +44,35 @@
   margin-left: 45%;
   margin-top: 50px;
 }
-
-.names {
-  .first-name {
-    margin-top: 35px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-      color: #000000;
-      margin-right: 61%;
-    }
-    input {
-      width: 162%;
-      height: 47px;
-      top: 1380px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
+.names{
+  justify-content: space-evenly;
+  margin-top: 35px;
+  input{
+  border: 1px solid #9D9D9D;
+border-radius: 10px;
+width: 609.7px;
+height: 63px;
+padding: 2px 2px 2px 24px;
   }
-  .last-name {
-    margin-top: 38px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 35px);
-    }
-    input {
-      box-sizing: border-box;
-      width: 245%;
-      height: 45px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
+  span{
+    font-weight: 500;
+font-size: 20px;
+color: #000000;
   }
 }
-
-.enumber {
-  .Email {
-    margin-top: 35px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-      margin-right: 61%;
-    }
-    input {
-      width: 190%;
-      height: 47px;
-      top: 1380px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-
-  .mobilenumber {
-    margin-top: 38px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-    }
-    input {
-      box-sizing: border-box;
-      width: 245%;
-      height: 45px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
+.enumber{
+  @extend .names
+}
+.countries{
+  @extend .names
+}
+.citycode{
+  @extend .names
+}
+.companyname{
+  @extend .names
 }
 
-.countries {
-  .country {
-    margin-top: 35px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-      margin-right: 61%;
-    }
-    input {
-      width: 176%;
-      height: 47px;
-      top: 1380px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-
-  .state {
-    margin-top: 38px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-    }
-    input {
-      box-sizing: border-box;
-      width: 245%;
-      height: 45px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-}
-.citycode {
-  .city {
-    margin-top: 35px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-      margin-right: 61%;
-    }
-    input {
-      width: 199%;
-      height: 47px;
-      top: 1380px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-
-  .pincode {
-    margin-top: 38px;
-    margin-left: 270px;
-    span {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-    }
-    input {
-      box-sizing: border-box;
-      width: 245%;
-      height: 45px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-}
-.companyname {
-  .companynamecol {
-    label {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-      margin-right: 61%;
-    }
-    input {
-      width: 134%;
-      height: 47px;
-      top: 1380px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-
-  .companyregistration {
-    margin-left: 260px;
-    label {
-      @include fontLatoStyle(17px, 500, #000000, 40px);
-    }
-    input {
-      box-sizing: border-box;
-      width: 200%;
-      height: 45px;
-      border: 1px solid #969696;
-      border-radius: 10px;
-      padding: 2px 2px 2px 24px;
-    }
-  }
-}
 .message {
   margin-top: 35px;
   span {

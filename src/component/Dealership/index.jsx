@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
-import Dealershipimg from "assets/images/Dealershipimg";
+import Dealershipimg from "assets/images/Dealership.png";
 
 export const Dealership = () => {
   return (
@@ -15,7 +15,7 @@ export const Dealership = () => {
         <div className="dealershiphead">Why Dealership?</div>
         <div className="dcontentscollab">
           <div className="dealercontents">
-            <Dealershipimg />
+            <img src={Dealershipimg} />
           </div>
           <div className="dealerinfo">
             <p>
@@ -49,6 +49,7 @@ export const Dealership = () => {
         <div className="d-flex names">
           <div className="first-name">
             <span>First Name* </span>
+            <br />
             <input type="text" placeholder="Enter your Name" name="name" />
           </div>
           <div className="last-name">
@@ -61,6 +62,7 @@ export const Dealership = () => {
         <div className="d-flex enumber">
           <div className="Email">
             <span>Email* </span>
+            <br />
             <input type="text" placeholder="Enter your Name" name="name" />
           </div>
           <div className="mobilenumber">
@@ -73,6 +75,7 @@ export const Dealership = () => {
         <div className="d-flex countries">
           <div className="country">
             <span>Country* </span>
+            <br />
             <input type="text" placeholder="Enter your Name" name="name" />
           </div>
           <div className="state">
@@ -85,6 +88,7 @@ export const Dealership = () => {
         <div className="d-flex citycode">
           <div className="city">
             <span>City* </span>
+            <br />
             <input type="text" placeholder="Enter your Name" name="name" />
           </div>
           <div className="pincode">
@@ -96,11 +100,12 @@ export const Dealership = () => {
 
         <div className="d-flex companyname">
           <div className="companynamecol">
-            <label>Company Name</label>
+            <span>Company Name</span>
+            <br />
             <input type="text" placeholder="Enter your Name" name="name" />
           </div>
           <div className="companyregistration">
-            <label>Company Registration Number</label>
+            <span>Company Registration Number</span>
             <br />
             <input type="text" placeholder="Enter your Name" name="name" />
           </div>

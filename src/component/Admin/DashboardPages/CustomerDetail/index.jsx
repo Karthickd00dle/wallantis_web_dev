@@ -3,8 +3,7 @@ import "./style.scss";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import Diamondwallpaper from "assets/images/Admin/Customer/diamond-wallpaper-ico.png";
-
-const Cdpm = React.lazy(() => import("assets/images/Cdpm"));
+import Customerpm from "assets/images/Admin/Customer/Customer-pm.png";
 
 export default function CustomerDetail() {
   const [toggleState, setToggleState] = useState(1);
@@ -59,7 +58,7 @@ export default function CustomerDetail() {
       <div className="cd-customercollab">
         <div className="cd-projectmanager">
           <div className="cd-pm">
-            <Cdpm />
+            <img src={Customerpm} />
           </div>
           <div className="cd-pmcontents">
             <h2>Eren Yeager</h2>

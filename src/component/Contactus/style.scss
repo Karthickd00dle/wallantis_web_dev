@@ -38,7 +38,6 @@
       @include fontLatoStyle(15px, 400, #000000);
       margin-top: 50px;
       position: relative;
-      right: 55px;
     }
   }
 
@@ -61,6 +60,7 @@
       position: relative;
       top: 49px;
       right: 32px;
+      left: 62px;
     }
     Small {
       font-weight: 400;
@@ -91,7 +91,7 @@
       @include fontLatoStyle(16px, 400, #000000);
       position: relative;
       top: 49px;
-      right: 32px;
+      left: 62px;
     }
     Small {
       font-weight: 400;
@@ -131,7 +131,7 @@
     justify-content: center;
   }
 
-  .names {
+  .contact-names {
     gap: 23%;
     margin-left: 20%;
     .first-Name {
@@ -166,7 +166,7 @@
     }
   }
 
-  .enumber {
+  .contact-enumber {
     gap: 26.5%;
     margin-left: 20%;
     .contact-email {
@@ -199,7 +199,7 @@
     }
   }
 
-  .countries {
+  .contact-countries {
     gap: 25%;
     margin-left: 20%;
     .contact-country {
@@ -235,7 +235,7 @@
       }
     }
   }
-  .citycode {
+  .contact-citycode {
     gap: 7.5%;
     margin-left: 20%;
     .contact-city {
@@ -270,7 +270,7 @@
       }
     }
   }
-  .companyname {
+  .contact-companyname {
     margin-top: 56px;
     margin-left: 20%;
     span {

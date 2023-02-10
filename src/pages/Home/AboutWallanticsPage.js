@@ -1,4 +1,4 @@
-import { AboutWallantics } from "component/AboutWallantics";
+import { AboutWallantics } from "component/Aboutus";
 import React from "react";
 import { connect } from "react-redux";
 
