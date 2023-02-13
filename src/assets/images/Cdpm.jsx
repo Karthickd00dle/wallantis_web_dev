@@ -1,13 +1,7 @@
 import * as React from "react";
 
 const Cdpm = (props) => (
-  <svg
-    width={221}
-    height={218}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={221} height={218} fill="none" {...props}>
     <rect width={221} height={218} rx={21} fill="url(#a)" />
     <defs>
       <pattern
