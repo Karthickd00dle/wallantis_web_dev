@@ -1,12 +1,6 @@
 import * as React from "react";
 const CareerWall = (props) => (
-  <svg
-    width={805}
-    height={487}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={805} height={487} fill="none" {...props}>
     <g filter="url(#a)">
       <path fill="url(#b)" shapeRendering="crispEdges" d="M20 16h765v447H20z" />
     </g>

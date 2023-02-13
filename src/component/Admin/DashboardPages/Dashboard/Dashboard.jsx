@@ -20,26 +20,17 @@ export default function Dashboard() {
     border: "1px solid rgba(124, 181, 236)",
   };
 
-  const [random, setRandom] = useState([]);
-  const [markers, setMarkers] = useState([]);
+  const [random] = useState([]);
+  const [markers] = useState([]);
   const [viewport, setViewport] = useState({
     latitude: 20.7679,
     longitude: 87.8718,
     zoom: 4.4,
   });
 
-  const LocationMarker = () => {
-    useMapEvents({
-      click(event) {
-        let r = Math.floor(Math.random() * (20 - 10 + 1)) + 10;
-        setRandom([...random, r]);
-        setMarkers([...markers, event.latlng]);
-      },
-    });
-  };
-
   const getCurrentPosition = () => {
-    navigator.geolocation.getCurrentPosition((pos) => {
+    const nav = navigator.geolocation;
+    nav.getCurrentPosition((pos) => {
       setViewport({
         ...viewport,
         latitude: pos.coords.latitude,

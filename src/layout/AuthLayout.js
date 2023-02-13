@@ -1,10 +1,7 @@
 import React from "react";
 import "assets/scss/layouts/AuthLayout.scss";
 import { useLocation } from "react-router-dom";
-import { ternaryCondition } from "service/helperFunctions";
 import { BrandLogoIcon } from "assets/icons/FooterIcons/FooterIcons";
-
-// const BrandLogo = React.lazy(() => import("assets/svg/BrandLogo"));
 
 const FetchParams = () => {
   let location = useLocation();

@@ -43,7 +43,6 @@ const totalInstallersData = [
   },
 ];
 
-
 const TableDataHeader = () => {
   return (
     <TableHead>
@@ -163,26 +162,22 @@ const TableDataBody = ({
 
 export default function BlogManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [tabvalue, setTabValue] = React.useState(0);
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
-  };
-
-  const handleTabs = (event, newValue) => {
-    setTabValue(newValue);
   };
 
   return (
     <div>
       <CustomNavBar label="Blog Management" />
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
+      <CustomTable>
+        <TableDataHeader />
+        <TableBody>
+          {totalInstallersData?.map((bodyData) => (
+            <TableDataBody bodyData={bodyData} />
+          ))}
+        </TableBody>
+      </CustomTable>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

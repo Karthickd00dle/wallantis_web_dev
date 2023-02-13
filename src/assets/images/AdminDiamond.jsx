@@ -1,14 +1,7 @@
 import * as React from "react";
 
 const AdminDiamond = (props) => (
-  <svg
-    width={41}
-    height={40}
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={41} height={40} fill="none" {...props}>
     <rect x={0.48} width={40} height={40} rx={3} fill="url(#a)" />
     <defs>
       <pattern

@@ -1,12 +1,6 @@
 import * as React from "react";
 const InstructionsImage = (props) => (
-  <svg
-    width={224}
-    height={217}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={224} height={217} fill="none" {...props}>
     <rect width={224} height={217} rx={6} fill="url(#a)" />
     <rect width={224} height={217} rx={6} fill="#000" fillOpacity={0.4} />
     <defs>

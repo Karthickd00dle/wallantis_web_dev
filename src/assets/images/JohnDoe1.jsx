@@ -1,12 +1,6 @@
 import * as React from "react";
 const JohnDoe1 = (props) => (
-  <svg
-    width={38}
-    height={38}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={38} height={38} fill="none" {...props}>
     <circle cx={19} cy={19} r={19} fill="url(#a)" />
     <defs>
       <pattern

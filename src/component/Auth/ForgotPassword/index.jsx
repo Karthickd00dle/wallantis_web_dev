@@ -11,10 +11,8 @@ export const ForgotPassword = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {};
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit()}>
       <div className="forgot-password-container">
         <CustomInput
           type="number"

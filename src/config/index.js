@@ -379,7 +379,7 @@ export const wallpaperProducts = [
     title: "Banaras, Indian Carpet Design Wallpaper",
     image: [
       "https://www.giffywalls.com/blog/wp-content/uploads/2021/03/Rosy-Pink-wallpaper-mural-scaled.jpg",
-      "http://cdn.shopify.com/s/files/1/0565/7080/6458/products/1155_54a600cf-1118-42aa-ba36-da0b7432a226.jpg?v=1659076658",
+      "https://cdn.shopify.com/s/files/1/0565/7080/6458/products/1155_54a600cf-1118-42aa-ba36-da0b7432a226.jpg?v=1659076658",
       "https://www.giffywalls.com/blog/wp-content/uploads/2021/04/Navy-Flowers-wall-paper-1024x768.jpg",
       "https://www.wallsauce.com/uploads/wallsauce-com/images/thumbs/536/2563c25d7fcbc58dac7295a7572e16b249bf8c07_800__R_N_90.jpg",
       "https://cdn.shopify.com/s/files/1/0565/7080/6458/products/first-blossoms-in-deep-pool-wall-mural-living-room.jpg?v=1662022177",
@@ -416,7 +416,7 @@ export const wallpaperProducts = [
     image: [
       "https://static.wixstatic.com/media/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.jpg/v1/fill/w_550,h_625,al_c,q_85,usm_0.66_1.00_0.01/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.webp",
       "https://i.etsystatic.com/21916349/r/il/8445f3/3012204607/il_fullxfull.3012204607_6kdr.jpg",
-      "http://cdn.shopify.com/s/files/1/0565/7080/6458/collections/Floral-Wallpaper-Purple-and-Pink-Dark-Floral-Wall-Mural.jpg?v=1632906538",
+      "https://cdn.shopify.com/s/files/1/0565/7080/6458/collections/Floral-Wallpaper-Purple-and-Pink-Dark-Floral-Wall-Mural.jpg?v=1632906538",
       "https://ucarecdn.com/2da49d22-08b0-4ebd-a7fd-e97ceab220cf/",
       "https://i.etsystatic.com/8591869/r/il/c53bfd/1456731054/il_570xN.1456731054_4789.jpg",
     ],
