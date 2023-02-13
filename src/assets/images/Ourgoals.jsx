@@ -1,12 +1,6 @@
 import * as React from "react";
 const OurGoals = (props) => (
-  <svg
-    width={592}
-    height={578}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={592} height={578} fill="none" {...props}>
     <g filter="url(#a)">
       <rect
         x={20}

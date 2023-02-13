@@ -29,7 +29,8 @@ export default function Dashboard() {
   });
 
   const getCurrentPosition = () => {
-    navigator.geolocation.getCurrentPosition((pos) => {
+    const nav = navigator.geolocation;
+    nav.getCurrentPosition((pos) => {
       setViewport({
         ...viewport,
         latitude: pos.coords.latitude,

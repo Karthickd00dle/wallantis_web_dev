@@ -1,13 +1,7 @@
 import * as React from "react";
 
 const Adminadam = (props) => (
-  <svg
-    width={68}
-    height={71}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={68} height={71} fill="none" {...props}>
     <ellipse cx={34} cy={35.5} rx={34} ry={35.5} fill="url(#a)" />
     <defs>
       <pattern
