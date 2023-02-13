@@ -4,12 +4,11 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { AccordionSummary, Checkbox, List, ListItem } from "@mui/material";
 import "./style.scss";
-import { useState } from "react";
 
 export const CustomFilterAccordion = ({
   itemheader,
   itemlist,
-  itemlabel,
+
   index,
   onChange,
 }) => {
@@ -27,11 +26,7 @@ export const CustomFilterAccordion = ({
           <List>
             <ListItem disablePadding>
               <div className="d-flex align-items-center">
-                <Checkbox
-                  name={itemlabel}
-                  // checked={filterArray.checked}
-                  onChange={onChange}
-                />
+                <Checkbox name={itemlabel} onChange={onChange} />
                 <label className="ps-1 filter-item">{itemlabel}</label>
               </div>
               <label className="filter-item-count pe-3">{`(${itemcount})`}</label>
