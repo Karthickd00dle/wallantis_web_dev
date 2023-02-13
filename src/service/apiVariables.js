@@ -3,7 +3,7 @@ import { generateQuery } from "../service/helperFunctions";
 //auth Api
 export const authApi = {
   loginApi: {
-    api: "admin/login",
+    api: "users/login",
     method: "post",
     baseURL: "auth",
   },
