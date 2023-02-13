@@ -22,7 +22,7 @@ export const loginApi =
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
       apiCall({
-        ...authApi.loginApiUrl,
+        ...authApi.loginApi,
         body,
       })
         .then(({ data }) => {

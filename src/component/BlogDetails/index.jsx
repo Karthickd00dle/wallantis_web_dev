@@ -1,13 +1,9 @@
 import React from "react";
 import "./style.scss";
 import JohnDoe from "../../assets/images/JohnDoe";
-import Blogdetail1 from "assets/images/BlogDetail1";
-import Natureinspired from "assets/images/Natureinspired";
-import { ReactComponent as Popularweek1 } from "../../assets/images/Popularweek1.svg";
-import { ReactComponent as Popularweek2 } from "../../assets/images/Popularweek2.svg";
-import { ReactComponent as Popularweek3 } from "../../assets/images/Popularweek3.svg";
-import { ReactComponent as Popularweek4 } from "../../assets/images/Popularweek4.svg";
-import { ReactComponent as Popularweek5 } from "../../assets/images/Popularweek5.svg";
+import Blogdetail1 from "assets/images/BlogDetail1.png";
+import Natureinspired from "assets/images/Natureinspired.png";
+import Popularweek1 from "../../assets/images/Popularweek1.png";
 
 export const Blogdetails = () => {
   return (
@@ -34,7 +30,7 @@ export const Blogdetails = () => {
               </p>
             </div>
             <div className="getinspiration">
-              <Blogdetail1 />
+              <img src={Blogdetail1} />
               <label>Get inspiration from Indian designed wallpapers!</label>
               <p>
                 it justo, magna elementum ornare a ut nunc donec. Viverra et
@@ -108,7 +104,7 @@ export const Blogdetails = () => {
                 feugiat. Tortor, non scelerisque auctor mattis euismod augue cum
                 vestibulum. Tristique dictum eu cras mauris nam et.
               </p>
-              <Natureinspired />
+              <img src={Natureinspired} />
             </div>
 
             <div className="kidsbedroom">
@@ -152,7 +148,7 @@ export const Blogdetails = () => {
           <div className="blogdetails-right">
             <label className="thisweek1">Popular This Week </label>
             <div className="week1">
-              <Popularweek1 />
+              <img src={Popularweek1} />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
@@ -161,7 +157,7 @@ export const Blogdetails = () => {
             <hr />
 
             <div className="week1">
-              <Popularweek2 />
+              <img src={Popularweek1} />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
@@ -170,7 +166,7 @@ export const Blogdetails = () => {
             <hr />
 
             <div className="week1">
-              <Popularweek3 />
+              <img src={Popularweek1} />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
@@ -179,7 +175,7 @@ export const Blogdetails = () => {
             <hr />
 
             <div className="week1">
-              <Popularweek4 />
+              <img src={Popularweek1} />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
@@ -188,7 +184,7 @@ export const Blogdetails = () => {
             <hr />
 
             <div className="week1">
-              <Popularweek5 />
+              <img src={Popularweek1} />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
