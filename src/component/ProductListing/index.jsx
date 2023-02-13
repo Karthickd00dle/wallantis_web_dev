@@ -95,6 +95,7 @@ const ProductListingFC = ({ productListingData }) => {
   const location = useLocation();
   const [productData, setProductData] = useState(productListingData);
   const getLocation = location?.state?.name;
+
   const dispatch = useDispatch();
 
   const handleProductDetail = (prodData) => {
