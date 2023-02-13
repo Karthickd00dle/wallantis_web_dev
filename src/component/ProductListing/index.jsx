@@ -1,7 +1,11 @@
 import CardThree from "component/Home/subcomponents/CardThree";
 import { useLocation } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
-import { SortingMenuList, productListingFilter } from "config";
+import {
+  SortingMenuList,
+  productListingFilter,
+  wallpaperProducts,
+} from "config";
 import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
 import WallpapersHeader from "assets/images/ProductListing/Wallpapers-Header.png";
@@ -76,6 +80,7 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
               itemlabel={itemlabel}
               itemlist={itemlist}
               index={index}
+              wallpaperProducts={wallpaperProducts}
               onChange={handleCheck}
             />
           )
@@ -108,7 +113,6 @@ const ProductListingFC = ({ productListingData }) => {
       .includes(v)
   );
 
-  console.log(filteredCheckedValues);
   useEffect(() => {
     return () => setProductData(productListingData);
   }, [productListingData]);
@@ -119,6 +123,7 @@ const ProductListingFC = ({ productListingData }) => {
         <ProductListingGrid
           checkedValues={checkedValues}
           setCheckedValues={setCheckedValues}
+          filteredCheckedValues={filteredCheckedValues}
         />
         <div className="d-flex flex-column w-100">
           <ProductSorting
