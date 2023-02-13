@@ -30,11 +30,11 @@ export const CustomFilterAccordion = ({
                 <label className="ps-1 filter-item">{itemlabel}</label>
               </div>
               <label className="filter-item-count pe-3">
-                {
+                {`(${
                   wallpaperProducts.filter((item) => {
                     return item.category === itemlabel;
                   }).length
-                }
+                })`}
               </label>
             </ListItem>
           </List>
