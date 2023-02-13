@@ -10,6 +10,9 @@ import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
 import { bindActionCreators } from "redux";
 import { sortingFunction } from "action/CommonAct";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import ExpandIcon from "assets/icons/ExpandIcon";
+import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
 
 export const ProductHeader = ({ bannerLabel }) => {
   return (
@@ -80,6 +83,14 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
             />
           )
         )}
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandIcon height={10} width={10} />}>
+            <label className="filter-title cursor-pointer">Price</label>
+          </AccordionSummary>
+          <AccordionDetails>
+            <CustomPriceRangeSlider />
+          </AccordionDetails>
+        </Accordion>
       </div>
     </>
   );

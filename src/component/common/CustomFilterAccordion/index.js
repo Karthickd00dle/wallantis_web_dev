@@ -8,7 +8,6 @@ import "./style.scss";
 export const CustomFilterAccordion = ({
   itemheader,
   itemlist,
-
   index,
   onChange,
 }) => {
