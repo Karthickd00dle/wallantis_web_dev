@@ -54,6 +54,7 @@ let getServiceUrl = (baseURL) => {
   let finalURL = "";
   const { REACT_APP_AUTH_API_BASE_URL, REACT_APP_USER_URL, REACT_APP_KIM_URL } =
     process.env;
+  console.log(REACT_APP_AUTH_API_BASE_URL);
   switch (baseURL) {
     case "auth":
       finalURL = REACT_APP_AUTH_API_BASE_URL;
