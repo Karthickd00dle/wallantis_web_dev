@@ -22,8 +22,9 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
     //   history.push("/home/home");
     // }
     loginApiCall({ username: data.mailId, password: data.password })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        localStorage.setItem("authToken", register.mailId);
+        history.push("/home/home");
       })
       .catch((err) => {
         console.log(err);
