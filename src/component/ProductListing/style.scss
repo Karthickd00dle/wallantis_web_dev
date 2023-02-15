@@ -15,6 +15,7 @@
     padding-left: 2%;
     .product-banner-label {
       @include fontLatoStyle(36px, 700, #ffffff, 46px);
+      text-transform: capitalize;
     }
   }
 }
@@ -45,6 +46,7 @@
   }
   .label-item-label {
     @include fontLatoStyle(20px, 600, #000000, 26px);
+    text-transform: capitalize;
   }
 }
 

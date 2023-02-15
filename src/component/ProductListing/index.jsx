@@ -36,7 +36,6 @@ export const ProductHeader = ({ bannerLabel }) => {
 
 export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
   const dispatch = useDispatch();
-  const [sorting] = useState();
 
   const handleSorting = ({ target: { value } }) => {
     let sortedData = sortingFunction(value, itemData);
@@ -55,7 +54,6 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
           inputStyle="selectdropdown"
           menuItemStyle="menu-item"
           name="sorting"
-          value={sorting}
           onChange={(e) => handleSorting(e)}
         />
       </div>
@@ -64,6 +62,10 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
 };
 
 export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
+  const [pricevalue, setPriceValue] = useState([20, 30]);
+  const handlePriceFilter = (event, newValue) => {
+    setPriceValue(newValue);
+  };
   const handleCheck = (event) => {
     const { name } = event.target;
     if (event.target.checked) {
@@ -93,7 +95,10 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
             <label className="filter-title cursor-pointer">Price</label>
           </AccordionSummary>
           <AccordionDetails>
-            <CustomPriceRangeSlider />
+            <CustomPriceRangeSlider
+              pricevalue={pricevalue}
+              onChange={handlePriceFilter}
+            />
           </AccordionDetails>
         </Accordion>
       </div>
@@ -103,10 +108,8 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
 
 const ProductListingFC = ({ productListingData }) => {
   const [checkedValues, setCheckedValues] = useState([]);
-  const location = useLocation();
+  const location = useLocation().pathname.split("/").slice(-1)[0];
   const [productData, setProductData] = useState(productListingData);
-  const getLocation = location?.state?.name;
-
   const dispatch = useDispatch();
 
   const handleProductDetail = (prodData) => {
@@ -130,7 +133,7 @@ const ProductListingFC = ({ productListingData }) => {
   }, [productListingData]);
   return (
     <div className="product-listing-container">
-      <ProductHeader bannerLabel={getLocation} />
+      <ProductHeader bannerLabel={location} />
       <div className="d-flex mt-4">
         <ProductListingGrid
           checkedValues={checkedValues}
@@ -140,7 +143,7 @@ const ProductListingFC = ({ productListingData }) => {
         <div className="d-flex flex-column w-100">
           <ProductSorting
             itemCount={productListingData.length + 1}
-            itemLabel={getLocation}
+            itemLabel={location}
             itemData={productListingData}
           />
           <div className="card-container">

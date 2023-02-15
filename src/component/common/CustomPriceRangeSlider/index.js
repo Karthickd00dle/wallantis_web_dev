@@ -1,24 +1,8 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import Slider, { SliderThumb } from "@mui/material/Slider";
+import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
-import Tooltip from "@mui/material/Tooltip";
 import "./style.scss";
-
-function ValueLabelComponent(props) {
-  const { children, value } = props;
-
-  return (
-    <Tooltip enterTouchDelay={0} placement="top" title={value}>
-      {children}
-    </Tooltip>
-  );
-}
-
-ValueLabelComponent.propTypes = {
-  children: PropTypes.element.isRequired,
-  value: PropTypes.number.isRequired,
-};
+import { Tooltip } from "@mui/material";
 
 const AirbnbSlider = styled(Slider)(({ theme }) => ({
   color: "#2A71F9",
@@ -47,8 +31,11 @@ const AirbnbSlider = styled(Slider)(({ theme }) => ({
   "& .MuiSlider-valueLabel": {
     lineHeight: 1,
     fontSize: 12,
-    padding: 0,
-    width: 40,
+    padding: "2px 6px 2px 6px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "auto",
     height: 25,
     backgroundColor: "#2A71F9",
   },
@@ -64,25 +51,16 @@ const AirbnbSlider = styled(Slider)(({ theme }) => ({
   },
 }));
 
-function AirbnbThumbComponent(props) {
-  const { children, ...other } = props;
-  return <SliderThumb {...other}>{children}</SliderThumb>;
-}
-
-AirbnbThumbComponent.propTypes = {
-  children: PropTypes.node,
-};
-
-export const CustomPriceRangeSlider = () => {
+export const CustomPriceRangeSlider = ({ pricevalue, onChange, maxValue }) => {
   return (
     <div className="slider-container px-3">
       <AirbnbSlider
+        value={pricevalue}
+        onChange={onChange}
+        max={maxValue}
         valueLabelDisplay="auto"
-        slots={{ thumb: AirbnbThumbComponent }}
-        getAriaLabel={(index) =>
-          index === 0 ? "Minimum price" : "Maximum price"
-        }
-        defaultValue={[20, 40]}
+        getAriaValueText={(value) => `₹ ${value}`}
+        valueLabelFormat={(value) => `₹ ${value}`}
       />
     </div>
   );
