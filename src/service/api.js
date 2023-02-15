@@ -56,7 +56,7 @@ let getServiceUrl = (baseURL) => {
     process.env;
   switch (baseURL) {
     case "auth":
-      finalURL = `${REACT_APP_AUTH_API_BASE_URL}/api/v1/`;
+      finalURL = REACT_APP_AUTH_API_BASE_URL;
       break;
     case "user":
       finalURL = `${REACT_APP_AUTH_API_BASE_URL}/api/v1/`;

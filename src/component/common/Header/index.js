@@ -161,7 +161,7 @@ function Header({ productList }) {
   ];
   return (
     <div>
-      <div className="header-dropDown-container">
+      <div className="header-dropDown-container pb-3">
         <div className="header-dropDown-item-container">
           {hoverMenu.map((item, i) => {
             return (
