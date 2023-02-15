@@ -10,7 +10,7 @@ import team4 from "assets/images/Dashboard/team4.png";
 import Bedroomwallpaper from "assets/images/Bedroomwallpaper.png";
 import Newlaunchwallpaper from "assets/images/Newlaunchwallpaper.png";
 
-export const AboutWallantics = () => {
+export default function AboutWallantics() {
   return (
     <div>
       <div>
@@ -203,4 +203,4 @@ export const AboutWallantics = () => {
       </div>
     </div>
   );
-};
+}

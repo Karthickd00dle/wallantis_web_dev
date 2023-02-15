@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
-export const Catalogue = () => {
+export default function Catalogue() {
   return (
     <div>
       <div>
@@ -81,4 +81,4 @@ export const Catalogue = () => {
       </div>
     </div>
   );
-};
+}

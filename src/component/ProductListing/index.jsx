@@ -18,7 +18,7 @@ import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
 
-export const ProductHeader = ({ bannerLabel }) => {
+export function ProductHeader({ bannerLabel }) {
   return (
     <div className="product-banner-container py-3">
       <div className="product-banner-label-container">
@@ -32,7 +32,7 @@ export const ProductHeader = ({ bannerLabel }) => {
       />
     </div>
   );
-};
+}
 
 export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
   const dispatch = useDispatch();
@@ -106,10 +106,10 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
   );
 };
 
-const ProductListingFC = ({ productListingData }) => {
+export default function ProductListingFC({ productListingData }) {
   const [checkedValues, setCheckedValues] = useState([]);
   const location = useLocation().pathname.split("/").slice(-1)[0];
-  const [productData, setProductData] = useState(productListingData);
+  const [productData, setProductData] = useState(wallpaperProducts);
   const dispatch = useDispatch();
 
   const handleProductDetail = (prodData) => {
@@ -120,10 +120,10 @@ const ProductListingFC = ({ productListingData }) => {
     history.push("/home/product-details");
   };
 
-  const filteredCheckedValues = checkedValues.filter((v) =>
+  const filteredCheckedValues = checkedValues?.filter((v) =>
     productData
-      .map((item) => {
-        return item.category;
+      ?.map((item) => {
+        return item?.category;
       })
       .includes(v)
   );
@@ -142,13 +142,13 @@ const ProductListingFC = ({ productListingData }) => {
         />
         <div className="d-flex flex-column w-100">
           <ProductSorting
-            itemCount={productListingData.length + 1}
+            itemCount={productListingData?.length + 1}
             itemLabel={location}
             itemData={productListingData}
           />
           <div className="card-container">
             <div className="row">
-              {checkedValues.length === 0
+              {checkedValues?.length === 0
                 ? productData?.map((prodData) => (
                     <div key={prodData.id} className="col-4">
                       <CardThree
@@ -158,8 +158,8 @@ const ProductListingFC = ({ productListingData }) => {
                     </div>
                   ))
                 : productData
-                    .filter((item) =>
-                      checkedValues.some((value) => value === item.category)
+                    ?.filter((item) =>
+                      checkedValues?.some((value) => value === item.category)
                     )
                     ?.map((prodData) => (
                       <div key={prodData.id} className="col-4">
@@ -175,7 +175,7 @@ const ProductListingFC = ({ productListingData }) => {
       </div>
     </div>
   );
-};
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {

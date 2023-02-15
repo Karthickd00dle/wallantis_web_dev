@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.scss";
-import JohnDoe from "../../assets/images/JohnDoe";
+import JohnDoe from "assets/images/JohnDoe";
 import Blogdetail1 from "assets/images/BlogDetail1.png";
 import Natureinspired from "assets/images/Natureinspired.png";
-import Popularweek1 from "../../assets/images/Popularweek1.png";
+import Popularweek1 from "assets/images/Popularweek1.png";
 
-export const Blogdetails = () => {
+export default function Blogdetails() {
   return (
     <div>
       <div>
@@ -196,4 +196,4 @@ export const Blogdetails = () => {
       </div>
     </div>
   );
-};
+}

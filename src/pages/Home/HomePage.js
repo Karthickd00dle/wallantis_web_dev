@@ -1,17 +1,22 @@
-import React, { Component, Suspense } from "react";
+import React, { useMemo, useState, Suspense } from "react";
 import { connect } from "react-redux";
-import { Home } from "component/Home/Home";
 
-// const Home = React.lazy(() => import("component/Home/Home"));
 // Redux Connection
 
-export class HomePageClass extends Component {
-  render() {
-    return (
-      <Suspense fallback={<h1>Loading..Please Wait</h1>}>
-        <Home />
-      </Suspense>
-    );
-  }
+export function HomePageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadHome = async () => {
+    const loadHomeComp = await import("component/Home/Home");
+    setComponent(() => loadHomeComp.default);
+  };
+
+  useMemo(() => LoadHome(), []);
+  return (
+    <Suspense fallback={<h1>Loading..Please Wait</h1>}>
+      {Component ? <Component /> : <></>}
+    </Suspense>
+  );
 }
-export const HomePage = connect(null, null)(HomePageClass);
+
+export const HomePage = connect(null, null)(HomePageFunction);

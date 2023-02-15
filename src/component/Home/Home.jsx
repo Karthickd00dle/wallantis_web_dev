@@ -72,7 +72,7 @@ function CardBlog(prodData) {
   );
 }
 
-export const HomeComponentMain = () => {
+export default function HomeComponentMain() {
   return (
     <>
       <div className="home-content-container">
@@ -323,6 +323,6 @@ export const HomeComponentMain = () => {
       </div>
     </>
   );
-};
+}
 
 export const Home = connect(null, null)(HomeComponentMain);

@@ -5,7 +5,7 @@ import { CartItems } from "./CartItems";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
-export const CartSummaryMain = () => {
+export default function CartSummaryMain() {
   return (
     <>
       <NormalNavigate
@@ -19,6 +19,6 @@ export const CartSummaryMain = () => {
       </div>
     </>
   );
-};
+}
 
 export const CartSummary = connect(null, null)(CartSummaryMain);
