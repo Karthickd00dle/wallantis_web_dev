@@ -2,7 +2,6 @@ import * as React from "react";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import "./style.scss";
-import { Tooltip } from "@mui/material";
 
 const AirbnbSlider = styled(Slider)(({ theme }) => ({
   color: "#2A71F9",
