@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./header.scss";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,14 +12,17 @@ import { LanguageMenuList } from "config";
 import { CustomButton } from "..";
 import { history } from "service/helpers";
 import JohnDoe1 from "assets/images/user.png";
+import { getAllProducts } from "action/ProductsAct";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { routerAuthTokenGuard } from "service/helperFunctions";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import Header from "../Header";
 
-export const CustomHeader = () => {
+export const CustomHeaderComponent = ({ getAllProductsAPI }) => {
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
-
+  const [productList, setProductList] = useState([]);
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
   };
@@ -39,6 +42,16 @@ export const CustomHeader = () => {
       </div>
     );
   }
+
+  const getAllProducts = () => {
+    getAllProductsAPI().then((res) => {
+      setProductList(res?.response?.data);
+    });
+  };
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
   return (
     <AppBar className="navbar-appbar" position="fixed">
       <Container maxWidth="xxl">
@@ -122,8 +135,28 @@ export const CustomHeader = () => {
           </div>
         </Toolbar>
 
-        <Header />
+        <Header productList={productList} />
       </Container>
     </AppBar>
   );
 };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ownProps: ownProps,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getAllProductsAPI: getAllProducts,
+    },
+    dispatch
+  );
+};
+
+export const CustomHeader = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CustomHeaderComponent);

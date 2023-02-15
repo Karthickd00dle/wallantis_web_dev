@@ -38,3 +38,24 @@ export const adminPrivilageVariables = {
     },
   },
 };
+
+export const productAPI = {
+  getAllProducts: {
+    url: "products/AllProductCategory",
+    method: "get",
+    baseURL: "products",
+    query: {
+      page: null,
+      pageCount: null,
+      nextPage: null,
+      pageSize: null,
+      total: null,
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};

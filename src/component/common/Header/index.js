@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./styles.scss";
 import { conditionalLoad } from "service/helperFunctions";
 
-function Header() {
+function Header({ productList }) {
   const hoverMenu = [
     {
       tilte: "Wallpaper",
