@@ -1,13 +1,7 @@
 import * as React from "react";
 
 const Diamondwallpaper = (props) => (
-  <svg
-    width={90}
-    height={90}
-    fill="none"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={90} height={90} fill="none" {...props}>
     <rect width={90} height={90} rx={14} fill="url(#a)" />
     <defs>
       <pattern

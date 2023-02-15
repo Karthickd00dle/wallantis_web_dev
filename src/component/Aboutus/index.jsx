@@ -7,13 +7,8 @@ import team1 from "assets/images/Dashboard/team1.png";
 import team2 from "assets/images/Dashboard/team2.png";
 import team3 from "assets/images/Dashboard/team3.png";
 import team4 from "assets/images/Dashboard/team4.png";
-
-import Livingroomwallpaper from "assets/images/Livingroomwallpaper";
-import { ReactComponent as Bedroomwallpaper } from "assets/images/Bedroomwallpaper.svg";
-import Kidswallpaper from "assets/images/Kidswallpaper";
-import Customizeswallpaper from "assets/images/Customizeswallpaper";
-import StickerWallpaper from "assets/images/Stickerwallpaper";
-import Newlaunchwallpaper from "assets/images/Newlaunchwallpaper";
+import Bedroomwallpaper from "assets/images/Bedroomwallpaper.png";
+import Newlaunchwallpaper from "assets/images/Newlaunchwallpaper.png";
 
 export const AboutWallantics = () => {
   return (
@@ -104,19 +99,19 @@ export const AboutWallantics = () => {
 
         <div className="wallpapercollab1">
           <div className="wallpaper1">
-            <Livingroomwallpaper />
+            <img src={Newlaunchwallpaper} />
             <br />
             <label>Living room wallpapers</label>
           </div>
 
           <div className="wallpaper1">
-            <Bedroomwallpaper />
+            <img src={Bedroomwallpaper} />
             <br />
             <label>Bedroom wallpapers</label>
           </div>
 
           <div className="wallpaper1">
-            <Kidswallpaper />
+            <img src={Newlaunchwallpaper} />
             <br />
             <label>Kids Wallpaper</label>
           </div>
@@ -124,19 +119,19 @@ export const AboutWallantics = () => {
 
         <div className="wallpapercollab2">
           <div className="wallpaper2">
-            <Customizeswallpaper />
+            <img src={Newlaunchwallpaper} />
             <br />
             <label>Customized wallpapers</label>
           </div>
 
           <div className="wallpaper2">
-            <StickerWallpaper />
+            <img src={Newlaunchwallpaper} />
             <br />
             <label>Sticker wallpapers</label>
           </div>
 
           <div className="wallpaper2">
-            <Newlaunchwallpaper />
+            <img src={Newlaunchwallpaper} />
             <br />
             <label>New Launch </label>
           </div>

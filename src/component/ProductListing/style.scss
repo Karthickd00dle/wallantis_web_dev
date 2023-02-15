@@ -15,6 +15,7 @@
     padding-left: 2%;
     .product-banner-label {
       @include fontLatoStyle(36px, 700, #ffffff, 46px);
+      text-transform: capitalize;
     }
   }
 }
@@ -45,9 +46,64 @@
   }
   .label-item-label {
     @include fontLatoStyle(20px, 600, #000000, 26px);
+    text-transform: capitalize;
   }
 }
 
 .sort-by-text {
   color: #818181;
+}
+
+.filter-title {
+  @include fontLatoStyle(16px, 600, #000000, 20px);
+}
+
+.MuiPaper-root.MuiAccordion-root {
+  box-shadow: none;
+  border-bottom: 1px solid #d5d5d5;
+
+  .MuiButtonBase-root.MuiAccordionSummary-root {
+    flex-direction: row-reverse;
+    padding: 0 7px;
+    .MuiAccordionSummary-content {
+      margin-left: 2%;
+    }
+  }
+  .MuiCollapse-root {
+    padding-bottom: 2%;
+    padding-left: 1%;
+    .MuiCollapse-wrapper {
+      .MuiCollapse-wrapperInner {
+        .MuiAccordion-region {
+          .MuiAccordionDetails-root {
+            padding: 5px 0;
+            ul {
+              padding: 0;
+
+              li {
+                justify-content: space-between;
+                div {
+                  padding: 0;
+                  width: 100%;
+                  span {
+                    padding: 0;
+                    svg {
+                      height: 18px;
+                      width: 18px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.MuiPaper-root.MuiAccordion-root::before {
+  background-color: transparent;
+}
+.MuiPaper-root.MuiAccordion-root.Mui-expanded {
+  margin: 0;
 }

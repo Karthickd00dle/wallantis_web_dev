@@ -8,9 +8,9 @@ import "./style.scss";
 export const CustomFilterAccordion = ({
   itemheader,
   itemlist,
-
   index,
   onChange,
+  wallpaperProducts,
 }) => {
   return (
     <Accordion key={index}>
@@ -21,7 +21,7 @@ export const CustomFilterAccordion = ({
       >
         <label className="filter-title cursor-pointer">{itemheader}</label>
       </AccordionSummary>
-      {itemlist.map(({ itemlabel, itemcount }) => (
+      {itemlist.map(({ itemlabel }) => (
         <AccordionDetails>
           <List>
             <ListItem disablePadding>
@@ -29,7 +29,13 @@ export const CustomFilterAccordion = ({
                 <Checkbox name={itemlabel} onChange={onChange} />
                 <label className="ps-1 filter-item">{itemlabel}</label>
               </div>
-              <label className="filter-item-count pe-3">{`(${itemcount})`}</label>
+              <label className="filter-item-count pe-3">
+                {`(${
+                  wallpaperProducts.filter((item) => {
+                    return item.category === itemlabel;
+                  }).length
+                })`}
+              </label>
             </ListItem>
           </List>
         </AccordionDetails>

@@ -17,10 +17,18 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
   } = useForm();
 
   const onSubmit = (data) => {
-    if (data.mailId === "test@gmail.com" && data.password === "test1234@#") {
-      localStorage.setItem("authToken", register.mailId);
-      history.push("/home/home");
-    }
+    // if (data.mailId === "test@gmail.com" && data.password === "test1234@#") {
+    //   localStorage.setItem("authToken", register.mailId);
+    //   history.push("/home/home");
+    // }
+    loginApiCall({ username: data.mailId, password: data.password })
+      .then(() => {
+        localStorage.setItem("authToken", register.mailId);
+        history.push("/home/home");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./styles.scss";
 import { conditionalLoad } from "service/helperFunctions";
 
-function Header() {
+function Header({ productList }) {
   const hoverMenu = [
     {
       tilte: "Wallpaper",
@@ -161,7 +161,7 @@ function Header() {
   ];
   return (
     <div>
-      <div className="header-dropDown-container">
+      <div className="header-dropDown-container pb-3">
         <div className="header-dropDown-item-container">
           {hoverMenu.map((item, i) => {
             return (

@@ -59,7 +59,10 @@ let getServiceUrl = (baseURL) => {
       finalURL = REACT_APP_AUTH_API_BASE_URL;
       break;
     case "user":
-      finalURL = REACT_APP_USER_URL;
+      finalURL = `${REACT_APP_AUTH_API_BASE_URL}/api/v1/`;
+      break;
+    case "products":
+      finalURL = `${REACT_APP_AUTH_API_BASE_URL}/api/v1/`;
       break;
     case "kim":
       finalURL = REACT_APP_KIM_URL;
