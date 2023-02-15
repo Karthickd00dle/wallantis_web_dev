@@ -8,6 +8,8 @@ import "./styles.scss";
 import { CustomButton } from "component/common";
 import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
+import {bestsellerProducts} from "config"
+import CardThree from "component/Home/subcomponents/CardThree";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   const dispatch = useDispatch();
@@ -183,11 +185,11 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               </div>
             </div>
 
-            <div className="d-flex my-4 justify-content-between">
+            <div className="d-flex my-4 product-add-buttons">
               <CustomButton
                 variant="outlined"
                 style={{
-                  width: "385px",
+                  width: "335px",
                   border: " 1px solid #A26220",
                   color: "#A26220",
                 }}
@@ -197,7 +199,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 Add to Cart
               </CustomButton>
               <CustomButton
-                style={{ width: "385px", background: "#A26220" }}
+                style={{ width: "335px", background: "#A26220" }}
                 variant="contained"
                 onClick={() => {
                   history.push("/home/product-details/payment-page");
@@ -270,6 +272,12 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
         </div>
 
         <div className="other-products-title">You may also like </div>
+        <div className="Product-detail-cards">
+            {bestsellerProducts.map((prodData) => (
+              // <CardThree prodData={prodData} key={prodData.id} />
+              <CardThree prodData={prodData} key={prodData.id} /> 
+            ))}
+          </div>
 
         <div className="other-products-list"></div>
       </div>
