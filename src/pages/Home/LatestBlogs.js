@@ -1,8 +1,15 @@
-import { Latestblogs } from "component/LatestBlogs";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { connect } from "react-redux";
 
-export function CataloguePage() {
-  return <Latestblogs/>;
+export function LatestBlogsPage() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadLatestBlogs = async () => {
+    const loadLatestBlogs = await import("component/LatestBlogs");
+    setComponent(() => loadLatestBlogs.default);
+  };
+
+  useMemo(() => LoadLatestBlogs(), []);
+  return Component ? <Component /> : <></>;
 }
-export const Latestblogseg = connect(null, null)(CataloguePage);
+export const Latestblogseg = connect(null, null)(LatestBlogsPage);

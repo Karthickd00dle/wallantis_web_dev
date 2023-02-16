@@ -3,9 +3,8 @@ import { ReactComponent as OrderSuccessLogo } from "assets/svg/OrderSuccess/orde
 import "./style.scss";
 import { CustomButton, NormalNavigate } from "component/common";
 import InventoryManagement from "component/AdminComponents/InventoryManagement";
-import CatalogueManagement from "component/AdminComponents/CatalogueManagement";
 
-export const OrderSuccess = () => {
+export default function OrderSuccess() {
   return (
     <>
       <NormalNavigate />
@@ -37,4 +36,4 @@ export const OrderSuccess = () => {
       <InventoryManagement />
     </>
   );
-};
+}

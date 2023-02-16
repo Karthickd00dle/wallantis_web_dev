@@ -8,15 +8,14 @@ import "./styles.scss";
 import { CustomButton } from "component/common";
 import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
-import {bestsellerProducts,
+import {
+  bestsellerProducts,
   ProductInstructions1,
   ProductInstructions2,
   ProductInstructions3,
   ProductInstructions4,
-} from "config"
+} from "config";
 import CardThree from "component/Home/subcomponents/CardThree";
-
-
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   const dispatch = useDispatch();
@@ -164,65 +163,96 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                       <li>Sealing</li>
                       <li>Glue Application</li>
                     </ul> */}
-                   
                   </div>
                   <div>
-                  <div className="instructions-collab">
-                  {ProductInstructions1.map(({info,steps,image})=>(
-                       <div className="card-instructions-container"
-                       style={{
-                        backgroundImage: `url(${(image )})`,
-                      }}
-                       >
-                        <label className="card-instructions-steps">{steps}</label><br/>
-                       <label className="card-instructions-info">{info}</label>
-                     </div>
-                    ))}
+                    <div className="instructions-collab">
+                      {ProductInstructions1.map(({ info, steps, image }) => (
+                        <div
+                          className="card-instructions-container"
+                          style={{
+                            backgroundImage: `url(${image})`,
+                          }}
+                        >
+                          <label className="card-instructions-steps">
+                            {steps}
+                          </label>
+                          <br />
+                          <label className="card-instructions-info">
+                            {info}
+                          </label>
+                        </div>
+                      ))}
                     </div>
 
                     <div className="instructions-collab">
-                  {ProductInstructions2.map(({info,steps,image})=>(
-                       <div className="card-instructions-container"
-                       style={{
-                        backgroundImage: `url(${(image )})`,
-                      }}
-                       >
-                        <label className="card-instructions-steps">{steps}</label><br/>
-                       <label className="card-instructions-info">{info}</label>
-                     </div>
-                    ))}
+                      {ProductInstructions2.map(({ info, steps, image }) => (
+                        <div
+                          className="card-instructions-container"
+                          style={{
+                            backgroundImage: `url(${image})`,
+                          }}
+                        >
+                          <label className="card-instructions-steps">
+                            {steps}
+                          </label>
+                          <br />
+                          <label className="card-instructions-info">
+                            {info}
+                          </label>
+                        </div>
+                      ))}
                     </div>
 
                     <div className="instructions-collab">
-                  {ProductInstructions3.map(({info,steps,image})=>(
-                       <div className="card-instructions-container"
-                       style={{
-                        backgroundImage: `url(${(image )})`,
-                      }}
-                       >
-                        <label className="card-instructions-steps">{steps}</label><br/>
-                       <label className="card-instructions-info">{info}</label>
-                     </div>
-                    ))}
+                      {ProductInstructions3.map(({ info, steps, image }) => (
+                        <div
+                          className="card-instructions-container"
+                          style={{
+                            backgroundImage: `url(${image})`,
+                          }}
+                        >
+                          <label className="card-instructions-steps">
+                            {steps}
+                          </label>
+                          <br />
+                          <label className="card-instructions-info">
+                            {info}
+                          </label>
+                        </div>
+                      ))}
                     </div>
 
                     <div className="instructions-collab">
-                  {ProductInstructions4.map(({info,steps,image})=>(
-                       <div className="card-instructions-container"
-                       style={{
-                        backgroundImage: `url(${(image )})`,
-                      }}
-                       >
-                        <label className="card-instructions-steps">{steps}</label><br/>
-                       <label className="card-instructions-info">{info}</label>
-                     </div>
-                    ))}
+                      {ProductInstructions4.map(({ info, steps, image }) => (
+                        <div
+                          className="card-instructions-container"
+                          style={{
+                            backgroundImage: `url(${image})`,
+                          }}
+                        >
+                          <label className="card-instructions-steps">
+                            {steps}
+                          </label>
+                          <br />
+                          <label className="card-instructions-info">
+                            {info}
+                          </label>
+                        </div>
+                      ))}
                     </div>
-                    </div>
-               <div className="Product-tips">
-              <label>Tip 1: When smoothing, work from the centre outwards to push bubbles to the edge of the panel. Use a rubber squeeze.</label>
-              <label>Tip 2: If you've recently painted the walls, make sure to wait a minimum of three weeks so that the paint has enough time to fully cure.</label>
-               </div>
+                  </div>
+                  <div className="Product-tips">
+                    <label>
+                      Tip 1: When smoothing, work from the centre outwards to
+                      push bubbles to the edge of the panel. Use a rubber
+                      squeeze.
+                    </label>
+                    <label>
+                      Tip 2: If you've recently painted the walls, make sure to
+                      wait a minimum of three weeks so that the paint has enough
+                      time to fully cure.
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -315,11 +345,11 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
         <div className="other-products-title">You may also like </div>
         <div className="Product-detail-cards">
-            {bestsellerProducts.map((prodData) => (
-              // <CardThree prodData={prodData} key={prodData.id} />
-              <CardThree prodData={prodData} key={prodData.id} /> 
-            ))}
-          </div>
+          {bestsellerProducts.map((prodData) => (
+            // <CardThree prodData={prodData} key={prodData.id} />
+            <CardThree prodData={prodData} key={prodData.id} />
+          ))}
+        </div>
 
         <div className="other-products-list"></div>
       </div>
