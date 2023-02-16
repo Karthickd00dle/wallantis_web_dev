@@ -9,7 +9,7 @@ import { CustomInput } from "component/common/NormalInput";
 import { InputAdornment } from "@mui/material";
 import { useForm } from "react-hook-form";
 
-export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
+export default function LoginComponentMain({ loginApiCall, ownProps }) {
   const {
     register,
     handleSubmit,
@@ -33,7 +33,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={`login-entries ${ownProps.className}`}>
+      <div className={`login-entries `}>
         <div className="d-flex flex-column">
           <CustomInput
             placeholder="Enter Email/Mobile number"
@@ -54,7 +54,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             register={register}
             errors={errors}
             endAdornment={
-              ownProps.postlogin && (
+              ownProps?.postlogin && (
                 <InputAdornment position="end">
                   <label
                     onClick={() => {
@@ -69,7 +69,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             }
           />
 
-          {!ownProps.postlogin && (
+          {!ownProps?.postlogin && (
             <div className="d-flex justify-content-end">
               <label
                 onClick={() => {
@@ -96,7 +96,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
         >
           Login
         </CustomButton>
-        {ownProps.postlogin && (
+        {ownProps?.postlogin && (
           <div className="login-register-post">
             Don’t have an account
             <a
@@ -109,7 +109,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
             </a>
           </div>
         )}
-        {!ownProps.postlogin && (
+        {!ownProps?.postlogin && (
           <div className="login-register">
             <label className="dont-have-account-text">
               Don’t have an account?
@@ -127,7 +127,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
       </div>
     </form>
   );
-};
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {

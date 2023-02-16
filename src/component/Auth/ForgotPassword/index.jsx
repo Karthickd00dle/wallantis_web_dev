@@ -4,7 +4,7 @@ import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
 import { CustomButton } from "component/common";
 
-export const ForgotPassword = () => {
+export default function ForgotPassword() {
   const {
     register,
     handleSubmit,
@@ -54,4 +54,4 @@ export const ForgotPassword = () => {
       </div>
     </form>
   );
-};
+}

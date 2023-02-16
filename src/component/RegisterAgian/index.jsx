@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export const RegisterAgain = () => {
+export default function RegisterAgain() {
   return (
     <div>
       <div className="d-flex">
@@ -36,4 +36,4 @@ export const RegisterAgain = () => {
       </div>
     </div>
   );
-};
+}

@@ -1,11 +1,15 @@
+import React, { useMemo, useState } from "react";
+import { connect } from "react-redux";
 
-import { RegisterAgain } from 'component/RegisterAgian'
-import React from 'react'
-import { connect } from 'react-redux'
+export function RegisterAgainPage() {
+  const [Component, setComponent] = useState(null);
 
-export  function RegisterAgainPage() {
-  return (
-     <RegisterAgain/>
-  )
+  const LoadComp = async () => {
+    const loadComp = await import("component/RegisterAgian");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
- export const RegisterAgainPass = connect(null,null)(RegisterAgainPage)
+export const RegisterAgainPass = connect(null, null)(RegisterAgainPage);

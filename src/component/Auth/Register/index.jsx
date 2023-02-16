@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { conditionalLoad } from "service/helperFunctions";
 
-export const PostRegister = () => {
+export default function PostRegister() {
   const history = useHistory();
   const {
     register,
@@ -70,7 +70,7 @@ export const PostRegister = () => {
       </div>
     </form>
   );
-};
+}
 
 export const Register = () => {
   const history = useHistory();
