@@ -61,8 +61,13 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
   );
 };
 
-export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
-  const [pricevalue, setPriceValue] = useState([20, 30]);
+export const ProductListingGrid = ({
+  checkedValues,
+  setCheckedValues,
+  maximumPrice,
+  pricevalue,
+  setPriceValue,
+}) => {
   const handlePriceFilter = (event, newValue) => {
     setPriceValue(newValue);
   };
@@ -96,6 +101,7 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
           </AccordionSummary>
           <AccordionDetails>
             <CustomPriceRangeSlider
+              maxValue={maximumPrice}
               pricevalue={pricevalue}
               onChange={handlePriceFilter}
             />
@@ -108,9 +114,14 @@ export const ProductListingGrid = ({ checkedValues, setCheckedValues }) => {
 
 const ProductListingFC = ({ productListingData }) => {
   const [checkedValues, setCheckedValues] = useState([]);
+  const [pricevalue, setPriceValue] = useState([0, 0]);
   const location = useLocation().pathname.split("/").slice(-1)[0];
   const [productData, setProductData] = useState(productListingData);
   const dispatch = useDispatch();
+
+  const maximumPrice = Math.max(
+    ...productListingData.map(({ price }) => price)
+  );
 
   const handleProductDetail = (prodData) => {
     dispatch({
@@ -136,9 +147,12 @@ const ProductListingFC = ({ productListingData }) => {
       <ProductHeader bannerLabel={location} />
       <div className="d-flex mt-4">
         <ProductListingGrid
+          maximumPrice={maximumPrice}
           checkedValues={checkedValues}
           setCheckedValues={setCheckedValues}
           filteredCheckedValues={filteredCheckedValues}
+          pricevalue={pricevalue}
+          setPriceValue={setPriceValue}
         />
         <div className="d-flex flex-column w-100">
           <ProductSorting
@@ -149,15 +163,24 @@ const ProductListingFC = ({ productListingData }) => {
           <div className="card-container">
             <div className="row">
               {checkedValues.length === 0
-                ? productData?.map((prodData) => (
-                    <div key={prodData.id} className="col-4">
-                      <CardThree
-                        onClick={(e) => handleProductDetail(e)}
-                        prodData={prodData}
-                      />
-                    </div>
-                  ))
+                ? productData
+                    .filter(
+                      ({ price }) =>
+                        price >= pricevalue[0] && price <= pricevalue[1]
+                    )
+                    ?.map((prodData) => (
+                      <div key={prodData.id} className="col-4">
+                        <CardThree
+                          onClick={(e) => handleProductDetail(e)}
+                          prodData={prodData}
+                        />
+                      </div>
+                    ))
                 : productData
+                    .filter(
+                      ({ price }) =>
+                        price >= pricevalue[0] && price <= pricevalue[1]
+                    )
                     .filter((item) =>
                       checkedValues.some((value) => value === item.category)
                     )
