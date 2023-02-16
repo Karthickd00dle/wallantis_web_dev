@@ -8,6 +8,15 @@ import "./styles.scss";
 import { CustomButton } from "component/common";
 import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
+import {bestsellerProducts,
+  ProductInstructions1,
+  ProductInstructions2,
+  ProductInstructions3,
+  ProductInstructions4,
+} from "config"
+import CardThree from "component/Home/subcomponents/CardThree";
+
+
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   const dispatch = useDispatch();
@@ -147,47 +156,82 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     <div className="ib-body-2-title">
                       Insructions on Application of Wallpaper{" "}
                     </div>
-                    <div className="ib-body-2-txt-tilte">
+                    {/* <div className="ib-body-2-txt-tilte">
                       1. Prepare your surface/wall
                     </div>
                     <ul>
                       <li>Priming and Levelling</li>
                       <li>Sealing</li>
                       <li>Glue Application</li>
-                    </ul>
+                    </ul> */}
+                   
                   </div>
+                  <div>
+                  <div className="instructions-collab">
+                  {ProductInstructions1.map(({info,steps,image})=>(
+                       <div className="card-instructions-container"
+                       style={{
+                        backgroundImage: `url(${(image )})`,
+                      }}
+                       >
+                        <label className="card-instructions-steps">{steps}</label><br/>
+                       <label className="card-instructions-info">{info}</label>
+                     </div>
+                    ))}
+                    </div>
 
-                  <div>
-                    <div className="ib-body-2-txt-tilte"> 2. Installation</div>
-                    <div className="ib-body-2-txt">
-                      <div>
-                        STEP 1:&ensp;Hang the frst strip using a plumb line to
-                        get a perfect vertical.
-                      </div>
-                      <div>
-                        STEP 2:&ensp;Smoothen out all the bubbles using Nilaya
-                        Wallcovering Smoother or Smart Care Roller as required.
-                      </div>
-                      <div>
-                        STEP 3:&ensp;Hang the subsequent strips relative to the
-                        frst strip, matching pattern as required.
-                      </div>
+                    <div className="instructions-collab">
+                  {ProductInstructions2.map(({info,steps,image})=>(
+                       <div className="card-instructions-container"
+                       style={{
+                        backgroundImage: `url(${(image )})`,
+                      }}
+                       >
+                        <label className="card-instructions-steps">{steps}</label><br/>
+                       <label className="card-instructions-info">{info}</label>
+                     </div>
+                    ))}
                     </div>
-                  </div>
-                  <div>
-                    <div className="ib-body-2-txt-tilte">
-                      3. Wallpaper corners & Tricky areas to be taken care of{" "}
+
+                    <div className="instructions-collab">
+                  {ProductInstructions3.map(({info,steps,image})=>(
+                       <div className="card-instructions-container"
+                       style={{
+                        backgroundImage: `url(${(image )})`,
+                      }}
+                       >
+                        <label className="card-instructions-steps">{steps}</label><br/>
+                       <label className="card-instructions-info">{info}</label>
+                     </div>
+                    ))}
                     </div>
-                  </div>
+
+                    <div className="instructions-collab">
+                  {ProductInstructions4.map(({info,steps,image})=>(
+                       <div className="card-instructions-container"
+                       style={{
+                        backgroundImage: `url(${(image )})`,
+                      }}
+                       >
+                        <label className="card-instructions-steps">{steps}</label><br/>
+                       <label className="card-instructions-info">{info}</label>
+                     </div>
+                    ))}
+                    </div>
+                    </div>
+               <div className="Product-tips">
+              <label>Tip 1: When smoothing, work from the centre outwards to push bubbles to the edge of the panel. Use a rubber squeeze.</label>
+              <label>Tip 2: If you've recently painted the walls, make sure to wait a minimum of three weeks so that the paint has enough time to fully cure.</label>
+               </div>
                 </div>
               </div>
             </div>
 
-            <div className="d-flex my-4 justify-content-between">
+            <div className="d-flex my-4 product-add-buttons">
               <CustomButton
                 variant="outlined"
                 style={{
-                  width: "385px",
+                  width: "335px",
                   border: " 1px solid #A26220",
                   color: "#A26220",
                 }}
@@ -197,7 +241,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 Add to Cart
               </CustomButton>
               <CustomButton
-                style={{ width: "385px", background: "#A26220" }}
+                style={{ width: "335px", background: "#A26220" }}
                 variant="contained"
                 onClick={() => {
                   history.push("/home/product-details/payment-page");
@@ -270,6 +314,12 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
         </div>
 
         <div className="other-products-title">You may also like </div>
+        <div className="Product-detail-cards">
+            {bestsellerProducts.map((prodData) => (
+              // <CardThree prodData={prodData} key={prodData.id} />
+              <CardThree prodData={prodData} key={prodData.id} /> 
+            ))}
+          </div>
 
         <div className="other-products-list"></div>
       </div>

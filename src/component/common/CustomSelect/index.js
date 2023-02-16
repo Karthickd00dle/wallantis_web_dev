@@ -45,7 +45,7 @@ export const CustomSelect = (props) => {
         {showPlaceholder && (
           <MenuItem
             key="0"
-            className={`${menuItemStyle}`}
+            className={`d-flex ${menuItemStyle}`}
             name="placeholder"
             value="placeholder"
           >
@@ -61,10 +61,12 @@ export const CustomSelect = (props) => {
                 value={value}
                 key={index}
               >
+                <div className="d-flex">
                 {icon && (
-                  <img src={icon} height="25px" width="25px" alt={label} />
+                <img src={icon} height="25px" width="25px" alt={label} />
                 )}
-                <label className="ps-1 ">{label}</label>
+                <label className="ps-1 mt-1">{label}</label>
+                </div>
               </MenuItem>
             );
           })}
