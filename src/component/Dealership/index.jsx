@@ -3,7 +3,7 @@ import "./style.scss";
 import { NormalNavigate } from "component/common";
 import Dealershipimg from "assets/images/Dealership.png";
 
-export const Dealership = () => {
+export default function Dealership() {
   return (
     <div>
       <div>
@@ -146,4 +146,4 @@ export const Dealership = () => {
       </div>
     </div>
   );
-};
+}

@@ -3,7 +3,7 @@ import "./style.scss";
 import { NormalNavigate } from "component/common";
 import Chatmessage1 from "assets/images/Chatmessage1";
 
-export const Contactus = () => {
+export default function Contactus() {
   return (
     <div className="contact-us">
       <div>
@@ -104,4 +104,4 @@ export const Contactus = () => {
       <button className="contact-Enquire">Enquire Now </button>
     </div>
   );
-};
+}

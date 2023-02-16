@@ -5,7 +5,7 @@ import { BiShareAlt } from "react-icons/bi";
 import Calendar from "assets/images/Calendar";
 import { CiLocationOn } from "react-icons/ci";
 
-export const GeneralManager = () => {
+export default function GeneralManager() {
   return (
     <div>
       <div>
@@ -119,4 +119,4 @@ export const GeneralManager = () => {
       </div>
     </div>
   );
-};
+}

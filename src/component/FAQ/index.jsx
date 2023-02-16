@@ -3,7 +3,7 @@ import "./style.scss";
 import { NormalNavigate } from "component/common";
 import Accordion from "react-bootstrap/Accordion";
 
-export const FAQ = () => {
+export default function FAQ() {
   return (
     <div className="accordion-page">
       <div>
@@ -231,4 +231,4 @@ export const FAQ = () => {
       </div>
     </div>
   );
-};
+}
