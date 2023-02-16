@@ -89,6 +89,13 @@ export const FeaturesList = [
   { id: 9, Icon: ECatalogueIcon, label: "E-Catalouge" },
 ];
 
+export const paymentMethod = [
+  { id: 1, label: "UPI - Phonepe, Google Pay, Paytm" },
+  { id: 2, label: "Credit Cards / Debit Cards" },
+  { id: 3, label: "Net Banking" },
+  { id: 4, label: "Cash on Delivery" },
+];
+
 export const historyNavigation = [
   { id: 1, label: "home", route_to: "/home/home" },
   { id: 2, label: "about-us", route_to: "/home/about-us" },

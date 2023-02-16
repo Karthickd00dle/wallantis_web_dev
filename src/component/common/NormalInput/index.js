@@ -1,4 +1,4 @@
-import { Input } from "@mui/material";
+import { Input, TextField } from "@mui/material";
 import React from "react";
 import { CustomButton } from "..";
 import "./NormalInput.scss";
@@ -89,7 +89,6 @@ export const CustomInput = ({
   return (
     <>
       <Input
-        id="standard-adornment-password"
         label={label}
         name={name}
         value={value}
