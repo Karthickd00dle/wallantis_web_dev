@@ -7,6 +7,17 @@ import { ReactComponent as PVCFoamSheetIcon } from "assets/svg/HeaderBottom/PVC-
 import { ReactComponent as GYMFlooringIcon } from "assets/svg/HeaderBottom/GYM-Flooring-Icon.svg";
 import { ReactComponent as RoomVisualizerIcon } from "assets/svg/HeaderBottom/Room-Visualizer-Icon.svg";
 import { ReactComponent as ECatalogueIcon } from "assets/svg/HeaderBottom/E-Catalouge-Icon.svg";
+import step1 from "assets/images/ProductDetails/step1.png";
+import step2 from "assets/images/ProductDetails/step2.png";
+import step3 from "assets/images/ProductDetails/step3.png";
+import step4 from "assets/images/ProductDetails/step4.png";
+import step5 from "assets/images/ProductDetails/step5.png";
+import step6 from "assets/images/ProductDetails/step6.png";
+import step7 from "assets/images/ProductDetails/step7.png";
+import step8 from "assets/images/ProductDetails/step8.png";
+import step9 from "assets/images/ProductDetails/step9.png";
+import step10 from "assets/images/ProductDetails/step10.png";
+
 
 export const LanguageMenuList = [
   {
@@ -534,4 +545,76 @@ export const ProductdetailImages = [
   "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
   "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
   "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+];
+
+export const ProductInstructions1 = [
+  {
+    id: 1,
+    image:step1,
+    info: "Clean Walls",
+    steps: "Step 1",
+  },
+  {
+    id: 2,
+    image:step2,
+      info: "Pencil a vertical line to serve as your starting point visual guide.",
+    steps: "Step 2",
+  },
+  {
+    id: 3,
+    image:step3,
+    info: "Map out where each panel will be going on your wall.",
+    steps: "Step 3",
+  },
+];
+
+export const ProductInstructions2 = [
+  {
+    id: 1,
+    image:step4,
+    info: "Identify the top & bottom of the panel.",
+    steps: "Step 4",
+  },
+  {
+    id: 2,
+    image:step5,
+      info: "Starting at the top corner, gently pull the panel away from the liner",
+    steps: "Step 5",
+  },
+  {
+    id: 3,
+    image:step6,
+    info: "Pull a 2”- 4” strip of the panel away  from the liner. This strip will be the first piece to adhere to the wall.",
+    steps: "Step 6",
+  },
+];
+
+export const ProductInstructions3 = [
+  {
+    id: 1,
+    image:step7,
+    info: "Line up the panel edge with your vertical pencil line. Beginning from the top. Press the 2”- 4” strip firmly onto the wall.",
+    steps: "Step 7",
+  },
+  {
+    id: 2,
+    image:step8,
+      info: "Once the panel is secure, reach under & grab the liner. Slowly pull the liner away from the panel while pressing the paper onto the wall & smoothing as you go.",
+    steps: "Step 8",
+  },
+  {
+    id: 3,
+    image:step9,
+    info: "Panels are designed to match up from top to bottom.",
+    steps: "Step 9",
+  },
+];
+
+export const ProductInstructions4 = [
+  {
+    id: 1,
+    image:step10,
+    info: "If you are installing the design with a Half-Drop Repeat, these panels match seamlessly when they are connected at the halfway point of the adjoining design. ",
+    steps: "Step 10",
+  },
 ];
