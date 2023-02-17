@@ -13,10 +13,9 @@ import { savedAddress } from "config";
 import { FormControlLabel, RadioGroup, TextField } from "@mui/material";
 import { Login } from "component/Auth/Login/Login";
 import { paymentMethod } from "config";
-import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
 
-const DeliveryAddress = ({ dataItems }) => {
+export function DeliveryAddress({ dataItems }) {
   const [value, setValue] = React.useState();
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -51,7 +50,7 @@ const DeliveryAddress = ({ dataItems }) => {
       </RadioGroup>
     </div>
   );
-};
+}
 
 const CardPayment = () => {
   const {
@@ -188,9 +187,8 @@ const PaymentScreen = () => {
   );
 };
 
-export const Payment = () => {
+export default function Payment() {
   const [activeStep] = React.useState(2);
-
   return (
     <>
       <NormalNavigate />
@@ -224,4 +222,4 @@ export const Payment = () => {
       </div>
     </>
   );
-};
+}
