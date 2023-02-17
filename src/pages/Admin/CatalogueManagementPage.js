@@ -1,11 +1,21 @@
-import CatalogueManagement from "component/Admin/DashboardPages/CatalogueManagement";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class CatalogueManagementClass extends Component {
-  render() {
-    return <CatalogueManagement />;
-  }
+export function CatalogueManagementFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import(
+      "component/Admin/DashboardPages/CatalogueManagement"
+    );
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const CatalogueManagementPage = connect(null, null)(CatalogueManagementClass);
+export const CatalogueManagementPage = connect(
+  null,
+  null
+)(CatalogueManagementFunction);

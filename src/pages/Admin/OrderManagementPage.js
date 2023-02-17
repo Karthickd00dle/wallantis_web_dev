@@ -1,11 +1,18 @@
-import OrderManagement from "component/Admin/DashboardPages/OrderManagement";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class OrderManagementClass extends Component {
-  render() {
-    return <OrderManagement />;
-  }
+export function OrderManagementFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import(
+      "component/Admin/DashboardPages/OrderManagement"
+    );
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const OrderManagementPage = connect(null, null)(OrderManagementClass);
+export const OrderManagementPage = connect(null, null)(OrderManagementFunction);

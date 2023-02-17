@@ -1,11 +1,16 @@
-import Login from "component/AdminComponents/Auth/Login";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class LoginPageClass extends Component {
-  render() {
-    return <Login />;
-  }
+export default function LoginPageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/AdminComponents/Auth/Login");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const AdminLoginPage = connect(null, null)(LoginPageClass);
+export const AdminLoginPage = connect(null, null)(LoginPageFunction);

@@ -1,11 +1,16 @@
-import OrderDetails from "component/Profile/MyOrders/OrderDetails";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class OrderDetailsClass extends Component {
-  render() {
-    return <OrderDetails />;
-  }
+export function OrderDetailsFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Profile/MyOrders/OrderDetails");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const OrderDetailsPage = connect(null, null)(OrderDetailsClass);
+export const OrderDetailsPage = connect(null, null)(OrderDetailsFunction);

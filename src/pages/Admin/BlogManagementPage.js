@@ -1,11 +1,18 @@
-import BlogManagement from "component/Admin/DashboardPages/BlogManagement";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class BlogManagementClass extends Component {
-  render() {
-    return <BlogManagement />;
-  }
+export function BlogManagementClass() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import(
+      "component/Admin/DashboardPages/BlogManagement"
+    );
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
 export const BlogManagementPage = connect(null, null)(BlogManagementClass);

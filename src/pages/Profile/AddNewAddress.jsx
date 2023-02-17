@@ -1,6 +1,13 @@
-import React from "react";
-import AddAddress from "component/Profile/AddNewAddress";
+import React, { useMemo, useState } from "react";
 
 export default function AddNewAddress() {
-  return <AddAddress />;
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Profile/AddNewAddress");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }

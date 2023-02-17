@@ -1,11 +1,9 @@
 import { Careers } from "../../component/Careers";
-import React, { Component } from "react";
+import React from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class CareerPageClass extends Component {
-  render() {
-    return <Careers />;
-  }
+export function CareerPageFunction() {
+  return <Careers />;
 }
-export const CareerPage = connect(null, null)(CareerPageClass);
+export const CareerPage = connect(null, null)(CareerPageFunction);

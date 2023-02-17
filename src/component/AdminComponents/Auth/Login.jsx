@@ -7,7 +7,7 @@ import "./style.scss";
 
 const PaperwallLogo = React.lazy(() => import("assets/svg/PaperwallLogo"));
 
-const Login = () => {
+export default function Login() {
   const [checked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
   const handleChange = (event) => {
@@ -64,6 +64,4 @@ const Login = () => {
       <ForgetPassword open={open} handleClose={handleClose} />
     </div>
   );
-};
-
-export default Login;
+}

@@ -41,7 +41,6 @@ export {
 } from "./Rooms";
 export { PaymentPage } from "./ProductDetails";
 export {
-  SomePage,
   ReportPage,
   SettingsPage,
   DashboardPage,

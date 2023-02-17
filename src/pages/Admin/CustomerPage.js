@@ -1,11 +1,16 @@
-import Customer from "component/Admin/DashboardPages/Customer";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class CustomerPageClass extends Component {
-  render() {
-    return <Customer />;
-  }
+export function CustomerPageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Admin/DashboardPages/Customer");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const CustomerPage = connect(null, null)(CustomerPageClass);
+export const CustomerPage = connect(null, null)(CustomerPageFunction);

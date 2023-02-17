@@ -1,11 +1,21 @@
-import CouponManagement from "component/Admin/DashboardPages/CouponManagement";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class CouponManagementClass extends Component {
-  render() {
-    return <CouponManagement />;
-  }
+export function CouponManagementFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import(
+      "component/Admin/DashboardPages/CouponManagement"
+    );
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const CouponManagementPage = connect(null, null)(CouponManagementClass);
+export const CouponManagementPage = connect(
+  null,
+  null
+)(CouponManagementFunction);

@@ -1,11 +1,18 @@
-import CareerDetail from "component/Admin/DashboardPages/CareerDetail";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class CareerDetailPageClass extends Component {
-  render() {
-    return <CareerDetail/>;
-  }
+export function CareerDetailPageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import(
+      "component/Admin/DashboardPages/CareerDetail"
+    );
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const CareerDetailPage = connect(null, null)(CareerDetailPageClass);
+export const CareerDetailPage = connect(null, null)(CareerDetailPageFunction);

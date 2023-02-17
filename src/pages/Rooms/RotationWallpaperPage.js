@@ -1,12 +1,17 @@
-import RotateWallpaper from "component/Rooms/RotateWallpaper";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class RotationWallpaperClass extends Component {
-  render() {
-    return <RotateWallpaper />;
-  }
+export default function RotationWallpaperClass() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Rooms/RotateWallpaper");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
 export const RotationWallpaperPage = connect(
   null,

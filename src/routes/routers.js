@@ -301,14 +301,7 @@ const routers = [
         auth: false,
         exact: true,
       },
-      {
-        component: "SomePage",
-        path: "/something",
-        componentPath: "pages/SomePage",
-        name: "SomePage",
-        auth: false,
-        exact: false,
-      },
+
       {
         component: "ReportPage",
         path: "/report-management",

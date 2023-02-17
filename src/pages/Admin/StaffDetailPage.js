@@ -1,11 +1,16 @@
-import StaffDetail from "component/Admin/DashboardPages/StaffDetail";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class StaffDetailPageClass extends Component {
-  render() {
-    return <StaffDetail/>;
-  }
+export function StaffDetailPageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Admin/DashboardPages/StaffDetail");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const StaffDetailPage = connect(null, null)(StaffDetailPageClass);
+export const StaffDetailPage = connect(null, null)(StaffDetailPageFunction);

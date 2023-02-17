@@ -1,14 +1,21 @@
-import ProductManagement from "component/Admin/DashboardPages/ProductManagement";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class ProductManagementClass extends Component {
-  render() {
-    return <ProductManagement />;
-  }
+export function ProductManagementFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import(
+      "component/Admin/DashboardPages/ProductManagement"
+    );
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
 export const ProductManagementPage = connect(
   null,
   null
-)(ProductManagementClass);
+)(ProductManagementFunction);

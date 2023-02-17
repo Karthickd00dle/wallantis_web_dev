@@ -15,7 +15,7 @@ import "./index.scss";
 
 export default function Profile() {
   let location = useLocation();
-  console.log(location?.state);
+
   const [inputData, setInputData] = useState({});
   const [tabIndex, setTabIndex] = useState(location?.state);
 

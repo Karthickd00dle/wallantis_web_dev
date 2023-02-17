@@ -1,11 +1,16 @@
-import OrderDetail from "component/Admin/DashboardPages/OrderDetail";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class OrderDetailPageClass extends Component {
-  render() {
-    return <OrderDetail/>;
-  }
+export function OrderDetailPageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Admin/DashboardPages/OrderDetail");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const OrderDetailPage = connect(null, null)(OrderDetailPageClass);
+export const OrderDetailPage = connect(null, null)(OrderDetailPageFunction);

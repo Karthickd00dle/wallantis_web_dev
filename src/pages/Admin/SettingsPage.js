@@ -1,11 +1,16 @@
-import Settings from "component/Admin/DashboardPages/Settings";
-import React, { Component } from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export class SettingsPageClass extends Component {
-  render() {
-    return <Settings />;
-  }
+export function SettingsPageFunction() {
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/Admin/DashboardPages/Settings");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
-export const SettingsPage = connect(null, null)(SettingsPageClass);
+export const SettingsPage = connect(null, null)(SettingsPageFunction);
