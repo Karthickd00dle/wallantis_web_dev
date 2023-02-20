@@ -29,20 +29,23 @@
 
     .room-vis-conatiner {
       display: flex;
+      padding: 20px;
       .section-one {
         flex: 1;
       }
 
       .section-two {
         flex: 1;
-
         .room-vis-txt {
           @include fontLatoStyle(20px, 400, #2f2f2f, 24px);
           margin-bottom: 50px;
+          margin-left: 20px;
+          width: 700px;
         }
 
         .room-vis-try-now--but {
           width: 275px;
+          margin-left: 20px;
           height: 57px;
           cursor: pointer;
           background: #ffffff;
@@ -62,7 +65,12 @@
         }
 
         .dwnld-app-txt {
+          margin-left: 20px;
           @include fontLatoStyle(21px, 500, #000000, 22px);
+        }
+
+        .dwnld-app-link-container {
+          margin-left: 10px;
         }
       }
     }

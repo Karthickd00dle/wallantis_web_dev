@@ -28,6 +28,7 @@ import HomeCardOne from "./subcomponents/CardOne";
 import CardTwo from "./subcomponents/CardTwo";
 import CardThree from "./subcomponents/CardThree";
 import CardCatalogue from "./subcomponents/CardCatalogue";
+import roomVizBanner from "assets/images/roomVizBanner.png";
 import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
 
 const carouselData = [
@@ -250,7 +251,9 @@ export default function HomeComponentMain() {
               </div>
             </div>
 
-            <div className="section-one"></div>
+            <div className="section-one">
+              <img src={roomVizBanner} alt="roomVizBanner" />
+            </div>
           </div>
         </div>
 

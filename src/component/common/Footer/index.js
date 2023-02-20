@@ -167,10 +167,10 @@ export const NormalFooter = () => {
         </div>
 
         <div className="footer-trademark mt-5">
-          <label className="pt-2">
+          <label className="pt-2 mt-3 mb-3">
             © 2022 company name. All Rights Reserved.
           </label>
-          <label className="pt-2">
+          <label className="pt-2 mt-3 mb-3">
             Designed and Developed by
             <span className="company-branding"> doodleblue</span>
           </label>
