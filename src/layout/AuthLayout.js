@@ -22,10 +22,10 @@ export function AuthLayout({ children }) {
   return (
     <div className="d-flex ">
       <div className="auth-layout">
-        <BrandLogoIcon height="95px" width="500px" />
+        <BrandLogoIcon viewBox="0 0 250 60" height="140px" width="200px" />
         <div className="d-flex">
-          <div>
-            <label>
+          <div className="auth-inner-container">
+            <label className="param-header">
               <FetchParams />
             </label>
             <p>Get access to your orders, wishlist and recommendations</p>
