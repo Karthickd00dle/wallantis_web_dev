@@ -56,7 +56,7 @@ export const NormalInput = ({
         {isSubmitButton && (
           <CustomButton
             style={{
-              width: "105px",
+              width: "155px",
               height: "55px",
               borderRadius: "0px 2px 2px 0px",
               color: "#FFFFFF",

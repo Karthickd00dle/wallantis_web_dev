@@ -80,7 +80,7 @@ export default function HomeComponentMain() {
           <div className="home-wall-mural-inner-container">
             <div className="home-wall-mural--title">WALLANTICS</div>
             <div className="home-wall-mural--title-two">
-              An Stylish and most beautiful Wallpapers{" "}
+              A Stylish and most beautiful Wallpapers{" "}
             </div>
 
             <div className="card-one-container">

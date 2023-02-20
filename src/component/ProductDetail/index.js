@@ -363,4 +363,6 @@ const mapStateToProps = (state) => {
     cartItemData: state.commonStore.cartItemState,
   };
 };
-export const ProductDetail = connect(mapStateToProps, null)(ProductDetailFC);
+const ProductDetail = connect(mapStateToProps, null)(ProductDetailFC);
+
+export default ProductDetail;

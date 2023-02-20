@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 // Redux Connection
-import { ProductListing } from "component/ProductListing";
 import { connect } from "react-redux";
 
 export function ProductListingPageClass() {
-  return <ProductListing />;
+  const [Component, setComponent] = useState(null);
+
+  const LoadComp = async () => {
+    const loadComp = await import("component/ProductListing");
+    setComponent(() => loadComp.default);
+  };
+
+  useMemo(() => LoadComp(), []);
+  return Component ? <Component /> : <></>;
 }
 export const ProductListingPage = connect(null, null)(ProductListingPageClass);

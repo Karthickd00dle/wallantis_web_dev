@@ -13,7 +13,8 @@ function CardCatalogue({ prodData: { image, title } }) {
         {/* <img src={CatalogueBg}></img> */}
         <div className="catalogue-card-title"> {title}</div>
         <div className="catalogue-card-view">
-          View Catalouge <ArrowSVGComponent />
+          View Catalouge &nbsp;
+          <ArrowSVGComponent />
         </div>
       </div>
     </div>

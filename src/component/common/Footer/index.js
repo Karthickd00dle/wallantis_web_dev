@@ -48,8 +48,8 @@ export const NormalFooter = () => {
           </div>
           <div className="footer-options  ms-5 col-md-2">
             <label className="brand-info">Useful Links</label>
-            <div className="pt-5 d-flex flex-column footer-links">
-              <ScrollToTop/>
+            <div className="pt-3 d-flex flex-column footer-links">
+              <ScrollToTop />
               <label
                 className="pb-2 cursor-pointer"
                 onClick={() => history.push("/profile/about-us")}
@@ -124,7 +124,7 @@ export const NormalFooter = () => {
           </div>
           <div className="footer-options ms-4 col-md-4">
             <label className="ps-3 brand-info">Customer Support</label>
-            <div className="pt-5 d-flex flex-column">
+            <div className="pt-3 d-flex flex-column">
               <div className="d-flex align-items-center">
                 <GPSIcon width={"10%"} />
                 <label className="w-75 footer-address-info">

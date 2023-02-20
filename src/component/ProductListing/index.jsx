@@ -210,7 +210,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ sortingFunctioncall: sortingFunction }, dispatch);
 };
 
-export const ProductListing = connect(
+const ProductListing = connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProductListingFC);
+
+export default ProductListing;

@@ -27,7 +27,7 @@
   }
 
   .catalogue-card-view {
-    @include fontLatoStyle(29px, 400, #2a71f9, 23px);
+    @include fontLatoStyle(19px, 400, #2a71f9, 23px);
     cursor: pointer;
     display: flex;
     align-items: center;
