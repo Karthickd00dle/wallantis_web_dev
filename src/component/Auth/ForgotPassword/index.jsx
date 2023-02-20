@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
@@ -11,18 +11,28 @@ export default function ForgotPassword() {
     formState: { errors },
   } = useForm();
 
+  const [changeMob, setChangeMob] = useState("disabled");
+  const handleChangeMob = () => {
+    setChangeMob(!changeMob);
+  };
+
   return (
     <form onSubmit={handleSubmit()}>
       <div className="forgot-password-container">
         <CustomInput
           type="number"
-          placeholder="+91 56846 84686"
           className="input-phonenumber mb-3"
-          name="phonenumber"
+          disabled={changeMob}
+          name="mobileno"
           register={register}
           errors={errors}
           endAdornment={
-            <label className="label-change cursor-pointer">Change ?</label>
+            <label
+              onClick={handleChangeMob}
+              className="label-change cursor-pointer"
+            >
+              Change ?
+            </label>
           }
         />
         <div className="otp-resend-container d-flex justify-content-between my-4">

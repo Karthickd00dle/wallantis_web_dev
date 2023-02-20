@@ -78,10 +78,12 @@ export const CustomInput = ({
   className,
   placeholder,
   type,
+  defaultValue,
   startAdornment,
   endAdornment,
   name,
   value,
+  disabled,
   onChange,
   register,
   errors,
@@ -95,6 +97,8 @@ export const CustomInput = ({
         onChange={onChange}
         {...register(name, { required: true })}
         variant={variant}
+        disabled={disabled}
+        defaultValue={defaultValue}
         placeholder={placeholder}
         className={className}
         startAdornment={startAdornment}
