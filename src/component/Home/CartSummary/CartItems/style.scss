@@ -48,12 +48,21 @@
 
 .cart-items-container {
   width: 896px;
-  height: 692px;
   box-sizing: border-box;
   border: 1px solid #c5c5c5;
   border-radius: 6px;
   padding: 20px 50px 20px 50px;
   .item-container-main:not(:last-child) {
     border-bottom: 1px solid #d5d5d5;
+  }
+  overflow-y: scroll;
+  .cart-items-inner-container {
+    max-height: 700px;
+  }
+  .cart-empty-container {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

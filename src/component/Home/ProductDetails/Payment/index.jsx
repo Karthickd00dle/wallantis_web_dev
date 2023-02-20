@@ -14,8 +14,9 @@ import { FormControlLabel, RadioGroup, TextField } from "@mui/material";
 import { Login } from "component/Auth/Login/Login";
 import { paymentMethod } from "config";
 import { useForm } from "react-hook-form";
+import { history } from "service/helpers";
 
-export function DeliveryAddress({ dataItems }) {
+export function DeliveryAddress({ dataItems, setActiveStep }) {
   const [value, setValue] = React.useState();
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -38,7 +39,10 @@ export function DeliveryAddress({ dataItems }) {
                 <label className="address-address">{address}</label>
                 {conditionalLoad(
                   id === value,
-                  <CustomButton className="deliver-here-button mt-5 mb-3">
+                  <CustomButton
+                    onClick={() => setActiveStep(2)}
+                    className="deliver-here-button mt-5 mb-3"
+                  >
                     Deliver Here
                   </CustomButton>
                 )}
@@ -107,7 +111,7 @@ const CardPayment = () => {
         <div className="d-flex flex-column card-input-container">
           <label>Valid on</label>
           <TextField
-            placeholder="Valid"
+            placeholder="Valid on"
             name="validon"
             className="card-inputs"
             errors={errors}
@@ -135,7 +139,7 @@ const paymentDetail = (value) => {
       {conditionalLoad(
         Number(value) === 1,
         <div>
-          <label>Hii</label>
+          <label>UPI</label>
         </div>
       )}
       {conditionalLoad(Number(value) === 2, <CardPayment />)}
@@ -183,12 +187,22 @@ const PaymentScreen = () => {
           </>
         ))}
       </RadioGroup>
+      <CustomButton
+        className="mt-5 py-3 px-5"
+        style={{
+          backgroundColor: "#A26220",
+          color: "#FFFFFF",
+        }}
+        onClick={() => history.push("/home/success-page")}
+      >
+        PAY ₹2999
+      </CustomButton>
     </>
   );
 };
 
 export default function Payment() {
-  const [activeStep] = React.useState(2);
+  const [activeStep, setActiveStep] = React.useState(0);
   return (
     <>
       <NormalNavigate />
@@ -198,7 +212,11 @@ export default function Payment() {
           <CustomTabPanel className="pt-4" value={activeStep} index={0}>
             <div>
               <label className="login-or-signup-text">Login / Signup</label>
-              <Login postlogin className="login-container-style" />
+              <Login
+                setActiveStep={setActiveStep}
+                postlogin
+                className="login-container-style"
+              />
             </div>
           </CustomTabPanel>
           <CustomTabPanel className="pt-4" value={activeStep} index={1}>
@@ -206,7 +224,10 @@ export default function Payment() {
               <label className="login-or-signup-text">
                 Select Delivery Address
               </label>
-              <DeliveryAddress dataItems={savedAddress} />
+              <DeliveryAddress
+                setActiveStep={setActiveStep}
+                dataItems={savedAddress}
+              />
             </div>
           </CustomTabPanel>
           <CustomTabPanel className="pt-4" value={activeStep} index={2}>

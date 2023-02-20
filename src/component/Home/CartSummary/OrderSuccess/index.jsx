@@ -2,7 +2,6 @@ import React from "react";
 import { ReactComponent as OrderSuccessLogo } from "assets/svg/OrderSuccess/order-confirm-logo.svg";
 import "./style.scss";
 import { CustomButton, NormalNavigate } from "component/common";
-import InventoryManagement from "component/AdminComponents/InventoryManagement";
 
 export default function OrderSuccess() {
   return (
@@ -33,7 +32,6 @@ export default function OrderSuccess() {
           </CustomButton>
         </div>
       </div>
-      <InventoryManagement />
     </>
   );
 }

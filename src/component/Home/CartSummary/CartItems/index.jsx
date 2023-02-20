@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import productImage from "assets/images/OrderSummary/custom-recipe-wallpaper.png";
 import "./style.scss";
-import { CustomButton, NormalButton, NormalInput } from "component/common";
-import { CartSummaryItems } from "config";
+import { CustomButton, NormalInput } from "component/common";
+import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
+import { history } from "service/helpers";
 
 const ItemsRow = ({
   itemData: {
@@ -22,12 +22,7 @@ const ItemsRow = ({
     <div key={id} className="item-row-container">
       <div className="d-flex justify-content-between">
         <div className="d-flex">
-          <img
-            src={image[0]}
-            height="200px"
-            width="200px"
-            alt="product-image"
-          />
+          <img src={image[0]} height="200px" width="200px" alt="product" />
           <div className="d-flex ps-5 flex-column">
             <label className="pb-2 item-title">{title}</label>
             <label className="py-2 item-color">{`Color - ${color}`}</label>
@@ -40,7 +35,7 @@ const ItemsRow = ({
             </label>
           </div>
         </div>
-        <label className="pt-3 item-price">{price}</label>
+        <label className="pt-3 item-price">{`₹${price}`}</label>
       </div>
       <div className="d-flex justify-content-between align-items-center w-75 py-4">
         <div className="d-flex justify-content-between order-count-container">
@@ -55,28 +50,38 @@ const ItemsRow = ({
   );
 };
 
-const CartItemsMain = ({cartItemData}) => {
-
+const CartItemsMain = ({ cartItemData }) => {
   return (
     <div>
       <div className="cart-items-container">
-        {cartItemData.map((itemData) => (
-          <div className="item-container-main">
-            <ItemsRow itemData={itemData} />
+        {ternaryCondition(
+          cartItemData.length !== 0,
+          <div className="cart-items-inner-container">
+            {cartItemData.map((itemData) => (
+              <div className="item-container-main">
+                <ItemsRow itemData={itemData} />
+              </div>
+            ))}
+          </div>,
+          <div className="cart-empty-container">
+            <label>Cart is Empty</label>
           </div>
-        ))}
+        )}
       </div>
-      <CustomButton
-        className="mt-5"
-        style={{ width: "225px", height: "48px" }}
-        variant="contained"
-      >
-        Proceed to Checkout
-      </CustomButton>
+      {conditionalLoad(
+        cartItemData.length !== 0,
+        <CustomButton
+          className="mt-5"
+          style={{ width: "245px", height: "50px", backgroundColor: "#A26220" }}
+          variant="contained"
+          onClick={() => history.push("/home/payment-page")}
+        >
+          Proceed to Checkout
+        </CustomButton>
+      )}
     </div>
   );
 };
-
 
 const mapStateToProps = (state) => {
   return {
