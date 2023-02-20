@@ -10,6 +10,7 @@ import { NormalSearch } from "../NormalSearch";
 import { CustomSelect } from "../CustomSelect";
 import { LanguageMenuList } from "config";
 import { CustomButton } from "..";
+import { styled } from "@mui/material/styles";
 import { history } from "service/helpers";
 import JohnDoe1 from "assets/images/user.png";
 import { getAllProducts } from "action/ProductsAct";
@@ -18,8 +19,9 @@ import { routerAuthTokenGuard } from "service/helperFunctions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Header from "../Header";
+import { Badge } from "@mui/material";
 
-export const CustomHeaderComponent = ({ getAllProductsAPI }) => {
+export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
   const [productList, setProductList] = useState([]);
@@ -42,6 +44,21 @@ export const CustomHeaderComponent = ({ getAllProductsAPI }) => {
       </div>
     );
   }
+
+  const StyledBadge = styled(Badge)(() => ({
+    "& .MuiBadge-badge": {
+      right: 0,
+      top: 0,
+      border: `1px solid #C5CAFF`,
+      borderRadius: "100%",
+      color: "#FFFFFF",
+      background:
+        "radial-gradient(35.36% 7465.91% at 50% 49.87%, #CE9C69 0%, #AF763B 100%);",
+      display: "flex",
+      alignItems: "center",
+      height: "20px",
+    },
+  }));
 
   const getAllProducts = () => {
     getAllProductsAPI().then((res) => {
@@ -71,7 +88,10 @@ export const CustomHeaderComponent = ({ getAllProductsAPI }) => {
               className="d-flex align-items-center cart-icon"
               onClick={handleCartIcon}
             >
-              <CartIcon />
+              <StyledBadge badgeContent={cartItemData.length}>
+                <CartIcon />
+              </StyledBadge>
+
               <label className="ps-1 cart-icon">Cart</label>
             </div>
             {!authToken ? (
@@ -144,6 +164,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI }) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     ownProps: ownProps,
+    cartItemData: state.commonStore.cartItemState,
   };
 };
 

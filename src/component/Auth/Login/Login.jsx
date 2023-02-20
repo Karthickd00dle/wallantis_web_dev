@@ -8,8 +8,12 @@ import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { InputAdornment } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { useLocation } from "react-router-dom";
+import { ternaryCondition } from "service/helperFunctions";
 
 export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
+  const location = useLocation().pathname.split("/").slice(-1)[0];
+
   const {
     register,
     handleSubmit,
@@ -24,7 +28,11 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
     loginApiCall({ username: data.mailId, password: data.password })
       .then(() => {
         localStorage.setItem("authToken", register.mailId);
-        history.push("/home/home");
+        ternaryCondition(
+          location === "payment-page"
+            ? ownProps.setActiveStep(1)
+            : history.push("/home/home")
+        );
       })
       .catch((err) => {
         console.log(err);

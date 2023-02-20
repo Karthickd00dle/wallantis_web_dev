@@ -2,8 +2,6 @@ import React from "react";
 import { ReactComponent as OrderSuccessLogo } from "assets/svg/OrderSuccess/order-confirm-logo.svg";
 import "./style.scss";
 import { CustomButton, NormalNavigate } from "component/common";
-import InventoryManagement from "component/AdminComponents/InventoryManagement";
-import CatalogueManagement from "component/AdminComponents/CatalogueManagement";
 
 export const OrderSuccess = () => {
   return (
@@ -34,7 +32,6 @@ export const OrderSuccess = () => {
           </CustomButton>
         </div>
       </div>
-      <InventoryManagement />
     </>
   );
 };

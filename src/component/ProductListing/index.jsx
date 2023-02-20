@@ -113,15 +113,14 @@ export const ProductListingGrid = ({
 };
 
 const ProductListingFC = ({ productListingData }) => {
-  const [checkedValues, setCheckedValues] = useState([]);
-  const [pricevalue, setPriceValue] = useState([0, 0]);
-  const location = useLocation().pathname.split("/").slice(-1)[0];
-  const [productData, setProductData] = useState(productListingData);
-  const dispatch = useDispatch();
-
   const maximumPrice = Math.max(
     ...productListingData.map(({ price }) => price)
   );
+  const dispatch = useDispatch();
+  const location = useLocation().pathname.split("/").slice(-1)[0];
+  const [checkedValues, setCheckedValues] = useState([]);
+  const [pricevalue, setPriceValue] = useState([0, maximumPrice]);
+  const [productData, setProductData] = useState(productListingData);
 
   const handleProductDetail = (prodData) => {
     dispatch({
