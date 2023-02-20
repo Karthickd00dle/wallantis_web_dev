@@ -11,9 +11,8 @@ import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
 
-export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
+export default function LoginComponentMain({ loginApiCall, ownProps }) {
   const location = useLocation().pathname.split("/").slice(-1)[0];
-
   const {
     register,
     handleSubmit,
@@ -131,7 +130,7 @@ export const LoginComponentMain = ({ loginApiCall, ownProps }) => {
       </div>
     </form>
   );
-};
+}
 
 const mapStateToProps = (state, ownProps) => {
   return {

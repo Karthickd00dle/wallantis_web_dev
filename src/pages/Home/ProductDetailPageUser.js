@@ -1,16 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
+import { ProductDetail } from "component/ProductDetail";
 
 function ProductDetailPageUserFC() {
-  const [Component, setComponent] = useState(null);
-
-  const LoadPrivacyPolicy = async () => {
-    const loadPrivacyPolicy = await import("component/ProductDetail");
-    setComponent(() => loadPrivacyPolicy.default);
-  };
-
-  useMemo(() => LoadPrivacyPolicy(), []);
-  return Component ? <Component /> : <></>;
+  return <ProductDetail />;
 }
 export const ProductDetailPageUser = connect(
   null,
