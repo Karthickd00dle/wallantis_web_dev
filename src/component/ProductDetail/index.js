@@ -1,11 +1,12 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Instructions } from "component/Instructions";
 import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
 import { CustomButton } from "component/common";
+import { useLocation } from "react-router-dom";
 import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
 import {
@@ -18,13 +19,28 @@ import {
 import CardThree from "component/Home/subcomponents/CardThree";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
+  let location = useLocation();
+
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
-  const [selectedImg, setSelectedImg] = useState(productDetailData?.image[0]);
+  const [productState, setProductState] = useState(
+    location?.state ? location?.state : productDetailData
+  );
+  const [selectedImg, setSelectedImg] = useState(
+    location?.state?.image
+      ? location?.state?.image[0]
+      : productDetailData?.image[0]
+  );
   const handleAddtoCart = () => {
     addToCart(productDetailData, cartItemData);
     dispatch({ type: commonStateList.cartItem, payload: cartItemData });
   };
+  useEffect(() => {
+    return () => {
+      setProductState(null);
+      setSelectedImg(null);
+    };
+  }, []);
   return (
     <>
       <div className="product-detail-container">
@@ -53,7 +69,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 />
               </div>
               <div className="imgContainer">
-                {productDetailData?.image?.map((img, index) => (
+                {productState?.image?.map((img, index) => (
                   <img
                     style={{
                       border: selectedImg === img ? "4px solid purple" : "",

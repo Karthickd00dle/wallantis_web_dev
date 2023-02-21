@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
+import { history } from "service/helpers";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
-function CardThree({ onClick, prodData }) {
+function CardThree({ onClickCard, prodData }) {
   const { image, title, price } = prodData;
 
   const [iconVisibility, seticonVisibility] = useState(false);
   return (
     <div
-      onClick={() => onClick(prodData)}
+      onClick={() => onClickCard(prodData)}
       className="card-three-container"
       onMouseEnter={() => {
         seticonVisibility(true);
@@ -20,6 +21,7 @@ function CardThree({ onClick, prodData }) {
     >
       <div
         className="card-three-image-section"
+        onClick={() => history.push("/home/product-details", prodData)}
         style={{
           backgroundImage: `url(${ternaryCondition(
             Array.isArray(image),

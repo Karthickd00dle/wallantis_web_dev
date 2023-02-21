@@ -18,7 +18,6 @@ import step8 from "assets/images/ProductDetails/step8.png";
 import step9 from "assets/images/ProductDetails/step9.png";
 import step10 from "assets/images/ProductDetails/step10.png";
 
-
 export const LanguageMenuList = [
   {
     label: "EN",
@@ -217,30 +216,75 @@ export const wallanticsProducts = [
 export const recentlyviewedProducts = [
   {
     id: 1,
-    image: "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
     title: "Bharat, Rich Indian Wallpaper Design",
+    image: [
+      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/original/products/63640/63400/81NYsSmzIjL._SL1500___89962.1602915878.jpg",
+      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
+      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    ],
     price: 4000,
+    category: "Wallpaper",
+    sub_category: "Floral",
+    color: "Pink",
+    collection: "Pink Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
   {
     id: 2,
-    image:
-      "https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
     title: "Vincent Van Gough Almond Blossom Wallpaper",
+    image: [
+      "https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
+      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
+      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    ],
     price: 4000,
+    category: "Wallpaper",
+    sub_category: "Floral",
+    color: "Pink",
+    collection: "Pink Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
   {
     id: 3,
-    image:
-      "https://buildingandinteriors.com/wp-content/uploads/2021/02/64d134b23490042718cca43a430e95d2.jpg",
     title: "Banaras, Indian Carpet Design Wallpaper",
+    image: [
+      "https://buildingandinteriors.com/wp-content/uploads/2021/02/64d134b23490042718cca43a430e95d2.jpg",
+      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
+      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    ],
     price: 4000,
+    category: "Wallpaper",
+    sub_category: "Floral",
+    color: "Pink",
+    collection: "Pink Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
   {
     id: 4,
-    image:
-      "https://unikneeds.com/wp-content/uploads/2018/02/3d-wallpaper-1-500x500.jpg",
     title: "A Story by the Garden Wallpaper",
+    image: [
+      "https://unikneeds.com/wp-content/uploads/2018/02/3d-wallpaper-1-500x500.jpg",
+      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
+      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    ],
     price: 4000,
+    category: "Wallpaper",
+    sub_category: "Floral",
+    color: "Pink",
+    collection: "Pink Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
 ];
 
@@ -557,19 +601,19 @@ export const ProductdetailImages = [
 export const ProductInstructions1 = [
   {
     id: 1,
-    image:step1,
+    image: step1,
     info: "Clean Walls",
     steps: "Step 1",
   },
   {
     id: 2,
-    image:step2,
-      info: "Pencil a vertical line to serve as your starting point visual guide.",
+    image: step2,
+    info: "Pencil a vertical line to serve as your starting point visual guide.",
     steps: "Step 2",
   },
   {
     id: 3,
-    image:step3,
+    image: step3,
     info: "Map out where each panel will be going on your wall.",
     steps: "Step 3",
   },
@@ -578,19 +622,19 @@ export const ProductInstructions1 = [
 export const ProductInstructions2 = [
   {
     id: 1,
-    image:step4,
+    image: step4,
     info: "Identify the top & bottom of the panel.",
     steps: "Step 4",
   },
   {
     id: 2,
-    image:step5,
-      info: "Starting at the top corner, gently pull the panel away from the liner",
+    image: step5,
+    info: "Starting at the top corner, gently pull the panel away from the liner",
     steps: "Step 5",
   },
   {
     id: 3,
-    image:step6,
+    image: step6,
     info: "Pull a 2”- 4” strip of the panel away  from the liner. This strip will be the first piece to adhere to the wall.",
     steps: "Step 6",
   },
@@ -599,19 +643,19 @@ export const ProductInstructions2 = [
 export const ProductInstructions3 = [
   {
     id: 1,
-    image:step7,
+    image: step7,
     info: "Line up the panel edge with your vertical pencil line. Beginning from the top. Press the 2”- 4” strip firmly onto the wall.",
     steps: "Step 7",
   },
   {
     id: 2,
-    image:step8,
-      info: "Once the panel is secure, reach under & grab the liner. Slowly pull the liner away from the panel while pressing the paper onto the wall & smoothing as you go.",
+    image: step8,
+    info: "Once the panel is secure, reach under & grab the liner. Slowly pull the liner away from the panel while pressing the paper onto the wall & smoothing as you go.",
     steps: "Step 8",
   },
   {
     id: 3,
-    image:step9,
+    image: step9,
     info: "Panels are designed to match up from top to bottom.",
     steps: "Step 9",
   },
@@ -620,7 +664,7 @@ export const ProductInstructions3 = [
 export const ProductInstructions4 = [
   {
     id: 1,
-    image:step10,
+    image: step10,
     info: "If you are installing the design with a Half-Drop Repeat, these panels match seamlessly when they are connected at the halfway point of the adjoining design. ",
     steps: "Step 10",
   },

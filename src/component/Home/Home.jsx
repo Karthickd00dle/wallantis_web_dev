@@ -86,9 +86,18 @@ export default function HomeComponentMain() {
 
             <div className="card-one-container">
               <div className="card-one-inner-container">
-                <HomeCardOne wallpaperPng={wallpaperPng} />
-                <Wallmuralscard wallmurals={Wallmurals} />
-                <Sticker sticker={sticker} />
+                <HomeCardOne
+                  wallpaperPng={wallpaperPng}
+                  route={"/home/product-listing/wallpaper"}
+                />
+                <Wallmuralscard
+                  wallmurals={Wallmurals}
+                  route={"/home/product-listing/wall-murals"}
+                />
+                <Sticker
+                  sticker={sticker}
+                  route={"/home/product-listing/sticker-wallpaper"}
+                />
               </div>
             </div>
           </div>

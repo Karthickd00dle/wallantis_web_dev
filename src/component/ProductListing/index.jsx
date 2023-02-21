@@ -170,7 +170,7 @@ const ProductListingFC = ({ productListingData }) => {
                     ?.map((prodData) => (
                       <div key={prodData.id} className="col-4">
                         <CardThree
-                          onClick={(e) => handleProductDetail(e)}
+                          onClickCard={(e) => handleProductDetail(e)}
                           prodData={prodData}
                         />
                       </div>
@@ -186,7 +186,7 @@ const ProductListingFC = ({ productListingData }) => {
                     ?.map((prodData) => (
                       <div key={prodData.id} className="col-4">
                         <CardThree
-                          onClick={(e) => handleProductDetail(e)}
+                          onClickCard={(e) => handleProductDetail(e)}
                           prodData={prodData}
                         />
                       </div>
