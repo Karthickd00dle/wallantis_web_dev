@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import "./style.scss";
 import GooglePlayIcon from "assets/images/FooterIcons/GooglePlayIcon.png";
@@ -16,9 +16,20 @@ import {
   TwitterIcon,
 } from "assets/icons/FooterIcons/FooterIcons";
 import ScrollToTop from "component/ScrollToTop";
+import { Toast } from "service/toast";
 
 export const NormalFooter = () => {
   const history = useHistory();
+  const [formData, setFormData] = useState({ newslettermailinfo: "" });
+  const handleMailInfo = ({ target: { name, value } }) => {
+    setFormData({ ...formData, [name]: value });
+  };
+  const submitMailInfo = () => {
+    if (formData.newslettermailinfo !== "") {
+      Toast({ type: "success", message: "Subscribed for Newsletter" });
+    }
+  };
+
   return (
     <Container className="footer-container" maxWidth="xxl">
       <div className="footer-inner-container">
@@ -30,16 +41,28 @@ export const NormalFooter = () => {
               eiusmod tempor incididunt ut labore dolore magna aliqua.
             </p>
             <div>
-              <TwitterIcon className="me-1" />
-              <FacebookIcon className="mx-1" />
-              <InstagramIcon className="mx-1" />
-              <LinkedInIcon className="ms-1" />
+              <a href="https://twitter.com/wallantics">
+                <TwitterIcon className="me-1" />
+              </a>
+              <a href="https://www.facebook.com/wallantics">
+                <FacebookIcon className="mx-1" />
+              </a>
+              <a href="https://www.instagram.com/wallantics/">
+                <InstagramIcon className="mx-1" />
+              </a>
+              <a href="https://www.linkedin.com/wallantics/">
+                <LinkedInIcon className="ms-1" />
+              </a>
             </div>
             <div className="pt-5 mt-3 w-100">
               <label className="pb-3 subscribe-label">
                 Subscribe for our Newsletter
               </label>
               <NormalInput
+                name="newslettermailinfo"
+                value={formData.newslettermailinfo}
+                onChange={handleMailInfo}
+                buttonOnClick={() => submitMailInfo()}
                 placeholder="Enter your email address"
                 isSubmitButton
                 submitButtonLabel="Subscribe"
@@ -127,22 +150,32 @@ export const NormalFooter = () => {
             <div className="pt-3 d-flex flex-column">
               <div className="d-flex align-items-center">
                 <GPSIcon width={"10%"} />
-                <label className="w-75 footer-address-info">
+                <a
+                  href="http://maps.google.com/?q=115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
+                  Tamil Nadu"
+                  className="w-75 footer-address-info"
+                >
                   115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
                   Tamil Nadu.
-                </label>
+                </a>
               </div>
               <div className="d-flex align-items-center py-4">
                 <PhoneIcon width={"10%"} />
-                <label className="w-75 footer-address-info">
+                <a
+                  href="tel:+91 56846 28126"
+                  className="w-75 footer-address-info"
+                >
                   +91 56846 28126
-                </label>
+                </a>
               </div>
               <div className="d-flex align-items-center">
                 <MessageIcon width={"10%"} />
-                <label className="w-75 footer-address-info">
+                <a
+                  href="mailto:support@gmail.com"
+                  className="w-75 footer-address-info"
+                >
                   support@gmail.com
-                </label>
+                </a>
               </div>
               <div className="ps-2 pt-5">
                 <label className=" brand-info">Download Our App</label>
