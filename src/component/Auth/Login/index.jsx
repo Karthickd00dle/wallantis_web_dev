@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
 
-export default function LoginComponentMain({ loginApiCall, ownProps }) {
+function LoginComponentMain({ loginApiCall, ownProps }) {
   const location = useLocation().pathname.split("/").slice(-1)[0];
   const {
     register,
@@ -147,7 +147,6 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-export const Login = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginComponentMain);
+const Login = connect(mapStateToProps, mapDispatchToProps)(LoginComponentMain);
+
+export default Login;

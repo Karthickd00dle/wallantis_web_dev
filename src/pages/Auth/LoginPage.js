@@ -6,7 +6,7 @@ export function LoginPageClass() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {
-    const loadComp = await import("component/Auth/Login/Login");
+    const loadComp = await import("component/Auth/Login");
     setComponent(() => loadComp.default);
   };
 

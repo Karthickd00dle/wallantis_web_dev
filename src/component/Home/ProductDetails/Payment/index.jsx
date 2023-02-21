@@ -11,7 +11,7 @@ import {
 import { conditionalLoad } from "service/helperFunctions";
 import { savedAddress } from "config";
 import { FormControlLabel, RadioGroup, TextField } from "@mui/material";
-import { Login } from "component/Auth/Login/Login";
+import Login from "component/Auth/Login";
 import { paymentMethod } from "config";
 import { useForm } from "react-hook-form";
 import { history } from "service/helpers";
