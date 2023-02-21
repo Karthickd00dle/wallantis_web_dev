@@ -1,3 +1,4 @@
+import { Home } from "component/Home/Home";
 import React, { useMemo, useState, Suspense } from "react";
 import { connect } from "react-redux";
 
@@ -15,6 +16,7 @@ export function HomePageFunction() {
   return (
     <Suspense fallback={<h1>Loading..Please Wait</h1>}>
       {Component ? <Component /> : <></>}
+      <Home />
     </Suspense>
   );
 }

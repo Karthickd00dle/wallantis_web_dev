@@ -16,6 +16,7 @@ export const NormalInput = ({
   max = "",
   min = "",
   icon,
+  buttonOnClick,
   isSubmitButton,
   submitButtonLabel = "",
   labelSize = "fs-18",
@@ -62,6 +63,7 @@ export const NormalInput = ({
               color: "#FFFFFF",
               backgroundColor: "#A26220",
             }}
+            onClick={buttonOnClick}
           >
             {submitButtonLabel}
           </CustomButton>

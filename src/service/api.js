@@ -52,20 +52,16 @@ let statusHelper = (status, data) => {
 //get Service Url
 let getServiceUrl = (baseURL) => {
   let finalURL = "";
-  const { REACT_APP_AUTH_API_BASE_URL, REACT_APP_USER_URL, REACT_APP_KIM_URL } =
-    process.env;
+  const { REACT_APP_AUTH_API_BASE_URL, REACT_APP_USER_URL } = process.env;
   switch (baseURL) {
     case "auth":
       finalURL = REACT_APP_AUTH_API_BASE_URL;
       break;
     case "user":
-      finalURL = `${REACT_APP_AUTH_API_BASE_URL}`;
+      finalURL = REACT_APP_USER_URL;
       break;
     case "products":
-      finalURL = `${REACT_APP_AUTH_API_BASE_URL}`;
-      break;
-    case "kim":
-      finalURL = REACT_APP_KIM_URL;
+      finalURL = REACT_APP_AUTH_API_BASE_URL;
       break;
     default:
       finalURL = REACT_APP_AUTH_API_BASE_URL;

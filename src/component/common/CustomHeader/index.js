@@ -24,6 +24,7 @@ import { Badge } from "@mui/material";
 export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
+  const [itemCount, setItemCount] = useState(cartItemData.length);
   const [productList, setProductList] = useState([]);
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
@@ -68,9 +69,14 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
 
   useEffect(() => {
     getAllProducts();
-  }, []);
+    return () => {
+      setItemCount(cartItemData.length);
+    };
+  }, [cartItemData.length]);
+
   return (
     <AppBar className="navbar-appbar" position="fixed">
+      {console.log(cartItemData)}
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <div className="header-top-container">
@@ -88,7 +94,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
               className="d-flex align-items-center cart-icon"
               onClick={handleCartIcon}
             >
-              <StyledBadge badgeContent={cartItemData.length}>
+              <StyledBadge badgeContent={itemCount}>
                 <CartIcon />
               </StyledBadge>
 

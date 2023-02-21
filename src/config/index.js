@@ -18,7 +18,6 @@ import step8 from "assets/images/ProductDetails/step8.png";
 import step9 from "assets/images/ProductDetails/step9.png";
 import step10 from "assets/images/ProductDetails/step10.png";
 
-
 export const LanguageMenuList = [
   {
     label: "EN",
@@ -217,28 +216,31 @@ export const wallanticsProducts = [
 export const recentlyviewedProducts = [
   {
     id: 1,
-    image: "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    image: ["https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg"],
     title: "Bharat, Rich Indian Wallpaper Design",
     price: 4000,
   },
   {
     id: 2,
-    image:
+    image: [
       "https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
+    ],
     title: "Vincent Van Gough Almond Blossom Wallpaper",
     price: 4000,
   },
   {
     id: 3,
-    image:
+    image: [
       "https://buildingandinteriors.com/wp-content/uploads/2021/02/64d134b23490042718cca43a430e95d2.jpg",
+    ],
     title: "Banaras, Indian Carpet Design Wallpaper",
     price: 4000,
   },
   {
     id: 4,
-    image:
+    image: [
       "https://unikneeds.com/wp-content/uploads/2018/02/3d-wallpaper-1-500x500.jpg",
+    ],
     title: "A Story by the Garden Wallpaper",
     price: 4000,
   },
@@ -247,20 +249,23 @@ export const recentlyviewedProducts = [
 export const artificialgrassProducts = [
   {
     id: 1,
-    image: "https://miro.medium.com/max/620/1*3pykkuNFvOzyme5EGBPYbQ.jpeg",
+    image: ["https://miro.medium.com/max/620/1*3pykkuNFvOzyme5EGBPYbQ.jpeg"],
     title: "Vertical Gardens",
     price: 4000,
   },
   {
     id: 2,
-    image: "https://thumbs.dreamstime.com/b/white-wood-textures-174109872.jpg",
+    image: [
+      "https://thumbs.dreamstime.com/b/white-wood-textures-174109872.jpg",
+    ],
     title: "Indoor Mats - Non UV",
     price: 4000,
   },
   {
     id: 3,
-    image:
+    image: [
       "https://rukminim1.flixcart.com/image/850/850/kn6cxow0/wallpaper/j/9/1/228-40-decorative-wallpaper-wall-sticker-for-home-decor-living-original-imagfwtvzthnqyvc.jpeg?q=90",
+    ],
     title: "Outdoor Mats - UV Protect",
     price: 4000,
   },
@@ -269,8 +274,9 @@ export const artificialgrassProducts = [
 export const bestsellerProducts = [
   {
     id: 1,
-    image:
+    image: [
       "https://img.staticmb.com/mbcontent/images/uploads/2021/8/botanical-prints.jpg",
+    ],
     title: "Bharat, Rich Indian Wallpaper Design",
     price: 4000,
   },
@@ -283,8 +289,9 @@ export const bestsellerProducts = [
   },
   {
     id: 3,
-    image:
+    image: [
       "https://i.etsystatic.com/23287991/r/il/ec1109/3890392737/il_1080xN.3890392737_khaz.jpg",
+    ],
     title: "Banaras, Indian Carpet Design Wallpaper",
     price: 4000,
   },
@@ -300,28 +307,33 @@ export const bestsellerProducts = [
 export const newarrivalsProducts = [
   {
     id: 1,
-    image: "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+    image: [
+      "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+    ],
     title: "Bharat, Rich Indian Wallpaper Design",
     price: 4000,
   },
   {
     id: 2,
-    image:
+    image: [
       "https://walldesign.in/wp-content/uploads/2020/05/Falling-Flower-Nature-wallpaper-For-Living-Room.jpg",
+    ],
     title: "Vincent Van Gough Almond Blossom Wallpaper",
     price: 4000,
   },
   {
     id: 3,
-    image:
+    image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    ],
     title: "Banaras, Indian Carpet Design Wallpaper",
     price: 4000,
   },
   {
     id: 4,
-    image:
+    image: [
       "https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
+    ],
     title: "A Story by the Garden Wallpaper",
     price: 4000,
   },
@@ -330,25 +342,28 @@ export const newarrivalsProducts = [
 export const ecatalougeProducts = [
   {
     id: 1,
-    image: "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    image: ["https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg"],
     title: "My Home. My Space",
   },
   {
     id: 2,
-    image:
+    image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    ],
     title: "Trendy Walls",
   },
   {
     id: 3,
-    image:
+    image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    ],
     title: "The Art of Inspiration",
   },
   {
     id: 4,
-    image:
+    image: [
       "https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
+    ],
     title: "Best of Living Walls",
   },
 ];
@@ -356,19 +371,21 @@ export const ecatalougeProducts = [
 export const blogProducts = [
   {
     id: 1,
-    image: "https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg",
+    image: ["https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg"],
     title: "My Home. My Space",
   },
   {
     id: 2,
-    image:
+    image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    ],
     title: "Trendy Walls",
   },
   {
     id: 3,
-    image:
+    image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    ],
     title: "The Art of Inspiration",
   },
 ];
@@ -557,19 +574,19 @@ export const ProductdetailImages = [
 export const ProductInstructions1 = [
   {
     id: 1,
-    image:step1,
+    image: step1,
     info: "Clean Walls",
     steps: "Step 1",
   },
   {
     id: 2,
-    image:step2,
-      info: "Pencil a vertical line to serve as your starting point visual guide.",
+    image: step2,
+    info: "Pencil a vertical line to serve as your starting point visual guide.",
     steps: "Step 2",
   },
   {
     id: 3,
-    image:step3,
+    image: step3,
     info: "Map out where each panel will be going on your wall.",
     steps: "Step 3",
   },
@@ -578,19 +595,19 @@ export const ProductInstructions1 = [
 export const ProductInstructions2 = [
   {
     id: 1,
-    image:step4,
+    image: step4,
     info: "Identify the top & bottom of the panel.",
     steps: "Step 4",
   },
   {
     id: 2,
-    image:step5,
-      info: "Starting at the top corner, gently pull the panel away from the liner",
+    image: step5,
+    info: "Starting at the top corner, gently pull the panel away from the liner",
     steps: "Step 5",
   },
   {
     id: 3,
-    image:step6,
+    image: step6,
     info: "Pull a 2”- 4” strip of the panel away  from the liner. This strip will be the first piece to adhere to the wall.",
     steps: "Step 6",
   },
@@ -599,19 +616,19 @@ export const ProductInstructions2 = [
 export const ProductInstructions3 = [
   {
     id: 1,
-    image:step7,
+    image: step7,
     info: "Line up the panel edge with your vertical pencil line. Beginning from the top. Press the 2”- 4” strip firmly onto the wall.",
     steps: "Step 7",
   },
   {
     id: 2,
-    image:step8,
-      info: "Once the panel is secure, reach under & grab the liner. Slowly pull the liner away from the panel while pressing the paper onto the wall & smoothing as you go.",
+    image: step8,
+    info: "Once the panel is secure, reach under & grab the liner. Slowly pull the liner away from the panel while pressing the paper onto the wall & smoothing as you go.",
     steps: "Step 8",
   },
   {
     id: 3,
-    image:step9,
+    image: step9,
     info: "Panels are designed to match up from top to bottom.",
     steps: "Step 9",
   },
@@ -620,7 +637,7 @@ export const ProductInstructions3 = [
 export const ProductInstructions4 = [
   {
     id: 1,
-    image:step10,
+    image: step10,
     info: "If you are installing the design with a Half-Drop Repeat, these panels match seamlessly when they are connected at the halfway point of the adjoining design. ",
     steps: "Step 10",
   },

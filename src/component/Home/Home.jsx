@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import {
   recentlyviewedProducts,
@@ -29,6 +29,7 @@ import CardTwo from "./subcomponents/CardTwo";
 import CardThree from "./subcomponents/CardThree";
 import CardCatalogue from "./subcomponents/CardCatalogue";
 import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
+import { commonStateList } from "service/actionType";
 
 const carouselData = [
   {
@@ -72,7 +73,15 @@ function CardBlog(prodData) {
   );
 }
 
-export default function HomeComponentMain() {
+export const HomeComponentMain = () => {
+  const dispatch = useDispatch();
+  const handleCardProduct = (prodData) => {
+    dispatch({
+      type: commonStateList.productDetail,
+      payload: prodData,
+    });
+    history.push("/home/product-details");
+  };
   return (
     <>
       <div className="home-content-container">
@@ -147,7 +156,11 @@ export default function HomeComponentMain() {
 
           <div className="home-main-card-container">
             {recentlyviewedProducts.map((prodData) => (
-              <CardThree prodData={prodData} key={prodData.id} />
+              <CardThree
+                onClick={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
             ))}
           </div>
         </div>
@@ -174,7 +187,11 @@ export default function HomeComponentMain() {
           </div>
           <div className="home-main-card-container">
             {artificialgrassProducts.map((prodData) => (
-              <CardThree prodData={prodData} key={prodData.id} />
+              <CardThree
+                onClick={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
             ))}
           </div>
         </div>
@@ -194,7 +211,11 @@ export default function HomeComponentMain() {
 
           <div className="home-main-card-container">
             {bestsellerProducts.map((prodData) => (
-              <CardThree prodData={prodData} key={prodData.id} />
+              <CardThree
+                onClick={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
             ))}
           </div>
         </div>
@@ -214,7 +235,11 @@ export default function HomeComponentMain() {
 
           <div className="home-main-card-container">
             {newarrivalsProducts.map((prodData) => (
-              <CardThree prodData={prodData} key={prodData.id} />
+              <CardThree
+                onClick={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
             ))}
           </div>
         </div>
@@ -266,7 +291,11 @@ export default function HomeComponentMain() {
           </div>
           <div className="home-main-card-container">
             {ecatalougeProducts.map((prodData) => (
-              <CardCatalogue prodData={prodData} key={prodData.id} />
+              <CardCatalogue
+                onClick={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
             ))}
           </div>
         </div>
@@ -283,7 +312,11 @@ export default function HomeComponentMain() {
           </div>
           <div className="home-main-card-container">
             {blogProducts.map((prodData) => (
-              <CardBlog prodData={prodData} key={prodData.id} />
+              <CardBlog
+                onClick={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
             ))}
           </div>
         </div>
@@ -323,6 +356,6 @@ export default function HomeComponentMain() {
       </div>
     </>
   );
-}
+};
 
 export const Home = connect(null, null)(HomeComponentMain);
