@@ -23,19 +23,26 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
+  const [wallpaperColor, setWallColor] = useState("Gray");
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
   );
-  const [selectedImg, setSelectedImg] = useState(
-    location?.state?.image
-      ? location?.state?.image[0]
-      : productDetailData?.image[0]
-  );
+  const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
     addToCart(productDetailData, cartItemData);
     dispatch({ type: commonStateList.cartItem, payload: cartItemData });
   };
+
+  const selectColor = (color) => {
+    setWallColor(color);
+  };
   useEffect(() => {
+    window.scrollTo(0, 0);
+    setSelectedImg(
+      location?.state?.image
+        ? location?.state?.image[0]
+        : productDetailData?.image[0]
+    );
     return () => {
       setProductState(null);
       setSelectedImg(null);
@@ -69,17 +76,21 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 />
               </div>
               <div className="imgContainer">
-                {productState?.image?.map((img, index) => (
-                  <img
-                    style={{
-                      border: selectedImg === img ? "4px solid purple" : "",
-                    }}
-                    key={index}
-                    src={img}
-                    alt="dog"
-                    onClick={() => setSelectedImg(img)}
-                  />
-                ))}
+                {productState?.length > 0 ? (
+                  productState?.image?.map((img, index) => (
+                    <img
+                      style={{
+                        border: selectedImg === img ? "4px solid purple" : "",
+                      }}
+                      key={index}
+                      src={img}
+                      alt="dog"
+                      onClick={() => setSelectedImg(img)}
+                    />
+                  ))
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>
@@ -100,11 +111,12 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <hr></hr>
 
             <div>
-              <div className="info-heading-one">Color - Grey</div>
+              <div className="info-heading-one">Color - {wallpaperColor}</div>
               <div className="color-picker-container">
                 <div className="color-picker-item selected-item">
                   <div
                     className="render-color"
+                    onClick={() => selectColor("Grey")}
                     style={{ background: "grey" }}
                   ></div>
                 </div>
@@ -112,6 +124,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 <div className="color-picker-item ">
                   <div
                     className="render-color"
+                    onClick={() => selectColor("Red")}
                     style={{ background: "red" }}
                   ></div>
                 </div>
@@ -119,6 +132,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 <div className="color-picker-item ">
                   <div
                     className="render-color"
+                    onClick={() => selectColor("Yellow")}
                     style={{ background: "yellow" }}
                   ></div>
                 </div>
@@ -132,12 +146,16 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <div className="button-container d-flex mb-3">
               <CustomButton
                 variant="outlined"
-                className="me-3"
+                className="me-3 cursor-pointer"
                 style={{ padding: "20px 40px 20px 40px" }}
               >
                 Calculate Rolls
               </CustomButton>
-              <CustomButton variant="outlined" onClick={() => setIsOpen(true)}>
+              <CustomButton
+                className="me-3 cursor-pointer"
+                variant="outlined"
+                onClick={() => setIsOpen(true)}
+              >
                 Installer Price Calculator
               </CustomButton>
             </div>

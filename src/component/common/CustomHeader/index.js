@@ -22,6 +22,7 @@ import Header from "../Header";
 import { Badge } from "@mui/material";
 
 export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
+  const [searchInput, setSearchInput] = useState("");
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
   const [productList, setProductList] = useState([]);
@@ -31,6 +32,8 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
 
   const handleLogoClick = () => {
     history.push("/home/home");
+
+    window.scrollTo(0, 0);
   };
 
   const handleMyProfile = (route) => {
@@ -75,7 +78,10 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
         <Toolbar disableGutters>
           <div className="header-top-container">
             <BrandLogo onClick={handleLogoClick} className="custom-brandlogo" />
-            <NormalSearch />
+            <NormalSearch
+              value={searchInput}
+              onChange={(event) => setSearchInput(event.target.value)}
+            />
             <div className="d-flex align-items-center">
               <SupportPersonLogo width="60" height="30" />
               <div className="ps-0 d-flex flex-column w-100">

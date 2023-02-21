@@ -643,3 +643,8 @@ input[type="number"] {
 //   position: absolute;
 //   right: 0;
 // }
+
+#cursor-pointer {
+  cursor: pointer !important;
+  pointer-events: auto;
+}

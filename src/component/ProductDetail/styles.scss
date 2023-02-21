@@ -116,12 +116,13 @@
       display: flex;
       align-items: center;
       margin-bottom: 30px;
-      width: 85%
+      width: 85%;
     }
 
     .info-title-2 {
       @include fontRobotoStyle(18px, 400, #000000, 22px);
       margin-bottom: 30px;
+      margin-top: 130px;
       display: flex;
       align-items: center;
       text-transform: uppercase;
@@ -216,7 +217,7 @@
         .review-item-txt {
           @include fontLatoStyle(15px, 400, #000000, 22px);
           margin-bottom: 6px;
-          width: 93%
+          width: 93%;
         }
       }
     }
@@ -288,9 +289,15 @@ img {
   height: 720px;
   margin: 0 auto;
 }
+
 .largeImage {
   width: 20px;
   height: 20px;
+}
+
+.button-container {
+  position: absolute;
+  z-index: -9999;
 }
 
 .container .imgContainer {
@@ -309,10 +316,10 @@ img {
   height: 150px;
   margin: 5px 0;
 }
-.product-add-buttons{
+.product-add-buttons {
   gap: 45px;
 }
-.Product-detail-cards{
+.Product-detail-cards {
   display: flex;
   height: fit-content;
   width: 106%;
@@ -322,47 +329,47 @@ img {
 
 .card-instructions-container {
   width: 202px;
-    height: 402px;
-margin-bottom: 50px;
-background-color: #FFFFFF;
-border: 1px solid #A2A2A2;
-border-radius: 5px;
-cursor: pointer;
-background-repeat: no-repeat;
-background-size: contain;
-
-.card-instructions-image-section {
-  height: 233px;
-  width: 100%;
-  margin-bottom: 24px;
-  background-size: cover;
+  height: 402px;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+  border: 1px solid #a2a2a2;
+  border-radius: 5px;
+  cursor: pointer;
   background-repeat: no-repeat;
-}
+  background-size: contain;
 
-.card-instructions-info{
-  @include fontLatoStyle(12px, 400, #000000);
-  margin-top: 251px;
-  margin-left: 9px;
-  width: 99%;
-}
+  .card-instructions-image-section {
+    height: 233px;
+    width: 100%;
+    margin-bottom: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
-.card-instructions-steps {
-  @include fontLatoStyle(12px, 400, #000000);
-  background: #F2F2F2;
-  border-width: 0px 0.5px 0.5px 0px;
-  border-style: solid;
-  border-color: #2A71F9;
-  border-radius: 4px 0px 0px 0px;
-  width: 50px;
+  .card-instructions-info {
+    @include fontLatoStyle(12px, 400, #000000);
+    margin-top: 251px;
+    margin-left: 9px;
+    width: 99%;
+  }
+
+  .card-instructions-steps {
+    @include fontLatoStyle(12px, 400, #000000);
+    background: #f2f2f2;
+    border-width: 0px 0.5px 0.5px 0px;
+    border-style: solid;
+    border-color: #2a71f9;
+    border-radius: 4px 0px 0px 0px;
+    width: 50px;
     padding: 2px 3px 0px 5px;
+  }
 }
-}
-.instructions-collab{
+.instructions-collab {
   display: flex;
   gap: 13px;
 }
-.Product-tips{
-  label{
-@include fontLatoStyle(11px, 500, #696969);
+.Product-tips {
+  label {
+    @include fontLatoStyle(11px, 500, #696969);
   }
 }

@@ -16,12 +16,14 @@ export const CustomButton = ({
     fontFamily: "Lato, sans-serif",
     fontSize: "18px",
     textTransform: "none",
+    cursor: "pointer",
   };
   return (
     <>
       <Button
         style={customStyle}
-        className={className}
+        id="cursor-pointer"
+        className={`${className}`}
         variant={variant}
         startIcon={startIcon}
         endIcon={endIcon}
