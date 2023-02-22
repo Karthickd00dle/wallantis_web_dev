@@ -14,6 +14,8 @@ export const OrderSummaryMain = ({ cartItemData }) => {
         return Number(acc + curr.price);
       }, 0)
     );
+
+    setOrderSummary(cartItemData);
   }, [orderSummary]);
   return (
     <div className="order-summary">
@@ -34,7 +36,11 @@ export const OrderSummaryMain = ({ cartItemData }) => {
           </p>
           <div className="d-flex justify-content-between order-count-container">
             <div className="me-1 order-count cursor-pointer">-</div>
-            <NormalInput max="2" className="mx-1 order-count-input" />
+            <NormalInput
+              max="2"
+              className="mx-1 order-count-input"
+              value={orderSummary.length}
+            />
             <div className="order-count ms-1 cursor-pointer">+</div>
           </div>
         </div>
@@ -43,9 +49,7 @@ export const OrderSummaryMain = ({ cartItemData }) => {
         <label className="order-installation-text">
           Installation on Fri 25, Nov - 02:00PM
         </label>
-        <a className="pe-3" href="">
-          Edit
-        </a>
+        <p className="pe-3">Edit</p>
       </div>
       <div className="coupon-container py-4">
         <label className="coupon-text">Coupon</label>
