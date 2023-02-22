@@ -26,12 +26,13 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
   );
+
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
     let cart = cartItemData.map((item) => {
       return item;
     });
-    addToCart(productDetailData, cart);
+    addToCart(productState, cart);
     dispatch({ type: commonStateList.cartItem, payload: cart });
   };
 

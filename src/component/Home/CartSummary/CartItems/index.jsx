@@ -24,7 +24,12 @@ const ItemsRow = ({
     <div key={id} className="item-row-container">
       <div className="d-flex justify-content-between">
         <div className="d-flex">
-          <img src={image[0]} height="200px" width="200px" alt="product" />
+          <img
+            src={image ? image[0] : ""}
+            height="200px"
+            width="200px"
+            alt="product"
+          />
           <div className="d-flex ps-5 flex-column">
             <label className="pb-2 item-title">{title}</label>
             <label className="py-2 item-color">{`Color - ${color}`}</label>

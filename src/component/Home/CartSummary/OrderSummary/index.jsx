@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CustomRecipeWallpaper from "assets/images/OrderSummary/custom-recipe-wallpaper.png";
 import "./style.scss";
+import { connect } from "react-redux";
 import { NormalInput } from "component/common";
 import { TextField } from "@mui/material";
 
-export const OrderSummary = () => {
+export const OrderSummaryMain = ({ cartItemData }) => {
+  const [orderSummary, setOrderSummary] = useState(cartItemData);
+  const [total, setTotal] = useState("");
+  useEffect(() => {
+    setTotal(
+      orderSummary.reduce((acc, curr) => {
+        return Number(acc + curr.price);
+      }, 0)
+    );
+  }, [orderSummary]);
   return (
     <div className="order-summary">
       <label className="text-title pb-3">Order Summary</label>
@@ -163,7 +173,7 @@ export const OrderSummary = () => {
               className="text-light_bg fw-700 fs-24 price-content-item 
           "
             >
-              ₹ 2999
+              ₹ {total}
             </label>
           </div>
         </div>
@@ -171,3 +181,11 @@ export const OrderSummary = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    cartItemData: state.commonStore.cartItemState,
+  };
+};
+
+export const OrderSummary = connect(mapStateToProps, null)(OrderSummaryMain);
