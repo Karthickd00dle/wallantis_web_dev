@@ -151,7 +151,7 @@ export const NormalFooter = () => {
               <div className="d-flex align-items-center">
                 <GPSIcon width={"10%"} />
                 <a
-                  href="http://maps.google.com/?q=115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
+                  href="https://maps.google.com/?q=115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
                   Tamil Nadu"
                   className="w-75 footer-address-info"
                 >
