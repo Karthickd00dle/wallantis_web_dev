@@ -189,6 +189,12 @@
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
+      .home-wall-mural-title-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 375px;
+      }
     }
 
     .home-wall-mural--title {
@@ -196,7 +202,7 @@
     }
 
     .home-wall-mural--title-two {
-      @include fontLatoStyle(52px, 600, #ffffff, 62px);
+      @include fontLatoStyle(52px, 400, #ffffff, 62px);
     }
 
     .card-one-container {

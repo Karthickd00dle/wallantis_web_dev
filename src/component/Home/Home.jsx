@@ -81,6 +81,7 @@ function HomeComponentMain() {
       type: commonStateList.productDetail,
       payload: prodData,
     });
+    console.log(prodData, "proo home");
     history.push("/home/product-details");
   };
   return (
@@ -88,11 +89,12 @@ function HomeComponentMain() {
       <div className="home-content-container">
         <div className="home-wall-mural">
           <div className="home-wall-mural-inner-container">
-            <div className="home-wall-mural--title">WALLANTICS</div>
-            <div className="home-wall-mural--title-two">
-              A Stylish and most beautiful Wallpapers{" "}
+            <div className="home-wall-mural-title-container ">
+              <label className="home-wall-mural--title">WALLANTICS</label>
+              <label className="home-wall-mural--title-two">
+                A Stylish and most beautiful Wallpapers{" "}
+              </label>
             </div>
-
             <div className="card-one-container">
               <div className="card-one-inner-container">
                 <HomeCardOne
@@ -167,7 +169,7 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {recentlyviewedProducts.map((prodData) => (
               <CardThree
-                onClick={handleCardProduct}
+                onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
               />
@@ -198,7 +200,7 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {artificialgrassProducts.map((prodData) => (
               <CardThree
-                onClick={handleCardProduct}
+                onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
               />
@@ -222,7 +224,7 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {bestsellerProducts.map((prodData) => (
               <CardThree
-                onClick={handleCardProduct}
+                onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
               />
@@ -246,7 +248,7 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {newarrivalsProducts.map((prodData) => (
               <CardThree
-                onClick={handleCardProduct}
+                onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
               />
@@ -304,7 +306,7 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {ecatalougeProducts.map((prodData) => (
               <CardCatalogue
-                onClick={handleCardProduct}
+                onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
               />
@@ -325,7 +327,7 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {blogProducts.map((prodData) => (
               <CardBlog
-                onClick={handleCardProduct}
+                onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
               />

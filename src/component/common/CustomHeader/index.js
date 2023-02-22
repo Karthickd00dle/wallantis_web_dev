@@ -88,13 +88,18 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
               value={searchInput}
               onChange={(event) => setSearchInput(event.target.value)}
             />
-            <div className="d-flex align-items-center">
-              <SupportPersonLogo width="60" height="30" />
-              <div className="ps-0 d-flex flex-column w-100">
-                <label>Need Help?</label>
-                <label>+044 65483 46823</label>
+            <a
+              href="tel:+044 65483 46823"
+              className="text-decoration-none text-reset"
+            >
+              <div className="d-flex align-items-center">
+                <SupportPersonLogo width="60" height="30" />
+                <div className="ps-0 d-flex flex-column w-100">
+                  <label>Need Help?</label>
+                  <label>+044 65483 46823</label>
+                </div>
               </div>
-            </div>
+            </a>
             <CustomSelect menuItemList={LanguageMenuList} />
             <div
               className="d-flex align-items-center cart-icon"
@@ -123,7 +128,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
               </CustomButton>
             ) : (
               <div
-                className="custom-john"
+                className="custom-john d-flex align-items-center"
                 onClick={() => {
                   setOpen(!open);
                 }}

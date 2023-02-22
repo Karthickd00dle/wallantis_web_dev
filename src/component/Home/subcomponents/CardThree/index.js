@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
-import { history } from "service/helpers";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
 function CardThree({ onClickCard, prodData }) {
@@ -21,7 +20,6 @@ function CardThree({ onClickCard, prodData }) {
     >
       <div
         className="card-three-image-section"
-        onClick={() => history.push("/home/product-details", prodData)}
         style={{
           backgroundImage: `url(${ternaryCondition(
             Array.isArray(image),

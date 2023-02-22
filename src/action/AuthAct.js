@@ -1,3 +1,4 @@
+import { ternaryCondition } from "service/helperFunctions";
 import { authApi } from "../service/apiVariables";
 
 export const RegistationApi =

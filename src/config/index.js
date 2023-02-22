@@ -294,6 +294,12 @@ export const artificialgrassProducts = [
     image: ["https://miro.medium.com/max/620/1*3pykkuNFvOzyme5EGBPYbQ.jpeg"],
     title: "Vertical Gardens",
     price: 4000,
+    category: "Artificial Grass",
+    sub_category: "Grassy",
+    color: "Green",
+    collection: "Green Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
   {
     id: 2,
@@ -302,6 +308,12 @@ export const artificialgrassProducts = [
     ],
     title: "Indoor Mats - Non UV",
     price: 4000,
+    category: "Artificial Grass",
+    sub_category: "Grassy",
+    color: "Green",
+    collection: "Green Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
   {
     id: 3,
@@ -310,6 +322,12 @@ export const artificialgrassProducts = [
     ],
     title: "Outdoor Mats - UV Protect",
     price: 4000,
+    category: "Artificial Grass",
+    sub_category: "Grassy",
+    color: "Green",
+    collection: "Green Themed",
+    room: "Bed Room",
+    size: "50cm x 45cm",
   },
 ];
 
