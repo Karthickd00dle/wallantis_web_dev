@@ -20,6 +20,11 @@ const ItemsRow = ({
     price,
   },
 }) => {
+  const [formData, setFormData] = useState({ productCount: 1 });
+  const handleProductCount = ({ target: { name, value } }) => {
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <div key={id} className="item-row-container">
       <div className="d-flex justify-content-between">
@@ -46,9 +51,33 @@ const ItemsRow = ({
       </div>
       <div className="d-flex justify-content-between align-items-center w-75 py-4">
         <div className="d-flex justify-content-between order-count-container">
-          <div className="me-1 order-count cursor-pointer">-</div>
-          <NormalInput max="2" className="mx-1 order-count-input" />
-          <div className="order-count ms-1 cursor-pointer">+</div>
+          <div
+            onClick={conditionalLoad(formData.productCount > 0, () =>
+              setFormData({
+                productCount: formData.productCount - 1,
+              })
+            )}
+            className="me-1 order-count cursor-pointer"
+          >
+            -
+          </div>
+          <NormalInput
+            name="productCount"
+            value={formData.productCount}
+            onChange={handleProductCount}
+            max="2"
+            className="mx-1text-center order-count-input"
+          />
+          <div
+            onClick={() =>
+              setFormData({
+                productCount: formData.productCount + 1,
+              })
+            }
+            className="order-count ms-1 cursor-pointer"
+          >
+            +
+          </div>
         </div>
         <label className="save-for-later-text">SAVE FOR LATER</label>
         <label className="remove-text" onClick={() => removeItem(id)}>
