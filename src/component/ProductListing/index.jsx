@@ -123,7 +123,6 @@ const ProductListingFC = ({ productListingData }) => {
   const [productData, setProductData] = useState(productListingData);
 
   const handleProductDetail = (prodData) => {
-    console.log(prodData, "prodd dataaa");
     dispatch({
       type: commonStateList.productDetail,
       payload: prodData,

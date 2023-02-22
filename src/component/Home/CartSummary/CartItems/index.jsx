@@ -1,11 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState } from "react";
+import { connect, useDispatch } from "react-redux";
 import "./style.scss";
 import { CustomButton, NormalInput } from "component/common";
+import { commonStateList } from "service/actionType";
 import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 import { history } from "service/helpers";
 
 const ItemsRow = ({
+  removeItem,
   itemData: {
     id,
     image,
@@ -22,7 +24,12 @@ const ItemsRow = ({
     <div key={id} className="item-row-container">
       <div className="d-flex justify-content-between">
         <div className="d-flex">
-          <img src={image[0]} height="200px" width="200px" alt="product" />
+          <img
+            src={image ? image[0] : ""}
+            height="200px"
+            width="200px"
+            alt="product"
+          />
           <div className="d-flex ps-5 flex-column">
             <label className="pb-2 item-title">{title}</label>
             <label className="py-2 item-color">{`Color - ${color}`}</label>
@@ -44,22 +51,32 @@ const ItemsRow = ({
           <div className="order-count ms-1 cursor-pointer">+</div>
         </div>
         <label className="save-for-later-text">SAVE FOR LATER</label>
-        <label className="remove-text">REMOVE</label>
+        <label className="remove-text" onClick={() => removeItem(id)}>
+          REMOVE
+        </label>
       </div>
     </div>
   );
 };
 
 const CartItemsMain = ({ cartItemData }) => {
+  const dispatch = useDispatch();
+  const removeItem = (id) => {
+    let cart = cartItemData.filter((item) => {
+      return item.id !== id;
+    });
+
+    dispatch({ type: commonStateList.cartItem, payload: cart });
+  };
   return (
     <div>
       <div className="cart-items-container">
         {ternaryCondition(
-          cartItemData.length !== 0,
+          cartItemData?.length !== 0,
           <div className="cart-items-inner-container">
-            {cartItemData.map((itemData) => (
+            {cartItemData?.map((itemData) => (
               <div className="item-container-main">
-                <ItemsRow itemData={itemData} />
+                <ItemsRow itemData={itemData} removeItem={removeItem} />
               </div>
             ))}
           </div>,

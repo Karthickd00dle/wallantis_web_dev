@@ -11,6 +11,9 @@ export const Instructions = ({ isOpen, handleClose }) => {
   return (
     <>
       <CustomDialog isOpen={isOpen} handleClose={handleClose}>
+        <div className="close-icon" onClick={handleClose}>
+          ×
+        </div>
         <div className="Instructions">
           <div className="verticalblinds d-flex justify-content-center">
             <h5>Vertical Blinds Installation Process</h5>

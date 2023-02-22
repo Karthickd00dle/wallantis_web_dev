@@ -25,7 +25,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
   const [searchInput, setSearchInput] = useState("");
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
-  const [itemCount, setItemCount] = useState(cartItemData.length);
+  const [itemCount, setItemCount] = useState(null);
   const [productList, setProductList] = useState([]);
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
@@ -71,15 +71,14 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
   };
 
   useEffect(() => {
-    getAllProducts();
-    return () => {
-      setItemCount(cartItemData.length);
-    };
-  }, [cartItemData.length]);
+    setItemCount(cartItemData.slice().length);
+  }, [cartItemData.slice()]);
 
+  useEffect(() => {
+    getAllProducts();
+  }, []);
   return (
     <AppBar className="navbar-appbar" position="fixed">
-      {console.log(cartItemData)}
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <div className="header-top-container">
