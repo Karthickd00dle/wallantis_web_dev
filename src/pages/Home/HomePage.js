@@ -16,7 +16,6 @@ export function HomePageFunction() {
   return (
     <Suspense fallback={<h1>Loading..Please Wait</h1>}>
       {Component ? <Component /> : <></>}
-      <Home />
     </Suspense>
   );
 }

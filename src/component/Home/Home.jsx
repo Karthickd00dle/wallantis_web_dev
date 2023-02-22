@@ -74,7 +74,7 @@ function CardBlog(prodData) {
   );
 }
 
-export const HomeComponentMain = () => {
+function HomeComponentMain() {
   const dispatch = useDispatch();
   const handleCardProduct = (prodData) => {
     dispatch({
@@ -368,6 +368,7 @@ export const HomeComponentMain = () => {
       </div>
     </>
   );
-};
+}
 
-export const Home = connect(null, null)(HomeComponentMain);
+const Home = connect(null, null)(HomeComponentMain);
+export default Home;
