@@ -20,7 +20,6 @@ import CardThree from "component/Home/subcomponents/CardThree";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   let location = useLocation();
-
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
   const [wallpaperColor, setWallColor] = useState("Gray");
@@ -29,8 +28,11 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   );
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
-    addToCart(productDetailData, cartItemData);
-    dispatch({ type: commonStateList.cartItem, payload: cartItemData });
+    let cart = cartItemData.map((item) => {
+      return item;
+    });
+    addToCart(productDetailData, cart);
+    dispatch({ type: commonStateList.cartItem, payload: cart });
   };
 
   const selectColor = (color) => {
@@ -41,7 +43,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
     setSelectedImg(
       location?.state?.image
         ? location?.state?.image[0]
-        : productDetailData?.image[0]
+        : productDetailData?.image?.length > 0
+        ? productDetailData?.image[0]
+        : null
     );
     return () => {
       setProductState(null);
@@ -144,20 +148,10 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             </div>
 
             <div className="button-container d-flex mb-3">
-              <CustomButton
-                variant="outlined"
-                className="me-3 cursor-pointer"
-                style={{ padding: "20px 40px 20px 40px" }}
-              >
-                Calculate Rolls
-              </CustomButton>
-              <CustomButton
-                className="me-3 cursor-pointer"
-                variant="outlined"
-                onClick={() => setIsOpen(true)}
-              >
+              <button className="product-btn">Calculate Rolls</button>
+              <button className="product-btn" onClick={() => setIsOpen(true)}>
                 Installer Price Calculator
-              </CustomButton>
+              </button>
             </div>
 
             <div className="info-title-2">Check availability in your area </div>

@@ -40,9 +40,11 @@
   }
   .save-for-later-text {
     @include fontRobotoStyle(20px, 700, #000000, 22px);
+    cursor: pointer;
   }
   .remove-text {
     @include fontRobotoStyle(20px, 700, #2a71f9, 22px);
+    cursor: pointer;
   }
 }
 

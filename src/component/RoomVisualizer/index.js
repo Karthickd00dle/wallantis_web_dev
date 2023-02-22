@@ -12,7 +12,11 @@ export default function RoomVisualizer() {
       <h2>Select a Room Space to Visualise</h2>
 
       <div className="upload-picture">
-        <img src={uploadImage} />
+        <div class="upload-btn-wrapper">
+          <img class="btn" src={uploadImage} />
+          <input type="file" name="myfile" />
+        </div>
+
         <p>Drag & Drop Or Upload your Room Pic</p>
         <p>Living Room, Kids Room, Dining Room, Bedroom,etc</p>
       </div>

@@ -32,7 +32,12 @@ function CardThree({ onClickCard, prodData }) {
       >
         {iconVisibility ? (
           <div className="icon-container">
-            <div className="icon-1">
+            <div
+              className="icon-1"
+              onClick={() => {
+                alert("Liked");
+              }}
+            >
               <HeartSVGComponent />
             </div>
             <div className="icon-2">
