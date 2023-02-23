@@ -3,13 +3,14 @@ import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
+import { Checkbox } from "@mui/material";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 function CardThree({ onClickCard, prodData }) {
   const { image, title, price } = prodData;
 
   const [iconVisibility, seticonVisibility] = useState(false);
   return (
     <div
-      onClick={() => onClickCard(prodData)}
       className="card-three-container"
       onMouseEnter={() => {
         seticonVisibility(true);
@@ -18,31 +19,27 @@ function CardThree({ onClickCard, prodData }) {
         seticonVisibility(false);
       }}
     >
-      <div
-        className="card-three-image-section"
-        style={{
-          backgroundImage: `url(${ternaryCondition(
-            Array.isArray(image),
-            image[0],
-            image
-          )})`,
-        }}
-      >
+      <div className="card-three-image-section">
         {iconVisibility ? (
           <div className="icon-container">
-            <div
-              className="icon-1"
-              onClick={() => {
-                alert("Liked");
-              }}
-            >
-              <HeartSVGComponent />
+            <div className="icon-1">
+              <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
             </div>
             <div className="icon-2">
               <CartSVGComponent />
             </div>
           </div>
         ) : null}
+        <div
+          onClick={() => onClickCard(prodData)}
+          className="card-image-container"
+        >
+          <img
+            className="card-image"
+            src={`${ternaryCondition(Array.isArray(image), image[0], image)}`}
+            alt={title}
+          />
+        </div>
       </div>
       <div className="card-three-title">{title}</div>
       <div className="card-three-price">{`₹${price}/Roll`}</div>
