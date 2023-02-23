@@ -66,7 +66,7 @@ const ItemsRow = ({
             value={formData.productCount}
             onChange={handleProductCount}
             max="2"
-            className="mx-1text-center order-count-input"
+            className="mx-1 text-center order-count-input"
           />
           <div
             onClick={() =>

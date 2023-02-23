@@ -1,4 +1,5 @@
 import React from "react";
+import { history } from "service/helpers";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
@@ -16,14 +17,17 @@ export default function Latestblogs() {
       </div>
       <div>
         <div className="division1">
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog1"></div>
             <div className="blog1contents">
               <div className="blog1img">
                 <JohnDoe className="johndoe" />
                 <div className="john">
                   <h6>John Doe </h6>
-                  <span>14 Oct’2022</span>
+                  <span>14 Oct'2022</span>
                 </div>
               </div>
               <label>How to choose wallpapers for renovating homes....</label>
@@ -37,7 +41,10 @@ export default function Latestblogs() {
             </div>
           </div>
 
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog2"></div>
             <div className="blog2contents">
               <div className="blog2img">
@@ -57,7 +64,10 @@ export default function Latestblogs() {
             </div>
           </div>
 
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog3"></div>
             <div className="blog3contents">
               <div className="blog3img">
@@ -79,7 +89,10 @@ export default function Latestblogs() {
         </div>
 
         <div className="division2">
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog4"></div>
             <div className="blog4contents">
               <div className="blog4img">
@@ -99,7 +112,10 @@ export default function Latestblogs() {
             </div>
           </div>
 
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog5"></div>
             <div className="blog5contents">
               <div className="blog5img">
@@ -119,7 +135,10 @@ export default function Latestblogs() {
             </div>
           </div>
 
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog6"></div>
             <div className="blog6contents">
               <div className="blog6img">
@@ -141,7 +160,10 @@ export default function Latestblogs() {
         </div>
 
         <div className="division3">
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog7"></div>
             <div className="blog7contents">
               <div className="blog7img">
@@ -161,7 +183,10 @@ export default function Latestblogs() {
             </div>
           </div>
 
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog8"></div>
             <div className="blog8contents">
               <div className="blog8img">
@@ -181,7 +206,10 @@ export default function Latestblogs() {
             </div>
           </div>
 
-          <div>
+          <div
+            className="blog-main"
+            onClick={() => history.push("/profile/blogdetails")}
+          >
             <div className="latestblog9"></div>
             <div className="blog9contents">
               <div className="blog9img">

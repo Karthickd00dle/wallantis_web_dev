@@ -526,7 +526,13 @@ export const wallpaperProducts = [
   {
     id: 5,
     title: "Banaras, Indian Carpet Design Wallpaper",
-    image: ["https://m.media-amazon.com/images/I/91lO3dM+XPL._SL1500_.jpg"],
+    image: [
+      "https://static.wixstatic.com/media/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.jpg/v1/fill/w_550,h_625,al_c,q_85,usm_0.66_1.00_0.01/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.webp",
+      "https://i.etsystatic.com/21916349/r/il/8445f3/3012204607/il_fullxfull.3012204607_6kdr.jpg",
+      "https://cdn.shopify.com/s/files/1/0565/7080/6458/collections/Floral-Wallpaper-Purple-and-Pink-Dark-Floral-Wall-Mural.jpg?v=1632906538",
+      "https://ucarecdn.com/2da49d22-08b0-4ebd-a7fd-e97ceab220cf/",
+      "https://i.etsystatic.com/8591869/r/il/c53bfd/1456731054/il_570xN.1456731054_4789.jpg",
+    ],
     price: 8000,
     category: "Floral",
     color: "Pink",
@@ -538,7 +544,11 @@ export const wallpaperProducts = [
     id: 6,
     title: "A Story by the Garden Wallpaper",
     image: [
-      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/living-room-wallpaper-ideas-19-eld0008-opal-mural-by-ella-doran-from-the-ella-doran-collection-at-surface-view-murals-from-40-per-sq-meter-www-surfaceview-co-uk-1615811197.jpg",
+      "https://static.wixstatic.com/media/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.jpg/v1/fill/w_550,h_625,al_c,q_85,usm_0.66_1.00_0.01/d4050a_80b9c72c79ed46b8b0764e8ec43dc3f5~mv2.webp",
+      "https://i.etsystatic.com/21916349/r/il/8445f3/3012204607/il_fullxfull.3012204607_6kdr.jpg",
+      "https://cdn.shopify.com/s/files/1/0565/7080/6458/collections/Floral-Wallpaper-Purple-and-Pink-Dark-Floral-Wall-Mural.jpg?v=1632906538",
+      "https://ucarecdn.com/2da49d22-08b0-4ebd-a7fd-e97ceab220cf/",
+      "https://i.etsystatic.com/8591869/r/il/c53bfd/1456731054/il_570xN.1456731054_4789.jpg",
     ],
     price: 2600,
     category: "Floral",

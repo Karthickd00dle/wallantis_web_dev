@@ -1,6 +1,12 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .contact-us {
+  .contact-us-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .contactus-head {
     height: 300px;
     background-color: #54cfbd;
@@ -16,7 +22,6 @@
 
   .contacthead {
     @include fontLatoStyle(30px, 700, #000000);
-    margin-left: 38.5%;
     margin-top: 85px;
   }
 
@@ -24,7 +29,7 @@
     width: 304px;
     height: 200px;
     margin-top: 20px;
-    margin-left: 30px;
+
     background: #ffffff;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
@@ -32,7 +37,6 @@
       @include fontLatoStyle(20px, 600, #000000);
       position: relative;
       top: 26px;
-      left: 112px;
     }
     p {
       @include fontLatoStyle(15px, 400, #000000);
@@ -45,7 +49,7 @@
     width: 304px;
     height: 200px;
     margin-top: 20px;
-    margin-left: 30px;
+
     background: #ffffff;
     box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
@@ -53,22 +57,21 @@
       @include fontLatoStyle(20px, 600, #000000);
       position: relative;
       top: 26px;
-      left: 112px;
     }
     p {
       @include fontLatoStyle(16px, 400, #000000);
       position: relative;
       top: 49px;
       right: 32px;
-      left: 62px;
     }
     Small {
       font-weight: 400;
       font-size: 15px;
       color: #2a71f9;
       position: relative;
-      left: 27%;
+
       top: 20%;
+      cursor: pointer;
     }
   }
 
@@ -85,34 +88,31 @@
       @include fontLatoStyle(20px, 600, #000000);
       position: relative;
       top: 26px;
-      left: 112px;
     }
     p {
       @include fontLatoStyle(16px, 400, #000000);
       position: relative;
       top: 49px;
-      left: 62px;
     }
     Small {
       font-weight: 400;
       font-size: 15px;
       color: #2a71f9;
       position: relative;
-      left: 27%;
+
       top: 20%;
+      cursor: pointer;
     }
   }
 
   .contactcards {
     // justify-content: space-evenly;
-    margin-left: 18%;
   }
 
   .contactmessage {
     height: 100%;
     width: 8%;
     margin-top: 40px;
-    margin-left: 24px;
   }
 
   .getdirections {
@@ -122,6 +122,7 @@
     display: flex;
     /* align-items: center; */
     justify-content: center;
+    cursor: pointer;
   }
 
   .needhelp {
@@ -132,48 +133,34 @@
   }
 
   .contact-names {
-    gap: 23%;
-    margin-left: 20%;
-    .first-Name {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    gap: 0px 20px;
+    .field {
       margin-top: 35px;
+      display: flex;
+      flex-direction: column;
       span {
         @include fontLatoStyle(17px, 700, #000000);
         color: #000000;
-        margin-right: 61%;
       }
       input {
-        width: 150%;
         height: 47px;
         border: 1px solid #969696;
         border-radius: 10px;
         padding: 2px 2px 2px 24px;
-      }
-    }
-    .last-Name {
-      margin-top: 35px;
-      span {
-        @include fontLatoStyle(17px, 700, #000000);
-      }
-      input {
-        box-sizing: border-box;
-        width: 150%;
-        height: 45px;
-        border: 1px solid #969696;
-        border-radius: 10px;
-        margin-right: 98px;
-        padding: 2px 2px 2px 24px;
+        width: 400px;
       }
     }
   }
 
   .contact-enumber {
     gap: 26.5%;
-    margin-left: 20%;
     .contact-email {
       margin-top: 35px;
       span {
         @include fontLatoStyle(17px, 700, #000000);
-        margin-right: 61%;
       }
       input {
         width: 174%;
@@ -201,7 +188,6 @@
 
   .contact-countries {
     gap: 25%;
-    margin-left: 20%;
     .contact-country {
       margin-top: 35px;
       span {
@@ -222,7 +208,6 @@
       margin-top: 35px;
       span {
         @include fontLatoStyle(17px, 700, #000000, 39px);
-        margin-right: 83%;
       }
       input {
         box-sizing: border-box;
@@ -237,12 +222,10 @@
   }
   .contact-citycode {
     gap: 7.5%;
-    margin-left: 20%;
     .contact-city {
       margin-top: 30px;
       span {
         @include fontLatoStyle(17px, 700, #000000, 39px);
-        margin-right: 70%;
       }
       input {
         width: 181%;
@@ -256,7 +239,6 @@
 
     .contact-pincode {
       margin-top: 30px;
-      margin-left: 20%;
       span {
         @include fontLatoStyle(17px, 700, #000000, 39px);
       }
@@ -272,9 +254,7 @@
   }
   .contact-companyname {
     margin-top: 56px;
-    margin-left: 20%;
     span {
-      margin-right: 74%;
       line-height: 39px;
     }
     input {
@@ -290,7 +270,6 @@
   .contact-message {
     @include fontLatoStyle(18px, 700, #000000, 39px);
     margin-top: 40px;
-    margin-left: 20%;
     input {
       width: 77%;
       height: 180px;
@@ -307,7 +286,6 @@
     margin-top: 40px;
     color: #ffffff;
     border-color: #a26220;
-    margin-left: 42%;
     margin-bottom: 80px;
   }
 }

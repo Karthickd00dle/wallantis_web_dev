@@ -15,60 +15,44 @@
 
 .catalogue-wallpaper {
   display: flex;
-  gap: 82.5%;
+  gap: 83.5%;
   margin-left: 89px;
   margin-top: 65px;
+
   label {
     @include fontLatoStyle(27px, 700, #000000);
   }
   span {
     @include fontLatoStyle(15px, 700, #2a71f9);
+    cursor: pointer;
   }
 }
 
 .wallpaperlist {
   display: flex;
-  justify-content: space-evenly;
   margin-top: 38px;
   margin-left: 7px;
-  .catalogue-wallpaper1 {
+  margin-bottom: 30px;
+  .catalogue-wallpaper {
     background-image: url("../../assets/images/stickerwall1.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 19%;
+    position: relative;
     height: 319px;
   }
-  .catalogue-wallpaper2 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
-  .catalogue-wallpaper3 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
-  .catalogue-wallpaper4 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
+
   .viewcatalogue {
-    position: absolute;
-    margin-top: 271px;
-    margin-left: 0px;
+    width: 100%;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    width: 324px;
     height: 48px;
-    padding: 9px 6px 2px 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
+    position: absolute;
+    bottom: 0px;
   }
 }
 
@@ -82,44 +66,25 @@
 .wallmurallist {
   display: flex;
   justify-content: space-evenly;
-  .wallmural1 {
+  .wallmural {
     background-image: url("../../assets/images/stickerwall1.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 19%;
-    height: 319px;
-  }
-  .wallmural2 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
-  .wallmural3 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
-  .wallmural4 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
+    position: relative;
     height: 319px;
   }
   .viewcatalogue {
-    position: absolute;
-    margin-top: 271px;
-    margin-left: 0px;
+    width: 100%;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    width: 324px;
     height: 48px;
-    padding: 9px 6px 2px 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
+    position: absolute;
+    bottom: 0px;
   }
 }
 
@@ -145,44 +110,24 @@
   margin-top: 38px;
   margin-left: 7px;
   margin-bottom: 30px;
-  .wallpapersticker1 {
+  .wallpapersticker {
     background-image: url("../../assets/images/stickerwall1.png");
     background-repeat: no-repeat;
     background-size: cover;
     width: 19%;
-    height: 319px;
-  }
-  .wallpapersticker2 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
-  .wallpapersticker3 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
-    height: 319px;
-  }
-  .wallpapersticker4 {
-    background-image: url("../../assets/images/stickerwall1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 19%;
+    position: relative;
     height: 319px;
   }
   .viewcatalogue {
-    position: absolute;
-    margin-top: 271px;
-    margin-left: 0px;
+    width: 100%;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    width: 19%;
     height: 48px;
-    text-align: center;
-    // padding: 9px 6px 2px 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
+    position: absolute;
+    bottom: 0px;
   }
 }
