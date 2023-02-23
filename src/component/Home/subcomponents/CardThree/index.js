@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HeartSVGComponent from "assets/svg/HomePage/heartSvG";
+
 import CartSVGComponent from "assets/svg/HomePage/cartSVG";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
