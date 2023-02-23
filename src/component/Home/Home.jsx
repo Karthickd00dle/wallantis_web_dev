@@ -81,7 +81,7 @@ function HomeComponentMain() {
       type: commonStateList.productDetail,
       payload: prodData,
     });
-    console.log(prodData, "proo home");
+
     history.push("/home/product-details");
   };
   return (
