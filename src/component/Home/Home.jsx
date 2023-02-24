@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import {
@@ -76,6 +76,8 @@ function CardBlog(prodData) {
 
 function HomeComponentMain() {
   const dispatch = useDispatch();
+  const [favData, setFavData] = useState([]);
+  const [cartData, setCartData] = useState([]);
   const handleCardProduct = (prodData) => {
     dispatch({
       type: commonStateList.productDetail,
@@ -84,6 +86,7 @@ function HomeComponentMain() {
 
     history.push("/home/product-details");
   };
+
   return (
     <>
       <div className="home-content-container">
@@ -169,6 +172,11 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {recentlyviewedProducts.map((prodData) => (
               <CardThree
+                isHome
+                favData={favData}
+                setFavData={setFavData}
+                cartData={cartData}
+                setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
@@ -200,6 +208,11 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {artificialgrassProducts.map((prodData) => (
               <CardThree
+                isHome
+                favData={favData}
+                setFavData={setFavData}
+                cartData={cartData}
+                setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
@@ -224,6 +237,11 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {bestsellerProducts.map((prodData) => (
               <CardThree
+                isHome
+                favData={favData}
+                setFavData={setFavData}
+                cartData={cartData}
+                setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
@@ -248,6 +266,11 @@ function HomeComponentMain() {
           <div className="home-main-card-container">
             {newarrivalsProducts.map((prodData) => (
               <CardThree
+                isHome
+                favData={favData}
+                setFavData={setFavData}
+                cartData={cartData}
+                setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
                 key={prodData.id}
