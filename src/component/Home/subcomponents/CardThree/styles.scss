@@ -1,55 +1,53 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .card-three-container {
-  height: 380px;
+  height: 400px;
   width: 100%;
   margin-bottom: 50px;
   cursor: pointer;
 
   .card-three-image-section {
-    height: 233px;
-
-    width: 100%;
-    margin-bottom: 24px;
+    position: relative;
     .card-image-container {
       .card-image {
         height: 200px;
         width: 100%;
       }
-    }
-    .icon-container {
-      height: 50px;
-
-      display: flex;
-      align-items: center;
+      height: 233px;
       width: 100%;
-      justify-content: flex-end;
-      padding-right: 16px;
-
-      .icon-1 {
-        height: 40px;
-        width: 40px;
-        border-radius: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(255, 255, 255);
-        margin-right: 8px;
-        cursor: pointer;
-      }
-
-      .icon-2 {
-        height: 40px;
-        width: 40px;
-        border-radius: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(255, 255, 255);
-      }
+      margin-bottom: 24px;
     }
   }
+  .icon-container {
+    height: 50px;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: end;
 
+    .icon-1 {
+      height: 40px;
+      width: 40px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    .icon-2 {
+      height: 40px;
+      width: 40px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+    }
+  }
   .card-three-title {
     @include fontLatoStyle(24px, 500, #000000, 35px);
     margin-bottom: 12px;
@@ -74,7 +72,6 @@
 
     .card-three-image-section {
       height: 150px;
-
       width: 100%;
       margin-bottom: 20px;
       background-size: cover;
