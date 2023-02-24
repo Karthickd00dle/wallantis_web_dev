@@ -13,7 +13,7 @@
     margin-bottom: 24px;
     .card-image-container {
       .card-image {
-        height: 100%;
+        height: 200px;
         width: 100%;
       }
     }
@@ -79,7 +79,12 @@
       margin-bottom: 20px;
       background-size: cover;
       background-repeat: no-repeat;
-
+      .card-image-container {
+        .card-image {
+          height: 120px;
+          width: 95%;
+        }
+      }
       .icon-container {
         height: 30px;
 
@@ -144,7 +149,12 @@
       margin-bottom: 24px;
       background-size: cover;
       background-repeat: no-repeat;
-
+      .card-image-container {
+        .card-image {
+          height: 120px;
+          width: 95%;
+        }
+      }
       .icon-container {
         height: 40px;
         display: flex;

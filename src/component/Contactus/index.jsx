@@ -64,7 +64,9 @@ export default function Contactus() {
                 name="name"
               />
               <div className="error-message">
-                {errors["name"]?.type && <span>Name is required</span>}
+                {errors["name"]?.type && (
+                  <span className="error-text">Name is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -76,7 +78,9 @@ export default function Contactus() {
                 name="lastname"
               />
               <div className="error-message">
-                {errors["lastname"]?.type && <span>Last Name is required</span>}
+                {errors["lastname"]?.type && (
+                  <span className="error-text">Last Name is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -88,7 +92,9 @@ export default function Contactus() {
                 name="email"
               />
               <div className="error-message">
-                {errors["email"]?.type && <span>Email is required</span>}
+                {errors["email"]?.type && (
+                  <span className="error-text">Email is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -100,7 +106,9 @@ export default function Contactus() {
                 name="mobile"
               />
               <div className="error-message">
-                {errors["mobile"]?.type && <span>Mobile is required</span>}
+                {errors["mobile"]?.type && (
+                  <span className="error-text">Mobile is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -112,7 +120,9 @@ export default function Contactus() {
                 name="country"
               />
               <div className="error-message">
-                {errors["country"]?.type && <span>Country is required</span>}
+                {errors["country"]?.type && (
+                  <span className="error-text">Country is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -124,7 +134,9 @@ export default function Contactus() {
                 name="state"
               />
               <div className="error-message">
-                {errors["state"]?.type && <span>State is required</span>}
+                {errors["state"]?.type && (
+                  <span className="error-text">State is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -136,7 +148,9 @@ export default function Contactus() {
                 name="city"
               />
               <div className="error-message">
-                {errors["city"]?.type && <span>City is required</span>}
+                {errors["city"]?.type && (
+                  <span className="error-text">City is required</span>
+                )}
               </div>
             </div>
             <div className="field">
@@ -148,7 +162,9 @@ export default function Contactus() {
                 name="pincode"
               />
               <div className="error-message">
-                {errors["pincode"]?.type && <span>Pincode is required</span>}
+                {errors["pincode"]?.type && (
+                  <span className="error-text">Pincode is required</span>
+                )}
               </div>
             </div>
             <div className="field">

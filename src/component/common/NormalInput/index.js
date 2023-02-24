@@ -21,6 +21,7 @@ export const NormalInput = ({
   submitButtonLabel = "",
   labelSize = "fs-18",
   isSearchBox = false,
+  register,
 }) => {
   return (
     <div className={`normal-input ${isSearchBox && "searchbox"}`}>
@@ -41,6 +42,7 @@ export const NormalInput = ({
           minLength={min}
           maxLength={max}
           onKeyUp={onKeyUp}
+          {...register(name, { required: true })}
           onChange={(e) => {
             let body = {};
             let tempVal = e.target.value;
@@ -91,7 +93,7 @@ export const CustomInput = ({
   errors,
 }) => {
   return (
-    <>
+    <div className="">
       <Input
         label={label}
         name={name}
@@ -109,8 +111,10 @@ export const CustomInput = ({
       />
 
       <div className="error-message">
-        {errors[name]?.type && <span>This field is required</span>}
+        {errors[name]?.type && (
+          <span className="error-text">This field is required</span>
+        )}
       </div>
-    </>
+    </div>
   );
 };

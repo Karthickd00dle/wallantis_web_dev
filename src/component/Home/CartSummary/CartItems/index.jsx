@@ -3,6 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import "./style.scss";
 import { CustomButton, NormalInput } from "component/common";
 import { commonStateList } from "service/actionType";
+import { useForm } from "react-hook-form";
 import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 import { history } from "service/helpers";
 
@@ -20,6 +21,7 @@ const ItemsRow = ({
     price,
   },
 }) => {
+  const { register } = useForm();
   const [formData, setFormData] = useState({ productCount: 1 });
   const handleProductCount = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
@@ -67,6 +69,7 @@ const ItemsRow = ({
             onChange={handleProductCount}
             max="2"
             className="mx-1 text-center order-count-input"
+            register={register}
           />
           <div
             onClick={() =>

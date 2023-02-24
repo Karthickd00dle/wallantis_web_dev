@@ -649,6 +649,12 @@ input[type="number"] {
   pointer-events: auto;
 }
 .error-message {
-  @include fontLatoStyle(16px, 600, rgb(211, 36, 36));
   margin-top: 10px;
+  .error-text {
+    @include fontLatoStyle(
+      16px !important,
+      600 !important,
+      rgb(211, 36, 36) !important
+    );
+  }
 }

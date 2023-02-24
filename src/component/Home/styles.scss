@@ -235,18 +235,18 @@
   }
 
   .why-wallantics-container {
-    margin-top: 60px;
+    margin-top: 250px;
+    filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+    width: 100%;
     background: radial-gradient(
       88.26% 88.26% at 50.62% 41.31%,
       rgba(241, 224, 206, 0.33) 0%,
       rgba(237, 217, 196, 0.2739) 52.6%,
       rgba(235, 167, 98, 0) 100%
     );
-    filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
-    width: 100%;
-
     .why-wallantics--title {
       width: 100%;
+      padding-top: 100px;
       height: 60px;
       @include fontPoppinsStyle(40px, 700, #000000, 60px);
       justify-content: center;

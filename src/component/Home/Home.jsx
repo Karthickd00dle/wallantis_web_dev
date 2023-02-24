@@ -61,12 +61,15 @@ const carouselData = [
   },
 ];
 
-function CardBlog(prodData) {
+function CardBlog({ prodData }) {
+  const goTo = () => {
+    history.push("/profile/blogdetails");
+  };
   return (
-    <div className="blog-container">
-      <img className="blog-post-img mt-3" src={prodData.prodData.image} />
+    <div className="blog-container" onClick={goTo}>
+      <img className="blog-post-img mt-3" src={prodData.image} />
       <div className="blog-post-date">11.10.2022</div>
-      <div className="blog-post-title">{prodData.prodData.title}</div>
+      <div className="blog-post-title">{prodData.title}</div>
       <div className="blog-post-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
       </div>
