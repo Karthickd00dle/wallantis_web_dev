@@ -9,9 +9,8 @@ import {
   FavoriteBorder,
 } from "@mui/icons-material";
 import { connect, useDispatch } from "react-redux";
-import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
-import { useLocation } from "react-router-dom";
+import { Toast } from "service/toast";
 
 function CardThreeFC({
   onClickCard,
@@ -21,11 +20,9 @@ function CardThreeFC({
   setCartData,
   setFavData,
   isHome,
-  productDetailData,
-  cartItemData,
 }) {
   const dispatch = useDispatch();
-  let location = useLocation();
+
   const { image, title, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
   const [fav, setFav] = useState(false);
@@ -43,8 +40,10 @@ function CardThreeFC({
     setCart(!cart);
     if (checked) {
       setCartData([...cartData, { name: name, checked: checked }]);
+      Toast({ type: "success", message: "Item added to Cart" });
     } else {
       setCartData(cartData.filter((data) => data.name !== name));
+      Toast({ type: "info", message: "Item removed from Cart" });
     }
   };
 

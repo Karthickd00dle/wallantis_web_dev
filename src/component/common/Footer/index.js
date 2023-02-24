@@ -17,7 +17,6 @@ import {
   TwitterIcon,
 } from "assets/icons/FooterIcons/FooterIcons";
 import ScrollToTop from "component/ScrollToTop";
-import { Toast } from "service/toast";
 
 export const NormalFooter = () => {
   const {

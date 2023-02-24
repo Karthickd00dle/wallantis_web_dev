@@ -17,9 +17,9 @@ export const sortingFunction = (value, data) => {
 
 export const addToCart = (data, newData) => {
   if (newData.includes(data)) {
-    Toast({ type: "warning", message: "Item already added to Cart" });
+    Toast({ type: "warning", message: "Item already exists" });
   } else {
-    Toast({ type: "success", message: "Successfully added to Cart" });
+    Toast({ type: "success", message: "Item added to Cart" });
     return newData.push(data);
   }
 };
