@@ -1,5 +1,6 @@
 export const commonStateList = {
   productListing: "PRODUCT_LISTING",
   productDetail: "PRODUCT_DETAIL",
-  cartItem:"CART_ITEM",
+  cartItem: "CART_ITEM",
+  wishlistItem: "WISHLIST_ITEM",
 };

@@ -44,33 +44,33 @@
   margin-left: 45%;
   margin-top: 50px;
 }
-.names{
+.names {
   justify-content: space-evenly;
   margin-top: 35px;
-  input{
-  border: 1px solid #9D9D9D;
-border-radius: 10px;
-width: 609.7px;
-height: 63px;
-padding: 2px 2px 2px 24px;
+  input {
+    border: 1px solid #9d9d9d;
+    border-radius: 10px;
+    width: 609.7px;
+    height: 63px;
+    padding: 2px 2px 2px 24px;
   }
-  span{
+  span {
     font-weight: 500;
-font-size: 20px;
-color: #000000;
+    font-size: 20px;
+    color: #000000;
   }
 }
-.enumber{
-  @extend .names
+.enumber {
+  @extend .names;
 }
-.countries{
-  @extend .names
+.countries {
+  @extend .names;
 }
-.citycode{
-  @extend .names
+.citycode {
+  @extend .names;
 }
-.companyname{
-  @extend .names
+.companyname {
+  @extend .names;
 }
 
 .message {

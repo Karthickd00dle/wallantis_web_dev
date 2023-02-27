@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { NormalInput, NormalButton } from "component/common";
+import { useForm } from "react-hook-form";
 import "./index.scss";
 
 export default function ChangePassword() {
+  const { register } = useForm();
   const [inputData, setInputData] = useState({});
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });
   };
-  console.log(inputData);
+
   return (
     <div className="password-form">
       <h6>Change Password</h6>
@@ -20,6 +22,7 @@ export default function ChangePassword() {
           className={"text-input mt-3"}
           onChange={handleInput}
           value={inputData.password}
+          register={register}
         />
       </div>
 
@@ -30,6 +33,7 @@ export default function ChangePassword() {
           className={"text-input mt-3"}
           onChange={handleInput}
           value={inputData.newPassword}
+          register={register}
         />
       </div>
 
@@ -39,6 +43,7 @@ export default function ChangePassword() {
           name={"repeatPassword"}
           className={"text-input mt-3"}
           onChange={handleInput}
+          register={register}
           value={inputData.repeatPassword}
         />
       </div>

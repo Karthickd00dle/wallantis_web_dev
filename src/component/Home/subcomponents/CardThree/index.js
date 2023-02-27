@@ -1,14 +1,60 @@
-import React, { useState } from "react";
-
-import CartSVGComponent from "assets/svg/HomePage/cartSVG";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
 import { Checkbox } from "@mui/material";
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
-function CardThree({ onClickCard, prodData }) {
-  const { image, title, price } = prodData;
+import {
+  Favorite,
+  ShoppingCart,
+  ShoppingCartOutlined,
+  FavoriteBorder,
+} from "@mui/icons-material";
+import { connect, useDispatch } from "react-redux";
+import { commonStateList } from "service/actionType";
+import { Toast } from "service/toast";
 
+function CardThreeFC({
+  onClickCard,
+  prodData,
+  cartData,
+  favData,
+  setCartData,
+  setFavData,
+  isHome,
+}) {
+  const dispatch = useDispatch();
+
+  const { image, title, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
+  const [fav, setFav] = useState(false);
+  const [cart, setCart] = useState(false);
+
+  const handleFavorite = ({ target: { name, checked } }, prodData) => {
+    setFav(!fav);
+    if (checked) {
+      setFavData([...favData, { ...prodData, checked: checked }]);
+      Toast({ type: "success", message: "Item added to Wishlist" });
+    } else {
+      setFavData(favData.filter((data) => data.title !== name));
+      Toast({ type: "info", message: "Item removed from Wishlist" });
+    }
+  };
+  const handleCart = ({ target: { name, checked } }, prodData) => {
+    console.log(prodData);
+    setCart(!cart);
+    if (checked) {
+      setCartData([...cartData, { ...prodData, checked: checked }]);
+      Toast({ type: "success", message: "Item added to Cart" });
+    } else {
+      setCartData(cartData.filter((data) => data.title !== name));
+      Toast({ type: "info", message: "Item removed from Cart" });
+    }
+  };
+
+  useEffect(() => {
+    dispatch({ type: commonStateList.cartItem, payload: cartData });
+    dispatch({ type: commonStateList.wishlistItem, payload: favData });
+  }, [cartData, favData]);
+
   return (
     <div
       className="card-three-container"
@@ -22,11 +68,57 @@ function CardThree({ onClickCard, prodData }) {
       <div className="card-three-image-section">
         {iconVisibility ? (
           <div className="icon-container">
-            <div className="icon-1">
-              <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
-            </div>
-            <div className="icon-2">
-              <CartSVGComponent />
+            <div className="icon-container-inner d-flex p-2">
+              <div className="icon-1">
+                <Checkbox
+                  name={title}
+                  checked={fav}
+                  onChange={(e) => handleFavorite(e, prodData)}
+                  icon={
+                    <FavoriteBorder
+                      sx={ternaryCondition(
+                        isHome,
+                        { color: "#000000" },
+                        { color: "#2A71F9" }
+                      )}
+                    />
+                  }
+                  checkedIcon={
+                    <Favorite
+                      sx={ternaryCondition(
+                        isHome,
+                        { color: "#ed1b24" },
+                        { color: "#2A71F9" }
+                      )}
+                    />
+                  }
+                />
+              </div>
+              <div className="icon-2">
+                <Checkbox
+                  name={title}
+                  checked={cart}
+                  onChange={(e) => handleCart(e, prodData)}
+                  icon={
+                    <ShoppingCartOutlined
+                      sx={ternaryCondition(
+                        isHome,
+                        { color: "#000000" },
+                        { color: "#2A71F9" }
+                      )}
+                    />
+                  }
+                  checkedIcon={
+                    <ShoppingCart
+                      sx={ternaryCondition(
+                        isHome,
+                        { color: "#ed1b24" },
+                        { color: "#2A71F9" }
+                      )}
+                    />
+                  }
+                />
+              </div>
             </div>
           </div>
         ) : null}
@@ -47,5 +139,13 @@ function CardThree({ onClickCard, prodData }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cartItemData: state.commonStore.cartItemState,
+    productDetailData: state.commonStore.productDetailState,
+  };
+};
+const CardThree = connect(mapStateToProps, null)(CardThreeFC);
 
 export default CardThree;

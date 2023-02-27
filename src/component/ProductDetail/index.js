@@ -36,6 +36,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
     dispatch({ type: commonStateList.cartItem, payload: cart });
   };
 
+  const onClickCard = (data) => {
+    setSelectedImg(data?.image[0]);
+  };
   const selectColor = (color) => {
     setWallColor(color);
   };
@@ -52,7 +55,12 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
       setProductState(null);
       setSelectedImg(null);
     };
-  }, []);
+  }, [productState]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedImg]);
+  console.log(selectedImg);
   return (
     <>
       <div className="product-detail-container">
@@ -376,7 +384,11 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
         <div className="Product-detail-cards">
           {bestsellerProducts.map((prodData) => (
             // <CardThree prodData={prodData} key={prodData.id} />
-            <CardThree prodData={prodData} key={prodData.id} />
+            <CardThree
+              onClickCard={onClickCard}
+              prodData={prodData}
+              key={prodData.id}
+            />
           ))}
         </div>
 

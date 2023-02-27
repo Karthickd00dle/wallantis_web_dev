@@ -648,3 +648,13 @@ input[type="number"] {
   cursor: pointer !important;
   pointer-events: auto;
 }
+.error-message {
+  margin-top: 10px;
+  .error-text {
+    @include fontLatoStyle(
+      16px !important,
+      600 !important,
+      rgb(211, 36, 36) !important
+    );
+  }
+}

@@ -117,8 +117,12 @@ const ProductListingFC = ({ productListingData }) => {
     ...productListingData?.map(({ price }) => price)
   );
   const dispatch = useDispatch();
-  const location = useLocation().pathname.split("/").slice(-1)[0];
+  const location = useLocation();
+  const locationLabel = location?.pathname?.split("/")?.slice(-1)[0];
+  console.log(locationLabel);
   const [checkedValues, setCheckedValues] = useState([]);
+  const [cartData, setCartData] = useState([]);
+  const [favData, setFavData] = useState([]);
   const [pricevalue, setPriceValue] = useState([0, maximumPrice]);
   const [productData, setProductData] = useState(productListingData);
 
@@ -143,7 +147,7 @@ const ProductListingFC = ({ productListingData }) => {
   }, [productListingData]);
   return (
     <div className="product-listing-container">
-      <ProductHeader bannerLabel={location} />
+      {/* <ProductHeader bannerLabel={locationLabel} /> */}
       <div className="d-flex mt-4">
         <ProductListingGrid
           maximumPrice={maximumPrice}
@@ -156,7 +160,7 @@ const ProductListingFC = ({ productListingData }) => {
         <div className="d-flex flex-column w-100">
           <ProductSorting
             itemCount={productListingData?.length + 1}
-            itemLabel={location}
+            // itemLabel={locationLabel}
             itemData={productListingData}
           />
           <div className="card-container">
@@ -168,8 +172,15 @@ const ProductListingFC = ({ productListingData }) => {
                         price >= pricevalue[0] && price <= pricevalue[1]
                     )
                     ?.map((prodData) => (
-                      <div key={prodData.id} className="col-4">
+                      <div
+                        key={prodData.id}
+                        className="card-container-main col-4"
+                      >
                         <CardThree
+                          cartData={cartData}
+                          favData={favData}
+                          setCartData={setCartData}
+                          setFavData={setFavData}
                           onClickCard={(e) => handleProductDetail(e)}
                           prodData={prodData}
                         />

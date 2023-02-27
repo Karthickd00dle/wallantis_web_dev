@@ -14,7 +14,7 @@ export default function FAQ() {
         </NormalNavigate>
       </div>
       <div>
-        <Accordion defaultActiveKey="0">
+        <Accordion>
           <Accordion.Item className="item1" eventKey="0">
             <Accordion.Header className="according-header">
               <h6>Can I get wallpaper for my size requirement ?</h6>

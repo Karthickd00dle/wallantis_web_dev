@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NormalInput, CommonRadioGroup, NormalButton } from "component/common";
-
+import { useForm } from "react-hook-form";
 import "./index.scss";
 
 export default function ProfileForm({ handleInput, inputData }) {
+  const { register } = useForm();
   const [isEmailDisabled, setEmailDisabled] = useState(true);
   const [isMobileDisabled, setMobileDisabled] = useState(true);
   return (
@@ -16,6 +17,7 @@ export default function ProfileForm({ handleInput, inputData }) {
             className={"text-input"}
             onChange={handleInput}
             value={inputData.firstName}
+            register={register}
           />
         </div>
         <div className="input-container">
@@ -24,6 +26,7 @@ export default function ProfileForm({ handleInput, inputData }) {
             className={"text-input"}
             onChange={handleInput}
             value={inputData.lastName}
+            register={register}
           />
         </div>
       </div>
@@ -35,6 +38,7 @@ export default function ProfileForm({ handleInput, inputData }) {
             className={"text-input mt-3"}
             onChange={handleInput}
             value={inputData.profile}
+            register={register}
           />
         </div>
 
@@ -62,6 +66,7 @@ export default function ProfileForm({ handleInput, inputData }) {
             onChange={handleInput}
             value={inputData.email}
             disabled={isEmailDisabled}
+            register={register}
           />
           <p
             className="change-text"
@@ -79,6 +84,7 @@ export default function ProfileForm({ handleInput, inputData }) {
             onChange={handleInput}
             value={inputData.mobile}
             disabled={isMobileDisabled}
+            register={register}
           />
           <p
             className="change-text"

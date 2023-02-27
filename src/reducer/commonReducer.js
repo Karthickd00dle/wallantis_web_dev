@@ -5,6 +5,7 @@ const initialState = {
   productListingState: wallpaperProducts,
   productDetailState: {},
   cartItemState: [],
+  wishlistItemState: [],
 };
 const commonReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
@@ -23,6 +24,12 @@ const commonReducer = (state = initialState, { type, payload } = {}) => {
       return {
         ...state,
         cartItemState: payload,
+      };
+
+    case commonStateList.wishlistItem:
+      return {
+        ...state,
+        wishlistItemState: payload,
       };
 
     default:

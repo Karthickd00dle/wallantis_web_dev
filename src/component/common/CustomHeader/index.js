@@ -71,8 +71,8 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
   };
 
   useEffect(() => {
-    setItemCount(cartItemData.slice().length);
-  }, [cartItemData.slice()]);
+    setItemCount(cartItemData?.length);
+  }, [cartItemData]);
 
   useEffect(() => {
     getAllProducts();

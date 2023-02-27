@@ -1,4 +1,3 @@
-import { Home } from "component/Home/Home";
 import React, { useMemo, useState, Suspense } from "react";
 import { connect } from "react-redux";
 

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { history } from "service/helpers";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 
@@ -14,68 +15,78 @@ export default function Catalogue() {
       </div>
       <div className="catalogue-wallpaper">
         <label>Wallpaper</label>
-        <span>VIEW ALL</span>
+        <span onClick={() => history.push("/home/product-listing/wallpaper")}>
+          VIEW ALL
+        </span>
       </div>
       <div className="wallpaperlist">
-        <div className="catalogue-wallpaper1">
+        <div className="catalogue-wallpaper">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="catalogue-wallpaper2">
+        <div className="catalogue-wallpaper">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="catalogue-wallpaper3">
+        <div className="catalogue-wallpaper">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="catalogue-wallpaper4">
+        <div className="catalogue-wallpaper">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
       </div>
 
       <div className="catalogue-wallmural">
         <label>Wall Mural</label>
-        <span>VIEW ALL</span>
+        <span onClick={() => history.push("/home/product-listing/wall-murals")}>
+          VIEW ALL
+        </span>
       </div>
 
       <div className="wallmurallist">
-        <div className="wallmural1">
+        <div className="wallmural">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="wallmural2">
+        <div className="wallmural">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="wallmural3">
+        <div className="wallmural">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="wallmural4">
+        <div className="wallmural">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
       </div>
 
       <div className="catalogue-stickerwallpaper">
         <label>Sticker Wallpaper</label>
-        <span>VIEW ALL</span>
+        <span
+          onClick={() =>
+            history.push("/home/product-listing/sticker-wallpaper")
+          }
+        >
+          VIEW ALL
+        </span>
       </div>
 
       <div className="wallpaperstickerlist">
-        <div className="wallpapersticker1">
+        <div className="wallpapersticker">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="wallpapersticker2">
+        <div className="wallpapersticker">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="wallpapersticker3">
+        <div className="wallpapersticker">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
 
-        <div className="wallpapersticker4">
+        <div className="wallpapersticker">
           <div className="viewcatalogue">View Catalogue </div>
         </div>
       </div>

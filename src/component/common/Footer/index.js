@@ -4,6 +4,7 @@ import "./style.scss";
 import GooglePlayIcon from "assets/images/FooterIcons/GooglePlayIcon.png";
 import AppStoreIcon from "assets/images/FooterIcons/AppStoreIcon.png";
 import { NormalInput } from "../NormalInput";
+import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import {
   BrandLogoIcon,
@@ -16,18 +17,21 @@ import {
   TwitterIcon,
 } from "assets/icons/FooterIcons/FooterIcons";
 import ScrollToTop from "component/ScrollToTop";
-import { Toast } from "service/toast";
 
 export const NormalFooter = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const history = useHistory();
   const [formData, setFormData] = useState({ newslettermailinfo: "" });
   const handleMailInfo = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
   };
-  const submitMailInfo = () => {
-    if (formData.newslettermailinfo !== "") {
-      Toast({ type: "success", message: "Subscribed for Newsletter" });
-    }
+  const submitMailInfo = (data) => {
+    console.log(data);
   };
 
   return (
@@ -54,20 +58,28 @@ export const NormalFooter = () => {
                 <LinkedInIcon className="ms-1" />
               </a>
             </div>
-            <div className="pt-5 mt-3 w-100">
-              <label className="pb-3 subscribe-label">
-                Subscribe for our Newsletter
-              </label>
-              <NormalInput
-                name="newslettermailinfo"
-                value={formData.newslettermailinfo}
-                onChange={handleMailInfo}
-                buttonOnClick={() => submitMailInfo()}
-                placeholder="Enter your email address"
-                isSubmitButton
-                submitButtonLabel="Subscribe"
-              />
-            </div>
+            <form onSubmit={handleSubmit(submitMailInfo)}>
+              <div className="pt-5 mt-3 w-100">
+                <label className="pb-3 subscribe-label">
+                  Subscribe for our Newsletter
+                </label>
+                <NormalInput
+                  name="newslettermailinfo"
+                  value={formData.newslettermailinfo}
+                  onChange={handleMailInfo}
+                  buttonOnClick={() => submitMailInfo()}
+                  placeholder="Enter your email address"
+                  isSubmitButton
+                  submitButtonLabel="Subscribe"
+                  register={register}
+                />
+                <div className="error-message">
+                  {errors["newslettermailinfo"]?.type && (
+                    <span className="error-text">This field is required</span>
+                  )}
+                </div>
+              </div>
+            </form>
           </div>
           <div className="footer-options  ms-5 col-md-2">
             <label className="brand-info">Useful Links</label>

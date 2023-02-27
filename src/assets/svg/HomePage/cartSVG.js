@@ -1,13 +1,6 @@
 import * as React from "react";
 const CartSVGComponent = (props) => (
-  <svg
-    width={18}
-    height={18}
-    viewBox="0 0 18 18"
-    fill="none"
-    
-    {...props}
-  >
+  <svg width={23} height={23} viewBox="0 0 18 18" fill="none" {...props}>
     <g clipPath="url(#clip0_1458_91126)">
       <path
         d="M6.66406 16C7.28538 16 7.78906 15.4963 7.78906 14.875C7.78906 14.2537 7.28538 13.75 6.66406 13.75C6.04274 13.75 5.53906 14.2537 5.53906 14.875C5.53906 15.4963 6.04274 16 6.66406 16Z"

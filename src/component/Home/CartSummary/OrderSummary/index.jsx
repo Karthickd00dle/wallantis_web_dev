@@ -4,8 +4,12 @@ import "./style.scss";
 import { connect } from "react-redux";
 import { NormalInput } from "component/common";
 import { TextField } from "@mui/material";
-
+import { useForm } from "react-hook-form";
 export const OrderSummaryMain = ({ cartItemData }) => {
+  const {
+    register,
+    formState: { errors },
+  } = useForm();
   const [orderSummary, setOrderSummary] = useState(cartItemData);
   const [total, setTotal] = useState("");
   useEffect(() => {
@@ -38,8 +42,11 @@ export const OrderSummaryMain = ({ cartItemData }) => {
             <div className="me-1 order-count cursor-pointer">-</div>
             <NormalInput
               max="2"
+              name="add"
               className="mx-1 order-count-input"
               value={orderSummary.length}
+              register={register}
+              errors={errors}
             />
             <div className="order-count ms-1 cursor-pointer">+</div>
           </div>

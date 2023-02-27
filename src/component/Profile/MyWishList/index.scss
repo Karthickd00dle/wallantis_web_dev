@@ -14,10 +14,15 @@
   border-radius: 4px;
   margin-top: 20px;
   padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  .remove-item-label {
+    @include fontLatoStyle(22px, 700, #f14c54, 29px);
+  }
 }
 
 .title {
-  @include fontLatoStyle(32px, 700, #000000, 38px);
+  @include fontLatoStyle(28px, 700, #000000, 38px);
 }
 
 .del-date {
