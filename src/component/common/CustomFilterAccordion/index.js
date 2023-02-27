@@ -10,8 +10,25 @@ export const CustomFilterAccordion = ({
   itemlist,
   index,
   onChange,
-  wallpaperProducts,
+  productItems,
 }) => {
+  const filterheader = itemheader.toLowerCase().replace(" ", "_");
+
+  const itemCount = (itemlabel, filterheader) => {
+    switch (filterheader) {
+      case "categories":
+        return productItems.filter((item) => {
+          return item.category === itemlabel;
+        }).length;
+      case "sub_categories":
+        return productItems.filter((item) => {
+          return item.sub_category === itemlabel;
+        }).length;
+      default:
+        return null;
+    }
+  };
+
   return (
     <Accordion key={index}>
       <AccordionSummary
@@ -30,11 +47,7 @@ export const CustomFilterAccordion = ({
                 <label className="ps-1 filter-item">{itemlabel}</label>
               </div>
               <label className="filter-item-count pe-3">
-                {`(${
-                  wallpaperProducts.filter((item) => {
-                    return item.category === itemlabel;
-                  }).length
-                })`}
+                {`(${itemCount(itemlabel, filterheader)})`}
               </label>
             </ListItem>
           </List>

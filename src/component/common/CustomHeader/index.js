@@ -33,7 +33,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
 
   const handleLogoClick = () => {
     history.push("/home/home");
-
+    window.location.reload(false);
     window.scrollTo(0, 0);
   };
 

@@ -1,8 +1,8 @@
-import { wallpaperProducts } from "config";
+import { productItems } from "config";
 import { commonStateList } from "service/actionType";
 
 const initialState = {
-  productListingState: wallpaperProducts,
+  productListingState: productItems,
   productDetailState: {},
   cartItemState: [],
   wishlistItemState: [],
