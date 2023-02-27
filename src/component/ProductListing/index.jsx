@@ -1,11 +1,7 @@
 import CardThree from "component/Home/subcomponents/CardThree";
 import { useLocation } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
-import {
-  SortingMenuList,
-  productListingFilter,
-  wallpaperProducts,
-} from "config";
+import { SortingMenuList, productListingFilter, productItems } from "config";
 import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
 import WallpapersHeader from "assets/images/ProductListing/Wallpapers-Header.png";
@@ -17,6 +13,7 @@ import { sortingFunction } from "action/CommonAct";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
+import { ternaryCondition } from "service/helperFunctions";
 
 export function ProductHeader({ bannerLabel }) {
   return (
@@ -44,7 +41,7 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
   return (
     <div className="sorting-container ">
       <div>
-        <label className="label-item-count">{itemCount}</label>
+        <label className="label-item-count">{itemCount - 1}</label>
         <label className="ps-1 label-item-label">{itemLabel}</label>
       </div>
       <div className="d-flex align-items-center">
@@ -67,34 +64,40 @@ export const ProductListingGrid = ({
   maximumPrice,
   pricevalue,
   setPriceValue,
+  locationLabel,
 }) => {
   const handlePriceFilter = (event, newValue) => {
     setPriceValue(newValue);
   };
-  const handleCheck = (event) => {
-    const { name } = event.target;
-    if (event.target.checked) {
+
+  const handleCheck = ({ target: { name, checked } }) => {
+    if (checked) {
       setCheckedValues([...checkedValues, name]);
     } else {
       setCheckedValues(checkedValues.filter((v) => v !== name));
     }
   };
+  console.log(checkedValues);
   return (
     <>
       <div className="filter-container">
-        {productListingFilter.map(
-          ({ itemheader, itemlist, itemlabel }, index) => (
-            <CustomFilterAccordion
-              key={index}
-              itemheader={itemheader}
-              itemlabel={itemlabel}
-              itemlist={itemlist}
-              index={index}
-              wallpaperProducts={wallpaperProducts}
-              onChange={handleCheck}
-            />
+        {ternaryCondition(
+          locationLabel[0].split(" ").includes("all"),
+          productListingFilter.wallpaper,
+          productListingFilter.wallpaper.filter(
+            (data) => data.itemheader !== "Categories"
           )
-        )}
+        ).map(({ itemheader, itemlist, itemlabel }, index) => (
+          <CustomFilterAccordion
+            key={index}
+            itemheader={itemheader}
+            itemlabel={itemlabel}
+            itemlist={itemlist}
+            index={index}
+            productItems={productItems}
+            onChange={handleCheck}
+          />
+        ))}
         <Accordion>
           <AccordionSummary expandIcon={<ExpandIcon height={10} width={10} />}>
             <label className="filter-title cursor-pointer">Price</label>
@@ -113,13 +116,21 @@ export const ProductListingGrid = ({
 };
 
 const ProductListingFC = ({ productListingData }) => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const locationLabel = location?.pathname
+    ?.split("/")
+    ?.map((d) => {
+      if (d !== "") {
+        return `${d.replace("-", " ")}`;
+      }
+    })
+    .slice(-1);
+
   const maximumPrice = Math.max(
     ...productListingData?.map(({ price }) => price)
   );
-  const dispatch = useDispatch();
-  const location = useLocation();
-  const locationLabel = location?.pathname?.split("/")?.slice(-1)[0];
-  console.log(locationLabel);
+
   const [checkedValues, setCheckedValues] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [favData, setFavData] = useState([]);
@@ -134,34 +145,38 @@ const ProductListingFC = ({ productListingData }) => {
     history.push("/home/product-details");
   };
 
-  const filteredCheckedValues = checkedValues?.filter((v) =>
-    productData
-      ?.map((item) => {
-        return item?.category;
-      })
-      .includes(v)
-  );
+  const filterProducts = () => {
+    console.log(locationLabel[0]);
+    if (locationLabel[0] === "all wallpaper") {
+      setProductData(productListingData);
+    } else {
+      let filtered = productListingData.filter(
+        (item) => item.type === locationLabel[0]
+      );
+      setProductData(filtered);
+    }
+  };
 
   useEffect(() => {
-    return () => setProductData(productListingData);
-  }, [productListingData]);
+    filterProducts();
+  }, [locationLabel[0]]);
   return (
     <div className="product-listing-container">
-      {/* <ProductHeader bannerLabel={locationLabel} /> */}
+      <ProductHeader bannerLabel={locationLabel} />
       <div className="d-flex mt-4">
         <ProductListingGrid
+          locationLabel={locationLabel}
           maximumPrice={maximumPrice}
           checkedValues={checkedValues}
           setCheckedValues={setCheckedValues}
-          filteredCheckedValues={filteredCheckedValues}
           pricevalue={pricevalue}
           setPriceValue={setPriceValue}
         />
         <div className="d-flex flex-column w-100">
           <ProductSorting
-            itemCount={productListingData?.length + 1}
-            // itemLabel={locationLabel}
-            itemData={productListingData}
+            itemCount={productData?.length + 1}
+            itemLabel={locationLabel}
+            itemData={productData}
           />
           <div className="card-container">
             <div className="row">
@@ -192,7 +207,10 @@ const ProductListingFC = ({ productListingData }) => {
                         price >= pricevalue[0] && price <= pricevalue[1]
                     )
                     .filter((item) =>
-                      checkedValues.some((value) => value === item.category)
+                      checkedValues.some(
+                        (value) =>
+                          value === item.category || value === item.sub_category
+                      )
                     )
                     ?.map((prodData) => (
                       <div key={prodData.id} className="col-4">

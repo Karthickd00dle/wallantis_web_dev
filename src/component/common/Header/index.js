@@ -102,7 +102,7 @@ function Header({ productList }) {
         },
         {
           name: "Sports Flooring",
-          route: "/home/product-listing/gym-tiles-flooring",
+          route: "/home/product-listing/sports-flooring",
         },
         {
           name: "Yoga Mat",
