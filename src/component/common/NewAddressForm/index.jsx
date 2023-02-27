@@ -60,8 +60,7 @@ export default function NewAddressForm() {
           <NormalInput
             name={"repeatPassword"}
             className={"text-input mt-3"}
-            register=""
-            errors=""
+            register={register}
           />
         </div>
 

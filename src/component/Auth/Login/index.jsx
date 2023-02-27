@@ -20,9 +20,13 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    loginApiCall({ username: data.mailId, password: data.password })
-      .then(() => {
-        localStorage.setItem("authToken", register.mailId);
+    loginApiCall({
+      username: data.mailId,
+      password: data.password,
+      loginType: 3,
+    })
+      .then((res) => {
+        localStorage.setItem("authToken", res?.response?.access_token);
         ternaryCondition(
           location === "payment-page"
             ? ownProps.setActiveStep(1)
