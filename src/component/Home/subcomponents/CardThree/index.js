@@ -28,28 +28,32 @@ function CardThreeFC({
   const [fav, setFav] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const handleFavorite = ({ target: { name, checked } }) => {
+  const handleFavorite = ({ target: { name, checked } }, prodData) => {
     setFav(!fav);
     if (checked) {
-      setFavData([...favData, { name: name, checked: checked }]);
+      setFavData([...favData, { ...prodData, checked: checked }]);
+      Toast({ type: "success", message: "Item added to Wishlist" });
     } else {
-      setFavData(favData.filter((data) => data.name !== name));
+      setFavData(favData.filter((data) => data.title !== name));
+      Toast({ type: "info", message: "Item removed from Wishlist" });
     }
   };
-  const handleCart = ({ target: { name, checked } }) => {
+  const handleCart = ({ target: { name, checked } }, prodData) => {
+    console.log(prodData);
     setCart(!cart);
     if (checked) {
-      setCartData([...cartData, { name: name, checked: checked }]);
+      setCartData([...cartData, { ...prodData, checked: checked }]);
       Toast({ type: "success", message: "Item added to Cart" });
     } else {
-      setCartData(cartData.filter((data) => data.name !== name));
+      setCartData(cartData.filter((data) => data.title !== name));
       Toast({ type: "info", message: "Item removed from Cart" });
     }
   };
 
   useEffect(() => {
     dispatch({ type: commonStateList.cartItem, payload: cartData });
-  }, [cartData]);
+    dispatch({ type: commonStateList.wishlistItem, payload: favData });
+  }, [cartData, favData]);
 
   return (
     <div
@@ -69,7 +73,7 @@ function CardThreeFC({
                 <Checkbox
                   name={title}
                   checked={fav}
-                  onChange={(e) => handleFavorite(e)}
+                  onChange={(e) => handleFavorite(e, prodData)}
                   icon={
                     <FavoriteBorder
                       sx={ternaryCondition(
@@ -94,7 +98,7 @@ function CardThreeFC({
                 <Checkbox
                   name={title}
                   checked={cart}
-                  onChange={(e) => handleCart(e)}
+                  onChange={(e) => handleCart(e, prodData)}
                   icon={
                     <ShoppingCartOutlined
                       sx={ternaryCondition(

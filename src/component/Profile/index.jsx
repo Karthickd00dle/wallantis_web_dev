@@ -12,8 +12,9 @@ import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
+import { connect } from "react-redux";
 
-export default function Profile() {
+export function ProfileMain({ wishlistItemData }) {
   let location = useLocation();
 
   const [inputData, setInputData] = useState({});
@@ -77,7 +78,7 @@ export default function Profile() {
                 <MyOrders />
               </TabPanel>
               <TabPanel>
-                <WishList />
+                <WishList wishlistItemData={wishlistItemData} />
               </TabPanel>
               <TabPanel>
                 <SavedAddresses showAddressForm={showAddressForm} />
@@ -97,3 +98,12 @@ export default function Profile() {
     <AddNewAddress />
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    wishlistItemData: state.commonStore.wishlistItemState,
+  };
+};
+
+const Profile = connect(mapStateToProps, null)(ProfileMain);
+export default Profile;
