@@ -3,7 +3,7 @@ import { NormalSearch } from "component/common";
 import "./index.scss";
 import { useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
-import { DeleteItemIcon } from "assets/svg/Profile/ProfileSVGs";
+import { DeleteItemIcon } from "assets/svg/Profile";
 
 const WishlistCard = ({
   wishlistData: { id, title, color, price, image },
