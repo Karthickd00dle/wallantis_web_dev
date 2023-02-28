@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./header.scss";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -22,6 +22,7 @@ import Header from "../Header";
 import { Badge } from "@mui/material";
 
 export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
+  const outsideRef = useRef();
   const [searchInput, setSearchInput] = useState("");
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
@@ -71,6 +72,24 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
   };
 
   useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (
+        open &&
+        outsideRef.current &&
+        !outsideRef.current.contains(e.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, [open]);
+
+  useEffect(() => {
     setItemCount(cartItemData?.length);
   }, [cartItemData]);
 
@@ -78,7 +97,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
     getAllProducts();
   }, []);
   return (
-    <AppBar className="navbar-appbar" position="fixed">
+    <AppBar className="navbar-appbar" position="fixed" ref={outsideRef}>
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
           <div className="header-top-container">
