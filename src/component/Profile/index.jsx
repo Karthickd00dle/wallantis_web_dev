@@ -15,6 +15,8 @@ import { updateProfile } from "action/ProfileAct";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 import { connect } from "react-redux";
+import { history } from "service/helpers";
+import { logout } from "service/utilities";
 
 export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
   let location = useLocation();
@@ -43,14 +45,22 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
       roleType: inputData.profile,
       gender: inputData.gender,
     };
-    // updateProfileAPICall(payload).then((res) => {
-    //   console.log(res);
-    // });
+    updateProfileAPICall(payload).then((res) => {
+      console.log(res);
+    });
+  };
+
+  const signOut = () => {
+    logout();
   };
 
   useEffect(() => {
     scrollToTop();
   }, [tabIndex]);
+
+  useEffect(() => {
+    setTabIndex(location?.state);
+  }, [location?.state]);
   return isAddressForm ? (
     <>
       <div className="profile-main">
@@ -82,7 +92,7 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
               <Tab>My Wishlist</Tab>
               <Tab>Saved Addresses</Tab>
               <Tab>Change Password</Tab>
-              <Tab>Sign Out</Tab>
+              <Tab onClick={signOut}>Sign Out</Tab>
             </TabList>
             <img src={chatIcon} className="chatIcon" />
             <div className="card-info">
@@ -104,9 +114,6 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
               </TabPanel>
               <TabPanel>
                 <ChangePassword />
-              </TabPanel>
-              <TabPanel>
-                <h2>Any content 6</h2>
               </TabPanel>
             </div>
           </Tabs>

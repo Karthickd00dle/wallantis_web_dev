@@ -100,14 +100,15 @@ const CartItemsMain = ({ cartItemData }) => {
 
     dispatch({ type: commonStateList.cartItem, payload: cart });
   };
+
   return (
     <div>
       <div className="cart-items-container">
         {ternaryCondition(
           cartItemData?.length !== 0,
           <div className="cart-items-inner-container">
-            {cartItemData?.map((itemData) => (
-              <div className="item-container-main">
+            {cartItemData?.map((itemData, index) => (
+              <div className="item-container-main" key={index}>
                 <ItemsRow itemData={itemData} removeItem={removeItem} />
               </div>
             ))}
@@ -118,7 +119,7 @@ const CartItemsMain = ({ cartItemData }) => {
         )}
       </div>
       {conditionalLoad(
-        cartItemData.length !== 0,
+        cartItemData?.length !== 0,
         <CustomButton
           className="mt-5"
           style={{ width: "245px", height: "50px", backgroundColor: "#A26220" }}

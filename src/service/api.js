@@ -13,7 +13,7 @@ export let apiCall = async function ({
     // setting token
     if (localStorage.getItem("authToken") && !isForgotPassword) {
       axiosInstance.defaults.headers.common["x-access-token"] =
-        "bearer " + localStorage.getItem("authToken");
+        "Bearer " + localStorage.getItem("authToken");
     }
     axiosInstance.defaults.headers["Access-Control-Allow-Origin"] = "*";
     axiosInstance[method](`${getServiceUrl(baseURL)}${api}`, body ? body : "")
@@ -37,7 +37,7 @@ export let apiCall = async function ({
 //status Helper
 let statusHelper = (status, data) => {
   if (data.status === 401 || data.status === 403) {
-    logout();
+    // logout();
   }
   if (status) {
     return {

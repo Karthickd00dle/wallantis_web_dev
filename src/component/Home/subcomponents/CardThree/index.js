@@ -39,7 +39,6 @@ function CardThreeFC({
     }
   };
   const handleCart = ({ target: { name, checked } }, prodData) => {
-    console.log(prodData);
     setCart(!cart);
     if (checked) {
       setCartData([...cartData, { ...prodData, checked: checked }]);

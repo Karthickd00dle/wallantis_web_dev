@@ -26,6 +26,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
       loginType: 3,
     })
       .then((res) => {
+        console.log(res?.response?.access_token);
         localStorage.setItem("authToken", res?.response?.access_token);
         ternaryCondition(
           location === "payment-page"

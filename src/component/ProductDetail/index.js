@@ -29,9 +29,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
-    let cart = cartItemData.map((item) => {
-      return item;
-    });
+    let cart = [...cartItemData];
     addToCart(productState, cart);
     dispatch({ type: commonStateList.cartItem, payload: cart });
   };
@@ -60,7 +58,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [selectedImg]);
-  console.log(selectedImg);
+
   return (
     <>
       <div className="product-detail-container">

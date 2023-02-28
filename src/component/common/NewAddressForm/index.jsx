@@ -9,9 +9,12 @@ import { useForm } from "react-hook-form";
 import "./index.scss";
 
 export default function NewAddressForm() {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
+  const handleRegister = (data) => {
+    console.log(data);
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit(handleRegister)}>
       <div className="address-form">
         <h1>Add New Address</h1>
 
@@ -103,6 +106,7 @@ export default function NewAddressForm() {
           <CommonRadioGroup
             name={"addressType"}
             className={"text-input"}
+            register={register}
             radioOptions={[
               { labelText: "Home", value: "home", id: "addressType" },
               { labelText: "Office", value: "office", id: "addressType" },
