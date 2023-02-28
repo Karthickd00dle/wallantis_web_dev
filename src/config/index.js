@@ -924,7 +924,7 @@ export const productItems = [
     id: 29,
     title: "Wooden Blinds 1",
     image: [
-      "http://www.artfulhome.in/bamboo_blinds/woodvenetian_images/AdobeStock_279437469.webp",
+      "https://www.artfulhome.in/bamboo_blinds/woodvenetian_images/AdobeStock_279437469.webp",
     ],
     price: 2800,
     category: "Sticker Wallpaper",
@@ -939,7 +939,7 @@ export const productItems = [
     id: 30,
     title: "Wooden Blinds 2",
     image: [
-      "http://bocablinds.com/wp-content/uploads/2016/03/EverWood_2007_DiningRoom.jpg",
+      "https://bocablinds.com/wp-content/uploads/2016/03/EverWood_2007_DiningRoom.jpg",
     ],
     price: 2800,
     category: "Sticker Wallpaper",
@@ -1040,7 +1040,7 @@ export const productItems = [
     id: 37,
     title: "GYM Tiles Hexagonal 1",
     image: [
-      "https://5.imimg.com/data5/LI/WC/MA/SELLER-2751211/interlocking-rubber-gym-floor-tiles-500x500.jpg",
+      "https://5.imimg.com/data5/SELLER/Default/2022/3/DW/KO/GG/9126481/rubber-flooring-tiles-500x500.jpg",
     ],
     price: 2800,
     category: "Sticker Wallpaper",
@@ -1054,7 +1054,9 @@ export const productItems = [
   {
     id: 38,
     title: "GYM Tiles Hexagonal 2",
-    image: ["https://m.media-amazon.com/images/I/814cVC7Nt7L._SL1500_.jpg"],
+    image: [
+      "https://www.arizonatile.com/wp-content/uploads/2020/12/paros-navy-and-black-hex-porcelain-tile-floor.jpg",
+    ],
     price: 2800,
     category: "Sticker Wallpaper",
     sub_category: "Kids",
@@ -1113,7 +1115,7 @@ export const productItems = [
     id: 42,
     title: "Sports Flooring 2",
     image: [
-      "http://www.artfulhome.in/flooring/vinyl_flooring/vinyl_images/vinyl_sports.jpg",
+      "https://www.artfulhome.in/flooring/vinyl_flooring/vinyl_images/vinyl_sports.jpg",
     ],
     price: 2800,
     category: "Sticker Wallpaper",
