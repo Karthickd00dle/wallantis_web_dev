@@ -23,15 +23,15 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
   const [wallpaperColor, setWallColor] = useState("Gray");
+  const [cartData, setCartData] = useState(cartItemData);
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
   );
 
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
-    let cart = [...cartItemData];
-    addToCart(productState, cart);
-    dispatch({ type: commonStateList.cartItem, payload: cart });
+    addToCart(productState, cartItemData);
+    dispatch({ type: commonStateList.cartItem, payload: cartItemData });
   };
 
   const onClickCard = (data) => {
@@ -385,6 +385,8 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <CardThree
               onClickCard={onClickCard}
               prodData={prodData}
+              setCartData={setCartData}
+              cartData={cartData}
               key={prodData.id}
             />
           ))}

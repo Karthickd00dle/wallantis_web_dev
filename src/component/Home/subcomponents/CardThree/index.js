@@ -15,10 +15,11 @@ import { Toast } from "service/toast";
 function CardThreeFC({
   onClickCard,
   prodData,
-  cartData,
+  cartItemData,
   favData,
-  setCartData,
   setFavData,
+  setCartData,
+  cartData,
   isHome,
 }) {
   const dispatch = useDispatch();
@@ -141,8 +142,8 @@ function CardThreeFC({
 
 const mapStateToProps = (state) => {
   return {
-    cartItemData: state.commonStore.cartItemState,
     productDetailData: state.commonStore.productDetailState,
+    cartItemData: state.commonStore.cartItemState,
   };
 };
 const CardThree = connect(mapStateToProps, null)(CardThreeFC);
