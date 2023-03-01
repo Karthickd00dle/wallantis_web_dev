@@ -2,6 +2,7 @@ import React from "react";
 import jwt_decode from "jwt-decode";
 import { history } from "service/helpers";
 import moment from "moment";
+import { productListingFilter } from "config";
 
 //add Query
 export const addQuery = (dataObject, apiObject) => {
@@ -130,4 +131,60 @@ export const toCamelCase = (str) => {
     .replace(/[^a-zA-Z0-9]+(.)/g, function (match, chr) {
       return chr.toUpperCase();
     });
+};
+
+export const productfilter = (location) => {
+  if (
+    location === "wallpaper" ||
+    location === "sticker wallpaper" ||
+    location === "wall murals"
+  ) {
+    return productListingFilter.wallpaper.filter(
+      (data) => data.itemheader !== "Categories"
+    );
+  } else if (location === "all wallpaper") {
+    return productListingFilter.wallpaper;
+  } else if (location === "wooden flooring" || location === "lvp plank") {
+    return productListingFilter.flooring.filter(
+      (data) => data.itemheader !== "Categories"
+    );
+  } else if (location === "all flooring") {
+    return productListingFilter.flooring;
+  } else if (
+    location === "vertical blinds" ||
+    location === "roller blinds" ||
+    location === "zebra blinds" ||
+    location === "chick blinds" ||
+    location === "wooden blinds" ||
+    location === "customized blinds"
+  ) {
+    return productListingFilter.blinds.filter(
+      (data) => data.itemheader !== "Categories"
+    );
+  } else if (location === "all blinds") {
+    return productListingFilter.blinds;
+  } else if (
+    location === "vertical gardens" ||
+    location === "hanging flowers" ||
+    location === "artificial grass"
+  ) {
+    return productListingFilter.artificial_grass.filter(
+      (data) => data.itemheader !== "Categories"
+    );
+  } else if (location === "all artificial grass") {
+    return productListingFilter.artificial_grass;
+  } else if (
+    location === "gym tiles square" ||
+    location === "gym tiles interlock" ||
+    location === "gym tiles hexagonal" ||
+    location === "gym rolls" ||
+    location === "sports flooring" ||
+    location === "yoga mat"
+  ) {
+    return productListingFilter.gym_flooring.filter(
+      (data) => data.itemheader !== "Categories"
+    );
+  } else if (location === "all gym flooring") {
+    return productListingFilter.gym_flooring;
+  }
 };

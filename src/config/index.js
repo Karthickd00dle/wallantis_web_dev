@@ -144,10 +144,27 @@ export const productListingFilter = {
   flooring: [
     {
       itemheader: "Categories",
+      itemlist: [{ itemlabel: "Wooden Flooring" }, { itemlabel: "LVP Plank" }],
+    },
+    {
+      itemheader: "Sub Categories",
       itemlist: [
-        { itemlabel: "Sticker Wallpaper" },
-        { itemlabel: "Wallpaper" },
-        { itemlabel: "Wall Murals" },
+        { itemlabel: "Abstract" },
+        { itemlabel: "Animal" },
+        { itemlabel: "Botanicals" },
+      ],
+    },
+  ],
+  blinds: [
+    {
+      itemheader: "Categories",
+      itemlist: [
+        { itemlabel: "Vertical Blinds" },
+        { itemlabel: "Roller Blinds" },
+        { itemlabel: "Zebra Blinds" },
+        { itemlabel: "Chick Blinds" },
+        { itemlabel: "Wooden Blinds" },
+        { itemlabel: "Customized Blinds" },
       ],
     },
     {
@@ -156,17 +173,45 @@ export const productListingFilter = {
         { itemlabel: "Abstract" },
         { itemlabel: "Animal" },
         { itemlabel: "Botanicals" },
-        { itemlabel: "Brick" },
-        { itemlabel: "Classic" },
-        { itemlabel: "Floral" },
-        { itemlabel: "Kids" },
-        { itemlabel: "Marble" },
-        { itemlabel: "Modern" },
-        { itemlabel: "Nature" },
-        { itemlabel: "Royal" },
-        { itemlabel: "Stripes" },
-        { itemlabel: "Texture" },
-        { itemlabel: "Wood" },
+      ],
+    },
+  ],
+  artificial_grass: [
+    {
+      itemheader: "Categories",
+      itemlist: [
+        { itemlabel: "Vertical Gardens" },
+        { itemlabel: "Hanging Flowers" },
+        { itemlabel: "Artificial Grass" },
+      ],
+    },
+    {
+      itemheader: "Sub Categories",
+      itemlist: [
+        { itemlabel: "Abstract" },
+        { itemlabel: "Animal" },
+        { itemlabel: "Botanicals" },
+      ],
+    },
+  ],
+  gym_flooring: [
+    {
+      itemheader: "Categories",
+      itemlist: [
+        { itemlabel: "GYM Tiles Square" },
+        { itemlabel: "GYM Tiles Interlock" },
+        { itemlabel: "GYM Tiles Hexagonal" },
+        { itemlabel: "GYM Rolls" },
+        { itemlabel: "Sports Flooring" },
+        { itemlabel: "Yoga Mat" },
+      ],
+    },
+    {
+      itemheader: "Sub Categories",
+      itemlist: [
+        { itemlabel: "Abstract" },
+        { itemlabel: "Animal" },
+        { itemlabel: "Botanicals" },
       ],
     },
   ],

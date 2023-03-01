@@ -13,7 +13,7 @@ import { sortingFunction } from "action/CommonAct";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
-import { ternaryCondition } from "service/helperFunctions";
+import { productfilter, ternaryCondition } from "service/helperFunctions";
 import { productBanner } from "config";
 
 export function ProductHeader({ bannerLabel }) {
@@ -81,26 +81,23 @@ export const ProductListingGrid = ({
       setCheckedValues(checkedValues.filter((v) => v !== name));
     }
   };
+
   return (
     <>
       <div className="filter-container">
-        {ternaryCondition(
-          locationLabel[0].split(" ").includes("all"),
-          productListingFilter.wallpaper,
-          productListingFilter.wallpaper.filter(
-            (data) => data.itemheader !== "Categories"
+        {productfilter(locationLabel).map(
+          ({ itemheader, itemlist, itemlabel }, index) => (
+            <CustomFilterAccordion
+              key={index}
+              itemheader={itemheader}
+              itemlabel={itemlabel}
+              itemlist={itemlist}
+              index={index}
+              productItems={productItems}
+              onChange={handleCheck}
+            />
           )
-        ).map(({ itemheader, itemlist, itemlabel }, index) => (
-          <CustomFilterAccordion
-            key={index}
-            itemheader={itemheader}
-            itemlabel={itemlabel}
-            itemlist={itemlist}
-            index={index}
-            productItems={productItems}
-            onChange={handleCheck}
-          />
-        ))}
+        )}
         <Accordion>
           <AccordionSummary expandIcon={<ExpandIcon height={10} width={10} />}>
             <label className="filter-title cursor-pointer">Price</label>
@@ -152,6 +149,7 @@ const ProductListingFC = ({ cartItemData, productListingData }) => {
             (item) => item.category === "Wallpaper" && item.type === "wallpaper"
           )
         );
+
       case "sticker wallpaper":
         return setProductData(
           productListingData.filter(
@@ -159,6 +157,7 @@ const ProductListingFC = ({ cartItemData, productListingData }) => {
               item.category === "Sticker Wallpaper" && item.type === "wallpaper"
           )
         );
+
       case "wall murals":
         return setProductData(
           productListingData.filter(
