@@ -11,20 +11,26 @@ import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
 import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
-import { updateProfile } from "action/ProfileAct";
+import { updateProfile, changeCurrentPassword } from "action/ProfileAct";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 import { connect } from "react-redux";
-import { history } from "service/helpers";
+import { Toast } from "service/toast";
 import { logout } from "service/utilities";
 
-export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
+export function ProfileMain({
+  wishlistItemData,
+  updateProfileAPICall,
+  currentUserData,
+  changeCurrentPasswordAPI,
+}) {
   let location = useLocation();
 
-  const [inputData, setInputData] = useState({});
+  const [inputData, setInputData] = useState(currentUserData);
   const [tabIndex, setTabIndex] = useState(location?.state);
-
+  const [currentData, setCurrentData] = useState(currentUserData);
   const [isAddressForm, setAddressForm] = useState(true);
+  const [passwordError, setError] = useState(false);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });
@@ -45,9 +51,31 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
       roleType: inputData.profile,
       gender: inputData.gender,
     };
-    updateProfileAPICall(payload).then((res) => {
-      console.log(res);
+    updateProfileAPICall(payload).then(() => {
+      Toast({
+        type: "success",
+        message: "Profile Updated!",
+      });
     });
+  };
+
+  const changePassword = (data) => {
+    let payload = {
+      newPassword: data.newPassword,
+      confirmPassword: data.repeatPassword,
+    };
+
+    if (data.newPassword === data.repeatPassword) {
+      setError(false);
+      changeCurrentPasswordAPI(payload).then(() => {
+        Toast({
+          type: "success",
+          message: "Password Updated!",
+        });
+      });
+    } else {
+      setError(true);
+    }
   };
 
   const signOut = () => {
@@ -61,6 +89,7 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
   useEffect(() => {
     setTabIndex(location?.state);
   }, [location?.state]);
+
   return isAddressForm ? (
     <>
       <div className="profile-main">
@@ -74,7 +103,7 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
             </div>
             <div className="card-content">
               <h6>Hello,</h6>
-              <h2>John Doe</h2>
+              <h2>{`${currentData.firstName} ${currentData.lastName}`}</h2>
             </div>
           </div>
 
@@ -113,7 +142,10 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
                 <SavedAddresses showAddressForm={showAddressForm} />
               </TabPanel>
               <TabPanel>
-                <ChangePassword />
+                <ChangePassword
+                  changePassword={changePassword}
+                  passwordError={passwordError}
+                />
               </TabPanel>
             </div>
           </Tabs>
@@ -128,6 +160,7 @@ export function ProfileMain({ wishlistItemData, updateProfileAPICall }) {
 const mapStateToProps = (state) => {
   return {
     wishlistItemData: state.commonStore.wishlistItemState,
+    currentUserData: state.commonStore.currentUserState,
   };
 };
 
@@ -135,6 +168,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       updateProfileAPICall: updateProfile,
+      changeCurrentPasswordAPI: changeCurrentPassword,
     },
     dispatch
   );

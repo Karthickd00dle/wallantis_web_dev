@@ -12,8 +12,9 @@ export let apiCall = async function ({
   return new Promise((resolve, reject) => {
     // setting token
     if (localStorage.getItem("authToken") && !isForgotPassword) {
-      axiosInstance.defaults.headers.common["x-access-token"] =
-        "Bearer " + localStorage.getItem("authToken");
+      axiosInstance.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${localStorage.getItem("authToken")}`;
     }
     axiosInstance.defaults.headers["Access-Control-Allow-Origin"] = "*";
     axiosInstance[method](`${getServiceUrl(baseURL)}${api}`, body ? body : "")

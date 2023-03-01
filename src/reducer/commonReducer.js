@@ -6,6 +6,7 @@ const initialState = {
   productDetailState: {},
   cartItemState: [],
   wishlistItemState: [],
+  currentUserState: {},
 };
 const commonReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
@@ -30,6 +31,12 @@ const commonReducer = (state = initialState, { type, payload } = {}) => {
       return {
         ...state,
         wishlistItemState: payload,
+      };
+
+    case commonStateList.currentUser:
+      return {
+        ...state,
+        currentUserState: payload,
       };
 
     default:

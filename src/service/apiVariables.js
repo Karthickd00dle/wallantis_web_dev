@@ -30,6 +30,16 @@ export const profileApi = {
     method: "put",
     baseURL: "auth",
   },
+  getCurrentProfile: {
+    api: "users/ProfileData",
+    method: "get",
+    baseURL: "auth",
+  },
+  changePassword: {
+    api: "users/changePassword",
+    method: "put",
+    baseURL: "auth",
+  },
 };
 
 // Admin Privilage
