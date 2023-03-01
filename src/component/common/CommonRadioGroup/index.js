@@ -10,6 +10,7 @@ export const CommonRadioGroup = ({
   name,
   radioOptions = [],
   value,
+  register,
   onChange: handleChange,
 }) => {
   return (
@@ -34,6 +35,7 @@ export const CommonRadioGroup = ({
               value={valueData.toString()}
               control={<Radio />}
               label={labelText}
+              {...register(name, { required: true })}
             />
           );
         })}

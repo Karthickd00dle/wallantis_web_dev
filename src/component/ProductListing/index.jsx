@@ -81,7 +81,6 @@ export const ProductListingGrid = ({
       setCheckedValues(checkedValues.filter((v) => v !== name));
     }
   };
-  console.log(checkedValues);
   return (
     <>
       <div className="filter-container">
@@ -119,7 +118,7 @@ export const ProductListingGrid = ({
   );
 };
 
-const ProductListingFC = ({ productListingData }) => {
+const ProductListingFC = ({ cartItemData, productListingData }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const locationLabel = location?.pathname
@@ -132,7 +131,7 @@ const ProductListingFC = ({ productListingData }) => {
   );
 
   const [checkedValues, setCheckedValues] = useState([]);
-  const [cartData, setCartData] = useState([]);
+  const [cartData, setCartData] = useState(cartItemData);
   const [favData, setFavData] = useState([]);
   const [pricevalue, setPriceValue] = useState([0, maximumPrice]);
   const [productData, setProductData] = useState(productListingData);
@@ -314,7 +313,6 @@ const ProductListingFC = ({ productListingData }) => {
         return null;
     }
   };
-
   useEffect(() => {
     filterProducts();
   }, [locationLabel]);
@@ -389,6 +387,7 @@ const ProductListingFC = ({ productListingData }) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     ownProps: ownProps,
+    cartItemData: state.commonStore.cartItemState,
     productListingData: state.commonStore.productListingState,
   };
 };

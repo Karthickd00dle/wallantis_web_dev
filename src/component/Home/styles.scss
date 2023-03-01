@@ -89,6 +89,7 @@
           height: 200px;
           object-fit: cover;
           border-radius: 10px 0px 0px 0px;
+          cursor: pointer;
         }
 
         .blog-post-date {
@@ -443,7 +444,6 @@
         display: flex;
         height: fit-content;
         width: 100%;
-
         padding: 20px;
         .blog-container {
           width: 45%;
@@ -453,6 +453,8 @@
             height: 200px;
             object-fit: cover;
             border-radius: 10px 0px 0px 0px;
+
+            cursor: pointer;
           }
 
           .blog-post-date {
@@ -772,6 +774,7 @@
         width: 100%;
         gap: 25px;
         padding: 20px;
+
         .blog-container {
           width: 45%;
           .blog-post-img {
@@ -780,6 +783,7 @@
             height: 200px;
             object-fit: cover;
             border-radius: 10px 0px 0px 0px;
+            cursor: pointer;
           }
 
           .blog-post-date {

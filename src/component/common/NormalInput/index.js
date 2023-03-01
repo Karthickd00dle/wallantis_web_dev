@@ -34,6 +34,7 @@ export const NormalInput = ({
         <input
           className={`form-control ${className}`}
           name={name}
+          {...register(name, { required: true })}
           type={type}
           disabled={disabled}
           value={value}
@@ -42,7 +43,6 @@ export const NormalInput = ({
           minLength={min}
           maxLength={max}
           onKeyUp={onKeyUp}
-          {...register(name, { required: true })}
           onChange={(e) => {
             let body = {};
             let tempVal = e.target.value;

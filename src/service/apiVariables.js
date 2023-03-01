@@ -8,13 +8,26 @@ export const authApi = {
     baseURL: "auth",
   },
   registationApi: {
-    api: "createUser",
+    api: "users/register",
     method: "post",
-    baseURL: "user",
+    baseURL: "auth",
   },
   loginApiUrl: {
     api: "login",
     method: "post",
+    baseURL: "auth",
+  },
+  verifyOTP: {
+    api: "users/verifyOTP",
+    method: "post",
+    baseURL: "auth",
+  },
+};
+
+export const profileApi = {
+  updateProfile: {
+    api: "users/profileUpdate",
+    method: "put",
     baseURL: "auth",
   },
 };
