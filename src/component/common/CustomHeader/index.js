@@ -14,20 +14,28 @@ import { styled } from "@mui/material/styles";
 import { history } from "service/helpers";
 import JohnDoe1 from "assets/images/user.png";
 import { getAllProducts } from "action/ProductsAct";
+import { getCurrentProfile } from "action/ProfileAct";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { routerAuthTokenGuard } from "service/helperFunctions";
 import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import Header from "../Header";
 import { Badge } from "@mui/material";
+import { commonStateList } from "service/actionType";
 
-export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
+export const CustomHeaderComponent = ({
+  getAllProductsAPI,
+  cartItemData,
+  getCurrentProfileAPI,
+}) => {
   const outsideRef = useRef();
+  const dispatch = useDispatch();
   const [searchInput, setSearchInput] = useState("");
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);
   const [itemCount, setItemCount] = useState(null);
   const [productList, setProductList] = useState([]);
+  const [currentData, setCurrentData] = useState({});
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
   };
@@ -49,6 +57,20 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
       </div>
     );
   }
+
+  const getCurrentProfile = () => {
+    getCurrentProfileAPI()
+      .then((res) => {
+        setCurrentData(res?.response);
+        dispatch({
+          type: commonStateList.currentUser,
+          payload: res?.response,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const StyledBadge = styled(Badge)(() => ({
     "& .MuiBadge-badge": {
@@ -95,6 +117,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
 
   useEffect(() => {
     getAllProducts();
+    getCurrentProfile();
   }, []);
   return (
     <AppBar className="navbar-appbar" position="fixed" ref={outsideRef}>
@@ -153,7 +176,7 @@ export const CustomHeaderComponent = ({ getAllProductsAPI, cartItemData }) => {
               >
                 <img src={JohnDoe1} />
                 &nbsp;&nbsp;
-                <span>John Doe</span>
+                <span>{`${currentData.firstName} ${currentData.lastName}`}</span>
                 <RiArrowDropDownLine size="20" />
                 {open && (
                   <div className="FaAngleDown">
@@ -200,6 +223,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ownProps: ownProps,
     cartItemData: state.commonStore.cartItemState,
+    currentUserData: state.commonStore.currentUserState,
   };
 };
 
@@ -207,6 +231,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       getAllProductsAPI: getAllProducts,
+      getCurrentProfileAPI: getCurrentProfile,
     },
     dispatch
   );

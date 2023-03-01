@@ -49,14 +49,14 @@ export default function ProfileForm({ handleInput, inputData, updateProfile }) {
           <div className="input-container">
             <label>Profile / Role</label>
             <NormalInput
-              name={"profile"}
+              name={"roleType"}
               className={"text-input mt-3"}
               onChange={handleInput}
-              value={inputData.profile}
+              value={inputData.roleType}
               register={register}
             />
             <div className="error-message">
-              {errors["profile"]?.type && (
+              {errors["roleType"]?.type && (
                 <span className="error-text">Role is required</span>
               )}
             </div>
@@ -69,6 +69,7 @@ export default function ProfileForm({ handleInput, inputData, updateProfile }) {
                 onChange={handleInput}
                 name={"gender"}
                 className={"text-input"}
+                value={inputData.gender}
                 register={register}
                 radioOptions={[
                   { labelText: "Male", value: "male", id: "gender" },
@@ -107,28 +108,7 @@ export default function ProfileForm({ handleInput, inputData, updateProfile }) {
             </p>
           </div>
 
-          <div className="input-container">
-            <label>Mobile Number</label>
-            <NormalInput
-              name={"mobile"}
-              className={"text-input mt-3"}
-              onChange={handleInput}
-              value={inputData.mobile}
-              disabled={isMobileDisabled}
-              register={register}
-            />
-            <div className="error-message">
-              {errors["mobile"]?.type && (
-                <span className="error-text">Mobile Number is required</span>
-              )}
-            </div>
-            <p
-              className="change-text"
-              onClick={() => setMobileDisabled(!isMobileDisabled)}
-            >
-              CHANGE
-            </p>
-          </div>
+          <div className="input-container"></div>
         </div>
         <div className="mt-5">
           <NormalButton label="Save Changes" saveBtn={true} type="submit" />
