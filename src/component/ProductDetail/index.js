@@ -7,7 +7,6 @@ import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
 import { CustomButton } from "component/common";
 import { useLocation } from "react-router-dom";
-import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
 import {
   bestsellerProducts,
@@ -16,6 +15,8 @@ import {
   ProductInstructions3,
   ProductInstructions4,
 } from "config";
+import { Toast } from "service/toast";
+
 import CardThree from "component/Home/subcomponents/CardThree";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
@@ -30,8 +31,8 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
-    addToCart(productState, cartItemData);
-    dispatch({ type: commonStateList.cartItem, payload: cartItemData });
+    setCartData([...cartData, { ...productState }]);
+    Toast({ type: "success", message: "Item added to Cart" });
   };
 
   const onClickCard = (data) => {
@@ -58,6 +59,10 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [selectedImg]);
+
+  useEffect(() => {
+    dispatch({ type: commonStateList.cartItem, payload: cartData });
+  }, [cartData]);
 
   return (
     <>

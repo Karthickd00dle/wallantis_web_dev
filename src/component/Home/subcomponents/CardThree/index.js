@@ -15,7 +15,6 @@ import { Toast } from "service/toast";
 function CardThreeFC({
   onClickCard,
   prodData,
-  cartItemData,
   favData,
   setFavData,
   setCartData,
