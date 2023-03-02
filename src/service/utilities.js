@@ -12,5 +12,4 @@ export const logout = () => {
   axiosInstance.defaults.headers.common["Authorization"] = "";
   localStorage.clear();
   history.push("/");
-  window.location.reload(true);
 };
