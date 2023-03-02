@@ -84,7 +84,7 @@ export const generateQuery = (query) => {
 
 export const routerAuthTokenGuard = () => {
   if (localStorage.getItem("authToken")) {
-    history.push(`/auth/login`);
+    history.push(`/home/home`);
     localStorage.removeItem("authToken");
   }
 };
