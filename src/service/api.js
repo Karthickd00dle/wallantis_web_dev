@@ -12,8 +12,9 @@ export let apiCall = async function ({
   return new Promise((resolve, reject) => {
     // setting token
     if (localStorage.getItem("authToken") && !isForgotPassword) {
-      axiosInstance.defaults.headers.common["x-access-token"] =
-        "bearer " + localStorage.getItem("authToken");
+      axiosInstance.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${localStorage.getItem("authToken")}`;
     }
     axiosInstance.defaults.headers["Access-Control-Allow-Origin"] = "*";
     axiosInstance[method](`${getServiceUrl(baseURL)}${api}`, body ? body : "")
@@ -37,7 +38,7 @@ export let apiCall = async function ({
 //status Helper
 let statusHelper = (status, data) => {
   if (data.status === 401 || data.status === 403) {
-    logout();
+    // logout();
   }
   if (status) {
     return {
@@ -58,7 +59,7 @@ let getServiceUrl = (baseURL) => {
       finalURL = REACT_APP_AUTH_API_BASE_URL;
       break;
     case "user":
-      finalURL = REACT_APP_USER_URL;
+      finalURL = REACT_APP_AUTH_API_BASE_URL;
       break;
     case "products":
       finalURL = REACT_APP_AUTH_API_BASE_URL;

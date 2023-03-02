@@ -7,7 +7,6 @@ import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
 import { CustomButton } from "component/common";
 import { useLocation } from "react-router-dom";
-import { addToCart } from "action/CommonAct";
 import { commonStateList } from "service/actionType";
 import {
   bestsellerProducts,
@@ -16,6 +15,8 @@ import {
   ProductInstructions3,
   ProductInstructions4,
 } from "config";
+import { Toast } from "service/toast";
+
 import CardThree from "component/Home/subcomponents/CardThree";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
@@ -23,17 +24,15 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
   const [wallpaperColor, setWallColor] = useState("Gray");
+  const [cartData, setCartData] = useState(cartItemData);
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
   );
 
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
-    let cart = cartItemData.map((item) => {
-      return item;
-    });
-    addToCart(productState, cart);
-    dispatch({ type: commonStateList.cartItem, payload: cart });
+    setCartData([...cartData, { ...productState }]);
+    Toast({ type: "success", message: "Item added to Cart" });
   };
 
   const onClickCard = (data) => {
@@ -60,7 +59,11 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [selectedImg]);
-  console.log(selectedImg);
+
+  useEffect(() => {
+    dispatch({ type: commonStateList.cartItem, payload: cartData });
+  }, [cartData]);
+
   return (
     <>
       <div className="product-detail-container">
@@ -387,6 +390,8 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <CardThree
               onClickCard={onClickCard}
               prodData={prodData}
+              setCartData={setCartData}
+              cartData={cartData}
               key={prodData.id}
             />
           ))}

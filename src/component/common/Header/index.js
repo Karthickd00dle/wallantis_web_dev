@@ -42,12 +42,17 @@ function Header({ productList }) {
         },
         {
           name: "View All ",
-          route: "/home/product-listing/all-wooden-flooring",
+          route: "/home/product-listing/all-flooring",
         },
       ],
     },
     {
       tilte: "3D Panel",
+
+      subMenuItems: [],
+    },
+    {
+      tilte: "Blinds",
 
       subMenuItems: [
         {
@@ -81,7 +86,34 @@ function Header({ productList }) {
       ],
     },
     {
-      tilte: "Blinds",
+      tilte: "Artificial Grass",
+
+      subMenuItems: [
+        {
+          name: "Vertical Gardens",
+          route: "/home/product-listing/vertical-gardens",
+        },
+        {
+          name: "Hanging Flowers",
+          route: "/home/product-listing/hanging-flowers",
+        },
+        {
+          name: "Artificial Grass",
+          route: "/home/product-listing/artificial-grass",
+        },
+        {
+          name: "View All",
+          route: "/home/product-listing/all-artificial-grass",
+        },
+      ],
+    },
+    {
+      tilte: "PVC Foam Sheet",
+
+      subMenuItems: [],
+    },
+    {
+      tilte: "GYM Flooring",
 
       subMenuItems: [
         {
@@ -110,41 +142,9 @@ function Header({ productList }) {
         },
         {
           name: "View all",
-          route: "/home/product-listing/gym-tiles-all",
+          route: "/home/product-listing/all-gym-flooring",
         },
       ],
-    },
-    {
-      tilte: "Artificial Grass",
-
-      subMenuItems: [
-        {
-          name: "Vertical Gardens",
-          route: "/home/product-listing/vertical-gardens",
-        },
-        {
-          name: "Hanging Flowers",
-          route: "/home/product-listing/hanging-flowers",
-        },
-        {
-          name: "Artificial Grass",
-          route: "/home/product-listing/artificial-grass",
-        },
-        {
-          name: "View All",
-          route: "/home/product-listing/view-all-grass",
-        },
-      ],
-    },
-    {
-      tilte: "PVC Foam Sheet",
-
-      subMenuItems: [],
-    },
-    {
-      tilte: "GYM Flooring",
-
-      subMenuItems: [],
     },
     {
       tilte: "Room Visualizer",

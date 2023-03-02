@@ -5,22 +5,32 @@ import BreadCrumbs from "component/common/BreadCrumb";
 import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
 import AddNewAddress from "component/Profile/AddNewAddress";
+import { bindActionCreators } from "redux";
 import ChangePassword from "./ChangePassword";
 import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
 import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
+import { updateProfile, changeCurrentPassword } from "action/ProfileAct";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 import { connect } from "react-redux";
+import { Toast } from "service/toast";
+import { logout } from "service/utilities";
 
-export function ProfileMain({ wishlistItemData }) {
+export function ProfileMain({
+  wishlistItemData,
+  updateProfileAPICall,
+  currentUserData,
+  changeCurrentPasswordAPI,
+}) {
   let location = useLocation();
 
-  const [inputData, setInputData] = useState({});
+  const [inputData, setInputData] = useState(currentUserData);
   const [tabIndex, setTabIndex] = useState(location?.state);
-
+  const [currentData, setCurrentData] = useState(currentUserData);
   const [isAddressForm, setAddressForm] = useState(true);
+  const [passwordError, setError] = useState(false);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });
@@ -33,9 +43,53 @@ export function ProfileMain({ wishlistItemData }) {
     window.scrollTo(0, 0);
   };
 
+  const updateProfile = () => {
+    let payload = {
+      firstName: inputData.firstName,
+      lastName: inputData.lastName,
+      phoneNumber: inputData.mobile,
+      roleType: inputData.profile,
+      gender: inputData.gender,
+    };
+    updateProfileAPICall(payload).then(() => {
+      Toast({
+        type: "success",
+        message: "Profile Updated!",
+      });
+    });
+  };
+
+  const changePassword = (data) => {
+    let payload = {
+      newPassword: data.newPassword,
+      confirmPassword: data.repeatPassword,
+    };
+
+    if (data.newPassword === data.repeatPassword) {
+      setError(false);
+      changeCurrentPasswordAPI(payload).then(() => {
+        Toast({
+          type: "success",
+          message: "Password Updated!",
+        });
+      });
+    } else {
+      setError(true);
+    }
+  };
+
+  const signOut = () => {
+    logout();
+  };
+
   useEffect(() => {
     scrollToTop();
   }, [tabIndex]);
+
+  useEffect(() => {
+    setTabIndex(location?.state);
+  }, [location?.state]);
+
   return isAddressForm ? (
     <>
       <div className="profile-main">
@@ -49,7 +103,7 @@ export function ProfileMain({ wishlistItemData }) {
             </div>
             <div className="card-content">
               <h6>Hello,</h6>
-              <h2>John Doe</h2>
+              <h2>{`${currentData.firstName} ${currentData.lastName}`}</h2>
             </div>
           </div>
 
@@ -67,12 +121,16 @@ export function ProfileMain({ wishlistItemData }) {
               <Tab>My Wishlist</Tab>
               <Tab>Saved Addresses</Tab>
               <Tab>Change Password</Tab>
-              <Tab>Sign Out</Tab>
+              <Tab onClick={signOut}>Sign Out</Tab>
             </TabList>
             <img src={chatIcon} className="chatIcon" />
             <div className="card-info">
               <TabPanel>
-                <ProfileForm handleInput={handleInput} inputData={inputData} />
+                <ProfileForm
+                  handleInput={handleInput}
+                  inputData={inputData}
+                  updateProfile={updateProfile}
+                />
               </TabPanel>
               <TabPanel>
                 <MyOrders />
@@ -84,10 +142,10 @@ export function ProfileMain({ wishlistItemData }) {
                 <SavedAddresses showAddressForm={showAddressForm} />
               </TabPanel>
               <TabPanel>
-                <ChangePassword />
-              </TabPanel>
-              <TabPanel>
-                <h2>Any content 6</h2>
+                <ChangePassword
+                  changePassword={changePassword}
+                  passwordError={passwordError}
+                />
               </TabPanel>
             </div>
           </Tabs>
@@ -102,8 +160,19 @@ export function ProfileMain({ wishlistItemData }) {
 const mapStateToProps = (state) => {
   return {
     wishlistItemData: state.commonStore.wishlistItemState,
+    currentUserData: state.commonStore.currentUserState,
   };
 };
 
-const Profile = connect(mapStateToProps, null)(ProfileMain);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      updateProfileAPICall: updateProfile,
+      changeCurrentPasswordAPI: changeCurrentPassword,
+    },
+    dispatch
+  );
+};
+
+const Profile = connect(mapStateToProps, mapDispatchToProps)(ProfileMain);
 export default Profile;

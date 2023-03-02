@@ -15,6 +15,8 @@
     border-radius: 4px;
     margin-top: 20px;
     padding: 28px 53px 20px 49px;
+    display: flex;
+    flex-direction: column;
   }
 
   .title {
@@ -80,14 +82,14 @@
   }
 
   .view-details-btn {
-    @include fontRobotoStyle(12px !important, 500 !important, #2A71F9);
+    @include fontRobotoStyle(12px !important, 500 !important, #2a71f9);
     font-family: "Roboto", sans-serif !important;
     line-height: 22px;
-    border: 1px solid #2A71F9;
+    border: 1px solid #2a71f9;
     border-radius: 50px;
     padding: 9px 32.5px;
     margin-top: 7px;
-    margin-left: 152px
+    margin-left: 152px;
   }
 
   .deliver-head {
@@ -99,11 +101,11 @@
     margin-bottom: 39px;
   }
   .payment-info {
-    background: #F2F2F2;
-      width: 100%;
-      padding: 17px 24px;
-      border-radius: 10px;
-      margin-bottom: 16px;
+    background: #f2f2f2;
+    width: 100%;
+    padding: 17px 24px;
+    border-radius: 10px;
+    margin-bottom: 16px;
     .mode-text {
       @include fontLatoStyle(16px, 700, #000000);
     }
@@ -114,7 +116,7 @@
   .bill-details {
     width: 100%;
     padding: 30px 24px;
-    border: 1px solid #D5D5D5;
+    border: 1px solid #d5d5d5;
     border-radius: 10px;
     .total-item {
       @include fontLatoStyle(24px, 700, #000000);
@@ -133,14 +135,13 @@
       .product-color {
         @include fontRobotoStyle(12px, 500, #696969);
       }
-      
     }
     .price {
       @include fontLatoStyle(14px, 700, #000000);
       margin-left: auto;
     }
     .orderList {
-      border-bottom: 1px solid #D5D5D5;
+      border-bottom: 1px solid #d5d5d5;
       padding-bottom: 24px;
       margin-bottom: 20px;
     }
@@ -156,26 +157,30 @@
       align-items: center;
       margin-bottom: 29px;
       .name {
-        @include fontLatoStyle(22px, 600,#7D7D7D);
+        @include fontLatoStyle(22px, 600, #7d7d7d);
       }
       .price {
-        @include fontLatoStyle(28px, 600,#4D4D4D);
+        @include fontLatoStyle(28px, 600, #4d4d4d);
       }
       .free {
-        @include fontLatoStyle(20px, 500, #48B715);
+        @include fontLatoStyle(20px, 500, #48b715);
         margin-right: 6px;
       }
     }
     .hr-line {
-      border-bottom: 1px solid #CBCBCB;
+      border-bottom: 1px solid #cbcbcb;
       margin-bottom: 29px;
     }
     .chat-btn {
       width: 100%;
-      background-color: #A26220;
+      background-color: #a26220;
       border-radius: 6px;
       padding: 14px 24px;
-      @include fontLatoStyle(18px !important, 500 !important,#FFFFFF !important);
+      @include fontLatoStyle(
+        18px !important,
+        500 !important,
+        #ffffff !important
+      );
       margin-top: 7px;
       margin-bottom: 10;
     }

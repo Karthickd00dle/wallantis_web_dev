@@ -1,16 +1,22 @@
 @import "../abstracts/abstracts.scss";
 
-.auth-layout {
+.auth-layout-container {
+  .auth-layout {
+    background: rgba(0, 0, 0, 0.54);
+    height: 100%;
+    width: 100%;
+    padding: 60px 60px 0px 60px;
+  }
   position: absolute;
   width: 40%;
   height: 100%;
   top: 0px;
-  background: radial-gradient(
-    93.07% 93.07% at 19.34% 7.32%,
-    #165147 0%,
-    #113630 76.59%
-  );
-  padding: 60px 60px 0px 60px;
+  background-image: url("../../images/auth-background.png");
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  object-fit: fill;
+
   .auth-inner-container {
     padding-top: 8%;
   }

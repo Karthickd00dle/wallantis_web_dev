@@ -1,11 +1,11 @@
-import { authApi } from "../service/apiVariables";
+import { profileApi } from "../service/apiVariables";
 
-export const registationApi =
+export const updateProfile =
   (body) =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
       apiCall({
-        ...authApi.registationApi,
+        ...profileApi.updateProfile,
         body,
       })
         .then((data) => {
@@ -17,16 +17,14 @@ export const registationApi =
     });
   };
 
-export const loginApi =
-  (body) =>
+export const getCurrentProfile =
+  () =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
       apiCall({
-        ...authApi.loginApi,
-        body,
+        ...profileApi.getCurrentProfile,
       })
         .then((data) => {
-          localStorage.setItem("authToken", data);
           resolve(data);
         })
         .catch(({ message }) => {
@@ -35,17 +33,16 @@ export const loginApi =
     });
   };
 
-export const verifyOTPApi =
+export const changeCurrentPassword =
   (body) =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
       apiCall({
-        ...authApi.verifyOTP,
+        ...profileApi.changePassword,
         body,
       })
         .then((data) => {
           resolve(data);
-          Toast({ type: "error", message: data.message });
         })
         .catch(({ message }) => {
           reject(Toast({ type: "error", message }));

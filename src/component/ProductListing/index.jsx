@@ -4,7 +4,7 @@ import { CustomSelect, CustomFilterAccordion } from "component/common";
 import { SortingMenuList, productListingFilter, productItems } from "config";
 import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
-import WallpapersHeader from "assets/images/ProductListing/Wallpapers-Header.png";
+
 import "./style.scss";
 import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
@@ -13,18 +13,22 @@ import { sortingFunction } from "action/CommonAct";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
-import { ternaryCondition } from "service/helperFunctions";
+import { productfilter, ternaryCondition } from "service/helperFunctions";
+import { productBanner } from "config";
 
 export function ProductHeader({ bannerLabel }) {
+  const bannerImage = productBanner.filter((data) => data.type === bannerLabel);
+
   return (
     <div className="product-banner-container py-3">
       <div className="product-banner-label-container">
         <label className="product-banner-label">{bannerLabel}</label>
       </div>
+
       <img
         width="100%"
-        height="100%"
-        src={WallpapersHeader}
+        height="505px"
+        src={bannerImage[0].image}
         alt="product-banner"
       />
     </div>
@@ -77,27 +81,23 @@ export const ProductListingGrid = ({
       setCheckedValues(checkedValues.filter((v) => v !== name));
     }
   };
-  console.log(checkedValues);
+
   return (
     <>
       <div className="filter-container">
-        {ternaryCondition(
-          locationLabel[0].split(" ").includes("all"),
-          productListingFilter.wallpaper,
-          productListingFilter.wallpaper.filter(
-            (data) => data.itemheader !== "Categories"
+        {productfilter(locationLabel).map(
+          ({ itemheader, itemlist, itemlabel }, index) => (
+            <CustomFilterAccordion
+              key={index}
+              itemheader={itemheader}
+              itemlabel={itemlabel}
+              itemlist={itemlist}
+              index={index}
+              productItems={productItems}
+              onChange={handleCheck}
+            />
           )
-        ).map(({ itemheader, itemlist, itemlabel }, index) => (
-          <CustomFilterAccordion
-            key={index}
-            itemheader={itemheader}
-            itemlabel={itemlabel}
-            itemlist={itemlist}
-            index={index}
-            productItems={productItems}
-            onChange={handleCheck}
-          />
-        ))}
+        )}
         <Accordion>
           <AccordionSummary expandIcon={<ExpandIcon height={10} width={10} />}>
             <label className="filter-title cursor-pointer">Price</label>
@@ -115,24 +115,20 @@ export const ProductListingGrid = ({
   );
 };
 
-const ProductListingFC = ({ productListingData }) => {
+const ProductListingFC = ({ cartItemData, productListingData }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const locationLabel = location?.pathname
-    ?.split("/")
-    ?.map((d) => {
-      if (d !== "") {
-        return `${d.replace("-", " ")}`;
-      }
-    })
-    .slice(-1);
+    .split("/")
+    .slice(-1)[0]
+    .replace(/-/g, " ");
 
   const maximumPrice = Math.max(
     ...productListingData?.map(({ price }) => price)
   );
 
   const [checkedValues, setCheckedValues] = useState([]);
-  const [cartData, setCartData] = useState([]);
+  const [cartData, setCartData] = useState(cartItemData);
   const [favData, setFavData] = useState([]);
   const [pricevalue, setPriceValue] = useState([0, maximumPrice]);
   const [productData, setProductData] = useState(productListingData);
@@ -146,20 +142,179 @@ const ProductListingFC = ({ productListingData }) => {
   };
 
   const filterProducts = () => {
-    console.log(locationLabel[0]);
-    if (locationLabel[0] === "all wallpaper") {
-      setProductData(productListingData);
-    } else {
-      let filtered = productListingData.filter(
-        (item) => item.type === locationLabel[0]
-      );
-      setProductData(filtered);
+    switch (locationLabel) {
+      case "wallpaper":
+        return setProductData(
+          productListingData.filter(
+            (item) => item.category === "Wallpaper" && item.type === "wallpaper"
+          )
+        );
+
+      case "sticker wallpaper":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Sticker Wallpaper" && item.type === "wallpaper"
+          )
+        );
+
+      case "wall murals":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Wall Murals" && item.type === "wallpaper"
+          )
+        );
+      case "all wallpaper":
+        return setProductData(
+          productListingData.filter((item) => item.type === "wallpaper")
+        );
+      case "wooden flooring":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Wooden Flooring" && item.type === "flooring"
+          )
+        );
+      case "lvp plank":
+        return setProductData(
+          productListingData.filter(
+            (item) => item.category === "LVP Plank" && item.type === "flooring"
+          )
+        );
+      case "all flooring":
+        return setProductData(
+          productListingData.filter((item) => item.type === "flooring")
+        );
+      case "vertical blinds":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Vertical Blinds" && item.type === "blinds"
+          )
+        );
+      case "roller blinds":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Roller Blinds" && item.type === "blinds"
+          )
+        );
+      case "zebra blinds":
+        return setProductData(
+          productListingData.filter(
+            (item) => item.category === "Zebra Blinds" && item.type === "blinds"
+          )
+        );
+      case "chick blinds":
+        return setProductData(
+          productListingData.filter(
+            (item) => item.category === "Chick Blinds" && item.type === "blinds"
+          )
+        );
+      case "wooden blinds":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Wooden Blinds" && item.type === "blinds"
+          )
+        );
+      case "customized blinds":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Customized Blinds" && item.type === "blinds"
+          )
+        );
+      case "all blinds":
+        return setProductData(
+          productListingData.filter((item) => item.type === "blinds")
+        );
+      case "vertical gardens":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Vertical Gardens" &&
+              item.type === "artificial grass"
+          )
+        );
+      case "hanging flowers":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Hanging Flowers" &&
+              item.type === "artificial grass"
+          )
+        );
+      case "artificial grass":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Artificial Grass" &&
+              item.type === "artificial grass"
+          )
+        );
+      case "all artificial grass":
+        return setProductData(
+          productListingData.filter((item) => item.type === "artificial grass")
+        );
+      case "gym tiles square":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "GYM Tiles Square" &&
+              item.type === "gym flooring"
+          )
+        );
+      case "gym tiles interlock":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "GYM Tiles Interlock" &&
+              item.type === "gym flooring"
+          )
+        );
+      case "gym tiles hexagonal":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "GYM Tiles Hexagonal" &&
+              item.type === "gym flooring"
+          )
+        );
+      case "gym rolls":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "GYM Rolls" && item.type === "gym flooring"
+          )
+        );
+      case "sports flooring":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Sports Flooring" &&
+              item.type === "gym flooring"
+          )
+        );
+      case "yoga mat":
+        return setProductData(
+          productListingData.filter(
+            (item) =>
+              item.category === "Yoga Mat" && item.type === "gym flooring"
+          )
+        );
+      case "all gym flooring":
+        return setProductData(
+          productListingData.filter((item) => item.type === "gym flooring")
+        );
+      default:
+        return null;
     }
   };
-
   useEffect(() => {
     filterProducts();
-  }, [locationLabel[0]]);
+  }, [locationLabel]);
   return (
     <div className="product-listing-container">
       <ProductHeader bannerLabel={locationLabel} />
@@ -231,6 +386,7 @@ const ProductListingFC = ({ productListingData }) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     ownProps: ownProps,
+    cartItemData: state.commonStore.cartItemState,
     productListingData: state.commonStore.productListingState,
   };
 };
