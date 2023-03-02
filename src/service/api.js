@@ -38,7 +38,7 @@ export let apiCall = async function ({
 //status Helper
 let statusHelper = (status, data) => {
   if (data.status === 401 || data.status === 403) {
-    // logout();
+    logout();
   }
   if (status) {
     return {

@@ -9,7 +9,6 @@ export const axiosInstance = axios.create({
 
 //logout
 export const logout = () => {
-  axiosInstance.defaults.headers.common["Authorization"] = "";
-  localStorage.clear();
+  localStorage.removeItem("authToken");
   history.push("/");
 };
