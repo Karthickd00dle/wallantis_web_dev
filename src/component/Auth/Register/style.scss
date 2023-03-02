@@ -6,7 +6,7 @@
   flex-direction: column;
   left: 100%;
   top: 4%;
-  padding: 9% 12% 9% 12%;
+  padding: 9% 0% 9% 18%;
   width: 100%;
   .input-mobile-email {
     @include fontLatoStyle(14px, 700, #9a9999, 17px);
@@ -25,7 +25,7 @@
   flex-direction: column;
   left: 100%;
   top: 4%;
-  padding: 9% 12% 9% 12%;
+  padding: 9% 0% 9% 17%;
   .input-phonenumber,
   .input-otp,
   .input-password {

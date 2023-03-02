@@ -28,8 +28,8 @@ export const CustomHeaderComponent = ({
   cartItemData,
   getCurrentProfileAPI,
 }) => {
-  const dispatch = useDispatch();
   const outsideRef = useRef();
+  const dispatch = useDispatch();
   const [searchInput, setSearchInput] = useState("");
   const authToken = localStorage.getItem("authToken");
   const [open, setOpen] = useState(false);

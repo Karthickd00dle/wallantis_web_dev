@@ -21,16 +21,18 @@ const FetchParams = () => {
 export function AuthLayout({ children }) {
   return (
     <div className="d-flex ">
-      <div className="auth-layout">
-        <BrandLogoIcon viewBox="0 0 250 60" height="140px" width="200px" />
-        <div className="d-flex">
-          <div className="auth-inner-container">
-            <label className="param-header">
-              <FetchParams />
-            </label>
-            <p>Get access to your orders, wishlist and recommendations</p>
+      <div className="auth-layout-container">
+        <div className="auth-layout">
+          <BrandLogoIcon viewBox="0 0 250 60" height="140px" width="200px" />
+          <div className="d-flex">
+            <div className="auth-inner-container">
+              <label className="param-header">
+                <FetchParams />
+              </label>
+              <p>Get access to your orders, wishlist and recommendations</p>
+            </div>
+            <div>{children}</div>
           </div>
-          <div>{children}</div>
         </div>
       </div>
     </div>
