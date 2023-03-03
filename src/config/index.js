@@ -437,8 +437,9 @@ export const bestsellerProducts = [
   },
   {
     id: 4,
-    image:
+    image: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fhcrQX7bjOwI-4O-4VsGt9vJe068qAcf5g&usqp=CAU",
+    ],
     title: "A Story by the Garden Wallpaper",
     price: 4000,
   },
