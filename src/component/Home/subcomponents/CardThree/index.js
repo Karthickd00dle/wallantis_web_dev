@@ -8,6 +8,8 @@ import {
   ShoppingCartOutlined,
   FavoriteBorder,
 } from "@mui/icons-material";
+import { bindActionCreators } from "redux";
+import { CreateCartApi } from "action/CartAct";
 import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
 import { Toast } from "service/toast";
@@ -20,6 +22,7 @@ function CardThreeFC({
   setCartData,
   cartData,
   isHome,
+  createCartApiCall,
 }) {
   const dispatch = useDispatch();
 
@@ -39,10 +42,23 @@ function CardThreeFC({
     }
   };
   const handleCart = ({ target: { name, checked } }, prodData) => {
+    console.log(name, checked, prodData);
+
     setCart(!cart);
     if (checked) {
       setCartData([...cartData, { ...prodData, checked: checked }]);
-      Toast({ type: "success", message: "Item added to Cart" });
+
+      let payload = {
+        productId: prodData.id.toString(),
+        quantity: 1,
+        color: prodData.color,
+      };
+      createCartApiCall(payload).then(() => {
+        Toast({
+          type: "success",
+          message: "Item Added To Cart",
+        });
+      });
     } else {
       setCartData(cartData.filter((data) => data.title !== name));
       Toast({ type: "info", message: "Item removed from Cart" });
@@ -145,6 +161,16 @@ const mapStateToProps = (state) => {
     cartItemData: state.commonStore.cartItemState,
   };
 };
-const CardThree = connect(mapStateToProps, null)(CardThreeFC);
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      createCartApiCall: CreateCartApi,
+    },
+    dispatch
+  );
+};
+
+const CardThree = connect(mapStateToProps, mapDispatchToProps)(CardThreeFC);
 
 export default CardThree;

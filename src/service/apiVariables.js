@@ -42,9 +42,27 @@ export const profileApi = {
   },
 };
 
+export const cartApi = {
+  createCart: {
+    api: "cart/create",
+    method: "post",
+    baseURL: "auth",
+  },
+  cartList: {
+    api: "cart/cartList",
+    method: "get",
+    baseURL: "auth",
+  },
+  deleteCart: {
+    api: "cart/",
+    method: "delete",
+    baseURL: "auth",
+  },
+};
+
 export const productAPI = {
   getAllProducts: {
-    url: "AllProductCategory",
+    url: "product/list",
     method: "get",
     baseURL: "products",
     query: {
