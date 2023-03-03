@@ -9,9 +9,11 @@ import { bindActionCreators } from "redux";
 import ChangePassword from "./ChangePassword";
 import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
+import { history } from "service/helpers";
 import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
 import { updateProfile, changeCurrentPassword } from "action/ProfileAct";
+import { verifyOTPApi } from "action/AuthAct";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 import { connect } from "react-redux";
@@ -23,6 +25,7 @@ export function ProfileMain({
   updateProfileAPICall,
   currentUserData,
   changeCurrentPasswordAPI,
+  verifyOTPApiCall,
 }) {
   let location = useLocation();
 
@@ -52,6 +55,7 @@ export function ProfileMain({
       phoneNumber: inputData.mobile,
       roleType: inputData.profile,
       gender: inputData.gender,
+      phoneNumber: inputData.mobile,
     };
 
     updateProfileAPICall(payload).then(() => {
@@ -60,6 +64,17 @@ export function ProfileMain({
       //   type: "success",
       //   message: "Profile Updated!",
       // });
+    });
+  };
+
+  const verifyOTP = (OTP) => {
+    let payload = {
+      phoneNumber: inputData.mobile,
+      otp: OTP,
+    };
+
+    verifyOTPApiCall(payload).then(() => {
+      history.push("/auth/login");
     });
   };
 
@@ -136,6 +151,7 @@ export function ProfileMain({
                   updateProfile={updateProfile}
                   open={open}
                   setOpen={setOpen}
+                  verifyOTP={verifyOTP}
                 />
               </TabPanel>
               <TabPanel>
@@ -175,6 +191,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       updateProfileAPICall: updateProfile,
       changeCurrentPasswordAPI: changeCurrentPassword,
+      verifyOTPApiCall: verifyOTPApi,
     },
     dispatch
   );

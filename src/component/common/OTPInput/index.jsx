@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { NormalButton } from "component/common";
 import "./index.scss";
 
-export function OTPInput({ OTP, setOTP }) {
+export function OTPInput({ OTP, setOTP, verifyOTP }) {
   const [minutes, setMinutes] = useState(1);
   const [seconds, setSeconds] = useState(50);
   const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
@@ -113,7 +113,12 @@ export function OTPInput({ OTP, setOTP }) {
       )}
 
       <div className="mt-5">
-        <NormalButton label="Verify" saveBtn={true} type="submit" />
+        <NormalButton
+          label="Verify"
+          saveBtn={true}
+          type="submit"
+          onClick={() => verifyOTP(OTP)}
+        />
       </div>
     </div>
   );

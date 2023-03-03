@@ -15,6 +15,7 @@ export default function ProfileForm({
   updateProfile,
   open,
   setOpen,
+  verifyOTP,
 }) {
   const {
     register,
@@ -105,15 +106,15 @@ export default function ProfileForm({
           <div className="input-container">
             <label>Email Address</label>
             <NormalInput
-              name={"email"}
+              name={"emailId"}
               className={"text-input mt-3 disabled"}
               onChange={handleInput}
-              value={inputData.email}
+              value={inputData.emailId}
               disabled={isEmailDisabled}
               register={register}
             />
             <div className="error-message">
-              {errors["email"]?.type && (
+              {errors["emailId"]?.type && (
                 <span className="error-text">Email Address is required</span>
               )}
             </div>
@@ -128,15 +129,15 @@ export default function ProfileForm({
           <div className="input-container">
             <label>Mobile Number</label>
             <NormalInput
-              name={"mobile"}
+              name={"phoneNumber"}
               className={"text-input mt-3 disabled"}
               onChange={handleInput}
-              value={inputData.mobile}
+              value={inputData.phoneNumber}
               disabled={isMobileDisabled}
               register={register}
             />
             <div className="error-message">
-              {errors["mobile"]?.type && (
+              {errors["phoneNumber"]?.type && (
                 <span className="error-text">Mobile Number is required</span>
               )}
             </div>
@@ -156,6 +157,7 @@ export default function ProfileForm({
           handleClose={handleClose}
           OTP={OTP}
           setOTP={setOTP}
+          verifyOTP={verifyOTP}
         />
       </div>
     </form>

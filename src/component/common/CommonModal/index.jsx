@@ -18,7 +18,7 @@ const style = {
   p: 4,
 };
 
-export const CommonModal = ({ open, handleClose, OTP, setOTP }) => {
+export const CommonModal = ({ open, handleClose, OTP, setOTP, verifyOTP }) => {
   return (
     <div>
       <Modal
@@ -35,7 +35,7 @@ export const CommonModal = ({ open, handleClose, OTP, setOTP }) => {
             We have sent you one time password to your new mobile number
           </Typography>
 
-          <OTPInput OTP={OTP} setOTP={setOTP} />
+          <OTPInput OTP={OTP} setOTP={setOTP} verifyOTP={verifyOTP} />
         </Box>
       </Modal>
     </div>
