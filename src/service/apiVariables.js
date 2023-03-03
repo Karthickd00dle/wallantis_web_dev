@@ -42,6 +42,24 @@ export const profileApi = {
   },
 };
 
+export const cartApi = {
+  createCart: {
+    api: "cart/create",
+    method: "post",
+    baseURL: "auth",
+  },
+  cartList: {
+    api: "cart/cartList",
+    method: "get",
+    baseURL: "auth",
+  },
+  deleteCart: {
+    api: "cart/",
+    method: "delete",
+    baseURL: "auth",
+  },
+};
+
 // Admin Privilage
 export const adminPrivilageVariables = {
   addedMembersUrl: {
@@ -64,7 +82,7 @@ export const adminPrivilageVariables = {
 
 export const productAPI = {
   getAllProducts: {
-    url: "products/AllProductCategory",
+    url: "products/product/list",
     method: "get",
     baseURL: "products",
     query: {
