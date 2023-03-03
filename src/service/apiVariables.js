@@ -64,7 +64,7 @@ export const adminPrivilageVariables = {
 
 export const productAPI = {
   getAllProducts: {
-    url: "products/AllProductCategory",
+    url: "products/product/list",
     method: "get",
     baseURL: "products",
     query: {
