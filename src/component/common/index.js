@@ -17,3 +17,5 @@ export { CustomFilterAccordion } from "./CustomFilterAccordion";
 export { CustomRadioButton } from "./CustomRadioButton";
 export { CustomTabPanel } from "./TabPanel";
 export { CustomStepperBar } from "./CustomStepperBar";
+export { CommonModal } from "./CommonModal";
+export { OTPInput } from "./OTPInput";

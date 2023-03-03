@@ -30,6 +30,8 @@ export function ProfileMain({
   const [tabIndex, setTabIndex] = useState(location?.state);
   const [currentData, setCurrentData] = useState(currentUserData);
   const [isAddressForm, setAddressForm] = useState(true);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
   const [passwordError, setError] = useState(false);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
@@ -51,11 +53,13 @@ export function ProfileMain({
       roleType: inputData.profile,
       gender: inputData.gender,
     };
+
     updateProfileAPICall(payload).then(() => {
-      Toast({
-        type: "success",
-        message: "Profile Updated!",
-      });
+      handleOpen();
+      // Toast({
+      //   type: "success",
+      //   message: "Profile Updated!",
+      // });
     });
   };
 
@@ -130,6 +134,8 @@ export function ProfileMain({
                   handleInput={handleInput}
                   inputData={inputData}
                   updateProfile={updateProfile}
+                  open={open}
+                  setOpen={setOpen}
                 />
               </TabPanel>
               <TabPanel>
