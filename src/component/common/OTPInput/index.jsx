@@ -68,7 +68,7 @@ export function OTPInput({ OTP, setOTP, verifyOTP }) {
           clearInterval(interval);
         } else {
           setSeconds(59);
-          setMinutes(minutes - 1);
+          setMinutes((m) => m - 1);
         }
       }
     }, 1000);
