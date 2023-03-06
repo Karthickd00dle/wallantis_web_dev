@@ -146,9 +146,7 @@
 button {
   border: none;
 }
-.content-tabs {
-  // flex-grow : 1;
-}
+
 .content {
   display: none;
 }
@@ -218,4 +216,8 @@ button {
   background-color: #ffffff;
   width: 37%;
   height: 50px;
+}
+
+.custom-table {
+  padding: 50px;
 }

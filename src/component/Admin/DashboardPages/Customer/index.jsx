@@ -10,7 +10,11 @@ import {
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
-import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
+import {
+  DeleteIcon,
+  EyeIcon,
+  PencilIcon,
+} from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 
 const customersData = [
@@ -91,6 +95,14 @@ const TableDataBody = ({
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
           </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <PencilIcon />
+            <label className="table-cell-menu-item ps-2">Edit</label>
+          </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <DeleteIcon />
+            <label className="table-cell-menu-item ps-2">Delete</label>
+          </MenuItem>
         </CustomListMenu>
       </TableCell>
     </TableRow>
@@ -108,15 +120,16 @@ export default function CustomerManagement() {
     <div>
       <CustomNavBar label="Customer" />
 
-      <CustomTable>
-        <TableDataHeader />
-        <TableBody>
-          {customersData?.map((bodyData) => (
-            <TableDataBody bodyData={bodyData} />
-          ))}
-        </TableBody>
-      </CustomTable>
-
+      <div className="custom-table">
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {customersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </div>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}
