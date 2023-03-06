@@ -134,6 +134,6 @@ export const sidebarItems = [
       normal: <Logout fill={"white"} />,
       active: <Logout fill={"#C5CAFF"} />,
     },
-    route: "/admin/logout",
+    route: "/admin-auth/login",
   },
 ];
