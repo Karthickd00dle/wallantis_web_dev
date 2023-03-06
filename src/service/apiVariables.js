@@ -3,12 +3,12 @@ import { generateQuery } from "../service/helperFunctions";
 //auth Api
 export const authApi = {
   loginApi: {
-    api: "users/login",
+    api: "login",
     method: "post",
     baseURL: "auth",
   },
   registationApi: {
-    api: "users/register",
+    api: "register",
     method: "post",
     baseURL: "auth",
   },
@@ -18,7 +18,7 @@ export const authApi = {
     baseURL: "auth",
   },
   verifyOTP: {
-    api: "users/verifyOTP",
+    api: "verifyOTP",
     method: "post",
     baseURL: "auth",
   },
@@ -26,17 +26,17 @@ export const authApi = {
 
 export const profileApi = {
   updateProfile: {
-    api: "users/profileUpdate",
+    api: "profileUpdate",
     method: "put",
     baseURL: "auth",
   },
   getCurrentProfile: {
-    api: "users/ProfileData",
+    api: "ProfileData",
     method: "get",
     baseURL: "auth",
   },
   changePassword: {
-    api: "users/changePassword",
+    api: "changePassword",
     method: "put",
     baseURL: "auth",
   },
@@ -60,29 +60,9 @@ export const cartApi = {
   },
 };
 
-// Admin Privilage
-export const adminPrivilageVariables = {
-  addedMembersUrl: {
-    url: "getAllUsers",
-    method: "get",
-    baseURL: "user",
-    query: {
-      page: 1,
-      size: 10,
-      search: "",
-    },
-    get api() {
-      return this.url + generateQuery(this.query);
-    },
-    set addQuery({ key, payload }) {
-      this.query[key] = payload;
-    },
-  },
-};
-
 export const productAPI = {
   getAllProducts: {
-    url: "products/product/list",
+    url: "product/list",
     method: "get",
     baseURL: "products",
     query: {
