@@ -1,13 +1,15 @@
 import React from "react";
 import "./index.scss";
 
-export default function CommonSelect() {
+export default function CommonSelect({
+  options = ["Current week", "Current month", "Current year"],
+}) {
   return (
     <div>
       <select name="cars" id="cars" className="common-select">
-        <option value="volvo">Current week</option>
-        <option value="saab">Current month</option>
-        <option value="mercedes">Current year</option>
+        {options.map((option) => {
+          return <option value="volvo">{option}</option>;
+        })}
       </select>
     </div>
   );

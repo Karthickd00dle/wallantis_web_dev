@@ -64,4 +64,5 @@ export {
   CatalogueDetailPage,
   CareerDetailPage,
   AdminLoginPage,
+  NewOrderPage,
 } from "./Admin";

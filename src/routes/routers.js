@@ -311,6 +311,14 @@ const routers = [
         exact: false,
       },
       {
+        component: "NewOrderPage",
+        path: "/new-order",
+        componentPath: "pages/Admin/Report/NewOrder",
+        name: "NewOrderPage",
+        auth: false,
+        exact: false,
+      },
+      {
         component: "SettingsPage",
         path: "/settings",
         componentPath: "pages/Admin/SettingsPage",

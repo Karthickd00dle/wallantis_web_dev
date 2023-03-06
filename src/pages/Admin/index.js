@@ -1,3 +1,5 @@
+import NewOrderPage from "./NewOrderPage";
+
 export { ReportPage } from "./ReportPage";
 export { SettingsPage } from "./SettingsPage";
 export { DashboardPage } from "./DashboardPage";
@@ -21,3 +23,4 @@ export { StaffDetailPage } from "./StaffDetailPage";
 export { CatalogueDetailPage } from "./CatalogueDetailPage";
 export { CareerDetailPage } from "./CareerDetailPage";
 export { AdminLoginPage } from "./Auth/AdminLoginPage";
+export { NewOrderPage } from "./NewOrderPage";
