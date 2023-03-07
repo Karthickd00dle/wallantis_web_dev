@@ -1,9 +1,22 @@
 import React, { useState } from "react";
-import { NormalInput, CommonRadioGroup, NormalButton } from "component/common";
+import Button from "@mui/material/Button";
+import {
+  NormalInput,
+  CommonRadioGroup,
+  NormalButton,
+  CommonModal,
+} from "component/common";
 import { useForm } from "react-hook-form";
 import "./index.scss";
 
-export default function ProfileForm({ handleInput, inputData, updateProfile }) {
+export default function ProfileForm({
+  handleInput,
+  inputData,
+  updateProfile,
+  open,
+  setOpen,
+  verifyOTP,
+}) {
   const {
     register,
     handleSubmit,
@@ -11,6 +24,11 @@ export default function ProfileForm({ handleInput, inputData, updateProfile }) {
   } = useForm();
   const [isEmailDisabled, setEmailDisabled] = useState(true);
   const [isMobileDisabled, setMobileDisabled] = useState(true);
+
+  const [OTP, setOTP] = useState("");
+
+  const handleClose = () => setOpen(false);
+
   return (
     <form onSubmit={handleSubmit(updateProfile)}>
       <div className="profile-form">
@@ -88,15 +106,15 @@ export default function ProfileForm({ handleInput, inputData, updateProfile }) {
           <div className="input-container">
             <label>Email Address</label>
             <NormalInput
-              name={"email"}
+              name={"emailId"}
               className={"text-input mt-3 disabled"}
               onChange={handleInput}
-              value={inputData.email}
+              value={inputData.emailId}
               disabled={isEmailDisabled}
               register={register}
             />
             <div className="error-message">
-              {errors["email"]?.type && (
+              {errors["emailId"]?.type && (
                 <span className="error-text">Email Address is required</span>
               )}
             </div>
@@ -108,11 +126,39 @@ export default function ProfileForm({ handleInput, inputData, updateProfile }) {
             </p>
           </div>
 
-          <div className="input-container"></div>
+          <div className="input-container">
+            <label>Mobile Number</label>
+            <NormalInput
+              name={"phoneNumber"}
+              className={"text-input mt-3 disabled"}
+              onChange={handleInput}
+              value={inputData.phoneNumber}
+              disabled={isMobileDisabled}
+              register={register}
+            />
+            <div className="error-message">
+              {errors["phoneNumber"]?.type && (
+                <span className="error-text">Mobile Number is required</span>
+              )}
+            </div>
+            <p
+              className="change-text"
+              onClick={() => setMobileDisabled(!isMobileDisabled)}
+            >
+              CHANGE
+            </p>
+          </div>
         </div>
         <div className="mt-5">
           <NormalButton label="Save Changes" saveBtn={true} type="submit" />
         </div>
+        <CommonModal
+          open={open}
+          handleClose={handleClose}
+          OTP={OTP}
+          setOTP={setOTP}
+          verifyOTP={verifyOTP}
+        />
       </div>
     </form>
   );

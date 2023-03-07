@@ -26,7 +26,7 @@
     width: 100%;
     min-height: 50px;
     height: 100%;
-    font-size: 16px;
+    font-size: 14px;
     color: black;
     background: #fdfdfd;
     border: 0.5px solid #cbcbcb;
@@ -36,6 +36,7 @@
     &:disabled {
       background-color: $white;
       cursor: not-allowed;
+      font-size: 14px;
     }
 
     &:focus {
@@ -43,6 +44,10 @@
       border: 0.5px solid #606060;
       outline: none;
       box-shadow: none;
+    }
+
+    ::placeholder {
+      font-size: 14px;
     }
   }
 

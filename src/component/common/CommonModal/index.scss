@@ -1,0 +1,9 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
+
+#modal-modal-title {
+  @include fontLatoStyle(30px, 700, #2a71f9);
+}
+
+#modal-modal-description {
+  @include fontLatoStyle(20px, 500, #9a9999);
+}

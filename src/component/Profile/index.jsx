@@ -9,9 +9,11 @@ import { bindActionCreators } from "redux";
 import ChangePassword from "./ChangePassword";
 import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
+import { history } from "service/helpers";
 import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
 import { updateProfile, changeCurrentPassword } from "action/ProfileAct";
+import { verifyOTPApi } from "action/AuthAct";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
 import { connect } from "react-redux";
@@ -23,6 +25,7 @@ export function ProfileMain({
   updateProfileAPICall,
   currentUserData,
   changeCurrentPasswordAPI,
+  verifyOTPApiCall,
 }) {
   let location = useLocation();
 
@@ -30,6 +33,8 @@ export function ProfileMain({
   const [tabIndex, setTabIndex] = useState(location?.state);
   const [currentData, setCurrentData] = useState(currentUserData);
   const [isAddressForm, setAddressForm] = useState(true);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
   const [passwordError, setError] = useState(false);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
@@ -50,12 +55,26 @@ export function ProfileMain({
       phoneNumber: inputData.mobile,
       roleType: inputData.profile,
       gender: inputData.gender,
+      phoneNumber: inputData.mobile,
     };
+
     updateProfileAPICall(payload).then(() => {
-      Toast({
-        type: "success",
-        message: "Profile Updated!",
-      });
+      handleOpen();
+      // Toast({
+      //   type: "success",
+      //   message: "Profile Updated!",
+      // });
+    });
+  };
+
+  const verifyOTP = (OTP) => {
+    let payload = {
+      phoneNumber: inputData.mobile,
+      otp: OTP,
+    };
+
+    verifyOTPApiCall(payload).then(() => {
+      history.push("/auth/login");
     });
   };
 
@@ -130,6 +149,9 @@ export function ProfileMain({
                   handleInput={handleInput}
                   inputData={inputData}
                   updateProfile={updateProfile}
+                  open={open}
+                  setOpen={setOpen}
+                  verifyOTP={verifyOTP}
                 />
               </TabPanel>
               <TabPanel>
@@ -169,6 +191,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       updateProfileAPICall: updateProfile,
       changeCurrentPasswordAPI: changeCurrentPassword,
+      verifyOTPApiCall: verifyOTPApi,
     },
     dispatch
   );
