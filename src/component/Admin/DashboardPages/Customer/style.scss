@@ -1,3 +1,11 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.download-csv-button {
+  border: 1px solid #5d5fef;
+  border-radius: 6px;
+  @include fontLatoStyle(14px, 500, #5d5fef, 19px);
+}
+
 .cd-customercollab {
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
@@ -218,4 +226,14 @@ button {
   background-color: #ffffff;
   width: 37%;
   height: 50px;
+}
+
+.table-head-cell-label {
+  @include fontLatoStyle(14px, 600, #ababab, 17px);
+}
+.table-body-cell-label {
+  @include fontLatoStyle(14px, 600, #000000, 17px);
+}
+.table-cell-menu-item {
+  @include fontRobotoStyle(14px, 400, #ababab, 16px);
 }
