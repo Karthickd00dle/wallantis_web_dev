@@ -30,6 +30,7 @@
     "react-leaflet": "^4.2.0",
     "react-loader-spinner": "^4.0.0",
     "react-paginate": "^8.1.4",
+    "react-quill": "^2.0.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",

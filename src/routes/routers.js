@@ -391,6 +391,14 @@ const routers = [
         exact: false,
       },
       {
+        component: "AddNewCataloguePage",
+        path: "/add-catalogue",
+        componentPath: "pages/Admin/AddNewCatalogue",
+        name: "AddNewCataloguePage",
+        auth: false,
+        exact: false,
+      },
+      {
         component: "CatalogueDetailPage",
         path: "/catalogueDetailPage",
         componentPath: "pages/Admin/CatalogueDetailPage",

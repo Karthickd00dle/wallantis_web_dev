@@ -25,3 +25,4 @@ export { CareerDetailPage } from "./CareerDetailPage";
 export { AdminLoginPage } from "./Auth/AdminLoginPage";
 export { NewOrderPage } from "./NewOrderPage";
 export { AddNewStaffPage } from "./AddNewStaff";
+export { AddNewCataloguePage } from "./AddNewCatalogue";
