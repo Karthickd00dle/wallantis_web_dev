@@ -38,6 +38,7 @@
   width: 96%;
   display: flex;
   justify-content: space-between;
+
   align-items: center;
   border-top: 1px solid #d5d5d5;
   border-bottom: 1px solid #d5d5d5;
@@ -49,6 +50,15 @@
   .label-item-label {
     @include fontLatoStyle(20px, 600, #000000, 26px);
     text-transform: capitalize;
+  }
+  .sorting-menu-style {
+    background-color: transparent;
+  }
+}
+
+.filter-container {
+  .MuiPaper-root.MuiAccordion-root {
+    background-color: transparent;
   }
 }
 
