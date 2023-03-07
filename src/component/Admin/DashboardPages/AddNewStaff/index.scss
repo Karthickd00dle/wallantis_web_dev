@@ -1,0 +1,36 @@
+@import "assets/scss/abstracts/abstracts";
+
+.add-staff {
+  .add-staff-main {
+    padding: 50px;
+
+    .add-staff-inner {
+      background-color: #ffffff;
+      border: 1px solid #d5d5d5;
+      padding: 20px;
+      p {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #263238;
+      }
+
+      label {
+        @include fontLatoStyle(16px, 600, $black);
+      }
+    }
+    .checkbox-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      margin-top: 20px;
+      position: relative;
+    }
+  }
+}
