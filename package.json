@@ -29,6 +29,7 @@
     "react-js-pagination": "^3.0.2",
     "react-leaflet": "^4.2.0",
     "react-loader-spinner": "^4.0.0",
+    "react-pageflip": "^2.0.3",
     "react-paginate": "^8.1.4",
     "react-redux": "^8.0.4",
     "react-router-dom": "^5.2.0",

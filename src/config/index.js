@@ -21,6 +21,18 @@ import step7 from "assets/images/ProductDetails/step7.png";
 import step8 from "assets/images/ProductDetails/step8.png";
 import step9 from "assets/images/ProductDetails/step9.png";
 import step10 from "assets/images/ProductDetails/step10.png";
+import ctwallpaper1 from "assets/images/eCatalogue/wallpaper-1.png";
+import ctwallpaper2 from "assets/images/eCatalogue/wallpaper-2.png";
+import ctwallpaper3 from "assets/images/eCatalogue/wallpaper-3.png";
+import ctwallpaper4 from "assets/images/eCatalogue/wallpaper-4.png";
+import ctwallmural1 from "assets/images/eCatalogue/wall-mural-1.png";
+import ctwallmural2 from "assets/images/eCatalogue/wall-mural-2.png";
+import ctwallmural3 from "assets/images/eCatalogue/wall-mural-3.png";
+import ctwallmural4 from "assets/images/eCatalogue/wall-mural-4.png";
+import ctstickerwallpaper1 from "assets/images/eCatalogue/sticker-wallpaper-1.png";
+import ctstickerwallpaper2 from "assets/images/eCatalogue/sticker-wallpaper-2.png";
+import ctstickerwallpaper3 from "assets/images/eCatalogue/sticker-wallpaper-3.png";
+import ctstickerwallpaper4 from "assets/images/eCatalogue/sticker-wallpaper-4.png";
 
 export const LanguageMenuList = [
   {
@@ -1521,5 +1533,196 @@ export const ProductInstructions4 = [
     image: step10,
     info: "If you are installing the design with a Half-Drop Repeat, these panels match seamlessly when they are connected at the halfway point of the adjoining design. ",
     steps: "Step 10",
+  },
+];
+
+export const eCatalogueBanners = [
+  {
+    title: "Wallpaper",
+    data: [ctwallpaper1, ctwallpaper2, ctwallpaper3, ctwallpaper4],
+  },
+  {
+    title: "Wall Mural",
+    data: [ctwallmural1, ctwallmural2, ctwallmural3, ctwallmural4],
+  },
+  {
+    title: "Sticker Wallpaper",
+    data: [
+      ctstickerwallpaper1,
+      ctstickerwallpaper2,
+      ctstickerwallpaper3,
+      ctstickerwallpaper4,
+    ],
+  },
+];
+
+export const eCatalogueProducts = [
+  {
+    id: 1,
+    page_no: 1,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/1.jpg",
+  },
+  {
+    id: 2,
+    page_no: 2,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/2.jpg",
+  },
+  {
+    id: 3,
+    page_no: 3,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/3.jpg",
+  },
+  {
+    id: 4,
+    page_no: 4,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/4.jpg",
+  },
+  {
+    id: 5,
+    page_no: 5,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/5.jpg",
+  },
+  {
+    id: 6,
+    page_no: 6,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/6.jpg",
+  },
+  {
+    id: 7,
+    page_no: 7,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/7.jpg",
+  },
+  {
+    id: 8,
+    page_no: 8,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/8.jpg",
+  },
+  {
+    id: 9,
+    page_no: 9,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/9.jpg",
+  },
+  {
+    id: 10,
+    page_no: 10,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/10.jpg",
+  },
+  {
+    id: 11,
+    page_no: 11,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/11.jpg",
+  },
+  {
+    id: 12,
+    page_no: 12,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/12.jpg",
+  },
+  {
+    id: 13,
+    page_no: 13,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/13.jpg",
+  },
+  {
+    id: 14,
+    page_no: 14,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/14.jpg",
+  },
+  {
+    id: 15,
+    page_no: 15,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/15.jpg",
+  },
+  {
+    id: 16,
+    page_no: 16,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/16.jpg",
+  },
+  {
+    id: 17,
+    page_no: 17,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/17.jpg",
+  },
+  {
+    id: 18,
+    page_no: 18,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/18.jpg",
+  },
+  {
+    id: 19,
+    page_no: 19,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/19.jpg",
+  },
+  {
+    id: 20,
+    page_no: 20,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/20.jpg",
+  },
+  {
+    id: 21,
+    page_no: 21,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/21.jpg",
+  },
+  {
+    id: 22,
+    page_no: 22,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/22.jpg",
+  },
+  {
+    id: 23,
+    page_no: 23,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/23.jpg",
+  },
+  {
+    id: 24,
+    page_no: 24,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/24.jpg",
+  },
+  {
+    id: 25,
+    page_no: 25,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/25.jpg",
+  },
+  {
+    id: 26,
+    page_no: 26,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/26.jpg",
+  },
+  {
+    id: 27,
+    page_no: 27,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/27.jpg",
+  },
+  {
+    id: 28,
+    page_no: 28,
+    image:
+      "https://ecatalogues.s3.ap-south-1.amazonaws.com/tapestry/files/mobile/28.jpg",
   },
 ];
