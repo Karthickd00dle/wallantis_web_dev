@@ -67,4 +67,5 @@ export {
   NewOrderPage,
   AddNewStaffPage,
   AddNewCataloguePage,
+  AddNewCouponPage,
 } from "./Admin";

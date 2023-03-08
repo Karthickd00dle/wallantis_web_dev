@@ -146,12 +146,17 @@ export default function CouponManagement() {
   };
 
   return (
-    <div className="product-management">
+    <div className="coupon-management">
       <CustomNavBar label="Coupon Management" />
       <div className="button-group">
         <CommonButton title="Download CSV" icon={downloadIcon} />
 
-        <button className="purple-filled">Add New Coupon </button>
+        <button
+          className="purple-filled"
+          onClick={() => history.push("/admin/add-coupon")}
+        >
+          Add New Coupon{" "}
+        </button>
       </div>
 
       <div className="custom-table">
