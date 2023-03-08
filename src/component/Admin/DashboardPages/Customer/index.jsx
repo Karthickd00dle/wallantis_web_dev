@@ -140,16 +140,6 @@ export default function CustomerManagement() {
           </TableBody>
         </CustomTable>
 
-        <div className="custom-table">
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {customersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </div>
         <CustomPagination
           pageCount={10}
           currentPage={currentPage}
