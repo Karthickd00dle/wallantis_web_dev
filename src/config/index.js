@@ -969,6 +969,7 @@ export const productItems = [
     size: "50cm x 45cm",
     type: "flooring",
   },
+
   {
     id: 18,
     title: "LVP Plank 2",
