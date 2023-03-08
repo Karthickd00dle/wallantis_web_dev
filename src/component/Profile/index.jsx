@@ -55,7 +55,6 @@ export function ProfileMain({
       phoneNumber: inputData.mobile,
       roleType: inputData.profile,
       gender: inputData.gender,
-      phoneNumber: inputData.mobile,
     };
 
     updateProfileAPICall(payload).then(() => {
