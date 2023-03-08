@@ -117,10 +117,12 @@ export default function Dashboard() {
               <p className="title">Overall sales</p>
               <div className="d-flex">
                 <p className="amount mr-4">₹80,490</p>
-                <div className="d-flex mt-2">
+                <div className="trend-up-container">
                   <TrendUp fill="#1EE832" />
+                  <p className="mb-0" style={{ color: "#1EE832" }}>
+                    20%
+                  </p>
                 </div>
-                <p className="mt-0 ml-2" style={{ color: "#1EE832" }}>20%</p>
               </div>
             </div>
             <div className="select-option">

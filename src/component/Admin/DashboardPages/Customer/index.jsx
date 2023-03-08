@@ -6,7 +6,9 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  Button,
 } from "@mui/material";
+import DownloadIcon from "assets/images/DownloadIcon";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
@@ -107,6 +109,16 @@ export default function CustomerManagement() {
   return (
     <div>
       <CustomNavBar label="Customer" />
+
+      <div className="customer-dwnld-btn">
+        <Button
+          style={{ color: "#5D5FEF", borderColor: "#5D5FEF" }}
+          variant="outlined"
+          startIcon={<DownloadIcon />}
+        >
+          Doenload CSV
+        </Button>
+      </div>
 
       <CustomTable>
         <TableDataHeader />
