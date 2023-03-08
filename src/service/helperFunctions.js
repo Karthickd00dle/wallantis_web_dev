@@ -17,10 +17,15 @@ export const addQuery = (dataObject, apiObject) => {
     "size",
     "search",
     "pageLimit",
+    "pageCount",
+    "nextPage",
+    "pageSize",
+    "total",
     "sort",
     "id",
     "status",
     "enable",
+    "wallPaperType",
   ];
 
   keys.forEach((key) => {

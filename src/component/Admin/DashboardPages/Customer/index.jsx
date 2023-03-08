@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
   MenuItem,
@@ -10,14 +10,14 @@ import {
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
-import {
-  DeleteIcon,
-  EyeIcon,
-  PencilIcon,
-} from "assets/svg/Admin/InventoryMangement";
+import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
 import { DownloadIcon } from "../../../../assets/svg/Admin/Common";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getAllCatalogue } from "action/CatalogueAct";
+import { Toast } from "service/toast";
 
 const customersData = [
   {
@@ -97,26 +97,50 @@ const TableDataBody = ({
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
           </MenuItem>
-          <MenuItem className="d-flex align-items-center">
-            <PencilIcon />
-            <label className="table-cell-menu-item ps-2">Edit</label>
-          </MenuItem>
-          <MenuItem className="d-flex align-items-center">
-            <DeleteIcon />
-            <label className="table-cell-menu-item ps-2">Delete</label>
-          </MenuItem>
         </CustomListMenu>
       </TableCell>
     </TableRow>
   );
 };
 
-export default function CustomerManagement() {
-  const [currentPage, setCurrentPage] = React.useState(1);
-
+const CustomerManagementFC = ({ getAllCatalogueApiCall }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [customerData, setCustomerData] = useState();
   const handlePage = (event, value) => {
     setCurrentPage(value);
   };
+
+  const getKimDetailsListApi = useCallback(
+    (searchData) => {
+      let queryParams = {
+        page: 1,
+        pageCount: 0,
+        nextPage: null,
+        pageSize: 10,
+        total: 0,
+        search: searchData,
+      };
+
+      getAllCatalogueApiCall({ ...queryParams })
+        .then(({ list, pageMeta: pageMetaValue }) => {
+          setCustomerData(list);
+        })
+        .catch(() => {
+          Toast({
+            type: "error",
+            message: "Sorry something went wrong !",
+          });
+        });
+    },
+
+    [getAllCatalogueApiCall]
+  );
+
+  useEffect(() => {
+    getKimDetailsListApi();
+  }, [getKimDetailsListApi]);
+
+  console.log(customerData, "cust data");
 
   return (
     <div>
@@ -140,16 +164,6 @@ export default function CustomerManagement() {
           </TableBody>
         </CustomTable>
 
-        <div className="custom-table">
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {customersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </div>
         <CustomPagination
           pageCount={10}
           currentPage={currentPage}
@@ -158,4 +172,20 @@ export default function CustomerManagement() {
       </div>
     </div>
   );
-}
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getAllCatalogueApiCall: getAllCatalogue,
+    },
+    dispatch
+  );
+};
+
+export const CustomerManagement = connect(
+  null,
+  mapDispatchToProps,
+  CustomerManagementFC
+);
+export default CustomerManagement;

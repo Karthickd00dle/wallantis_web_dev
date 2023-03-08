@@ -80,3 +80,24 @@ export const productAPI = {
     },
   },
 };
+
+export const catalogueAPI = {
+  getAllCatalogue: {
+    url: "AllCatalogue",
+    method: "get",
+    baseURL: "catalogue",
+    query: {
+      page: null,
+      pageCount: null,
+      nextPage: null,
+      pageSize: null,
+      total: null,
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};
