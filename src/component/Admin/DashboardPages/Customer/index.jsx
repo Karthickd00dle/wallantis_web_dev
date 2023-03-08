@@ -16,6 +16,8 @@ import {
   PencilIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
+import { CustomButton } from "../../common/CustomButton";
+import { DownloadIcon } from "../../../../assets/svg/Admin/Common";
 
 const customersData = [
   {
@@ -119,8 +121,16 @@ export default function CustomerManagement() {
   return (
     <div>
       <CustomNavBar label="Customer" />
-
-      <div className="custom-table">
+      <div className="px-5">
+        <div className="d-flex justify-content-end my-4">
+          <CustomButton
+            className="download-csv-button p-3"
+            startIcon={<DownloadIcon />}
+            variant="outlined"
+          >
+            Download CSV
+          </CustomButton>
+        </div>
         <CustomTable>
           <TableDataHeader />
           <TableBody>
@@ -129,12 +139,23 @@ export default function CustomerManagement() {
             ))}
           </TableBody>
         </CustomTable>
+
+        <div className="custom-table">
+          <CustomTable>
+            <TableDataHeader />
+            <TableBody>
+              {customersData?.map((bodyData) => (
+                <TableDataBody bodyData={bodyData} />
+              ))}
+            </TableBody>
+          </CustomTable>
+        </div>
+        <CustomPagination
+          pageCount={10}
+          currentPage={currentPage}
+          onChange={handlePage}
+        />
       </div>
-      <CustomPagination
-        pageCount={10}
-        currentPage={currentPage}
-        onChange={handlePage}
-      />
     </div>
   );
 }
