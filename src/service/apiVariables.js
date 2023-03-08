@@ -92,6 +92,7 @@ export const catalogueAPI = {
       nextPage: null,
       pageSize: null,
       total: null,
+      wallPaperType: null,
     },
     get api() {
       return this.url + generateQuery(this.query);
@@ -99,5 +100,10 @@ export const catalogueAPI = {
     set addQuery({ key, payload }) {
       this.query[key] = payload;
     },
+  },
+  createCatalogue: {
+    api: "create",
+    method: "post",
+    baseURL: "catalogue",
   },
 };

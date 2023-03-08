@@ -13,3 +13,20 @@ export const getAllCatalogue =
       });
     });
   };
+
+export const createCatalogueApi =
+  (body) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      apiCall({
+        ...catalogueAPI.createCatalogue,
+        body,
+      })
+        .then((data) => {
+          resolve(data);
+        })
+        .catch(({ message }) => {
+          reject(Toast({ type: "error", message }));
+        });
+    });
+  };

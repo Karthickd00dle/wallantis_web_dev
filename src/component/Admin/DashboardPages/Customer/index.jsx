@@ -15,8 +15,6 @@ import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
 import { DownloadIcon } from "../../../../assets/svg/Admin/Common";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { getAllCatalogue } from "action/CatalogueAct";
 import { Toast } from "service/toast";
 
 const customersData = [
@@ -103,44 +101,12 @@ const TableDataBody = ({
   );
 };
 
-const CustomerManagementFC = ({ getAllCatalogueApiCall }) => {
+const CustomerManagementFC = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [customerData, setCustomerData] = useState();
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
   };
-
-  const getKimDetailsListApi = useCallback(
-    (searchData) => {
-      let queryParams = {
-        page: 1,
-        pageCount: 0,
-        nextPage: null,
-        pageSize: 10,
-        total: 0,
-        search: searchData,
-      };
-
-      getAllCatalogueApiCall({ ...queryParams })
-        .then(({ list, pageMeta: pageMetaValue }) => {
-          setCustomerData(list);
-        })
-        .catch(() => {
-          Toast({
-            type: "error",
-            message: "Sorry something went wrong !",
-          });
-        });
-    },
-
-    [getAllCatalogueApiCall]
-  );
-
-  useEffect(() => {
-    getKimDetailsListApi();
-  }, [getKimDetailsListApi]);
-
-  console.log(customerData, "cust data");
 
   return (
     <div>
@@ -174,18 +140,5 @@ const CustomerManagementFC = ({ getAllCatalogueApiCall }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      getAllCatalogueApiCall: getAllCatalogue,
-    },
-    dispatch
-  );
-};
-
-export const CustomerManagement = connect(
-  null,
-  mapDispatchToProps,
-  CustomerManagementFC
-);
+const CustomerManagement = connect(null, null)(CustomerManagementFC);
 export default CustomerManagement;

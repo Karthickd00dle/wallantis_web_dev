@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts";
+
 .product-management {
   position: relative;
 }
@@ -178,4 +180,51 @@
   top: 90px;
   display: flex;
   gap: 20px;
+}
+
+.add-catalogue {
+  .add-catalogue-main {
+    padding: 50px;
+
+    .add-catalogue-inner {
+      .add-catalogue-label {
+        @include fontLatoStyle(20px, 600, #263238, 24px);
+      }
+
+      .add-catalogue-inner-container {
+        border: 1px solid #d5d5d5;
+        padding: 30px;
+        .add-catalogue-description {
+          @include fontLatoStyle(16px, 600, #000000, 19px);
+        }
+        .catalogue-type {
+          background-color: #ffffff;
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+          opacity: 0.6;
+          height: 50px;
+          width: 25%;
+
+          border: 0.25px solid #c0c0c0;
+          @include fontLatoStyle(16px, 500, #000000, 19px);
+        }
+      }
+      background-color: #ffffff;
+      padding: 20px;
+
+      .image-upload-box {
+        border: 1px dashed #d5d5d5;
+        height: 247px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+    .checkbox-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      margin-top: 20px;
+      position: relative;
+    }
+  }
 }
