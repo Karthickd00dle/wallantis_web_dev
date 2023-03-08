@@ -1,0 +1,51 @@
+@import "assets/scss/abstracts/abstracts";
+
+.add-catalogue {
+  .add-catalogue-main {
+    padding: 50px;
+
+    .add-catalogue-inner {
+      background-color: #ffffff;
+      padding: 20px;
+      p {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #263238;
+      }
+
+      label {
+        @include fontLatoStyle(16px, 600, $black);
+      }
+
+      .image-upload-box {
+        border: 1px dashed #d5d5d5;
+        height: 247px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #ffffff;
+        }
+      }
+    }
+    .checkbox-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      margin-top: 20px;
+      position: relative;
+    }
+  }
+}

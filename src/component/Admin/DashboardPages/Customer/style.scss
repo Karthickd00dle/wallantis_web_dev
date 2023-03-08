@@ -154,9 +154,7 @@
 button {
   border: none;
 }
-.content-tabs {
-  // flex-grow : 1;
-}
+
 .content {
   display: none;
 }
@@ -228,6 +226,9 @@ button {
   height: 50px;
 }
 
+.custom-table {
+  padding: 50px;
+}
 .table-head-cell-label {
   @include fontLatoStyle(14px, 600, #ababab, 17px);
 }

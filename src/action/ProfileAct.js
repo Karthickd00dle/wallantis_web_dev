@@ -7,13 +7,9 @@ export const updateProfile =
       apiCall({
         ...profileApi.updateProfile,
         body,
-      })
-        .then((data) => {
-          resolve(data);
-        })
-        .catch(({ message }) => {
-          reject(Toast({ type: "error", message }));
-        });
+      }).then((data) => {
+        resolve(data);
+      });
     });
   };
 
@@ -23,13 +19,9 @@ export const getCurrentProfile =
     return new Promise((resolve, reject) => {
       apiCall({
         ...profileApi.getCurrentProfile,
-      })
-        .then((data) => {
-          resolve(data);
-        })
-        .catch(({ message }) => {
-          reject(Toast({ type: "error", message }));
-        });
+      }).then((data) => {
+        resolve(data);
+      });
     });
   };
 
@@ -40,12 +32,8 @@ export const changeCurrentPassword =
       apiCall({
         ...profileApi.changePassword,
         body,
-      })
-        .then((data) => {
-          resolve(data);
-        })
-        .catch(({ message }) => {
-          reject(Toast({ type: "error", message }));
-        });
+      }).then((data) => {
+        resolve(data);
+      });
     });
   };

@@ -6,7 +6,7 @@ export function AdminLayout({ children }) {
   return (
     <div className="flex">
       <AdminSidebar />
-      <div className="d-flex flex-column w-100">
+      <div className="w-100">
         <CustomHeader />
         {children}
       </div>

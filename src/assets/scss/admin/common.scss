@@ -6,7 +6,6 @@
   height: 77px;
   display: flex;
   align-items: center;
-  width: 1600px;
   p {
     align-items: center;
     @include fontLatoStyle(24px, 500, #000000);
@@ -27,10 +26,72 @@
   border-radius: 6px;
   width: auto;
   margin-left: 0px;
-  padding: 10px 30px;
+  padding: 20px 30px;
   margin-top: 20px;
-  p {
-    @include fontLatoStyle(24px, 500, #000000);
+  width: 100%;
+
+  .overview-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    p {
+      @include fontLatoStyle(24px, 500, #000000);
+    }
+
+    .overview-end-btns {
+      display: flex;
+
+      .date-buttons {
+        padding: 10px;
+        display: flex;
+        background: #ffffff;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+
+        .range-buttons {
+          height: 30px;
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          border-radius: 7px;
+          padding: 5px 10px;
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+          display: flex;
+          align-items: center;
+          color: #000000;
+
+          &:not(:first-child) {
+            margin-left: 10px;
+          }
+
+          &:hover {
+            background: #c5caff;
+          }
+        }
+      }
+
+      .download-button {
+        background: #5d5fef;
+        border-radius: 4px;
+        width: fit-content;
+        border: none;
+        margin-left: 15px;
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        display: flex;
+        align-items: center;
+        color: #ffffff;
+      }
+    }
   }
 }
 
@@ -54,7 +115,7 @@
   }
 
   .overview-card {
-    min-width: 350px;
+    min-width: 24%;
     padding: 20px 20px;
 
     border-radius: 18px;
@@ -71,6 +132,17 @@
       margin-top: -25px;
     }
 
+    .percent-value {
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      align-items: center;
+      margin-left: 5px;
+    }
+
     .purple {
       background-color: #b2b6e7;
     }
@@ -83,6 +155,19 @@
     .yellow {
       background-color: #e5e0c4;
     }
+
+    .order-percent {
+      color: #3a46d1;
+    }
+    .revenue-percent {
+      color: #e15188;
+    }
+    .visitor-percent {
+      color: #bd55d0;
+    }
+    .purchased-percent {
+      color: #c0a916;
+    }
   }
 }
 
@@ -92,24 +177,30 @@
 }
 
 .charts-card {
-  min-width: 350px;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 30px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
-  justify-content: center;
+  padding: 20px;
 }
 
 .chart-card {
   background-color: #ffffff;
   height: auto;
-  width: 750px;
+  width: calc(50% - 20px); /* subtract padding from 50% width */
+  box-sizing: border-box; /* include padding in width calculation */
   border-radius: 10px;
   padding: 30px;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 0px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   margin-bottom: 20px;
+
+  &:nth-child(2n) {
+    margin-left: 20px;
+  }
+
   .chart-header {
     display: flex;
     justify-content: space-between;
@@ -213,11 +304,12 @@
   }
 
   .chart-card {
+    width: calc(50% - 20px); /* subtract padding from 50% width */
+    box-sizing: border-box;
     background-color: #ffffff;
     height: auto;
     border-radius: 10px;
     padding: 20px;
-    width: 450px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
   }
@@ -300,8 +392,9 @@
     background-color: #ffffff;
     height: auto;
     border-radius: 10px;
+    width: calc(50% - 20px); /* subtract padding from 50% width */
     padding: 20px;
-    width: 400px;
+    box-sizing: border-box;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
   }

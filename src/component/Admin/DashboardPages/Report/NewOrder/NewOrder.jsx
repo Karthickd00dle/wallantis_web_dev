@@ -1,6 +1,6 @@
 import React from "react";
 import CustomTable from "component/Admin/common/CustomTable";
-import "./style.scss";
+import "./index.scss";
 import {
   IconButton,
   TableBody,
@@ -24,31 +24,22 @@ const TableDataHeader = () => {
           <label className="table-head-cell-label">No</label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Name</label>
-          <IconButton>
-            <AscendingDescendingArrow />
-          </IconButton>
+          <label className="table-head-cell-label">Order ID</label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Message</label>
+          <label className="table-head-cell-label">Date</label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Mobile Number</label>
-          <IconButton>
-            <AscendingDescendingArrow />
-          </IconButton>
+          <label className="table-head-cell-label">Customer Name</label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Email Address</label>
-          <IconButton>
-            <AscendingDescendingArrow />
-          </IconButton>
+          <label className="table-head-cell-label">Location </label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Status</label>
-          <IconButton>
-            <AscendingDescendingArrow />
-          </IconButton>
+          <label className="table-head-cell-label">Amount</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">No. of Orders</label>
         </TableCell>
       </TableRow>
     </TableHead>
@@ -82,7 +73,7 @@ const TableDataBody = ({
   );
 };
 
-export default function LeadManagement() {
+export default function NewOrder() {
   const [currentPage, setCurrentPage] = React.useState(1);
 
   const handlePage = (event, value) => {
@@ -90,11 +81,7 @@ export default function LeadManagement() {
   };
 
   return (
-    <div className="lead-management">
-      <CustomNavBar label="Lead Management" />
-      <div className="download-csv">
-        <CommonButton title="Download CSV" icon={downloadIcon} />
-      </div>
+    <div className="newOrder-management">
       <div className="custom-table">
         <CustomTable>
           <TableDataHeader />

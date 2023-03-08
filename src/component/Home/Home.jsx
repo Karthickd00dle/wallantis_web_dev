@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import {
@@ -10,6 +10,8 @@ import {
   blogProducts,
 } from "config";
 import "./styles.scss";
+import { getAllProducts } from "action/ProductsAct";
+import { bindActionCreators } from "redux";
 import Wallmuralscard from "./subcomponents/Wallmuralscard";
 import sticker from "../../assets/images/sticker.png";
 import AdvancedCarousel from "component/common/Carousel";
@@ -67,7 +69,7 @@ function CardBlog({ prodData }) {
   };
   return (
     <div className="blog-container" onClick={goTo}>
-      <img className="blog-post-img mt-3" src={prodData.image} />
+      <img className="blog-post-img mt-3" src={prodData.image} alt="img"/>
       <div className="blog-post-date">11.10.2022</div>
       <div className="blog-post-title">{prodData.title}</div>
       <div className="blog-post-content">
@@ -77,10 +79,13 @@ function CardBlog({ prodData }) {
   );
 }
 
-function HomeComponentMain() {
+function HomeComponentMain({getAllProductsAPI}) {
   const dispatch = useDispatch();
   const [favData, setFavData] = useState([]);
   const [cartData, setCartData] = useState([]);
+  const [productList, setProductList] = useState([]);
+  const [artificialgrassProd, setArtificialgrassProd] = useState([])
+
   const handleCardProduct = (prodData) => {
     dispatch({
       type: commonStateList.productDetail,
@@ -89,6 +94,27 @@ function HomeComponentMain() {
 
     history.push("/home/product-details");
   };
+
+  const getAllProducts = () => {
+    getAllProductsAPI().then((res) => {
+      setProductList(res?.response?.data);
+    });
+
+    setTimeout(() => {
+      let artificialgrassProd = [];
+      productList.filter(item => {
+        if(item.categoryId.category === "artificial grass") {
+          artificialgrassProd.push(item)
+          console.log(item)
+        }
+      })
+      console.log(artificialgrassProd);
+    }, 3000)
+  };
+  
+  useEffect(() => {
+    getAllProducts();
+  }, []);
 
   return (
     <>
@@ -398,5 +424,14 @@ function HomeComponentMain() {
   );
 }
 
-const Home = connect(null, null)(HomeComponentMain);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getAllProductsAPI: getAllProducts,
+    },
+    dispatch
+  );
+};
+
+const Home = connect(null, mapDispatchToProps)(HomeComponentMain);
 export default Home;

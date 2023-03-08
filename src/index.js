@@ -6,6 +6,7 @@ import { store } from "service/helpers";
 import { createRoot } from "react-dom/client";
 import "./assets/scss/abstracts/abstracts.scss";
 import "./assets/scss/main.scss";
+import "react-quill/dist/quill.snow.css";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

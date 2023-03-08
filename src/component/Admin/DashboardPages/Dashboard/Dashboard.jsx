@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ArrowUp from "assets/icons/Admin/arrowUp.png";
 import { LineChart } from "./LineChart";
+import TrendUp from "assets/svg/Admin/TrendUp";
 import { DonutChart } from "./DonutChart";
 import { VerticalBarChart } from "./VerticalBarChart";
 import { PieChart } from "./PieChart";
@@ -51,34 +52,57 @@ export default function Dashboard() {
 
       <div className="dashboard-card">
         <div className="overview">
-          <p>Overview</p>
+          <div className="overview-top-bar">
+            <p>Overview</p>
+            <div className="overview-end-btns">
+              <div className="date-buttons">
+                <buttton className="range-buttons">Daily</buttton>
+                <buttton className="range-buttons">Weekly</buttton>
+                <buttton className="range-buttons">Monthly</buttton>
+              </div>
+
+              <button className="download-button">Download</button>
+            </div>
+          </div>
 
           <div className="overview-cards">
             <div className={`overview-card purple`}>
               <img src={ArrowUp} className="arrow-container purple" />
               <div>
-                <p className="amount">260</p>
+                <div className="d-flex">
+                  <p className="amount">260</p>
+                  <p className="order-percent percent-value">+2.5%</p>
+                </div>
                 <p className="order-number">Total No.of Orders</p>
               </div>
             </div>
             <div className={`overview-card pink`}>
               <img src={ArrowUp} className="arrow-container pink" />
               <div>
-                <p className="amount">260</p>
+                <div className="d-flex">
+                  <p className="amount">260</p>
+                  <p className="revenue-percent percent-value">+2.5%</p>
+                </div>
                 <p className="order-number">Revenue in this Period</p>
               </div>
             </div>
             <div className={`overview-card green`}>
               <img src={ArrowUp} className="arrow-container green" />
               <div>
-                <p className="amount">260</p>
+                <div className="d-flex">
+                  <p className="amount">260</p>
+                  <p className="visitor-percnent percent-value">-1.5%</p>
+                </div>
                 <p className="order-number">Total Visitor in this Period</p>
               </div>
             </div>
             <div className={`overview-card yellow`}>
               <img src={ArrowUp} className="arrow-container yellow" />
               <div>
-                <p className="amount">260</p>
+                <div className="d-flex">
+                  <p className="amount">260</p>
+                  <p className="purchased-percent percent-value">-2.5%</p>
+                </div>
                 <p className="order-number">Purchased Customer</p>
               </div>
             </div>
@@ -91,7 +115,13 @@ export default function Dashboard() {
           <div className="chart-header">
             <div>
               <p className="title">Overall sales</p>
-              <p className="amount">₹80,490</p>
+              <div className="d-flex">
+                <p className="amount mr-4">₹80,490</p>
+                <div className="d-flex mt-2">
+                  <TrendUp fill="#1EE832" />
+                </div>
+                <p className="mt-0 ml-2" style={{ color: "#1EE832" }}>20%</p>
+              </div>
             </div>
             <div className="select-option">
               <CommonSelect />

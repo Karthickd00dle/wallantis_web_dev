@@ -8,12 +8,8 @@ export const getAllProducts =
       addQuery(query, productAPI.getAllProducts);
       apiCall({
         ...productAPI.getAllProducts,
-      })
-        .then((data) => {
-          resolve(data);
-        })
-        .catch(({ message }) => {
-          reject(Toast({ type: "error", message }));
-        });
+      }).then((data) => {
+        resolve(data);
+      });
     });
   };
