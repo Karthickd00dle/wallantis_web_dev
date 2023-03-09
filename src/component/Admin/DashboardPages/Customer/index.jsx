@@ -15,7 +15,6 @@ import "./style.scss";
 import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
-import { DownloadIcon } from "../../../../assets/svg/Admin/Common";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
 
