@@ -69,7 +69,7 @@ function CardBlog({ prodData }) {
   };
   return (
     <div className="blog-container" onClick={goTo}>
-      <img className="blog-post-img mt-3" src={prodData.image} alt="img"/>
+      <img className="blog-post-img mt-3" src={prodData.image} alt="img" />
       <div className="blog-post-date">11.10.2022</div>
       <div className="blog-post-title">{prodData.title}</div>
       <div className="blog-post-content">
@@ -79,12 +79,11 @@ function CardBlog({ prodData }) {
   );
 }
 
-function HomeComponentMain({getAllProductsAPI}) {
+function HomeComponentMain({ getAllProductsAPI }) {
   const dispatch = useDispatch();
   const [favData, setFavData] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [productList, setProductList] = useState([]);
-  const [artificialgrassProd, setArtificialgrassProd] = useState([])
 
   const handleCardProduct = (prodData) => {
     dispatch({
@@ -102,16 +101,14 @@ function HomeComponentMain({getAllProductsAPI}) {
 
     setTimeout(() => {
       let artificialgrassProd = [];
-      productList.filter(item => {
-        if(item.categoryId.category === "artificial grass") {
-          artificialgrassProd.push(item)
-          console.log(item)
+      productList.filter((item) => {
+        if (item.categoryId.category === "artificial grass") {
+          artificialgrassProd.push(item);
         }
-      })
-      console.log(artificialgrassProd);
-    }, 3000)
+      });
+    }, 3000);
   };
-  
+
   useEffect(() => {
     getAllProducts();
   }, []);

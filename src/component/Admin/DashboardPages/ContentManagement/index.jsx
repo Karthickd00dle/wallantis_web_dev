@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import ReturnPolicy from "./Tabs/ReturnPolicy";
 import TermsAndConditions from "./Tabs/TermsAndConditions";
+import { createNewContent } from "action/ContentAct";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import PrivacyPolicy from "./Tabs/PrivacyPolicy";
 
 import "./index.scss";
 
-export default function ContentManagement() {
+export function ContentManagementFC({ createNewContentAPI }) {
   const [activeTab, setActiveTab] = useState(1);
-
+  const [content, setContent] = useState("");
+  const createContent = () => {
+    createNewContentAPI({
+      contentType: activeTab,
+      description: content,
+    });
+  };
   const changeTab = (tab) => {
     setActiveTab(tab);
+    setContent("");
   };
   return (
     <div className="settings-main">
@@ -42,13 +52,40 @@ export default function ContentManagement() {
         <div className="border-bottom"></div>
 
         {activeTab === 1 ? (
-          <ReturnPolicy />
+          <ReturnPolicy
+            createContent={createContent}
+            content={content}
+            setContent={setContent}
+          />
         ) : activeTab === 2 ? (
-          <TermsAndConditions />
+          <TermsAndConditions
+            content={content}
+            setContent={setContent}
+            createContent={createContent}
+          />
         ) : (
-          <PrivacyPolicy />
+          <PrivacyPolicy
+            content={content}
+            setContent={setContent}
+            createContent={createContent}
+          />
         )}
       </div>
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      createNewContentAPI: createNewContent,
+    },
+    dispatch
+  );
+};
+
+const ContentManagement = connect(
+  null,
+  mapDispatchToProps
+)(ContentManagementFC);
+export default ContentManagement;
