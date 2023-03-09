@@ -93,7 +93,7 @@ export const CustomInput = ({
   errors,
 }) => {
   return (
-    <div className="">
+    <div>
       <Input
         label={label}
         name={name}

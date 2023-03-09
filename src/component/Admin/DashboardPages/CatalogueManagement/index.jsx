@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import ReactQuill from "react-quill";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
+  FormControlLabel,
   IconButton,
   MenuItem,
+  Radio,
+  RadioGroup,
   TableBody,
   TableCell,
   TableHead,
@@ -30,11 +33,12 @@ import { Toast } from "service/toast";
 import { customMomentFormat, ternaryCondition } from "service/helperFunctions";
 import { CommonInput } from "component/Admin/common/CommonInput";
 import CommonSelect from "component/Admin/common/CommonSelect";
+import CommonRadio from "component/Admin/common/CommonRadio";
 
 const options = [
-  { name: "Normal Wallpaper", value: 1 },
+  { name: "Customized Wallpaper", value: 1 },
   { name: "Sticker Wallpaper", value: 2 },
-  { name: "Customized Wallpaper", value: 3 },
+  { name: "Normal Wallpaper", value: 3 },
 ];
 
 const AddNewCatalogue = ({
@@ -64,7 +68,7 @@ const AddNewCatalogue = ({
       getAllCatalogueApi();
     });
   };
-
+  console.log(inputData, "input data");
   return (
     <div className="add-catalogue">
       <div className="header-background">
@@ -85,7 +89,7 @@ const AddNewCatalogue = ({
               />
             </div>
             <div className="mb-4">
-              <label>Wallpaper Type</label>
+              <label className="mb-1">Wallpaper Type</label>
               <CommonSelect
                 value={wallPaperType}
                 onChange={({ target: { value } }) =>
@@ -116,11 +120,14 @@ const AddNewCatalogue = ({
                 <input
                   accept="image/*"
                   type="file"
-                  value={image}
+                  files={image}
                   id="upload"
                   hidden
-                  onChange={({ target: { value } }) =>
-                    setInputData({ ...inputData, image: value })
+                  onChange={({ target: { files } }) =>
+                    setInputData({
+                      ...inputData,
+                      image: URL.createObjectURL(files[0]),
+                    })
                   }
                 />
               </div>
@@ -184,7 +191,7 @@ const TableDataBody = ({
           <img height="46px" width="54" src={image} alt={title} />
           <div className="ps-2">
             <label className="table-body-cell-label">{title}</label>
-            <p>{description}</p>
+            <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
         </div>
       </TableCell>
@@ -227,6 +234,8 @@ const CatalogueManagementFC = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [catalogueData, setCatalogueData] = useState();
   const [pageMeta, setPageMeta] = useState({});
+  const [wallPaperType, setWallPaperType] = useState(1);
+
   const [showAddCatalogue, setShowAddCatalogue] = useState(false);
   const handlePage = (event, value) => {
     setCurrentPage(value);
@@ -240,7 +249,7 @@ const CatalogueManagementFC = ({
         nextPage: null,
         pageSize: 10,
         total: 1,
-        wallPaperType: 1,
+        wallPaperType: wallPaperType,
         search: searchData,
       };
 
@@ -257,7 +266,7 @@ const CatalogueManagementFC = ({
         });
     },
 
-    [getAllCatalogueApiCall]
+    [getAllCatalogueApiCall, wallPaperType]
   );
 
   useEffect(() => {
@@ -276,14 +285,43 @@ const CatalogueManagementFC = ({
         <div className="product-management">
           <CustomNavBar label="Catalogue Management " />
           <div className="button-group">
-            <CommonButton title="Download CSV" icon={downloadIcon} />
+            <div>
+              <RadioGroup
+                aria-labelledby="demo-controlled-radio-buttons-group"
+                className=""
+                name="controlled-radio-buttons-group"
+                value={wallPaperType}
+                onChange={({ target: { value } }) => setWallPaperType(value)}
+              >
+                <div className="d-flex">
+                  <FormControlLabel
+                    value={1}
+                    control={<Radio />}
+                    label="Customized Wallpaper"
+                  />
+                  <FormControlLabel
+                    value={2}
+                    control={<Radio />}
+                    label="Sticker Wallpaper"
+                  />
+                  <FormControlLabel
+                    value={3}
+                    control={<Radio />}
+                    label="Normal Wallpaper"
+                  />
+                </div>
+              </RadioGroup>
+            </div>
+            <div className="d-flex">
+              <CommonButton title="Download CSV" icon={downloadIcon} />
 
-            <button
-              className="purple-filled"
-              onClick={() => setShowAddCatalogue(true)}
-            >
-              Add New Catalogue
-            </button>
+              <button
+                className="ms-3 purple-filled"
+                onClick={() => setShowAddCatalogue(true)}
+              >
+                Add New Catalogue
+              </button>
+            </div>
           </div>
           <div className="custom-table">
             <CustomTable>
