@@ -223,10 +223,13 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    width: 100%;
+
     .map-legend {
       position: absolute;
       bottom: 0px;
       right: 0px;
+      width: 48%;
 
       p {
         @include fontPoppinsStyle(14px, 400, #000000);

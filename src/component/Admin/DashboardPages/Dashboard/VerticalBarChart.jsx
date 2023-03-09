@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
+import "./VerticalBar.css";
 
 ChartJS.register(
   CategoryScale,
@@ -30,9 +31,60 @@ export const options = {
       display: false,
     },
   },
+  scales: {
+    x: {
+      grid: {
+        borderColor: 'transparent',
+        borderWidth: 1,
+        drawBorder: false,
+        drawTicks: true,
+        tickLength: 0,
+        color: 'rgba(0,0,0,0)',
+      },
+      ticks: {
+        font: {
+          size: 14,
+        },
+      },
+    },
+    y: {
+      grid: {
+        borderColor: 'transparent',
+        borderWidth: 1,
+        drawBorder: false,
+        drawTicks: true,
+        tickLength: 0,
+        color: 'rgba(0,0,0,0)',
+      },
+      ticks: {
+        stepSize: 5000,
+        callback: function (value, index, values) {
+          return value / 1000 + "k";
+        },
+        font: {
+          size: 14,
+        },
+      },
+    },
+  },
+  elements: {
+    bar: {
+      borderRadius: 8,
+      borderWidth: 0,
+    },
+  },
+  // add some padding to the bottom of the chart area
+  layout: {
+    padding: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    },
+  },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+const labels = ["Jan", "Feb", "March", "Apr", "May", "June", "July"];
 
 export const data = {
   labels,
