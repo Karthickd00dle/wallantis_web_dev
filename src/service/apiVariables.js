@@ -115,3 +115,11 @@ export const contentAPI = {
     baseURL: "base",
   },
 };
+
+export const contactUsAPI = {
+  createContact: {
+    api: "lead/create",
+    method: "post",
+    baseURL: "base",
+  },
+};
