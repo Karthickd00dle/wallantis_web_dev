@@ -1,12 +1,14 @@
-.addcoupon {
+.coupon-management {
+  position: relative;
+}
+
+.addnewproduct {
   background: #ffffff;
   border: 1px solid #d5d5d5;
   width: 1430px;
-  height: 1250px;
+  height: 1180px;
 }
-
-.add-offer {
-  margin-top: 50px;
+.add-category {
   label {
     color: #000000;
     font-weight: 500;
@@ -24,8 +26,7 @@
   }
 }
 
-.add-couponcode {
-  margin-top: 50px;
+.add-subcategory {
   label {
     color: #000000;
     font-weight: 500;
@@ -43,8 +44,7 @@
   }
 }
 
-.add-startdate {
-  margin-top: 50px;
+.add-title {
   label {
     color: #000000;
     font-weight: 500;
@@ -62,8 +62,7 @@
   }
 }
 
-.add-endate {
-  margin-top: 50px;
+.add-price {
   label {
     color: #000000;
     font-weight: 500;
@@ -81,36 +80,14 @@
   }
 }
 
-.adddiscount-status {
+.add-color {
   label {
+    color: #000000;
     font-weight: 500;
     font-size: 20px;
-    margin-left: 30px;
     margin-top: 25px;
+    margin-left: 30px;
   }
-  .adddiscount-in {
-    display: flex;
-    gap: 50px;
-    margin-left: 32px;
-    input[type="radio"]:checked + label {
-      color: #5d5fef;
-      cursor: pointer;
-    }
-    label {
-      color: #404040;
-      font-weight: 400;
-      font-size: 15px;
-      margin-left: 12px;
-    }
-    input {
-      cursor: pointer;
-      height: 16px;
-    }
-  }
-}
-
-.add-coupondiscount {
-  margin-top: 30px;
   input {
     border: 0.25px solid #c0c0c0;
     width: 655px;
@@ -120,18 +97,63 @@
     padding: 20px;
   }
 }
-.coupon-field {
+
+.add-quantity {
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 655px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+.add-date {
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 1340px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+.content-field {
   margin-bottom: 40px;
   border: 1px solid #c0c0c0 !important;
   border-radius: 0px !important;
   border-top: none !important;
   padding-bottom: 100px !important;
-  width: 95%;
+  width: 105%;
   margin-left: 30px;
   margin-top: 50px;
-  height: 250px;
 }
-.add-couponpublishbtn {
+.content-field1 {
+  margin-bottom: 40px;
+  border: 1px solid #c0c0c0 !important;
+  border-radius: 0px !important;
+  border-top: none !important;
+  padding-bottom: 100px !important;
+  margin-left: 77px;
+  width: 105%;
+  margin-top: 50px;
+}
+
+.add-publishbtn {
   background: #5d5fef;
   border-radius: 6px;
   color: #ffffff;
@@ -139,41 +161,21 @@
   height: 51px;
   margin-left: 30px;
 }
-.add-couponcancelbtn {
+.add-cancelbtn {
   background: white;
   border-radius: 6px;
   color: black;
   width: 177px;
   height: 51px;
   border: 1px solid black;
-  margin-left: 50px;
-  margin-top: 120px;
+  margin-left: 30px;
+  margin-top: 30px;
 }
 
-.coupon-status {
-  label {
-    font-weight: 500;
-    font-size: 20px;
-    margin-left: 30px;
-    margin-top: 25px;
-  }
-  .coupon-in {
-    display: flex;
-    gap: 50px;
-    margin-left: 32px;
-    input[type="radio"]:checked + label {
-      color: #5d5fef;
-      cursor: pointer;
-    }
-    label {
-      color: #404040;
-      font-weight: 400;
-      font-size: 15px;
-      margin-left: 12px;
-    }
-    input {
-      cursor: pointer;
-      height: 16px;
-    }
-  }
+.button-group {
+  position: absolute;
+  right: 20px;
+  top: 90px;
+  display: flex;
+  gap: 20px;
 }

@@ -5,6 +5,7 @@ import downloadIcon from "assets/icons/Admin/downloadIcon.png";
 import CommonSelect from "component/Admin/common/CommonSelect";
 import ExcelIcon from "assets/icons/Admin/excelIcon.png";
 import PdfIcon from "assets/icons/Admin/pdfIcon.png";
+import { history } from "service/helpers";
 import "./index.scss";
 
 export default function Reports() {
@@ -48,13 +49,18 @@ export default function Reports() {
             </div>
 
             <div className="select-option">
-              <CommonSelect />
+              <CommonSelect
+                options={["Weekly", "Monthly", "Yearly", "Daily"]}
+              />
             </div>
           </div>
         </div>
 
         <div className="cards-grid-main cards-section">
-          <div className="report-card">
+          <div
+            className="report-card"
+            onClick={() => history.push("/admin/new-order")}
+          >
             <p>Order Report</p>
 
             <div className="icons">
@@ -76,7 +82,10 @@ export default function Reports() {
               </div>
             </div>
           </div>
-          <div className="report-card">
+          <div
+            className="report-card"
+            onClick={() => history.push("/admin/new-order")}
+          >
             <p>Order Report</p>
             <div className="icons">
               <img src={ExcelIcon} />
@@ -97,7 +106,10 @@ export default function Reports() {
               </div>
             </div>
           </div>
-          <div className="report-card">
+          <div
+            className="report-card"
+            onClick={() => history.push("/admin/new-order")}
+          >
             <p>Order Report</p>
             <div className="icons">
               <img src={ExcelIcon} />

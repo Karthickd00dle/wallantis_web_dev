@@ -1,82 +1,115 @@
 import React from "react";
-import { TableWrapper } from "component/Admin/common/TableWrapper";
+import CustomTable from "component/Admin/common/CustomTable";
+import "./style.scss";
 import {
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-} from "reactstrap";
-import { HiDotsHorizontal } from "react-icons/hi";
+  IconButton,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import CustomNavBar from "component/Admin/common/CustomNavBar";
+import CommonButton from "component/Admin/common/CommonButton";
+import downloadIcon from "assets/icons/Admin/downloadIcon.png";
+import { LeadColumnValues } from "component/Admin/Data/staticDatas";
+import { AscendingDescendingArrow } from "assets/svg/Admin/InventoryMangement";
+import { history } from "service/helpers";
+import CustomPagination from "component/Admin/common/CustomPagination";
 
-import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { Pagination } from "../../common/Pagination";
-const visibility = React.lazy(() =>
-  import("../../../../assets/images/visibility.svg")
-);
-export default function LeadManagement() {
-  const staffHead = [
-    {
-      label: "No",
-    },
-    {
-      label: "Customer ID",
-    },
-    {
-      label: "Customer Name",
-    },
-
-    {
-      label: "Location",
-    },
-    {
-      label: "Date",
-    },
-    {
-      label: "Total Spent",
-    },
-    {
-      label: "Action",
-    },
-  ];
+const TableDataHeader = () => {
   return (
-    <div>
-      <TableWrapper headers={staffHead}>
-        {StaffColumnValues?.map((data) => (
-          <tr>
-            <td>{data.No}</td>
-            <td>{data.CustomerID}</td>
-            <td>{data.CustomerName}</td>
-            <td>{data.Location}</td>
-            <td>{data.Date}</td>
-            <td>{data.TotalSpent}</td>
+    <TableHead>
+      <TableRow>
+        <TableCell align="left">
+          <label className="table-head-cell-label">No</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Name</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Message</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Mobile Number</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Email Address</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Status</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+      </TableRow>
+    </TableHead>
+  );
+};
 
-            <td className="dropdown">
-              <UncontrolledButtonDropdown>
-                <DropdownToggle tag="span" data-toggle="dropdown">
-                  <div>
-                    <HiDotsHorizontal color="#C5CAFF" size="25" />
-                  </div>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <img
-                      src={visibility}
-                      alt="visible"
-                      color="#4285F4"
-                      size="25"
-                    />
+const TableDataBody = ({
+  bodyData: { No, CustomerName, Message, MobileNumber, EmailAddress, Status },
+}) => {
+  return (
+    <TableRow key={No}>
+      <TableCell component="th" scope="row">
+        <label className="table-body-cell-label">{No}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{CustomerName}</label>
+      </TableCell>
+      <TableCell align="left" className="d-flex align-items-center py-5">
+        <label className="ps-2 table-body-cell-label">{Message}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{MobileNumber}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{EmailAddress}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Status}</label>
+      </TableCell>
+    </TableRow>
+  );
+};
 
-                    <span className="dotactions">view</span>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledButtonDropdown>
-            </td>
-          </tr>
-        ))}
-      </TableWrapper>
-      <div className="StaffPagination">
-        {staffHead.length > 0 && <Pagination totalPages={2} />}
+export default function LeadManagement() {
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  const handlePage = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  return (
+    <div className="lead-management">
+      <CustomNavBar label="Lead Management" />
+      <div className="download-csv">
+        <CommonButton title="Download CSV" icon={downloadIcon} />
       </div>
+      <div className="custom-table">
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {LeadColumnValues?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </div>
+      <CustomPagination
+        pageCount={10}
+        currentPage={currentPage}
+        onChange={handlePage}
+      />
     </div>
   );
 }

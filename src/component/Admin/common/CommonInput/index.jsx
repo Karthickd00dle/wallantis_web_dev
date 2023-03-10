@@ -3,11 +3,17 @@ import "./index.scss";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 
-export function CommonInput({ label, placeholder }) {
+export function CommonInput({ label, placeholder, name, value, onChange }) {
   return (
     <div className="input-container">
       <label className="input-label">{label}</label>
-      <input placeholder={placeholder} className="common-input" />
+      <input
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="common-input"
+      />
     </div>
   );
 }

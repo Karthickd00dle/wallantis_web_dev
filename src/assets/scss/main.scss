@@ -639,6 +639,11 @@ input[type="number"] {
   width: 110px;
 }
 
+.action-btns {
+  display: flex;
+  gap: 20px;
+}
+
 // .login-child {
 //   position: absolute;
 //   right: 0;
@@ -657,4 +662,33 @@ input[type="number"] {
       rgb(211, 36, 36) !important
     );
   }
+}
+
+.purple-filled {
+  width: 177px;
+  height: 51px;
+  background-color: #5d5fef;
+  border: 1px solid white;
+  border-radius: 6px;
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.white-filled {
+  width: 177px;
+  height: 51px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  @include fontLatoStyle(16px, 500, black, 19px);
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-table {
+  padding: 50px;
+  margin-top: 50px;
 }

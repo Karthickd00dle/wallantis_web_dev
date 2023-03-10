@@ -1,7 +1,6 @@
 import React from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
-  Avatar,
   IconButton,
   MenuItem,
   TableBody,
@@ -11,6 +10,9 @@ import {
 } from "@mui/material";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
+import CommonButton from "component/Admin/common/CommonButton";
+import { history } from "service/helpers";
+import downloadIcon from "assets/icons/Admin/downloadIcon.png";
 import "./style.scss";
 import {
   AscendingDescendingArrow,
@@ -91,8 +93,8 @@ const TableDataBody = ({
       <TableCell component="th" scope="row">
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
-      <TableCell align="left" className="d-flex align-items-center py-4">
-        <label className="ps-2 table-body-cell-label">{Title}</label>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Title}</label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{Date}</label>
@@ -111,7 +113,10 @@ const TableDataBody = ({
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>
-          <MenuItem className="d-flex align-items-center">
+          <MenuItem
+            className="d-flex align-items-center"
+            onClick={() => history.push("/admin/productDetailPage")}
+          >
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
           </MenuItem>
@@ -137,16 +142,23 @@ export default function ProductManagement() {
   };
 
   return (
-    <div>
+    <div className="product-management">
       <CustomNavBar label="Product Management" />
-      <CustomTable>
-        <TableDataHeader />
-        <TableBody>
-          {totalInstallersData?.map((bodyData) => (
-            <TableDataBody bodyData={bodyData} />
-          ))}
-        </TableBody>
-      </CustomTable>
+      <div className="button-group">
+        <CommonButton title="Download CSV" icon={downloadIcon} />
+
+        <button className="purple-filled">Add New Product </button>
+      </div>
+      <div className="custom-table">
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {totalInstallersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </div>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

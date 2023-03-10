@@ -11,12 +11,15 @@ import {
 } from "@mui/material";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
+import CommonButton from "component/Admin/common/CommonButton";
+import downloadIcon from "assets/icons/Admin/downloadIcon.png";
 import {
   AscendingDescendingArrow,
   DeleteIcon,
   EyeIcon,
   PencilIcon,
 } from "assets/svg/Admin/InventoryMangement";
+import { history } from "service/helpers";
 import CustomPagination from "component/Admin/common/CustomPagination";
 
 const totalInstallersData = [
@@ -114,7 +117,10 @@ const TableDataBody = ({
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>
-          <MenuItem className="d-flex align-items-center">
+          <MenuItem
+            className="d-flex align-items-center"
+            onClick={() => history.push("/admin/orderDetailPage")}
+          >
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
           </MenuItem>
@@ -140,16 +146,21 @@ export default function OrderManagement() {
   };
 
   return (
-    <div>
+    <div className="order-management">
       <CustomNavBar label="Order Management" />
-      <CustomTable>
-        <TableDataHeader />
-        <TableBody>
-          {totalInstallersData?.map((bodyData) => (
-            <TableDataBody bodyData={bodyData} />
-          ))}
-        </TableBody>
-      </CustomTable>
+      <div className="download-csv">
+        <CommonButton title="Download CSV" icon={downloadIcon} />
+      </div>
+      <div className="custom-table">
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {totalInstallersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </div>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

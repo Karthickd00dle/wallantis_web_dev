@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
   MenuItem,
@@ -14,6 +14,10 @@ import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
 import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
+import { CustomButton } from "../../common/CustomButton";
+import { DownloadIcon } from "../../../../assets/svg/Admin/Common";
+import { connect } from "react-redux";
+import { Toast } from "service/toast";
 
 const customersData = [
   {
@@ -99,8 +103,8 @@ const TableDataBody = ({
   );
 };
 
-export default function CustomerManagement() {
-  const [currentPage, setCurrentPage] = React.useState(1);
+const CustomerManagementFC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
 
   const handlePage = (event, value) => {
     setCurrentPage(value);
@@ -109,31 +113,34 @@ export default function CustomerManagement() {
   return (
     <div>
       <CustomNavBar label="Customer" />
+      <div className="px-5">
+        <div className="d-flex justify-content-end my-4">
+          <CustomButton
+            className="download-csv-button p-3"
+            startIcon={<DownloadIcon />}
+            variant="outlined"
+          >
+            Download CSV
+          </CustomButton>
+        </div>
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {customersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
 
-      <div className="customer-dwnld-btn">
-        <Button
-          style={{ color: "#5D5FEF", borderColor: "#5D5FEF" }}
-          variant="outlined"
-          startIcon={<DownloadIcon />}
-        >
-          Doenload CSV
-        </Button>
+        <CustomPagination
+          pageCount={10}
+          currentPage={currentPage}
+          onChange={handlePage}
+        />
       </div>
-
-      <CustomTable>
-        <TableDataHeader />
-        <TableBody>
-          {customersData?.map((bodyData) => (
-            <TableDataBody bodyData={bodyData} />
-          ))}
-        </TableBody>
-      </CustomTable>
-
-      <CustomPagination
-        pageCount={10}
-        currentPage={currentPage}
-        onChange={handlePage}
-      />
     </div>
   );
-}
+};
+
+const CustomerManagement = connect(null, null)(CustomerManagementFC);
+export default CustomerManagement;

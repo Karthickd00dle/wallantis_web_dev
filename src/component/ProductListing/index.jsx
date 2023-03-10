@@ -1,7 +1,7 @@
 import CardThree from "component/Home/subcomponents/CardThree";
 import { useLocation } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
-import { SortingMenuList, productListingFilter, productItems } from "config";
+import { SortingMenuList, productItems } from "config";
 import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
 
@@ -13,7 +13,7 @@ import { sortingFunction } from "action/CommonAct";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
-import { productfilter, ternaryCondition } from "service/helperFunctions";
+import { productfilter } from "service/helperFunctions";
 import { productBanner } from "config";
 
 export function ProductHeader({ bannerLabel }) {
@@ -52,7 +52,7 @@ export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
         <label className="sort-by-text">Sort by</label>
         <CustomSelect
           menuItemList={SortingMenuList}
-          inputStyle="selectdropdown"
+          inputStyle="sorting-menu-style"
           menuItemStyle="menu-item"
           name="sorting"
           onChange={(e) => handleSorting(e)}

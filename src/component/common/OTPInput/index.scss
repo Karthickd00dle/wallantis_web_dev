@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .otp-modal {
   display: flex;
   flex-direction: column;
@@ -5,18 +7,13 @@
 }
 
 .timer {
+  @include fontLatoStyle(24px, 500, #2a71f9, 20px);
   margin-top: 35px;
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 20px;
+
   /* identical to box height, or 83% */
 
   display: flex;
   align-items: center;
-
-  color: #2a71f9;
 }
 
 .otp-input {
@@ -31,11 +28,8 @@
 }
 
 .resend-otp {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  color: #9a9999;
+  @include fontLatoStyle(16px, 500, #9a9999);
+
   margin-top: 15px;
   span {
     color: #2a71f9;

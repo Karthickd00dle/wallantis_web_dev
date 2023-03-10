@@ -1,12 +1,32 @@
-.table-order-neworder{
-ul{
-    background-color: #FFF0ED;
+@import "assets/scss/abstracts/abstracts.scss";
+
+.order-management {
+  position: relative;
+}
+
+.table-order-neworder {
+  ul {
+    background-color: #fff0ed;
     width: 115px;
     height: 26px;
     border-radius: 10px;
     padding: 5px 3px 0px 30px;
+  }
+  li {
+    color: #ff7d61;
+  }
 }
-li{
-    color:#FF7D61;
+
+.table-head-cell-label {
+  @include fontLatoStyle(14px, 600, #ababab, 17px);
 }
+
+.table-body-cell-label {
+  @include fontLatoStyle(14px, 600, #000000, 17px);
+}
+
+.download-csv {
+  position: absolute;
+  right: 20px;
+  top: 90px;
 }
