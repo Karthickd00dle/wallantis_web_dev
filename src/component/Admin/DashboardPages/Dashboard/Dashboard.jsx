@@ -176,7 +176,7 @@ export default function Dashboard() {
             <MapContainer
               center={{ lat: viewport.latitude, lng: viewport.longitude }}
               zoom={viewport.zoom}
-              style={{ height: "40vh", width: "60%" }}
+              style={{ height: "40vh", width: "50%" }}
               scrollWheelZoom={true}
             >
               <TileLayer

@@ -1,0 +1,10 @@
+/* hide the x-axis grid line */
+.chartjs-size-monitor > div > canvas {
+    border-bottom: none !important;
+  }
+  
+  /* hide the y-axis grid line */
+  .chartjs-size-monitor > div > canvas + canvas {
+    border-right: none !important;
+  }
+  
