@@ -11,6 +11,7 @@ import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
 import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
+import DownloadIcon from "assets/images/DownloadIcon";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
 import { connect } from "react-redux";
