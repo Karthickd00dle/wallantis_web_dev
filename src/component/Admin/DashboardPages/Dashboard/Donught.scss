@@ -1,3 +1,4 @@
+@import "assets/scss/abstracts/abstracts.scss";
 .donught-container {
   display: flex;
   justify-content: space-between;
@@ -16,15 +17,10 @@
     margin-left: 20px;
 
     .legend-item {
-        margin-bottom: 10px;
+      margin-bottom: 10px;
 
       .legend-text {
-        font-family: "Lato";
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 22px;
-        color: #ababab;
+        @include fontLatoStyle(18px, 700, #ababab, 22px);
       }
 
       .legend-btm-vlu {
@@ -38,13 +34,8 @@
         }
 
         .legend-value {
-            margin-left: 5px;
-          font-family: "Lato";
-          font-style: normal;
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
-          color: #000000;
+          margin-left: 5px;
+          @include fontLatoStyle(18px, 600, #000000, 22px);
         }
       }
     }

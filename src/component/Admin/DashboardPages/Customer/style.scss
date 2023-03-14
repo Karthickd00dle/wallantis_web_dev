@@ -135,14 +135,9 @@
 }
 
 .table-body-cell-label {
-  font-family: "Lato";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
+  @include fontLatoStyle(16px, 600, #000000, 19px);
   display: flex;
   align-items: center;
-  color: #000000;
 }
 
 .bloc-tabs {
