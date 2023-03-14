@@ -26,6 +26,7 @@ import { commonStateList } from "service/actionType";
 export const CustomHeaderComponent = ({
   getAllProductsAPI,
   cartItemData,
+  currentUserData,
   getCurrentProfileAPI,
 }) => {
   const outsideRef = useRef();
@@ -35,7 +36,7 @@ export const CustomHeaderComponent = ({
   const [open, setOpen] = useState(false);
   const [itemCount, setItemCount] = useState(null);
   const [productList, setProductList] = useState([]);
-  const [currentData, setCurrentData] = useState({});
+  const [currentData, setCurrentData] = useState(currentUserData.user);
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
   };
@@ -58,19 +59,21 @@ export const CustomHeaderComponent = ({
     );
   }
 
-  const getCurrentProfile = () => {
-    getCurrentProfileAPI()
-      .then((res) => {
-        setCurrentData(res?.response);
-        dispatch({
-          type: commonStateList.currentUser,
-          payload: res?.response,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const getCurrentProfile = () => {
+  //   getCurrentProfileAPI()
+  //     .then((res) => {
+  //       setCurrentData(res?.response);
+  //       dispatch({
+  //         type: commonStateList.currentUser,
+  //         payload: res?.response,
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  console.log(currentData, "curr data");
 
   const StyledBadge = styled(Badge)(() => ({
     "& .MuiBadge-badge": {
@@ -117,6 +120,7 @@ export const CustomHeaderComponent = ({
 
   useEffect(() => {
     getAllProducts();
+    setCurrentData(currentUserData.user);
     getCurrentProfile();
   }, []);
   return (

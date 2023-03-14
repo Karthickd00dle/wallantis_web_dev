@@ -24,7 +24,7 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
               Enter your wall dimensions or No.of Rolls to get estimate of
               Installation Price.
             </p>
-            <div className="d-flex justify-content-between align-items-end pt-4">
+            <div className="d-flex justify-content-between align-items-center pt-4">
               <CustomInput
                 type="number"
                 placeholder="Width  (Ft)"
@@ -40,7 +40,7 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
                 errors={errors}
                 name="height"
               />
-              <label>OR</label>
+              <label className="or-label">OR</label>
               <CustomInput
                 type="number"
                 max="2"

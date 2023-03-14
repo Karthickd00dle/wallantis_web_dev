@@ -29,9 +29,9 @@ export function ProfileMain({
 }) {
   let location = useLocation();
 
-  const [inputData, setInputData] = useState(currentUserData);
+  const [inputData, setInputData] = useState(currentUserData.user);
   const [tabIndex, setTabIndex] = useState(location?.state);
-  const [currentData, setCurrentData] = useState(currentUserData);
+  const [currentData, setCurrentData] = useState(currentUserData.user);
   const [isAddressForm, setAddressForm] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -102,6 +102,7 @@ export function ProfileMain({
 
   useEffect(() => {
     scrollToTop();
+    setCurrentData(currentUserData.user);
   }, [tabIndex]);
 
   useEffect(() => {

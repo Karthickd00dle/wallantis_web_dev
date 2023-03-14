@@ -17,6 +17,7 @@ import {
   TwitterIcon,
 } from "assets/icons/FooterIcons/FooterIcons";
 import ScrollToTop from "component/ScrollToTop";
+import { InstallerPriceCalculator } from "component/ProductDetail/InstallerPriceCalculator";
 
 export const NormalFooter = () => {
   const {
@@ -27,6 +28,9 @@ export const NormalFooter = () => {
 
   const history = useHistory();
   const [formData, setFormData] = useState({ newslettermailinfo: "" });
+  const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
+    useState();
+
   const handleMailInfo = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
   };
@@ -127,7 +131,7 @@ export const NormalFooter = () => {
               </label>
               <label
                 className="py-2 cursor-pointer"
-                onClick={() => history.push("")}
+                onClick={() => setOpenInstallerPriceCalculator(true)}
               >
                 Installer Price Calculator
               </label>
@@ -221,6 +225,10 @@ export const NormalFooter = () => {
           </label>
         </div>
       </div>
+      <InstallerPriceCalculator
+        isOpen={openInstallerPriceCalculator}
+        handleClose={() => setOpenInstallerPriceCalculator(false)}
+      />
     </Container>
   );
 };
