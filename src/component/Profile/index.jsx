@@ -12,7 +12,11 @@ import MyOrders from "./MyOrders";
 import { history } from "service/helpers";
 import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
-import { updateProfile, changeCurrentPassword } from "action/ProfileAct";
+import {
+  updateProfile,
+  changeCurrentPassword,
+  getCurrentProfile,
+} from "action/ProfileAct";
 import { verifyOTPApi } from "action/AuthAct";
 import "react-tabs/style/react-tabs.css";
 import "./index.scss";
@@ -23,15 +27,16 @@ import { logout } from "service/utilities";
 export function ProfileMain({
   wishlistItemData,
   updateProfileAPICall,
-  currentUserData,
   changeCurrentPasswordAPI,
   verifyOTPApiCall,
+  currentUserData,
+  getCurrentProfileAPI,
 }) {
   let location = useLocation();
 
-  const [inputData, setInputData] = useState(currentUserData.user);
+  const [inputData, setInputData] = useState(currentUserData?.user);
   const [tabIndex, setTabIndex] = useState(location?.state);
-  const [currentData, setCurrentData] = useState(currentUserData.user);
+  const [currentData, setCurrentData] = useState();
   const [isAddressForm, setAddressForm] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -66,6 +71,16 @@ export function ProfileMain({
     });
   };
 
+  const getCurrentProfile = () => {
+    getCurrentProfileAPI()
+      .then((res) => {
+        setCurrentData(res.response);
+        setInputData(res.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const verifyOTP = (OTP) => {
     let payload = {
       phoneNumber: inputData.mobile,
@@ -101,8 +116,11 @@ export function ProfileMain({
   };
 
   useEffect(() => {
+    getCurrentProfile();
+  }, []);
+
+  useEffect(() => {
     scrollToTop();
-    setCurrentData(currentUserData.user);
   }, [tabIndex]);
 
   useEffect(() => {
@@ -122,7 +140,7 @@ export function ProfileMain({
             </div>
             <div className="card-content">
               <h6>Hello,</h6>
-              <h2>{`${currentData.firstName} ${currentData.lastName}`}</h2>
+              <h2>{`${currentData?.firstName} ${currentData?.lastName}`}</h2>
             </div>
           </div>
 
@@ -192,6 +210,7 @@ const mapDispatchToProps = (dispatch) => {
       updateProfileAPICall: updateProfile,
       changeCurrentPasswordAPI: changeCurrentPassword,
       verifyOTPApiCall: verifyOTPApi,
+      getCurrentProfileAPI: getCurrentProfile,
     },
     dispatch
   );

@@ -10,7 +10,6 @@ import { InputAdornment } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
-import { commonStateList } from "service/actionType";
 
 function LoginComponentMain({ loginApiCall, ownProps }) {
   const location = useLocation().pathname.split("/").slice(-1)[0];
@@ -19,7 +18,6 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const dispatch = useDispatch();
 
   const onSubmit = (data) => {
     loginApiCall({
@@ -27,11 +25,6 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
       password: data.password,
       loginType: 3,
     }).then((res) => {
-      dispatch({
-        type: commonStateList.currentUser,
-        payload: res?.response,
-      });
-      console.log(res, "login res");
       localStorage.setItem("authToken", res?.response?.access_token);
       ternaryCondition(
         location === "payment-page"
