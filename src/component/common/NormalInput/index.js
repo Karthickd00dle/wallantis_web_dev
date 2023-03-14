@@ -22,6 +22,7 @@ export const NormalInput = ({
   labelSize = "fs-18",
   isSearchBox = false,
   register,
+  pattern = "",
 }) => {
   return (
     <div className={`normal-input ${isSearchBox && "searchbox"}`}>
@@ -34,7 +35,7 @@ export const NormalInput = ({
         <input
           className={`form-control ${className}`}
           name={name}
-          {...register(name, { required: true })}
+          {...register(name, { required: true, pattern: pattern })}
           type={type}
           disabled={disabled}
           value={value}

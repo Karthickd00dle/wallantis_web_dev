@@ -76,10 +76,15 @@ export const NormalFooter = () => {
                   isSubmitButton
                   submitButtonLabel="Subscribe"
                   register={register}
+                  pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/} // prettier-ignore
                 />
                 <div className="error-message">
-                  {errors["newslettermailinfo"]?.type && (
+                  {errors["newslettermailinfo"]?.type === "required" && (
                     <span className="error-text">This field is required</span>
+                  )}
+
+                  {errors["newslettermailinfo"]?.type === "pattern" && (
+                    <span className="error-text">Enter a Valid Email</span>
                   )}
                 </div>
               </div>

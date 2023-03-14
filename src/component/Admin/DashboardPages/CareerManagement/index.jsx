@@ -1,87 +1,179 @@
 import React from "react";
-import { TableWrapper } from "component/Admin/common/TableWrapper";
+import CustomTable from "component/Admin/common/CustomTable";
 import {
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-} from "reactstrap";
-import { HiDotsHorizontal } from "react-icons/hi";
-import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { useHistory } from "react-router-dom";
+  IconButton,
+  MenuItem,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+import CustomListMenu from "component/Admin/common/CustomListMenu";
+import CustomNavBar from "component/Admin/common/CustomNavBar";
+import CommonButton from "component/Admin/common/CommonButton";
+import { history } from "service/helpers";
+import downloadIcon from "assets/icons/Admin/downloadIcon.png";
+import "./style.scss";
+import {
+  AscendingDescendingArrow,
+  DeleteIcon,
+  EyeIcon,
+  PencilIcon,
+} from "assets/svg/Admin/InventoryMangement";
+import CustomPagination from "component/Admin/common/CustomPagination";
 
-const visibility = React.lazy(() =>
-  import("../../../../assets/images/visibility.svg")
-);
+const totalInstallersData = [
+  {
+    No: "1",
+    Title: "SUPER SAVER",
+    Date: "Oct 18th, 2022",
+    Customer_Name: "John Doe",
+    Location: "Anna Nagar, Chennai",
+    Amount: "₹3500",
+    Status: "Active",
+  },
+  {
+    No: "2",
+    Title: "SUPER SAVER",
+    Date: "Oct 18th, 2022",
+    Customer_Name: "Derik",
+    Location: "Anna Nagar, Chennai",
+    Amount: "₹3500",
+    Status: "Inactive",
+  },
+];
+
+const TableDataHeader = () => {
+  return (
+    <TableHead>
+      <TableRow>
+        <TableCell align="left">
+          <label className="table-head-cell-label">No</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Offer Name</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Coupon Code</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Start Date</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">End Date</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Occasion</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Status</label>
+        </TableCell>
+        <TableCell align="left">
+          <label className="table-head-cell-label">Action</label>
+        </TableCell>
+      </TableRow>
+    </TableHead>
+  );
+};
+
+const TableDataBody = ({
+  bodyData: { No, Title, Date, Customer_Name, Location, Amount, Status },
+}) => {
+  return (
+    <TableRow key={No}>
+      <TableCell component="th" scope="row">
+        <label className="table-body-cell-label">{No}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Title}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Date}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Customer_Name}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Location}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Amount}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">
+          {Status === "Active" ? (
+            <div className="dot green"></div>
+          ) : (
+            <div className="dot red"></div>
+          )}
+          {Status}
+        </label>
+      </TableCell>
+      <TableCell align="left">
+        <CustomListMenu>
+          <MenuItem
+            className="d-flex align-items-center"
+            onClick={() => history.push("/admin/productDetailPage")}
+          >
+            <EyeIcon />
+            <label className="table-cell-menu-item ps-2">View Details</label>
+          </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <PencilIcon />
+            <label className="table-cell-menu-item ps-2">Edit</label>
+          </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <DeleteIcon />
+            <label className="table-cell-menu-item ps-2">Delete</label>
+          </MenuItem>
+        </CustomListMenu>
+      </TableCell>
+    </TableRow>
+  );
+};
 
 export default function CareerManagement() {
-  const history = useHistory();
+  const [currentPage, setCurrentPage] = React.useState(1);
 
-  const goToAbout = () => {
-    history.push("/admin/careerDetailPage");
+  const handlePage = (event, value) => {
+    setCurrentPage(value);
   };
 
-  const staffHead = [
-    {
-      label: "No",
-    },
-    {
-      label: "Customer ID",
-    },
-    {
-      label: "Customer Name",
-    },
-
-    {
-      label: "Location",
-    },
-    {
-      label: "Date",
-    },
-    {
-      label: "Total Spent",
-    },
-    {
-      label: "Action",
-    },
-  ];
   return (
-    <div>
-      <TableWrapper headers={staffHead}>
-        {StaffColumnValues?.map((data) => (
-          <tr>
-            <td>{data.No}</td>
-            <td>{data.CustomerID}</td>
-            <td>{data.CustomerName}</td>
-            <td>{data.Location}</td>
-            <td>{data.Date}</td>
-            <td>{data.TotalSpent}</td>
+    <div className="coupon-management">
+      <CustomNavBar label="Career Management" />
+      <div className="button-group">
+        <CommonButton title="Download CSV" icon={downloadIcon} />
 
-            <td className="dropdown">
-              <UncontrolledButtonDropdown>
-                <DropdownToggle tag="span" data-toggle="dropdown">
-                  <div>
-                    <HiDotsHorizontal color="#C5CAFF" size="25" />
-                  </div>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <img
-                      src={visibility}
-                      alt="visible"
-                      color="#4285F4"
-                      size="25"
-                    />
+        <button
+          className="purple-filled"
+          onClick={() => history.push("/admin/add-coupon")}
+        >
+          Add New Career{" "}
+        </button>
+      </div>
 
-                    <span className="dotactions">view</span>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledButtonDropdown>
-            </td>
-          </tr>
-        ))}
-      </TableWrapper>
-      <button onClick={goToAbout}>NEXT</button>
+      <div className="custom-table mt-5">
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {totalInstallersData?.map((bodyData) => (
+              <TableDataBody bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </div>
+      <CustomPagination
+        pageCount={10}
+        currentPage={currentPage}
+        onChange={handlePage}
+      />
     </div>
   );
 }
