@@ -20,6 +20,7 @@ import { Toast } from "service/toast";
 import CardThree from "component/Home/subcomponents/CardThree";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
+import { height } from "@mui/system";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   let location = useLocation();
@@ -79,6 +80,8 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 <ReactImageMagnify
                   {...{
                     smallImage: {
+                      width: "200px",
+                      height: "200px",
                       alt: "Selected",
                       isFluidWidth: true,
                       src: selectedImg,

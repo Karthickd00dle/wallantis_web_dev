@@ -163,7 +163,7 @@
     }
   }
   .home-wall-mural {
-    height: 1100px;
+    height: 720px;
     width: 100%;
 
     .home-wall-mural-inner-container {
@@ -184,7 +184,8 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 375px;
+        padding-top: 0;
+        padding-bottom: 80px;
       }
     }
 
@@ -304,6 +305,41 @@
         .card-two-content {
           @include fontLatoStyle(24px, 600, #000000, 29px, 0.04em);
         }
+      }
+    }
+  }
+
+  .wall-murals-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 7% 0 7%;
+    .wall-sec-three {
+      width: 30%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      .wall-sec-title {
+        @include fontLatoStyle(28px, 500, #000000, 36px);
+        padding: 5px 0 5px 0;
+      }
+      .wall-sec-subject {
+        @include fontLatoStyle(18px, 400, #000000, 22px);
+        padding: 5px 0 5px 0;
+      }
+      .wall-sec-three-btn {
+        background-color: #a26220;
+        width: 191px;
+        height: 57px;
+        color: #ffffff;
+        @include fontLatoStyle(16px, 500, #ffffff, 19px);
       }
     }
   }
