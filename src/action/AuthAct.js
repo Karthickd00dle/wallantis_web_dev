@@ -24,13 +24,14 @@ export const loginApi =
       apiCall({
         ...authApi.loginApi,
         body,
-      }).then((data) => {
-        localStorage.setItem("authToken", data);
-        resolve(data);
-      });
-      // .catch(({ message }) => {
-      //   reject(Toast({ type: "error", message }));
-      // });
+      })
+        .then((data) => {
+          localStorage.setItem("authToken", data);
+          resolve(data);
+        })
+        .catch(({ message }) => {
+          reject(Toast({ type: "error", message }));
+        });
     });
   };
 

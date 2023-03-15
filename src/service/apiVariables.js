@@ -107,3 +107,19 @@ export const catalogueAPI = {
     baseURL: "catalogue",
   },
 };
+
+export const contentAPI = {
+  createNewContent: {
+    api: "content/contentCreation",
+    method: "post",
+    baseURL: "base",
+  },
+};
+
+export const contactUsAPI = {
+  createContact: {
+    api: "lead/create",
+    method: "post",
+    baseURL: "base",
+  },
+};

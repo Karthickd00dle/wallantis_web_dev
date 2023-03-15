@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { history } from "service/helpers";
 import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { loginApi } from "action/AuthAct";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
@@ -24,19 +24,14 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
       username: data.mailId,
       password: data.password,
       loginType: 3,
-    })
-      .then((res) => {
-        console.log(res?.response?.access_token);
-        localStorage.setItem("authToken", res?.response?.access_token);
-        ternaryCondition(
-          location === "payment-page"
-            ? ownProps.setActiveStep(1)
-            : history.push("/home/home")
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }).then((res) => {
+      localStorage.setItem("authToken", res?.response?.access_token);
+      ternaryCondition(
+        location === "payment-page"
+          ? ownProps.setActiveStep(1)
+          : history.push("/home/home")
+      );
+    });
   };
 
   return (

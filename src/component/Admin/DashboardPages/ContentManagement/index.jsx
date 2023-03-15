@@ -1,77 +1,91 @@
-import React from "react";
-import { TableWrapper } from "component/Admin/common/TableWrapper";
-import {
-  UncontrolledButtonDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-} from "reactstrap";
-import { HiDotsHorizontal } from "react-icons/hi";
-import visibility from "../../../../assets/images/visibility.svg";
-import { StaffColumnValues } from "component/Admin/Data/staticDatas";
-import { Pagination } from "../../common/Pagination";
+import React, { useState } from "react";
+import ReturnPolicy from "./Tabs/ReturnPolicy";
+import TermsAndConditions from "./Tabs/TermsAndConditions";
+import { createNewContent } from "action/ContentAct";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import PrivacyPolicy from "./Tabs/PrivacyPolicy";
 
-export default function ContentManagement() {
-  const staffHead = [
-    {
-      label: "No",
-    },
-    {
-      label: "Customer ID",
-    },
-    {
-      label: "Customer Name",
-    },
+import "./index.scss";
 
-    {
-      label: "Location",
-    },
-    {
-      label: "Date",
-    },
-    {
-      label: "Total Spent",
-    },
-    {
-      label: "Action",
-    },
-  ];
+export function ContentManagementFC({ createNewContentAPI }) {
+  const [activeTab, setActiveTab] = useState(1);
+  const [content, setContent] = useState("");
+  const createContent = () => {
+    createNewContentAPI({
+      contentType: activeTab,
+      description: content,
+    });
+  };
+  const changeTab = (tab) => {
+    setActiveTab(tab);
+    setContent("");
+  };
   return (
-    <div>
-      <TableWrapper headers={staffHead}>
-        {StaffColumnValues?.map((data) => (
-          <tr>
-            <td>{data.No}</td>
-            <td>{data.CustomerID}</td>
-            <td>{data.CustomerName}</td>
-            <td>{data.Location}</td>
-            <td>{data.Date}</td>
-            <td>{data.TotalSpent}</td>
+    <div className="settings-main">
+      <div className="header-background">
+        <p>Reports</p>
+      </div>
+      <div className="settings-comp">
+        <p>Order Reports</p>
 
-            <td className="dropdown">
-              <UncontrolledButtonDropdown>
-                <DropdownToggle tag="span" data-toggle="dropdown">
-                  <div>
-                    <HiDotsHorizontal color="#C5CAFF" size="25" />
-                  </div>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <img
-                      src={visibility}
-                      alt="visible"
-                      color="#4285F4"
-                      size="25"
-                    />
+        <div className="settings-tabs">
+          <p
+            className={activeTab === 1 ? "tab-name active-tab" : "tab-name"}
+            onClick={() => changeTab(1)}
+          >
+            Return Policy
+          </p>
+          <p
+            className={activeTab === 2 ? "tab-name active-tab" : "tab-name"}
+            onClick={() => changeTab(2)}
+          >
+            Terms and Conditions
+          </p>
+          <p
+            className={activeTab === 3 ? "tab-name active-tab" : "tab-name"}
+            onClick={() => changeTab(3)}
+          >
+            Privacy Policy
+          </p>
+        </div>
+        <div className="border-bottom"></div>
 
-                    <span className="dotactions">view</span>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledButtonDropdown>
-            </td>
-          </tr>
-        ))}
-      </TableWrapper>
+        {activeTab === 1 ? (
+          <ReturnPolicy
+            createContent={createContent}
+            content={content}
+            setContent={setContent}
+          />
+        ) : activeTab === 2 ? (
+          <TermsAndConditions
+            content={content}
+            setContent={setContent}
+            createContent={createContent}
+          />
+        ) : (
+          <PrivacyPolicy
+            content={content}
+            setContent={setContent}
+            createContent={createContent}
+          />
+        )}
+      </div>
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      createNewContentAPI: createNewContent,
+    },
+    dispatch
+  );
+};
+
+const ContentManagement = connect(
+  null,
+  mapDispatchToProps
+)(ContentManagementFC);
+export default ContentManagement;

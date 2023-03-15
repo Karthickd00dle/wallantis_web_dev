@@ -32,13 +32,11 @@ const commonReducer = (state = initialState, { type, payload } = {}) => {
         ...state,
         wishlistItemState: payload,
       };
-
     case commonStateList.currentUser:
       return {
         ...state,
         currentUserState: payload,
       };
-
     default:
       return state;
   }

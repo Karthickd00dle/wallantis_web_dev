@@ -1,6 +1,6 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import React, { useEffect, useState } from "react";
-import { Instructions } from "component/Instructions";
+import { Instructions } from "component/ProductDetail/Instructions";
 import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import ReactImageMagnify from "react-image-magnify";
@@ -18,11 +18,16 @@ import {
 import { Toast } from "service/toast";
 
 import CardThree from "component/Home/subcomponents/CardThree";
+import { CalculateRolls } from "./CalculateRolls";
+import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   let location = useLocation();
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState();
+  const [openInstruction, setOpenInstruction] = useState();
+  const [openCalculateRolls, setOpenCalculateRolls] = useState();
+  const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
+    useState();
   const [wallpaperColor, setWallColor] = useState("Gray");
   const [cartData, setCartData] = useState(cartItemData);
   const [productState, setProductState] = useState(
@@ -70,7 +75,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
         <div className="product-detail-inner-container">
           <div className="image-section">
             <div className="container">
-              {/* <img src={selectedImg} alt="Selected" className="selected" /> */}
               <div className="selected">
                 <ReactImageMagnify
                   {...{
@@ -160,8 +164,16 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             </div>
 
             <div className="button-container d-flex mb-3">
-              <button className="product-btn">Calculate Rolls</button>
-              <button className="product-btn" onClick={() => setIsOpen(true)}>
+              <button
+                className="product-btn"
+                onClick={() => setOpenCalculateRolls(true)}
+              >
+                Calculate Rolls
+              </button>
+              <button
+                className="product-btn"
+                onClick={() => setOpenInstallerPriceCalculator(true)}
+              >
                 Installer Price Calculator
               </button>
             </div>
@@ -399,7 +411,18 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
         <div className="other-products-list"></div>
       </div>
-      <Instructions isOpen={isOpen} handleClose={() => setIsOpen(false)} />
+      <CalculateRolls
+        isOpen={openCalculateRolls}
+        handleClose={() => setOpenCalculateRolls(false)}
+      />
+      <Instructions
+        isOpen={openInstruction}
+        handleClose={() => setOpenInstruction(false)}
+      />
+      <InstallerPriceCalculator
+        isOpen={openInstallerPriceCalculator}
+        handleClose={() => setOpenInstallerPriceCalculator(false)}
+      />
     </>
   );
 }

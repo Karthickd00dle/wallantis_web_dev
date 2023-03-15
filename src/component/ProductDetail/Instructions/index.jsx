@@ -12,7 +12,7 @@ export const Instructions = ({ isOpen, handleClose }) => {
     <>
       <CustomDialog isOpen={isOpen} handleClose={handleClose}>
         <div className="close-icon" onClick={handleClose}>
-          ×
+          x
         </div>
         <div className="Instructions">
           <div className="verticalblinds d-flex justify-content-center">

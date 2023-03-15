@@ -58,6 +58,9 @@ let getServiceUrl = (baseURL) => {
     REACT_APP_CATALOGUE_API,
   } = process.env;
   switch (baseURL) {
+    case "base":
+      finalURL = REACT_APP_API_BASE_URL;
+      break;
     case "auth":
       finalURL = REACT_APP_AUTH_API;
       break;
@@ -68,6 +71,9 @@ let getServiceUrl = (baseURL) => {
       finalURL = REACT_APP_PRODUCTS_API;
       break;
     case "catalogue":
+      finalURL = REACT_APP_CATALOGUE_API;
+      break;
+    case "content":
       finalURL = REACT_APP_CATALOGUE_API;
       break;
     default:

@@ -9,17 +9,9 @@
       border: 1px solid #d5d5d5;
       padding: 20px;
       p {
-        font-family: "Lato";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 24px;
-        /* identical to box height */
-
+        @include fontLatoStyle(20px, 600, #263238, 24px);
         display: flex;
         align-items: center;
-
-        color: #263238;
       }
 
       label {

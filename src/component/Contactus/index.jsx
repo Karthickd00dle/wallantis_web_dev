@@ -2,9 +2,13 @@ import React from "react";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 import { useForm } from "react-hook-form";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Toast } from "service/toast";
+import { createContact } from "action/ContactAct";
 import Chatmessage1 from "assets/images/Chatmessage1";
 
-export default function Contactus() {
+export function ContactusFC({ createContactAPI }) {
   const {
     register,
     handleSubmit,
@@ -12,7 +16,21 @@ export default function Contactus() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    let payload = {
+      firstName: data.name,
+      lastName: data.lastname,
+      emailId: data.email,
+      phoneNumber: data.mobile,
+      country: data.country,
+      state: data.state,
+      city: data.city,
+      pinCode: data.pincode,
+      companyName: data.company,
+      message: data.message,
+    };
+    createContactAPI(payload).then(() => {
+      Toast({ type: "error", message: "Form Submitted" });
+    });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -171,13 +189,19 @@ export default function Contactus() {
               <span>Company Name (optional) </span>
               <input
                 type="text"
+                {...register("company")}
                 placeholder="Enter your Company Name"
                 name="company"
               />
             </div>
             <div className="field">
               <span>Message </span>
-              <input type="text" placeholder="Enter Message" name="message" />
+              <input
+                {...register("message")}
+                type="text"
+                placeholder="Enter Message"
+                name="message"
+              />
             </div>
           </div>
 
@@ -187,3 +211,15 @@ export default function Contactus() {
     </form>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      createContactAPI: createContact,
+    },
+    dispatch
+  );
+};
+
+const Contactus = connect(null, mapDispatchToProps)(ContactusFC);
+export default Contactus;

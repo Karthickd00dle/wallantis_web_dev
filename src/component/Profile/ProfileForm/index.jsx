@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
 import {
   NormalInput,
   CommonRadioGroup,
@@ -39,7 +38,7 @@ export default function ProfileForm({
               name={"firstName"}
               className={"text-input"}
               onChange={handleInput}
-              value={inputData.firstName}
+              value={inputData?.firstName}
               register={register}
             />
             <div className="error-message">
@@ -53,7 +52,7 @@ export default function ProfileForm({
               name={"lastName"}
               className={"text-input"}
               onChange={handleInput}
-              value={inputData.lastName}
+              value={inputData?.lastName}
               register={register}
             />
             <div className="error-message">
@@ -70,7 +69,7 @@ export default function ProfileForm({
               name={"roleType"}
               className={"text-input mt-3"}
               onChange={handleInput}
-              value={inputData.roleType}
+              value={inputData?.roleType}
               register={register}
             />
             <div className="error-message">
@@ -87,7 +86,7 @@ export default function ProfileForm({
                 onChange={handleInput}
                 name={"gender"}
                 className={"text-input"}
-                value={inputData.gender}
+                value={inputData?.gender}
                 register={register}
                 radioOptions={[
                   { labelText: "Male", value: "male", id: "gender" },
@@ -109,7 +108,7 @@ export default function ProfileForm({
               name={"emailId"}
               className={"text-input mt-3 disabled"}
               onChange={handleInput}
-              value={inputData.emailId}
+              value={inputData?.emailId}
               disabled={isEmailDisabled}
               register={register}
             />
@@ -132,7 +131,7 @@ export default function ProfileForm({
               name={"phoneNumber"}
               className={"text-input mt-3 disabled"}
               onChange={handleInput}
-              value={inputData.phoneNumber}
+              value={inputData?.phoneNumber}
               disabled={isMobileDisabled}
               register={register}
             />

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
   MenuItem,
@@ -6,18 +6,15 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Button,
 } from "@mui/material";
-import DownloadIcon from "assets/images/DownloadIcon";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
 import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
+import DownloadIcon from "assets/images/DownloadIcon";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
-import { DownloadIcon } from "../../../../assets/svg/Admin/Common";
 import { connect } from "react-redux";
-import { Toast } from "service/toast";
 
 const customersData = [
   {

@@ -35,7 +35,7 @@ export const CustomHeaderComponent = ({
   const [open, setOpen] = useState(false);
   const [itemCount, setItemCount] = useState(null);
   const [productList, setProductList] = useState([]);
-  const [currentData, setCurrentData] = useState({});
+  const [currentData, setCurrentData] = useState();
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
   };
@@ -61,11 +61,11 @@ export const CustomHeaderComponent = ({
   const getCurrentProfile = () => {
     getCurrentProfileAPI()
       .then((res) => {
-        setCurrentData(res?.response);
         dispatch({
           type: commonStateList.currentUser,
           payload: res?.response,
         });
+        setCurrentData(res?.response);
       })
       .catch((err) => {
         console.log(err);
@@ -176,7 +176,7 @@ export const CustomHeaderComponent = ({
               >
                 <img src={JohnDoe1} />
                 &nbsp;&nbsp;
-                <span>{`${currentData.firstName} ${currentData.lastName}`}</span>
+                <span>{`${currentData?.firstName} ${currentData?.lastName}`}</span>
                 <RiArrowDropDownLine size="20" />
                 {open && (
                   <div className="FaAngleDown">
@@ -223,7 +223,6 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ownProps: ownProps,
     cartItemData: state.commonStore.cartItemState,
-    currentUserData: state.commonStore.currentUserState,
   };
 };
 

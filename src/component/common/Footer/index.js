@@ -17,6 +17,7 @@ import {
   TwitterIcon,
 } from "assets/icons/FooterIcons/FooterIcons";
 import ScrollToTop from "component/ScrollToTop";
+import { InstallerPriceCalculator } from "component/ProductDetail/InstallerPriceCalculator";
 
 export const NormalFooter = () => {
   const {
@@ -27,6 +28,9 @@ export const NormalFooter = () => {
 
   const history = useHistory();
   const [formData, setFormData] = useState({ newslettermailinfo: "" });
+  const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
+    useState();
+
   const handleMailInfo = ({ target: { name, value } }) => {
     setFormData({ ...formData, [name]: value });
   };
@@ -72,10 +76,15 @@ export const NormalFooter = () => {
                   isSubmitButton
                   submitButtonLabel="Subscribe"
                   register={register}
+                  pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/} // prettier-ignore
                 />
                 <div className="error-message">
-                  {errors["newslettermailinfo"]?.type && (
+                  {errors["newslettermailinfo"]?.type === "required" && (
                     <span className="error-text">This field is required</span>
+                  )}
+
+                  {errors["newslettermailinfo"]?.type === "pattern" && (
+                    <span className="error-text">Enter a Valid Email</span>
                   )}
                 </div>
               </div>
@@ -127,7 +136,7 @@ export const NormalFooter = () => {
               </label>
               <label
                 className="py-2 cursor-pointer"
-                onClick={() => history.push("")}
+                onClick={() => setOpenInstallerPriceCalculator(true)}
               >
                 Installer Price Calculator
               </label>
@@ -221,6 +230,10 @@ export const NormalFooter = () => {
           </label>
         </div>
       </div>
+      <InstallerPriceCalculator
+        isOpen={openInstallerPriceCalculator}
+        handleClose={() => setOpenInstallerPriceCalculator(false)}
+      />
     </Container>
   );
 };
