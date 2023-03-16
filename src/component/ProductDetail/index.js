@@ -80,8 +80,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 <ReactImageMagnify
                   {...{
                     smallImage: {
-                      width: "200px",
-                      height: "200px",
                       alt: "Selected",
                       isFluidWidth: true,
                       src: selectedImg,
@@ -89,8 +87,8 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     },
                     largeImage: {
                       src: selectedImg,
-                      width: 800,
-                      height: 800,
+                      width: 1800,
+                      height: 1400,
                       className: "largeImage",
                     },
 
@@ -131,7 +129,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
             <div className="info-heading-one">₹3500/Roll</div>
 
-            <hr></hr>
+            <hr />
 
             <div>
               <div className="info-heading-one">Color - {wallpaperColor}</div>

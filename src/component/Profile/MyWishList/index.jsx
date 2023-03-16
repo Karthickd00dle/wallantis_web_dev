@@ -34,7 +34,9 @@ const WishlistCard = ({
       <div className="pt-2 ps-4" onClick={() => deleteFavItem(id)}>
         <div className="d-flex align-items-center">
           <DeleteItemIcon />
-          <label className="remove-item-label ps-1">Remove</label>
+          <label className="remove-item-label ps-1 cursor-pointer">
+            Remove
+          </label>
         </div>
       </div>
     </div>

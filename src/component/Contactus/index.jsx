@@ -6,8 +6,6 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
 import { createContact } from "action/ContactAct";
-import Chatmessage1 from "assets/images/Chatmessage1";
-import { TextField } from "@mui/material";
 
 export function ContactusFC({ createContactAPI }) {
   const {
