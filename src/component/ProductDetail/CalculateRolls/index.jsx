@@ -2,10 +2,9 @@ import { CustomButton, CustomDialog } from "component/common";
 import React, { useState } from "react";
 import { CloseRounded } from "@mui/icons-material";
 import "./style.scss";
-import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
 import { TextField } from "@mui/material";
-import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
+import { conditionalLoad } from "service/helperFunctions";
 
 export const CalculateRolls = ({ isOpen, handleClose }) => {
   const {

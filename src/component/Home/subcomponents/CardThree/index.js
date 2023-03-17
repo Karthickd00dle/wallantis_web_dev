@@ -26,7 +26,7 @@ function CardThreeFC({
 }) {
   const dispatch = useDispatch();
 
-  const { image, title, price } = prodData;
+  const { image, image_data, title, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
   const [fav, setFav] = useState(false);
   const [cart, setCart] = useState(false);
@@ -141,9 +141,14 @@ function CardThreeFC({
           onClick={() => onClickCard(prodData)}
           className="card-image-container"
         >
+          {console.log(image_data[0].image[0], "image data")}
           <img
             className="card-image"
-            src={`${ternaryCondition(Array.isArray(image), image[0], image)}`}
+            src={`${ternaryCondition(
+              Array.isArray(image_data),
+              image_data[0].image[0],
+              image
+            )}`}
             alt={title}
           />
         </div>

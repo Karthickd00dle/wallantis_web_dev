@@ -20,7 +20,18 @@ import { Toast } from "service/toast";
 import CardThree from "component/Home/subcomponents/CardThree";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
-import { height } from "@mui/system";
+
+const ColorFilter = ({ selectColor, color }) => {
+  return (
+    <div className="color-picker-item selected-item">
+      <div
+        className="render-color"
+        onClick={() => selectColor(`${color}`)}
+        style={{ background: `${color}` }}
+      ></div>
+    </div>
+  );
+};
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   let location = useLocation();
@@ -42,18 +53,24 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   };
 
   const onClickCard = (data) => {
-    setSelectedImg(data?.image[0]);
+    setSelectedImg(data?.image_data[0].image[0]);
   };
   const selectColor = (color) => {
     setWallColor(color);
+    let selectedColor = productDetailData?.image_data.filter(
+      (data) => data.color === color
+    );
+    setSelectedImg(selectedColor[0].image[0]);
+    console.log(selectedColor[0].image[0], "selected img");
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setSelectedImg(
       location?.state?.image
-        ? location?.state?.image[0]
-        : productDetailData?.image?.length > 0
-        ? productDetailData?.image[0]
+        ? location?.state?.image_data[0]?.image[0]
+        : productDetailData?.image_data[0]?.image?.length > 0
+        ? productDetailData?.image_data[0]?.image[0]
         : null
     );
     return () => {
@@ -134,29 +151,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <div>
               <div className="info-heading-one">Color - {wallpaperColor}</div>
               <div className="color-picker-container">
-                <div className="color-picker-item selected-item">
-                  <div
-                    className="render-color"
-                    onClick={() => selectColor("Grey")}
-                    style={{ background: "grey" }}
-                  ></div>
-                </div>
-
-                <div className="color-picker-item ">
-                  <div
-                    className="render-color"
-                    onClick={() => selectColor("Red")}
-                    style={{ background: "red" }}
-                  ></div>
-                </div>
-
-                <div className="color-picker-item ">
-                  <div
-                    className="render-color"
-                    onClick={() => selectColor("Yellow")}
-                    style={{ background: "yellow" }}
-                  ></div>
-                </div>
+                {productDetailData?.image_data?.map(({ color }) => (
+                  <ColorFilter selectColor={selectColor} color={color} />
+                ))}
               </div>
             </div>
 
@@ -208,14 +205,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     <div className="ib-body-2-title">
                       Insructions on Application of Wallpaper{" "}
                     </div>
-                    {/* <div className="ib-body-2-txt-tilte">
-                      1. Prepare your surface/wall
-                    </div>
-                    <ul>
-                      <li>Priming and Levelling</li>
-                      <li>Sealing</li>
-                      <li>Glue Application</li>
-                    </ul> */}
                   </div>
                   <div>
                     <div className="instructions-collab">
@@ -397,7 +386,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
         </div>
 
         <div className="other-products-title">You may also like </div>
-        <div className="Product-detail-cards">
+        {/* <div className="Product-detail-cards">
           {bestsellerProducts.map((prodData) => (
             // <CardThree prodData={prodData} key={prodData.id} />
             <CardThree
@@ -408,7 +397,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               key={prodData.id}
             />
           ))}
-        </div>
+        </div> */}
 
         <div className="other-products-list"></div>
       </div>
