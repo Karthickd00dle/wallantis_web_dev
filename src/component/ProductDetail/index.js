@@ -1,5 +1,5 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Instructions } from "component/ProductDetail/Instructions";
 import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
@@ -9,24 +9,57 @@ import { CustomButton } from "component/common";
 import { useLocation } from "react-router-dom";
 import { commonStateList } from "service/actionType";
 import {
-  bestsellerProducts,
   ProductInstructions1,
   ProductInstructions2,
   ProductInstructions3,
   ProductInstructions4,
 } from "config";
 import { Toast } from "service/toast";
-
-import CardThree from "component/Home/subcomponents/CardThree";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
 
-const ColorFilter = ({ selectColor, color }) => {
+const ColorFilter = ({
+  selectColor,
+  removeColor,
+  color,
+  index,
+  activeColor,
+  setActiveColor,
+  wallpaperColor,
+}) => {
+  const handleColor = (color, index) => {
+    selectColor(`${color}`);
+    setActiveColor(index);
+  };
+  const colorSelectorRef = useRef();
+  const colorRef = useRef();
+
+  if (colorSelectorRef?.current?.classList?.contains("selected-item")) {
+    console.log(colorRef.current.style.background);
+  }
   return (
-    <div className="color-picker-item selected-item">
+    <div
+      ref={colorSelectorRef}
+      className={`color-picker-item ${
+        activeColor === index && "selected-item"
+      }`}
+    >
       <div
         className="render-color"
-        onClick={() => selectColor(`${color}`)}
+        ref={colorRef}
+        onMouseOver={(e) => selectColor(`${color}`)}
+        onMouseLeave={() =>
+          removeColor((e) =>
+            selectColor(
+              `${
+                colorSelectorRef?.current?.classList?.contains("selected-item")
+                  ? colorRef.current.style.background
+                  : color
+              }`
+            )
+          )
+        }
+        onClick={() => handleColor(color, index)}
         style={{ background: `${color}` }}
       ></div>
     </div>
@@ -37,6 +70,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   let location = useLocation();
   const dispatch = useDispatch();
   const [openInstruction, setOpenInstruction] = useState();
+  const [activeColor, setActiveColor] = useState();
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
   const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
     useState();
@@ -59,6 +93,12 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   };
   const selectColor = (color) => {
     setWallpaperColor(color);
+    let selectedColor = productDetailData?.image_data?.filter(
+      (data) => data?.color === color
+    );
+    setSelectedImg(selectedColor[0]?.image[0]);
+  };
+  const removeColor = (color, e) => {
     let selectedColor = productDetailData?.image_data?.filter(
       (data) => data?.color === color
     );
@@ -105,7 +145,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     },
                     largeImage: {
                       src: selectedImg,
-                      width: 1800,
+                      width: 2400,
                       height: 1400,
                       className: "largeImage",
                     },
@@ -152,8 +192,16 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <div>
               <div className="info-heading-one">Color - {wallpaperColor}</div>
               <div className="color-picker-container">
-                {productDetailData?.image_data?.map(({ color }) => (
-                  <ColorFilter selectColor={selectColor} color={color} />
+                {productDetailData?.image_data?.map(({ color }, index) => (
+                  <ColorFilter
+                    selectColor={selectColor}
+                    removeColor={removeColor}
+                    wallpaperColor={wallpaperColor}
+                    activeColor={activeColor}
+                    setActiveColor={setActiveColor}
+                    color={color}
+                    index={index}
+                  />
                 ))}
               </div>
             </div>
