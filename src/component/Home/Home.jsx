@@ -12,12 +12,7 @@ import {
 import "./styles.scss";
 import { getAllProducts } from "action/ProductsAct";
 import { bindActionCreators } from "redux";
-import Wallmuralscard from "./subcomponents/Wallmuralscard";
-import sticker from "../../assets/images/sticker.png";
 import AdvancedCarousel from "component/common/Carousel";
-import Sticker from "./subcomponents/Sticker";
-import Wallmurals from "assets/images/wallmurals.png";
-import wallpaperPng from "assets/images/wallpaperCard.png";
 import celebrate from "assets/images/celebrate.png";
 import bulbIcon from "assets/images/bulbIcon.png";
 import CustomerIcon from "assets/images/customersIcon.png";
@@ -26,13 +21,16 @@ import Delivery from "assets/images/delivery.png";
 import googlePlay from "assets/images/googlePlay.png";
 import qrSample from "assets/images/qrSample.png";
 import appStore from "assets/images/appStore.png";
-import HomeCardOne from "./subcomponents/CardOne";
 import CardTwo from "./subcomponents/CardTwo";
 import CardThree from "./subcomponents/CardThree";
 import CardCatalogue from "./subcomponents/CardCatalogue";
 import roomVizBanner from "assets/images/roomVizBanner.png";
 import QuotesSVGComponent from "assets/svg/HomePage/qoutesSVG";
 import { commonStateList } from "service/actionType";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import WallpaperShopNow from "assets/images/Dashboard/Wallpaper_Shopnow.png";
+import WallmuralsShopNow from "assets/images/Dashboard/Wallmurals_Shopnow.png";
+import StickerWallpaperShopNow from "assets/images/Dashboard/Sticker_Wallpaper_Shopnow.png";
 
 const carouselData = [
   {
@@ -124,7 +122,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 A Stylish and most beautiful Wallpapers{" "}
               </label>
             </div>
-            <div className="card-one-container">
+            {/* <div className="card-one-container">
               <div className="card-one-inner-container">
                 <HomeCardOne
                   wallpaperPng={wallpaperPng}
@@ -139,7 +137,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
                   route={"/home/product-listing/sticker-wallpaper"}
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -179,6 +177,42 @@ function HomeComponentMain({ getAllProductsAPI }) {
               subtitle="24x7 Delivery"
               image={Delivery}
             />
+          </div>
+        </div>
+
+        <div className="wall-murals-container">
+          <div className="wall-sec-three">
+            <img src={WallpaperShopNow} alt="WallpaperShopNow" />
+            <label className="wall-sec-title">Wallpapers</label>
+            <p className="wall-sec-subject">
+              Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod
+              tempor{" "}
+            </p>
+            <CustomButton variant="contained" className="wall-sec-three-btn">
+              Shop Now
+            </CustomButton>
+          </div>
+          <div className="wall-sec-three">
+            <img src={WallmuralsShopNow} alt="WallmuralsShopNow" />
+            <label className="wall-sec-title">Wallmurals</label>
+            <p className="wall-sec-subject">
+              Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod
+              tempor{" "}
+            </p>
+            <CustomButton variant="contained" className="wall-sec-three-btn">
+              Shop Now
+            </CustomButton>
+          </div>
+          <div className="wall-sec-three">
+            <img src={StickerWallpaperShopNow} alt="StickerWallpaperShopNow" />
+            <label className="wall-sec-title">Sticker Wallpapers</label>
+            <p className="wall-sec-subject">
+              Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod
+              tempor{" "}
+            </p>
+            <CustomButton variant="contained" className="wall-sec-three-btn">
+              Shop Now
+            </CustomButton>
           </div>
         </div>
 

@@ -12,9 +12,7 @@ const ECatalogueCard = ({ data: { title, data }, setOpenCatalogue }) => {
     <div className="catalogue-main">
       <div className="catalogue-wallpaper pb-4">
         <label>{title}</label>
-        <span onClick={() => history.push("/home/product-listing/wallpaper")}>
-          VIEW ALL
-        </span>
+        <span onClick={() => setOpenCatalogue(true)}>VIEW ALL</span>
       </div>
       <div className="d-flex justify-content-between">
         {data.map((image, index) => (
@@ -47,10 +45,7 @@ const ECatalogueCard = ({ data: { title, data }, setOpenCatalogue }) => {
 
 export default function Catalogue() {
   const [openCatalogue, setOpenCatalogue] = useState(false);
-  const [cataloguePage, setCataloguePage] = useState();
-  const handleCatalogue = (pgno) => {
-    setOpenCatalogue(true);
-  };
+
   return (
     <>
       <div>
@@ -67,11 +62,7 @@ export default function Catalogue() {
         ))}
       </div>
 
-      <ECatalogue
-        cataloguePage={cataloguePage}
-        isOpen={openCatalogue}
-        setOpenCatalogue={setOpenCatalogue}
-      />
+      <ECatalogue isOpen={openCatalogue} setOpenCatalogue={setOpenCatalogue} />
     </>
   );
 }

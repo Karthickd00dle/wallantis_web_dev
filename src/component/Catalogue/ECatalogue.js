@@ -57,11 +57,7 @@ const ECatalogueBook = () => {
   );
 };
 
-export const ECatalogue = ({
-  isOpen,
-  setOpenCatalogue,
-  handleCataloguePage,
-}) => {
+export const ECatalogue = ({ isOpen, setOpenCatalogue }) => {
   return (
     <div>
       <Dialog className="dialog-container" open={isOpen}>
