@@ -127,7 +127,7 @@ export const NormalFooter = () => {
             </div>
           </div>
           <div className="footer-options col-md-2">
-            <div className="pt-5 mt-4 d-flex flex-column footer-links">
+            <div className="pt-4 mt-4 d-flex flex-column footer-links">
               <label
                 className="pb-2 cursor-pointer"
                 onClick={() => history.push("/profile/dealership")}
@@ -174,7 +174,7 @@ export const NormalFooter = () => {
                 <a
                   href="https://maps.google.com/?q=115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
                   Tamil Nadu"
-                  className="w-75 footer-address-info"
+                  className="w-75 footer-address-info text-decoration-none"
                 >
                   115/A, Pycraft Garden Road, Nungambakkam, Chennai - 600 034,
                   Tamil Nadu.
@@ -184,7 +184,7 @@ export const NormalFooter = () => {
                 <PhoneIcon width={"10%"} />
                 <a
                   href="tel:+91 56846 28126"
-                  className="w-75 footer-address-info"
+                  className="w-75 footer-address-info text-decoration-none"
                 >
                   +91 56846 28126
                 </a>
@@ -193,7 +193,7 @@ export const NormalFooter = () => {
                 <MessageIcon width={"10%"} />
                 <a
                   href="mailto:support@gmail.com"
-                  className="w-75 footer-address-info"
+                  className="w-75 footer-address-info text-decoration-none"
                 >
                   support@gmail.com
                 </a>

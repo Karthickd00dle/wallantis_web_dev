@@ -133,6 +133,7 @@
       @include fontLatoStyle(20px, 500, #000000, 24px);
       display: flex;
       align-items: center;
+
       margin-bottom: 20px;
     }
 
@@ -154,7 +155,7 @@
       }
 
       .selected-item {
-        border: 1px solid #000000 !important;
+        border: 2px solid #000000;
       }
     }
 

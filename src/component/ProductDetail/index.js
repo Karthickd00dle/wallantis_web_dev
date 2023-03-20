@@ -9,31 +9,65 @@ import { CustomButton } from "component/common";
 import { useLocation } from "react-router-dom";
 import { commonStateList } from "service/actionType";
 import {
-  bestsellerProducts,
   ProductInstructions1,
   ProductInstructions2,
   ProductInstructions3,
   ProductInstructions4,
 } from "config";
 import { Toast } from "service/toast";
-
-import CardThree from "component/Home/subcomponents/CardThree";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
+import { ternaryCondition } from "service/helperFunctions";
+
+const ColorFilter = ({
+  selectColor,
+  color,
+  index,
+  activeColor,
+  setActiveColor,
+  originalImage,
+  temporayImage,
+}) => {
+  const handleColor = (color, index) => {
+    selectColor(`${color}`);
+    setActiveColor(index);
+  };
+
+  return (
+    <div
+      className={`color-picker-item ${
+        activeColor === index && "selected-item"
+      }`}
+    >
+      <div
+        className="render-color"
+        onMouseOver={() => temporayImage(`${color}`)}
+        onMouseOut={() => originalImage()}
+        onClick={() => handleColor(color, index)}
+        style={{ background: `${color}` }}
+      ></div>
+    </div>
+  );
+};
 
 function ProductDetailFC({ productDetailData, cartItemData }) {
   let location = useLocation();
   const dispatch = useDispatch();
   const [openInstruction, setOpenInstruction] = useState();
+  const [activeColor, setActiveColor] = useState();
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
   const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
     useState();
-  const [wallpaperColor, setWallColor] = useState("Gray");
+  const [wallpaperColor, setWallpaperColor] = useState(
+    productDetailData?.image_data[0]?.color
+  );
+  const [tempwallpaperColor, setTempWallpaperColor] = useState(null);
   const [cartData, setCartData] = useState(cartItemData);
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
   );
 
+  const [tempImage, setTempImage] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
     setCartData([...cartData, { ...productState }]);
@@ -41,18 +75,36 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   };
 
   const onClickCard = (data) => {
-    setSelectedImg(data?.image[0]);
+    setSelectedImg(data?.image_data[0]?.image[0]);
   };
   const selectColor = (color) => {
-    setWallColor(color);
+    setWallpaperColor(color);
+    let selectedColor = productDetailData?.image_data?.filter(
+      (data) => data?.color === color
+    );
+    setSelectedImg(selectedColor[0]?.image[0]);
   };
+
+  const originalImage = () => {
+    setTempImage(null);
+    setTempWallpaperColor(null);
+  };
+
+  const temporayImage = (color) => {
+    setTempWallpaperColor(color);
+    let selectedColor = productDetailData?.image_data?.filter(
+      (data) => data?.color === color
+    );
+    setTempImage(selectedColor[0]?.image[0]);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     setSelectedImg(
       location?.state?.image
-        ? location?.state?.image[0]
-        : productDetailData?.image?.length > 0
-        ? productDetailData?.image[0]
+        ? location?.state?.image_data[0]?.image[0]
+        : productDetailData?.image_data[0]?.image?.length > 0
+        ? productDetailData?.image_data[0]?.image[0]
         : null
     );
     return () => {
@@ -81,13 +133,13 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     smallImage: {
                       alt: "Selected",
                       isFluidWidth: true,
-                      src: selectedImg,
+                      src: ternaryCondition(tempImage, tempImage, selectedImg),
                       className: "small",
                     },
                     largeImage: {
-                      src: selectedImg,
-                      width: 800,
-                      height: 800,
+                      src: ternaryCondition(tempImage, tempImage, selectedImg),
+                      width: 2400,
+                      height: 1400,
                       className: "largeImage",
                     },
 
@@ -118,51 +170,42 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <div className="info-title">
               Custom Recipe Wallpaper, Handwritten Recipe
             </div>
-
             <div className="info-content">
               Create a raw and earthy atmosphere with stone style wallpaper to
               create a perfect contemporary look. Wherever you use it, it will
               add oodles of texture and character to your space and works
               especially well as a feature wall.
             </div>
-
             <div className="info-heading-one">₹3500/Roll</div>
-
-            <hr></hr>
+            <hr />
 
             <div>
-              <div className="info-heading-one">Color - {wallpaperColor}</div>
+              <div className="info-heading-one">
+                Color -
+                {ternaryCondition(
+                  tempwallpaperColor,
+                  tempwallpaperColor,
+                  wallpaperColor
+                )}
+              </div>
               <div className="color-picker-container">
-                <div className="color-picker-item selected-item">
-                  <div
-                    className="render-color"
-                    onClick={() => selectColor("Grey")}
-                    style={{ background: "grey" }}
-                  ></div>
-                </div>
-
-                <div className="color-picker-item ">
-                  <div
-                    className="render-color"
-                    onClick={() => selectColor("Red")}
-                    style={{ background: "red" }}
-                  ></div>
-                </div>
-
-                <div className="color-picker-item ">
-                  <div
-                    className="render-color"
-                    onClick={() => selectColor("Yellow")}
-                    style={{ background: "yellow" }}
-                  ></div>
-                </div>
+                {productDetailData?.image_data?.map(({ color }, index) => (
+                  <ColorFilter
+                    key={index}
+                    selectColor={selectColor}
+                    temporayImage={temporayImage}
+                    originalImage={originalImage}
+                    activeColor={activeColor}
+                    setActiveColor={setActiveColor}
+                    color={color}
+                    index={index}
+                  />
+                ))}
               </div>
             </div>
-
             <div>
               <div className="info-heading-one">Quantity (Roll)</div>
             </div>
-
             <div className="button-container d-flex mb-3">
               <button
                 className="product-btn"
@@ -177,7 +220,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 Installer Price Calculator
               </button>
             </div>
-
             <div className="info-title-2">Check availability in your area </div>
             <div className="instructions-box-container">
               <div className="ib-container">
@@ -207,14 +249,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     <div className="ib-body-2-title">
                       Insructions on Application of Wallpaper{" "}
                     </div>
-                    {/* <div className="ib-body-2-txt-tilte">
-                      1. Prepare your surface/wall
-                    </div>
-                    <ul>
-                      <li>Priming and Levelling</li>
-                      <li>Sealing</li>
-                      <li>Glue Application</li>
-                    </ul> */}
                   </div>
                   <div>
                     <div className="instructions-collab">
@@ -308,7 +342,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 </div>
               </div>
             </div>
-
             <div className="d-flex my-4 product-add-buttons">
               <CustomButton
                 variant="outlined"
@@ -332,7 +365,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 Buy Now
               </CustomButton>
             </div>
-
             <div
               className="gold-button-xl"
               onClick={() => {
@@ -341,7 +373,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             >
               Room Visualizer
             </div>
-
             <div className="product-details-2-container">
               <div className="product-details-section-header">
                 Product Details
@@ -371,11 +402,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               </div>
               <hr />
             </div>
-
             <div className="customer-reviews-container">
               <div className="customer-reviews-title">Customer Reviews</div>
             </div>
-
             <div className="review-item-container">
               <div>
                 <div className="review-item-img"></div>
@@ -396,7 +425,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
         </div>
 
         <div className="other-products-title">You may also like </div>
-        <div className="Product-detail-cards">
+        {/* <div className="Product-detail-cards">
           {bestsellerProducts.map((prodData) => (
             // <CardThree prodData={prodData} key={prodData.id} />
             <CardThree
@@ -407,7 +436,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               key={prodData.id}
             />
           ))}
-        </div>
+        </div> */}
 
         <div className="other-products-list"></div>
       </div>

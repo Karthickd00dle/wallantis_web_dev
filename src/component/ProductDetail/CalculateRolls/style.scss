@@ -1,7 +1,7 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .calculate-rolls-container {
-  width: 900px;
+  width: 925px;
   height: 100%;
   padding: 5% 6% 5% 6%;
   .header-container {
@@ -13,6 +13,35 @@
     .calculator-subject {
       @include fontRobotoStyle(16px, 500, #9a9999, 26px);
       width: 600px;
+    }
+    .calculator-input-container {
+      display: flex;
+      justify-content: space-between;
+      width: 475px;
+    }
+    .calculated-container {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 70px;
+      width: 670px;
+      .calculate-label {
+        @include fontRobotoStyle(15px, 400, #8d8d8d, 28px);
+      }
+      .calculate-value {
+        @include fontLatoStyle(18px, 500, #000000, 40px);
+      }
+    }
+    .reset-value-button {
+      border: 1px solid #a26220;
+      width: 225px;
+      height: 60px;
+      @include fontLatoStyle(22px, 500, #a26220, 32px);
+    }
+    .continue-button {
+      background-color: #a26220;
+      width: 225px;
+      height: 60px;
+      @include fontLatoStyle(22px, 500, #ffffff, 32px);
     }
   }
   .calculate-button {
