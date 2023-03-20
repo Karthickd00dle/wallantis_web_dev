@@ -1,5 +1,5 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Instructions } from "component/ProductDetail/Instructions";
 import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
@@ -17,48 +17,32 @@ import {
 import { Toast } from "service/toast";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
+import { ternaryCondition } from "service/helperFunctions";
 
 const ColorFilter = ({
   selectColor,
-  removeColor,
   color,
   index,
   activeColor,
   setActiveColor,
-  wallpaperColor,
+  originalImage,
+  temporayImage,
 }) => {
   const handleColor = (color, index) => {
     selectColor(`${color}`);
     setActiveColor(index);
   };
-  const colorSelectorRef = useRef();
-  const colorRef = useRef();
 
-  if (colorSelectorRef?.current?.classList?.contains("selected-item")) {
-    console.log(colorRef.current.style.background);
-  }
   return (
     <div
-      ref={colorSelectorRef}
       className={`color-picker-item ${
         activeColor === index && "selected-item"
       }`}
     >
       <div
         className="render-color"
-        ref={colorRef}
-        onMouseOver={(e) => selectColor(`${color}`)}
-        onMouseLeave={() =>
-          removeColor((e) =>
-            selectColor(
-              `${
-                colorSelectorRef?.current?.classList?.contains("selected-item")
-                  ? colorRef.current.style.background
-                  : color
-              }`
-            )
-          )
-        }
+        onMouseOver={() => temporayImage(`${color}`)}
+        onMouseOut={() => originalImage()}
         onClick={() => handleColor(color, index)}
         style={{ background: `${color}` }}
       ></div>
@@ -77,11 +61,13 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   const [wallpaperColor, setWallpaperColor] = useState(
     productDetailData?.image_data[0]?.color
   );
+  const [tempwallpaperColor, setTempWallpaperColor] = useState(null);
   const [cartData, setCartData] = useState(cartItemData);
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
   );
 
+  const [tempImage, setTempImage] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
   const handleAddtoCart = () => {
     setCartData([...cartData, { ...productState }]);
@@ -98,11 +84,18 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
     );
     setSelectedImg(selectedColor[0]?.image[0]);
   };
-  const removeColor = (color, e) => {
+
+  const originalImage = () => {
+    setTempImage(null);
+    setTempWallpaperColor(null);
+  };
+
+  const temporayImage = (color) => {
+    setTempWallpaperColor(color);
     let selectedColor = productDetailData?.image_data?.filter(
       (data) => data?.color === color
     );
-    setSelectedImg(selectedColor[0]?.image[0]);
+    setTempImage(selectedColor[0]?.image[0]);
   };
 
   useEffect(() => {
@@ -140,11 +133,11 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                     smallImage: {
                       alt: "Selected",
                       isFluidWidth: true,
-                      src: selectedImg,
+                      src: ternaryCondition(tempImage, tempImage, selectedImg),
                       className: "small",
                     },
                     largeImage: {
-                      src: selectedImg,
+                      src: ternaryCondition(tempImage, tempImage, selectedImg),
                       width: 2400,
                       height: 1400,
                       className: "largeImage",
@@ -177,26 +170,31 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <div className="info-title">
               Custom Recipe Wallpaper, Handwritten Recipe
             </div>
-
             <div className="info-content">
               Create a raw and earthy atmosphere with stone style wallpaper to
               create a perfect contemporary look. Wherever you use it, it will
               add oodles of texture and character to your space and works
               especially well as a feature wall.
             </div>
-
             <div className="info-heading-one">₹3500/Roll</div>
-
             <hr />
 
             <div>
-              <div className="info-heading-one">Color - {wallpaperColor}</div>
+              <div className="info-heading-one">
+                Color -
+                {ternaryCondition(
+                  tempwallpaperColor,
+                  tempwallpaperColor,
+                  wallpaperColor
+                )}
+              </div>
               <div className="color-picker-container">
                 {productDetailData?.image_data?.map(({ color }, index) => (
                   <ColorFilter
+                    key={index}
                     selectColor={selectColor}
-                    removeColor={removeColor}
-                    wallpaperColor={wallpaperColor}
+                    temporayImage={temporayImage}
+                    originalImage={originalImage}
                     activeColor={activeColor}
                     setActiveColor={setActiveColor}
                     color={color}
@@ -205,11 +203,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 ))}
               </div>
             </div>
-
             <div>
               <div className="info-heading-one">Quantity (Roll)</div>
             </div>
-
             <div className="button-container d-flex mb-3">
               <button
                 className="product-btn"
@@ -224,7 +220,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 Installer Price Calculator
               </button>
             </div>
-
             <div className="info-title-2">Check availability in your area </div>
             <div className="instructions-box-container">
               <div className="ib-container">
@@ -347,7 +342,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 </div>
               </div>
             </div>
-
             <div className="d-flex my-4 product-add-buttons">
               <CustomButton
                 variant="outlined"
@@ -371,7 +365,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 Buy Now
               </CustomButton>
             </div>
-
             <div
               className="gold-button-xl"
               onClick={() => {
@@ -380,7 +373,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             >
               Room Visualizer
             </div>
-
             <div className="product-details-2-container">
               <div className="product-details-section-header">
                 Product Details
@@ -410,11 +402,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               </div>
               <hr />
             </div>
-
             <div className="customer-reviews-container">
               <div className="customer-reviews-title">Customer Reviews</div>
             </div>
-
             <div className="review-item-container">
               <div>
                 <div className="review-item-img"></div>

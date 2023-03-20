@@ -184,7 +184,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 0;
+        padding-top: 550px;
         padding-bottom: 80px;
       }
     }
@@ -199,15 +199,12 @@
 
     .card-one-container {
       position: relative;
-      top: 200px;
-
+      top: 130px;
       height: fit-content;
-      padding: 50px;
+      padding-left: 7%;
+      padding-right: 7%;
       width: 100%;
-
       display: flex;
-      -ms-flex-pack: distribute;
-      -webkit-box-pack: center;
       justify-content: center;
 
       .card-one-inner-container {
@@ -219,6 +216,7 @@
   }
 
   .why-wallantics-container {
+    margin-top: 500px;
     filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
     width: 100%;
     background: radial-gradient(
@@ -313,14 +311,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 7% 0 7%;
+
     .wall-sec-three {
       width: 30%;
+      background-color: #ffffff;
+      padding: 3%;
       height: auto;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
+      filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+      border-radius: 5px;
       img {
         width: 100%;
         height: 100%;
@@ -584,7 +586,7 @@
 
       .card-one-container {
         position: relative;
-        top: 200px;
+        top: 130px;
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
@@ -612,7 +614,7 @@
     }
 
     .why-wallantics-container {
-      margin-top: 60px;
+      margin-top: 500px;
       background: radial-gradient(
         88.26% 88.26% at 50.62% 41.31%,
         rgba(241, 224, 206, 0.33) 0%,
@@ -913,7 +915,7 @@
 
       .card-one-container {
         position: relative;
-        top: 200px;
+        top: 130px;
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
@@ -941,7 +943,7 @@
     }
 
     .why-wallantics-container {
-      margin-top: 60px;
+      margin-top: 500px;
       background: radial-gradient(
         88.26% 88.26% at 50.62% 41.31%,
         rgba(241, 224, 206, 0.33) 0%,
