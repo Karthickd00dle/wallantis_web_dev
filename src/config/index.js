@@ -309,17 +309,29 @@ export const recentlyviewedProducts = [
   {
     id: 1,
     title: "Bharat, Rich Indian Wallpaper Design",
-    image: [
-      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/original/products/63640/63400/81NYsSmzIjL._SL1500___89962.1602915878.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
-      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
-      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
-      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    image_data: [
+      {
+        image: [
+          "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/original/products/63640/63400/81NYsSmzIjL._SL1500___89962.1602915878.jpg",
+        ],
+        color: "Red",
+      },
+      {
+        image: [
+          "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+        ],
+        color: "Blue",
+      },
+      {
+        image: [
+          "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+        ],
+        color: "Brown",
+      },
     ],
     price: 4000,
     category: "Wallpaper",
     sub_category: "Floral",
-    color: "Pink",
     collection: "Pink Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
@@ -327,17 +339,29 @@ export const recentlyviewedProducts = [
   {
     id: 2,
     title: "Vincent Van Gough Almond Blossom Wallpaper",
-    image: [
-      "https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
-      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
-      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
-      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
-      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    image_data: [
+      {
+        image: [
+          "https://cdn.shopify.com/s/files/1/1932/8667/files/Alleyway-Brick_living-room_420x280.jpg?v=1614333560",
+        ],
+        color: "Green",
+      },
+      {
+        image: [
+          "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+        ],
+        color: "Red",
+      },
+      {
+        image: [
+          "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+        ],
+        color: "Blue",
+      },
     ],
     price: 4000,
     category: "Wallpaper",
     sub_category: "Floral",
-    color: "Pink",
     collection: "Pink Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
@@ -345,17 +369,29 @@ export const recentlyviewedProducts = [
   {
     id: 3,
     title: "Banaras, Indian Carpet Design Wallpaper",
-    image: [
-      "https://buildingandinteriors.com/wp-content/uploads/2021/02/64d134b23490042718cca43a430e95d2.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
-      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
-      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
-      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    image_data: [
+      {
+        image: [
+          "https://buildingandinteriors.com/wp-content/uploads/2021/02/64d134b23490042718cca43a430e95d2.jpg",
+        ],
+        color: "Blue",
+      },
+      {
+        image: [
+          "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+        ],
+        color: "Black",
+      },
+      {
+        image: [
+          "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+        ],
+        color: "Pink",
+      },
     ],
     price: 4000,
     category: "Wallpaper",
     sub_category: "Floral",
-    color: "Pink",
     collection: "Pink Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
@@ -363,17 +399,29 @@ export const recentlyviewedProducts = [
   {
     id: 4,
     title: "A Story by the Garden Wallpaper",
-    image: [
-      "https://unikneeds.com/wp-content/uploads/2018/02/3d-wallpaper-1-500x500.jpg",
-      "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
-      "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
-      "https://cdn11.bigcommerce.com/s-8smrzb0w7f/images/stencil/558x558/products/62763/62669/71SucufQxxL._SL1200___88295.1602915474.jpg?c=1",
-      "https://w0.peakpx.com/wallpaper/478/143/HD-wallpaper-veelike-17-7-x118-1-vintage-floral-peel-and-stick-self-adhesive-removable-pink-red-rose-floral-vinyl-decorative-leaf-floral-contact-paper-for-bedroom-walls-cabinet-nursery-shelf-red-and-white-floral.jpg",
+    image_data: [
+      {
+        image: [
+          "https://unikneeds.com/wp-content/uploads/2018/02/3d-wallpaper-1-500x500.jpg",
+        ],
+        color: "Yellow",
+      },
+      {
+        image: [
+          "https://5.imimg.com/data5/SELLER/Default/2022/2/XM/QA/FK/32420942/floral-wallpaper-for-home-1000x1000.jpeg",
+        ],
+        color: "White",
+      },
+      {
+        image: [
+          "https://thearchitecturedesigns.com/wp-content/webp-express/webp-images/uploads/2020/06/flower-wallpaper-1.jpg.webp",
+        ],
+        color: "Grey",
+      },
     ],
     price: 4000,
     category: "Wallpaper",
     sub_category: "Floral",
-    color: "Pink",
     collection: "Pink Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
@@ -383,40 +431,55 @@ export const recentlyviewedProducts = [
 export const artificialgrassProducts = [
   {
     id: 1,
-    image: ["https://miro.medium.com/max/620/1*3pykkuNFvOzyme5EGBPYbQ.jpeg"],
+    image_data: [
+      {
+        image: [
+          "https://miro.medium.com/max/620/1*3pykkuNFvOzyme5EGBPYbQ.jpeg",
+        ],
+        color: "Green",
+      },
+    ],
     title: "Vertical Gardens",
     price: 4000,
     category: "Artificial Grass",
     sub_category: "Grassy",
-    color: "Green",
+
     collection: "Green Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
   },
   {
     id: 2,
-    image: [
-      "https://thumbs.dreamstime.com/b/white-wood-textures-174109872.jpg",
+    image_data: [
+      {
+        image: [
+          "https://thumbs.dreamstime.com/b/white-wood-textures-174109872.jpg",
+        ],
+        color: "Green",
+      },
     ],
     title: "Indoor Mats - Non UV",
     price: 4000,
     category: "Artificial Grass",
     sub_category: "Grassy",
-    color: "Green",
     collection: "Green Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
   },
   {
     id: 3,
-    image: [
-      "https://rukminim1.flixcart.com/image/850/850/kn6cxow0/wallpaper/j/9/1/228-40-decorative-wallpaper-wall-sticker-for-home-decor-living-original-imagfwtvzthnqyvc.jpeg?q=90",
+    image_data: [
+      {
+        image: [
+          "https://rukminim1.flixcart.com/image/850/850/kn6cxow0/wallpaper/j/9/1/228-40-decorative-wallpaper-wall-sticker-for-home-decor-living-original-imagfwtvzthnqyvc.jpeg?q=90",
+        ],
+        color: "Green",
+      },
     ],
     title: "Outdoor Mats - UV Protect",
     price: 4000,
     category: "Artificial Grass",
     sub_category: "Grassy",
-    color: "Green",
     collection: "Green Themed",
     room: "Bed Room",
     size: "50cm x 45cm",
@@ -426,31 +489,58 @@ export const artificialgrassProducts = [
 export const bestsellerProducts = [
   {
     id: 1,
-    image: [
-      "https://img.staticmb.com/mbcontent/images/uploads/2021/8/botanical-prints.jpg",
+    image_data: [
+      {
+        image: [
+          "https://img.staticmb.com/mbcontent/images/uploads/2021/8/botanical-prints.jpg",
+        ],
+        color: "Pink",
+      },
     ],
     title: "Bharat, Rich Indian Wallpaper Design",
     price: 4000,
   },
   {
     id: 2,
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
+    image_data: [
+      {
+        image: [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
+        ],
+        color: "Green",
+      },
+      {
+        image: [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnGOyc9snqxURRspxuTP2nLbKMPIsDgUr0_viMx_pbIKz8BcgKe7PdasIfUXQ9Zsw9H7w&usqp=CAU",
+        ],
+        color: "Blue",
+      },
+    ],
     title: "Vincent Van Gough Almond Blossom Wallpaper",
     price: 4000,
   },
   {
     id: 3,
-    image: [
-      "https://i.etsystatic.com/23287991/r/il/ec1109/3890392737/il_1080xN.3890392737_khaz.jpg",
+    image_data: [
+      {
+        image: [
+          "https://i.etsystatic.com/23287991/r/il/ec1109/3890392737/il_1080xN.3890392737_khaz.jpg",
+        ],
+        color: "Blue",
+      },
     ],
     title: "Banaras, Indian Carpet Design Wallpaper",
     price: 4000,
   },
   {
     id: 4,
-    image: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fhcrQX7bjOwI-4O-4VsGt9vJe068qAcf5g&usqp=CAU",
+    image_data: [
+      {
+        image: [
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fhcrQX7bjOwI-4O-4VsGt9vJe068qAcf5g&usqp=CAU",
+        ],
+        color: "Blue",
+      },
     ],
     title: "A Story by the Garden Wallpaper",
     price: 4000,
@@ -460,32 +550,52 @@ export const bestsellerProducts = [
 export const newarrivalsProducts = [
   {
     id: 1,
-    image: [
-      "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+    image_data: [
+      {
+        image: [
+          "https://sc04.alicdn.com/kf/H22cbdb6f6f78491d96b7474ac12e059ac.jpg",
+        ],
+        color: "Red",
+      },
     ],
     title: "Bharat, Rich Indian Wallpaper Design",
     price: 4000,
   },
   {
     id: 2,
-    image: [
-      "https://walldesign.in/wp-content/uploads/2020/05/Falling-Flower-Nature-wallpaper-For-Living-Room.jpg",
+    image_data: [
+      {
+        image: [
+          "https://walldesign.in/wp-content/uploads/2020/05/Falling-Flower-Nature-wallpaper-For-Living-Room.jpg",
+        ],
+        color: "Grey",
+      },
     ],
     title: "Vincent Van Gough Almond Blossom Wallpaper",
     price: 4000,
   },
   {
     id: 3,
-    image: [
-      "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+    image_data: [
+      {
+        image: [
+          "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
+        ],
+        color: "White",
+      },
     ],
     title: "Banaras, Indian Carpet Design Wallpaper",
     price: 4000,
   },
   {
     id: 4,
-    image: [
-      "https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
+    image_data: [
+      {
+        image: [
+          "https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
+        ],
+        color: "White",
+      },
     ],
     title: "A Story by the Garden Wallpaper",
     price: 4000,
@@ -517,6 +627,7 @@ export const ecatalougeProducts = [
     image: [
       "https://buildingandinteriors.com/wp-content/uploads/2021/02/f98e1563-c334-4a7a-97c5-40601e51a297.jpg",
     ],
+
     title: "Best of Living Walls",
   },
 ];
@@ -525,6 +636,7 @@ export const blogProducts = [
   {
     id: 1,
     image: ["https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg"],
+
     title: "My Home. My Space",
   },
   {
@@ -532,6 +644,7 @@ export const blogProducts = [
     image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
     ],
+
     title: "Trendy Walls",
   },
   {
@@ -539,6 +652,7 @@ export const blogProducts = [
     image: [
       "https://degournay.com/uploads/favourite/original/10032022122932_0.jpg",
     ],
+
     title: "The Art of Inspiration",
   },
 ];

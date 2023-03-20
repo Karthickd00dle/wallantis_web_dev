@@ -40,7 +40,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
   const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
     useState();
-  const [wallpaperColor, setWallColor] = useState("Gray");
+  const [wallpaperColor, setWallpaperColor] = useState(
+    productDetailData?.image_data[0]?.color
+  );
   const [cartData, setCartData] = useState(cartItemData);
   const [productState, setProductState] = useState(
     location?.state ? location?.state : productDetailData
@@ -53,15 +55,14 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
   };
 
   const onClickCard = (data) => {
-    setSelectedImg(data?.image_data[0].image[0]);
+    setSelectedImg(data?.image_data[0]?.image[0]);
   };
   const selectColor = (color) => {
-    setWallColor(color);
-    let selectedColor = productDetailData?.image_data.filter(
-      (data) => data.color === color
+    setWallpaperColor(color);
+    let selectedColor = productDetailData?.image_data?.filter(
+      (data) => data?.color === color
     );
-    setSelectedImg(selectedColor[0].image[0]);
-    console.log(selectedColor[0].image[0], "selected img");
+    setSelectedImg(selectedColor[0]?.image[0]);
   };
 
   useEffect(() => {

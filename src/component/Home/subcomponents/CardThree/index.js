@@ -141,7 +141,7 @@ function CardThreeFC({
           onClick={() => onClickCard(prodData)}
           className="card-image-container"
         >
-          {console.log(image_data[0].image[0], "image data")}
+          {console.log(image_data)}
           <img
             className="card-image"
             src={`${ternaryCondition(
