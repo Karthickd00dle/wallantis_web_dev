@@ -1,3 +1,4 @@
+import { addQuery } from "service/helperFunctions";
 import { profileApi } from "../service/apiVariables";
 
 export const updateProfile =
@@ -32,6 +33,31 @@ export const changeCurrentPassword =
       apiCall({
         ...profileApi.changePassword,
         body,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };
+
+export const getAddressList =
+  () =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      apiCall({
+        ...profileApi.getAddressList,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };
+
+export const getAddress =
+  (query) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      addQuery(query, profileApi.getAddress);
+      apiCall({
+        ...profileApi.getAddress,
       }).then((data) => {
         resolve(data);
       });

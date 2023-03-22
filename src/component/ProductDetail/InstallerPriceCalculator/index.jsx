@@ -1,9 +1,10 @@
 import { CustomButton, CustomDialog } from "component/common";
-import React from "react";
+import React, { useState } from "react";
 import { CloseRounded } from "@mui/icons-material";
 import "./style.scss";
-import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
+import { TextField } from "@mui/material";
+import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 
 export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
   const {
@@ -11,6 +12,43 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [showCalculated, setShowCalculated] = useState(false);
+  const [installerPriceData, setInstallerPriceData] = useState({
+    width: null,
+    height: null,
+    rolls: null,
+  });
+  const [calculatedData, setCalculatedData] = useState({
+    quantity: null,
+    price: null,
+    charges: null,
+  });
+  const { width, height, rolls } = installerPriceData;
+  const { quantity, price, charges } = calculatedData;
+
+  const handleChange = ({ target: { name, value } }) => {
+    setInstallerPriceData({ ...installerPriceData, [name]: value });
+  };
+
+  const handleCalculateInstallerPrice = () => {
+    let quantity = Math.round((width * height) / 10);
+    let price = rolls * 124.75;
+    let charges = width * height * 2 * quantity;
+    setCalculatedData({
+      ...calculatedData,
+      quantity: quantity,
+      price: price,
+      charges: charges,
+    });
+    setShowCalculated(true);
+  };
+
+  const handleResetValue = () => {
+    setInstallerPriceData({ width: null, height: null, rolls: null });
+    setShowCalculated(false);
+  };
+
   return (
     <>
       <CustomDialog isOpen={isOpen} handleClose={handleClose}>
@@ -25,35 +63,105 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
               Installation Price.
             </p>
             <div className="d-flex justify-content-between align-items-center pt-4">
-              <CustomInput
-                type="number"
-                placeholder="Width  (Ft)"
-                register={register}
+              <TextField
+                id="standard-basic"
+                label="Width  (Ft)"
                 errors={errors}
+                value={width}
                 name="width"
-              />
-              <CustomInput
                 type="number"
-                max="2"
-                placeholder="Height (Ft)"
-                register={register}
-                errors={errors}
-                name="height"
+                variant="standard"
+                {...register("width", { required: true })}
+                onChange={handleChange}
               />
+              <TextField
+                id="standard-basic"
+                label="Height  (Ft)"
+                errors={errors}
+                value={height}
+                name="height"
+                type="number"
+                variant="standard"
+                {...register("height", { required: true })}
+                onChange={handleChange}
+              />
+
               <label className="or-label">OR</label>
-              <CustomInput
-                type="number"
-                max="2"
-                placeholder="No.of Rolls"
-                register={register}
+              <TextField
+                id="standard-basic"
+                label="No.of Rolls"
                 errors={errors}
-                name="height"
+                value={rolls}
+                name="rolls"
+                type="number"
+                variant="standard"
+                {...register("rolls", { required: true })}
+                onChange={handleChange}
               />
             </div>
+            {conditionalLoad(
+              showCalculated,
+              <>
+                <div className="d-flex justify-content-between align-items-center pt-5 calculated-container">
+                  <div className="d-flex flex-column">
+                    <label className="calculate-label">
+                      Quantitiy of Rolls Needed
+                    </label>
+                    <label className="calculate-value">{quantity}</label>
+                  </div>
+                  <div className="d-flex flex-column">
+                    <label className="calculate-label">
+                      Installation Price per Roll
+                    </label>
+                    <label className="calculate-value">{`₹${price}`}</label>
+                  </div>
+                  <div className=" d-flex flex-column">
+                    <label className="calculate-label">
+                      Total Installation Charges (*Approx)
+                    </label>
+                    <label className="calculate-value">{`₹${charges}`}</label>
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between align-items-center pt-4">
+                  <div className="d-flex flex-column">
+                    <label className="calculate-info">
+                      *Based on wall conditions installation charge will differ
+                    </label>
+                    <label className="calculate-info">
+                      *Need to Pay ontime of Installation
+                    </label>
+                  </div>
+                </div>
+              </>
+            )}
+
             <div className="d-flex justify-content-center pt-5">
-              <CustomButton variant="contained" className="calculate-button">
-                CALCULATE
-              </CustomButton>
+              {ternaryCondition(
+                showCalculated,
+                <>
+                  <CustomButton
+                    variant="outlined"
+                    className="reset-value-button"
+                    onClick={handleResetValue}
+                  >
+                    Reset Value
+                  </CustomButton>
+                  <CustomButton
+                    variant="contained"
+                    className="ms-5
+                     continue-button"
+                  >
+                    Continue
+                  </CustomButton>
+                </>,
+                <CustomButton
+                  variant="contained"
+                  onClick={handleCalculateInstallerPrice}
+                  className="calculate-button"
+                >
+                  CALCULATE
+                </CustomButton>
+              )}
             </div>
           </div>
         </div>

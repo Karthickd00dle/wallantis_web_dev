@@ -40,6 +40,25 @@ export const profileApi = {
     method: "put",
     baseURL: "auth",
   },
+  getAddressList: {
+    api: "address/addressList",
+    method: "get",
+    baseURL: "base",
+  },
+  getAddress: {
+    url: "address",
+    method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
 };
 
 export const cartApi = {
