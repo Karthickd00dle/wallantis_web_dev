@@ -24,6 +24,7 @@ export const addQuery = (dataObject, apiObject) => {
     "total",
     "sort",
     "id",
+    "url_id",
     "status",
     "enable",
   ];

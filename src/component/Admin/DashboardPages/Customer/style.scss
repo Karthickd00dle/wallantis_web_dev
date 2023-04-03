@@ -2,245 +2,29 @@
 
 .download-csv-button {
   border: 1px solid #5d5fef;
+  @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+}
+.add-new-installer-button {
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  background: #5d5fef;
   border-radius: 6px;
-  @include fontLatoStyle(14px, 500, #5d5fef, 19px);
-}
-
-.cd-customercollab {
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 17px;
-  width: 1432px;
-  height: 291px;
-  margin-left: 6%;
-  display: flex;
-  gap: 18%;
-}
-
-.customer-dwnld-btn {
-  width: 100%;
-  padding: 20px 20px;
-  display: flex;
-  justify-content: flex-end;
-}
-.cd-projectmanager {
-  display: flex;
-  gap: 2%;
-
-  .cd-pm {
-    img {
-      margin-top: 27px;
-      margin-left: 21px;
-    }
-  }
-  .cd-pmcontents {
-    margin-top: 33px;
-    h2 {
-      color: #000000;
-      font-weight: 600;
-      font-size: 34px;
-    }
-    label {
-      color: #3fae58;
-      font-weight: 600;
-      font-size: 20px;
-      margin-top: 5px;
-    }
-    span {
-      color: #ababab;
-      font-weight: 600;
-      font-size: 14px;
-      margin-top: 15px;
-    }
-  }
-  .cd-contact {
-    display: flex;
-    gap: 23%;
-    margin-top: 40px;
-    h3 {
-      color: #7a7a7a;
-      font-weight: 600;
-      font-size: 16px;
-    }
-    p {
-      color: #7a7a7a;
-      font-weight: 600;
-      font-size: 16px;
-    }
-  }
-}
-.cd-totalorders {
-  span {
-    color: #5d5fef;
-    font-weight: 700;
-    font-size: 32px;
-  }
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 16px;
-  }
-}
-.cd-processcollab {
-  display: flex;
-  gap: 50px;
-  margin-top: 30px;
-  .cd-onprocessing {
-    span {
-      color: #5d5fef;
-      font-weight: 700;
-      font-size: 32px;
-    }
-    label {
-      color: #000000;
-      font-weight: 500;
-      font-size: 16px;
-    }
+  &:hover {
+    background: #5d5fef;
   }
 }
 
-.cd-mostordered {
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 27px;
-  width: 707px;
-  height: 200%;
-  margin-left: 100px;
-  margin-top: 60px;
-}
-.cd-mostcontent {
-  label {
-    font-weight: 600;
-    font-size: 18px;
-    color: #7a7a7a;
-    margin-left: 33px;
-    margin-top: 50px;
+.status-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  &.active {
+    background-color: #26e044;
   }
-  h6 {
-    color: #696969;
-    font-weight: 400;
-    font-size: 12px;
-    margin-left: 36px;
-    margin-top: 13px;
-    width: 127%;
+  &.inactive {
+    background-color: #e11539;
   }
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 500px;
-  height: 180px;
-}
-
-.table-body-cell-label {
-  @include fontLatoStyle(16px, 600, #000000, 19px);
-  display: flex;
-  align-items: center;
-}
-
-.bloc-tabs {
-  display: flex;
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
-  width: 70%;
-}
-.tabs {
-  padding: 15px;
-  cursor: pointer;
-  background-color: #ffffff;
-  width: 37%;
-  height: 50px;
-}
-
-.active-tabs {
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 18.5px;
-  width: 37%;
-  height: 48px;
-}
-
-button {
-  border: none;
-}
-
-.content {
-  display: none;
-}
-.content h2 {
-  padding: 0px 0 5px 0px;
-}
-
-.content p {
-  width: 100%;
-  height: 100%;
-}
-.active-content {
-  display: block;
-}
-.cd-tabscollab {
-  display: flex;
-  gap: 19%;
-}
-
-.cd-diamondwallcontents1 {
-  h4 {
-    color: #000000;
-    font-weight: 600;
-    font-size: 16px;
-  }
-  span {
-    color: #c5caff;
-    font-weight: 600;
-    font-size: 12px;
-  }
-  small {
-    color: #696969;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 93px;
-  }
-}
-.cd-diamondwall1price {
-  margin-left: 35%;
-  margin-top: 7%;
-  h2 {
-    color: #000000;
-    font-weight: 700;
-    font-size: 20px;
-  }
-}
-.content hr {
-  width: 100%;
-  height: 2px;
-  background: #d4d4d4;
-}
-
-.cd-chartscollab {
-  display: flex;
-}
-
-.activebar-tabs {
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 18.5px;
-  width: 37%;
-  height: 48px;
-}
-.bartabs {
-  padding: 15px;
-  cursor: pointer;
-  background-color: #ffffff;
-  width: 37%;
-  height: 50px;
-}
-
-.custom-table {
-  padding: 50px;
-}
 .table-head-cell-label {
   @include fontLatoStyle(14px, 600, #ababab, 17px);
 }

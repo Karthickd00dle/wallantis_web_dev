@@ -76,6 +76,22 @@ const routers = [
         exact: true,
       },
       {
+        component: "AddNewAddressPage",
+        path: "/add-new-address",
+        componentPath: "pages/AddNewAddressPage",
+        name: "AddNewAddressPage",
+        auth: false,
+        exact: true,
+      },
+      {
+        component: "AddNewAddressPage",
+        path: "/change-address/:id",
+        componentPath: "pages/AddNewAddressPage",
+        name: "AddNewAddressPage",
+        auth: false,
+        exact: true,
+      },
+      {
         component: "OrderDetailsPage",
         path: "/order-details",
         componentPath: "pages/Profile/OrderDetailsPage",

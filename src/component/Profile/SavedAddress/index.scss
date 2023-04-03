@@ -1,32 +1,38 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .saved-address {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  height: auto;
+  .saved-address-button {
+    @include fontLatoStyle(18px, 600, #2a71f9, 27px);
+    border-radius: 0;
+    border: 1px solid #2a71f9;
+  }
 }
 
-.card {
+.address-card {
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  margin-top: -20px;
-  padding: 20px;
-  border: none !important;
-  font-style: normal;
-  font-weight: 600;
-  width: 650px;
+  padding: 20px 40px 20px 40px;
+  .label-name {
+    @include fontLatoStyle(18px, 600, #000000, 27px);
+  }
+  .label-mobno {
+    @include fontLatoStyle(18px, 700, #000000, 27px);
+  }
+  .label-address {
+    @include fontLatoStyle(16px, 500, #000000, 27px);
+    width: 400px;
+  }
 }
 
-.edit {
-  text-decoration-line: underline;
-  color: #2a71f9;
+.edit-text {
+  border-bottom: 2px solid #2a71f9;
+  @include fontLatoStyle(19px, 500, #2a71f9, 20px);
   cursor: pointer;
 }
 
-.delete {
-  text-decoration-line: underline;
+.delete-text {
+  border-bottom: 2px solid #ef3039;
+  @include fontLatoStyle(19px, 500, #ef3039, 20px);
   cursor: pointer;
-  color: #ef3039;
 }

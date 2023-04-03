@@ -23,6 +23,99 @@ import "./index.scss";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
 import { logout } from "service/utilities";
+import { navigationTab } from "config";
+import { conditionalLoad } from "service/helperFunctions";
+
+const ProfileCard = ({ firstName, lastName }) => {
+  return (
+    <div className="profile-card-container px-4">
+      <img
+        height="85px"
+        width="85px"
+        className="profile-image"
+        alt="profile_pic"
+        src={profileUser}
+      />
+      <div className="d-flex flex-column ps-3">
+        <label className="label-hello">Hello,</label>
+        <label className="label-name">{`${firstName} ${lastName}`}</label>
+      </div>
+    </div>
+  );
+};
+
+const NavigationPanel = ({
+  tabData: { id, name },
+  activeTab,
+  setActiveTab,
+}) => {
+  return (
+    <div
+      className={`navigation-tab cursor-pointer ${conditionalLoad(
+        activeTab === id,
+        "active"
+      )}`}
+      onClick={() => setActiveTab(id)}
+    >
+      <label
+        className={`ps-5 navigation-label ${conditionalLoad(
+          activeTab === id,
+          "active"
+        )}`}
+      >
+        {name}
+      </label>
+    </div>
+  );
+};
+
+const ActivePanel = ({
+  activeTab,
+  profileProps: {
+    handleInput,
+    inputData,
+    updateProfile,
+    verifyOTP,
+    open,
+    setOpen,
+    loader,
+  },
+  wishListProps: { wishlistItemData },
+  savedAddressProps: { showAddressForm },
+  changePasswordProps: { changePassword, passwordError },
+}) => {
+  switch (activeTab) {
+    case 1:
+      return (
+        <ProfileForm
+          handleInput={handleInput}
+          inputData={inputData}
+          updateProfile={updateProfile}
+          verifyOTP={verifyOTP}
+          open={open}
+          setOpen={setOpen}
+          loader={loader}
+        />
+      );
+    case 2:
+      return <MyOrders />;
+    case 3:
+      return <WishList wishlistItemData={wishlistItemData} />;
+    case 4:
+      return <SavedAddresses showAddressForm={showAddressForm} />;
+    case 5:
+      return (
+        <ChangePassword
+          changePassword={changePassword}
+          passwordError={passwordError}
+        />
+      );
+    case 6:
+      return logout();
+    default:
+      return null;
+  }
+};
 
 export function ProfileMain({
   wishlistItemData,
@@ -37,14 +130,17 @@ export function ProfileMain({
   const [inputData, setInputData] = useState(currentUserData?.user);
   const [tabIndex, setTabIndex] = useState(location?.state);
   const [currentData, setCurrentData] = useState();
+  const [activeTab, setActiveTab] = useState(1);
   const [isAddressForm, setAddressForm] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const [passwordError, setError] = useState(false);
+  const [loader, setLoader] = useState(true);
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });
   };
+
   const showAddressForm = () => {
     setAddressForm(!isAddressForm);
   };
@@ -76,6 +172,9 @@ export function ProfileMain({
       .then((res) => {
         setCurrentData(res.response);
         setInputData(res.response);
+      })
+      .then(() => {
+        setLoader(false);
       })
       .catch((err) => {
         console.log(err);
@@ -111,13 +210,9 @@ export function ProfileMain({
     }
   };
 
-  const signOut = () => {
-    logout();
-  };
-
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [activeTab]);
 
   useEffect(() => {
     scrollToTop();
@@ -127,73 +222,44 @@ export function ProfileMain({
     setTabIndex(location?.state);
   }, [location?.state]);
 
-  return isAddressForm ? (
+  return (
     <>
       <div className="profile-main">
-        <div>
-          <div className="breadcrumbs">
-            <BreadCrumbs crumbs={["Home", "Profile"]} />
+        <div className="left-pane">
+          <ProfileCard
+            firstName={currentData?.firstName}
+            lastName={currentData?.lastName}
+          />
+          <div className="navigation-panel-container mt-3">
+            {navigationTab.map((tabData) => (
+              <NavigationPanel
+                key={tabData.id}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                tabData={tabData}
+              />
+            ))}
           </div>
-          <div className="card-main">
-            <div>
-              <img src={profileUser} />
-            </div>
-            <div className="card-content">
-              <h6>Hello,</h6>
-              <h2>{`${currentData?.firstName} ${currentData?.lastName}`}</h2>
-            </div>
-          </div>
-
-          <Tabs
-            className="tab-menus"
-            selectedIndex={tabIndex || 0}
-            onSelect={(index) => {
-              scrollToTop();
-              setTabIndex(index);
+        </div>
+        <div className="right-pane ms-4">
+          <ActivePanel
+            activeTab={activeTab}
+            profileProps={{
+              handleInput,
+              inputData,
+              updateProfile,
+              verifyOTP,
+              open,
+              setOpen,
+              loader,
             }}
-          >
-            <TabList className="tab-list">
-              <Tab>Profile</Tab>
-              <Tab>My Orders</Tab>
-              <Tab>My Wishlist</Tab>
-              <Tab>Saved Addresses</Tab>
-              <Tab>Change Password</Tab>
-              <Tab onClick={signOut}>Sign Out</Tab>
-            </TabList>
-            <img src={chatIcon} className="chatIcon" />
-            <div className="card-info">
-              <TabPanel>
-                <ProfileForm
-                  handleInput={handleInput}
-                  inputData={inputData}
-                  updateProfile={updateProfile}
-                  open={open}
-                  setOpen={setOpen}
-                  verifyOTP={verifyOTP}
-                />
-              </TabPanel>
-              <TabPanel>
-                <MyOrders />
-              </TabPanel>
-              <TabPanel>
-                <WishList wishlistItemData={wishlistItemData} />
-              </TabPanel>
-              <TabPanel>
-                <SavedAddresses showAddressForm={showAddressForm} />
-              </TabPanel>
-              <TabPanel>
-                <ChangePassword
-                  changePassword={changePassword}
-                  passwordError={passwordError}
-                />
-              </TabPanel>
-            </div>
-          </Tabs>
+            wishListProps={{ wishlistItemData }}
+            savedAddressProps={{ showAddressForm }}
+            changePasswordProps={{ changePassword, passwordError }}
+          />
         </div>
       </div>
     </>
-  ) : (
-    <AddNewAddress />
   );
 }
 

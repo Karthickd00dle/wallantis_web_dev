@@ -129,18 +129,20 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
             <div className="container">
               <div className="selected">
                 <ReactImageMagnify
+                  className="react-magnify"
                   {...{
                     smallImage: {
-                      alt: "Selected",
+                      alt: "selected_image",
+
                       isFluidWidth: true,
                       src: ternaryCondition(tempImage, tempImage, selectedImg),
-                      className: "small",
+                      className: "small-image",
                     },
                     largeImage: {
                       src: ternaryCondition(tempImage, tempImage, selectedImg),
                       width: 2400,
                       height: 1400,
-                      className: "largeImage",
+                      className: "large-image",
                     },
 
                     isHintEnabled: true,

@@ -1,4 +1,4 @@
-import { Input } from "@mui/material";
+import { Input, TextField } from "@mui/material";
 import React from "react";
 import { CustomButton } from "..";
 import "./NormalInput.scss";
@@ -117,5 +117,33 @@ export const CustomInput = ({
         )}
       </div>
     </div>
+  );
+};
+
+export const CustomTextField = ({
+  name,
+  placeholder,
+  className,
+  onChange,
+  type,
+  value,
+  register,
+  props,
+  InputProps,
+  disabled,
+}) => {
+  return (
+    <TextField
+      name={name}
+      placeholder={placeholder}
+      className={`custom-text-field ${className}`}
+      onChange={onChange}
+      value={value}
+      type={type}
+      register={register}
+      disabled={disabled}
+      InputProps={InputProps}
+      {...props}
+    />
   );
 };

@@ -1,32 +1,67 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
-.order-management {
-  position: relative;
+.download-csv-button {
+  border: 1px solid #5d5fef;
+  @include fontLatoStyle(16px, 500, #5d5fef, 19px);
 }
-
-.table-order-neworder {
-  ul {
-    background-color: #fff0ed;
-    width: 115px;
-    height: 26px;
-    border-radius: 10px;
-    padding: 5px 3px 0px 30px;
+.add-new-installer-button {
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  background: #5d5fef;
+  border-radius: 6px;
+  &:hover {
+    background: #5d5fef;
   }
-  li {
-    color: #ff7d61;
+}
+.status-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  .status-indicator {
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    &.pending {
+      background-color: #fe7d61;
+    }
+    &.ongoing {
+      background-color: #7cb5ec;
+    }
+    &.completed {
+      background-color: #37c092;
+    }
+  }
+  .order-status-label {
+    &.pending {
+      @include fontLatoStyle(14px, 600, #fe7d61, 17px);
+    }
+    &.ongoing {
+      @include fontLatoStyle(14px, 600, #7cb5ec, 17px);
+    }
+    &.completed {
+      @include fontLatoStyle(14px, 600, #37c092, 17px);
+    }
+  }
+  &.pending {
+    background-color: #fff0ed;
+  }
+  &.ongoing {
+    background-color: #d8e6f3;
+  }
+  &.completed {
+    background-color: #d9f3ea;
   }
 }
 
 .table-head-cell-label {
   @include fontLatoStyle(14px, 600, #ababab, 17px);
 }
-
 .table-body-cell-label {
   @include fontLatoStyle(14px, 600, #000000, 17px);
 }
-
-.download-csv {
-  position: absolute;
-  right: 20px;
-  top: 90px;
+.table-cell-menu-item {
+  @include fontRobotoStyle(14px, 400, #ababab, 16px);
 }

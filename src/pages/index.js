@@ -25,6 +25,7 @@ export {
   CareerPage,
   AboutUsPage,
   CataloguePage,
+  AddNewAddressPage,
 } from "./Profile";
 
 export {
