@@ -4,40 +4,42 @@
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  margin-top: -20px;
-  padding: 20px;
+  padding: 50px;
   border: none !important;
   font-style: normal;
   font-weight: 600;
-  width: 650px;
-  height: 640px;
+  width: 87%;
+  height: 700px;
+  .profile-label {
+    @include fontLatoStyle(18px, 700, #000000, 24px);
+  }
+  .save-changed-button {
+    background: #a26220;
+    border-radius: 6px;
+  }
 }
 
 .flex-main {
   display: flex;
-  grid-template-columns: auto auto;
+
   align-items: center;
-  gap: 20px;
+
   justify-content: center;
 }
 
-.input-container {
-  width: 100%;
-  position: relative;
-}
-
-label {
-  @include fontLatoStyle(16px, 700, #000000, 24px);
-}
-
-.change-text {
-  position: absolute;
-  top: 55px;
-  right: 10px;
-  color: #2a71f9;
-  font-weight: 700;
-  font-size: 17px;
-  cursor: pointer;
+.profile-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  .change-text {
+    @include fontLatoStyle(15px, 700, #2a71f9, 20px);
+    cursor: pointer;
+  }
+  .profile-input {
+    .MuiInputBase-root.MuiOutlinedInput-root {
+      width: 400px;
+    }
+  }
 }
 
 .disabled {

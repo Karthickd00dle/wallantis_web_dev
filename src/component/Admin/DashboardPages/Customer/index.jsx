@@ -10,7 +10,12 @@ import {
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import "./style.scss";
-import { EyeIcon } from "assets/svg/Admin/InventoryMangement";
+import {
+  DeleteIcon,
+  EyeIcon,
+  PencilIcon,
+  StrikedEyeIcon,
+} from "assets/svg/Admin/InventoryMangement";
 import DownloadIcon from "assets/images/DownloadIcon";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
@@ -18,20 +23,20 @@ import { connect } from "react-redux";
 
 const customersData = [
   {
-    No: "1",
-    Customer_ID: "#98765",
-    Customer_Name: "John Doe",
-    Location: "Anna Nagar, Chennai",
-    Date: "Oct 18th, 2022",
-    Total_Spent: "₹7000",
+    no: 1,
+    customer_id: "#98765",
+    customer_name: "John Doe",
+    location: "Anna Nagar, Chennai",
+    date: "Oct 18th, 2022",
+    total_spent: 7000,
   },
   {
-    No: "2",
-    Customer_ID: "#98765",
-    Customer_Name: "John Doe",
-    Location: "Anna Nagar, Chennai",
-    Date: "Oct 18th, 2022",
-    Total_Spent: "₹7000",
+    no: 2,
+    customer_id: "#98765",
+    customer_name: "John Doe",
+    location: "Anna Nagar, Chennai",
+    date: "Oct 18th, 2022",
+    total_spent: 7000,
   },
 ];
 
@@ -48,12 +53,14 @@ const TableDataHeader = () => {
         <TableCell align="left">
           <label className="table-head-cell-label">Customer Name</label>
         </TableCell>
+
         <TableCell align="left">
           <label className="table-head-cell-label">Location</label>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Date</label>
         </TableCell>
+
         <TableCell align="left">
           <label className="table-head-cell-label">Total Spent</label>
         </TableCell>
@@ -66,27 +73,27 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { No, Customer_ID, Customer_Name, Location, Date, Total_Spent },
+  bodyData: { no, customer_id, customer_name, location, date, total_spent },
 }) => {
   return (
-    <TableRow key={No}>
+    <TableRow key={no}>
       <TableCell component="th" scope="row">
-        <label className="table-body-cell-label">{No}</label>
+        <label className="table-body-cell-label">{no}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Customer_ID}</label>
-      </TableCell>
-      <TableCell align="left" className="d-flex align-items-center py-5">
-        <label className="ps-2 table-body-cell-label">{Customer_Name}</label>
+        <label className="table-body-cell-label">{customer_id}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Location}</label>
+        <label className="table-body-cell-label">{customer_name}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Date}</label>
+        <label className="table-body-cell-label">{location}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Total_Spent}</label>
+        <label className="table-body-cell-label">{date}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{`₹${total_spent}`}</label>
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>
@@ -99,9 +106,8 @@ const TableDataBody = ({
     </TableRow>
   );
 };
-
 const CustomerManagementFC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = React.useState(1);
 
   const handlePage = (event, value) => {
     setCurrentPage(value);
@@ -110,31 +116,30 @@ const CustomerManagementFC = () => {
   return (
     <div>
       <CustomNavBar label="Customer" />
-      <div className="px-5">
-        <div className="d-flex justify-content-end my-4">
-          <CustomButton
-            className="download-csv-button p-3"
-            startIcon={<DownloadIcon />}
-            variant="outlined"
-          >
-            Download CSV
-          </CustomButton>
-        </div>
+      <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
+        <CustomButton
+          startIcon={<DownloadIcon />}
+          className="download-csv-button px-3 py-3"
+          variant="outlined"
+        >
+          Download CSV
+        </CustomButton>
+      </div>
+      <div className="px-5 pt-5">
         <CustomTable>
           <TableDataHeader />
           <TableBody>
             {customersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
+              <TableDataBody key={bodyData.No} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>
-
-        <CustomPagination
-          pageCount={10}
-          currentPage={currentPage}
-          onChange={handlePage}
-        />
       </div>
+      <CustomPagination
+        pageCount={10}
+        currentPage={currentPage}
+        onChange={handlePage}
+      />
     </div>
   );
 };

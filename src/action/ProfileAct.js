@@ -63,3 +63,43 @@ export const getAddress =
       });
     });
   };
+
+export const deleteAddress =
+  (query) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      addQuery(query, profileApi.deleteAddress);
+      apiCall({
+        ...profileApi.deleteAddress,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };
+
+export const createAddress =
+  (body) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      apiCall({
+        ...profileApi.createAddress,
+        body,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };
+
+export const updateAddress =
+  (query, body) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      addQuery(query, profileApi.updateAddress);
+      apiCall({
+        ...profileApi.updateAddress,
+        body,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };

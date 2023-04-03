@@ -32,9 +32,13 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
   };
 
   const handleCalculateInstallerPrice = () => {
-    let quantity = Math.round((width * height) / 10);
-    let price = rolls * 124.75;
-    let charges = width * height * 2 * quantity;
+    let quantity = ternaryCondition(
+      rolls,
+      rolls,
+      Math.round((width * height) / 10)
+    );
+    let price = 499;
+    let charges = price * ternaryCondition(rolls, rolls, quantity);
     setCalculatedData({
       ...calculatedData,
       quantity: quantity,
@@ -45,7 +49,7 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
   };
 
   const handleResetValue = () => {
-    setInstallerPriceData({ width: null, height: null, rolls: null });
+    setInstallerPriceData({ width: "", height: "", rolls: "" });
     setShowCalculated(false);
   };
 

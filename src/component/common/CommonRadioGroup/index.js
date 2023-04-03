@@ -24,6 +24,7 @@ export const CommonRadioGroup = ({
       <RadioGroup
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
+        className="d-flex justify-content-between w-50"
         name={name}
         value={value}
         onChange={handleChange}

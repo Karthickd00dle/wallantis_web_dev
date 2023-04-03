@@ -21,10 +21,12 @@ import {
   PencilIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
+import { CustomButton } from "component/common";
+import DownloadIcon from "assets/images/DownloadIcon";
 
 const totalInstallersData = [
   {
-    No: "1",
+    No: 1,
     Title: "Diamond Wallpaper",
     Date: "Oct 18th, 2022",
     Customer_Name: "John Doe",
@@ -33,7 +35,7 @@ const totalInstallersData = [
     Category: "Customized Wallpaper",
   },
   {
-    No: "2",
+    No: 2,
     Title: "Diamond Wallpaper",
     Date: "Oct 18th, 2022",
     Customer_Name: "Derik",
@@ -144,10 +146,20 @@ export default function ProductManagement() {
   return (
     <div className="product-management">
       <CustomNavBar label="Product Management" />
-      <div className="button-group">
-        <CommonButton title="Download CSV" icon={downloadIcon} />
-
-        <button className="purple-filled">Add New Product </button>
+      <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
+        <CustomButton
+          startIcon={<DownloadIcon />}
+          className="download-csv-button px-3 py-3"
+          variant="outlined"
+        >
+          Download CSV
+        </CustomButton>
+        <CustomButton
+          className="add-new-installer-button ms-3 px-3"
+          variant="contained"
+        >
+          Add New Installer
+        </CustomButton>
       </div>
       <div className="custom-table">
         <CustomTable>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NormalInput, NormalButton } from "component/common";
+import { NormalInput, NormalButton, CustomButton } from "component/common";
 import { useForm } from "react-hook-form";
 import "./index.scss";
 
@@ -74,7 +74,12 @@ export default function ChangePassword({ changePassword, passwordError }) {
         </div>
 
         <div className="mt-5">
-          <NormalButton label="Change Password" saveBtn={true} type="submit" />
+          <CustomButton
+            variant="contained"
+            className="change-password-button py-3 px-5"
+          >
+            Change Password
+          </CustomButton>
         </div>
       </div>
     </form>

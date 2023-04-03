@@ -20,7 +20,9 @@ import {
   StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
-import CustomTabs, { TabPanel } from "component/Admin/common/CustomTabs";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import { DownloadIcon } from "assets/svg/Admin/Common";
+import { ternaryCondition } from "service/helperFunctions";
 
 const totalInstallersData = [
   {
@@ -32,6 +34,7 @@ const totalInstallersData = [
     Completed_Orders: 10,
     Ongoing_Orders: 8,
     Installer_Cost: 500,
+    Status: false,
   },
   {
     No: "2",
@@ -42,10 +45,9 @@ const totalInstallersData = [
     Completed_Orders: 10,
     Ongoing_Orders: 8,
     Installer_Cost: 500,
+    Status: true,
   },
 ];
-
-const inventoryLabel = ["Total Installers", "Available Installers"];
 
 const TableDataHeader = () => {
   return (
@@ -85,6 +87,12 @@ const TableDataHeader = () => {
           <label className="table-head-cell-label">Installer Cost</label>
         </TableCell>
         <TableCell align="left">
+          <label className="table-head-cell-label">Status</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
           <label className="table-head-cell-label">Action</label>
         </TableCell>
       </TableRow>
@@ -102,6 +110,7 @@ const TableDataBody = ({
     Completed_Orders,
     Ongoing_Orders,
     Installer_Cost,
+    Status,
   },
 }) => {
   return (
@@ -126,14 +135,30 @@ const TableDataBody = ({
       <TableCell align="left">
         <label className="table-body-cell-label">{Location}</label>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <label className="table-body-cell-label">{Completed_Orders}</label>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <label className="table-body-cell-label">{Ongoing_Orders}</label>
       </TableCell>
-      <TableCell align="left">
+      <TableCell align="center">
         <label className="table-body-cell-label">{`₹${Installer_Cost}`}</label>
+      </TableCell>
+      <TableCell align="left">
+        <div className="d-flex align-items-center">
+          <div
+            className={`status-indicator ${ternaryCondition(
+              Status,
+              "active",
+              "inactive"
+            )}`}
+          />
+          <label className="ps-2 table-body-cell-label">{`${ternaryCondition(
+            Status,
+            "Active",
+            "Inactive"
+          )}`}</label>
+        </div>
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>
@@ -163,44 +188,39 @@ const TableDataBody = ({
 
 export default function InventoryManagement() {
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [tabvalue, setTabValue] = React.useState(0);
+
   const handlePage = (event, value) => {
     setCurrentPage(value);
-  };
-
-  const handleTabs = (event, newValue) => {
-    setTabValue(newValue);
   };
 
   return (
     <div>
       <CustomNavBar label="Inventory Management" />
-      <CustomTabs
-        tabLabel={inventoryLabel}
-        value={tabvalue}
-        onChange={handleTabs}
-      >
-        <TabPanel value={tabvalue} index={0}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
-        <TabPanel value={tabvalue} index={1}>
-          <CustomTable>
-            <TableDataHeader />
-            <TableBody>
-              {totalInstallersData?.map((bodyData) => (
-                <TableDataBody bodyData={bodyData} />
-              ))}
-            </TableBody>
-          </CustomTable>
-        </TabPanel>
-      </CustomTabs>
+      <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
+        <CustomButton
+          startIcon={<DownloadIcon />}
+          className="download-csv-button px-3 py-3"
+          variant="outlined"
+        >
+          Download CSV
+        </CustomButton>
+        <CustomButton
+          className="add-new-installer-button ms-3 px-3"
+          variant="contained"
+        >
+          Add New Installer
+        </CustomButton>
+      </div>
+      <div className="px-5 pt-5">
+        <CustomTable>
+          <TableDataHeader />
+          <TableBody>
+            {totalInstallersData?.map((bodyData) => (
+              <TableDataBody key={bodyData.No} bodyData={bodyData} />
+            ))}
+          </TableBody>
+        </CustomTable>
+      </div>
       <CustomPagination
         pageCount={10}
         currentPage={currentPage}

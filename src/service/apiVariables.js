@@ -45,9 +45,42 @@ export const profileApi = {
     method: "get",
     baseURL: "base",
   },
+  createAddress: {
+    api: "address/create",
+    method: "post",
+    baseURL: "base",
+  },
   getAddress: {
     url: "address",
     method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  deleteAddress: {
+    url: "address/remove",
+    method: "delete",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  updateAddress: {
+    url: "address/update",
+    method: "put",
     baseURL: "base",
     query: {
       url_id: "",
@@ -65,17 +98,26 @@ export const cartApi = {
   createCart: {
     api: "cart/create",
     method: "post",
-    baseURL: "auth",
+    baseURL: "base",
   },
   cartList: {
     api: "cart/cartList",
     method: "get",
-    baseURL: "auth",
+    baseURL: "base",
   },
   deleteCart: {
-    api: "cart/",
+    url: "cart",
     method: "delete",
-    baseURL: "auth",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
   },
 };
 
