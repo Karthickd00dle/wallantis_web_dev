@@ -102,7 +102,7 @@ const ItemsRow = ({
   );
 };
 
-const CartItemsMain = ({ cartItemData, getCartListingAPI, deleteCartAPI }) => {
+const CartItemsMain = ({ getCartListingAPI, deleteCartAPI }) => {
   const [cartData, setCartData] = useState([]);
 
   const getCartListing = () => {
@@ -137,7 +137,6 @@ const CartItemsMain = ({ cartItemData, getCartListingAPI, deleteCartAPI }) => {
 
   return (
     <div>
-      {console.log(cartData.product.length)}
       <div className="cart-items-container">
         {ternaryCondition(
           cartData?.product?.length > 0,
@@ -171,12 +170,6 @@ const CartItemsMain = ({ cartItemData, getCartListingAPI, deleteCartAPI }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    cartItemData: state.commonStore.cartItemState,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
@@ -187,7 +180,4 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-export const CartItems = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CartItemsMain);
+export const CartItems = connect(null, mapDispatchToProps)(CartItemsMain);
