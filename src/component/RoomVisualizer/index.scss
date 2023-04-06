@@ -1,6 +1,7 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .room-visualizer {
+  padding-top: 40px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -9,6 +10,72 @@
   h2 {
     font-style: normal;
     font-weight: 700;
+  }
+
+  .visualizer-module-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90vh;
+
+    .visualizer-module-content {
+      width: 72%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .visulaizer-module-sidebar {
+      width: 28%;
+      background: transparent;
+      padding: 35px 25px;
+
+      .v-m-siderbar-head {
+        display: flex;
+
+        img {
+          cursor: pointer;
+        }
+
+        p {
+          margin-left: 15px;
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 36px;
+          color: #000000;
+          margin-bottom: 0;
+        }
+      }
+
+      .textures-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .texture-image-box {
+          margin-top: 20px;
+
+          .texture-img {
+            width: 165px;
+            height: auto;
+            object-fit: contain;
+          }
+          p {
+            margin-top: 10px;
+            font-family: "Lato";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 24px;
+            color: #000000;
+          }
+        }
+      }
+    }
   }
 
   .upload-picture {
@@ -29,7 +96,7 @@
 
   .grid-main {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
