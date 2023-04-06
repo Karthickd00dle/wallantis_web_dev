@@ -38,7 +38,6 @@ const carouselData = [
     location: "Bangalore",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
-
   {
     name: "James Pradip 2",
     location: "Bangalore",
@@ -122,22 +121,66 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 A Stylish and most beautiful Wallpapers{" "}
               </label>
             </div>
-            {/* <div className="card-one-container">
-              <div className="card-one-inner-container">
-                <HomeCardOne
-                  wallpaperPng={wallpaperPng}
-                  route={"/home/product-listing/wallpaper"}
-                />
-                <Wallmuralscard
-                  wallmurals={Wallmurals}
-                  route={"/home/product-listing/wall-murals"}
-                />
-                <Sticker
-                  sticker={sticker}
-                  route={"/home/product-listing/sticker-wallpaper"}
-                />
+            <div className="card-one-container">
+              <div className="wall-murals-container">
+                <div className="wall-sec-three">
+                  <img src={WallpaperShopNow} alt="WallpaperShopNow" />
+                  <label className="wall-sec-title">Wallpapers</label>
+                  <p className="wall-sec-subject">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing sed do
+                    eiusmod tempor{" "}
+                  </p>
+                  <CustomButton
+                    variant="contained"
+                    className="wall-sec-three-btn"
+                    onClick={() =>
+                      history.push("/home/product-listing/wallpaper")
+                    }
+                  >
+                    Shop Now
+                  </CustomButton>
+                </div>
+
+                <div className="wall-sec-three">
+                  <img src={WallmuralsShopNow} alt="WallmuralsShopNow" />
+                  <label className="wall-sec-title">Wallmurals</label>
+                  <p className="wall-sec-subject">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing sed do
+                    eiusmod tempor{" "}
+                  </p>
+                  <CustomButton
+                    variant="contained"
+                    className="wall-sec-three-btn"
+                    onClick={() =>
+                      history.push("/home/product-listing/wall-murals")
+                    }
+                  >
+                    Shop Now
+                  </CustomButton>
+                </div>
+
+                <div className="wall-sec-three">
+                  <img
+                    src={StickerWallpaperShopNow}
+                    alt="StickerWallpaperShopNow"
+                  />
+                  <label className="wall-sec-title">Sticker Wallpapers</label>
+                  <p className="wall-sec-subject">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing sed do
+                    eiusmod tempor{" "}
+                  </p>
+                  <CustomButton
+                    variant="contained"
+                    className="wall-sec-three-btn"
+                    onClick={() =>
+                      history.push("/home/product-listing/sticker-wallpaper")
+                    }
+                  >
+                    Shop Now
+                  </CustomButton>
+                </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
 
@@ -177,42 +220,6 @@ function HomeComponentMain({ getAllProductsAPI }) {
               subtitle="24x7 Delivery"
               image={Delivery}
             />
-          </div>
-        </div>
-
-        <div className="wall-murals-container">
-          <div className="wall-sec-three">
-            <img src={WallpaperShopNow} alt="WallpaperShopNow" />
-            <label className="wall-sec-title">Wallpapers</label>
-            <p className="wall-sec-subject">
-              Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod
-              tempor{" "}
-            </p>
-            <CustomButton variant="contained" className="wall-sec-three-btn">
-              Shop Now
-            </CustomButton>
-          </div>
-          <div className="wall-sec-three">
-            <img src={WallmuralsShopNow} alt="WallmuralsShopNow" />
-            <label className="wall-sec-title">Wallmurals</label>
-            <p className="wall-sec-subject">
-              Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod
-              tempor{" "}
-            </p>
-            <CustomButton variant="contained" className="wall-sec-three-btn">
-              Shop Now
-            </CustomButton>
-          </div>
-          <div className="wall-sec-three">
-            <img src={StickerWallpaperShopNow} alt="StickerWallpaperShopNow" />
-            <label className="wall-sec-title">Sticker Wallpapers</label>
-            <p className="wall-sec-subject">
-              Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod
-              tempor{" "}
-            </p>
-            <CustomButton variant="contained" className="wall-sec-three-btn">
-              Shop Now
-            </CustomButton>
           </div>
         </div>
 

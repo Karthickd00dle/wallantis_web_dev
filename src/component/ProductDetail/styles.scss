@@ -155,7 +155,7 @@
       }
 
       .selected-item {
-        border: 1px solid #000000 !important;
+        border: 2px solid #000000;
       }
     }
 
@@ -287,8 +287,8 @@ img {
 // }
 
 .container .selected {
-  width: 747px;
-  height: 720px;
+  width: auto;
+  height: auto;
   margin: 0 auto;
 }
 

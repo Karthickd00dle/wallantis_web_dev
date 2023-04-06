@@ -34,6 +34,12 @@ import ctstickerwallpaper2 from "assets/images/eCatalogue/sticker-wallpaper-2.pn
 import ctstickerwallpaper3 from "assets/images/eCatalogue/sticker-wallpaper-3.png";
 import ctstickerwallpaper4 from "assets/images/eCatalogue/sticker-wallpaper-4.png";
 
+export const StateList = [
+  { label: "Tamil Nadu", value: "tamilNadu" },
+  { label: "Delhi", value: "delhi" },
+  { label: "Kerala", value: "kerala" },
+];
+
 export const LanguageMenuList = [
   {
     label: "EN",
@@ -121,6 +127,15 @@ export const historyNavigation = [
     label: "payment-page",
     route_to: "/home/product-details/payment-page",
   },
+];
+
+export const navigationTab = [
+  { id: 1, name: "Profile" },
+  { id: 2, name: "My Orders" },
+  { id: 3, name: "My Wishlist" },
+  { id: 4, name: "Saved Addresses" },
+  { id: 5, name: "Change Password" },
+  { id: 6, name: "Sign Out" },
 ];
 
 export const productListingFilter = {

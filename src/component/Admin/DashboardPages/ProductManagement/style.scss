@@ -1,5 +1,16 @@
-.product-management {
-  position: relative;
+@import "assets/scss/abstracts/abstracts.scss";
+
+.download-csv-button {
+  border: 1px solid #5d5fef;
+  @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+}
+.add-new-installer-button {
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  background: #5d5fef;
+  border-radius: 6px;
+  &:hover {
+    background: #5d5fef;
+  }
 }
 
 .addnewproduct {

@@ -157,7 +157,7 @@ export default function Dashboard() {
         <div className="chart-card">
           <div className="chart-header">
             <div>
-              <p className="title">Installation Details</p>
+              <p className="title">Best Selling Products</p>
             </div>
             <div className="select-option">
               <CommonSelect />
@@ -230,7 +230,7 @@ export default function Dashboard() {
         <div className="chart-card">
           <div className="chart-header">
             <div>
-              <p className="title">Installation Details</p>
+              <p className="title">Profile/Role</p>
             </div>
             <div className="select-option">
               <CommonSelect />

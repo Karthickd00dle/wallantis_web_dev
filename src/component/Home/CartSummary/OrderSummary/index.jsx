@@ -5,12 +5,15 @@ import { connect } from "react-redux";
 import { NormalInput } from "component/common";
 import { TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-export const OrderSummaryMain = ({ cartItemData }) => {
+import { bindActionCreators } from "redux";
+import { getCartListing } from "action/CartAct";
+export const OrderSummaryMain = ({ cartItemData, getCartListingAPI }) => {
   const {
     register,
     formState: { errors },
   } = useForm();
   const [orderSummary, setOrderSummary] = useState(cartItemData);
+  const [cartData, setCartData] = useState([]);
   const [total, setTotal] = useState("");
   useEffect(() => {
     setTotal(
@@ -21,6 +24,23 @@ export const OrderSummaryMain = ({ cartItemData }) => {
 
     setOrderSummary(cartItemData);
   }, [orderSummary]);
+
+  const getCartListing = () => {
+    getCartListingAPI()
+      .then((res) => {
+        setCartData(res.response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getCartListing();
+  }, []);
+
+  console.log(cartData, "cart daa");
+
   return (
     <div className="order-summary">
       <label className="text-title pb-3">Order Summary</label>
@@ -83,7 +103,7 @@ export const OrderSummaryMain = ({ cartItemData }) => {
                 className="price-content-title
           "
               >
-                Price (2 item)
+                Price ({cartData.totalQuantity} items)
               </label>
               <label
                 className=" price-content-title
@@ -115,19 +135,19 @@ export const OrderSummaryMain = ({ cartItemData }) => {
                 className="price-content-item
           "
               >
-                ₹ 2599
+                ₹ {cartData.cartAmount}
               </label>
               <label
                 className="text-green-15 price-content-title
           "
               >
-                FREE
+                {`₹ ${cartData.deliveryCharge}`}
               </label>
               <label
                 className="price-content-item
           "
               >
-                ₹ 99
+                {`₹ ${cartData.packingCharges}`}
               </label>
               <label
                 className="price-content-item
@@ -139,7 +159,7 @@ export const OrderSummaryMain = ({ cartItemData }) => {
                 className="price-content-item
           "
               >
-                ₹ 299
+                ₹ {cartData.GSTCharges}
               </label>
             </div>
           </div>
@@ -184,7 +204,7 @@ export const OrderSummaryMain = ({ cartItemData }) => {
               className="text-light_bg fw-700 fs-24 price-content-item 
           "
             >
-              ₹ {total}
+              ₹ {cartData.totalPrice}
             </label>
           </div>
         </div>
@@ -199,4 +219,16 @@ const mapStateToProps = (state) => {
   };
 };
 
-export const OrderSummary = connect(mapStateToProps, null)(OrderSummaryMain);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getCartListingAPI: getCartListing,
+    },
+    dispatch
+  );
+};
+
+export const OrderSummary = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(OrderSummaryMain);
