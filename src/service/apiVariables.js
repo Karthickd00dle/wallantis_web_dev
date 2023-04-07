@@ -119,6 +119,20 @@ export const cartApi = {
       this.query[key] = payload;
     },
   },
+  updateCart: {
+    url: "cart/updateCart",
+    method: "put",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
 };
 
 export const productAPI = {
@@ -139,6 +153,11 @@ export const productAPI = {
     set addQuery({ key, payload }) {
       this.query[key] = payload;
     },
+  },
+  getProductFilter: {
+    api: "filterAll/list",
+    method: "get",
+    baseURL: "products",
   },
 };
 

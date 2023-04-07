@@ -4,7 +4,6 @@ import { CustomSelect, CustomFilterAccordion } from "component/common";
 import { SortingMenuList, productItems } from "config";
 import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
-
 import "./style.scss";
 import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";

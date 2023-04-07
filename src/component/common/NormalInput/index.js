@@ -12,7 +12,7 @@ export const NormalInput = ({
   value = "",
   name,
   disabled = false,
-  type = "text",
+  type,
   max = "",
   min = "",
   icon,
