@@ -42,3 +42,17 @@ export const deleteCart =
       });
     });
   };
+
+export const updateCart =
+  (query, body) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      addQuery(query, cartApi.updateCart);
+      apiCall({
+        ...cartApi.updateCart,
+        body,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };

@@ -25,7 +25,7 @@
       @include fontRobotoStyle(20px, 400, #9a9999, 22px);
     }
     .order-count-input {
-      width: 48px;
+      width: 52px;
       height: 20px;
       min-height: 30px;
       border: 1px solid #2a71f9;
@@ -34,13 +34,17 @@
 
   .order-installation-date {
     .order-installation-text {
-      @include fontLatoStyle(15px, 700, #000000, 22px);
+      @include fontLatoStyle(16px, 700, #000000, 22px);
     }
     margin-top: 25px;
     padding-bottom: 10px;
     border-bottom: 1px solid #cbcbcb;
     display: flex;
     justify-content: space-between;
+    .edit-installation {
+      @include fontLatoStyle(16px, 400, #2a71f9, 19px);
+      border-bottom: 1px solid #2a71f9;
+    }
   }
   .coupon-container {
     display: flex;

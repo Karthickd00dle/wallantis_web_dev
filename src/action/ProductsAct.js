@@ -13,3 +13,15 @@ export const getAllProducts =
       });
     });
   };
+
+export const getProductFilter =
+  () =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      apiCall({
+        ...productAPI.getProductFilter,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };

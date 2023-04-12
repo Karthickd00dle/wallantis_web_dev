@@ -10,10 +10,12 @@ import {
 } from "service/helperFunctions";
 import { history } from "service/helpers";
 import { bindActionCreators } from "redux";
-import { deleteCart, getCartListing } from "action/CartAct";
+import { deleteCart, getCartListing, updateCart } from "action/CartAct";
 
 const ItemsRow = ({
-  deleteAddressApi,
+  deleteCartApi,
+  updateCartCallBack,
+  setActiveCartItem,
   itemData: {
     _id,
     productId,
@@ -22,6 +24,7 @@ const ItemsRow = ({
     quantity,
     delivery_date,
     delivery_price,
+    installer,
     installerDate,
     installerTime,
     cartAmount,
@@ -30,8 +33,15 @@ const ItemsRow = ({
   const { register } = useForm();
   const [formData, setFormData] = useState({ quantity: quantity });
   const handleProductCount = ({ target: { name, value } }) => {
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: Number(value) });
   };
+
+  useEffect(() => {
+    updateCartCallBack({
+      id: _id,
+      cartBody: { quantity: formData.quantity, color: color._id },
+    });
+  }, [formData]);
 
   return (
     <div key={_id} className="item-row-container">
@@ -44,7 +54,22 @@ const ItemsRow = ({
             alt="product"
           />
           <div className="d-flex ps-5 flex-column">
-            <label className="pb-2 item-title">{productId?.title}</label>
+            <label
+              className="pb-2 item-title cursor-pointer"
+              onClick={() =>
+                setActiveCartItem({
+                  id: _id,
+                  title: productId.title,
+                  quantity: formData.quantity,
+                  color: color._id,
+                  installer: installer,
+                  installerDate: installerDate,
+                  installerTime: installerTime,
+                })
+              }
+            >
+              {productId?.title}
+            </label>
             <label className="py-2 item-color">{`Color - ${color?.colorName}`}</label>
             <label className="py-2 item-status">
               {ternaryCondition(status, "In Stock", "Out of Stock")}
@@ -53,10 +78,13 @@ const ItemsRow = ({
               {`Delivery by ${delivery_date} | ${delivery_price}`}
             </label>
             <label className="pt-2 item-delivery-info">
-              {`Installation on ${customMomentFormat(
-                installerDate,
-                "ddd MMM YY"
-              )} ${installerTime}`}
+              {conditionalLoad(
+                installer,
+                `Installation on ${customMomentFormat(
+                  installerDate,
+                  "ddd MMM YY"
+                )} ${installerTime}`
+              )}
             </label>
           </div>
         </div>
@@ -76,6 +104,7 @@ const ItemsRow = ({
           </div>
           <NormalInput
             name="quantity"
+            type="number"
             value={formData.quantity}
             onChange={handleProductCount}
             max="2"
@@ -94,7 +123,7 @@ const ItemsRow = ({
           </div>
         </div>
         <label className="save-for-later-text">SAVE FOR LATER</label>
-        <label className="remove-text" onClick={() => deleteAddressApi(_id)}>
+        <label className="remove-text" onClick={() => deleteCartApi(_id)}>
           REMOVE
         </label>
       </div>
@@ -102,50 +131,25 @@ const ItemsRow = ({
   );
 };
 
-const CartItemsMain = ({ getCartListingAPI, deleteCartAPI }) => {
-  const [cartData, setCartData] = useState([]);
-
-  const getCartListing = () => {
-    getCartListingAPI()
-      .then((res) => {
-        setCartData(res.response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const deleteAddressApi = (id) => {
-    let query = {
-      url_id: id,
-    };
-    deleteCartAPI(query)
-      .then(() => {
-        getCartListing();
-      })
-      .then((res) => {
-        setCartData(res.response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getCartListing();
-  }, []);
-
+const CartItemsMain = ({
+  cartData,
+  deleteCartApi,
+  updateCartCallBack,
+  setActiveCartItem,
+}) => {
   return (
     <div>
       <div className="cart-items-container">
         {ternaryCondition(
           cartData?.product?.length > 0,
           <div className="cart-items-inner-container">
-            {cartData?.product?.map((itemData, index) => (
-              <div className="item-container-main" key={index}>
+            {cartData?.product?.map((itemData) => (
+              <div className="item-container-main" key={itemData._id}>
                 <ItemsRow
+                  setActiveCartItem={setActiveCartItem}
                   itemData={itemData}
-                  deleteAddressApi={deleteAddressApi}
+                  deleteCartApi={deleteCartApi}
+                  updateCartCallBack={updateCartCallBack}
                 />
               </div>
             ))}
@@ -175,6 +179,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       getCartListingAPI: getCartListing,
       deleteCartAPI: deleteCart,
+      updateCartAPI: updateCart,
     },
     dispatch
   );
