@@ -21,25 +21,27 @@ import {
   PencilIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 
-const totalInstallersData = [
+const couponListData = [
   {
     No: "1",
-    Title: "SUPER SAVER",
-    Date: "Oct 18th, 2022",
-    Customer_Name: "John Doe",
-    Location: "Anna Nagar, Chennai",
-    Amount: "₹3500",
+    Offer_Name: "SUPER SAVER",
+    Coupon_Code: "RGT1209",
+    Start_Date: "Oct 18th, 2022",
+    End_Date: "Oct 31st, 2022",
+    Occasion: "Diwali",
     Status: "Active",
   },
   {
     No: "2",
-    Title: "SUPER SAVER",
-    Date: "Oct 18th, 2022",
-    Customer_Name: "Derik",
-    Location: "Anna Nagar, Chennai",
-    Amount: "₹3500",
-    Status: "Inactive",
+    Offer_Name: "SUPER SAVER",
+    Coupon_Code: "RGT1209",
+    Start_Date: "Oct 18th, 2022",
+    End_Date: "Oct 31st, 2022",
+    Occasion: "Diwali",
+    Status: "Active",
   },
 ];
 
@@ -58,12 +60,21 @@ const TableDataHeader = () => {
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Coupon Code</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Start Date</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">End Date</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Occasion</label>
@@ -83,7 +94,15 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { No, Title, Date, Customer_Name, Location, Amount, Status },
+  bodyData: {
+    No,
+    Offer_Name,
+    Coupon_Code,
+    Start_Date,
+    End_Date,
+    Occasion,
+    Status,
+  },
 }) => {
   return (
     <TableRow key={No}>
@@ -91,26 +110,26 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Title}</label>
+        <label className="table-body-cell-label">{Offer_Name}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Date}</label>
+        <label className="table-body-cell-label">{Coupon_Code}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Customer_Name}</label>
+        <label className="table-body-cell-label">{Start_Date}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Location}</label>
+        <label className="table-body-cell-label">{End_Date}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Amount}</label>
+        <label className="table-body-cell-label">{Occasion}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">
+        <label className="table-body-cell-label d-flex align-items-center">
           {Status === "Active" ? (
-            <div className="dot green"></div>
+            <div className="status-indicator active me-2" />
           ) : (
-            <div className="dot red"></div>
+            <div className="status-indicator inactive me-2" />
           )}
           {Status}
         </label>
@@ -148,26 +167,29 @@ export default function CouponManagement() {
   return (
     <div className="coupon-management">
       <CustomNavBar label="Coupon Management" />
-      <div className="button-group">
-        <CommonButton title="Download CSV" icon={downloadIcon} />
-
-        <button
-          className="purple-filled"
-          onClick={() => history.push("/admin/add-coupon")}
+      <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
+        <CustomButton
+          startIcon={<DownloadIcon />}
+          className="download-csv-button px-3 py-3"
+          variant="outlined"
         >
-          Add New Coupon{" "}
-        </button>
+          Download CSV
+        </CustomButton>
+        <CustomButton
+          className="add-new-installer-button ms-3 px-3"
+          variant="contained"
+        >
+          Add New Installer
+        </CustomButton>
       </div>
 
-      <div className="custom-table">
-        <div className="sub-heading">
-          <h4>Coupon List</h4>
-        </div>
+      <div className="px-5 pt-5">
+        <label className="table-title pb-2">Coupon List</label>
         <CustomTable>
           <TableDataHeader />
           <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
+            {couponListData?.map((bodyData) => (
+              <TableDataBody key={bodyData.No} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>

@@ -1,9 +1,6 @@
 @import "../../../assets/scss/abstracts/abstracts";
 
-* {
-  font-family: "Lato", sans-serif;
-}
-.MuiInputBase-root.MuiOutlinedInput-root {
+.search-box {
   height: 47px;
   width: 500px;
 }

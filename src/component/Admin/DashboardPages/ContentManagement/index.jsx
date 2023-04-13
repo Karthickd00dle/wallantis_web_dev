@@ -24,10 +24,10 @@ export function ContentManagementFC({ createNewContentAPI }) {
   return (
     <div className="settings-main">
       <div className="header-background">
-        <p>Reports</p>
+        <p>Content Management </p>
       </div>
       <div className="settings-comp">
-        <p>Order Reports</p>
+        <p>Manage your content</p>
 
         <div className="settings-tabs">
           <p

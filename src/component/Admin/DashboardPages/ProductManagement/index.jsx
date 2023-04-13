@@ -10,9 +10,8 @@ import {
 } from "@mui/material";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
-import CommonButton from "component/Admin/common/CommonButton";
 import { history } from "service/helpers";
-import downloadIcon from "assets/icons/Admin/downloadIcon.png";
+
 import "./style.scss";
 import {
   AscendingDescendingArrow,
@@ -22,7 +21,7 @@ import {
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "component/common";
-import DownloadIcon from "assets/images/DownloadIcon";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 
 const totalInstallersData = [
   {
@@ -157,8 +156,9 @@ export default function ProductManagement() {
         <CustomButton
           className="add-new-installer-button ms-3 px-3"
           variant="contained"
+          onClick={() => history.push("/admin/add-edit-product")}
         >
-          Add New Installer
+          Add New Product
         </CustomButton>
       </div>
       <div className="custom-table">

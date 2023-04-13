@@ -127,7 +127,6 @@ export const CustomTextField = ({
   onChange,
   type,
   value,
-  register,
   props,
   InputProps,
   disabled,
@@ -140,7 +139,6 @@ export const CustomTextField = ({
       onChange={onChange}
       value={value}
       type={type}
-      register={register}
       disabled={disabled}
       InputProps={InputProps}
       {...props}

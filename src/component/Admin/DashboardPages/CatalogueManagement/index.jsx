@@ -15,9 +15,7 @@ import {
 } from "@mui/material";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
-import CommonButton from "component/Admin/common/CommonButton";
 import { history } from "service/helpers";
-import downloadIcon from "assets/icons/Admin/downloadIcon.png";
 import "./style.scss";
 import {
   AscendingDescendingArrow,
@@ -34,6 +32,8 @@ import { customMomentFormat, ternaryCondition } from "service/helperFunctions";
 import { CommonInput } from "component/Admin/common/CommonInput";
 import CommonSelect from "component/Admin/common/CommonSelect";
 import CommonRadio from "component/Admin/common/CommonRadio";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 
 const options = [
   { name: "Customized Wallpaper", value: 1 },
@@ -282,10 +282,10 @@ const CatalogueManagementFC = ({
           createCatalogueApiCall={createCatalogueApiCall}
           getAllCatalogueApi={getAllCatalogueApi}
         />,
-        <div className="product-management">
+        <div className="catalogue-management">
           <CustomNavBar label="Catalogue Management " />
           <div className="button-group">
-            <div>
+            <div className="px-5 pt-5 pb-2 d-flex justify-content-between">
               <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 className=""
@@ -311,19 +311,25 @@ const CatalogueManagementFC = ({
                   />
                 </div>
               </RadioGroup>
-            </div>
-            <div className="d-flex">
-              <CommonButton title="Download CSV" icon={downloadIcon} />
-
-              <button
-                className="ms-3 purple-filled"
-                onClick={() => setShowAddCatalogue(true)}
-              >
-                Add New Catalogue
-              </button>
+              <div className="d-flex">
+                <CustomButton
+                  startIcon={<DownloadIcon />}
+                  className="download-csv-button px-3 py-3"
+                  variant="outlined"
+                >
+                  Download CSV
+                </CustomButton>
+                <CustomButton
+                  onClick={() => setShowAddCatalogue(true)}
+                  className="add-new-installer-button ms-3 px-3"
+                  variant="contained"
+                >
+                  Add New Catalogue
+                </CustomButton>
+              </div>
             </div>
           </div>
-          <div className="custom-table">
+          <div className="px-5 pt-5">
             <CustomTable>
               <TableDataHeader />
               <TableBody>

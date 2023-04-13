@@ -13,180 +13,66 @@
   }
 }
 
-.addnewproduct {
-  background: #ffffff;
+.table-head-cell-label {
+  @include fontLatoStyle(14px, 600, #ababab, 17px);
+}
+.table-body-cell-label {
+  @include fontLatoStyle(14px, 600, #000000, 17px);
+}
+.table-cell-menu-item {
+  @include fontRobotoStyle(14px, 400, #ababab, 16px);
+}
+
+.add-edit-installer-container {
+  margin: 2% 3rem 3rem 3rem;
   border: 1px solid #d5d5d5;
-  width: 1430px;
-  height: 1180px;
-}
-.add-category {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
-  }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 655px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
+  .add-edit-installer-inner-container {
+    padding: 2rem;
+    height: 100%;
+    width: 100%;
 
-.add-subcategory {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
-  }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 655px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
+    .input-label {
+      @include fontLatoStyle(16px, 600, #000000, 19px);
+    }
 
-.add-title {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
-  }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 655px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
+    .radio-label {
+      .MuiTypography-root {
+        @include fontLatoStyle(15px, 400, #404040, 18px);
+        &.active {
+          color: #5d5fef;
+        }
+      }
+    }
 
-.add-price {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
-  }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 655px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
+    .button-container {
+      .cancel-button {
+        @include fontLatoStyle(16px, 500, #000000, 19px);
+        border: 1px solid #000000;
+        border-radius: 6px;
+        height: 50px;
+        width: 170px;
+      }
+      .save-button {
+        background: #5d5fef;
+        border-radius: 6px;
+        height: 50px;
+        width: 175px;
+        @include fontLatoStyle(15px, 500, #ffffff, 19px);
+      }
+    }
 
-.add-color {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
+    .color-chip-input {
+      .MuiInputBase-root.MuiOutlinedInput-root {
+        .MuiButtonBase-root.MuiChip-root {
+          border: 1px solid #ffe58f;
+          border-radius: 2px;
+          background-color: #fffbe6;
+          border-radius: none;
+          width: 120px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
   }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 655px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
-
-.add-quantity {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
-  }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 655px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
-.add-date {
-  label {
-    color: #000000;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 25px;
-    margin-left: 30px;
-  }
-  input {
-    border: 0.25px solid #c0c0c0;
-    width: 1340px;
-    height: 51px;
-    margin-top: 15px;
-    margin-left: 30px;
-    padding: 20px;
-  }
-}
-.content-field {
-  margin-bottom: 40px;
-  border: 1px solid #c0c0c0 !important;
-  border-radius: 0px !important;
-  border-top: none !important;
-  padding-bottom: 100px !important;
-  width: 105%;
-  margin-left: 30px;
-  margin-top: 50px;
-}
-.content-field1 {
-  margin-bottom: 40px;
-  border: 1px solid #c0c0c0 !important;
-  border-radius: 0px !important;
-  border-top: none !important;
-  padding-bottom: 100px !important;
-  margin-left: 77px;
-  width: 105%;
-  margin-top: 50px;
-}
-
-.add-publishbtn {
-  background: #5d5fef;
-  border-radius: 6px;
-  color: #ffffff;
-  width: 177px;
-  height: 51px;
-  margin-left: 30px;
-}
-.add-cancelbtn {
-  background: white;
-  border-radius: 6px;
-  color: black;
-  width: 177px;
-  height: 51px;
-  border: 1px solid black;
-  margin-left: 30px;
-  margin-top: 30px;
-}
-
-.button-group {
-  position: absolute;
-  right: 20px;
-  top: 90px;
-  display: flex;
-  gap: 20px;
 }

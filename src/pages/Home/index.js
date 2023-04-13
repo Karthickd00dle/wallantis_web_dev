@@ -15,3 +15,5 @@ export { Termsconditionseg } from "./Termsconditions";
 export { CartSummaryPage } from "./CartSummaryPage";
 export { OrderSuccessPage } from "./OrderSuccessPage";
 export { ProductDetailPageUser } from "./ProductDetailPageUser";
+export { ProductListCategoryPage } from "./ProductListCategoryPage";
+export { ProductListSubCategoryPage } from "./ProductListSubCategoryPage";

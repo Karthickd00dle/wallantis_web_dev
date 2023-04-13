@@ -7,6 +7,8 @@ import ExcelIcon from "assets/icons/Admin/excelIcon.png";
 import PdfIcon from "assets/icons/Admin/pdfIcon.png";
 import { history } from "service/helpers";
 import "./index.scss";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 
 export default function Reports() {
   const [datepicker, setDate] = useState({
@@ -23,7 +25,13 @@ export default function Reports() {
       <div className="manage-reports">
         <div className="single-col justify-content-SB manage-reports">
           <p>Manage Your reports</p>
-          <CommonButton title="Download CSV" icon={downloadIcon} />
+          <CustomButton
+            startIcon={<DownloadIcon />}
+            className="download-csv-button px-3 py-3"
+            variant="outlined"
+          >
+            Download CSV
+          </CustomButton>
         </div>
 
         <div className="single-col align-items date-picker-container">
@@ -50,7 +58,13 @@ export default function Reports() {
 
             <div className="select-option">
               <CommonSelect
-                options={["Weekly", "Monthly", "Yearly", "Daily"]}
+                className="reports-select p-1"
+                options={[
+                  { name: "Weekly", value: 1 },
+                  { name: "Monthly", value: 2 },
+                  { name: "Yearly", value: 3 },
+                  { name: "Daily", value: 4 },
+                ]}
               />
             </div>
           </div>

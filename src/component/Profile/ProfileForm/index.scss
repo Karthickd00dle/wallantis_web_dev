@@ -39,6 +39,10 @@
     .MuiInputBase-root.MuiOutlinedInput-root {
       width: 400px;
     }
+    &.roll-type {
+      width: 400px;
+      border: 1px solid #d5d5d5;
+    }
   }
 }
 

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./style.scss";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import Diamondwallpaper from "assets/images/Admin/Customer/diamond-wallpaper-ico.png";
+
 import Customerpm from "assets/images/Admin/Customer/Customer-pm.png";
+import CustomNavBar from "component/Admin/common/CustomNavBar";
+import { CommonHistoryNavigation } from "component/Admin/common/CommonHistoryNavigation";
 
 export default function CustomerDetail() {
   const [toggleState, setToggleState] = useState(1);
@@ -51,10 +53,8 @@ export default function CustomerDetail() {
   ];
   return (
     <div>
-      <div className="header-back">
-        <BsArrowLeftShort size="30" />
-        <span>Customer List</span>
-      </div>
+      <CustomNavBar label="Customer Detail" />
+      <CommonHistoryNavigation label="Customer List" />
       <div className="cd-customercollab">
         <div className="cd-projectmanager">
           <div className="cd-pm">
@@ -130,7 +130,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -147,25 +147,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
-                  </div>
-                  <div className="cd-diamondwallcontents1">
-                    <h4>Diamond Wallpaper</h4>
-                    <span>TEXTURED WALLPAPER</span>
-                    <br />
-                    <small>Order ID #12345</small>
-                  </div>
-                </div>
-                <div className="cd-diamondwall1price">
-                  <h2>₹3500</h2>
-                </div>
-              </div>
-              <hr />
-
-              <div className="d-flex">
-                <div className="d-flex">
-                  <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -183,7 +165,25 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
+                  </div>
+                  <div className="cd-diamondwallcontents1">
+                    <h4>Diamond Wallpaper</h4>
+                    <span>TEXTURED WALLPAPER</span>
+                    <br />
+                    <small>Order ID #12345</small>
+                  </div>
+                </div>
+                <div className="cd-diamondwall1price">
+                  <h2>₹3500</h2>
+                </div>
+              </div>
+              <hr />
+
+              <div className="d-flex">
+                <div className="d-flex">
+                  <div className="cd-diamondwall1">
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -200,7 +200,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -217,7 +217,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -241,7 +241,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -258,7 +258,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>
@@ -282,7 +282,7 @@ export default function CustomerDetail() {
               <div className="d-flex">
                 <div className="d-flex">
                   <div className="cd-diamondwall1">
-                    <Diamondwallpaper width="150" height="120" />
+                    <img height="80px" width="80px" />
                   </div>
                   <div className="cd-diamondwallcontents1">
                     <h4>Diamond Wallpaper</h4>

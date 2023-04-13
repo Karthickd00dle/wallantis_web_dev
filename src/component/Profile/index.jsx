@@ -136,6 +136,7 @@ export function ProfileMain({
   const handleOpen = () => setOpen(true);
   const [passwordError, setError] = useState(false);
   const [loader, setLoader] = useState(true);
+
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });

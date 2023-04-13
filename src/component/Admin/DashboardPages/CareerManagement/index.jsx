@@ -10,9 +10,7 @@ import {
 } from "@mui/material";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
-import CommonButton from "component/Admin/common/CommonButton";
 import { history } from "service/helpers";
-import downloadIcon from "assets/icons/Admin/downloadIcon.png";
 import "./style.scss";
 import {
   AscendingDescendingArrow,
@@ -21,24 +19,24 @@ import {
   PencilIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 
-const totalInstallersData = [
+const careerManagementData = [
   {
     No: "1",
-    Title: "SUPER SAVER",
+    Position: "Marketing Manager",
     Date: "Oct 18th, 2022",
-    Customer_Name: "John Doe",
+    Posted_By: "John Doe",
     Location: "Anna Nagar, Chennai",
-    Amount: "₹3500",
     Status: "Active",
   },
   {
     No: "2",
-    Title: "SUPER SAVER",
+    Position: "Customer Service Manager",
     Date: "Oct 18th, 2022",
-    Customer_Name: "Derik",
+    Posted_By: "Derik",
     Location: "Anna Nagar, Chennai",
-    Amount: "₹3500",
     Status: "Inactive",
   },
 ];
@@ -51,28 +49,34 @@ const TableDataHeader = () => {
           <label className="table-head-cell-label">No</label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Offer Name</label>
+          <label className="table-head-cell-label">Position</label>
           <IconButton>
             <AscendingDescendingArrow />
           </IconButton>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Coupon Code</label>
+          <label className="table-head-cell-label">Date</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Start Date</label>
+          <label className="table-head-cell-label">Posted By</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">End Date</label>
-        </TableCell>
-        <TableCell align="left">
-          <label className="table-head-cell-label">Occasion</label>
+          <label className="table-head-cell-label">Location</label>
           <IconButton>
             <AscendingDescendingArrow />
           </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Status</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Action</label>
@@ -83,7 +87,7 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { No, Title, Date, Customer_Name, Location, Amount, Status },
+  bodyData: { No, Position, Date, Posted_By, Location, Status },
 }) => {
   return (
     <TableRow key={No}>
@@ -91,26 +95,23 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Title}</label>
+        <label className="table-body-cell-label">{Position}</label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{Date}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Customer_Name}</label>
+        <label className="table-body-cell-label">{Posted_By}</label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{Location}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Amount}</label>
-      </TableCell>
-      <TableCell align="left">
-        <label className="table-body-cell-label">
+        <label className="table-body-cell-label d-flex align-items-center">
           {Status === "Active" ? (
-            <div className="dot green"></div>
+            <div className="status-indicator active me-2" />
           ) : (
-            <div className="dot red"></div>
+            <div className="status-indicator inactive me-2" />
           )}
           {Status}
         </label>
@@ -146,25 +147,29 @@ export default function CareerManagement() {
   };
 
   return (
-    <div className="coupon-management">
+    <div>
       <CustomNavBar label="Career Management" />
-      <div className="button-group">
-        <CommonButton title="Download CSV" icon={downloadIcon} />
-
-        <button
-          className="purple-filled"
-          onClick={() => history.push("/admin/add-coupon")}
+      <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
+        <CustomButton
+          startIcon={<DownloadIcon />}
+          className="download-csv-button px-3 py-3"
+          variant="outlined"
         >
-          Add New Career{" "}
-        </button>
+          Download CSV
+        </CustomButton>
+        <CustomButton
+          className="add-new-installer-button ms-3 px-3"
+          variant="contained"
+        >
+          Add New Job
+        </CustomButton>
       </div>
-
-      <div className="custom-table mt-5">
+      <div className="px-5 pt-5">
         <CustomTable>
           <TableDataHeader />
           <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
+            {careerManagementData?.map((bodyData) => (
+              <TableDataBody key={bodyData.No} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>

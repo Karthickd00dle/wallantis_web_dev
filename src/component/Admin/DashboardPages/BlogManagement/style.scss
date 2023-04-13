@@ -1,4 +1,5 @@
-@import "assets/scss/abstracts/abstracts";
+@import "assets/scss/abstracts/abstracts.scss";
+
 .download-csv-button {
   border: 1px solid #5d5fef;
   @include fontLatoStyle(16px, 500, #5d5fef, 19px);
@@ -32,4 +33,7 @@
 }
 .table-cell-menu-item {
   @include fontRobotoStyle(14px, 400, #ababab, 16px);
+}
+.table-body-cell-description {
+  @include fontLatoStyle(12px, 400, #696969, 17px);
 }

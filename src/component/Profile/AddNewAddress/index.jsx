@@ -18,52 +18,46 @@ import { ternaryCondition } from "service/helperFunctions";
 import { Toast } from "service/toast";
 import { StateList } from "config";
 import { history } from "service/helpers";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const AddressSchema = yup.object().shape({
+  fullName: yup
+    .string()
+    .min(2, "Name must be atleast 2 characters")
+    .required("Name is required"),
+  mobileNumber: yup
+    .string()
+    .min(10, "Mobile Number must be atleast 10 digits")
+    .max(16, "Mobile Number must be less than 16 digits")
+    .required("Mobile Number is required"),
+  pincode: yup.number().required("Pincode is required"),
+  flatNo: yup.string().max(18).required("Flat No/House No is required"),
+  area: yup.string().max(28).required("Area is required"),
+  landmark: yup.string().max(16).required("Landmark is required"),
+  city: yup.string().max(10).required("City is required"),
+  state: yup.string().required("State is required"),
+  selectAddressType: yup.string().required("Address Type is required"),
+  isDefaultAddress: yup.boolean(),
+});
 
 const AddNewAddressFC = ({
   getAddressAPICall,
   createAddressAPI,
   updateAddressAPI,
 }) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [addressData, setAddressData] = useState({
-    fullName: "",
-    mobileNumber: null,
-    pincode: "",
-    flatNo: "",
-    area: "",
-    landmark: "",
-    city: "",
-    state: "",
-    country: "",
-    selectAddressType: "",
-    isDefaultAddress: false,
-  });
-
-  const handleInput = ({ target: { name, value } }) => {
-    if (name === "pincode") {
-      setAddressData({ ...addressData, [name]: parseInt(value) });
-    } else {
-      setAddressData({ ...addressData, [name]: value });
-    }
-  };
-
-  const handleDefaultAddressChange = () => {
-    setAddressData((prevState) => ({
-      ...prevState,
-      isDefaultAddress: !prevState.isDefaultAddress,
-    }));
-  };
-
   let location = useLocation();
   const { id } = useParams();
+
+  const { state } = useLocation();
+
   const locationLabel = location?.pathname
     .split("/")
     .slice(-2)[0]
     .replace(/-/g, " ");
+
+  const [loader, setLoader] = useState(true);
+  const [addressData, setAddressData] = useState();
 
   const getAddress = () => {
     let query = {
@@ -71,15 +65,20 @@ const AddNewAddressFC = ({
     };
     getAddressAPICall({ ...query })
       .then((res) => {
-        setAddressData(res.response);
+        setAddressData(res?.response);
+      })
+      .then(() => {
+        setLoader(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const createAddress = () => {
-    createAddressAPI(addressData)
+  console.log(addressData);
+
+  const createAddress = (data) => {
+    createAddressAPI(data)
       .then((res) => {
         setAddressData(res.response);
         Toast({ type: "success", message: res.message });
@@ -90,13 +89,12 @@ const AddNewAddressFC = ({
       });
   };
 
-  const updateAddress = () => {
+  const updateAddress = (data) => {
     let query = {
       url_id: id,
     };
-    updateAddressAPI({ ...query }, addressData)
+    updateAddressAPI({ ...query }, data)
       .then((res) => {
-        setAddressData(res.response);
         Toast({ type: "success", message: res.response });
         history.push("/profile/profile-page");
       })
@@ -105,297 +103,274 @@ const AddNewAddressFC = ({
       });
   };
 
-  const handleRegister = (data) => {
-    console.log(data);
-  };
-
   useEffect(() => {
     if (id) {
       getAddress();
     }
   }, []);
 
-  console.log(addressData, "address data");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(AddressSchema),
+    defaultValues: {
+      fullName: state.fullName,
+      mobileNumber: state.mobileNumber,
+      pincode: state.pincode,
+      flatNo: state.flatNo,
+      area: state.area,
+      landmark: state.landmark,
+      city: state.city,
+      state: state.state,
+      country: state.country,
+      selectAddressType: state.selectAddressType,
+      isDefaultAddress: state.isDefaultAddress,
+    },
+  });
 
   return (
     <div className="new-address-form-container">
-      <form onSubmit={handleSubmit(handleRegister)}>
-        <div className="address-form">
-          <label className="add-new-address-label">
-            {ternaryCondition(id, locationLabel, "Add New Address")}
-          </label>
-
-          <div className="input-container mt-3">
-            <CustomTextField
-              name="location"
-              onChange={handleInput}
-              value={addressData?.location}
-              register={register}
-              className={"text-input mt-3"}
-              placeholder="Select from Map"
-            />
-          </div>
-
-          <div className="pt-3 use-location-container">
-            <label className="use-location-label">Use Current Location</label>
-          </div>
-
-          <div className="input-container mt-4">
-            <label className="input-label">Full Name</label>
-            <CustomTextField
-              type="text"
-              name="fullName"
-              onChange={handleInput}
-              value={addressData?.fullName}
-              className={"text-input mt-3"}
-              placeholder="Name"
-              register={register("fullName", { required: true })}
-            />
-            <div className="error-message">
-              {errors["fullName"]?.type === "required" && (
-                <span className="error-text">Name is required</span>
-              )}
-            </div>
-          </div>
-
-          <div className="input-container mt-4">
-            <label className="input-label">Mobile Number</label>
-            <CustomTextField
-              type="number"
-              name="mobileNumber"
-              onChange={handleInput}
-              value={addressData?.mobileNumber}
-              className={"text-input mt-3"}
-              placeholder="Mobile Number"
-              register={register("mobileNumber", {
-                required: true,
-                pattern: /^\d{10}$/,
-              })}
-            />
-            <div className="error-message">
-              {errors["mobileNumber"]?.type === "required" && (
-                <span className="error-text">Mobile Number is required</span>
-              )}
-              {errors["mobileNumber"]?.type === "pattern" && (
-                <span className="error-text">
-                  Mobile Number must be 10 digits
-                </span>
-              )}
-            </div>
-          </div>
-
-          <div className="input-container mt-4">
-            <label className="input-label">Pincode</label>
-            <CustomTextField
-              name="pincode"
-              type="number"
-              onChange={handleInput}
-              value={addressData?.pincode}
-              register={register("pincode", {
-                required: true,
-                pattern: /^\d{6}$/,
-              })}
-              className={"text-input mt-3"}
-              placeholder="Pincode"
-            />
-            <div className="error-message">
-              {errors["pincode"]?.type === "required" && (
-                <span className="error-text">Pincode is required</span>
-              )}
-              {errors["pincode"]?.type === "pattern" && (
-                <span className="error-text">Pincode must be 6 digits</span>
-              )}
-            </div>
-          </div>
-
-          <div className="input-container mt-4">
-            <label className="input-label">
-              Flat No/House No/Building/Apartment
+      {ternaryCondition(
+        loader,
+        <div>Loading...</div>,
+        <form>
+          <div className="address-form">
+            <label className="add-new-address-label">
+              {ternaryCondition(id, locationLabel, "Add New Address")}
             </label>
-            <CustomTextField
-              name="flatNo"
-              onChange={handleInput}
-              value={addressData?.flatNo}
-              register={register("flatNo", { required: true })}
-              className={"text-input mt-3"}
-              placeholder="Flat No/House No/Building/Apartment"
-            />
-            <div className="error-message">
-              {errors["flatNo"]?.type === "required" && (
-                <span className="error-text">Flat/House No is required</span>
+
+            <div className="input-container mt-3">
+              <input
+                name="location"
+                value={addressData?.location}
+                className={"text-input mt-3"}
+                placeholder="Select from Map"
+              />
+            </div>
+
+            <div className="pt-3 use-location-container">
+              <label className="use-location-label">Use Current Location</label>
+            </div>
+
+            <div className="input-container mt-4">
+              <label className="input-label">Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                className={"text-input full-name mt-3"}
+                placeholder="Name"
+                {...register("fullName", { name: "fullName" })}
+              />
+
+              {errors.fullName && (
+                <span className="error-text">{errors.fullName.message}</span>
               )}
             </div>
-          </div>
 
-          <div className="input-container mt-4">
-            <label className="input-label">Area/State/Street/Village</label>
-            <CustomTextField
-              name="area"
-              onChange={handleInput}
-              value={addressData?.area}
-              register={register("area", { required: true })}
-              className={"text-input mt-3"}
-              placeholder="Area/State/Street/Village"
-            />
-            <div className="error-message">
-              {errors["area"]?.type === "required" && (
+            <div className="input-container mt-4">
+              <label className="input-label">Mobile Number</label>
+              <input
+                type="number"
+                name="mobileNumber"
+                max="10"
+                className={"text-input mt-3"}
+                placeholder="Mobile Number"
+                {...register("mobileNumber")}
+              />
+
+              {errors.mobileNumber && (
                 <span className="error-text">
-                  Area/State/Street/Village is required
+                  {errors.mobileNumber.message}
                 </span>
               )}
             </div>
-          </div>
 
-          <div className="input-container mt-4">
-            <label className="input-label">Landmark</label>
-            <CustomTextField
-              name="landmark"
-              onChange={handleInput}
-              value={addressData?.landmark}
-              register={register("landmark", { required: true })}
-              className={"text-input mt-3"}
-              placeholder="Landmark"
-            />
-            <div className="error-message">
-              {errors["landmark"]?.type === "required" && (
-                <span className="error-text">Landmark is required</span>
-              )}
-            </div>
-          </div>
-
-          <div className="input-container mt-4">
-            <label className="input-label">Town/City</label>
-            <CustomTextField
-              name="city"
-              onChange={handleInput}
-              value={addressData?.city}
-              register={register("city", { required: true })}
-              className={"text-input mt-3"}
-              placeholder="Town/City"
-            />
-            <div className="error-message">
-              {errors["city"]?.type === "required" && (
-                <span className="error-text">City is required</span>
-              )}
-            </div>
-          </div>
-
-          <div className="d-flex">
             <div className="input-container mt-4">
-              <label className="input-label">State</label>
-              <CustomSelect
-                name="state"
-                onChange={handleInput}
-                value={addressData?.state}
-                register={register("state", { required: true })}
-                placeholder="State"
-                inputStyle="mt-3 select-input"
-                menuItemList={StateList}
+              <label className="input-label">Pincode</label>
+              <input
+                name="pincode"
+                type="number"
+                {...register("pincode")}
+                className={"text-input mt-3"}
+                placeholder="Pincode"
               />
-              <div className="error-message">
-                {errors["state"]?.type === "required" && (
-                  <span className="error-text">State is required</span>
-                )}
-              </div>
+              {errors.pincode && (
+                <span className="error-text">{errors.pincode.message}</span>
+              )}
             </div>
-            <div className="input-container ms-5 mt-4">
-              <label className="input-label">Country</label>
-              <CustomSelect
-                name="country"
-                onChange={handleInput}
-                value={addressData?.country}
-                register={register("country", { required: true })}
-                placeholder="Country"
-                inputStyle="mt-3 select-input"
-                menuItemList={[{ label: "India", value: "india" }]}
+
+            <div className="input-container mt-4">
+              <label className="input-label">
+                Flat No/House No/Building/Apartment
+              </label>
+              <input
+                name="flatNo"
+                {...register("flatNo")}
+                className={"text-input mt-3"}
+                placeholder="Flat No/House No/Building/Apartment"
               />
-              <div className="error-message">
-                {errors["country"]?.type === "required" && (
-                  <span className="error-text">Country is required</span>
+
+              {errors.flatNo && (
+                <span className="error-text">{errors.flatNo.message}</span>
+              )}
+            </div>
+
+            <div className="input-container mt-4">
+              <label className="input-label">Area/State/Street/Village</label>
+              <input
+                name="area"
+                {...register("area")}
+                className={"text-input mt-3"}
+                placeholder="Area/State/Street/Village"
+              />
+
+              {errors.area && (
+                <span className="error-text">{errors.area.message}</span>
+              )}
+            </div>
+
+            <div className="input-container mt-4">
+              <label className="input-label">Landmark</label>
+              <input
+                name="landmark"
+                {...register("landmark")}
+                className={"text-input mt-3"}
+                placeholder="Landmark"
+              />
+
+              {errors.landmark && (
+                <span className="error-text">{errors.landmark.message}</span>
+              )}
+            </div>
+
+            <div className="input-container mt-4">
+              <label className="input-label">Town/City</label>
+              <input
+                name="city"
+                {...register("city")}
+                className={"text-input mt-3"}
+                placeholder="Town/City"
+              />
+
+              {errors.city && (
+                <span className="error-text">{errors.city.message}</span>
+              )}
+            </div>
+
+            <div className="d-flex">
+              <div className="input-container mt-4">
+                <label className="input-label">State</label>
+                <CustomSelect
+                  name="state"
+                  {...register("state")}
+                  placeholder="State"
+                  inputStyle="mt-3 select-input"
+                  menuItemList={StateList}
+                />
+
+                {errors.state && (
+                  <span className="error-text">{errors.state.message}</span>
+                )}
+              </div>
+              <div className="input-container ms-5 mt-4">
+                <label className="input-label">Country</label>
+                <CustomSelect
+                  name="country"
+                  {...register("country")}
+                  placeholder="Country"
+                  inputStyle="mt-3 select-input"
+                  menuItemList={[{ label: "India", value: "india" }]}
+                />
+
+                {errors.country && (
+                  <span className="error-text">{errors.country.message}</span>
                 )}
               </div>
             </div>
-          </div>
 
-          <div className="input-container w-50 mt-4">
-            <label className="input-label">Select Address Type</label>
-            <div className="pt-3">
-              <RadioGroup
-                name="selectAddressType"
-                onChange={handleInput}
-                value={addressData?.selectAddressType}
-                register={register("selectAddressType", { required: true })}
-                aria-labelledby="demo-controlled-radio-buttons-group"
-                row
-              >
-                <FormControlLabel
-                  value="home"
-                  control={
-                    <Radio
-                      disableRipple
-                      color="default"
-                      checkedIcon={<RadioChecked />}
-                      icon={<RadioUnchecked />}
-                    />
-                  }
-                  label="Home"
-                />
-                <FormControlLabel
-                  value="office"
-                  className="ps-5 ms-5"
-                  control={
-                    <Radio
-                      disableRipple
-                      color="default"
-                      checkedIcon={<RadioChecked />}
-                      icon={<RadioUnchecked />}
-                    />
-                  }
-                  label="Office"
-                />
-              </RadioGroup>
-              <div className="error-message">
-                {errors["selectAddressType"]?.type === "required" && (
-                  <span className="error-text">Address Type is required</span>
+            <div className="input-container w-50 mt-4">
+              <label className="input-label">Select Address Type</label>
+              <div className="pt-3">
+                <RadioGroup
+                  name="selectAddressType"
+                  {...register("selectAddressType")}
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  row
+                >
+                  <FormControlLabel
+                    value="home"
+                    control={
+                      <Radio
+                        disableRipple
+                        color="default"
+                        checkedIcon={<RadioChecked />}
+                        icon={<RadioUnchecked />}
+                      />
+                    }
+                    label="Home"
+                  />
+                  <FormControlLabel
+                    value="office"
+                    className="ps-5 ms-5"
+                    control={
+                      <Radio
+                        disableRipple
+                        color="default"
+                        checkedIcon={<RadioChecked />}
+                        icon={<RadioUnchecked />}
+                      />
+                    }
+                    label="Office"
+                  />
+                </RadioGroup>
+
+                {errors.selectAddressType && (
+                  <span className="error-text">
+                    {errors.selectAddressType.message}
+                  </span>
                 )}
               </div>
             </div>
-          </div>
 
-          <div className="checkbox-container mt-4">
-            <CustomCheckBox
-              name="isDefaultAddress"
-              checked={addressData?.isDefaultAddress}
-              onChange={handleDefaultAddressChange}
-              icon={<div className="checkbox-outer" />}
-              checkedIcon={<CheckboxChecked />}
-            />
-            <label className="input-label">Make this my default address</label>
-          </div>
+            <div className="checkbox-container mt-4">
+              <CustomCheckBox
+                type="checkbox"
+                name="isDefaultAddress"
+                {...register("isDefaultAddress")}
+                icon={<div className="checkbox-outer" />}
+                checkedIcon={<CheckboxChecked />}
+              />
+              <label className="input-label">
+                Make this my default address
+              </label>
+            </div>
 
-          <div className="mt-5 mb-4">
-            {ternaryCondition(
-              id,
-              <CustomButton
-                type="submit"
-                onClick={handleSubmit(updateAddress)}
-                className="add-address-button"
-                variant="contained"
-              >
-                Save Address
-              </CustomButton>,
-              <CustomButton
-                type="submit"
-                onClick={handleSubmit(createAddress)}
-                className="add-address-button"
-                variant="contained"
-              >
-                Add Address
-              </CustomButton>
-            )}
+            <div className="mt-5 mb-4">
+              {ternaryCondition(
+                id,
+                <CustomButton
+                  type="submit"
+                  onClick={handleSubmit(updateAddress)}
+                  className="add-address-button"
+                  variant="contained"
+                >
+                  Save Address
+                </CustomButton>,
+                <CustomButton
+                  type="submit"
+                  onClick={handleSubmit(createAddress)}
+                  className="add-address-button"
+                  variant="contained"
+                >
+                  Add Address
+                </CustomButton>
+              )}
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      )}
     </div>
   );
 };
