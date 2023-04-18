@@ -1,14 +1,6 @@
 import * as React from "react";
 const TravelGuideSVGComponent = (props) => (
-  <svg
-    width={34}
-    height={34}
-    viewBox="0 0 34 34"
-    fill="none"
-    
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}
-  >
+  <svg width={34} height={34} viewBox="0 0 34 34" fill="none" {...props}>
     <path
       d="M6.06543 32.9375H9.16434V1.0625H6.06543C4.89177 1.0625 3.94043 2.01384 3.94043 3.1875V30.8125C3.94043 31.9862 4.89177 32.9375 6.06543 32.9375Z"
       fill="#F9A7A7"

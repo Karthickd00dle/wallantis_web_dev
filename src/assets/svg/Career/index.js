@@ -34,13 +34,7 @@ export const ShareIcon = (props) => (
 );
 
 export const CalendarIcon = (props) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={20}
-    height={20}
-    fill="none"
-    {...props}
-  >
+  <svg width={20} height={20} fill="none" {...props}>
     <path
       fill="#2A71F9"
       fillRule="evenodd"
