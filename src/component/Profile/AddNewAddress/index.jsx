@@ -161,7 +161,7 @@ const AddNewAddressFC = ({
                 name="fullName"
                 className={"text-input full-name mt-3"}
                 placeholder="Name"
-                {...register("fullName", { name: "fullName" })}
+                {...register("fullName")}
               />
 
               {errors.fullName && (

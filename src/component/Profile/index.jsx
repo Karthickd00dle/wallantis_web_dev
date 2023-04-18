@@ -126,11 +126,11 @@ export function ProfileMain({
   getCurrentProfileAPI,
 }) {
   let location = useLocation();
-
+  console.log(location.state);
   const [inputData, setInputData] = useState(currentUserData?.user);
-  const [tabIndex, setTabIndex] = useState(location?.state);
+  const [tabIndex, setTabIndex] = useState();
   const [currentData, setCurrentData] = useState();
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(location?.state);
   const [isAddressForm, setAddressForm] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -220,7 +220,7 @@ export function ProfileMain({
   }, [tabIndex]);
 
   useEffect(() => {
-    setTabIndex(location?.state);
+    setActiveTab(location?.state);
   }, [location?.state]);
 
   return (

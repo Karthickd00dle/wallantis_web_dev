@@ -1,0 +1,47 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.refer-a-friend-container {
+  width: 930px;
+  height: 625px;
+  .arch-background {
+    position: absolute;
+  }
+  .refer-a-friend-label {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    position: relative;
+    @include fontPoppinsStyle(36px, 700, #cd9c69, 54px);
+  }
+  .referal-container {
+    display: flex;
+    justify-content: center;
+
+    .time-to-referal-label {
+      display: flex;
+      justify-content: center;
+
+      @include fontLatoStyle(18px, 500, #000000, 147%);
+    }
+    .coupon-label {
+      text-transform: uppercase;
+      border: 1px solid #af763a;
+      border-radius: 4px;
+      padding: 7px;
+      width: 275px;
+      @include fontPoppinsStyle(16px, 500, #000000, 24px);
+    }
+    .copy-button {
+      width: 96px;
+      height: 44px;
+      @include fontLatoStyle(16px, 500, #ffffff, 19px);
+      background: #a26220;
+      border-radius: 5px;
+    }
+    .referal-description {
+      text-align: center;
+      width: 340px;
+      @include fontLatoStyle(14px, 700, #2a71f9, 147%);
+    }
+  }
+}

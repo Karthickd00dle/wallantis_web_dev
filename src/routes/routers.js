@@ -124,10 +124,12 @@ const routers = [
         exact: true,
       },
       {
-        component: "Contactuseg",
-        path: "/contactus",
-        componentPath: "/Contactus",
-        name: "Contactuseg",
+        component: "ContactusPage",
+        path: "/contact-us",
+        componentPath: "pages/ContactusPage",
+        name: "ContactusPage",
+        auth: false,
+        exact: true,
       },
       {
         component: "CataloguePage",
@@ -164,6 +166,12 @@ const routers = [
         path: "/careers",
         componentPath: "pages/Profile/CareerPage",
         name: "CareerPage",
+      },
+      {
+        component: "CareerDetailsPage",
+        path: "/career-detail/:id",
+        componentPath: "pages/CareerDetailsPage",
+        name: "CareerDetailsPage",
       },
       {
         component: "Genaralmanagereg",

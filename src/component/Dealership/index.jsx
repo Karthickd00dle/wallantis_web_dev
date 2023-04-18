@@ -1,15 +1,49 @@
 import React from "react";
 import "./style.scss";
-import { NormalNavigate } from "component/common";
+import { CustomButton, NormalNavigate } from "component/common";
 import { useForm } from "react-hook-form";
 import Dealershipimg from "assets/images/Dealership.png";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const ContactUsSchema = yup.object().shape({
+  firstname: yup
+    .string()
+    .min(2, "First Name must be atleast 2 characters")
+    .required("First Name is required"),
+  lastname: yup
+    .string()
+    .min(2, "Last Name must be atleast 2 characters")
+    .required("Last Name is required"),
+  email: yup
+    .string()
+    .email("Please enter valid mail id")
+    .required("Email is required"),
+  mobilenumber: yup
+    .string()
+    .min(10, "Mobile Number must be atleast 10 digits")
+    .max(16, "Mobile Number must be less than 16 digits")
+    .required("Mobile Number is required"),
+  country: yup.string().max(18).required("Country is required"),
+  state: yup.string().required("State is required"),
+  city: yup.string().max(10).required("City is required"),
+  pincode: yup
+    .number("Pincode should be number type")
+    .required("Pincode is required"),
+  companyname: yup.string(),
+  companyregno: yup.string(),
+  message: yup
+    .string()
+    .max(240, "Maximum characters allowed is 240")
+    .required("Message is required"),
+});
 
 export default function Dealership() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(ContactUsSchema) });
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -57,169 +91,161 @@ export default function Dealership() {
           </div>
 
           <div className="getintouch">Get in touch with us</div>
-          <div className="d-flex names">
-            <div className="first-name">
-              <span>First Name* </span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your First Name"
-                name="firstname"
-                {...register("firstname", { required: true })}
-              />
-              <div className="error-message">
-                {errors["firstname"]?.type && (
-                  <span className="error-text">First Name is required</span>
+          <div className="d-flex justify-content-center pt-3">
+            <div className="contact-info-container">
+              <div className="field">
+                <label>
+                  First Name<span>*</span>
+                </label>
+                <input
+                  {...register("firstname")}
+                  type="text"
+                  placeholder="Enter your First Name"
+                  name="firstname"
+                />
+                {errors.firstname && (
+                  <span className="error-text">{errors.firstname.message}</span>
                 )}
               </div>
-            </div>
-            <div className="last-name">
-              <span>Last Name*</span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Last Name"
-                name="lastname"
-                {...register("lastname", { required: true })}
-              />
-              <div className="error-message">
-                {errors["lastname"]?.type && (
-                  <span className="error-text">Last Name is required</span>
+              <div className="field">
+                <label>
+                  Last Name <span>*</span>
+                </label>
+                <input
+                  {...register("lastname")}
+                  type="text"
+                  placeholder="Enter your Last Name"
+                  name="lastname"
+                />
+                {errors.lastname && (
+                  <span className="error-text">{errors.lastname.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label>
+                  Email<span>*</span>
+                </label>
+                <input
+                  {...register("email")}
+                  type="email"
+                  placeholder="Enter your Email"
+                  name="email"
+                />
+                {errors.email && (
+                  <span className="error-text">{errors.email.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label>
+                  Mobile Number<span>*</span>
+                </label>
+                <input
+                  type="number"
+                  {...register("mobilenumber")}
+                  placeholder="Enter your Mobile"
+                  name="mobilenumber"
+                />
+                {errors.mobilenumber && (
+                  <span className="error-text">
+                    {errors.mobilenumber.message}
+                  </span>
+                )}
+              </div>
+              <div className="field">
+                <label>
+                  Country<span>*</span>
+                </label>
+                <input
+                  type="text"
+                  {...register("country")}
+                  placeholder="Enter your Country"
+                  name="country"
+                />
+                {errors.country && (
+                  <span className="error-text">{errors.country.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label>
+                  State<span>*</span>
+                </label>
+                <input
+                  type="text"
+                  {...register("state")}
+                  placeholder="Enter your State"
+                  name="state"
+                />
+                {errors.state && (
+                  <span className="error-text">{errors.state.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label>
+                  City<span>*</span>
+                </label>
+                <input
+                  type="text"
+                  {...register("city")}
+                  placeholder="Enter your City"
+                  name="city"
+                />
+                {errors.city && (
+                  <span className="error-text">{errors.city.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label>
+                  Pincode<span>*</span>
+                </label>
+                <input
+                  type="number"
+                  {...register("pincode")}
+                  placeholder="Enter your Pincode"
+                  name="pincode"
+                />
+                {errors.pincode && (
+                  <span className="error-text">{errors.pincode.message}</span>
+                )}
+              </div>
+              <div className="field">
+                <label>Company Name</label>
+                <input
+                  type="text"
+                  {...register("companyname")}
+                  placeholder="Enter your Company Name"
+                  name="company"
+                />
+              </div>
+              <div className="field">
+                <label>Company Registration Number</label>
+                <input
+                  type="text"
+                  {...register("companyregno")}
+                  placeholder="Enter your Company Registered Number"
+                  name="company"
+                />
+              </div>
+              <div className="field">
+                <label>Message </label>
+                <textarea
+                  className="field-message"
+                  {...register("message")}
+                  type="text"
+                  placeholder="Enter Message"
+                  name="message"
+                />
+                {errors.message && (
+                  <span className="error-text">{errors.message.message}</span>
                 )}
               </div>
             </div>
           </div>
-
-          <div className="d-flex enumber">
-            <div className="Email">
-              <span>Email* </span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Email"
-                name="email"
-                {...register("email", { required: true })}
-              />
-              <div className="error-message">
-                {errors["email"]?.type && (
-                  <span className="error-text">Email is required</span>
-                )}
-              </div>
-            </div>
-            <div className="mobilenumber">
-              <span>Mobile Number* </span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Mobile Number"
-                name="mobile"
-                {...register("mobile", { required: true })}
-              />
-              <div className="error-message">
-                {errors["mobile"]?.type && (
-                  <span className="error-text">Mobile is required</span>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="d-flex countries">
-            <div className="country">
-              <span>Country* </span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Country"
-                name="country"
-                {...register("country", { required: true })}
-              />
-              <div className="error-message">
-                {errors["country"]?.type && (
-                  <span className="error-text">Country is required</span>
-                )}
-              </div>
-            </div>
-            <div className="state">
-              <span>State*</span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your State"
-                name="state"
-                {...register("state", { required: true })}
-              />
-              <div className="error-message">
-                {errors["state"]?.type && (
-                  <span className="error-text">State is required</span>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="d-flex citycode">
-            <div className="city">
-              <span>City* </span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your City"
-                name="city"
-                {...register("city", { required: true })}
-              />
-              <div className="error-message">
-                {errors["city"]?.type && (
-                  <span className="error-text">City is required</span>
-                )}
-              </div>
-            </div>
-            <div className="pincode">
-              <span>Pincode*</span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Pincode"
-                name="pincode"
-                {...register("pincode", { required: true })}
-              />
-              <div className="error-message">
-                {errors["pincode"]?.type && (
-                  <span className="error-text">Pincode is required</span>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="d-flex companyname">
-            <div className="companynamecol">
-              <span>Company Name</span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Company Name"
-                name="companyName"
-              />
-            </div>
-            <div className="companyregistration">
-              <span>Company Registration Number</span>
-              <br />
-              <input
-                type="text"
-                placeholder="Enter your Company Registration Number"
-                name="companyRegNum"
-              />
-            </div>
-          </div>
-
-          <div className="message">
-            <span>Message</span>
-            <br />
-            <input type="text" placeholder="Enter Message" name="message" />
-          </div>
-
-          <button className="dealer-enquire">Enquire Now </button>
+          <CustomButton variant="contained" className="dealer-enquire">
+            Enquire Now
+          </CustomButton>
 
           <div className="dealercontacthead">Contact Us</div>
-          <div className="d-flex dealercontactcards">
+          <div className="d-flex justify-content-center dealercontactcards">
             <div className="dealeraddress">
               <span>Address</span>
               <p>

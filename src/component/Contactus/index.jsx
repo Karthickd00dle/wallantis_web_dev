@@ -6,20 +6,53 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
 import { createContact } from "action/ContactAct";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const ContactUsSchema = yup.object().shape({
+  firstname: yup
+    .string()
+    .min(2, "First Name must be atleast 2 characters")
+    .required("First Name is required"),
+  lastname: yup
+    .string()
+    .min(2, "Last Name must be atleast 2 characters")
+    .required("Last Name is required"),
+  email: yup
+    .string()
+    .email("Please enter valid mail id")
+    .required("Email is required"),
+  mobilenumber: yup
+    .string()
+    .min(10, "Mobile Number must be atleast 10 digits")
+    .max(16, "Mobile Number must be less than 16 digits")
+    .required("Mobile Number is required"),
+  country: yup.string().max(18).required("Country is required"),
+  state: yup.string().required("State is required"),
+  city: yup.string().max(10).required("City is required"),
+  pincode: yup
+    .number("Pincode should be number type")
+    .required("Pincode is required"),
+  company: yup.string(),
+  message: yup
+    .string()
+    .max(240, "Maximum characters allowed is 240")
+    .required("Message is required"),
+});
 
 export function ContactusFC({ createContactAPI }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(ContactUsSchema) });
 
   const onSubmit = (data) => {
     let payload = {
-      firstName: data.name,
+      firstName: data.firstname,
       lastName: data.lastname,
       emailId: data.email,
-      phoneNumber: data.mobile,
+      phoneNumber: data.mobilenumber,
       country: data.country,
       state: data.state,
       city: data.city,
@@ -28,7 +61,7 @@ export function ContactusFC({ createContactAPI }) {
       message: data.message,
     };
     createContactAPI(payload).then(() => {
-      Toast({ type: "error", message: "Form Submitted" });
+      Toast({ type: "success", message: "Form Submitted" });
     });
   };
   return (
@@ -110,64 +143,58 @@ export function ContactusFC({ createContactAPI }) {
                   First Name<span>*</span>
                 </label>
                 <input
-                  {...register("name", { required: true })}
+                  {...register("firstname")}
                   type="text"
                   placeholder="Enter your First Name"
-                  name="name"
+                  name="firstname"
                 />
-                <div className="error-message">
-                  {errors["name"]?.type && (
-                    <span className="error-text">Name is required</span>
-                  )}
-                </div>
+                {errors.firstname && (
+                  <span className="error-text">{errors.firstname.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>
-                  Last Name First Name<span>*</span>
+                  Last Name <span>*</span>
                 </label>
                 <input
-                  {...register("lastname", { required: true })}
+                  {...register("lastname")}
                   type="text"
                   placeholder="Enter your Last Name"
                   name="lastname"
                 />
-                <div className="error-message">
-                  {errors["lastname"]?.type && (
-                    <span className="error-text">Last Name is required</span>
-                  )}
-                </div>
+                {errors.lastname && (
+                  <span className="error-text">{errors.lastname.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>
                   Email<span>*</span>
                 </label>
                 <input
-                  {...register("email", { required: true })}
+                  {...register("email")}
                   type="email"
                   placeholder="Enter your Email"
                   name="email"
                 />
-                <div className="error-message">
-                  {errors["email"]?.type && (
-                    <span className="error-text">Email is required</span>
-                  )}
-                </div>
+                {errors.email && (
+                  <span className="error-text">{errors.email.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>
                   Mobile Number<span>*</span>
                 </label>
                 <input
-                  type="text"
-                  {...register("mobile", { required: true })}
+                  type="number"
+                  {...register("mobilenumber")}
                   placeholder="Enter your Mobile"
-                  name="mobile"
+                  name="mobilenumber"
                 />
-                <div className="error-message">
-                  {errors["mobile"]?.type && (
-                    <span className="error-text">Mobile is required</span>
-                  )}
-                </div>
+                {errors.mobilenumber && (
+                  <span className="error-text">
+                    {errors.mobilenumber.message}
+                  </span>
+                )}
               </div>
               <div className="field">
                 <label>
@@ -175,15 +202,13 @@ export function ContactusFC({ createContactAPI }) {
                 </label>
                 <input
                   type="text"
-                  {...register("country", { required: true })}
+                  {...register("country")}
                   placeholder="Enter your Country"
                   name="country"
                 />
-                <div className="error-message">
-                  {errors["country"]?.type && (
-                    <span className="error-text">Country is required</span>
-                  )}
-                </div>
+                {errors.country && (
+                  <span className="error-text">{errors.country.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>
@@ -191,15 +216,13 @@ export function ContactusFC({ createContactAPI }) {
                 </label>
                 <input
                   type="text"
-                  {...register("state", { required: true })}
+                  {...register("state")}
                   placeholder="Enter your State"
                   name="state"
                 />
-                <div className="error-message">
-                  {errors["state"]?.type && (
-                    <span className="error-text">State is required</span>
-                  )}
-                </div>
+                {errors.state && (
+                  <span className="error-text">{errors.state.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>
@@ -207,31 +230,27 @@ export function ContactusFC({ createContactAPI }) {
                 </label>
                 <input
                   type="text"
-                  {...register("city", { required: true })}
+                  {...register("city")}
                   placeholder="Enter your City"
                   name="city"
                 />
-                <div className="error-message">
-                  {errors["city"]?.type && (
-                    <span className="error-text">City is required</span>
-                  )}
-                </div>
+                {errors.city && (
+                  <span className="error-text">{errors.city.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>
                   Pincode<span>*</span>
                 </label>
                 <input
-                  type="text"
-                  {...register("pincode", { required: true })}
+                  type="number"
+                  {...register("pincode")}
                   placeholder="Enter your Pincode"
                   name="pincode"
                 />
-                <div className="error-message">
-                  {errors["pincode"]?.type && (
-                    <span className="error-text">Pincode is required</span>
-                  )}
-                </div>
+                {errors.pincode && (
+                  <span className="error-text">{errors.pincode.message}</span>
+                )}
               </div>
               <div className="field">
                 <label>Company Name (optional) </label>
@@ -252,6 +271,9 @@ export function ContactusFC({ createContactAPI }) {
                   placeholder="Enter Message"
                   name="message"
                 />
+                {errors.message && (
+                  <span className="error-text">{errors.message.message}</span>
+                )}
               </div>
             </div>
           </div>

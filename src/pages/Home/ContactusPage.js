@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { connect } from "react-redux";
 
-export function ContactusPage() {
+export function ContactusPageFC() {
   const [Component, setComponent] = useState(null);
 
   const LoadHome = async () => {
@@ -12,4 +12,4 @@ export function ContactusPage() {
   useMemo(() => LoadHome(), []);
   return Component ? <Component /> : <></>;
 }
-export const Contactuseg = connect(null, null)(ContactusPage);
+export const ContactusPage = connect(null, null)(ContactusPageFC);

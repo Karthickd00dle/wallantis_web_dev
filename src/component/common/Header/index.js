@@ -72,18 +72,18 @@ function HeaderFC({ getProductFilterApi }) {
       tilte: "Wallpaper",
 
       subMenuItems: [
-        // {
-        //   name: "Wallpaper",
-        //   route: "/home/product-listing/wallpaper",
-        // },
-        // {
-        //   name: "Sticker Wallpaper",
-        //   route: "/home/product-listing/sticker-wallpaper",
-        // },
-        // {
-        //   name: "Wall Murals",
-        //   route: "/home/product-listing/wall-murals",
-        // },
+        {
+          name: "Wallpaper",
+          route: "/home/product-listing/wallpaper",
+        },
+        {
+          name: "Sticker Wallpaper",
+          route: "/home/product-listing/sticker-wallpaper",
+        },
+        {
+          name: "Wall Murals",
+          route: "/home/product-listing/wall-murals",
+        },
         {
           name: "View All ",
           route: `/home/product-listing/${productFilter?.[0]?._id}`,
@@ -94,18 +94,18 @@ function HeaderFC({ getProductFilterApi }) {
       tilte: "Flooring",
 
       subMenuItems: [
-        // {
-        //   name: "Wooden Flooring",
-        //   route: "/home/product-listing/wooden-flooring",
-        // },
-        // {
-        //   name: "LVP Plank (Laminated)",
-        //   route: "/home/product-listing/lvp-plank",
-        // },
-        // {
-        //   name: "View All ",
-        //   route: "/home/product-listing/all-flooring",
-        // },
+        {
+          name: "Wooden Flooring",
+          route: "/home/product-listing/wooden-flooring",
+        },
+        {
+          name: "LVP Plank (Laminated)",
+          route: "/home/product-listing/lvp-plank",
+        },
+        {
+          name: "View All ",
+          route: "/home/product-listing/all-flooring",
+        },
       ],
     },
     {
@@ -117,56 +117,56 @@ function HeaderFC({ getProductFilterApi }) {
       tilte: "Blinds",
 
       subMenuItems: [
-        // {
-        //   name: "Vertical Blinds",
-        //   route: "/home/product-listing/vertical-blinds",
-        // },
-        // {
-        //   name: "Roller Blinds",
-        //   route: "/home/product-listing/roller-blinds",
-        // },
-        // {
-        //   name: "Zebra Blinds",
-        //   route: "/home/product-listing/zebra-blinds",
-        // },
-        // {
-        //   name: "Chick Blinds ",
-        //   route: "/home/product-listing/chick-blinds",
-        // },
-        // {
-        //   name: "Wooden Blinds ",
-        //   route: "/home/product-listing/wooden-blinds",
-        // },
-        // {
-        //   name: "Customized Blinds ",
-        //   route: "/home/product-listing/customized-blinds  ",
-        // },
-        // {
-        //   name: "View All",
-        //   route: "/home/product-listing/all-blinds",
-        // },
+        {
+          name: "Vertical Blinds",
+          route: "/home/product-listing/vertical-blinds",
+        },
+        {
+          name: "Roller Blinds",
+          route: "/home/product-listing/roller-blinds",
+        },
+        {
+          name: "Zebra Blinds",
+          route: "/home/product-listing/zebra-blinds",
+        },
+        {
+          name: "Chick Blinds ",
+          route: "/home/product-listing/chick-blinds",
+        },
+        {
+          name: "Wooden Blinds ",
+          route: "/home/product-listing/wooden-blinds",
+        },
+        {
+          name: "Customized Blinds ",
+          route: "/home/product-listing/customized-blinds  ",
+        },
+        {
+          name: "View All",
+          route: "/home/product-listing/all-blinds",
+        },
       ],
     },
     {
       tilte: "Artificial Grass",
 
       subMenuItems: [
-        // {
-        //   name: "Vertical Gardens",
-        //   route: "/home/product-listing/vertical-gardens",
-        // },
-        // {
-        //   name: "Hanging Flowers",
-        //   route: "/home/product-listing/hanging-flowers",
-        // },
-        // {
-        //   name: "Artificial Grass",
-        //   route: "/home/product-listing/artificial-grass",
-        // },
-        // {
-        //   name: "View All",
-        //   route: "/home/product-listing/all-artificial-grass",
-        // },
+        {
+          name: "Vertical Gardens",
+          route: "/home/product-listing/vertical-gardens",
+        },
+        {
+          name: "Hanging Flowers",
+          route: "/home/product-listing/hanging-flowers",
+        },
+        {
+          name: "Artificial Grass",
+          route: "/home/product-listing/artificial-grass",
+        },
+        {
+          name: "View All",
+          route: "/home/product-listing/all-artificial-grass",
+        },
       ],
     },
     {
@@ -178,34 +178,34 @@ function HeaderFC({ getProductFilterApi }) {
       tilte: "GYM Flooring",
 
       subMenuItems: [
-        // {
-        //   name: "GYM Tiles Square",
-        //   route: "/home/product-listing/gym-tiles-square",
-        // },
-        // {
-        //   name: "GYM Tiles Interlock",
-        //   route: "/home/product-listing/gym-tiles-interlock",
-        // },
-        // {
-        //   name: "GYM Tiles Hexagonal",
-        //   route: "/home/product-listing/gym-tiles-hexagonal",
-        // },
-        // {
-        //   name: "GYM Rolls",
-        //   route: "/home/product-listing/gym-rolls",
-        // },
-        // {
-        //   name: "Sports Flooring",
-        //   route: "/home/product-listing/sports-flooring",
-        // },
-        // {
-        //   name: "Yoga Mat",
-        //   route: "/home/product-listing/yoga-mat",
-        // },
-        // {
-        //   name: "View all",
-        //   route: "/home/product-listing/all-gym-flooring",
-        // },
+        {
+          name: "GYM Tiles Square",
+          route: "/home/product-listing/gym-tiles-square",
+        },
+        {
+          name: "GYM Tiles Interlock",
+          route: "/home/product-listing/gym-tiles-interlock",
+        },
+        {
+          name: "GYM Tiles Hexagonal",
+          route: "/home/product-listing/gym-tiles-hexagonal",
+        },
+        {
+          name: "GYM Rolls",
+          route: "/home/product-listing/gym-rolls",
+        },
+        {
+          name: "Sports Flooring",
+          route: "/home/product-listing/sports-flooring",
+        },
+        {
+          name: "Yoga Mat",
+          route: "/home/product-listing/yoga-mat",
+        },
+        {
+          name: "View all",
+          route: "/home/product-listing/all-gym-flooring",
+        },
       ],
     },
     {
