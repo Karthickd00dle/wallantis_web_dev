@@ -28,10 +28,7 @@ import { bindActionCreators } from "redux";
 import { createCatalogueApi, getAllCatalogue } from "action/CatalogueAct";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
-import { customMomentFormat, ternaryCondition } from "service/helperFunctions";
-import { CommonInput } from "component/Admin/common/CommonInput";
-import CommonSelect from "component/Admin/common/CommonSelect";
-import CommonRadio from "component/Admin/common/CommonRadio";
+import { customMomentFormat } from "service/helperFunctions";
 import { CustomButton } from "component/Admin/common/CustomButton";
 import { DownloadIcon } from "assets/svg/Admin/Common";
 
@@ -40,115 +37,6 @@ const options = [
   { name: "Sticker Wallpaper", value: 2 },
   { name: "Normal Wallpaper", value: 3 },
 ];
-
-const AddNewCatalogue = ({
-  setShowAddCatalogue,
-  createCatalogueApiCall,
-  getAllCatalogueApi,
-}) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [inputData, setInputData] = useState({
-    title: "",
-    description: "",
-    wallPaperType: 1,
-    image: "",
-  });
-  const { title, wallPaperType, image } = inputData;
-
-  const addCatalogue = () => {
-    let body = {
-      ...inputData,
-    };
-
-    createCatalogueApiCall(body).then(() => {
-      getAllCatalogueApi();
-    });
-  };
-  console.log(inputData, "input data");
-  return (
-    <div className="add-catalogue">
-      <div className="header-background">
-        <p>Catalogue Management</p>
-      </div>
-
-      <div className="add-catalogue-main">
-        <div className="add-catalogue-inner">
-          <label className="add-catalogue-label mb-4">Add New Catalogue</label>
-          <div className="add-catalogue-inner-container">
-            <div className="mb-4">
-              <label>Title</label>
-              <CommonInput
-                value={title}
-                onChange={({ target: { value } }) =>
-                  setInputData({ ...inputData, title: value })
-                }
-              />
-            </div>
-            <div className="mb-4">
-              <label className="mb-1">Wallpaper Type</label>
-              <CommonSelect
-                value={wallPaperType}
-                onChange={({ target: { value } }) =>
-                  setInputData({ ...inputData, wallPaperType: Number(value) })
-                }
-                className="catalogue-type"
-                options={options}
-              />
-            </div>
-            <label className="add-catalogue-description mb-2">
-              Description
-            </label>
-            <ReactQuill
-              theme="snow"
-              onChange={(input) =>
-                setInputData({ ...inputData, description: input })
-              }
-            />
-            <div className="image-upload mt-4">
-              <label className="my-2">Image Upload</label>
-
-              <div className="image-upload-box">
-                <p>Drag an image here</p>
-                <p>Or</p>
-                <label className="purple-filled" for="upload">
-                  Choose File
-                </label>
-                <input
-                  accept="image/*"
-                  type="file"
-                  files={image}
-                  id="upload"
-                  hidden
-                  onChange={({ target: { files } }) =>
-                    setInputData({
-                      ...inputData,
-                      image: URL.createObjectURL(files[0]),
-                    })
-                  }
-                />
-              </div>
-            </div>
-            <div className="mt-5 action-btns">
-              <button
-                className="white-filled"
-                onClick={() => setShowAddCatalogue(false)}
-              >
-                Cancel
-              </button>
-              <button className="purple-filled" onClick={addCatalogue}>
-                Save & Publish
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const TableDataHeader = () => {
   return (
@@ -227,19 +115,11 @@ const TableDataBody = ({
   );
 };
 
-const CatalogueManagementFC = ({
-  getAllCatalogueApiCall,
-  createCatalogueApiCall,
-}) => {
+const CatalogueManagementFC = ({ getAllCatalogueApiCall }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [catalogueData, setCatalogueData] = useState();
   const [pageMeta, setPageMeta] = useState({});
   const [wallPaperType, setWallPaperType] = useState(1);
-
-  const [showAddCatalogue, setShowAddCatalogue] = useState(false);
-  const handlePage = (event, value) => {
-    setCurrentPage(value);
-  };
 
   const getAllCatalogueApi = useCallback(
     (searchData) => {
@@ -275,77 +155,65 @@ const CatalogueManagementFC = ({
 
   return (
     <>
-      {ternaryCondition(
-        showAddCatalogue,
-        <AddNewCatalogue
-          setShowAddCatalogue={setShowAddCatalogue}
-          createCatalogueApiCall={createCatalogueApiCall}
-          getAllCatalogueApi={getAllCatalogueApi}
-        />,
-        <div className="catalogue-management">
-          <CustomNavBar label="Catalogue Management " />
-          <div className="button-group">
-            <div className="px-5 pt-5 pb-2 d-flex justify-content-between">
-              <RadioGroup
-                aria-labelledby="demo-controlled-radio-buttons-group"
-                className=""
-                name="controlled-radio-buttons-group"
-                value={wallPaperType}
-                onChange={({ target: { value } }) => setWallPaperType(value)}
-              >
-                <div className="d-flex">
-                  <FormControlLabel
-                    value={1}
-                    control={<Radio />}
-                    label="Customized Wallpaper"
-                  />
-                  <FormControlLabel
-                    value={2}
-                    control={<Radio />}
-                    label="Sticker Wallpaper"
-                  />
-                  <FormControlLabel
-                    value={3}
-                    control={<Radio />}
-                    label="Normal Wallpaper"
-                  />
-                </div>
-              </RadioGroup>
+      <div className="catalogue-management">
+        <CustomNavBar label="Catalogue Management " />
+        <div className="button-group">
+          <div className="px-5 pt-5 pb-2 d-flex justify-content-between">
+            <RadioGroup
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              className=""
+              name="controlled-radio-buttons-group"
+              value={wallPaperType}
+              onChange={({ target: { value } }) => setWallPaperType(value)}
+            >
               <div className="d-flex">
-                <CustomButton
-                  startIcon={<DownloadIcon />}
-                  className="download-csv-button px-3 py-3"
-                  variant="outlined"
-                >
-                  Download CSV
-                </CustomButton>
-                <CustomButton
-                  onClick={() => setShowAddCatalogue(true)}
-                  className="add-new-installer-button ms-3 px-3"
-                  variant="contained"
-                >
-                  Add New Catalogue
-                </CustomButton>
+                <FormControlLabel
+                  value={1}
+                  control={<Radio />}
+                  label="Customized Wallpaper"
+                />
+                <FormControlLabel
+                  value={2}
+                  control={<Radio />}
+                  label="Sticker Wallpaper"
+                />
+                <FormControlLabel
+                  value={3}
+                  control={<Radio />}
+                  label="Normal Wallpaper"
+                />
               </div>
+            </RadioGroup>
+            <div className="d-flex">
+              <CustomButton
+                startIcon={<DownloadIcon />}
+                className="download-csv-button px-3 py-3"
+                variant="outlined"
+              >
+                Download CSV
+              </CustomButton>
+              <CustomButton
+                onClick={() => history.push("/admin/add-edit-catalogue")}
+                className="add-new-installer-button ms-3 px-3"
+                variant="contained"
+              >
+                Add New Catalogue
+              </CustomButton>
             </div>
           </div>
-          <div className="px-5 pt-5">
-            <CustomTable>
-              <TableDataHeader />
-              <TableBody>
-                {catalogueData?.map((bodyData, index) => (
-                  <TableDataBody bodyData={bodyData} index={index} />
-                ))}
-              </TableBody>
-            </CustomTable>
-          </div>
-          <CustomPagination
-            pageCount={10}
-            currentPage={currentPage}
-            onChange={handlePage}
-          />
         </div>
-      )}
+        <div className="px-5 pt-5">
+          <CustomTable>
+            <TableDataHeader />
+            <TableBody>
+              {catalogueData?.map((bodyData, index) => (
+                <TableDataBody bodyData={bodyData} index={index} />
+              ))}
+            </TableBody>
+          </CustomTable>
+        </div>
+        <CustomPagination pageCount={10} currentPage={currentPage} />
+      </div>
     </>
   );
 };

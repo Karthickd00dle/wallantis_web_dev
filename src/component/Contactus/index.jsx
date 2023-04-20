@@ -12,32 +12,57 @@ import * as yup from "yup";
 const ContactUsSchema = yup.object().shape({
   firstname: yup
     .string()
+    .required("First Name is required")
     .min(2, "First Name must be atleast 2 characters")
-    .required("First Name is required"),
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
   lastname: yup
     .string()
+    .required("Last Name is required")
     .min(2, "Last Name must be atleast 2 characters")
-    .required("Last Name is required"),
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+
   email: yup
     .string()
-    .email("Please enter valid mail id")
-    .required("Email is required"),
+    .required("Email is required")
+    .email("Please enter valid Email"),
+
   mobilenumber: yup
     .string()
+    .required("Mobile Number is required")
     .min(10, "Mobile Number must be atleast 10 digits")
-    .max(16, "Mobile Number must be less than 16 digits")
-    .required("Mobile Number is required"),
-  country: yup.string().max(18).required("Country is required"),
-  state: yup.string().required("State is required"),
-  city: yup.string().max(10).required("City is required"),
-  pincode: yup
-    .number("Pincode should be number type")
-    .required("Pincode is required"),
-  company: yup.string(),
-  message: yup
+    .max(16, "Mobile Number must be less than 16 digits"),
+
+  country: yup
     .string()
-    .max(240, "Maximum characters allowed is 240")
-    .required("Message is required"),
+    .required("Country is required")
+    .max(20, "Country must be less than 20 characters")
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+
+  state: yup
+    .string()
+    .required("State is required")
+    .max(20, "State must be less than 20 characters")
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+
+  city: yup
+    .string()
+    .required("City is required")
+    .max(10)
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+
+  pincode: yup
+    .number()
+    .typeError("Pincode is required")
+    .required("Pincode is required")
+    .test("len", "Pincode must be 6 digits", (val) => {
+      if (val) return val.toString().length === 6;
+    }),
+
+  company: yup
+    .string()
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+
+  message: yup.string().max(240, "Maximum characters allowed is 240"),
 });
 
 export function ContactusFC({ createContactAPI }) {

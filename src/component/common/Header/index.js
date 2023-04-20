@@ -1,72 +1,10 @@
 import { history } from "service/helpers";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import { conditionalLoad } from "service/helperFunctions";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { getProductFilter } from "action/ProductsAct";
 
-function HeaderDropDownItem({ title, menuItem, route }) {
-  const [menu, setmenu] = useState(false);
-
-  const handleMouseOver = () => {
-    setmenu(true);
-  };
-
-  const handleMouseOut = () => {
-    setmenu(false);
-  };
-
-  return (
-    <div
-      className="header-dropDown-item"
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseOut}
-      onClick={() => history.push(route)}
-    >
-      <div className="header-dropDown-item-title">{title}</div>
-      {conditionalLoad(
-        menu,
-        conditionalLoad(
-          menuItem.length > 0,
-          <ul className="menu-list" onMouseEnter={handleMouseOver}>
-            {menuItem?.map((item, i) => {
-              return (
-                <div
-                  key={i}
-                  className="menu-list-item"
-                  onClick={() => history.push(item?.route, item)}
-                  onMouseDown={handleMouseOver}
-                >
-                  {item?.name}
-                </div>
-              );
-            })}
-          </ul>
-        )
-      )}
-    </div>
-  );
-}
-
-function HeaderFC({ getProductFilterApi }) {
-  const [productFilter, setProductFilter] = useState();
-
-  const getCurrentProfile = () => {
-    getProductFilterApi()
-      .then((res) => {
-        setProductFilter(res.response[0].value);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getCurrentProfile();
-  }, []);
-
+function Header({ productList }) {
   const hoverMenu = [
     {
       tilte: "Wallpaper",
@@ -86,7 +24,7 @@ function HeaderFC({ getProductFilterApi }) {
         },
         {
           name: "View All ",
-          route: `/home/product-listing/${productFilter?.[0]?._id}`,
+          route: "/home/product-listing/all-wallpaper",
         },
       ],
     },
@@ -231,7 +169,7 @@ function HeaderFC({ getProductFilterApi }) {
                 key={i}
                 title={item?.tilte}
                 menuItem={item?.subMenuItems}
-                route={item._id}
+                route={item.route}
               />
             );
           })}
@@ -241,14 +179,47 @@ function HeaderFC({ getProductFilterApi }) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      getProductFilterApi: getProductFilter,
-    },
-    dispatch
-  );
-};
-
-const Header = connect(null, mapDispatchToProps)(HeaderFC);
 export default Header;
+
+function HeaderDropDownItem({ title, menuItem, route }) {
+  const [menu, setmenu] = useState(false);
+
+  const handleMouseOver = () => {
+    setmenu(true);
+  };
+
+  const handleMouseOut = () => {
+    setmenu(false);
+  };
+
+  return (
+    <div
+      className="header-dropDown-item"
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseOut}
+      onClick={() => history.push(route)}
+    >
+      <div className="header-dropDown-item-title">{title}</div>
+      {conditionalLoad(
+        menu,
+        conditionalLoad(
+          menuItem.length > 0,
+          <ul className="menu-list" onMouseEnter={handleMouseOver}>
+            {menuItem?.map((item, i) => {
+              return (
+                <div
+                  key={i}
+                  className="menu-list-item"
+                  onClick={() => history.push(item?.route, item)}
+                  onMouseDown={handleMouseOver}
+                >
+                  {item?.name}
+                </div>
+              );
+            })}
+          </ul>
+        )
+      )}
+    </div>
+  );
+}

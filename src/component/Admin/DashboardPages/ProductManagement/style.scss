@@ -60,19 +60,5 @@
         @include fontLatoStyle(15px, 500, #ffffff, 19px);
       }
     }
-
-    .color-chip-input {
-      .MuiInputBase-root.MuiOutlinedInput-root {
-        .MuiButtonBase-root.MuiChip-root {
-          border: 1px solid #ffe58f;
-          border-radius: 2px;
-          background-color: #fffbe6;
-          border-radius: none;
-          width: 120px;
-          display: flex;
-          justify-content: space-between;
-        }
-      }
-    }
   }
 }

@@ -1,0 +1,13 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.color-chip-input {
+  border: 2px solid #ffe58f;
+  border-radius: 2px;
+  background-color: #fffbe6;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  .MuiChip-label {
+    @include fontLatoStyle(16px, 400, #66645c, 17px);
+  }
+}

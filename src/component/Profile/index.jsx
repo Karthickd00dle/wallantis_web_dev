@@ -122,13 +122,12 @@ export function ProfileMain({
   updateProfileAPICall,
   changeCurrentPasswordAPI,
   verifyOTPApiCall,
-  currentUserData,
+
   getCurrentProfileAPI,
 }) {
   let location = useLocation();
-  console.log(location.state);
-  const [inputData, setInputData] = useState(currentUserData?.user);
-  const [tabIndex, setTabIndex] = useState();
+
+  const [inputData, setInputData] = useState();
   const [currentData, setCurrentData] = useState();
   const [activeTab, setActiveTab] = useState(location?.state);
   const [isAddressForm, setAddressForm] = useState(true);
@@ -144,10 +143,6 @@ export function ProfileMain({
 
   const showAddressForm = () => {
     setAddressForm(!isAddressForm);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
   };
 
   const updateProfile = () => {
@@ -216,10 +211,6 @@ export function ProfileMain({
   }, [activeTab]);
 
   useEffect(() => {
-    scrollToTop();
-  }, [tabIndex]);
-
-  useEffect(() => {
     setActiveTab(location?.state);
   }, [location?.state]);
 
@@ -267,7 +258,6 @@ export function ProfileMain({
 const mapStateToProps = (state) => {
   return {
     wishlistItemData: state.commonStore.wishlistItemState,
-    currentUserData: state.commonStore.currentUserState,
   };
 };
 

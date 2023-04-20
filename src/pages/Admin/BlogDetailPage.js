@@ -6,9 +6,7 @@ export function BlogDetailPageFunction() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {
-    const loadComp = await import(
-      "component/Admin/DashboardPages/CustomerDetail"
-    );
+    const loadComp = await import("component/Admin/DashboardPages/BlogDetail");
     setComponent(() => loadComp.default);
   };
 

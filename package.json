@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^37.1.0",
     "@ckeditor/ckeditor5-build-decoupled-document": "^35.4.0",
+    "@ckeditor/ckeditor5-editor-classic": "^37.1.0",
     "@ckeditor/ckeditor5-react": "^5.0.6",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -14,6 +16,7 @@
     "axios": "^0.23.0",
     "bootstrap": "^5.2.2",
     "chart.js": "^3.7.1",
+    "ckeditor5-custom-build": "file:ckeditor5",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.9.3",
     "moment": "^2.29.3",

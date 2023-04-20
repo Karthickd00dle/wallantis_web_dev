@@ -1,4 +1,4 @@
-import { axiosInstance } from "./utilities";
+import { axiosInstance, logout } from "./utilities";
 
 //api
 export let apiCall = async function ({
@@ -37,6 +37,9 @@ export let apiCall = async function ({
 
 //status Helper
 let statusHelper = (status, data) => {
+  if (data.status === 401 || data.status === 403) {
+    logout();
+  }
   if (status) {
     return {
       status: data.status,

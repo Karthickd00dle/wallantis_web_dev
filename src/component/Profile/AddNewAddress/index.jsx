@@ -24,19 +24,33 @@ import * as yup from "yup";
 const AddressSchema = yup.object().shape({
   fullName: yup
     .string()
+    .required("Name is required")
     .min(2, "Name must be atleast 2 characters")
-    .required("Name is required"),
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
   mobileNumber: yup
     .string()
     .min(10, "Mobile Number must be atleast 10 digits")
     .max(16, "Mobile Number must be less than 16 digits")
     .required("Mobile Number is required"),
-  pincode: yup.number().required("Pincode is required"),
+  pincode: yup
+    .number()
+    .typeError("Pincode is required")
+    .required("Pincode is required")
+    .test("len", "Pincode must be 6 digits", (val) => {
+      if (val) return val.toString().length === 6;
+    }),
   flatNo: yup.string().max(18).required("Flat No/House No is required"),
   area: yup.string().max(28).required("Area is required"),
   landmark: yup.string().max(16).required("Landmark is required"),
-  city: yup.string().max(10).required("City is required"),
-  state: yup.string().required("State is required"),
+  city: yup
+    .string()
+    .required("City is required")
+    .max(10)
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+  state: yup
+    .string()
+    .required("State is required")
+    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
   selectAddressType: yup.string().required("Address Type is required"),
   isDefaultAddress: yup.boolean(),
 });
@@ -75,14 +89,12 @@ const AddNewAddressFC = ({
       });
   };
 
-  console.log(addressData);
-
   const createAddress = (data) => {
     createAddressAPI(data)
       .then((res) => {
         setAddressData(res.response);
         Toast({ type: "success", message: res.message });
-        history.push("/profile/profile-page");
+        history.push("/profile/profile-page", 4);
       })
       .catch((err) => {
         console.log(err);
@@ -96,7 +108,7 @@ const AddNewAddressFC = ({
     updateAddressAPI({ ...query }, data)
       .then((res) => {
         Toast({ type: "success", message: res.response });
-        history.push("/profile/profile-page");
+        history.push("/profile/profile-page", 4);
       })
       .catch((err) => {
         console.log(err);
@@ -107,6 +119,7 @@ const AddNewAddressFC = ({
     if (id) {
       getAddress();
     }
+    setLoader(false);
   }, []);
 
   const {
@@ -116,17 +129,17 @@ const AddNewAddressFC = ({
   } = useForm({
     resolver: yupResolver(AddressSchema),
     defaultValues: {
-      fullName: state.fullName,
-      mobileNumber: state.mobileNumber,
-      pincode: state.pincode,
-      flatNo: state.flatNo,
-      area: state.area,
-      landmark: state.landmark,
-      city: state.city,
-      state: state.state,
-      country: state.country,
-      selectAddressType: state.selectAddressType,
-      isDefaultAddress: state.isDefaultAddress,
+      fullName: state?.fullName,
+      mobileNumber: state?.mobileNumber,
+      pincode: state?.pincode,
+      flatNo: state?.flatNo,
+      area: state?.area,
+      landmark: state?.landmark,
+      city: state?.city,
+      state: state?.state,
+      country: state?.country,
+      selectAddressType: state?.selectAddressType,
+      isDefaultAddress: state?.isDefaultAddress,
     },
   });
 

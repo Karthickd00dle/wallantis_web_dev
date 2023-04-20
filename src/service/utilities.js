@@ -10,5 +10,5 @@ export const axiosInstance = axios.create({
 //logout
 export const logout = () => {
   localStorage.removeItem("authToken");
-  history.push("/auth/login");
+  history.push("/home/home");
 };

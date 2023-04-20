@@ -26,8 +26,8 @@ export default function ProfileForm({
   const [OTP, setOTP] = useState("");
   const handleClose = () => setOpen(false);
   const menuList = [
-    { label: "User", value: "user" },
-    { label: "Home Owner", value: "owner" },
+    { label: "User", value: "1" },
+    { label: "Home Owner", value: "2" },
   ];
 
   return (

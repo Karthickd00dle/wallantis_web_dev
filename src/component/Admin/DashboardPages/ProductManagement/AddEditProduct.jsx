@@ -1,15 +1,16 @@
 import { CommonHistoryNavigation } from "component/Admin/common/CommonHistoryNavigation";
-import { CommonInput } from "component/Admin/common/CommonInput";
+import { CKEditorInput, CommonInput } from "component/Admin/common/CommonInput";
 import { CustomButton } from "component/Admin/common/CustomButton";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import "./style.scss";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
+
 import DragDropfiles from "component/Admin/common/DragDropfiles";
 import { MuiChipsInput } from "mui-chips-input";
+import { DeleteIcon } from "assets/svg/Admin/InventoryMangement";
+import CustomChipInput from "component/Admin/common/CustomChipInput";
 
 export const AddEditProductFC = () => {
   const [value, setValue] = useState([]);
@@ -42,7 +43,8 @@ export const AddEditProductFC = () => {
             </div>
             <div className="d-flex flex-column col-6 py-4">
               <label className="input-label pb-2">Color</label>
-              <MuiChipsInput
+
+              <CustomChipInput
                 className="color-chip-input"
                 placeholder="Add tags"
                 helperText={
@@ -71,68 +73,11 @@ export const AddEditProductFC = () => {
             </div>
             <div className="col-6 pt-2">
               <label className="input-label">Description</label>
-              <CKEditor
-                className="CKEditorBox"
-                onInit={(editor) => {
-                  console.log("Editor is ready to use!", editor);
-
-                  // Insert the toolbar before the editable area.
-                  editor.ui
-                    .getEditableElement()
-                    .parentElement.insertBefore(
-                      editor.ui.view.toolbar.element,
-                      editor.ui.getEditableElement()
-                    );
-                }}
-                editor={DecoupledEditor}
-                // data={this.state.faq.question}
-                config={{
-                  toolbar: [
-                    "bold",
-                    "underline",
-                    "italic",
-                    "strikethrough",
-                    "alignment",
-                    "numberedList",
-                    "bulletedList",
-                    "link",
-                    "blockQuote",
-                    "insertTable",
-                    "uploadImage",
-                    "indent",
-                    "outdent",
-                    "redo",
-                    "undo",
-                  ],
-                }}
-              />
+              <CKEditorInput placeholder="Type here" />
             </div>
             <div className="col-6 pt-2">
               <label className="input-label">Features</label>
-              <CKEditor
-                className="CKEditorBox"
-                editor={DecoupledEditor}
-                // data={this.state.faq.question}
-                config={{
-                  toolbar: [
-                    "bold",
-                    "underline",
-                    "italic",
-                    "strikethrough",
-                    "alignment",
-                    "numberedList",
-                    "bulletedList",
-                    "link",
-                    "blockQuote",
-                    "insertTable",
-                    "uploadImage",
-                    "indent",
-                    "outdent",
-                    "redo",
-                    "undo",
-                  ],
-                }}
-              />
+              <CKEditorInput placeholder="Type here" />
             </div>
             <div className="col-12 py-4">
               <label className="input-label pb-2">Image Upload</label>
