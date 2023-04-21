@@ -13,7 +13,7 @@ export {
   AddEditInstallerPage,
 } from "./InventoryManagementPage";
 export { LeadManagementPage } from "./LeadManagementPage";
-export { BlogManagementPage } from "./BlogManagementPage";
+export { BlogManagementPage, AddEditBlogPage } from "./BlogManagementPage";
 export { StaffManagementPage } from "./StaffManagementPage";
 export { ContentManagementPage } from "./ContentManagementPage";
 export { CareerManagementPage } from "./CareerManagementPage";
@@ -24,7 +24,6 @@ export {
 export { CustomerDetailPage } from "./CustomerDetailPage";
 export { OrderDetailPage } from "./OrderDetailPage";
 export { ProductDetailPage } from "./ProductDetailPage.js";
-export { BlogDetailPage } from "./BlogDetailPage";
 export { CouponDetailPage } from "./CouponDetailPage";
 export { StaffDetailPage } from "./StaffDetailPage";
 export { CareerDetailPage } from "./CareerDetailPage";

@@ -520,6 +520,14 @@ const routers = [
         exact: false,
       },
       {
+        component: "AddEditBlogPage",
+        path: "/add-edit-blog",
+        componentPath: "pages/Admin/AddEditBlogPage",
+        name: "AddEditBlogPage",
+        auth: false,
+        exact: false,
+      },
+      {
         component: "StaffManagementPage",
         path: "/staff-management",
         componentPath: "pages/Admin/StaffManagementPage",

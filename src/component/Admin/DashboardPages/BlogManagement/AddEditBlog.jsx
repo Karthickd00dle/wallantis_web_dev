@@ -4,6 +4,8 @@ import CustomNavBar from "component/Admin/common/CustomNavBar";
 import { CommonHistoryNavigation } from "component/Admin/common/CommonHistoryNavigation";
 import "./style.scss";
 import { CustomButton } from "component/common";
+import { FormControlLabel, Radio, RadioGroup } from "@mui/material";
+import { conditionalLoad } from "service/helperFunctions";
 
 export default function AddEditBlog() {
   const [inputData, setInputData] = useState({
@@ -12,6 +14,7 @@ export default function AddEditBlog() {
     wallPaperType: 1,
     image: "",
   });
+  const [statusType, setStatusType] = useState();
   const { title, wallPaperType, image } = inputData;
 
   const addCatalogue = () => {
@@ -21,13 +24,16 @@ export default function AddEditBlog() {
   };
 
   return (
-    <div className="add-catalogue">
-      <CustomNavBar label="Catalogue Management" />
-      <CommonHistoryNavigation label="Add New Catalogue" />
+    <div className="add-blog">
+      <CustomNavBar label="Blog Management" />
+      <CommonHistoryNavigation label="Add New Blog" />
 
-      <div className="add-edit-catalogue-container">
-        <div className="add-edit-catalogue-inner-container">
+      <div className="add-edit-blog-container">
+        <div className="add-edit-blog-inner-container">
           <label className="input-label mb-2">Description</label>
+
+          <CKEditorInput placeholder="Type here" />
+          <label className="input-label mt-4 mb-2">Features</label>
 
           <CKEditorInput placeholder="Type here" />
           <div className="image-upload mt-4">
@@ -52,6 +58,50 @@ export default function AddEditBlog() {
                 }
               />
             </div>
+          </div>
+          <div className="col-3 mt-4">
+            <label className="input-label">Status</label>
+            <RadioGroup
+              value={statusType}
+              onChange={({ target: { value } }) => setStatusType(value)}
+            >
+              <div className="d-flex justify-content-between">
+                <FormControlLabel
+                  value={1}
+                  sx={conditionalLoad(statusType === "1", {
+                    color: " #5D5FEF",
+                  })}
+                  control={
+                    <Radio
+                      sx={{
+                        color: "#FF4F5B",
+                        "&.Mui-checked": {
+                          color: "#5D5FEF",
+                        },
+                      }}
+                    />
+                  }
+                  label="Active"
+                />
+                <FormControlLabel
+                  value={2}
+                  sx={conditionalLoad(statusType === "2", {
+                    color: " #5D5FEF",
+                  })}
+                  control={
+                    <Radio
+                      sx={{
+                        color: "#FF4F5B",
+                        "&.Mui-checked": {
+                          color: "#5D5FEF",
+                        },
+                      }}
+                    />
+                  }
+                  label="Inactive"
+                />
+              </div>
+            </RadioGroup>
           </div>
           <div className="mt-5 button-container">
             <CustomButton variant="outlined" className="cancel-button">

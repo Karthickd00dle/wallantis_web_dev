@@ -38,10 +38,10 @@
   @include fontLatoStyle(12px, 400, #696969, 17px);
 }
 
-.add-edit-catalogue-container {
+.add-edit-blog-container {
   margin: 2% 3rem 3rem 3rem;
   border: 1px solid #d5d5d5;
-  .add-edit-catalogue-inner-container {
+  .add-edit-blog-inner-container {
     padding: 2rem;
     height: auto;
     width: 100%;
@@ -59,7 +59,7 @@
       align-items: center;
       justify-content: center;
       height: 220px;
-      border: 1px dashed #d5d5d5;
+      border: 2px dashed #d5d5d5;
       .choose-file-button {
         background: #5d5fef;
         border-radius: 6px;

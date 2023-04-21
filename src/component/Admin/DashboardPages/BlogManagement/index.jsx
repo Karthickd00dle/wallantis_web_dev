@@ -22,6 +22,7 @@ import { CustomButton } from "component/Admin/common/CustomButton";
 import { DownloadIcon } from "assets/svg/Admin/Common";
 import BlogImage from "assets/images/Admin/BlogManagement/blog.png";
 import "./style.scss";
+import { history } from "service/helpers";
 
 const blogManagementData = [
   {
@@ -155,6 +156,7 @@ export default function BlogManagement() {
         <CustomButton
           className="add-new-installer-button ms-3 px-3"
           variant="contained"
+          onClick={() => history.push("/admin/add-edit-blog")}
         >
           Add New Blog
         </CustomButton>

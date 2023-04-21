@@ -50,7 +50,6 @@ const AddEditInstallerFC = () => {
                 onChange={({ target: { value } }) => setStatusType(value)}
               >
                 <div className="d-flex justify-content-between">
-                  {console.log(statusType, "status type")}
                   <FormControlLabel
                     value={1}
                     sx={conditionalLoad(statusType === "1", {
