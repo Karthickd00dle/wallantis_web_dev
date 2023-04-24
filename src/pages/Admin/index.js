@@ -2,7 +2,10 @@ export { ReportPage } from "./ReportPage";
 export { SettingsPage } from "./SettingsPage";
 export { DashboardPage } from "./DashboardPage";
 export { CustomerPage } from "./CustomerPage";
-export { OrderManagementPage } from "./OrderManagementPage";
+export {
+  OrderManagementPage,
+  EditOrderDetailPage,
+} from "./OrderManagementPage";
 export {
   ProductManagementPage,
   AddEditProductPage,

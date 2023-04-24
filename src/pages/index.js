@@ -58,6 +58,7 @@ export {
   LeadManagementPage,
   BlogManagementPage,
   AddEditBlogPage,
+  EditOrderDetailPage,
   StaffManagementPage,
   ContentManagementPage,
   CareerManagementPage,
