@@ -3,28 +3,26 @@ import React from "react";
 import { CustomButton } from "..";
 import "./NormalInput.scss";
 
-export const NormalInput = ({
-  className = "",
-  placeholder = "",
-  titleLabel = "",
-  onChange,
-  onKeyUp,
-  value = "",
-  name,
-  disabled = false,
-  type,
-  max = "",
-  min = "",
-  icon,
-  buttonOnClick,
-  isSubmitButton,
-  submitButtonLabel = "",
-  labelSize = "fs-18",
-  isSearchBox = false,
-  register,
-  pattern = "",
-}) => {
-  return (
+export const NormalInput = React.forwardRef(
+  (
+    {
+      className = "",
+      placeholder = "",
+      titleLabel = "",
+      onChange,
+      onKeyUp,
+      value,
+      name,
+      type,
+      icon,
+      buttonOnClick,
+      isSubmitButton,
+      submitButtonLabel = "",
+      labelSize = "fs-18",
+      isSearchBox = false,
+    },
+    ref
+  ) => (
     <div className={`normal-input ${isSearchBox && "searchbox"}`}>
       {titleLabel !== "" ? (
         <div className="d-flex justify-content-start mb-1">
@@ -33,28 +31,14 @@ export const NormalInput = ({
       ) : null}
       <div className="d-flex w-100 align-items-center">
         <input
+          ref={ref}
           className={`form-control ${className}`}
           name={name}
-          {...register(name, { required: true, pattern: pattern })}
           type={type}
-          disabled={disabled}
           value={value}
-          min={0}
           placeholder={placeholder}
-          minLength={min}
-          maxLength={max}
           onKeyUp={onKeyUp}
-          onChange={(e) => {
-            let body = {};
-            let tempVal = e.target.value;
-            body = {
-              target: {
-                name: e.target.name,
-                value: tempVal,
-              },
-            };
-            onChange(body);
-          }}
+          onChange={onChange}
         />
 
         {isSubmitButton && (
@@ -74,8 +58,8 @@ export const NormalInput = ({
         <span className="icon">{icon}</span>
       </div>
     </div>
-  );
-};
+  )
+);
 
 export const CustomInput = ({
   variant,
@@ -127,7 +111,6 @@ export const CustomTextField = ({
   onChange,
   type,
   value,
-  register,
   props,
   InputProps,
   disabled,
@@ -140,7 +123,6 @@ export const CustomTextField = ({
       onChange={onChange}
       value={value}
       type={type}
-      register={register}
       disabled={disabled}
       InputProps={InputProps}
       {...props}

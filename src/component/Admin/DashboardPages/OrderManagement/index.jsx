@@ -20,7 +20,7 @@ import {
 import { history } from "service/helpers";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "component/common";
-import DownloadIcon from "assets/images/DownloadIcon";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 
 const totalInstallersData = [
   {

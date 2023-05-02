@@ -10,27 +10,28 @@ import {
 } from "@mui/material";
 import CustomListMenu from "component/Admin/common/CustomListMenu";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
-import CommonButton from "component/Admin/common/CommonButton";
 import { history } from "service/helpers";
-import downloadIcon from "assets/icons/Admin/downloadIcon.png";
 import "./style.scss";
 import {
   AscendingDescendingArrow,
   DeleteIcon,
   EyeIcon,
   PencilIcon,
+  StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
 import CustomPagination from "component/Admin/common/CustomPagination";
+import { CustomButton } from "component/Admin/common/CustomButton";
+import { DownloadIcon } from "assets/svg/Admin/Common";
+import CustomTabs, { TabPanel } from "component/Admin/common/CustomTabs";
 
 const totalInstallersData = [
   {
     No: "1",
-    Title: "John Doe",
-    Date: "0987654321",
-    Customer_Name: "johndoe@gmail.com",
+    Customer_Name: "John Doe",
+    Mobile_Number: "0987654321",
+    Email_Address: "johndoe@gmail.com",
     Location: "Anna Nagar, Chennai",
-    Amount: "Customer, Product Management +2",
-    Action: "",
+    Privileges: "Customer, Product Management +2",
   },
 ];
 
@@ -46,15 +47,27 @@ const TableDataHeader = () => {
           <IconButton>
             <AscendingDescendingArrow />
           </IconButton>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Mobile Number</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Email Address</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Location </label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
         </TableCell>
         <TableCell align="left">
           <label className="table-head-cell-label">Privileges</label>
@@ -71,7 +84,14 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { No, Title, Date, Customer_Name, Location, Amount, Category },
+  bodyData: {
+    No,
+    Customer_Name,
+    Mobile_Number,
+    Email_Address,
+    Location,
+    Privileges,
+  },
 }) => {
   return (
     <TableRow key={No}>
@@ -79,19 +99,19 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{No}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Title}</label>
-      </TableCell>
-      <TableCell align="left">
-        <label className="table-body-cell-label">{Date}</label>
-      </TableCell>
-      <TableCell align="left">
         <label className="table-body-cell-label">{Customer_Name}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Mobile_Number}</label>
+      </TableCell>
+      <TableCell align="left">
+        <label className="table-body-cell-label">{Email_Address}</label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{Location}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Amount}</label>
+        <label className="table-body-cell-label">{Privileges}</label>
       </TableCell>
 
       <TableCell align="left">
@@ -111,6 +131,12 @@ const TableDataBody = ({
             <DeleteIcon />
             <label className="table-cell-menu-item ps-2">Delete</label>
           </MenuItem>
+          <MenuItem className="d-flex align-items-center">
+            <StrikedEyeIcon />
+            <label className="table-cell-menu-item ps-2">
+              Mark as Inactive
+            </label>
+          </MenuItem>
         </CustomListMenu>
       </TableCell>
     </TableRow>
@@ -125,24 +151,29 @@ export default function StaffManagement() {
   };
 
   return (
-    <div className="product-management">
+    <div>
       <CustomNavBar label="Staff Management" />
-      <div className="button-group">
-        <CommonButton title="Download CSV" icon={downloadIcon} />
-
-        <button
-          className="purple-filled"
-          onClick={() => history.push("/admin/add-staff")}
+      <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
+        <CustomButton
+          startIcon={<DownloadIcon />}
+          className="download-csv-button px-3 py-3"
+          variant="outlined"
         >
-          Add New Staff{" "}
-        </button>
+          Download CSV
+        </CustomButton>
+        <CustomButton
+          className="add-new-installer-button ms-3 px-3"
+          variant="contained"
+        >
+          Add New Staff
+        </CustomButton>
       </div>
-      <div className="custom-table">
+      <div className="px-5 pt-5">
         <CustomTable>
           <TableDataHeader />
           <TableBody>
             {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
+              <TableDataBody key={bodyData.No} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>

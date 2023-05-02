@@ -13,9 +13,14 @@ const StyledPagination = styled((props) => (
   },
 }));
 
-export default function CustomPagination({ pageCount, currentPage, onChange }) {
+export default function CustomPagination({
+  pageCount,
+  currentPage,
+  onChange,
+  className,
+}) {
   return (
-    <div className="d-flex justify-content-center mt-3">
+    <div className={`d-flex justify-content-center mt-3 ${className}`}>
       <StyledPagination
         className="pagination-style"
         count={pageCount}

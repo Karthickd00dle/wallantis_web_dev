@@ -47,3 +47,51 @@ export const LocationChecked = (props) => (
     <circle cx={12} cy={12} r={11.5} stroke="#19AA60" />
   </svg>
 );
+
+export const ArchBackground = (props) => (
+  <svg width={929} height={378} fill="none" {...props}>
+    <g filter="url(#a)">
+      <path
+        fill="#FFF8F0"
+        d="M20.38 1.321c-.317 46.627 11.076 89.21 33.448 132.397 22.372 43.186 55.317 82.456 96.929 115.541 41.612 33.084 91.065 59.325 145.499 77.204 54.434 17.88 112.768 27.044 171.628 26.961 58.86-.082 117.078-9.409 171.286-27.44 54.208-18.032 103.331-44.411 144.527-77.611 41.196-33.2 73.647-72.562 95.477-115.81C901.003 89.315 911.813 46.7 910.91.075L462.211.702l-441.83.62Z"
+      />
+    </g>
+    <defs>
+      <filter
+        id="a"
+        width={958.586}
+        height={421.352}
+        x={-13.625}
+        y={-33.926}
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity={0} result="BackgroundImageFix" />
+        <feGaussianBlur in="BackgroundImageFix" stdDeviation={17} />
+        <feComposite
+          in2="SourceAlpha"
+          operator="in"
+          result="effect1_backgroundBlur_1108_27718"
+        />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset dy={4} />
+        <feGaussianBlur stdDeviation={10} />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix values="0 0 0 0 0.976471 0 0 0 0 0.976471 0 0 0 0 0.976471 0 0 0 1 0" />
+        <feBlend
+          in2="effect1_backgroundBlur_1108_27718"
+          result="effect2_dropShadow_1108_27718"
+        />
+        <feBlend
+          in="SourceGraphic"
+          in2="effect2_dropShadow_1108_27718"
+          result="shape"
+        />
+      </filter>
+    </defs>
+  </svg>
+);

@@ -1,3 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
 .header-back {
   margin-top: 30px;
   margin-left: 55px;
@@ -52,17 +54,21 @@
   }
   .cd-contact {
     display: flex;
-    gap: 23%;
-    margin-top: 40px;
-    h3 {
+    align-items: center;
+    justify-content: space-between;
+    label {
       color: #7a7a7a;
       font-weight: 600;
       font-size: 16px;
     }
-    p {
-      color: #7a7a7a;
-      font-weight: 600;
-      font-size: 16px;
+    .contact-icon-container {
+      background: #c5caff;
+      border-radius: 7px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -111,7 +117,7 @@
   border-radius: 27px;
   width: 595px;
   height: 200%;
-  margin-left: 69px;
+  margin-left: 45px;
   margin-top: 60px;
 }
 .cd-mostcontent {
@@ -125,10 +131,9 @@
   h6 {
     color: #696969;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 13px;
     margin-left: 36px;
     margin-top: 13px;
-    width: 127%;
   }
 }
 
@@ -194,7 +199,7 @@ button {
 }
 .cd-tabscollab {
   display: flex;
-  gap: 19%;
+  align-items: center;
 }
 
 .cd-diamondwallcontents1 {
@@ -247,4 +252,83 @@ button {
   background-color: #ffffff;
   width: 37%;
   height: 50px;
+}
+
+.calendar-tabs-container {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  width: 270px;
+  height: 50px;
+  display: flex;
+
+  align-items: center;
+  .calendar-tab {
+    background: #ffffff;
+    border-radius: 18.5px;
+    width: 93px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.active {
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    }
+    label {
+      @include fontLatoStyle(14px, 600, #696969, 17px);
+    }
+  }
+}
+
+.product-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d5d5d5;
+
+  .product-item-sub-container {
+    display: flex;
+    .product-image-container {
+      width: 90px;
+      height: 90px;
+      border-radius: 14px;
+    }
+    .product-item-details-container {
+      display: flex;
+      flex-direction: column;
+      .item-title-label {
+        @include fontLatoStyle(16px, 600, #000000, 19px);
+      }
+      .item-type-label {
+        @include fontLatoStyle(12px, 600, #c5caff, 14px);
+      }
+      .item-order-id-label {
+        @include fontLatoStyle(12px, 600, #696969, 14px);
+      }
+    }
+  }
+  .item-price-label {
+    @include fontLatoStyle(20px, 700, #000000, 24px);
+  }
+}
+
+.chart-legend-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 525px;
+  justify-content: space-between;
+  .chart-legends {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    .chart-color {
+      width: 21.16px;
+      height: 20px;
+      border-radius: 4px;
+    }
+    label {
+      @include fontLatoStyle(14px, 600, #696969, 17px);
+    }
+  }
 }

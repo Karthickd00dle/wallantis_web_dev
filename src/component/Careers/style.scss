@@ -1,416 +1,306 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
-.careers-head {
+.navigation-style {
   height: 300px;
   background-color: #54cfbd;
 }
-.mainmenu {
-  font-weight: 700;
-  font-size: 39px;
-  color: #000000;
+.banner-container-main {
+  padding: 0% 6% 0% 6%;
+  .banner-container {
+    display: flex;
+    background: #f5f5f5;
+    width: 745px;
+    height: auto;
+    align-items: center;
+
+    .banner-content-container {
+      label {
+        @include fontLatoStyle(36px, 700, #4d4d4d);
+      }
+      p {
+        @include fontLatoStyle(17px, 600, #000000, 189%);
+        width: 689px;
+      }
+    }
+
+    .careerwall-image {
+      height: 360px;
+      width: auto;
+    }
+  }
+}
+
+.opportunities-header {
   display: flex;
   justify-content: center;
-  margin-top: 90px;
-}
-
-.careershead {
-  display: flex;
-
-  .growwallantics {
-    width: 792px;
-    height: 353px;
-    background: #f5f5f5;
-    margin-left: 148px;
-    margin-top: 26px;
-    label {
-      @include fontLatoStyle(36px, 700, #4d4d4d);
-      margin-left: 63px;
-      margin-top: 40px;
-    }
-    p {
-      @include fontLatoStyle(17px, 600, #000000, 189%);
-      width: 689px;
-      margin-left: 63px;
-      margin-top: 32px;
-    }
-  }
-
-  .careerswall {
-    img {
-      width: 84%;
-      margin-top: 24px;
-      margin-right: 25%;
-      background: #f5f5f5;
-    }
-  }
-}
-
-.uropportunities {
   label {
     @include fontLatoStyle(32px, 700, #4d4d4d, 38px);
     text-align: center;
-    margin-left: 42%;
-    margin-top: 70px;
-  }
-}
-.salesandmarket {
-  width: 524px;
-  height: 377px;
-  margin-left: 77px;
-  margin-top: 164px;
-  border: 1px solid #c8c8c8;
-  border-radius: 10px;
-  label {
-    @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
-    margin-top: 111px;
-    margin-left: 30%;
-  }
-  p {
-    @include fontLatoStyle(16px, 500, #000000, 189%);
-    text-align: justify;
-    margin: 24px 65px 9px;
   }
 }
 
-.technology {
-  width: 524px;
-  height: 377px;
-  margin-left: 37px;
-  margin-top: 164px;
-  border: 1px solid #c8c8c8;
-  border-radius: 10px;
-  label {
-    @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
-    margin-top: 111px;
-    margin-left: 35%;
-  }
-  p {
-    @include fontLatoStyle(16px, 500, #000000, 189%);
-    text-align: justify;
-    margin: 24px 65px 9px;
-  }
-}
-
-.ecofriendly {
-  width: 524px;
-  height: 377px;
-  margin-left: 37px;
-  margin-top: 164px;
-  border: 1px solid #c8c8c8;
-  border-radius: 10px;
-  margin-right: 58px;
-  label {
-    @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
-    margin-top: 111px;
-    margin-left: 35%;
-  }
-  p {
-    @include fontLatoStyle(16px, 500, #000000, 189%);
-    text-align: justify;
-    margin: 24px 65px 9px;
-  }
-}
-.opportunitycollab {
-  .sales-img {
-    position: absolute;
-    width: 11%;
-    left: 13%;
-    top: 134%;
-  }
-  .tech-img {
-    position: absolute;
-    width: 11%;
-    left: 45%;
-    top: 134%;
-  }
-  .eco-img {
-    position: absolute;
-    width: 11%;
-    left: 76%;
-    top: 134%;
-  }
+.opportunities-container {
   display: flex;
-}
+  justify-content: space-evenly;
+  .sales-and-marketing-container-main {
+    height: 500px;
+    width: 475px;
+    position: relative;
+    .sales-image-container {
+      position: absolute;
+      z-index: 1;
+      left: 160px;
+      .sales-img {
+        width: 150px;
+      }
+    }
+    .sales-and-marketing-container {
+      top: 70px;
+      position: relative;
+      padding: 6%;
+      width: 475px;
+      height: 400px;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      label {
+        @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+        display: flex;
+        justify-content: center;
+      }
+      p {
+        @include fontLatoStyle(16px, 500, #000000, 189%);
+        text-align: justify;
+      }
+    }
+  }
 
-.currentopen {
-  label {
-    @include fontLatoStyle(33px, 700, #4d4d4d, 58px);
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 42%;
-  }
-}
-.openingsinput {
-  margin-left: 84px;
-  display: flex;
-  input {
-    width: 234.16px;
-    height: 45px;
-    border: 1px solid #838383;
-    border-radius: 6px;
-    margin-top: 50px;
-    padding: 2px 2px 2px 14px;
-    margin-left: 25px;
-  }
-  button {
-    width: 214.73px;
-    height: 51px;
-    background: #a26220;
-    border-radius: 4px;
-    border-color: #a26220;
-    color: #f5f5f5;
-    margin-top: 47px;
-    margin-left: 31px;
-  }
-}
+  .technology-container-main {
+    height: 500px;
+    width: 475px;
+    position: relative;
+    .tech-image-container {
+      position: absolute;
+      z-index: 1;
+      left: 160px;
+      .tech-img {
+        width: 150px;
+      }
+    }
 
-.openingscontents {
-  width: 90%;
-  margin-left: 109px;
-  height: 199px;
-  border: 1px solid #838383;
-  border-radius: 6px;
-  margin-top: 95px;
-  .managerdetails {
-    display: flex;
-    justify-content: space-around;
-    gap: 66%;
-    margin-top: 57px;
-    label {
-      @include fontLatoStyle(30px, 600, #3f434a);
-    }
-    span {
-      @include fontLatoStyle(22px, 600, #2a71f9);
-    }
-  }
-  .manageraddress {
-    margin-left: 50px;
-    margin-top: 23px;
-    label {
-      font-size: 19px;
-    }
-    span {
-      font-size: 19px;
+    .technology-container {
+      top: 70px;
+      position: relative;
+      padding: 6%;
+      width: 475px;
+      height: 400px;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      label {
+        @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+        display: flex;
+        justify-content: center;
+      }
+      p {
+        @include fontLatoStyle(16px, 500, #000000, 189%);
+        text-align: justify;
+      }
     }
   }
-}
 
-.openingscontentsmarket {
-  width: 90%;
-  margin-left: 109px;
-  height: 199px;
-  border: 1px solid #838383;
-  border-radius: 6px;
-  margin-top: 55px;
-  .marketingdetails {
-    display: flex;
-    justify-content: space-around;
-    gap: 66%;
-    margin-top: 57px;
-    label {
-      @include fontLatoStyle(30px, 600, #3f434a);
+  .ecofriendly-container-main {
+    height: 500px;
+    width: 475px;
+    position: relative;
+    .eco-image-container {
+      position: absolute;
+      z-index: 1;
+      left: 160px;
+      .eco-img {
+        width: 150px;
+      }
     }
-    span {
-      @include fontLatoStyle(22px, 600, #2a71f9);
-    }
-  }
-  .marketingaddress {
-    margin-left: 50px;
-    margin-top: 23px;
-    label {
-      font-size: 19px;
-    }
-    span {
-      font-size: 19px;
-    }
-  }
-}
 
-.openingscontentservice {
-  width: 90%;
-  margin-left: 109px;
-  height: 199px;
-  border: 1px solid #838383;
-  border-radius: 6px;
-  margin-top: 55px;
-  .servicedetails {
-    display: flex;
-    justify-content: space-around;
-    gap: 59%;
-    margin-top: 57px;
-    label {
-      @include fontLatoStyle(30px, 600, #3f434a);
-    }
-    span {
-      @include fontLatoStyle(22px, 600, #2a71f9);
-    }
-  }
-  .serviceaddress {
-    margin-left: 50px;
-    margin-top: 23px;
-    label {
-      font-size: 19px;
-    }
-    span {
-      font-size: 19px;
-    }
-  }
-}
-.openingscontentaccountant {
-  width: 90%;
-  margin-left: 109px;
-  height: 199px;
-  border: 1px solid #838383;
-  border-radius: 6px;
-  margin-top: 55px;
-  .accountantdetails {
-    display: flex;
-    justify-content: space-around;
-    gap: 59%;
-    margin-top: 57px;
-    label {
-      @include fontLatoStyle(30px, 600, #3f434a);
-    }
-    span {
-      @include fontLatoStyle(22px, 600, #2a71f9);
-      margin-left: 9%;
-    }
-  }
-  .accountantaddress {
-    margin-left: 50px;
-    margin-top: 23px;
-    label {
-      font-size: 19px;
-    }
-    span {
-      font-size: 19px;
+    .ecofriendly-container {
+      top: 70px;
+      position: relative;
+      padding: 6%;
+      width: 475px;
+      height: 400px;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      label {
+        @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+        display: flex;
+        justify-content: center;
+      }
+      p {
+        @include fontLatoStyle(16px, 500, #000000, 189%);
+        text-align: justify;
+      }
     }
   }
 }
 
-.openingscontenttech {
-  width: 90%;
-  margin-left: 109px;
-  height: 199px;
-  border: 1px solid #838383;
-  border-radius: 6px;
-  margin-top: 55px;
-  .techdetails {
-    display: flex;
-    justify-content: space-around;
-    gap: 68%;
-    margin-top: 57px;
-    label {
-      @include fontLatoStyle(30px, 600, #3f434a);
-    }
-    span {
-      @include fontLatoStyle(22px, 600, #2a71f9);
-    }
+.job-content-container {
+  border: 1px solid #cbcbcb;
+  .position-name {
+    @include fontLatoStyle(26px, 600, #3f434a, 27px);
   }
-  .techaddress {
-    margin-left: 50px;
-    margin-top: 23px;
-    label {
-      font-size: 19px;
-    }
-    span {
-      font-size: 19px;
-    }
+  .view-details {
+    @include fontLatoStyle(20px, 600, #2a71f9, 27px);
+  }
+  .pinned-label,
+  .address-label {
+    @include fontLatoStyle(18px, 500, #3f434a, 27px);
   }
 }
 
-.careercollab {
-  display: flex;
-  // justify-content: space-around;
-  margin-left: 94px;
-  gap: 21%;
-}
-
-.careerpolices {
-  label {
-    @include fontLatoStyle(38px, 700, #000000);
-    margin-left: 45%;
-    margin-top: 121px;
-  }
-}
-.careerpolicycontents {
-  margin-top: 40px;
-  margin-left: 104px;
-  span {
-    font-weight: 600;
-    font-size: 20px;
-    margin-left: 20px;
-  }
-  p {
-    @include fontLatoStyle(17px, 500, #6d6363);
-    width: 464px;
-    text-align: justify;
-    margin-top: 25px;
-    margin-right: 20%;
-  }
-}
-
-.careerpolicysupport {
-  margin-top: 40px;
-  img {
-    margin-left: 91px;
-  }
-  span {
-    font-weight: 600;
-    font-size: 20px;
-  }
-  p {
-    @include fontLatoStyle(17px, 500, #6d6363);
-    width: 464px;
-    text-align: justify;
-    margin-left: 22%;
-    margin-top: 25px;
-  }
-}
-
-.careercollab2 {
-  display: flex;
-  gap: 24%;
-  margin-top: 40px;
-}
-
-.careerpolicyhealth {
-  img {
-    margin-left: 194px;
-  }
-  span {
-    font-weight: 600;
-    font-size: 20px;
-  }
-  p {
-    @include fontLatoStyle(17px, 500, #6d6363);
-    width: 464px;
-    text-align: justify;
-    margin-left: 41%;
-    margin-top: 25px;
-  }
-}
-.careerpolicyeducation {
-  margin-left: 8%;
-  margin-bottom: 80px;
-  img {
-    margin-left: 91px;
-  }
-  span {
-    font-weight: 600;
-    font-size: 20px;
-  }
-  p {
-    @include fontLatoStyle(17px, 500, #6d6363);
-    width: 464px;
-    text-align: justify;
-    margin-left: 22%;
-    margin-top: 25px;
-  }
-}
-
-.current-collab {
+.current-openings-container-main {
   background: #f9f9f9;
-  margin-top: 150px;
-  height: 100%;
+  padding: 0% 6% 0% 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .current-openings-header-container {
+    label {
+      @include fontLatoStyle(36px, 700, #4d4d4d, 58px);
+    }
+  }
+  .current-openings-container {
+    padding: 60px 0 65px 0;
+    .input-container {
+      display: flex;
+      align-items: center;
+      .designation-input,
+      .location-input {
+        width: 350px;
+      }
+      .input-styles {
+        border: 1px solid #838383;
+        border-radius: 6px;
+        @include fontLatoStyle(16px, 500, #4d4d4d, 19px);
+      }
+      .search-button-container {
+        .search-button {
+          background: #a26220;
+          border-radius: 4px;
+          width: 200px;
+          height: 55px;
+        }
+      }
+    }
+  }
+}
+.policies-container-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0% 6% 0% 6%;
+  background: #fcf8f183;
+  .career-policy-header-container {
+    label {
+      @include fontLatoStyle(36px, 700, #000000, 58px);
+    }
+  }
+  .policies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .career-policy-content {
+      width: 460px;
+      margin: 50px 120px 50px 120px;
+      label {
+        @include fontLatoStyle(19px, 600, #000000, 24px);
+      }
+      p {
+        @include fontLatoStyle(15px, 500, #696969, 189%);
+      }
+    }
+  }
+}
+
+.job-details-container {
+  width: 75%;
+  padding: 6% 6% 6% 6%;
+  .job-details-header-container,
+  .about-position-header-container {
+    label {
+      @include fontLatoStyle(26px, 700, #4d4d4d, 38px);
+    }
+    p {
+      @include fontLatoStyle(16px, 500, #636363, 32px);
+      padding-top: 10px;
+    }
+  }
+  .qualification-header-container {
+    label {
+      @include fontLatoStyle(26px, 700, #4d4d4d, 38px);
+    }
+    li {
+      @include fontLatoStyle(16px, 500, #636363, 38px);
+    }
+  }
+  .job-description-header-container {
+    label {
+      @include fontLatoStyle(26px, 700, #4d4d4d, 38px);
+      &.share-this-job {
+        @include fontLatoStyle(19px, 500, #2a71f9, 38px);
+      }
+      &.label-type,
+      &.label-address {
+        @include fontLatoStyle(16px, 500, #3f434a, 38px);
+      }
+    }
+    p {
+      @include fontLatoStyle(16px, 500, #636363, 32px);
+      padding-top: 10px;
+    }
+  }
+  .job-input-container {
+    background: #f5f5f5;
+    width: 80%;
+
+    .input-container {
+      padding: 40px 70px 40px 30px;
+      .input-field {
+        display: flex;
+        flex-direction: column;
+        label {
+          @include fontLatoStyle(17px, 400, #5a5a5a, 29px);
+          &.required-label {
+            color: #e6c156;
+          }
+        }
+        .input-styles {
+          background: #ffffff;
+          border: 1px solid #bebebe;
+          border-radius: 6px;
+          &.text-area {
+            height: 160px;
+          }
+        }
+        .upload-resume {
+          background: #ffffff;
+          border: 2px dashed #bebebe;
+          border-radius: 6px;
+          height: 170px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          label {
+            @include fontLatoStyle(18px, 400, #8a8a8a, 24px);
+          }
+        }
+        .error-text {
+          padding-top: 7px;
+          @include fontLatoStyle(15px, 500, rgb(211, 7, 7), 20px);
+        }
+        .apply-button {
+          height: 55px;
+          background: #a26220;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
 }

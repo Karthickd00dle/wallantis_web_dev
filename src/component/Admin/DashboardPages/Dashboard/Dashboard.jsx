@@ -61,7 +61,7 @@ export default function Dashboard() {
                 <buttton className="range-buttons">Monthly</buttton>
               </div>
 
-              <button className="download-button">Download</button>
+              <button className="download-button px-4">Download</button>
             </div>
           </div>
 

@@ -122,20 +122,20 @@ export function ProfileMain({
   updateProfileAPICall,
   changeCurrentPasswordAPI,
   verifyOTPApiCall,
-  currentUserData,
+
   getCurrentProfileAPI,
 }) {
   let location = useLocation();
 
-  const [inputData, setInputData] = useState(currentUserData?.user);
-  const [tabIndex, setTabIndex] = useState(location?.state);
+  const [inputData, setInputData] = useState();
   const [currentData, setCurrentData] = useState();
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(location?.state);
   const [isAddressForm, setAddressForm] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const [passwordError, setError] = useState(false);
   const [loader, setLoader] = useState(true);
+
   const handleInput = (event) => {
     let input = { [event.target.name]: event.target.value };
     setInputData({ ...inputData, ...input });
@@ -143,10 +143,6 @@ export function ProfileMain({
 
   const showAddressForm = () => {
     setAddressForm(!isAddressForm);
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
   };
 
   const updateProfile = () => {
@@ -215,11 +211,7 @@ export function ProfileMain({
   }, [activeTab]);
 
   useEffect(() => {
-    scrollToTop();
-  }, [tabIndex]);
-
-  useEffect(() => {
-    setTabIndex(location?.state);
+    setActiveTab(location?.state);
   }, [location?.state]);
 
   return (
@@ -266,7 +258,6 @@ export function ProfileMain({
 const mapStateToProps = (state) => {
   return {
     wishlistItemData: state.commonStore.wishlistItemState,
-    currentUserData: state.commonStore.currentUserState,
   };
 };
 

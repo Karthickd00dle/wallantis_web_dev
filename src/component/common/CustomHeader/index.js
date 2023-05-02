@@ -9,7 +9,7 @@ import { ReactComponent as CartIcon } from "assets/svg/HeaderTop/Cart.svg";
 import { NormalSearch } from "../NormalSearch";
 import { CustomSelect } from "../CustomSelect";
 import { LanguageMenuList } from "config";
-import { CustomButton } from "..";
+import { CustomButton, CustomDialog } from "..";
 import { styled } from "@mui/material/styles";
 import { history } from "service/helpers";
 import JohnDoe1 from "assets/images/user.png";
@@ -22,6 +22,7 @@ import { connect, useDispatch } from "react-redux";
 import Header from "../Header";
 import { Badge } from "@mui/material";
 import { commonStateList } from "service/actionType";
+import ReferaFriend from "component/Profile/ReferaFriend/ReferaFriend";
 
 export const CustomHeaderComponent = ({
   getAllProductsAPI,
@@ -36,6 +37,7 @@ export const CustomHeaderComponent = ({
   const [itemCount, setItemCount] = useState(null);
   const [productList, setProductList] = useState([]);
   const [currentData, setCurrentData] = useState();
+  const [openReferFriend, setOpenReferFriend] = useState(false);
   const handleCartIcon = () => {
     history.push("/home/cart-summary");
   };
@@ -120,102 +122,113 @@ export const CustomHeaderComponent = ({
     getCurrentProfile();
   }, []);
   return (
-    <AppBar className="navbar-appbar" position="fixed" ref={outsideRef}>
-      <Container maxWidth="xxl">
-        <Toolbar disableGutters>
-          <div className="header-top-container">
-            <BrandLogo onClick={handleLogoClick} className="custom-brandlogo" />
-            <NormalSearch
-              value={searchInput}
-              onChange={(event) => setSearchInput(event.target.value)}
-            />
-            <a
-              href="tel:+044 65483 46823"
-              className="text-decoration-none text-reset"
-            >
-              <div className="d-flex align-items-center">
-                <SupportPersonLogo width="60" height="30" />
-                <div className="ps-0 d-flex flex-column w-100">
-                  <label>Need Help?</label>
-                  <label>+044 65483 46823</label>
-                </div>
-              </div>
-            </a>
-            <CustomSelect menuItemList={LanguageMenuList} />
-            <div
-              className="d-flex align-items-center cart-icon"
-              onClick={handleCartIcon}
-            >
-              <StyledBadge badgeContent={itemCount}>
-                <CartIcon />
-              </StyledBadge>
-
-              <label className="ps-1 cart-icon">Cart</label>
-            </div>
-            {!authToken ? (
-              <CustomButton
-                style={{
-                  width: "110px",
-                  height: "48px",
-                  backgroundColor: "#A26220",
-                }}
-                variant="contained"
-                className="ms-3"
-                onClick={() => {
-                  history.push("/auth/login");
-                }}
+    <>
+      <AppBar className="navbar-appbar" position="fixed" ref={outsideRef}>
+        <Container maxWidth="xxl">
+          <Toolbar disableGutters>
+            <div className="header-top-container">
+              <BrandLogo
+                onClick={handleLogoClick}
+                className="custom-brandlogo"
+              />
+              <NormalSearch
+                value={searchInput}
+                onChange={(event) => setSearchInput(event.target.value)}
+              />
+              <a
+                href="tel:+044 65483 46823"
+                className="text-decoration-none text-reset"
               >
-                Login
-              </CustomButton>
-            ) : (
-              <div
-                className="custom-john d-flex align-items-center"
-                onClick={() => {
-                  setOpen(!open);
-                }}
-              >
-                <img src={JohnDoe1} />
-                &nbsp;&nbsp;
-                <span>{`${currentData?.firstName} ${currentData?.lastName}`}</span>
-                <RiArrowDropDownLine size="20" />
-                {open && (
-                  <div className="FaAngleDown">
-                    <ul className="cursor-pointer">
-                      <FaAngleDown
-                        text={"My Profile"}
-                        onClick={() => handleMyProfile(0)}
-                      />
-                      <FaAngleDown
-                        text={"My Orders"}
-                        onClick={() => handleMyProfile(1)}
-                      />
-                      <FaAngleDown
-                        text={"Refer a Friend"}
-                        onClick={() => handleMyProfile(2)}
-                      />
-                      <FaAngleDown
-                        text={"Saved Addesses"}
-                        onClick={() => handleMyProfile(3)}
-                      />
-                      <FaAngleDown
-                        text={"Change Password"}
-                        onClick={() => handleMyProfile(4)}
-                      />
-                      <FaAngleDown
-                        text={"Logout"}
-                        onClick={routerAuthTokenGuard}
-                      />
-                    </ul>
+                <div className="d-flex align-items-center">
+                  <SupportPersonLogo width="60" height="30" />
+                  <div className="ps-0 d-flex flex-column w-100">
+                    <label>Need Help?</label>
+                    <label>+044 65483 46823</label>
                   </div>
-                )}
-              </div>
-            )}
-          </div>
-        </Toolbar>
+                </div>
+              </a>
+              <CustomSelect menuItemList={LanguageMenuList} />
+              <div
+                className="d-flex align-items-center cart-icon"
+                onClick={handleCartIcon}
+              >
+                <StyledBadge badgeContent={itemCount}>
+                  <CartIcon />
+                </StyledBadge>
 
-        <Header productList={productList} />
-      </Container>
-    </AppBar>
+                <label className="ps-1 cart-icon">Cart</label>
+              </div>
+              {!authToken ? (
+                <CustomButton
+                  style={{
+                    width: "110px",
+                    height: "48px",
+                    backgroundColor: "#A26220",
+                  }}
+                  variant="contained"
+                  className="ms-3"
+                  onClick={() => {
+                    history.push("/auth/login");
+                  }}
+                >
+                  Login
+                </CustomButton>
+              ) : (
+                <div
+                  className="custom-john d-flex align-items-center"
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
+                >
+                  <img src={JohnDoe1} />
+                  &nbsp;&nbsp;
+                  <span>{`${currentData?.firstName} ${currentData?.lastName}`}</span>
+                  <RiArrowDropDownLine size="20" />
+                  {open && (
+                    <div className="FaAngleDown">
+                      <ul className="cursor-pointer">
+                        <FaAngleDown
+                          text={"My Profile"}
+                          onClick={() => handleMyProfile(1)}
+                        />
+                        <FaAngleDown
+                          text={"My Orders"}
+                          onClick={() => handleMyProfile(2)}
+                        />
+                        <FaAngleDown
+                          text={"Refer a Friend"}
+                          onClick={() => setOpenReferFriend(true)}
+                        />
+                        <FaAngleDown
+                          text={"Saved Addesses"}
+                          onClick={() => handleMyProfile(4)}
+                        />
+                        <FaAngleDown
+                          text={"Change Password"}
+                          onClick={() => handleMyProfile(5)}
+                        />
+                        <FaAngleDown
+                          text={"Logout"}
+                          onClick={routerAuthTokenGuard}
+                        />
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </Toolbar>
+
+          <Header productList={productList} />
+        </Container>
+      </AppBar>
+      <CustomDialog
+        isOpen={openReferFriend}
+        handleClose={() => setOpenReferFriend(false)}
+      >
+        <ReferaFriend />
+      </CustomDialog>
+    </>
   );
 };
 

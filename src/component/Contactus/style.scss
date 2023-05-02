@@ -76,6 +76,10 @@
         span {
           @include fontLatoStyle(18px, 500, #e6c156, 25px);
         }
+        .error-text {
+          padding-top: 7px;
+          @include fontLatoStyle(15px, 500, rgb(211, 7, 7), 20px);
+        }
         input {
           height: 47px;
           border: 1px solid #969696;

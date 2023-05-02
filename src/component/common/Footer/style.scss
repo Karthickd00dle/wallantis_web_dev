@@ -25,6 +25,10 @@
       font-size: 20px;
       color: #ffffff;
     }
+    .error-text {
+      padding-top: 7px;
+      @include fontLatoStyle(15px, 500, rgb(211, 7, 7), 20px);
+    }
   }
   .footer-subject {
     width: 385px;

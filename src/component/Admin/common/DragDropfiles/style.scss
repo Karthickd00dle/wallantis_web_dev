@@ -1,50 +1,32 @@
-.dropzone{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px dashed #D5D5D5;
-    width: 1329px;
-height: 247px;
-margin-left: 40px;
-h1{
-    font-weight: 500;
-font-size: 18px;
-display: flex;
-justify-content: center;
-}
-label{
-    font-weight: 500;
-font-size: 18px;
-display: flex;
-justify-content: center;
-}
-button{
- margin-left: 45%;
- margin-top: 10px;
-background: #5D5FEF;
-border-radius: 6px;
-// padding: 10px;
-width: 131px;
-height: 39px;
-color: #FFFFFF;
-font-weight: 500;
-font-size: 16px;
-}
-}
+@import "assets/scss/abstracts/abstracts.scss";
 
-.uploads{
+.image-uploads {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px dashed #d5d5d5;
+  width: 100%;
+  height: 247px;
+}
+.image-upload-container {
+  .image-dropzone {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px dashed #D5D5D5;
-    width: 1329px;
-height: 247px;  
-margin-left: 40px;
-}
-.Image-upload{
-    h1{
-    font-weight: 500;
-font-size: 18px;
-margin-left: 40px;
+    border: 1px dashed #d5d5d5;
+    width: 100%;
+    height: 247px;
+    .choose-file-button {
+      @include fontLatoStyle(16px, 400, #ffffff, 19px);
+      background: #5d5fef;
+      border-radius: 6px;
+      height: 50px;
+      width: 140px;
     }
+    label {
+      @include fontLatoStyle(18px, 500, #000000, 22px);
+      display: flex;
+      justify-content: center;
+    }
+  }
 }

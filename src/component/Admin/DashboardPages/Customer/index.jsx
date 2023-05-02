@@ -16,10 +16,11 @@ import {
   PencilIcon,
   StrikedEyeIcon,
 } from "assets/svg/Admin/InventoryMangement";
-import DownloadIcon from "assets/images/DownloadIcon";
+import { DownloadIcon } from "assets/svg/Admin/Common";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
 import { connect } from "react-redux";
+import { history } from "service/helpers";
 
 const customersData = [
   {
@@ -99,7 +100,12 @@ const TableDataBody = ({
         <CustomListMenu>
           <MenuItem className="d-flex align-items-center">
             <EyeIcon />
-            <label className="table-cell-menu-item ps-2">View Details</label>
+            <label
+              className="table-cell-menu-item ps-2"
+              onClick={() => history.push("/admin/customerDetailPage")}
+            >
+              View Details
+            </label>
           </MenuItem>
         </CustomListMenu>
       </TableCell>

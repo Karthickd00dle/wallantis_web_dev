@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CommonModal, CustomButton } from "component/common";
+import { CommonModal, CustomButton, CustomSelect } from "component/common";
 import { useForm } from "react-hook-form";
 import "./index.scss";
 import { FormControlLabel, Radio, RadioGroup, Skeleton } from "@mui/material";
@@ -25,6 +25,10 @@ export default function ProfileForm({
   const [isMobileDisabled, setMobileDisabled] = useState(true);
   const [OTP, setOTP] = useState("");
   const handleClose = () => setOpen(false);
+  const menuList = [
+    { label: "User", value: "1" },
+    { label: "Home Owner", value: "2" },
+  ];
 
   return (
     <>
@@ -75,12 +79,14 @@ export default function ProfileForm({
             <div className="mt-3 flex-main">
               <div className="profile-input-container">
                 <label className="profile-label">Profile / Role</label>
-                <CustomTextField
+
+                <CustomSelect
                   name={"roleType"}
-                  className="profile-input mt-3"
+                  className="profile-input roll-type mt-3"
                   onChange={handleInput}
                   value={inputData?.roleType}
                   register={register}
+                  menuItemList={menuList}
                   placeholder="Roll Type"
                 />
                 <div className="error-message">

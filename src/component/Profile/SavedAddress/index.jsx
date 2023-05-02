@@ -10,6 +10,7 @@ import { history } from "service/helpers";
 import "./index.scss";
 
 const AddressCard = ({
+  addressList,
   addressList: {
     _id,
     fullName,
@@ -30,7 +31,9 @@ const AddressCard = ({
         <div>
           <label
             className="edit-text"
-            onClick={() => history.push(`/profile/change-address/${_id}`)}
+            onClick={() =>
+              history.push(`/profile/change-address/${_id}`, addressList)
+            }
           >
             EDIT
           </label>

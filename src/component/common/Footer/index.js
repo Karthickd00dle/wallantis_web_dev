@@ -18,22 +18,28 @@ import {
 } from "assets/icons/FooterIcons/FooterIcons";
 import ScrollToTop from "component/ScrollToTop";
 import { InstallerPriceCalculator } from "component/ProductDetail/InstallerPriceCalculator";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const EmailSchema = yup.object().shape({
+  newslettermailinfo: yup
+    .string()
+    .email("Please enter valid email")
+    .required("Email is required"),
+});
 
 export const NormalFooter = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(EmailSchema) });
 
   const history = useHistory();
-  const [formData, setFormData] = useState({ newslettermailinfo: "" });
+
   const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
     useState();
 
-  const handleMailInfo = ({ target: { name, value } }) => {
-    setFormData({ ...formData, [name]: value });
-  };
   const submitMailInfo = (data) => {
     console.log(data);
   };
@@ -69,24 +75,17 @@ export const NormalFooter = () => {
                 </label>
                 <NormalInput
                   name="newslettermailinfo"
-                  value={formData.newslettermailinfo}
-                  onChange={handleMailInfo}
                   buttonOnClick={() => submitMailInfo()}
                   placeholder="Enter your email address"
                   isSubmitButton
                   submitButtonLabel="Subscribe"
-                  register={register}
-                  pattern={/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/} // prettier-ignore
+                  {...register("newslettermailinfo")}
                 />
-                <div className="error-message">
-                  {errors["newslettermailinfo"]?.type === "required" && (
-                    <span className="error-text">This field is required</span>
-                  )}
-
-                  {errors["newslettermailinfo"]?.type === "pattern" && (
-                    <span className="error-text">Enter a Valid Email</span>
-                  )}
-                </div>
+                {errors.newslettermailinfo && (
+                  <span className="error-text">
+                    {errors.newslettermailinfo.message}
+                  </span>
+                )}
               </div>
             </form>
           </div>
@@ -114,7 +113,7 @@ export const NormalFooter = () => {
               </label>
               <label
                 className="py-2 cursor-pointer"
-                onClick={() => history.push("/profile/contactus")}
+                onClick={() => history.push("/profile/contact-us")}
               >
                 Contact Us
               </label>

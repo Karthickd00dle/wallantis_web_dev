@@ -23,6 +23,7 @@ import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "component/Admin/common/CustomButton";
 import { DownloadIcon } from "assets/svg/Admin/Common";
 import { ternaryCondition } from "service/helperFunctions";
+import { history } from "service/helpers";
 
 const totalInstallersData = [
   {
@@ -194,7 +195,7 @@ export default function InventoryManagement() {
   };
 
   return (
-    <div>
+    <div className="inventory-management-container">
       <CustomNavBar label="Inventory Management" />
       <div className="px-5 pt-5 pb-2 d-flex justify-content-end">
         <CustomButton
@@ -207,6 +208,7 @@ export default function InventoryManagement() {
         <CustomButton
           className="add-new-installer-button ms-3 px-3"
           variant="contained"
+          onClick={() => history.push("/admin/add-edit-installer")}
         >
           Add New Installer
         </CustomButton>
@@ -222,6 +224,7 @@ export default function InventoryManagement() {
         </CustomTable>
       </div>
       <CustomPagination
+        className="pt-5"
         pageCount={10}
         currentPage={currentPage}
         onChange={handlePage}

@@ -1,7 +1,9 @@
 import React from "react";
 import "./index.scss";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
+// import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Editor from "ckeditor5-custom-build/build/ckeditor";
 
 export function CommonInput({ label, placeholder, name, value, onChange }) {
   return (
@@ -18,10 +20,10 @@ export function CommonInput({ label, placeholder, name, value, onChange }) {
   );
 }
 
-export function CKEditorInput() {
+export function CKEditorInput({ placeholder }) {
   return (
     <CKEditor
-      className="CKEditorBox"
+      className="ckeditor-style"
       onReady={(editor) => {
         editor.ui
           .getEditableElement()
@@ -30,26 +32,29 @@ export function CKEditorInput() {
             editor.ui.getEditableElement()
           );
       }}
-      editor={DecoupledEditor}
-      config={{
-        toolbar: [
-          "bold",
-          "underline",
-          "italic",
-          "strikethrough",
-          "alignment",
-          "numberedList",
-          "bulletedList",
-          "link",
-          "blockQuote",
-          "insertTable",
-          "uploadImage",
-          "indent",
-          "outdent",
-          "redo",
-          "undo",
-        ],
-      }}
+      editor={Editor}
+      config={
+        ({
+          toolbar: [
+            "bold",
+            "underline",
+            "italic",
+            "strikethrough",
+            "alignment",
+            "numberedList",
+            "bulletedList",
+            "link",
+            "blockQuote",
+            "insertTable",
+            "uploadImage",
+            "indent",
+            "outdent",
+            "redo",
+            "undo",
+          ],
+        },
+        { placeholder: placeholder })
+      }
     />
   );
 }

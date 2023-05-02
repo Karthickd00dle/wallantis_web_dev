@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.scss";
-import DragDropfiles from "../common/DragDropfiles";
+
 import { CKEditorInput } from "component/Admin/common/CommonInput";
+import DragDropfiles from "component/Admin/common/DragDropfiles";
 
 export default function BlogDetail() {
   return (

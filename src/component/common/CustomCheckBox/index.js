@@ -1,20 +1,15 @@
 import * as React from "react";
 import Checkbox from "@mui/material/Checkbox";
 
-export const CustomCheckBox = ({
-  name,
-  value,
-  className,
-  onChange,
-  checked,
-  icon,
-  checkedIcon,
-  color,
-}) => {
-  return (
+export const CustomCheckBox = React.forwardRef(
+  (
+    { name, value, className, onChange, checked, icon, checkedIcon, color },
+    ref
+  ) => (
     <Checkbox
       name={name}
       value={value}
+      ref={ref}
       checked={checked}
       onChange={onChange}
       className={className}
@@ -22,5 +17,5 @@ export const CustomCheckBox = ({
       checkedIcon={checkedIcon}
       icon={icon}
     />
-  );
-};
+  )
+);
