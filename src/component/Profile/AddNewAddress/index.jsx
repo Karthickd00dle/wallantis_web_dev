@@ -39,6 +39,7 @@ const AddressSchema = yup.object().shape({
     .test("len", "Pincode must be 6 digits", (val) => {
       if (val) return val.toString().length === 6;
     }),
+  installer: yup.string().required("Installer is required"),
   flatNo: yup.string().max(18).required("Flat No/House No is required"),
   area: yup.string().max(28).required("Area is required"),
   landmark: yup.string().max(16).required("Landmark is required"),
@@ -132,6 +133,7 @@ const AddNewAddressFC = ({
       fullName: state?.fullName,
       mobileNumber: state?.mobileNumber,
       pincode: state?.pincode,
+      installer: state?.installer,
       flatNo: state?.flatNo,
       area: state?.area,
       landmark: state?.landmark,
@@ -218,10 +220,12 @@ const AddNewAddressFC = ({
                 <label className="input-label">Installer</label>
                 <CustomSelect
                   name="installer"
-                  {...register("country")}
-                  placeholder="Rahul, Rs. 150"
+                  {...register("installer")}
+                  placeholder="Installer"
                   inputStyle="mt-3 select-input"
-                  menuItemList={[{ label: "Rahul, Rs. 150", value: "Rahul, Rs. 150" }]}
+                  menuItemList={[
+                    { label: "Rahul, Rs. 150", value: "Rahul, Rs. 150" },
+                  ]}
                 />
 
                 {errors.country && (
