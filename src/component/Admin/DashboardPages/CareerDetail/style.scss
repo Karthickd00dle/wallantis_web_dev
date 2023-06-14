@@ -1,0 +1,129 @@
+.AddNewJob {
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  width: 1430px;
+  height: 665px;
+}
+
+.add-namejob {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 655px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+
+.add-postedby {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 655px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+
+.add-postingjob {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 655px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+
+.add-location {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 655px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+.addjob-status {
+  label {
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 25px;
+  }
+  .addjob-in {
+    display: flex;
+    gap: 50px;
+    margin-left: 32px;
+    input[type="radio"]:checked + label {
+      color: #5d5fef;
+      cursor: pointer;
+    }
+    label {
+      color: #404040;
+      font-weight: 400;
+      font-size: 15px;
+      margin-left: 12px;
+    }
+    input {
+      cursor: pointer;
+      height: 16px;
+    }
+  }
+}
+.add-jobpublishbtn {
+  background: #5d5fef;
+  border-radius: 6px;
+  color: #ffffff;
+  width: 177px;
+  height: 51px;
+  margin-left: 30px;
+  font-weight: 400px;
+}
+.add-jobcancelbtn {
+  background: white;
+  border-radius: 6px;
+  color: black;
+  width: 177px;
+  font-weight: 400px;
+  height: 51px;
+  border: 1px solid black;
+  margin-left: 30px;
+  margin-top: 80px;
+}

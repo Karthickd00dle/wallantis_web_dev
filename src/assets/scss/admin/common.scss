@@ -1,0 +1,449 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.header-background {
+  background-color: #c5caff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  height: 77px;
+  display: flex;
+  align-items: center;
+  p {
+    align-items: center;
+    @include fontLatoStyle(24px, 500, #000000);
+    margin-top: 10px;
+    margin-left: 60px;
+  }
+}
+
+.dashboard-card {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.overview {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  margin-left: 0px;
+  padding: 20px 30px;
+  margin-top: 20px;
+  width: 100%;
+
+  .overview-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    p {
+      @include fontLatoStyle(24px, 500, #000000);
+    }
+
+    .overview-end-btns {
+      display: flex;
+
+      .date-buttons {
+        padding: 10px;
+        display: flex;
+        background: #ffffff;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+
+        .range-buttons {
+          height: 30px;
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          border-radius: 7px;
+          padding: 5px 10px;
+          @include fontLatoStyle(14px, 600, #000000, 17px);
+
+          &:not(:first-child) {
+            margin-left: 10px;
+          }
+
+          &:hover {
+            background: #c5caff;
+          }
+        }
+      }
+
+      .download-button {
+        background: #5d5fef;
+        border-radius: 4px;
+        width: fit-content;
+        border: none;
+        margin-left: 15px;
+        @include fontLatoStyle(14px, 600, #ffffff, 17px);
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.overview-cards {
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .purple {
+    background-color: #c6cbff;
+  }
+  .pink {
+    background-color: #fcdae5;
+  }
+  .green {
+    background-color: #e9faf5;
+  }
+  .yellow {
+    background-color: #f9f3d3;
+  }
+
+  .overview-card {
+    min-width: 24%;
+    padding: 20px 20px;
+
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .amount {
+      @include fontLatoStyle(28px, 700, #000000);
+    }
+
+    .order-number {
+      @include fontLatoStyle(14px, 400, #696969);
+      margin-top: -25px;
+    }
+
+    .percent-value {
+      @include fontLatoStyle(14px, 700, #000000, 17px);
+      display: flex;
+      align-items: center;
+      margin-left: 5px;
+    }
+
+    .purple {
+      background-color: #b2b6e7;
+    }
+    .pink {
+      background-color: #f4d5df;
+    }
+    .green {
+      background-color: #d6e6e3;
+    }
+    .yellow {
+      background-color: #e5e0c4;
+    }
+
+    .order-percent {
+      color: #3a46d1;
+    }
+    .revenue-percent {
+      color: #e15188;
+    }
+    .visitor-percent {
+      color: #bd55d0;
+    }
+    .purchased-percent {
+      color: #c0a916;
+    }
+  }
+}
+
+.arrow-container {
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.charts-card {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  height: auto;
+  width: calc(50% - 20px); /* subtract padding from 50% width */
+  box-sizing: border-box; /* include padding in width calculation */
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  margin-left: 0px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+
+  &:nth-child(2n) {
+    margin-left: 20px;
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .trend-up-container {
+      display: flex;
+      align-items: center;
+      margin-left: 80px;
+      height: 40px;
+
+      p {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .map-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+
+    .map-legend {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 48%;
+
+      p {
+        @include fontPoppinsStyle(14px, 400, #000000);
+      }
+    }
+
+    .legend-color {
+      width: 24px;
+      height: 24px;
+      background-color: #bad6f2;
+    }
+  }
+
+  .title {
+    @include fontLatoStyle(18px, 600, #9a9999);
+    margin-top: -2%;
+  }
+
+  .amount {
+    @include fontLatoStyle(30px, 600, #000000);
+    margin-top: -2%;
+  }
+
+  .select-option {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+}
+
+.single-col {
+  display: flex;
+  gap: 10px;
+}
+
+.gap {
+  gap: 30px;
+}
+
+.align-items {
+  align-items: center;
+}
+
+.justify-content-SB {
+  justify-content: space-between;
+}
+
+.cards-grid-main {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+  padding: 30px;
+}
+
+.two-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+.leaflet-container {
+  width: 100vh;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 1366px) and (max-height: 768px) {
+  .header-background {
+    background-color: #c5caff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    height: 77px;
+    display: flex;
+    align-items: center;
+    width: 1100px;
+    p {
+      @include fontLatoStyle(24px, 500, #000000);
+      margin-top: 10px;
+      margin-left: 60px;
+    }
+  }
+
+  .cards-grid-main {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .chart-card {
+    width: calc(50% - 20px); /* subtract padding from 50% width */
+    box-sizing: border-box;
+    background-color: #ffffff;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+  }
+
+  .overview-cards {
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    .purple {
+      background-color: #c6cbff;
+    }
+    .pink {
+      background-color: #fcdae5;
+    }
+    .green {
+      background-color: #e9faf5;
+    }
+    .yellow {
+      background-color: #f9f3d3;
+    }
+
+    .overview-card {
+      min-width: 150px;
+      padding: 20px 20px;
+
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .amount {
+        @include fontLatoStyle(28px, 700, #000000);
+      }
+
+      .order-number {
+        @include fontLatoStyle(14px, 400, #696969);
+        margin-top: -25px;
+      }
+
+      .purple {
+        background-color: #b2b6e7;
+      }
+      .pink {
+        background-color: #f4d5df;
+      }
+      .green {
+        background-color: #d6e6e3;
+      }
+      .yellow {
+        background-color: #e5e0c4;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) and (max-height: 720px) {
+  .header-background {
+    background-color: #c5caff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    height: 77px;
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    p {
+      @include fontLatoStyle(24px, 500, #000000);
+      margin-top: 10px;
+      margin-left: 60px;
+    }
+  }
+  .cards-grid-main {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    padding: 30px;
+  }
+
+  .chart-card {
+    background-color: #ffffff;
+    height: auto;
+    border-radius: 10px;
+    width: calc(50% - 20px); /* subtract padding from 50% width */
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+  }
+
+  .overview-cards {
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    .purple {
+      background-color: #c6cbff;
+    }
+    .pink {
+      background-color: #fcdae5;
+    }
+    .green {
+      background-color: #e9faf5;
+    }
+    .yellow {
+      background-color: #f9f3d3;
+    }
+
+    .overview-card {
+      min-width: 150px;
+      padding: 20px 20px;
+
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .amount {
+        @include fontLatoStyle(28px, 700, #000000);
+      }
+
+      .order-number {
+        @include fontLatoStyle(14px, 400, #696969);
+        margin-top: -25px;
+      }
+
+      .purple {
+        background-color: #b2b6e7;
+      }
+      .pink {
+        background-color: #f4d5df;
+      }
+      .green {
+        background-color: #d6e6e3;
+      }
+      .yellow {
+        background-color: #e5e0c4;
+      }
+    }
+  }
+}

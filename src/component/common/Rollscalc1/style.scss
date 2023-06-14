@@ -1,0 +1,48 @@
+.rollscalc1{
+    width: 66%;
+height: 386px;
+background: #FCFCFC;
+border-style: inset;
+border-color: 1px solid #9A9999;
+label{
+    font-weight: 700;
+    font-size: 32px;
+    color: #000000;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+img{
+    width: 2%;
+    position: relative;
+    left: 66%;
+    bottom: 3%;
+}
+p{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 35px;
+    color: #9A9999;
+    position: relative;
+    right: 42px;
+    top: 21px;
+}
+}
+.rollscalc1entries{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+    input{
+        width: 18%;
+        padding: 13px 1px 19px 56px;
+        border: none;
+        border-bottom: 1px solid #9A9999;
+    }
+    button{
+        width: 286px;
+height: 58px;
+background: #A26220;
+border-radius: 10px;
+color: #FCFCFC;
+border-color: #A26220;
+    }
+}

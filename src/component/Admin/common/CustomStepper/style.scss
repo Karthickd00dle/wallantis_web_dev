@@ -1,0 +1,20 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.stepper-style {
+  position: relative;
+  .MuiStepLabel-root {
+    padding: 0;
+  }
+}
+.step-label-container {
+  .installer-tracking-title {
+    @include fontPoppinsStyle(14px, 400, #0d0e11, 20px);
+  }
+  .order-tracking-title {
+    @include fontRobotoStyle(15px, 500, #000000, 22px);
+  }
+  .installer-tracking-details,
+  .order-tracking-details {
+    @include fontRobotoStyle(14px, 500, #9a9999, 22px);
+  }
+}

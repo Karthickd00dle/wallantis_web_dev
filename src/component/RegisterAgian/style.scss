@@ -1,0 +1,95 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.RegisterAgain_entries {
+  form {
+    position: relative;
+  }
+  input {
+    border: none;
+    border-bottom: 2px solid#D4D4D4;
+    background-color: unset;
+    outline: none;
+    font-size: 18px;
+    width: 80%;
+  }
+}
+
+.RegisterAgain_number {
+  margin-top: 64px;
+  margin-left: 62px;
+  label {
+    position: absolute;
+    left: 74%;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    color: #2a71f9;
+  }
+}
+
+.RegisterAgain_OTP_sent {
+  span {
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    position: absolute;
+    width: 75%;
+    height: 57px;
+    left: 7%;
+    top: 150%;
+    color: #2a71f9;
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    border-color: #ffffff;
+    font-size: 16px;
+  }
+
+  label {
+    position: absolute;
+    width: 56px;
+    left: 74%;
+    top: 100px;
+    @include fontLatoStyle(16px, 700, #2a71f9, 20px, 0.04em);
+  }
+}
+
+.RegisterAgain_enterotp {
+  margin-top: 14%;
+  margin-left: 70px;
+  input {
+    border: none;
+    border-bottom: 2px solid#D4D4D4;
+    background-color: unset;
+    outline: none;
+    font-size: 18px;
+    width: 80%;
+  }
+}
+
+.RegisterAgain_setpassword {
+  margin-top: 6%;
+  margin-left: 70px;
+  input {
+    border: none;
+    border-bottom: 2px solid#D4D4D4;
+    background-color: unset;
+    outline: none;
+    font-size: 18px;
+    width: 80%;
+  }
+}
+
+.Login_Registeragain_button {
+  align-items: center;
+  padding: 9px 156px;
+  color: white;
+  position: absolute;
+  font-size: 17px;
+  width: 75%;
+  height: 57px;
+  left: 7%;
+  top: 120%;
+  background: #a26220;
+  border-color: #a26220;
+  border-radius: 5px;
+}

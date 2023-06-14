@@ -1,0 +1,8 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.notification-label {
+  @include fontLatoStyle(20px, 600, #000000, 24px);
+}
+.clear-all-label {
+  @include fontLatoStyle(16px, 600, #ed3a3a, 18px);
+}

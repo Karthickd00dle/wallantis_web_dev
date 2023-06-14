@@ -1,0 +1,99 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
+
+* {
+  font-family: "Lato", sans-serif;
+}
+.fs-18 {
+  font-size: 18px !important;
+}
+.normal-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+
+  label {
+    @include fontLatoStyle("", 500, #000000, 26px);
+
+    @media screen and (max-width: 667px) {
+      font-size: 16px;
+      line-height: 25px;
+    }
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    height: 100%;
+    font-size: 14px;
+    color: black;
+    background: #fdfdfd;
+    border: 0.5px solid #cbcbcb;
+    border-radius: 2px;
+    padding: 16px 18px 18px 16px;
+
+    &:disabled {
+      background-color: $white;
+      cursor: not-allowed;
+      font-size: 14px;
+    }
+
+    &:focus {
+      background: #fdfdfd;
+      border: 0.5px solid #606060;
+      outline: none;
+      box-shadow: none;
+    }
+
+    ::placeholder {
+      font-size: 14px;
+    }
+  }
+
+  input::placeholder {
+    @include fontLatoStyle(16px, 500, #b7b7b7);
+  }
+}
+
+.normal-input.searchbox {
+  height: 100%;
+
+  .form-control {
+    border: 1px solid #003975;
+    font-size: 16px;
+    color: black;
+
+    background-repeat: no-repeat;
+    background-position: 6% 45%;
+    padding-left: 38px;
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  input::placeholder {
+    @include fontLatoStyle(15px, 500, #003975);
+  }
+}
+
+@include media-breakpoint-mobile-port {
+  .normal-input.searchbox {
+    .form-control {
+      padding-left: 45px;
+    }
+  }
+
+  .normal-input {
+    input::placeholder {
+      @include fontLatoStyle(14px, 500, #b7b7b7);
+    }
+  }
+}
+
+.custom-text-field {
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,11 @@
+.inventory-container {
+  height: 100%;
+  width: 800px;
+  border: 1px solid #d5d5d5;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2%;
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    width: auto;
+  }
+}

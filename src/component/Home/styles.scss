@@ -1,0 +1,1041 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.home-content-container {
+  width: 100%;
+  height: fit-content;
+  .main-container-bg {
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #faf5ef 0%,
+      #faf5ef 53.65%,
+      #faf5ef 100%
+    );
+
+    .grass-txt {
+      @include fontLatoStyle(20px, 400, #1a2323, 26px);
+      margin-bottom: 50px;
+    }
+  }
+
+  .main-container {
+    height: fit-content;
+    width: 100%;
+
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 80px;
+    margin-bottom: 20px;
+
+    .room-vis-conatiner {
+      display: flex;
+      padding: 20px;
+      .section-one {
+        flex: 1;
+      }
+
+      .section-two {
+        flex: 1;
+        .room-vis-txt {
+          @include fontLatoStyle(20px, 400, #2f2f2f, 24px);
+          margin-bottom: 50px;
+          margin-left: 20px;
+          width: 700px;
+        }
+
+        .room-vis-try-now--but {
+          width: 275px;
+          margin-left: 20px;
+          height: 57px;
+          cursor: pointer;
+          background: #ffffff;
+          /* Gold 2 */
+
+          border: 1.5px solid #af763a;
+          border-radius: 6px;
+          @include fontLatoStyle(18px, 500, #000000, 22px);
+          text-align: center;
+
+          /* Gold 2 */
+          margin-bottom: 60px;
+          color: #af763a;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .dwnld-app-txt {
+          margin-left: 20px;
+          @include fontLatoStyle(21px, 500, #000000, 22px);
+        }
+
+        .dwnld-app-link-container {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .home-main-card-container {
+      display: flex;
+      height: fit-content;
+      width: 100%;
+      gap: 25px;
+      padding: 20px;
+      .blog-container {
+        width: 45%;
+        .blog-post-img {
+          margin-bottom: 20px;
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 10px 0px 0px 0px;
+          cursor: pointer;
+        }
+
+        .blog-post-date {
+          @include fontLatoStyle(20px, 600, #cd9c69, 48px);
+        }
+
+        .blog-post-title {
+          @include fontLatoStyle(32px, 600, #000000, 45px);
+          margin-bottom: 13px;
+        }
+
+        .blog-post-content {
+          @include fontLatoStyle(24px, 500, #838383, 29px);
+        }
+      }
+
+      .testimonial-card-container {
+        width: 500px;
+        height: 353px;
+        padding: 36px;
+
+        background: #ffffff;
+        /* Gold 1 */
+
+        border: 1.5px solid #cd9c69;
+        box-shadow: inset 0px 2px 13px rgba(230, 193, 86, 0.18);
+        border-radius: 10px;
+
+        .testimonial-card-inner-container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .img-section {
+          width: 86px;
+          height: 86px;
+          border-radius: 86px;
+          margin-bottom: 8px;
+          background-color: #ced3dc;
+        }
+
+        .testimonial-card-title {
+          @include fontLatoStyle(29px, 600, #000000, 47px);
+          margin-bottom: 8px;
+        }
+
+        .testimonial-card-location {
+          @include fontLatoStyle(26px, 600, #7a6e6e, 47px);
+        }
+
+        .testimonial-card-content {
+          @include fontLatoStyle(20px, 400, #838383, 24px);
+        }
+      }
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      .view-all-but {
+        @include fontLatoStyle(24px, 600, #2a71f9, 47px);
+        cursor: pointer;
+      }
+      .main-title {
+        @include fontLatoStyle(38px, 500, #000000, 58px);
+        display: flex;
+        margin-left: 15px;
+        align-items: center;
+      }
+    }
+  }
+  .home-wall-mural {
+    height: 720px;
+    width: 100%;
+
+    .home-wall-mural-inner-container {
+      background: url("../../assets/images/background.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      height: 880px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-direction: column;
+      .home-wall-mural-title-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 550px;
+        padding-bottom: 80px;
+      }
+    }
+
+    .home-wall-mural--title {
+      @include fontPoppinsStyle(64px, 700, #ffffff, 76px);
+    }
+
+    .home-wall-mural--title-two {
+      @include fontLatoStyle(52px, 400, #ffffff, 62px);
+    }
+
+    .card-one-container {
+      position: relative;
+      top: 130px;
+      height: fit-content;
+      padding-left: 7%;
+      padding-right: 7%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      .card-one-inner-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+    }
+  }
+
+  .why-wallantics-container {
+    margin-top: 500px;
+    filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+    width: 100%;
+    background: radial-gradient(
+      88.26% 88.26% at 50.62% 41.31%,
+      rgba(241, 224, 206, 0.33) 0%,
+      rgba(237, 217, 196, 0.2739) 52.6%,
+      rgba(235, 167, 98, 0) 100%
+    );
+    .why-wallantics--title {
+      width: 100%;
+      padding-top: 100px;
+      height: 60px;
+      @include fontPoppinsStyle(40px, 700, #000000, 60px);
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .why-wallantics-card-container {
+      height: 450px;
+      width: 100%;
+
+      padding: 200px;
+
+      display: -webkit-box;
+
+      display: -ms-flexbox;
+
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+
+      background: -o-radial-gradient(
+        50.62% 41.31%,
+        88.26% 88.26%,
+        rgba(241, 224, 206, 0.33) 0%,
+        rgba(237, 217, 196, 0.2739) 52.6%,
+        rgba(235, 167, 98, 0) 100%
+      );
+
+      background: radial-gradient(
+        88.26% 88.26% at 50.62% 41.31%,
+        rgba(241, 224, 206, 0.33) 0%,
+        rgba(237, 217, 196, 0.2739) 52.6%,
+        rgba(235, 167, 98, 0) 100%
+      );
+      -webkit-filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+      filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+
+      .card-two {
+        height: 351px;
+        width: 268px;
+
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        .card-two-img {
+          height: 100px;
+          width: 100px;
+          margin-bottom: 40px;
+        }
+
+        .card-two-title {
+          @include fontLatoStyle(34px, 800, #000000, 41px);
+        }
+
+        .card-two-content {
+          @include fontLatoStyle(24px, 600, #000000, 29px, 0.04em);
+        }
+      }
+    }
+  }
+
+  .wall-murals-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .wall-sec-three {
+      width: 30%;
+      background-color: #ffffff;
+      padding: 3%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+      border-radius: 5px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      .wall-sec-title {
+        @include fontLatoStyle(28px, 500, #000000, 36px);
+        padding: 5px 0 5px 0;
+      }
+      .wall-sec-subject {
+        @include fontLatoStyle(18px, 400, #000000, 22px);
+        padding: 5px 0 5px 0;
+      }
+      .wall-sec-three-btn {
+        background-color: #a26220;
+        width: 191px;
+        height: 57px;
+        color: #ffffff;
+        @include fontLatoStyle(16px, 500, #ffffff, 19px);
+      }
+    }
+  }
+
+  .footer-margin {
+    margin-bottom: 200px;
+  }
+}
+
+.style-container {
+  height: 200px;
+  background-color: green;
+}
+
+.carousel-main {
+  display: flex;
+  gap: 20px;
+}
+
+.ul-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn-active {
+  width: 15px;
+  height: 15px;
+  background-color: #af763a;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.carousel-btn-inactive {
+  width: 15px;
+  height: 15px;
+  background-color: #e1e1e1;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1366px) and (max-height: 768px) {
+  .home-content-container {
+    width: 100%;
+    height: fit-content;
+
+    .main-container-bg {
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        #faf5ef 0%,
+        #faf5ef 53.65%,
+        #faf5ef 100%
+      );
+
+      .grass-txt {
+        @include fontLatoStyle(20px, 400, #1a2323, 26px);
+        margin-bottom: 50px;
+      }
+    }
+
+    .main-container {
+      height: fit-content;
+      width: 100%;
+
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 80px;
+      margin-bottom: 20px;
+
+      .room-vis-conatiner {
+        display: flex;
+        padding: 20px;
+        .section-one {
+          flex: 1;
+        }
+
+        .section-two {
+          flex: 1;
+          .room-vis-txt {
+            @include fontLatoStyle(20px, 400, #2f2f2f, 24px);
+            margin-bottom: 50px;
+            margin-left: 20px;
+            width: 700px;
+          }
+
+          .room-vis-try-now--but {
+            width: 275px;
+            margin-left: 20px;
+            height: 57px;
+            cursor: pointer;
+            background: #ffffff;
+            /* Gold 2 */
+
+            border: 1.5px solid #af763a;
+            border-radius: 6px;
+            @include fontLatoStyle(18px, 500, #000000, 22px);
+            text-align: center;
+
+            /* Gold 2 */
+            margin-bottom: 60px;
+            color: #af763a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .dwnld-app-txt {
+            margin-left: 20px;
+            @include fontLatoStyle(21px, 500, #000000, 22px);
+          }
+
+          .dwnld-app-link-container {
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .home-main-card-container {
+        display: flex;
+        height: fit-content;
+        width: 100%;
+        padding: 20px;
+        .blog-container {
+          width: 45%;
+          .blog-post-img {
+            margin-bottom: 20px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 0px 0px 0px;
+
+            cursor: pointer;
+          }
+
+          .blog-post-date {
+            @include fontLatoStyle(16px, 600, #cd9c69, 48px);
+          }
+
+          .blog-post-title {
+            @include fontLatoStyle(25px, 600, #000000, 45px);
+            margin-bottom: 13px;
+          }
+
+          .blog-post-content {
+            @include fontLatoStyle(18px, 500, #838383, 29px);
+          }
+        }
+
+        .testimonial-card-container {
+          width: 500px;
+          height: 280px;
+
+          background: #ffffff;
+          /* Gold 1 */
+
+          border: 1.5px solid #cd9c69;
+          box-shadow: inset 0px 2px 13px rgba(230, 193, 86, 0.18);
+          border-radius: 10px;
+
+          .testimonial-card-inner-container {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .img-section {
+            width: 60px;
+            height: 60px;
+            border-radius: 86px;
+
+            background-color: #ced3dc;
+          }
+
+          .testimonial-card-title {
+            @include fontLatoStyle(23px, 600, #000000, 40px);
+          }
+
+          .testimonial-card-location {
+            @include fontLatoStyle(18px, 600, #7a6e6e, 30px);
+            margin-top: -10px;
+          }
+
+          .testimonial-card-content {
+            @include fontLatoStyle(13px, 400, #838383, 24px);
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        .view-all-but {
+          @include fontLatoStyle(24px, 600, #2a71f9, 47px);
+          cursor: pointer;
+        }
+        .main-title {
+          @include fontLatoStyle(38px, 500, #000000, 58px);
+          display: flex;
+          margin-left: 15px;
+          align-items: center;
+        }
+      }
+    }
+    .home-wall-mural {
+      height: 1100px;
+      width: 100%;
+
+      .home-wall-mural-inner-container {
+        background: url("../../assets/images/background.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        height: 880px;
+        background-color: grey;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
+      .home-wall-mural--title {
+        @include fontPoppinsStyle(64px, 700, #ffffff, 76px);
+      }
+
+      .home-wall-mural--title-two {
+        @include fontLatoStyle(52px, 600, #ffffff, 62px);
+      }
+
+      .card-one-container {
+        position: relative;
+        top: 130px;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+        padding: 50px;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        -webkit-box-pack: center;
+        justify-content: center;
+        background: radial-gradient(
+          88.26% 88.26% at 50.62% 41.31%,
+          rgba(241, 224, 206, 0.33) 0%,
+          rgba(237, 217, 196, 0.2739) 52.6%,
+          rgba(235, 167, 98, 0) 100%
+        );
+        filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+        .card-one-inner-container {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+    }
+
+    .why-wallantics-container {
+      margin-top: 500px;
+      background: radial-gradient(
+        88.26% 88.26% at 50.62% 41.31%,
+        rgba(241, 224, 206, 0.33) 0%,
+        rgba(237, 217, 196, 0.2739) 52.6%,
+        rgba(235, 167, 98, 0) 100%
+      );
+      filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+      width: 100%;
+
+      .why-wallantics--title {
+        width: 100%;
+        height: 60px;
+        @include fontPoppinsStyle(40px, 700, #000000, 60px);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .why-wallantics-card-container {
+        height: 450px;
+        width: 100%;
+
+        padding: 150px;
+
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        background: -o-radial-gradient(
+          50.62% 41.31%,
+          88.26% 88.26%,
+          rgba(241, 224, 206, 0.33) 0%,
+          rgba(237, 217, 196, 0.2739) 52.6%,
+          rgba(235, 167, 98, 0) 100%
+        );
+
+        background: radial-gradient(
+          88.26% 88.26% at 50.62% 41.31%,
+          rgba(241, 224, 206, 0.33) 0%,
+          rgba(237, 217, 196, 0.2739) 52.6%,
+          rgba(235, 167, 98, 0) 100%
+        );
+        -webkit-filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+        filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+
+        .card-two {
+          height: 351px;
+          width: 268px;
+
+          display: -webkit-box;
+
+          display: -ms-flexbox;
+
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+
+          .card-two-img {
+            height: 100px;
+            width: 100px;
+            margin-bottom: 40px;
+          }
+
+          .card-two-title {
+            @include fontLatoStyle(34px, 800, #000000, 41px);
+          }
+
+          .card-two-content {
+            @include fontLatoStyle(24px, 600, #000000, 29px, 0.04em);
+          }
+        }
+      }
+    }
+
+    .footer-margin {
+      margin-bottom: 200px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) and (max-height: 720px) {
+  .home-content-container {
+    width: 100%;
+    height: fit-content;
+
+    .main-container-bg {
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        #faf5ef 0%,
+        #faf5ef 53.65%,
+        #faf5ef 100%
+      );
+
+      .grass-txt {
+        @include fontLatoStyle(20px, 400, #1a2323, 26px);
+        margin-bottom: 50px;
+      }
+    }
+
+    .main-container {
+      height: fit-content;
+      width: 100%;
+
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 80px;
+      margin-bottom: 20px;
+
+      .room-vis-conatiner {
+        display: flex;
+        padding: 20px;
+        .section-one {
+          flex: 1;
+        }
+
+        .section-two {
+          flex: 1;
+          .room-vis-txt {
+            @include fontLatoStyle(20px, 400, #2f2f2f, 24px);
+            margin-bottom: 50px;
+            margin-left: 20px;
+            width: 700px;
+          }
+
+          .room-vis-try-now--but {
+            width: 275px;
+            margin-left: 20px;
+            height: 57px;
+            cursor: pointer;
+            background: #ffffff;
+            /* Gold 2 */
+
+            border: 1.5px solid #af763a;
+            border-radius: 6px;
+            @include fontLatoStyle(18px, 500, #000000, 22px);
+            text-align: center;
+
+            /* Gold 2 */
+            margin-bottom: 60px;
+            color: #af763a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .dwnld-app-txt {
+            margin-left: 20px;
+            @include fontLatoStyle(21px, 500, #000000, 22px);
+          }
+
+          .dwnld-app-link-container {
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .home-main-card-container {
+        display: flex;
+        height: fit-content;
+        width: 100%;
+        gap: 25px;
+        padding: 20px;
+
+        .blog-container {
+          width: 45%;
+          .blog-post-img {
+            margin-bottom: 20px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 0px 0px 0px;
+            cursor: pointer;
+          }
+
+          .blog-post-date {
+            @include fontLatoStyle(16px, 600, #cd9c69, 48px);
+          }
+
+          .blog-post-title {
+            @include fontLatoStyle(25px, 600, #000000, 45px);
+            margin-bottom: 13px;
+          }
+
+          .blog-post-content {
+            @include fontLatoStyle(18px, 500, #838383, 29px);
+          }
+        }
+
+        .testimonial-card-container {
+          width: 500px;
+          height: 280px;
+
+          background: #ffffff;
+          /* Gold 1 */
+
+          border: 1.5px solid #cd9c69;
+          box-shadow: inset 0px 2px 13px rgba(230, 193, 86, 0.18);
+          border-radius: 10px;
+
+          .testimonial-card-inner-container {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .img-section {
+            width: 60px;
+            height: 60px;
+            border-radius: 86px;
+
+            background-color: #ced3dc;
+          }
+
+          .testimonial-card-title {
+            @include fontLatoStyle(23px, 600, #000000, 40px);
+          }
+
+          .testimonial-card-location {
+            @include fontLatoStyle(18px, 600, #7a6e6e, 30px);
+            margin-top: -10px;
+          }
+
+          .testimonial-card-content {
+            @include fontLatoStyle(13px, 400, #838383, 24px);
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        .view-all-but {
+          @include fontLatoStyle(24px, 600, #2a71f9, 47px);
+          cursor: pointer;
+        }
+        .main-title {
+          @include fontLatoStyle(38px, 500, #000000, 58px);
+          display: flex;
+          margin-left: 15px;
+          align-items: center;
+        }
+      }
+    }
+    .home-wall-mural {
+      height: 1100px;
+      width: 100%;
+
+      .home-wall-mural-inner-container {
+        background: url("../../assets/images/background.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        height: 880px;
+        background-color: grey;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
+      .home-wall-mural--title {
+        @include fontPoppinsStyle(64px, 700, #ffffff, 76px);
+      }
+
+      .home-wall-mural--title-two {
+        @include fontLatoStyle(52px, 600, #ffffff, 62px);
+      }
+
+      .card-one-container {
+        position: relative;
+        top: 130px;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+        padding: 50px;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        -webkit-box-pack: center;
+        justify-content: center;
+        background: radial-gradient(
+          88.26% 88.26% at 50.62% 41.31%,
+          rgba(241, 224, 206, 0.33) 0%,
+          rgba(237, 217, 196, 0.2739) 52.6%,
+          rgba(235, 167, 98, 0) 100%
+        );
+        filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+        .card-one-inner-container {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+        }
+      }
+    }
+
+    .why-wallantics-container {
+      margin-top: 500px;
+      background: radial-gradient(
+        88.26% 88.26% at 50.62% 41.31%,
+        rgba(241, 224, 206, 0.33) 0%,
+        rgba(237, 217, 196, 0.2739) 52.6%,
+        rgba(235, 167, 98, 0) 100%
+      );
+      filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+      width: 100%;
+
+      .why-wallantics--title {
+        width: 100%;
+        height: 60px;
+        @include fontPoppinsStyle(40px, 700, #000000, 60px);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+      }
+
+      .why-wallantics-card-container {
+        height: 450px;
+        width: 100%;
+
+        padding: 100px;
+
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        background: -o-radial-gradient(
+          50.62% 41.31%,
+          88.26% 88.26%,
+          rgba(241, 224, 206, 0.33) 0%,
+          rgba(237, 217, 196, 0.2739) 52.6%,
+          rgba(235, 167, 98, 0) 100%
+        );
+
+        background: radial-gradient(
+          88.26% 88.26% at 50.62% 41.31%,
+          rgba(241, 224, 206, 0.33) 0%,
+          rgba(237, 217, 196, 0.2739) 52.6%,
+          rgba(235, 167, 98, 0) 100%
+        );
+        -webkit-filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+        filter: drop-shadow(0px 4px 30px rgba(255, 236, 214, 0.15));
+
+        .card-two {
+          height: 351px;
+          width: 268px;
+
+          display: -webkit-box;
+
+          display: -ms-flexbox;
+
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+
+          .card-two-img {
+            height: 100px;
+            width: 100px;
+            margin-bottom: 40px;
+          }
+
+          .card-two-title {
+            @include fontLatoStyle(34px, 800, #000000, 41px);
+          }
+
+          .card-two-content {
+            @include fontLatoStyle(24px, 600, #000000, 29px, 0.04em);
+          }
+        }
+      }
+    }
+
+    .footer-margin {
+      margin-bottom: 200px;
+    }
+  }
+}

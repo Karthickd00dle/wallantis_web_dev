@@ -1,0 +1,85 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.custom-select {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-left: 20px;
+}
+
+.orders-card {
+  width: 900px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  .remove-item-label {
+    @include fontLatoStyle(22px, 700, #f14c54, 29px);
+  }
+}
+
+.title {
+  @include fontLatoStyle(28px, 700, #000000, 38px);
+}
+
+.del-date {
+  @include fontLatoStyle(20px, 700, #000000, 29px);
+  margin-top: 7px;
+  margin-left: 100px;
+}
+
+.color {
+  @include fontRobotoStyle(16px, 500, #696969);
+}
+
+.amount {
+  @include fontLatoStyle(24px, 700, #000000);
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.del-confirmation {
+  @include fontLatoStyle(20px, 500, #000000);
+}
+
+.payment-mode {
+  @include fontLatoStyle(16px, 700, #000000);
+}
+
+.payment-bank {
+  @include fontLatoStyle(14px, 500, #000000);
+  margin-top: -20px;
+}
+
+.product-rating {
+  @include fontLatoStyle(24px, 700, #2a71f9);
+  cursor: pointer;
+}
+
+.installation-expectation {
+  @include fontLatoStyle(16px, 700, #000000);
+}
+
+.edit {
+  text-decoration-line: underline;
+
+  color: #2a71f9;
+  cursor: pointer;
+}
+
+.installation-charges {
+  @include fontPoppinsStyle(18px, 400, #6b7280);
+}
+
+.installation-amount {
+  @include fontPoppinsStyle(14px, 600, #1a2323);
+}
+
+.delete-Icon {
+  float: right;
+  cursor: pointer;
+}

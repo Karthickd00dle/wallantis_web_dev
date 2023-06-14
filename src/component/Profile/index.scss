@@ -1,0 +1,106 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.profile-card-container {
+  height: 125px;
+  width: 450px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  .profile-image {
+    border-radius: 100%;
+  }
+  .label-hello {
+    @include fontLatoStyle(16px, 700, #000000, 24px);
+  }
+  .label-name {
+    @include fontLatoStyle(26px, 700, #000000, 40px);
+  }
+}
+
+.navigation-panel-container {
+  height: auto;
+  width: 450px;
+  padding-bottom: 200px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  .navigation-tab {
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    .navigation-label {
+      @include fontLatoStyle(20px, 700, #696969, 29px);
+    }
+    .navigation-label.active {
+      @include fontLatoStyle(20px, 700, #2a71f9, 29px);
+    }
+  }
+}
+
+.navigation-tab.active {
+  background: #e7f3ff;
+  border-left: 2px solid #2a71f9;
+}
+
+.profile-main {
+  padding: 7%;
+  display: flex;
+  .right-pane {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-main {
+  width: 400px;
+  height: 120px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 0 20px;
+}
+
+.tab-menus {
+  background: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 400px;
+  min-height: 500px;
+  height: auto;
+}
+
+.card-info {
+  width: 650px;
+  min-height: 640px;
+  height: auto;
+  position: relative;
+
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  padding: 0px !important;
+}
+
+.card-content h6,
+h2 {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.chatIcon {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  z-index: 99;
+  cursor: pointer;
+}

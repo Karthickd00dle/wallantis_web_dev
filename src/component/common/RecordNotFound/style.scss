@@ -1,0 +1,21 @@
+@import "../../../assets/scss/abstracts/abstracts";
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+.record_not_found {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  position: absolute;
+  left: 45%;
+
+  @include media-breakpoint-mobile-port {
+    position: initial;
+  }
+
+  label {
+    @include fontLatoStyle(18px, 600, $black);
+  }
+}

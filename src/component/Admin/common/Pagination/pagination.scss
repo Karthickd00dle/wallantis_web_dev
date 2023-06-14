@@ -1,0 +1,40 @@
+// @import '../../../assets/scss/abstracts/variables.scss';
+// @import '../../../assets/scss/abstracts/mixins.scss';
+
+.pagination-inactive-page,
+.pagination-break,
+.pagination-previous-page {
+  a {
+    text-decoration: none;
+    box-sizing: border-box;
+    margin: 0 7px;
+    background: #ffffff;
+    border: 1px solid #737373;
+    border-radius: 3px;
+    color: #737373;
+    font-size: 12px;
+    padding: 5px 9px;
+
+    &.pagination-active-link,
+    &:focus {
+      color: #000;
+    }
+  }
+
+  &.pagination-disable {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+
+  ul {
+    padding: 0;
+    display: flex;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+}

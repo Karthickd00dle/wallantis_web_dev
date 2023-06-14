@@ -1,0 +1,12 @@
+// @import "../../../assets/scss/abstracts/abstracts.scss";
+
+.dialog-container {
+  .MuiDialog-container {
+    .MuiDialog-paper {
+      overflow-y: none;
+      margin: 0;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

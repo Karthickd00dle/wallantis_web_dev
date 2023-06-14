@@ -1,0 +1,49 @@
+@import "../../../assets/scss/abstracts/abstracts.scss";
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+.custom_select_container {
+  label {
+    @include fontLatoStyle(15px, 500, #000000, 18px);
+
+    @media screen and (max-width: 667px) {
+      font-size: 18px;
+      line-height: 25px;
+    }
+  }
+
+  .MuiInputBase-root {
+    height: 54px;
+    background: #fdfdfd;
+
+    :focus {
+      outline: none;
+      box-shadow: none;
+      border-color: none;
+    }
+    .MuiSelect-icon {
+      font-size: 23px;
+    }
+    .MuiSelect-select {
+      border: none;
+      font-family: "Lato", sans-serif;
+
+      .MuiInputBase-input {
+        :focus {
+          outline: none;
+          box-shadow: none;
+          border-color: none;
+        }
+      }
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border: white;
+    }
+  }
+}
+.menuItemStyle{
+  display: flex;
+}

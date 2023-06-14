@@ -1,0 +1,72 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.item-row-container {
+  padding: 20px 0 20px 0;
+
+  .item-title {
+    @include fontRobotoStyle(20px, 600, #000000, 22px);
+    width: 350px;
+  }
+  .item-color {
+    @include fontRobotoStyle(16px, 500, #696969, 22px);
+  }
+  .item-status {
+    @include fontRobotoStyle(14px, 400, #41c14d, 22px);
+  }
+  .item-delivery-info {
+    @include fontRobotoStyle(16px, 500, #000000, 22px);
+  }
+  .item-price {
+    @include fontLatoStyle(24px, 700, #000000, 29px);
+  }
+  .order-count-container {
+    width: 140px;
+
+    .order-count {
+      border: 1px solid #2a71f9;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include fontRobotoStyle(20px, 400, #9a9999, 22px);
+    }
+    .order-count-input {
+      min-width: 50px;
+      width: 60px;
+      height: 20px;
+      min-height: 30px;
+      border: 1px solid #858585;
+    }
+  }
+  .save-for-later-text {
+    @include fontRobotoStyle(20px, 700, #000000, 22px);
+    cursor: pointer;
+  }
+  .remove-text {
+    @include fontRobotoStyle(20px, 700, #2a71f9, 22px);
+    cursor: pointer;
+  }
+}
+
+.cart-items-container {
+  width: 896px;
+  box-sizing: border-box;
+
+  border-radius: 6px;
+  padding: 20px 50px 20px 50px;
+  background-color: #ffffff;
+  .item-container-main:not(:last-child) {
+    border-bottom: 1px solid #d5d5d5;
+  }
+  overflow-y: scroll;
+  .cart-items-inner-container {
+    max-height: 700px;
+  }
+  .cart-empty-container {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

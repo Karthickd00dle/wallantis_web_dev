@@ -1,0 +1,36 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.card-catalogue-image-section {
+  height: 233px;
+  width: 100%;
+  margin-bottom: 24px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.catalogue-card-container {
+  width: 300px;
+  margin-bottom: 50px;
+
+  img {
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
+
+  .catalogue-card-title {
+    @include fontLatoStyle(29px, 500, #000000, 35px);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .catalogue-card-view {
+    @include fontLatoStyle(19px, 400, #2a71f9, 23px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+  }
+}

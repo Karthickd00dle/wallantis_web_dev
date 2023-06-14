@@ -1,0 +1,40 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.table-title {
+  @include fontLatoStyle(20px, 700, #000000, 29px);
+}
+
+.download-csv-button {
+  border: 1px solid #5d5fef;
+  @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+}
+.add-new-installer-button {
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  background: #5d5fef;
+  border-radius: 6px;
+  &:hover {
+    background: #5d5fef;
+  }
+}
+
+.status-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  &.active {
+    background-color: #26e044;
+  }
+  &.inactive {
+    background-color: #e11539;
+  }
+}
+
+.table-head-cell-label {
+  @include fontLatoStyle(14px, 600, #ababab, 17px);
+}
+.table-body-cell-label {
+  @include fontLatoStyle(14px, 600, #000000, 17px);
+}
+.table-cell-menu-item {
+  @include fontRobotoStyle(14px, 400, #ababab, 16px);
+}

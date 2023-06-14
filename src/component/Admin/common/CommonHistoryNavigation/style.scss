@@ -1,0 +1,5 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.routing-label {
+  @include fontLatoStyle(20px, 600, #263238, 24px);
+}

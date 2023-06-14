@@ -1,0 +1,95 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.catalogue-container {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 6%;
+  padding-right: 6%;
+  .catalogue-wallpaper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    label {
+      @include fontLatoStyle(27px, 700, #000000);
+    }
+    span {
+      @include fontLatoStyle(15px, 700, #2a71f9);
+      cursor: pointer;
+    }
+  }
+}
+.catalogue-head {
+  height: 350px;
+  background-color: #54cfbd;
+  padding-top: 75px;
+  .main-menu {
+    display: flex;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    @include fontLatoStyle(40px, 700, #000000, 54px);
+  }
+}
+.catalogue-main {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.catalogue-card-container {
+  height: 289px;
+  width: 267px;
+
+  position: relative;
+  .view-catalogue-image {
+    border-radius: 8px;
+  }
+  .view-catalogue-label-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    .view-catalogue-label-inner-container {
+      border-radius: 0 0 8px 8px;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include fontLatoStyle(19px, 500, #ffffff, 25px);
+    }
+  }
+}
+
+.dialog-container {
+  .MuiDialog-container {
+    .MuiDialog-paper {
+      background-color: #1a2323;
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      padding-left: 3%;
+      padding-right: 3%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+    }
+  }
+  .back-to-website {
+    background: #ffffff;
+    border-radius: 70px;
+    border: 1px solid #9a9999;
+    color: #000000;
+    .back-to-website-label {
+      @include fontPoppinsStyle(18px, 600, #000000, 0px, 0px);
+    }
+  }
+  .label-container {
+    @include fontPoppinsStyle(30px, 700, #ffffff, 49px);
+    .label-wall {
+      color: #ffe650;
+    }
+  }
+}

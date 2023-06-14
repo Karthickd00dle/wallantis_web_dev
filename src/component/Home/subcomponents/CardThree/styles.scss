@@ -1,0 +1,205 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.card-three-container {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 50px;
+  cursor: pointer;
+
+  .card-three-image-section {
+    position: relative;
+    .card-image-container {
+      .card-image {
+        height: 100%;
+        width: 100%;
+
+        object-fit: fill;
+      }
+
+      height: 233px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+  .icon-container {
+    height: 50px;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+    .icon-1 {
+      height: 40px;
+      width: 40px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      margin-right: 8px;
+      cursor: pointer;
+    }
+
+    .icon-2 {
+      height: 40px;
+      width: 40px;
+      border-radius: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  .card-three-title {
+    @include fontLatoStyle(24px, 500, #000000, 35px);
+    margin-bottom: 12px;
+  }
+
+  .card-three-price {
+    @include fontLatoStyle(18px, 500, #696969, 26px);
+    margin-bottom: 8px;
+  }
+
+  .card-three-info-txt {
+    @include fontLatoStyle(16px, 400, #696969, 23px);
+  }
+}
+
+@media only screen and (max-width: 1366px) and (max-height: 768px) {
+  .card-three-container {
+    height: 380px;
+    width: 100%;
+    margin-bottom: 50px;
+    cursor: pointer;
+
+    .card-three-image-section {
+      height: 150px;
+      width: 100%;
+      margin-bottom: 20px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .card-image-container {
+        .card-image {
+          height: 120px;
+          width: 95%;
+        }
+      }
+      .icon-container {
+        height: 30px;
+
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 16px;
+
+        .icon-1 {
+          height: 30px;
+          width: 30px;
+          border-radius: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          margin-right: 8px;
+          cursor: pointer;
+        }
+
+        .icon-2 {
+          height: 30px;
+          width: 30px;
+          border-radius: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+        }
+      }
+    }
+
+    .card-three-title {
+      @include fontLatoStyle(19px, 500, #000000, 30px);
+      margin-top: -10px;
+    }
+
+    .card-three-price {
+      @include fontLatoStyle(15px, 500, #696969, 26px);
+      margin-top: -10px;
+    }
+
+    .card-three-info-txt {
+      @include fontLatoStyle(13px, 400, #696969, 23px);
+      margin-top: -5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px) and (max-height: 720px) {
+  .card-three-container {
+    height: 380px;
+    width: 100%;
+    margin-bottom: 50px;
+    cursor: pointer;
+
+    .card-three-image-section {
+      height: 150px;
+
+      width: 100%;
+      margin-bottom: 24px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .card-image-container {
+        .card-image {
+          height: 120px;
+          width: 95%;
+        }
+      }
+      .icon-container {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-end;
+        padding-right: 16px;
+
+        .icon-1 {
+          height: 30px;
+          width: 30px;
+          border-radius: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          margin-right: 8px;
+          cursor: pointer;
+        }
+
+        .icon-2 {
+          height: 30px;
+          width: 30px;
+          border-radius: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+        }
+      }
+    }
+
+    .card-three-title {
+      @include fontLatoStyle(16px, 500, #000000, 26px);
+      margin-top: -10px;
+    }
+
+    .card-three-price {
+      @include fontLatoStyle(14px, 500, #696969, 26px);
+      margin-top: -10px;
+    }
+
+    .card-three-info-txt {
+      @include fontLatoStyle(12px, 400, #696969, 23px);
+      margin-top: -10px;
+    }
+  }
+}

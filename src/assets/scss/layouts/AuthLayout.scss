@@ -1,0 +1,32 @@
+@import "../abstracts/abstracts.scss";
+
+.auth-layout-container {
+  .auth-layout {
+    background: rgba(0, 0, 0, 0.54);
+    height: 100%;
+    width: 100%;
+    padding: 60px 60px 0px 60px;
+  }
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  top: 0px;
+  background-image: url("../../images/auth-background.png");
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  object-fit: fill;
+
+  .auth-inner-container {
+    padding-top: 8%;
+  }
+  .param-header {
+    @include fontLatoStyle(34px, 600, #ffffff, 47px, 0.04em);
+    padding-top: 50px;
+  }
+  p {
+    @include fontLatoStyle(20px, 500, #ffffff, 20px, 0.04em);
+    padding-top: 20px;
+    width: 70%;
+  }
+}

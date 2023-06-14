@@ -1,0 +1,249 @@
+.header-back-order {
+  margin-top: 30px;
+  margin-left: 25px;
+  span {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 8px;
+    margin-left: 10px;
+  }
+}
+.admin-orderdetail {
+  h3 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 37px;
+  }
+}
+.admin-orderheads {
+  background: #c5caff;
+  border-radius: 10px 10px 0px 0px;
+  width: 1007px;
+  margin-left: 30px;
+  margin-top: 30px;
+  height: 83px;
+  display: flex;
+  h2 {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 120px;
+    margin-top: 30px;
+  }
+  h3 {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 40%;
+    margin-top: 30px;
+  }
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 55px;
+    margin-top: 30px;
+  }
+}
+.admin-ordercontent {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: 1002px;
+  margin-left: 33px;
+  height: 482px;
+  // position: absolute;
+  .admin-item1 {
+    margin-left: 18px;
+    display: flex;
+    position: relative;
+    top: 30px;
+  }
+
+  .rating {
+    label {
+      color: #ababab;
+    }
+  }
+}
+.admin-qty1 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 130px;
+  margin-top: 30px;
+}
+.admin-price1 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 110px;
+  margin-top: 30px;
+}
+.admin-totalprice1 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 20px;
+  margin-left: 110px;
+  margin-top: 30px;
+}
+.admin-close {
+  img {
+    width: 30px;
+    margin-left: 60px;
+    margin-top: 30px;
+  }
+}
+
+.admin-collab2 {
+  margin-top: 70px;
+}
+.admin-collab3 {
+  margin-top: 70px;
+}
+.admin-installer {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  width: 1002px;
+  margin-left: 33px;
+  height: 210px;
+  margin-top: 50px;
+}
+.admin-installerhead {
+  h4 {
+    color: #696969;
+    font-weight: 500;
+    font-size: 20px;
+    position: relative;
+    top: 25px;
+    margin-left: 25px;
+  }
+}
+.Adminadam {
+  img {
+    margin-top: 50px;
+    margin-left: 25px;
+  }
+}
+.adam-info {
+  margin-top: 55px;
+  margin-left: 25px;
+  h3 {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  span {
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+.adam-collab {
+  display: flex;
+}
+
+.Adminphone {
+  border: 1px solid #c5caff;
+  border-radius: 11px;
+  width: 262px;
+  height: 81px;
+}
+.adminphone-info {
+  h3 {
+    color: #696969;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  span {
+    color: #696969;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+.adminphone-collab {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 25px;
+  gap: 30px;
+}
+
+.Admintime {
+  border: 1px solid #c5caff;
+  border-radius: 11px;
+  width: 262px;
+  height: 81px;
+}
+.admintime-info {
+  h3 {
+    color: #696969;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  span {
+    color: #696969;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+.admintime-collab {
+  display: flex;
+  margin-top: 20px;
+  margin-left: 25px;
+  gap: 30px;
+}
+.phonetime {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+}
+.adamtime-collab {
+  display: flex;
+  gap: 250px;
+}
+
+.indicatorcontainer {
+  display: flex;
+  height: 700px;
+  margin-left: 25px;
+}
+.ordertracking {
+  border: 1px solid #000000;
+  border-radius: 14px;
+  width: 328px;
+  height: 825px;
+  margin-left: 30px;
+  margin-top: 30px;
+  h2 {
+    font-weight: 600;
+    font-size: 25px;
+    margin-top: 25px;
+    margin-left: 25px;
+  }
+}
+.adminfinal-collab {
+  display: flex;
+}
+
+.stepper-values {
+  padding: 258px 0px 273px 7px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 89px;
+  gap: 125px;
+  label {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  h4 {
+    color: #696969;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+.stepnextbtn {
+  margin-left: 90%;
+}
+.item1-cont {
+  margin-left: 10px;
+}

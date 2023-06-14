@@ -1,0 +1,306 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.navigation-style {
+  height: 300px;
+  background-color: #54cfbd;
+}
+.banner-container-main {
+  padding: 0% 6% 0% 6%;
+  .banner-container {
+    display: flex;
+    background: #f5f5f5;
+    width: 745px;
+    height: auto;
+    align-items: center;
+
+    .banner-content-container {
+      label {
+        @include fontLatoStyle(36px, 700, #4d4d4d);
+      }
+      p {
+        @include fontLatoStyle(17px, 600, #000000, 189%);
+        width: 689px;
+      }
+    }
+
+    .careerwall-image {
+      height: 360px;
+      width: auto;
+    }
+  }
+}
+
+.opportunities-header {
+  display: flex;
+  justify-content: center;
+  label {
+    @include fontLatoStyle(32px, 700, #4d4d4d, 38px);
+    text-align: center;
+  }
+}
+
+.opportunities-container {
+  display: flex;
+  justify-content: space-evenly;
+  .sales-and-marketing-container-main {
+    height: 500px;
+    width: 475px;
+    position: relative;
+    .sales-image-container {
+      position: absolute;
+      z-index: 1;
+      left: 160px;
+      .sales-img {
+        width: 150px;
+      }
+    }
+    .sales-and-marketing-container {
+      top: 70px;
+      position: relative;
+      padding: 6%;
+      width: 475px;
+      height: 400px;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      label {
+        @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+        display: flex;
+        justify-content: center;
+      }
+      p {
+        @include fontLatoStyle(16px, 500, #000000, 189%);
+        text-align: justify;
+      }
+    }
+  }
+
+  .technology-container-main {
+    height: 500px;
+    width: 475px;
+    position: relative;
+    .tech-image-container {
+      position: absolute;
+      z-index: 1;
+      left: 160px;
+      .tech-img {
+        width: 150px;
+      }
+    }
+
+    .technology-container {
+      top: 70px;
+      position: relative;
+      padding: 6%;
+      width: 475px;
+      height: 400px;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      label {
+        @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+        display: flex;
+        justify-content: center;
+      }
+      p {
+        @include fontLatoStyle(16px, 500, #000000, 189%);
+        text-align: justify;
+      }
+    }
+  }
+
+  .ecofriendly-container-main {
+    height: 500px;
+    width: 475px;
+    position: relative;
+    .eco-image-container {
+      position: absolute;
+      z-index: 1;
+      left: 160px;
+      .eco-img {
+        width: 150px;
+      }
+    }
+
+    .ecofriendly-container {
+      top: 70px;
+      position: relative;
+      padding: 6%;
+      width: 475px;
+      height: 400px;
+      border: 1px solid #c8c8c8;
+      border-radius: 10px;
+      label {
+        @include fontLatoStyle(24px, 700, #4d4d4d, 29px);
+        display: flex;
+        justify-content: center;
+      }
+      p {
+        @include fontLatoStyle(16px, 500, #000000, 189%);
+        text-align: justify;
+      }
+    }
+  }
+}
+
+.job-content-container {
+  border: 1px solid #cbcbcb;
+  .position-name {
+    @include fontLatoStyle(26px, 600, #3f434a, 27px);
+  }
+  .view-details {
+    @include fontLatoStyle(20px, 600, #2a71f9, 27px);
+  }
+  .pinned-label,
+  .address-label {
+    @include fontLatoStyle(18px, 500, #3f434a, 27px);
+  }
+}
+
+.current-openings-container-main {
+  background: #f9f9f9;
+  padding: 0% 6% 0% 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .current-openings-header-container {
+    label {
+      @include fontLatoStyle(36px, 700, #4d4d4d, 58px);
+    }
+  }
+  .current-openings-container {
+    padding: 60px 0 65px 0;
+    .input-container {
+      display: flex;
+      align-items: center;
+      .designation-input,
+      .location-input {
+        width: 350px;
+      }
+      .input-styles {
+        border: 1px solid #838383;
+        border-radius: 6px;
+        @include fontLatoStyle(16px, 500, #4d4d4d, 19px);
+      }
+      .search-button-container {
+        .search-button {
+          background: #a26220;
+          border-radius: 4px;
+          width: 200px;
+          height: 55px;
+        }
+      }
+    }
+  }
+}
+.policies-container-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0% 6% 0% 6%;
+  background: #fcf8f183;
+  .career-policy-header-container {
+    label {
+      @include fontLatoStyle(36px, 700, #000000, 58px);
+    }
+  }
+  .policies-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .career-policy-content {
+      width: 460px;
+      margin: 50px 120px 50px 120px;
+      label {
+        @include fontLatoStyle(19px, 600, #000000, 24px);
+      }
+      p {
+        @include fontLatoStyle(15px, 500, #696969, 189%);
+      }
+    }
+  }
+}
+
+.job-details-container {
+  width: 75%;
+  padding: 6% 6% 6% 6%;
+  .job-details-header-container,
+  .about-position-header-container {
+    label {
+      @include fontLatoStyle(26px, 700, #4d4d4d, 38px);
+    }
+    p {
+      @include fontLatoStyle(16px, 500, #636363, 32px);
+      padding-top: 10px;
+    }
+  }
+  .qualification-header-container {
+    label {
+      @include fontLatoStyle(26px, 700, #4d4d4d, 38px);
+    }
+    li {
+      @include fontLatoStyle(16px, 500, #636363, 38px);
+    }
+  }
+  .job-description-header-container {
+    label {
+      @include fontLatoStyle(26px, 700, #4d4d4d, 38px);
+      &.share-this-job {
+        @include fontLatoStyle(19px, 500, #2a71f9, 38px);
+      }
+      &.label-type,
+      &.label-address {
+        @include fontLatoStyle(16px, 500, #3f434a, 38px);
+      }
+    }
+    p {
+      @include fontLatoStyle(16px, 500, #636363, 32px);
+      padding-top: 10px;
+    }
+  }
+  .job-input-container {
+    background: #f5f5f5;
+    width: 80%;
+
+    .input-container {
+      padding: 40px 70px 40px 30px;
+      .input-field {
+        display: flex;
+        flex-direction: column;
+        label {
+          @include fontLatoStyle(17px, 400, #5a5a5a, 29px);
+          &.required-label {
+            color: #e6c156;
+          }
+        }
+        .input-styles {
+          background: #ffffff;
+          border: 1px solid #bebebe;
+          border-radius: 6px;
+          &.text-area {
+            height: 160px;
+          }
+        }
+        .upload-resume {
+          background: #ffffff;
+          border: 2px dashed #bebebe;
+          border-radius: 6px;
+          height: 170px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          label {
+            @include fontLatoStyle(18px, 400, #8a8a8a, 24px);
+          }
+        }
+        .error-text {
+          padding-top: 7px;
+          @include fontLatoStyle(15px, 500, rgb(211, 7, 7), 20px);
+        }
+        .apply-button {
+          height: 55px;
+          background: #a26220;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}

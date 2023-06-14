@@ -1,0 +1,184 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.detail-head {
+  height: 300px;
+  background-color: #54cfbd;
+}
+.mainmenu {
+  font-weight: 700;
+  font-size: 39px;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+.wallanticsteam {
+  label {
+    @include fontLatoStyle(25px, 700, #4d4d4d);
+    margin-left: 130px;
+    margin-top: 80px;
+  }
+  p {
+    @include fontLatoStyle(18px, 500, #636363, 38px);
+    width: 60%;
+    margin-top: 20px;
+    margin-left: 135px;
+  }
+}
+
+.GM {
+  @include fontLatoStyle(24px, 600, #3f434a);
+  margin-left: 132px;
+  margin-top: 20px;
+}
+
+.generalhead {
+  display: inline-flex;
+  gap: 13px;
+  margin-top: 29px;
+  .sharejob {
+    @include fontLatoStyle(19px, 500, #2a71f9);
+  }
+  .shareicon {
+    color: #2a71f9;
+    margin-top: 7px;
+  }
+}
+
+.generalcombine {
+  display: flex;
+  gap: 60%;
+}
+.locationicon {
+  color: #2a71f9;
+}
+
+.gmcontents {
+  margin-top: 24px;
+  margin-left: 8%;
+}
+
+.aboutposition {
+  label {
+    @include fontLatoStyle(24px, 700, #4d4d4d);
+    margin-left: 8%;
+    margin-top: 39px;
+  }
+  p {
+    @include fontLatoStyle(18px, 500, #636363, 35px);
+    margin-top: 15px;
+    margin-left: 8%;
+  }
+}
+
+.qualifications {
+  ul {
+    margin-top: 20px;
+  }
+  label {
+    @include fontLatoStyle(24px, 700, #3f434a, 47px);
+    margin-left: 8%;
+    margin-top: 14px;
+  }
+  li {
+    @include fontLatoStyle(20px, 500, #636363);
+    margin-left: 3%;
+    margin-top: 20px;
+    width: 600px;
+  }
+}
+.gmfname {
+  label {
+    @include fontLatoStyle(21px, 400, #5a5a5a);
+    margin-left: 8%;
+    margin-top: 7%;
+  }
+  input {
+    box-sizing: border-box;
+    width: 941px;
+    height: 56px;
+    background: #ffffff;
+    border: 1px solid #bebebe;
+    margin-left: 8%;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 2px 2px 2px 26px;
+  }
+}
+
+.gmlname {
+  label {
+    @include fontLatoStyle(21px, 400, #5a5a5a);
+    margin-left: 8%;
+    margin-top: 20px;
+  }
+  input {
+    box-sizing: border-box;
+    width: 941px;
+    height: 56px;
+    background: #ffffff;
+    border: 1px solid #bebebe;
+    margin-left: 8%;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 2px 2px 2px 26px;
+  }
+}
+
+.gmsummary {
+  label {
+    @include fontLatoStyle(21px, 400, #5a5a5a);
+    margin-left: 8%;
+    margin-top: 20px;
+  }
+  input {
+    box-sizing: border-box;
+    width: 941px;
+    height: 180px;
+    background: #ffffff;
+    border: 1px solid #bebebe;
+    margin-left: 8%;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 2px 2px 2px 26px;
+  }
+}
+.gmresume {
+  label {
+    @include fontLatoStyle(21px, 400, #5a5a5a);
+    margin-left: 8%;
+    margin-top: 20px;
+  }
+  input {
+    box-sizing: border-box;
+    width: 941px;
+    height: 180px;
+    background: #ffffff;
+    border: 1px solid #bebebe;
+    margin-left: 8%;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 2px 2px 2px 26px;
+  }
+}
+.gm-apply {
+  width: 941px;
+  height: 60px;
+  color: #ffffff;
+  background: #a26220;
+  border-radius: 6px;
+  margin-left: 8%;
+  border-color: #a26220;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.gmentries {
+  margin-top: 5%;
+  width: 70%;
+  height: 10%;
+  background: #f5f5f5;
+  margin-left: 8%;
+}
+.gm-h {
+  height: 30vh;
+}

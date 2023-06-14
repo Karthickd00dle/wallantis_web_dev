@@ -1,0 +1,98 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.delivery-card {
+  width: 1178px;
+  height: 338px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.delivery-card-inner {
+  width: 90%;
+  height: 231px;
+  background-color: #f2f2f2;
+  margin-left: 5%;
+}
+.return-order-main {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  .name {
+    @include fontLatoStyle(32px, 700, #000000);
+  }
+}
+
+.return-details-card {
+  width: 1177px;
+  height: auto;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+
+  .add-bank-account {
+    @include fontLatoStyle(16px, 500, #2a71f9);
+  }
+
+  .action-btn {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.payment-mode-name {
+  @include fontLatoStyle(16px, 700, #000000);
+}
+
+.payment-mode-type {
+  @include fontLatoStyle(14px, 500, #000000);
+  margin-top: -20px;
+}
+
+.eligibility-date {
+  @include fontLatoStyle(16px, 500, #000000);
+  margin-left: 5%;
+}
+
+.return-summary-title {
+  @include fontLatoStyle(24px, 600, #2a71f9);
+}
+
+.small-image {
+  width: 93px;
+  height: 96px;
+}
+
+.return-summary-card {
+  width: 385px;
+  height: 393px;
+  background: #fffefe;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 50px;
+  .date {
+    @include fontLatoStyle(15px, 600, #2a71f9);
+  }
+
+  .type {
+    @include fontLatoStyle(16px, 600, #000000);
+  }
+
+  .color {
+    @include fontRobotoStyle(12px, 500, #696969);
+    margin-top: -10px;
+  }
+
+  .refund-text {
+    @include fontLatoStyle(22px, 400, #000000);
+  }
+
+  .refund-amount {
+    @include fontLatoStyle(24px, 700, #cd9c69);
+  }
+}

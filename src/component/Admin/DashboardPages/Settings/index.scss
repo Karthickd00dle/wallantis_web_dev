@@ -1,0 +1,91 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.settings-main {
+  position: relative;
+  .settings-comp {
+    margin-top: 20px;
+    margin-left: 50px;
+
+    p {
+      @include fontLatoStyle(20px, 600, #444242);
+    }
+    .settings-tabs {
+      display: flex;
+      gap: 30px;
+      .tab-name {
+        @include fontLatoStyle(16px, 700, #000000);
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .active-tab {
+        border-bottom: 2px solid #ff8c6d;
+        padding: 10px;
+      }
+    }
+
+    .border-bottom {
+      border-bottom: 1px solid #d2d2d2;
+      // min-width: 1150px;
+      margin-top: -17px;
+    }
+
+    .profile-card {
+      margin-top: 20px;
+      background: #ffffff;
+      border: 1px solid #d5d5d5;
+      position: relative;
+      width: 850px;
+      padding: 0px 30px;
+      p {
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .close-image {
+        position: absolute;
+        top: 50px;
+        left: 190px;
+        cursor: pointer;
+      }
+
+      .picture-upload {
+        margin-top: 60px;
+        p {
+          @include fontLatoStyle(14px, 400, #000000);
+          opacity: 0.6;
+        }
+      }
+
+      .btn-container {
+        margin: 20px 0px;
+      }
+
+      .black-outlined {
+        width: 177px;
+        height: 51px;
+        background-color: white;
+        border: 1px solid #000000;
+        border-radius: 6px;
+        @include fontLatoStyle(16px, 500, #000000, 19px);
+        text-align: center;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .upload-btn-wrapper input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}

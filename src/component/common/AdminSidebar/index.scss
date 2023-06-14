@@ -1,0 +1,40 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.sidebar-main {
+  width: 333px;
+  min-height: 100vh;
+  background: #010101;
+  border-right: 1px solid #d5d5d5;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
+  .logo {
+    padding: 20px;
+    p {
+      @include fontLatoStyle(36px, 700, #c5caff, 43px);
+    }
+  }
+
+  .menu-items {
+    padding: 20px;
+
+    .menu-item-list {
+      display: flex;
+      margin-bottom: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    p {
+      @include fontLatoStyle(20px, 500, #ffffff);
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .sidebar-icon {
+      margin-top: 10px;
+    }
+
+    .active {
+      color: #c5caff;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.new-address-form-container {
+  padding: 7%;
+  .address-form {
+    display: flex;
+    flex-direction: column;
+    .add-new-address-label {
+      text-transform: capitalize;
+      @include fontLatoStyle(28px, 600, #000000, 42px);
+    }
+    .use-location-container {
+      .use-location-label {
+        @include fontLatoStyle(19px, 400, #000000, 20px);
+      }
+    }
+    .input-container {
+      display: flex;
+      width: 380px;
+      flex-direction: column;
+      .input-label {
+        @include fontLatoStyle(17px, 400, #000000, 20px);
+      }
+      .text-input {
+        border-radius: 4px;
+        width: 800px;
+        border: 1px solid #d5d5d5;
+        padding: 15px;
+        background-color: transparent;
+      }
+      .select-input {
+        background-color: #f2f2f2;
+        border: 1px solid #d5d5d5;
+        width: 375px !important;
+        border-radius: 4px;
+      }
+      .error-text {
+        padding-top: 7px;
+        @include fontLatoStyle(15px, 500, rgb(211, 7, 7), 20px);
+      }
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      .input-label {
+        @include fontLatoStyle(17px, 400, #000000, 20px);
+      }
+      .checkbox-outer {
+        box-sizing: border-box;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #9a9999;
+      }
+    }
+    .add-address-button {
+      width: 292px;
+      height: 50px;
+      background: #a26220;
+      border-radius: 6px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.date-picker-style {
+  width: 100%;
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    @include fontPoppinsStyle(16px, 600, #000000, 24px);
+    border-radius: 0;
+  }
+}

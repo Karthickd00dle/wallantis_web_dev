@@ -1,0 +1,111 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.contact-us-container {
+  .contact-us-head {
+    background-color: #54cfbd;
+    height: 300px;
+    .contact-us-inner-container {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .contact-us-label {
+        @include fontLatoStyle(38px, 700, #000000, 45px);
+      }
+    }
+  }
+  .contact-us-main {
+    .contact-head {
+      @include fontLatoStyle(38px, 700, #000000, 45px);
+      text-align: center;
+      width: 100%;
+    }
+    .contact-card-container {
+      display: flex;
+      justify-content: center;
+      .contact-cards {
+        display: flex;
+        justify-content: space-between;
+        width: 1250px;
+        .contact-subject {
+          @include fontLatoStyle(17px, 400, #000000, 26px);
+        }
+        .contact-address,
+        .contact-email,
+        .contact-call {
+          .contact-title {
+            @include fontLatoStyle(22px, 600, #000000, 29px);
+          }
+          background: #ffffff;
+          box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+          border-radius: 6px;
+          width: 400px;
+          height: 250px;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+        }
+      }
+    }
+    .get-directions-label {
+      @include fontLatoStyle(27px, 700, #2a71f9, 30px);
+      text-decoration: underline;
+      text-align: center;
+      width: 100%;
+    }
+    .need-help-label {
+      @include fontLatoStyle(32px, 700, #000000, 38px);
+      width: 100%;
+      text-align: center;
+    }
+    .contact-info-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 1000px;
+      justify-content: space-between;
+      .field {
+        padding: 8px 0 8px 0;
+        display: flex;
+        flex-direction: column;
+        label {
+          @include fontLatoStyle(18px, 500, #000000, 25px);
+          padding: 3px 0 3px 0;
+        }
+        span {
+          @include fontLatoStyle(18px, 500, #e6c156, 25px);
+        }
+        .error-text {
+          padding-top: 7px;
+          @include fontLatoStyle(15px, 500, rgb(211, 7, 7), 20px);
+        }
+        input {
+          height: 47px;
+          border: 1px solid #969696;
+          border-radius: 10px;
+          padding: 2px 2px 2px 24px;
+          width: 450px;
+          background-color: transparent;
+          &.field-company {
+            width: 1000px;
+          }
+        }
+        .field-message {
+          height: 125px;
+          border: 1px solid #969696;
+          background-color: transparent;
+          border-radius: 10px;
+          padding: 10px 0 0 24px;
+          width: 1000px;
+        }
+      }
+    }
+    .enquire-now-button {
+      height: 50px;
+      width: 225px;
+      background-color: #a26220;
+      @include fontLatoStyle(12px, 400, #ffffff, 12px);
+    }
+  }
+}

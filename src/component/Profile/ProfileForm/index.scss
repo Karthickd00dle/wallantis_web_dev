@@ -1,0 +1,52 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.profile-form {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 50px;
+  border: none !important;
+  font-style: normal;
+  font-weight: 600;
+  width: 87%;
+  height: 700px;
+  .profile-label {
+    @include fontLatoStyle(18px, 700, #000000, 24px);
+  }
+  .save-changed-button {
+    background: #a26220;
+    border-radius: 6px;
+  }
+}
+
+.flex-main {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.profile-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  .change-text {
+    @include fontLatoStyle(15px, 700, #2a71f9, 20px);
+    cursor: pointer;
+  }
+  .profile-input {
+    .MuiInputBase-root.MuiOutlinedInput-root {
+      width: 400px;
+    }
+    &.roll-type {
+      width: 400px;
+      border: 1px solid #d5d5d5;
+    }
+  }
+}
+
+.disabled {
+  background-color: #f9f9f9 !important;
+  border: 1px solid #d5d5d5 !important;
+}

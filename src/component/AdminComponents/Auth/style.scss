@@ -1,0 +1,73 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.login-container {
+  position: relative;
+  padding: 75px 60px 0px 75px;
+  left: 55%;
+  .login-inner-container {
+    display: flex;
+    flex-direction: column;
+    .login-label {
+      @include fontLatoStyle(40px, 700, #000000, 52px);
+    }
+    .login-subject {
+      @include fontLatoStyle(20px, 500, #696969, 24px);
+    }
+    .input-container {
+      width: 425px;
+      .username-label {
+        @include fontLatoStyle(16px, 500, #696969, 19px);
+      }
+      .username-input-field {
+        .MuiInputBase-root.MuiOutlinedInput-root {
+          width: 100%;
+        }
+      }
+      .password-label {
+        @include fontLatoStyle(16px, 500, #696969, 19px);
+      }
+      .password-input-field {
+        .MuiInputBase-root.MuiOutlinedInput-root {
+          width: 100%;
+        }
+      }
+    }
+    .rememberme-forgot-password-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .rememberme-label {
+        @include fontLatoStyle(16px, 500, #696969, 19px);
+      }
+      .forgot-password-label {
+        @include fontLatoStyle(15px, 400, #5d5fef, 18px);
+      }
+    }
+  }
+}
+.dialog-container {
+  width: auto;
+  height: auto;
+
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .dialog-content-container {
+    .email-label {
+      @include fontLatoStyle(16px, 500, #696969, 19px);
+    }
+    .forgot-password-subject {
+      @include fontLatoStyle(16px, 500, #696969, 24px);
+      text-align: center;
+    }
+    .forgot-password-label {
+      @include fontLatoStyle(34px, 700, #000000, 54px);
+      text-align: center;
+    }
+    padding: 10px 105px 70px 105px;
+    .MuiInputBase-root.MuiOutlinedInput-root {
+      width: 100%;
+    }
+  }
+}

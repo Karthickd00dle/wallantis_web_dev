@@ -1,0 +1,100 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.breadcrumbs {
+  position: absolute;
+  margin-left: 100px;
+  margin-top: 50px;
+  @include fontRobotoStyle(14px, 400, #000000);
+}
+
+.order-details {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 90px 100px;
+}
+
+.order-status-details {
+  @include fontLatoStyle(16px, 700, #000000, 19px);
+}
+
+.info-cards {
+  background: #ffffff;
+  min-width: auto;
+  padding: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  border-right: 1px solid #d5d5d5;
+}
+
+.del-address {
+  @include fontInterStyle(20px, 700, #000000, 29px);
+}
+
+.name {
+  @include fontInterStyle(16px, 500, #000000, 22px);
+}
+
+.address {
+  @include fontInterStyle(14px, 500, #000000);
+}
+
+.image {
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.order-updates {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  margin: 80px 100px;
+  padding: 20px;
+}
+
+.success-circle {
+  background-color: #5be167;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.pending-circle {
+  background-color: #d9d9d9;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.order-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.green-progress {
+  background-color: #5be167;
+  height: 2px;
+  width: 130px;
+  margin-top: 14px;
+}
+
+.grey-progress {
+  background-color: #d9d9d9;
+  height: 2px;
+  width: 130px;
+  margin-top: 14px;
+}
+
+.review-btn {
+  width: 216px;
+  height: 60px;
+  border: 1px solid #2a71f9;
+  @include fontLatoStyle(20px, 700, #2a71f9, 24px);
+  background-color: white;
+}
+
+.order-state-name {
+  @include fontRobotoStyle(16px, 500, #000000);
+}
+
+.order-state-date {
+  @include fontRobotoStyle(16px, 500, #696969);
+}

@@ -1,0 +1,23 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.download-csv-button {
+  border: 1px solid #5d5fef;
+  @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+}
+.add-new-installer-button {
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  background: #5d5fef;
+  border-radius: 6px;
+  &:hover {
+    background: #5d5fef;
+  }
+}
+.table-head-cell-label {
+  @include fontLatoStyle(14px, 600, #ababab, 17px);
+}
+.table-body-cell-label {
+  @include fontLatoStyle(14px, 600, #000000, 17px);
+}
+.table-cell-menu-item {
+  @include fontRobotoStyle(14px, 400, #ababab, 16px);
+}

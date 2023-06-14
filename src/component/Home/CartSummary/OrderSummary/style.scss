@@ -1,0 +1,81 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.order-summary {
+  width: 420px;
+  height: 875px;
+  padding: 30px 30px 30px 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  .item-label {
+    @include fontLatoStyle(18px, 500, #474747, 24px);
+  }
+  .text-title {
+    @include fontLatoStyle(26px, 700, #000000, 36px);
+  }
+  .order-count-container {
+    width: 155px;
+    padding-left: 20px;
+    .order-count {
+      border: 1px solid #2a71f9;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include fontRobotoStyle(20px, 400, #9a9999, 22px);
+    }
+    .order-count-input {
+      width: 52px;
+      height: 20px;
+      min-height: 30px;
+      border: 1px solid #2a71f9;
+    }
+  }
+
+  .order-installation-date {
+    .order-installation-text {
+      @include fontLatoStyle(16px, 700, #000000, 22px);
+    }
+    margin-top: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cbcbcb;
+    display: flex;
+    justify-content: space-between;
+    .edit-installation {
+      @include fontLatoStyle(16px, 400, #2a71f9, 19px);
+      border-bottom: 1px solid #2a71f9;
+    }
+  }
+  .coupon-container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #cbcbcb;
+    .coupon-text {
+      @include fontLatoStyle(26px, 700, #000000, 36px);
+    }
+    .MuiInputBase-root.MuiOutlinedInput-root {
+      width: 350px;
+
+      .apply-coupon-text {
+        @include fontRobotoStyle(14px, 400, #2a71f9, 22px);
+      }
+    }
+  }
+  .price-breakup-container {
+    .price-breakup-text {
+      @include fontLatoStyle(26px, 700, #000000, 36px);
+    }
+  }
+  .price-content-title {
+    @include fontLatoStyle(14px, 600, #7d7d7d, 26px);
+    padding: 10px 0px 10px 0px;
+  }
+  .price-content-item {
+    padding: 10px 0px 10px 0px;
+    @include fontLatoStyle(16px, 600, #4d4d4d, 26px);
+  }
+  .sub-total-coupon-container {
+    border-top: 1px solid #cbcbcb;
+    border-bottom: 1px solid #cbcbcb;
+  }
+}

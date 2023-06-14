@@ -1,0 +1,14 @@
+@import "assets/scss/abstracts/abstracts.scss";
+.admin-navbar-container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: #c5caff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  .navbar-container {
+    padding-left: 3rem;
+    @include fontLatoStyle(22px, 600, #444242, 27px);
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,0 +1,28 @@
+@import "assets/scss/abstracts/abstracts";
+
+.add-staff {
+  .add-staff-main {
+    padding: 50px;
+
+    .add-staff-inner {
+      background-color: #ffffff;
+      border: 1px solid #d5d5d5;
+      padding: 20px;
+      p {
+        @include fontLatoStyle(20px, 600, #263238, 24px);
+        display: flex;
+        align-items: center;
+      }
+
+      label {
+        @include fontLatoStyle(16px, 600, $black);
+      }
+    }
+    .checkbox-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      margin-top: 20px;
+      position: relative;
+    }
+  }
+}

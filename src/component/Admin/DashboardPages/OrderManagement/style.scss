@@ -1,0 +1,296 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.download-csv-button {
+  border: 1px solid #5d5fef;
+  @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+}
+.add-new-installer-button {
+  @include fontLatoStyle(16px, 500, #ffffff, 19px);
+  background: #5d5fef;
+  border-radius: 6px;
+  &:hover {
+    background: #5d5fef;
+  }
+}
+.status-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  .status-indicator {
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    &.pending {
+      background-color: #fe7d61;
+    }
+    &.ongoing {
+      background-color: #7cb5ec;
+    }
+    &.completed {
+      background-color: #37c092;
+    }
+  }
+  .order-status-label {
+    &.pending {
+      @include fontLatoStyle(14px, 600, #fe7d61, 17px);
+    }
+    &.ongoing {
+      @include fontLatoStyle(14px, 600, #7cb5ec, 17px);
+    }
+    &.completed {
+      @include fontLatoStyle(14px, 600, #37c092, 17px);
+    }
+  }
+  &.pending {
+    background-color: #fff0ed;
+  }
+  &.ongoing {
+    background-color: #d8e6f3;
+  }
+  &.completed {
+    background-color: #d9f3ea;
+  }
+}
+
+.table-head-cell-label {
+  @include fontLatoStyle(14px, 600, #ababab, 17px);
+}
+.table-body-cell-label {
+  @include fontLatoStyle(14px, 600, #000000, 17px);
+}
+.table-cell-menu-item {
+  @include fontRobotoStyle(14px, 400, #ababab, 16px);
+}
+
+.order-detail-container {
+  padding: 3rem;
+  .order-id-label {
+    @include fontLatoStyle(26px, 700, #000000, 37px);
+  }
+
+  .button-container {
+    .download-csv-button {
+      border: 1px solid #5d5fef;
+      width: 190px;
+      height: 50px;
+      @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+    }
+    .save-button {
+      width: 175px;
+      height: 50px;
+      @include fontLatoStyle(16px, 500, #ffffff, 19px);
+      background: #5d5fef;
+      border-radius: 6px;
+      &:hover {
+        background: #5d5fef;
+      }
+    }
+  }
+  .details-delivery-container {
+    display: flex;
+
+    .customer-details-container-main {
+      .title-label {
+        @include fontPoppinsStyle(18px, 500, #000000, 36px);
+      }
+      .customer-details-container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #d5d5d5;
+        border-radius: 14px;
+        height: 180px;
+        width: 450px;
+        .name-label {
+          @include fontPoppinsStyle(15px, 700, #000000, 22px);
+        }
+        .mobno-label,
+        .address-label {
+          @include fontPoppinsStyle(15px, 400, #000000, 22px);
+        }
+
+        .view-profile-label {
+          @include fontPoppinsStyle(15px, 400, #2a71f9, 22px);
+        }
+      }
+    }
+    .delivery-to-container-main {
+      .title-label {
+        @include fontPoppinsStyle(18px, 500, #000000, 36px);
+      }
+      .delivery-to-container {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #d5d5d5;
+        border-radius: 14px;
+        width: 420px;
+        height: 180px;
+        justify-content: space-between;
+        .address-label {
+          @include fontPoppinsStyle(15px, 400, #000000, 22px);
+          width: 80%;
+        }
+        .payment-label {
+          @include fontPoppinsStyle(15px, 400, #000000, 22px);
+          span {
+            @include fontPoppinsStyle(15px, 700, #49e412, 22px);
+          }
+        }
+      }
+    }
+  }
+  .product-details-container-main {
+    .title-label {
+      @include fontPoppinsStyle(18px, 500, #000000, 36px);
+    }
+    .edit-button {
+      border: 1px solid #5d5fef;
+      @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+      width: 102px;
+      height: 50px;
+    }
+    .product-details-container {
+      border: 1px solid #d5d5d5;
+      border-radius: 14px;
+      width: 925px;
+    }
+  }
+  .installer-details-container-main {
+    .title-label {
+      @include fontPoppinsStyle(18px, 500, #000000, 36px);
+    }
+    .edit-button {
+      border: 1px solid #5d5fef;
+      @include fontLatoStyle(16px, 500, #5d5fef, 19px);
+      width: 102px;
+      height: 50px;
+    }
+    .installer-details-container {
+      border: 1px solid #d5d5d5;
+      border-radius: 14px;
+      width: 925px;
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      .customer-details-container {
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        .name-label {
+          @include fontPoppinsStyle(15px, 700, #000000, 22px);
+        }
+        .mobno-label,
+        .address-label {
+          @include fontPoppinsStyle(15px, 400, #000000, 22px);
+        }
+
+        .view-profile-label {
+          @include fontPoppinsStyle(15px, 400, #2a71f9, 22px);
+        }
+      }
+      .installer-payment-details-container {
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        .heading-label {
+          @include fontPoppinsStyle(15px, 700, #000000, 22px);
+        }
+        .detail-label {
+          @include fontPoppinsStyle(15px, 400, #000000, 22px);
+          &.payment {
+            @include fontPoppinsStyle(15px, 700, #49e412, 22px);
+          }
+        }
+      }
+      .tracking-details-container {
+        display: flex;
+        flex-direction: column;
+
+        width: 300px;
+        .tracking-id-label {
+          @include fontRobotoStyle(14px, 500, #9a9999, 22px);
+        }
+      }
+    }
+  }
+  .order-tracking-container {
+    border: 1px solid #d5d5d5;
+    border-radius: 14px;
+    .title-label {
+      @include fontPoppinsStyle(18px, 500, #272727, 36px);
+    }
+    .tracking-id-label {
+      @include fontRobotoStyle(14px, 500, #9a9999, 22px);
+    }
+    .update-status-button {
+      width: 177px;
+      height: 50px;
+      border: 1px solid #5d5fef;
+      border-radius: 6px;
+      @include fontLatoStyle(14px, 500, #5d5fef, 19px);
+    }
+  }
+}
+
+.order-tracking-status-dialog-container {
+  width: 800px;
+  .order-tracking-label {
+    @include fontPoppinsStyle(24px, 500, #272727, 38px);
+  }
+  .order-status-container {
+    .order-status-label {
+      @include fontLatoStyle(20px, 500, #000000, 24px);
+    }
+    .order-select-style {
+      @include fontLatoStyle(14px, 500, #000000, 17px);
+    }
+    .cancel-button {
+      width: 170px;
+      height: 50px;
+      border: 1px solid #5d5fef;
+      border-radius: 6px;
+      @include fontLatoStyle(14px, 500, #5d5fef, 19px);
+    }
+    .save-button {
+      width: 170px;
+      height: 50px;
+      background-color: #5d5fef;
+      border-radius: 6px;
+      @include fontLatoStyle(14px, 500, #ffffff, 19px);
+    }
+  }
+}
+
+.installer-details-dialog-container {
+  width: 925px;
+  .installer-details-label {
+    @include fontPoppinsStyle(24px, 500, #272727, 38px);
+  }
+  .installer-details-container {
+    .installer-details-input-container {
+      .title-label {
+        @include fontLatoStyle(18px, 500, #696969, 24px);
+      }
+      .tracking-status-select-style {
+        @include fontPoppinsStyle(16px, 600, #000000, 22px);
+      }
+    }
+    .cancel-button {
+      width: 170px;
+      height: 50px;
+      border: 1px solid #5d5fef;
+      border-radius: 6px;
+      @include fontLatoStyle(14px, 500, #5d5fef, 19px);
+    }
+    .save-button {
+      width: 170px;
+      height: 50px;
+      background-color: #5d5fef;
+      border-radius: 6px;
+      @include fontLatoStyle(14px, 500, #ffffff, 19px);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.navigation {
+  padding: 3% 6% 0 6%;
+  
+  .style-arrow {
+    @include fontRobotoStyle(14px, 400, #000000, 22px);
+  }
+  .style-link {
+    @include fontRobotoStyle(14px, 400, #0b0c0c, 22px);
+  }
+}

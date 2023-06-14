@@ -1,0 +1,25 @@
+@import "assets/scss/abstracts/abstracts.scss";
+
+.common-btn {
+  width: 177px;
+  height: 50px;
+  border: 1px solid #5d5fef;
+  background-color: white;
+  border-radius: 6px;
+  @include fontLatoStyle(16px, 500, #5d5fef);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  text-align: center;
+
+  .icon {
+    width: 30px;
+    margin-left: 5px;
+  }
+}
+
+.rounded {
+  border-radius: 30px;
+}
