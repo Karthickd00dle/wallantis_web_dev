@@ -200,18 +200,34 @@ const AddNewAddressFC = ({
               )}
             </div>
 
-            <div className="input-container mt-4">
-              <label className="input-label">Pincode</label>
-              <input
-                name="pincode"
-                type="number"
-                {...register("pincode")}
-                className={"text-input mt-3"}
-                placeholder="Pincode"
-              />
-              {errors.pincode && (
-                <span className="error-text">{errors.pincode.message}</span>
-              )}
+            <div className="d-flex">
+              <div className="input-container mt-4">
+                <label className="input-label">Pincode</label>
+                <input
+                  name="pincode"
+                  type="number"
+                  {...register("pincode")}
+                  className={"text-input w-100 mt-3"}
+                  placeholder="Pincode"
+                />
+                {errors.pincode && (
+                  <span className="error-text">{errors.pincode.message}</span>
+                )}
+              </div>
+              <div className="input-container ms-5 mt-4">
+                <label className="input-label">Installer</label>
+                <CustomSelect
+                  name="installer"
+                  {...register("country")}
+                  placeholder="Rahul, Rs. 150"
+                  inputStyle="mt-3 select-input"
+                  menuItemList={[{ label: "Rahul, Rs. 150", value: "Rahul, Rs. 150" }]}
+                />
+
+                {errors.country && (
+                  <span className="error-text">{errors.country.message}</span>
+                )}
+              </div>
             </div>
 
             <div className="input-container mt-4">
