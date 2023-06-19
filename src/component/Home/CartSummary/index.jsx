@@ -7,6 +7,7 @@ import "./style.scss";
 import { bindActionCreators } from "redux";
 import { deleteCart, getCartListing, updateCart } from "action/CartAct";
 import { NormalNavigate } from "component/common";
+import { conditionalLoad } from "service/helperFunctions";
 
 const CartSummaryMain = ({
   getCartListingAPI,
@@ -84,11 +85,15 @@ const CartSummaryMain = ({
           updateCartCallBack={updateCartCallBack}
           setActiveCartItem={setActiveCartItem}
         />
-        <OrderSummary
-          activeCartItem={activeCartItem}
-          updateCartCallBack={updateCartCallBack}
-          cartData={cartData}
-        />
+
+        {conditionalLoad(
+          cartData?.product?.length > 0,
+          <OrderSummary
+            activeCartItem={activeCartItem}
+            updateCartCallBack={updateCartCallBack}
+            cartData={cartData}
+          />
+        )}
       </div>
     </>
   );
