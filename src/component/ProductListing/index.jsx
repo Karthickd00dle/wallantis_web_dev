@@ -1,5 +1,5 @@
 import CardThree from "component/Home/subcomponents/CardThree";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
 import { SortingMenuList, productItems, productBanner } from "config";
 import React, { useEffect, useState } from "react";
@@ -13,6 +13,7 @@ import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
 import { productfilter } from "service/helperFunctions";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export function ProductHeader({ bannerLabel }) {
   const bannerImage = productBanner.filter((data) => data.type === bannerLabel);
@@ -26,7 +27,7 @@ export function ProductHeader({ bannerLabel }) {
       <img
         width="100%"
         height="505px"
-        src={bannerImage[0].image}
+        src={bannerImage[0]?.image}
         alt="product-banner"
       />
     </div>
@@ -116,7 +117,8 @@ export const ProductListingGrid = ({
 const ProductListingFC = ({ cartItemData, productListingData }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const locationLabel = location?.pathname
+
+  const locationLabel = location.pathname
     .split("/")
     .slice(-1)[0]
     .replace(/-/g, " ");

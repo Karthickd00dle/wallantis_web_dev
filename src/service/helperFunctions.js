@@ -162,7 +162,8 @@ export const productfilter = (location) => {
     location === "zebra blinds" ||
     location === "chick blinds" ||
     location === "wooden blinds" ||
-    location === "customized blinds"
+    location === "customized blinds" ||
+    ""
   ) {
     return productListingFilter.blinds.filter(
       (data) => data.itemheader !== "Categories"

@@ -742,7 +742,8 @@ export const productBanner = [
   {
     id: 13,
     type: "customized blinds",
-    image: "https://cpimg.tistatic.com/04960079/b/4/extra-04960079.jpg",
+    image:
+      "https://tiimg.tistatic.com/fp/1/008/134/horizontal-and-vertical-shape-customized-roller-blind-for-window-843.jpg",
   },
   {
     id: 14,
