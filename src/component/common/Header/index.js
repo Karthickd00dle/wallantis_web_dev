@@ -217,6 +217,7 @@ function Header({ productList }) {
                 key={i}
                 title={item.title}
                 menuItem={item.subMenuItems}
+                route={item.route}
               />
             );
           })}

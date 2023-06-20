@@ -1,5 +1,5 @@
 import CardThree from "component/Home/subcomponents/CardThree";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { CustomSelect, CustomFilterAccordion } from "component/common";
 import { SortingMenuList, productItems, productBanner } from "config";
 import React, { useEffect, useState } from "react";
@@ -13,7 +13,6 @@ import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
 import { productfilter } from "service/helperFunctions";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export function ProductHeader({ bannerLabel }) {
   const bannerImage = productBanner.filter((data) => data.type === bannerLabel);

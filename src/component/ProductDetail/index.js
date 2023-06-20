@@ -229,7 +229,9 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                   <input className="ib-checkBox" type="checkbox" />
                 </div>
                 <div className="ib-body">
-                  <div className="ib-body-title">Installation by Paperwall</div>
+                  <div className="ib-body-title">
+                    Installation by Wallantics
+                  </div>
                   <div className="ib-body-txt">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut dolore magna aliqua. Ut enim

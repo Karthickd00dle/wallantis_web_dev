@@ -10,5 +10,8 @@ export const axiosInstance = axios.create({
 //logout
 export const logout = () => {
   localStorage.removeItem("authToken");
-  history.push("/home/home");
+
+  if (window.location.href.includes("profile-page")) {
+    history.push("/home/home");
+  }
 };
