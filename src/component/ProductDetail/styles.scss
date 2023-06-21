@@ -137,6 +137,11 @@
       margin-bottom: 20px;
     }
 
+    .heading-line {
+      position: relative;
+      z-index: -999;
+    }
+
     .color-picker-container {
       display: flex;
       margin-bottom: 30px;

@@ -179,7 +179,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               especially well as a feature wall.
             </div>
             <div className="info-heading-one">₹3500/Roll</div>
-            <hr />
+            <hr className="heading-line" />
 
             <div>
               <div className="info-heading-one">
