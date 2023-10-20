@@ -11,7 +11,11 @@ export let apiCall = async function ({
 }) {
   return new Promise((resolve, reject) => {
     // setting token
-    if (localStorage.getItem("authToken") && !isForgotPassword) {
+    if (sessionStorage.getItem("authToken") && !isForgotPassword) {
+      axiosInstance.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${sessionStorage.getItem("authToken")}`;
+    } else if (localStorage.getItem("authToken") && !isForgotPassword) {
       axiosInstance.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${localStorage.getItem("authToken")}`;

@@ -7,13 +7,16 @@ import { createRoot } from "react-dom/client";
 import "./assets/scss/abstracts/abstracts.scss";
 import "./assets/scss/main.scss";
 import "react-quill/dist/quill.snow.css";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>
+  <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  </GoogleOAuthProvider>
 );
 
 // If you want your app to work offline and load faster, you can change

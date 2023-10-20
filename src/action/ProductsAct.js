@@ -1,7 +1,7 @@
 import { productAPI } from "../service/apiVariables";
 import { addQuery } from "../service/helperFunctions";
 
-export const getAllProducts =
+export const getAllProductsApi =
   (query) =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
@@ -14,12 +14,25 @@ export const getAllProducts =
     });
   };
 
-export const getProductFilter =
+export const getProductFilterApi =
   () =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
       apiCall({
         ...productAPI.getProductFilter,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };
+
+export const getProductDetailApi =
+  (query) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      addQuery(query, productAPI.getProductDetail);
+      apiCall({
+        ...productAPI.getProductDetail,
       }).then((data) => {
         resolve(data);
       });

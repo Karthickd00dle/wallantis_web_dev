@@ -13,7 +13,7 @@ import { CustomButton, CustomDialog } from "..";
 import { styled } from "@mui/material/styles";
 import { history } from "service/helpers";
 import JohnDoe1 from "assets/images/user.png";
-import { getAllProducts } from "action/ProductsAct";
+import { getAllProductsApi } from "action/ProductsAct";
 import { getCurrentProfile } from "action/ProfileAct";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { routerAuthTokenGuard } from "service/helperFunctions";
@@ -32,18 +32,26 @@ export const CustomHeaderComponent = ({
   const outsideRef = useRef();
   const dispatch = useDispatch();
   const [searchInput, setSearchInput] = useState("");
-  const authToken = localStorage.getItem("authToken");
+
   const [open, setOpen] = useState(false);
   const [itemCount, setItemCount] = useState(null);
   const [productList, setProductList] = useState([]);
   const [currentData, setCurrentData] = useState();
   const [openReferFriend, setOpenReferFriend] = useState(false);
   const handleCartIcon = () => {
-    history.push("/home/cart-summary");
+    history.push("cart-summary");
+  };
+
+  const getAuthToken = () => {
+    if (localStorage.getItem("authToken")) {
+      return localStorage.getItem("authToken");
+    } else if (sessionStorage.getItem("authToken")) {
+      return sessionStorage.getItem("authToken");
+    }
   };
 
   const handleLogoClick = () => {
-    history.push("/home/home");
+    history.push("/home/");
     window.location.reload(false);
     window.scrollTo(0, 0);
   };
@@ -158,7 +166,7 @@ export const CustomHeaderComponent = ({
 
                 <label className="ps-1 cart-icon">Cart</label>
               </div>
-              {!authToken ? (
+              {!getAuthToken() ? (
                 <CustomButton
                   style={{
                     width: "110px",
@@ -242,7 +250,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      getAllProductsAPI: getAllProducts,
+      getAllProductsAPI: getAllProductsApi,
       getCurrentProfileAPI: getCurrentProfile,
     },
     dispatch

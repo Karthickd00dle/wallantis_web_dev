@@ -1,8 +1,9 @@
 import React from "react";
 import "./style.scss";
 import { history } from "service/helpers";
+import jwt_decode from "jwt-decode";
 import { bindActionCreators } from "redux";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { loginApi } from "action/AuthAct";
 import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
@@ -10,6 +11,7 @@ import { InputAdornment } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
+import { GoogleLogin } from "@react-oauth/google";
 
 function LoginComponentMain({ loginApiCall, ownProps }) {
   const location = useLocation().pathname.split("/").slice(-1)[0];
@@ -19,19 +21,33 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
     formState: { errors },
   } = useForm();
 
+  function postLogin(isGoogle, response) {
+    if (isGoogle) {
+      sessionStorage.setItem("authToken", response?.access_token);
+    } else {
+      localStorage.setItem("authToken", response?.access_token);
+    }
+    ternaryCondition(
+      location === "payment-page"
+        ? ownProps.setActiveStep(1)
+        : history.push("/home/")
+    );
+  }
+
   const onSubmit = (data) => {
     loginApiCall({
       username: data.mailId,
       password: data.password,
       loginType: 3,
-    }).then((res) => {
-      localStorage.setItem("authToken", res?.response?.access_token);
-      ternaryCondition(
-        location === "payment-page"
-          ? ownProps.setActiveStep(1)
-          : history.push("/home/home")
-      );
-    });
+    }).then(({ response }) => postLogin(false, response));
+  };
+
+  const googleSignIn = (OAuthRes) => {
+    const decoded = jwt_decode(OAuthRes.credential);
+    loginApiCall({
+      username: decoded.sub,
+      loginType: 2,
+    }).then(({ response }) => postLogin(true, response));
   };
 
   return (
@@ -65,7 +81,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
                     }}
                     className="forget-text-inputfield cursor-pointer"
                   >
-                    Forget?
+                    Forget Password?
                   </label>
                 </InputAdornment>
               )
@@ -80,7 +96,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
                 }}
                 className="forget-text-inputfield cursor-pointer pt-3"
               >
-                Forgot?
+                Forgot Password?
               </label>
             </div>
           )}
@@ -95,10 +111,19 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
           style={{ backgroundColor: "#A26220", color: "#FFFFFF" }}
           className="login-button"
           type="submit"
-          // onClick={handleSubmit}
         >
           Login
         </CustomButton>
+        <div className="mt-4">
+          <GoogleLogin
+            onSuccess={(res) => {
+              googleSignIn(res);
+            }}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
+        </div>
         {ownProps?.postlogin && (
           <div className="login-register-post">
             Don’t have an account

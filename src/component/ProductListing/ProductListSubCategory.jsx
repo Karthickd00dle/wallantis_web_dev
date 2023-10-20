@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getAllProducts } from "action/ProductsAct";
+import { getAllProductsApi } from "action/ProductsAct";
 import { useParams } from "react-router-dom";
 
 const ProductListSubCategoryFC = () => {
@@ -24,7 +24,7 @@ const ProductListSubCategoryFC = () => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      getProductListApi: getAllProducts,
+      getProductListApi: getAllProductsApi,
     },
     dispatch
   );

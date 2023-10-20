@@ -55,16 +55,32 @@ export const NormalFooter = () => {
               eiusmod tempor incididunt ut labore dolore magna aliqua.
             </p>
             <div>
-              <a href="https://twitter.com/wallantics">
+              <a
+                href="https://twitter.com/wallantics"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <TwitterIcon className="me-1" />
               </a>
-              <a href="https://www.facebook.com/wallantics">
+              <a
+                href="https://www.facebook.com/wallantics"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <FacebookIcon className="mx-1" />
               </a>
-              <a href="https://www.instagram.com/wallantics/">
+              <a
+                href="https://www.instagram.com/wallantics/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <InstagramIcon className="mx-1" />
               </a>
-              <a href="https://www.linkedin.com/wallantics/">
+              <a
+                href="https://www.linkedin.com/wallantics/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <LinkedInIcon className="ms-1" />
               </a>
             </div>

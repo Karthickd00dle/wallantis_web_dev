@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/3317.7b0bb763.chunk.css","mappings":"AAAA,kBACE,gBAEA,kBADA,+BACA","sources":["component/common/CustomPriceRangeSlider/style.scss"],"sourcesContent":[".slider-container {\r\n  background: #ffffff;\r\n  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);\r\n  border-radius: 6px;\r\n}\r\n"],"names":[],"sourceRoot":""}

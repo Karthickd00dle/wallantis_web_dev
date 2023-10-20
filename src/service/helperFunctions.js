@@ -89,9 +89,13 @@ export const generateQuery = (query) => {
 };
 
 export const routerAuthTokenGuard = () => {
-  if (localStorage.getItem("authToken")) {
-    history.push(`/home/home`);
+  if (
+    localStorage.getItem("authToken") ||
+    sessionStorage.getItem("authToken")
+  ) {
     localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
+    history.push(`/home/`);
   }
 };
 

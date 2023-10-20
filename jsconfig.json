@@ -1,8 +1,6 @@
 {
-    "compilerOptions": {
-        "baseUrl": "src"
-    },
-    "include": [
-        "src"
-, "src/component/common/CommonPageLoader"    ]
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src", "src/component/common/CommonPageLoader"]
 }
