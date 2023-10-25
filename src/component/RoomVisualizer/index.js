@@ -9,8 +9,10 @@ import illusionWall from "assets/images/visualizer/illusion-wall.png";
 import slickWeaveWall from "assets/images/visualizer/slik-weave-wall.png";
 import arrowBack from "assets/svg/visualizer/arrow-left.svg";
 import Wall from "assets/images/Wall.png";
+import { useHistory } from "react-router-dom";
 
 export default function RoomVisualizer() {
+  const history = useHistory();
   const [uploadedImage, setUploadedImage] = useState(null);
 
   useEffect(() => {
@@ -26,6 +28,11 @@ export default function RoomVisualizer() {
     };
 
     reader.readAsDataURL(file);
+
+  
+  };
+  const handleWallImageClick = (image) => {
+    setUploadedImage(image);
   };
   return (
     <React.Fragment>
@@ -116,7 +123,9 @@ export default function RoomVisualizer() {
 
             <div className="grid-main">
               <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
+              <div onClick={() => handleWallImageClick(Wall)}>
+                <img src={Wall} className="wallpaper-image" alt="wallImage"  />
+                </div>
                 <p>Living Room</p>
               </div>
               <div className="wallpaper-child">

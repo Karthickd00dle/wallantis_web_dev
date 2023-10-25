@@ -123,10 +123,11 @@
     .info-title-2 {
       @include fontRobotoStyle(18px, 400, #000000, 22px);
       margin-bottom: 30px;
-      margin-top: 130px;
+      margin-top: 65px;
       display: flex;
       align-items: center;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .info-heading-one {
@@ -389,4 +390,50 @@ img {
   label {
     @include fontLatoStyle(11px, 500, #696969);
   }
+}
+
+.pincode-check {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.pincode-check input {
+  border: none;
+  border-bottom: 2px solid #9A9999;
+  background: none;
+  width: 345px;
+  padding-bottom: 13px;
+}
+
+.pincode-check span {
+  position: absolute;
+  // bottom: 0;
+  left: 285px;
+  text-decoration: underline;
+  cursor: pointer;
+  @include fontRobotoStyle(16px, 400, #2A71F9);
+}
+.pincode-check input::placeholder {
+  @include fontRobotoStyle(20px, 400, #9A9999);
+}
+
+.ib-showmodel{
+  display: flex;
+  gap: 140px;
+}
+
+.show-video-model{
+  @include fontRobotoStyle(16px, 400, #2A71F9);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #000; 
 }

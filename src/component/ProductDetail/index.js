@@ -18,6 +18,9 @@ import { Toast } from "service/toast";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
 import { ternaryCondition } from "service/helperFunctions";
+import { Dialog, DialogContent } from "@mui/material";
+import VideoModel from "component/common/VideoModel";
+import RoomPaints from "../../assets/video/RoomPaints.mp4"
 
 const ColorFilter = ({
   selectColor,
@@ -96,6 +99,15 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
       (data) => data?.color === color
     );
     setTempImage(selectedColor[0]?.image[0]);
+  };
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
+  const handleOpenVideoModal = () => {
+    setShowVideoModal(true);
+  };
+
+  const handleCloseVideoModal = () => {
+    setShowVideoModal(false);
   };
 
   useEffect(() => {
@@ -223,6 +235,7 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
               </button>
             </div>
             <div className="info-title-2">Check availability in your area </div>
+            <div className="pincode-check"><input type="text" placeholder="PINCODE"></input><span>CHECK</span></div>
             <div className="instructions-box-container">
               <div className="ib-container">
                 <div>
@@ -250,8 +263,37 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                 </div>
                 <div>
                   <div>
+                    <div className="ib-showmodel">
                     <div className="ib-body-2-title">
                       Insructions on Application of Wallpaper{" "}
+                    </div>
+                    <div className="show-video-model" onClick={handleOpenVideoModal}>
+                     SHOW ALL
+                    </div>
+                    <Dialog
+                    open={showVideoModal}
+                    onClose={handleCloseVideoModal}
+                    maxWidth="xl"
+                    fullWidth
+                    style={{ overflow: 'hidden' }}
+>
+  <DialogContent style={{ height: '90vh'}}>
+    <button className="close-button" onClick={handleCloseVideoModal}>
+      &times;
+    </button>
+    <div style={{ flex: 1 }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ maxWidth: '100%'  }}>
+          <VideoModel videoSource={RoomPaints} />
+        </div>
+      </div>
+    </div>
+  </DialogContent>
+</Dialog>
+
+
+
+
                     </div>
                   </div>
                   <div>
