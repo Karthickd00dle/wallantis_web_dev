@@ -38,3 +38,16 @@ export const getProductDetailApi =
       });
     });
   };
+
+export const getFilteredProductApi =
+  (body) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      apiCall({
+        ...productAPI.getFilteredProducts,
+        body,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };

@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useRef, useCallback, useState, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import HTMLFlipBook from "react-pageflip";
 import "./style.scss";
 import { CustomButton } from "component/common";
 import { KeyboardArrowLeftOutlined } from "@mui/icons-material";
 import { eCatalogueProducts } from "config";
-import { useRef } from "react";
-import { useCallback } from "react";
+import pageTurnSound from "assets/audio/page-flip.mp3"; // Import the sound file
 
 const Page = React.forwardRef((props, ref) => {
   return (
@@ -18,16 +17,42 @@ const Page = React.forwardRef((props, ref) => {
 
 const ECatalogueBook = () => {
   const book = useRef();
-  const onFlip = useCallback((e) => {
-    console.log("Current page: " + e.data);
-  }, []);
+  const audioRef = useRef();
+  const [currentPage, setCurrentPage] = useState(0);
 
-  // const handlePage = (pgno) => {
-  //   return book.current.pageFlip().flip(pgno);
-  // };
+  // Function to play the page turn sound
+  const playPageTurnSound = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
+  // Callback when a page is turned
+  const onFlip = useCallback(
+    (e) => {
+      const currentPageNumber = e.data;
+
+      // Only play the sound if the page has actually turned
+      if (currentPageNumber !== currentPage) {
+        playPageTurnSound();
+        setCurrentPage(currentPageNumber);
+      }
+    },
+    [currentPage]
+  );
+
+  useEffect(() => {
+    // Pause the audio when the component unmounts
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, []);
 
   return (
     <>
+      <audio ref={audioRef} src={pageTurnSound} />
       <HTMLFlipBook
         showCover={true}
         onFlip={onFlip}
@@ -78,7 +103,7 @@ export const ECatalogue = ({ isOpen, setOpenCatalogue }) => {
             <label className="label-wall">Wall</label>
             <label>antics</label>
           </div>
-          <div className=" d-flex justify-content-center pt-5">
+          <div className="d-flex justify-content-center pt-5">
             <ECatalogueBook />
           </div>
         </div>

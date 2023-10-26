@@ -20,6 +20,7 @@
     "bootstrap": "^5.2.2",
     "chart.js": "^3.7.1",
     "ckeditor5-custom-build": "file:ckeditor5",
+    "colornames": "^1.1.1",
     "jwt-decode": "^3.1.2",
     "leaflet": "^1.9.3",
     "moment": "^2.29.3",

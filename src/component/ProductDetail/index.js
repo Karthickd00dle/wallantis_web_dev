@@ -59,6 +59,7 @@ function ProductDetailFC({
   let params = useParams();
 
   const [productDetail, setProductDetail] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [openInstruction, setOpenInstruction] = useState();
   const [activeColor, setActiveColor] = useState();
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
@@ -76,7 +77,9 @@ function ProductDetailFC({
     let query = {
       url_id: params.id,
     };
-    getProductDetailApi(query).then((res) => setProductDetail(res));
+    getProductDetailApi(query)
+      .then(({ response }) => setProductDetail(response))
+      .then(() => setLoading(false));
   };
 
   const selectColor = (color) => {
@@ -108,6 +111,8 @@ function ProductDetailFC({
     getProductDetailAPI();
   }, []);
 
+  console.log(productDetail, "prodd");
+
   return (
     <>
       <div className="product-detail-container">
@@ -115,26 +120,30 @@ function ProductDetailFC({
           <div className="image-section">
             <div className="container">
               <div className="selected">
-                <ReactImageMagnify
-                  className="react-magnify"
-                  {...{
-                    smallImage: {
-                      alt: "selected_image",
+                {loading ? (
+                  <></>
+                ) : (
+                  <ReactImageMagnify
+                    className="react-magnify"
+                    {...{
+                      smallImage: {
+                        alt: "selected_image",
 
-                      isFluidWidth: true,
-                      src: ternaryCondition(tempImage, tempImage, selectedImg),
-                      className: "small-image",
-                    },
-                    largeImage: {
-                      src: ternaryCondition(tempImage, tempImage, selectedImg),
-                      width: 2400,
-                      height: 1400,
-                      className: "large-image",
-                    },
+                        isFluidWidth: true,
+                        src: productDetail?.images[0],
+                        className: "small-image",
+                      },
+                      largeImage: {
+                        src: productDetail?.images[0],
+                        width: 2400,
+                        height: 1400,
+                        className: "large-image",
+                      },
 
-                    isHintEnabled: true,
-                  }}
-                />
+                      isHintEnabled: true,
+                    }}
+                  />
+                )}
               </div>
               <div className="imgContainer">
                 {/* {productState?.length > 0 ? (
@@ -157,16 +166,14 @@ function ProductDetailFC({
           </div>
 
           <div className="product-info-section">
-            <div className="info-title">
-              Custom Recipe Wallpaper, Handwritten Recipe
-            </div>
+            <div className="info-title">{productDetail.title}</div>
             <div className="info-content">
               Create a raw and earthy atmosphere with stone style wallpaper to
               create a perfect contemporary look. Wherever you use it, it will
               add oodles of texture and character to your space and works
               especially well as a feature wall.
             </div>
-            <div className="info-heading-one">₹3500/Roll</div>
+            <div className="info-heading-one">₹{productDetail.price}/Roll</div>
             <hr className="heading-line" />
 
             <div>

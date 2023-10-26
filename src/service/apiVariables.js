@@ -159,6 +159,11 @@ export const productAPI = {
     method: "get",
     baseURL: "products",
   },
+  getFilteredProducts: {
+    api: "filterList",
+    method: "post",
+    baseURL: "products",
+  },
   getProductDetail: {
     url: "details",
     method: "get",

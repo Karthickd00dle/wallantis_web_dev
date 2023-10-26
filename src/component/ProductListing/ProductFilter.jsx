@@ -1,33 +1,35 @@
 import { CustomFilterAccordion } from "component/common";
-import { productItems } from "config";
-import { productfilter } from "service/helperFunctions";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
-import { getProductFilter, getProductFilterApi } from "action/ProductsAct";
+import { getProductFilterApi } from "action/ProductsAct";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
 
 const ProductListingGridFC = ({
-  checkedValues,
   setCheckedValues,
   maximumPrice,
   pricevalue,
   setPriceValue,
-  locationLabel,
   getProductFilterApi,
 }) => {
   const handlePriceFilter = (event, newValue) => {
     setPriceValue(newValue);
   };
 
-  const handleCheck = ({ target: { name, checked } }) => {
-    if (checked) {
-      setCheckedValues([...checkedValues, name]);
-    } else {
-      setCheckedValues(checkedValues.filter((v) => v !== name));
-    }
+  const handleCheck = ({ target: { name, value, checked } }, title) => {
+    setCheckedValues((prevState) => {
+      const newState = { ...prevState };
+      if (checked) {
+        newState[title] = newState[title]
+          ? [...newState[title], value]
+          : [value];
+      } else {
+        newState[title] = newState[title].filter((item) => item !== value);
+      }
+      return newState;
+    });
   };
 
   const [filterData, setFilterData] = useState([]);
