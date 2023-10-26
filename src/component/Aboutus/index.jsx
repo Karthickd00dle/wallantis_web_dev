@@ -93,7 +93,7 @@ export default function AboutWallantics() {
 
       {/* <div className='wallpapercontents'> */}
       <div className="buildfirst">
-        <div className="wallpapertypes">
+        <div className="wallpapertypes my-4">
           <label>Build All Types Of Wallpapers</label>
         </div>
 
@@ -115,28 +115,25 @@ export default function AboutWallantics() {
             <br />
             <label>Kids Wallpaper</label>
           </div>
-        </div>
-
-        <div className="wallpapercollab2">
-          <div className="wallpaper2">
+          <div className="wallpaper1">
             <img src={Newlaunchwallpaper} />
             <br />
             <label>Customized wallpapers</label>
           </div>
 
-          <div className="wallpaper2">
+          <div className="wallpaper1">
             <img src={Newlaunchwallpaper} />
             <br />
             <label>Sticker wallpapers</label>
           </div>
 
-          <div className="wallpaper2">
+          <div className="wallpaper1">
             <img src={Newlaunchwallpaper} />
             <br />
             <label>New Launch </label>
           </div>
         </div>
-        <button className="shopnow">Shop Now</button>
+        <button className="shopnow my-3">Shop Now</button>
       </div>
 
       {/* </div> */}

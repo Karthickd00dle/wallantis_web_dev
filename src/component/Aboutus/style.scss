@@ -30,7 +30,7 @@
     #faf5ef 53.65%,
     #faf5ef 100%
   );
-  height: 511px;
+  height: auto;
   margin-left: 115px;
   h5 {
     font-weight: 700;
@@ -107,58 +107,35 @@
 
 .wallpapercollab1 {
   display: flex;
-  gap: 10%;
-  margin-left: 5%;
-  margin-top: 3%;
+  flex-wrap: wrap;
+  margin: 0px 20px;
+  justify-content: center;
+  align-items: center;
 }
 .wallpaper1 {
+  box-shadow: 0px 4px 20px 0px #00000026;
+  position: relative;
+  margin: 10px;
   img {
-    width: 105%;
+    max-width: 390px;
   }
   label {
-    width: 410px;
+    width: 390px;
     height: 46px;
     background: #54cfbd;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 10px 0px;
     font-size: 16px;
     font-weight: 600;
-    margin-top: -23px;
-  }
-}
-
-.wallpapercollab2 {
-  display: flex;
-  gap: 10%;
-  margin-left: 5%;
-  margin-top: 3%;
-}
-.wallpaper2 {
-  img {
-    width: 105%;
-  }
-  label {
-    width: 407px;
-    height: 46px;
-    background: #54cfbd;
-    position: absolute;
-    // padding: 11px 111px;
-    // text-align: center;
-    font-size: 17px;
-    font-weight: 600;
-    margin-top: -23px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    bottom: 0px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
 }
 
 .buildfirst {
-  width: 1700px;
-  height: 1000px;
-  background: #faf5ef;
+  background: #fffdfb;
 }
 
 .shopnow {
@@ -172,7 +149,8 @@
   background: #a26220;
   border-radius: 6px;
   color: white;
-  border-color: #a26220;
+  border: none;
+  outline: none;
 }
 
 .wallpapercontents {
