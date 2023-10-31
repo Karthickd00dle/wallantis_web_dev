@@ -184,7 +184,7 @@ export const categoryAPI = {
   getAllProductCategory: {
     api: "AllProductCategory/list",
     method: "get",
-    baseURL: "products",
+    baseURL: "products", 
   },
   getAllProductSubCategory: {
     api: "AllProductSubCategory/list",
@@ -247,5 +247,31 @@ export const contactUsAPI = {
     api: "lead/create",
     method: "post",
     baseURL: "base",
+  },
+};
+export const careerAPI = {
+  getAllCareer: {
+    url: "AllCareer",
+    method: "get",
+    baseURL: "career",
+    query: {
+      page: null,
+      pageCount: null,
+      nextPage: null,
+      pageSize: null,
+      total: null,
+      wallPaperType: null,
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  createCatalogue: {
+    api: "create",
+    method: "post",
+    baseURL: "create",
   },
 };

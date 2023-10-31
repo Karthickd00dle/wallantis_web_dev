@@ -12,6 +12,17 @@
     background: #5d5fef;
   }
 }
+.status-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  &.active {
+    background-color: #26e044;
+  }
+  &.inactive {
+    background-color: #e11539;
+  }
+}
 .table-head-cell-label {
   @include fontLatoStyle(14px, 600, #ababab, 17px);
 }

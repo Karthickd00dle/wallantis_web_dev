@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
   IconButton,
@@ -21,25 +21,11 @@ import {
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "component/Admin/common/CustomButton";
 import { DownloadIcon } from "assets/svg/Admin/Common";
+import { getAllCareer } from "action/CareerAct"; 
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Toast } from "service/toast";
 
-const careerManagementData = [
-  {
-    No: "1",
-    Position: "Marketing Manager",
-    Date: "Oct 18th, 2022",
-    Posted_By: "John Doe",
-    Location: "Anna Nagar, Chennai",
-    Status: "Active",
-  },
-  {
-    No: "2",
-    Position: "Customer Service Manager",
-    Date: "Oct 18th, 2022",
-    Posted_By: "Derik",
-    Location: "Anna Nagar, Chennai",
-    Status: "Inactive",
-  },
-];
 
 const TableDataHeader = () => {
   return (
@@ -87,33 +73,35 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { No, Position, Date, Posted_By, Location, Status },
+  bodyData: { _id: id, nameOfTheJob, dateOfPostingJob, postedBy, location, status },
+  index
 }) => {
+  const date = dateOfPostingJob.split('T')
   return (
-    <TableRow key={No}>
+    <TableRow key={id}>
       <TableCell component="th" scope="row">
-        <label className="table-body-cell-label">{No}</label>
+        <label className="table-body-cell-label">{index + 1}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Position}</label>
+        <label className="table-body-cell-label">{nameOfTheJob}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Date}</label>
+        <label className="table-body-cell-label">{date[0]}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Posted_By}</label>
+        <label className="table-body-cell-label">{postedBy}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Location}</label>
+        <label className="table-body-cell-label">{location}</label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label d-flex align-items-center">
-          {Status === "Active" ? (
-            <div className="status-indicator active me-2" />
+          {status === 1 ? (
+            <div className="status-indicator active me-2"/>
           ) : (
-            <div className="status-indicator inactive me-2" />
+            <div className="status-indicator inactive me-2"/>
           )}
-          {Status}
+          {status === 1 ? "Active" : "In Active"}
         </label>
       </TableCell>
       <TableCell align="left">
@@ -139,13 +127,48 @@ const TableDataBody = ({
   );
 };
 
-export default function CareerManagement() {
+ const CareerManagementFC =({getAllCareerApiCall})=> {
   const [currentPage, setCurrentPage] = React.useState(1);
+  const [careerData, setCareerData] = useState();
+  const [pageMeta, setPageMeta] = useState({});
+
+
+  const getAllCareerApi = useCallback(
+    (searchData) => {
+      let queryParams = {
+        // page: 1,
+        // pageCount: 1,
+        // nextPage: null,
+        // pageSize: 10,
+        // total: 1,
+        // wallPaperType: wallPaperType,
+        // search: searchData,
+      };
+
+      getAllCareerApiCall({ ...queryParams })
+        .then(({ response: { data, pageMeta } }) => {
+          setCareerData(data);
+          setPageMeta(pageMeta);
+        })
+        .catch(() => {
+          Toast({
+            type: "error",
+            message: "Something went wrong !",
+          });
+        });
+    },
+
+    [getAllCareerApiCall]
+  );
+
+  useEffect(() => {
+    getAllCareerApi();
+  }, [getAllCareerApi]);
 
   const handlePage = (event, value) => {
     setCurrentPage(value);
   };
-
+console.log(careerData,"careerData");
   return (
     <div>
       <CustomNavBar label="Career Management" />
@@ -168,8 +191,8 @@ export default function CareerManagement() {
         <CustomTable>
           <TableDataHeader />
           <TableBody>
-            {careerManagementData?.map((bodyData) => (
-              <TableDataBody key={bodyData.No} bodyData={bodyData} />
+            {careerData?.map((bodyData, index) => (
+              <TableDataBody key={index} bodyData={bodyData} index={index} />
             ))}
           </TableBody>
         </CustomTable>
@@ -182,3 +205,19 @@ export default function CareerManagement() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getAllCareerApiCall: getAllCareer,
+      // createCatalogueApiCall: createCatalogueApi,
+    },
+    dispatch
+  );
+};
+
+const CareerManagement = connect(
+  null,
+  mapDispatchToProps
+)(CareerManagementFC);
+export default CareerManagement;
