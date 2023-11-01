@@ -22,7 +22,7 @@ const ProductListCategoryFC = ({
     subCategoryId: [],
     roomId: [],
     collectionId: [],
-    colorId: [],
+    colorNameId: [],
   });
   const [pricevalue, setPriceValue] = useState([0, maxValue]);
   const [productsData, setProductsData] = useState([]);
@@ -30,8 +30,8 @@ const ProductListCategoryFC = ({
   const [page, setPage] = useState({});
 
   const getAllProductsAPI = () => {
-    const { subCategoryId, roomId, collectionId, colorId } = checkedValues;
-
+    const { subCategoryId, roomId, collectionId, colorNameId } = checkedValues;
+    console.log(checkedValues, "chc");
     let body = {
       page: 1,
       limit: 10,
@@ -39,7 +39,7 @@ const ProductListCategoryFC = ({
       subCategoryId: subCategoryId,
       roomId: roomId,
       collectionId: collectionId,
-      color: colorId,
+      color: colorNameId,
       start_price: "1",
       end_price: "10000",
       sort: "",
