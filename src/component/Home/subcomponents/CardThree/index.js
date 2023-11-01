@@ -14,7 +14,6 @@ import { connect } from "react-redux";
 import { Toast } from "service/toast";
 
 function CardThreeFC({ onClickCard, prodData, isHome, createCartApiCall }) {
-  console.log(prodData, "prod data");
   const { title, images, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
   const [fav, setFav] = useState(false);

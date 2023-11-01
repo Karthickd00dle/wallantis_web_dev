@@ -9,45 +9,41 @@ import CardThree from "component/Home/subcomponents/CardThree";
 import { ProductListingGrid } from "./ProductFilter";
 import { ProductSorting } from "./ProductSorting";
 import { history } from "service/helpers";
+import { getCategory } from "action/CategoryAct";
 
-const ProductListCategoryFC = ({ getFilteredProductListApi }) => {
+const ProductListCategoryFC = ({
+  getFilteredProductListApi,
+  getCategoryApi,
+}) => {
   let params = useParams();
 
   let maxValue = "10000";
   const [checkedValues, setCheckedValues] = useState({
-    subCategory: [],
+    subCategoryId: [],
     roomId: [],
     collectionId: [],
     colorId: [],
   });
   const [pricevalue, setPriceValue] = useState([0, maxValue]);
   const [productsData, setProductsData] = useState([]);
+  const [categoryData, setCategoryData] = useState();
   const [page, setPage] = useState({});
-  console.log(checkedValues, "checkk");
+
   const getAllProductsAPI = () => {
-    const { subCategory, roomId, collectionId, colorId } = checkedValues;
+    const { subCategoryId, roomId, collectionId, colorId } = checkedValues;
 
     let body = {
       page: 1,
       limit: 10,
       categoryId: [params.categoryId],
+      subCategoryId: subCategoryId,
+      roomId: roomId,
+      collectionId: collectionId,
+      color: colorId,
       start_price: "1",
       end_price: "10000",
       sort: "",
     };
-
-    if (subCategory.length > 0) {
-      body.subCategoryId = subCategory;
-    }
-    if (roomId.length > 0) {
-      body.roomId = roomId;
-    }
-    if (collectionId.length > 0) {
-      body.collectionId = collectionId;
-    }
-    if (colorId.length > 0) {
-      body.color = colorId;
-    }
 
     getFilteredProductListApi(body)
       .then(({ response }) => {
@@ -59,16 +55,33 @@ const ProductListCategoryFC = ({ getFilteredProductListApi }) => {
       });
   };
 
+  const getCategoryAPI = () => {
+    let query = {
+      url_id: params.categoryId,
+    };
+    getCategoryApi(query)
+      .then((response) => {
+        setCategoryData(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching filter data:", error);
+      });
+  };
   useEffect(() => getAllProductsAPI(), [params, checkedValues]);
+  useEffect(() => getCategoryAPI(), [params]);
 
   const handleProductDetail = (prodData) => {
     history.push(`/home/product-details/${prodData._id}`);
   };
   return (
     <div className="product-listing-container">
-      <ProductHeader bannerLabel="wallpaper" />
+      <ProductHeader
+        bannerLabel={categoryData?.category}
+        bannerImage={categoryData?.bannerimage}
+      />
       <div className="d-flex mt-4">
         <ProductListingGrid
+          isViewAll
           locationLabel={"wallpaper"}
           maximumPrice={maxValue}
           setCheckedValues={setCheckedValues}
@@ -99,6 +112,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       getFilteredProductListApi: getFilteredProductApi,
+      getCategoryApi: getCategory,
     },
     dispatch
   );
