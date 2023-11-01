@@ -13,6 +13,7 @@ const ProductListingGridFC = ({
   pricevalue,
   setPriceValue,
   getProductFilterApi,
+  isViewAll,
 }) => {
   const handlePriceFilter = (event, newValue) => {
     setPriceValue(newValue);
@@ -37,7 +38,12 @@ const ProductListingGridFC = ({
   const getProductFilterAPI = () => {
     getProductFilterApi()
       .then(({ response }) => {
-        setFilterData(response);
+        let newResponse = [];
+        isViewAll
+          ? (newResponse = response.slice(1))
+          : (newResponse = response.slice(2));
+
+        setFilterData(newResponse);
       })
       .catch((error) => {
         console.error("Error fetching filter data:", error);

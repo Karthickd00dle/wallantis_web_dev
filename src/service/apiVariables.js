@@ -182,9 +182,9 @@ export const productAPI = {
 
 export const categoryAPI = {
   getAllProductCategory: {
-    api: "AllProductCategory/list",
+    api: "category",
     method: "get",
-    baseURL: "products",
+    baseURL: "base",
   },
   getAllProductSubCategory: {
     api: "AllProductSubCategory/list",
@@ -192,9 +192,37 @@ export const categoryAPI = {
     baseURL: "products",
   },
   getProductSubCategoryBasedCategory: {
+    url: "subcategory/category",
+    method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  getProductCategory: {
     url: "category",
     method: "get",
-    baseURL: "products",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  getProductSubCategory: {
+    url: "subcategory",
+    method: "get",
+    baseURL: "base",
     query: {
       url_id: "",
     },
