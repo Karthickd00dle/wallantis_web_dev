@@ -13,3 +13,15 @@ export const getAllCareer =
       });
     });
   };
+  export const getCareerDetailsApi =
+  (query) =>
+  (dispatch, getState, { apiCall, Toast }) => {
+    return new Promise((resolve, reject) => {
+      addQuery(query, careerAPI.getCareerDetails);
+      apiCall({
+        ...careerAPI.getCareerDetails,
+      }).then((data) => {
+        resolve(data);
+      });
+    });
+  };

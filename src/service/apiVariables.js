@@ -279,9 +279,9 @@ export const contactUsAPI = {
 };
 export const careerAPI = {
   getAllCareer: {
-    url: "AllCareer",
+    url: "career",
     method: "get",
-    baseURL: "career",
+    baseURL: "base",
     query: {
       page: null,
       pageCount: null,
@@ -301,5 +301,19 @@ export const careerAPI = {
     api: "create",
     method: "post",
     baseURL: "create",
+  },
+  getCareerDetails: {
+    url: "career",
+    method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
   },
 };

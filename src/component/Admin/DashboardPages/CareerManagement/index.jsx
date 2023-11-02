@@ -108,7 +108,7 @@ const TableDataBody = ({
         <CustomListMenu>
           <MenuItem
             className="d-flex align-items-center"
-            onClick={() => history.push("/admin/productDetailPage")}
+            onClick={() => history.push(`/admin/careerDetailPage?id=${id}`)}
           >
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
@@ -168,7 +168,6 @@ const TableDataBody = ({
   const handlePage = (event, value) => {
     setCurrentPage(value);
   };
-console.log(careerData,"careerData");
   return (
     <div>
       <CustomNavBar label="Career Management" />
