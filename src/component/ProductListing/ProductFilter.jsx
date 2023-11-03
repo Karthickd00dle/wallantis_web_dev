@@ -6,6 +6,7 @@ import { getProductFilterApi } from "action/ProductsAct";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ProductListingGridFC = ({
   setCheckedValues,
@@ -15,6 +16,7 @@ const ProductListingGridFC = ({
   getProductFilterApi,
   isViewAll,
 }) => {
+  const params = useParams();
   const handlePriceFilter = (event, newValue) => {
     setPriceValue(newValue);
   };
@@ -36,7 +38,10 @@ const ProductListingGridFC = ({
   const [filterData, setFilterData] = useState([]);
 
   const getProductFilterAPI = () => {
-    getProductFilterApi()
+    let query = {
+      categoryId: params.categoryId,
+    };
+    getProductFilterApi(query)
       .then(({ response }) => {
         let newResponse = [];
         isViewAll
@@ -50,7 +55,7 @@ const ProductListingGridFC = ({
       });
   };
 
-  useEffect(() => getProductFilterAPI(), []);
+  useEffect(() => getProductFilterAPI(), [params]);
 
   return (
     <>

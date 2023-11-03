@@ -15,9 +15,10 @@ export const getAllProductsApi =
   };
 
 export const getProductFilterApi =
-  () =>
+  (query) =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {
+      addQuery(query, productAPI.getProductFilter);
       apiCall({
         ...productAPI.getProductFilter,
       }).then((data) => {

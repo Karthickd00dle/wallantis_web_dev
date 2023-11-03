@@ -16,6 +16,7 @@ export const addQuery = (dataObject, apiObject) => {
     "size",
     "search",
     "wallPaperType",
+    "categoryId",
     "pageLimit",
     "pageCount",
     "nextPage",

@@ -3,7 +3,7 @@ import "./style.scss";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getFilteredProductApi } from "action/ProductsAct";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ProductHeader } from "./ProductHeader";
 import CardThree from "component/Home/subcomponents/CardThree";
 import { ProductListingGrid } from "./ProductFilter";

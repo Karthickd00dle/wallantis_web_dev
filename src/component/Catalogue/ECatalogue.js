@@ -23,6 +23,7 @@ const ECatalogueBook = () => {
   // Function to play the page turn sound
   const playPageTurnSound = () => {
     if (audioRef.current) {
+      audioRef.current.currentTime = 0; // Reset the audio to the beginning
       audioRef.current.play();
     }
   };
@@ -42,6 +43,9 @@ const ECatalogueBook = () => {
   );
 
   useEffect(() => {
+    // Preload the audio when the component mounts
+    audioRef.current.load();
+
     // Pause the audio when the component unmounts
     return () => {
       if (audioRef.current) {
@@ -52,13 +56,13 @@ const ECatalogueBook = () => {
 
   return (
     <>
-      <audio ref={audioRef} src={pageTurnSound} />
+      <audio ref={audioRef} src={pageTurnSound} preload="auto" />
       <HTMLFlipBook
         showCover={true}
         onFlip={onFlip}
         ref={book}
-        width={625}
-        height={500}
+        width={750}
+        height={620}
         onInit={({ object }) => {
           console.log(object.events);
         }}
