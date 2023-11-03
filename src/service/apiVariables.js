@@ -155,9 +155,18 @@ export const productAPI = {
     },
   },
   getProductFilter: {
-    api: "listAll",
+    url: "listAll",
     method: "get",
     baseURL: "products",
+    query: {
+      categoryId: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
   },
   getFilteredProducts: {
     api: "filterList",
