@@ -76,7 +76,7 @@ const ProductListSubCategoryFC = ({
     <div className="product-listing-container">
       <ProductHeader
         bannerLabel={subCategoryData.subCategory}
-        bannerImage={subCategoryData.bannerImage}
+        bannerImage={subCategoryData.bannerimage}
       />
       <div className="d-flex mt-4">
         <ProductListingGrid

@@ -465,7 +465,15 @@ const routers = [
       },
       {
         component: "AddEditProductPage",
-        path: "/add-edit-product",
+        path: "/add-product",
+        componentPath: "pages/Admin/AddEditProductPage",
+        name: "AddEditProductPage",
+        auth: false,
+        exact: false,
+      },
+      {
+        component: "AddEditProductPage",
+        path: "/edit-product",
         componentPath: "pages/Admin/AddEditProductPage",
         name: "AddEditProductPage",
         auth: false,

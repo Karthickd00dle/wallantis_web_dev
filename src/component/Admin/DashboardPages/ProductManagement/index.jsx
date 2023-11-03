@@ -121,7 +121,10 @@ const TableDataBody = ({
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
           </MenuItem>
-          <MenuItem className="d-flex align-items-center">
+          <MenuItem
+            className="d-flex align-items-center"
+            onClick={() => history.push("/admin/edit-product")}
+          >
             <PencilIcon />
             <label className="table-cell-menu-item ps-2">Edit</label>
           </MenuItem>
@@ -156,7 +159,7 @@ export default function ProductManagement() {
         <CustomButton
           className="add-new-installer-button ms-3 px-3"
           variant="contained"
-          onClick={() => history.push("/admin/add-edit-product")}
+          onClick={() => history.push("/admin/add-product")}
         >
           Add New Product
         </CustomButton>
