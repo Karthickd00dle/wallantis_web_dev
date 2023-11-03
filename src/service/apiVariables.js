@@ -137,7 +137,7 @@ export const cartApi = {
 
 export const productAPI = {
   getAllProducts: {
-    url: "product/list",
+    url: "list",
     method: "get",
     baseURL: "products",
     query: {
@@ -155,9 +155,55 @@ export const productAPI = {
     },
   },
   getProductFilter: {
-    api: "filterAll/list",
+    api: "listAll",
     method: "get",
     baseURL: "products",
+  },
+  getFilteredProducts: {
+    api: "filterList",
+    method: "post",
+    baseURL: "products",
+  },
+  getProductDetail: {
+    url: "details",
+    method: "get",
+    baseURL: "products",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};
+
+export const categoryAPI = {
+  getAllProductCategory: {
+    api: "AllProductCategory/list",
+    method: "get",
+    baseURL: "products",
+  },
+  getAllProductSubCategory: {
+    api: "AllProductSubCategory/list",
+    method: "get",
+    baseURL: "products",
+  },
+  getProductSubCategoryBasedCategory: {
+    url: "category",
+    method: "get",
+    baseURL: "products",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
   },
 };
 

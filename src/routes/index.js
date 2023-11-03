@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Router, Redirect } from "react-router-dom";
 
-import Routers from "./routers";
+import Routers from "./routes";
 import * as Layout from "../layout";
 import * as Pages from "../pages";
 import { history } from "service/helpers";

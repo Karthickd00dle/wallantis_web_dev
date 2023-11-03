@@ -10,7 +10,7 @@ import {
   blogProducts,
 } from "config";
 import "./styles.scss";
-import { getAllProducts } from "action/ProductsAct";
+import { getAllProducts, getAllProductsApi } from "action/ProductsAct";
 import { bindActionCreators } from "redux";
 import AdvancedCarousel from "component/common/Carousel";
 import celebrate from "assets/images/celebrate.png";
@@ -250,7 +250,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
             </div>
           </div>
 
-          <div className="home-main-card-container">
+          {/* <div className="home-main-card-container">
             {recentlyviewedProducts.map((prodData) => (
               <CardThree
                 isHome
@@ -263,7 +263,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 key={prodData.id}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div className="main-container main-container-bg">
@@ -286,7 +286,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
             decorative elements. Some designers used to hung in walls to give a
             pleasant wall finish to their customers.
           </div>
-          <div className="home-main-card-container">
+          {/* <div className="home-main-card-container">
             {artificialgrassProducts.map((prodData) => (
               <CardThree
                 isHome
@@ -299,7 +299,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 key={prodData.id}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div className="main-container">
@@ -315,7 +315,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
             </div>
           </div>
 
-          <div className="home-main-card-container">
+          {/* <div className="home-main-card-container">
             {bestsellerProducts.map((prodData) => (
               <CardThree
                 isHome
@@ -328,7 +328,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 key={prodData.id}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div className="main-container">
@@ -481,7 +481,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      getAllProductsAPI: getAllProducts,
+      getAllProductsAPI: getAllProductsApi,
     },
     dispatch
   );

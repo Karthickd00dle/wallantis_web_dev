@@ -8,12 +8,23 @@ import greenWall from "assets/images/visualizer/green-wall.png";
 import illusionWall from "assets/images/visualizer/illusion-wall.png";
 import slickWeaveWall from "assets/images/visualizer/slik-weave-wall.png";
 import arrowBack from "assets/svg/visualizer/arrow-left.svg";
-import Wall from "assets/images/Wall.png";
+
+import LivingRoom1 from "assets/images/visualizer/rooms/living-room-sofa.png";
+import LivingRoom2 from "assets/images/visualizer/rooms/living-room-sofa-2.png";
 import { useHistory } from "react-router-dom";
+import styled from "styled-components";
 
 export default function RoomVisualizer() {
   const history = useHistory();
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [activeTexture, setActiveTexture] = useState(null);
+  const TextureBackground = styled.div`
+    background: url(${(props) => props.url}) center/cover no-repeat;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  `;
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -28,8 +39,6 @@ export default function RoomVisualizer() {
     };
 
     reader.readAsDataURL(file);
-
-  
   };
   const handleWallImageClick = (image) => {
     setUploadedImage(image);
@@ -39,12 +48,14 @@ export default function RoomVisualizer() {
       <div className="room-visualizer">
         {uploadedImage ? (
           <div className="visualizer-module-container">
-            <div className="visualizer-module-content">
-              <img
-                src={uploadedImage}
-                alt="UploadedWallImage"
-                className="wallpaper-image"
-              />
+            <div className="visualizer-module-content d-flex align-items-end m-5">
+              <TextureBackground url={activeTexture}>
+                <img
+                  src={uploadedImage}
+                  alt="UploadedWallImage"
+                  className="wallpaper-image"
+                />
+              </TextureBackground>
             </div>
             <div className="visulaizer-module-sidebar">
               <div className="v-m-siderbar-head">
@@ -56,7 +67,10 @@ export default function RoomVisualizer() {
                 <p>Textues</p>
               </div>
               <div className="textures-container">
-                <div className="texture-image-box">
+                <div
+                  className="texture-image-box"
+                  onClick={() => setActiveTexture(diamondWall)}
+                >
                   <img
                     className="texture-img"
                     src={diamondWall}
@@ -64,7 +78,10 @@ export default function RoomVisualizer() {
                   />
                   <p>Diamond Wallpaper</p>
                 </div>
-                <div className="texture-image-box">
+                <div
+                  className="texture-image-box"
+                  onClick={() => setActiveTexture(brownWall)}
+                >
                   <img
                     className="texture-img"
                     src={brownWall}
@@ -72,7 +89,10 @@ export default function RoomVisualizer() {
                   />
                   <p>Brown Wallpaper</p>
                 </div>
-                <div className="texture-image-box">
+                <div
+                  className="texture-image-box"
+                  onClick={() => setActiveTexture(dayDreamWall)}
+                >
                   <img
                     className="texture-img"
                     src={dayDreamWall}
@@ -80,7 +100,10 @@ export default function RoomVisualizer() {
                   />
                   <p>Daydreamer Wallpaper</p>
                 </div>
-                <div className="texture-image-box">
+                <div
+                  className="texture-image-box"
+                  onClick={() => setActiveTexture(illusionWall)}
+                >
                   <img
                     className="texture-img"
                     src={illusionWall}
@@ -88,7 +111,11 @@ export default function RoomVisualizer() {
                   />
                   <p>Illusion Wallpaper</p>
                 </div>
-                <div className="texture-image-box">
+                <div
+                  className="texture-image-box"
+
+onClick={() => setActiveTexture(slickWeaveWall)}
+                >
                   <img
                     className="texture-img"
                     src={slickWeaveWall}
@@ -96,7 +123,10 @@ export default function RoomVisualizer() {
                   />
                   <p>Silk Weave Wallpaper</p>
                 </div>
-                <div className="texture-image-box">
+                <div
+                  className="texture-image-box"
+                  onClick={() => setActiveTexture(greenWall)}
+                >
                   <img
                     className="texture-img"
                     src={greenWall}
@@ -116,53 +146,36 @@ export default function RoomVisualizer() {
                 <img class="btn" alt="uploadBtn" src={uploadImage} />
                 <input type="file" name="myfile" onChange={handleImageUpload} />
               </div>
-
               <p>Drag & Drop Or Upload your Room Pic</p>
               <p>Living Room, Kids Room, Dining Room, Bedroom,etc</p>
             </div>
 
             <div className="grid-main">
               <div className="wallpaper-child">
-              <div onClick={() => handleWallImageClick(Wall)}>
-                <img src={Wall} className="wallpaper-image" alt="wallImage"  />
+                <div
+                  className="wallpaper-image-container"
+                  onClick={() => handleWallImageClick(LivingRoom1)}
+                >
+                  <img
+                    src={LivingRoom1}
+                    className="wallpaper-image"
+                    alt="wallImage"
+                  />
                 </div>
                 <p>Living Room</p>
               </div>
               <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
-              </div>
-              <div className="wallpaper-child">
-                <img src={Wall} className="wallpaper-image" alt="wallImage" />
-                <p>Living Room</p>
+                <div
+                  className="wallpaper-image-container"
+                  onClick={() => handleWallImageClick(LivingRoom2)}
+                >
+                  <img
+                    src={LivingRoom2}
+                    className="wallpaper-image"
+                    alt="wallImage"
+                  />
+                  <p>Hall Room</p>
+                </div>
               </div>
             </div>
           </React.Fragment>

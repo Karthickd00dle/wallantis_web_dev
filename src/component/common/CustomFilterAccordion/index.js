@@ -4,31 +4,9 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandIcon from "assets/icons/ExpandIcon";
 import { AccordionSummary, Checkbox, List, ListItem } from "@mui/material";
 import "./style.scss";
+import { separateAndCapitalize } from "service/helperFunctions";
 
-export const CustomFilterAccordion = ({
-  itemheader,
-  itemlist,
-  index,
-  onChange,
-  productItems,
-}) => {
-  const filterheader = itemheader.toLowerCase().replace(" ", "_");
-
-  const itemCount = (itemlabel, filterheader) => {
-    switch (filterheader) {
-      case "categories":
-        return productItems.filter((item) => {
-          return item.category === itemlabel;
-        }).length;
-      case "sub_categories":
-        return productItems.filter((item) => {
-          return item.sub_category === itemlabel;
-        }).length;
-      default:
-        return null;
-    }
-  };
-
+export const CustomFilterAccordion = ({ title, value, index, onChange }) => {
   return (
     <Accordion key={index}>
       <AccordionSummary
@@ -36,19 +14,23 @@ export const CustomFilterAccordion = ({
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <label className="filter-title cursor-pointer">{itemheader}</label>
+        <label className="filter-title cursor-pointer">
+          {separateAndCapitalize(title)}
+        </label>
       </AccordionSummary>
-      {itemlist.map(({ itemlabel }) => (
-        <AccordionDetails>
+      {value.map((data) => (
+        <AccordionDetails key={data._id}>
           <List>
             <ListItem disablePadding>
               <div className="d-flex align-items-center">
-                <Checkbox name={itemlabel} onChange={onChange} />
-                <label className="ps-1 filter-item">{itemlabel}</label>
+                <Checkbox
+                  name={data[title]}
+                  value={data._id}
+                  onChange={(e) => onChange(e, title + "Id")}
+                />
+                <label className="ps-1 filter-item">{data[title]}</label>
               </div>
-              <label className="filter-item-count pe-3">
-                {`(${itemCount(itemlabel, filterheader)})`}
-              </label>
+              <label className="filter-item-count pe-3">{data.counts}</label>
             </ListItem>
           </List>
         </AccordionDetails>

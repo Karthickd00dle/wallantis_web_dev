@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
 import { Checkbox } from "@mui/material";
@@ -10,23 +10,12 @@ import {
 } from "@mui/icons-material";
 import { bindActionCreators } from "redux";
 import { CreateCartApi } from "action/CartAct";
-import { connect, useDispatch } from "react-redux";
-import { commonStateList } from "service/actionType";
+import { connect } from "react-redux";
 import { Toast } from "service/toast";
 
-function CardThreeFC({
-  onClickCard,
-  prodData,
-  favData,
-  setFavData,
-  setCartData,
-  cartData,
-  isHome,
-  createCartApiCall,
-}) {
-  const dispatch = useDispatch();
-
-  const { image, image_data, title, price } = prodData;
+function CardThreeFC({ onClickCard, prodData, isHome, createCartApiCall }) {
+  console.log(prodData, "prod data");
+  const { title, images, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
   const [fav, setFav] = useState(false);
   const [cart, setCart] = useState(false);
@@ -34,20 +23,14 @@ function CardThreeFC({
   const handleFavorite = ({ target: { name, checked } }, prodData) => {
     setFav(!fav);
     if (checked) {
-      setFavData([...favData, { ...prodData, checked: checked }]);
       Toast({ type: "success", message: "Item added to Wishlist" });
     } else {
-      setFavData(favData.filter((data) => data.title !== name));
       Toast({ type: "info", message: "Item removed from Wishlist" });
     }
   };
   const handleCart = ({ target: { name, checked } }, prodData) => {
-    console.log(name, checked, prodData);
-
     setCart(!cart);
     if (checked) {
-      setCartData([...cartData, { ...prodData, checked: checked }]);
-
       let payload = {
         productId: prodData.id.toString(),
         quantity: 1,
@@ -60,15 +43,9 @@ function CardThreeFC({
         });
       });
     } else {
-      setCartData(cartData.filter((data) => data.title !== name));
       Toast({ type: "info", message: "Item removed from Cart" });
     }
   };
-
-  useEffect(() => {
-    dispatch({ type: commonStateList.cartItem, payload: cartData });
-    dispatch({ type: commonStateList.wishlistItem, payload: favData });
-  }, [cartData, favData]);
 
   return (
     <div
@@ -141,13 +118,12 @@ function CardThreeFC({
           onClick={() => onClickCard(prodData)}
           className="card-image-container"
         >
-          {console.log(image_data)}
           <img
             className="card-image"
             src={`${ternaryCondition(
-              Array.isArray(image_data),
-              image_data[0].image[0],
-              image
+              Array.isArray(images),
+              images[0],
+              images
             )}`}
             alt={title}
           />
@@ -160,13 +136,6 @@ function CardThreeFC({
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    productDetailData: state.commonStore.productDetailState,
-    cartItemData: state.commonStore.cartItemState,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
@@ -176,6 +145,6 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-const CardThree = connect(mapStateToProps, mapDispatchToProps)(CardThreeFC);
+const CardThree = connect(null, mapDispatchToProps)(CardThreeFC);
 
 export default CardThree;

@@ -20,7 +20,7 @@ export function CommonInput({ label, placeholder, name, value, onChange }) {
   );
 }
 
-export function CKEditorInput({ placeholder }) {
+export function CKEditorInput({ placeholder, editorContent, onEditorChange }) {
   return (
     <CKEditor
       className="ckeditor-style"
@@ -33,6 +33,13 @@ export function CKEditorInput({ placeholder }) {
           );
       }}
       editor={Editor}
+      data={editorContent}
+      onChange={(event) => {
+        if (onEditorChange) {
+          const newContent = event.editor.getData();
+          onEditorChange(newContent);
+        }
+      }}
       config={
         ({
           toolbar: [

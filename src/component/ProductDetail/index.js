@@ -1,13 +1,12 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import React, { useEffect, useState } from "react";
 import { Instructions } from "component/ProductDetail/Instructions";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { history } from "service/helpers";
 import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
 import { CustomButton } from "component/common";
-import { useLocation } from "react-router-dom";
-import { commonStateList } from "service/actionType";
+import { useParams } from "react-router-dom";
 import {
   ProductInstructions1,
   ProductInstructions2,
@@ -21,6 +20,8 @@ import { ternaryCondition } from "service/helperFunctions";
 import { Dialog, DialogContent } from "@mui/material";
 import VideoModel from "component/common/VideoModel";
 import RoomPaints from "../../assets/video/RoomPaints.mp4"
+import { bindActionCreators } from "redux";
+import { getProductDetailApi } from "action/ProductsAct";
 
 const ColorFilter = ({
   selectColor,
@@ -53,9 +54,15 @@ const ColorFilter = ({
   );
 };
 
-function ProductDetailFC({ productDetailData, cartItemData }) {
-  let location = useLocation();
-  const dispatch = useDispatch();
+function ProductDetailFC({
+  productDetailData,
+  cartItemData,
+  getProductDetailApi,
+}) {
+  let params = useParams();
+
+  const [productDetail, setProductDetail] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [openInstruction, setOpenInstruction] = useState();
   const [activeColor, setActiveColor] = useState();
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
@@ -65,21 +72,19 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
     productDetailData?.image_data[0]?.color
   );
   const [tempwallpaperColor, setTempWallpaperColor] = useState(null);
-  const [cartData, setCartData] = useState(cartItemData);
-  const [productState, setProductState] = useState(
-    location?.state ? location?.state : productDetailData
-  );
 
   const [tempImage, setTempImage] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
-  const handleAddtoCart = () => {
-    setCartData([...cartData, { ...productState }]);
-    Toast({ type: "success", message: "Item added to Cart" });
+
+  const getProductDetailAPI = () => {
+    let query = {
+      url_id: params.id,
+    };
+    getProductDetailApi(query)
+      .then(({ response }) => setProductDetail(response))
+      .then(() => setLoading(false));
   };
 
-  const onClickCard = (data) => {
-    setSelectedImg(data?.image_data[0]?.image[0]);
-  };
   const selectColor = (color) => {
     setWallpaperColor(color);
     let selectedColor = productDetailData?.image_data?.filter(
@@ -112,26 +117,13 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setSelectedImg(
-      location?.state?.image
-        ? location?.state?.image_data[0]?.image[0]
-        : productDetailData?.image_data[0]?.image?.length > 0
-        ? productDetailData?.image_data[0]?.image[0]
-        : null
-    );
-    return () => {
-      setProductState(null);
-      setSelectedImg(null);
-    };
-  }, [productState]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
   }, [selectedImg]);
 
   useEffect(() => {
-    dispatch({ type: commonStateList.cartItem, payload: cartData });
-  }, [cartData]);
+    getProductDetailAPI();
+  }, []);
+
+  console.log(productDetail, "prodd");
 
   return (
     <>
@@ -140,29 +132,33 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
           <div className="image-section">
             <div className="container">
               <div className="selected">
-                <ReactImageMagnify
-                  className="react-magnify"
-                  {...{
-                    smallImage: {
-                      alt: "selected_image",
+                {loading ? (
+                  <></>
+                ) : (
+                  <ReactImageMagnify
+                    className="react-magnify"
+                    {...{
+                      smallImage: {
+                        alt: "selected_image",
 
-                      isFluidWidth: true,
-                      src: ternaryCondition(tempImage, tempImage, selectedImg),
-                      className: "small-image",
-                    },
-                    largeImage: {
-                      src: ternaryCondition(tempImage, tempImage, selectedImg),
-                      width: 2400,
-                      height: 1400,
-                      className: "large-image",
-                    },
+                        isFluidWidth: true,
+                        src: productDetail?.images[0],
+                        className: "small-image",
+                      },
+                      largeImage: {
+                        src: productDetail?.images[0],
+                        width: 2400,
+                        height: 1400,
+                        className: "large-image",
+                      },
 
-                    isHintEnabled: true,
-                  }}
-                />
+                      isHintEnabled: true,
+                    }}
+                  />
+                )}
               </div>
               <div className="imgContainer">
-                {productState?.length > 0 ? (
+                {/* {productState?.length > 0 ? (
                   productState?.image?.map((img, index) => (
                     <img
                       style={{
@@ -176,21 +172,20 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                   ))
                 ) : (
                   <></>
-                )}
+                )} */}
               </div>
             </div>
           </div>
+
           <div className="product-info-section">
-            <div className="info-title">
-              Custom Recipe Wallpaper, Handwritten Recipe
-            </div>
+            <div className="info-title">{productDetail.title}</div>
             <div className="info-content">
               Create a raw and earthy atmosphere with stone style wallpaper to
               create a perfect contemporary look. Wherever you use it, it will
               add oodles of texture and character to your space and works
               especially well as a feature wall.
             </div>
-            <div className="info-heading-one">₹3500/Roll</div>
+            <div className="info-heading-one">₹{productDetail.price}/Roll</div>
             <hr className="heading-line" />
 
             <div>
@@ -397,7 +392,6 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
                   color: "#A26220",
                 }}
                 className="py-3"
-                onClick={handleAddtoCart}
               >
                 Add to Cart
               </CustomButton>
@@ -501,12 +495,16 @@ function ProductDetailFC({ productDetailData, cartItemData }) {
     </>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    productDetailData: state.commonStore.productDetailState,
-    cartItemData: state.commonStore.cartItemState,
-  };
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getProductDetailApi: getProductDetailApi,
+    },
+    dispatch
+  );
 };
-const ProductDetail = connect(mapStateToProps, null)(ProductDetailFC);
+
+const ProductDetail = connect(null, mapDispatchToProps)(ProductDetailFC);
 
 export default ProductDetail;

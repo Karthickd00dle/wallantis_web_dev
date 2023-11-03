@@ -12,6 +12,6 @@ export const logout = () => {
   localStorage.removeItem("authToken");
 
   if (window.location.href.includes("profile-page")) {
-    history.push("/home/home");
+    history.push("/home/");
   }
 };

@@ -2,7 +2,6 @@ import React from "react";
 import jwt_decode from "jwt-decode";
 import { history } from "service/helpers";
 import moment from "moment";
-import { productListingFilter } from "config";
 
 //add Query
 export const addQuery = (dataObject, apiObject) => {
@@ -89,9 +88,13 @@ export const generateQuery = (query) => {
 };
 
 export const routerAuthTokenGuard = () => {
-  if (localStorage.getItem("authToken")) {
-    history.push(`/home/home`);
+  if (
+    localStorage.getItem("authToken") ||
+    sessionStorage.getItem("authToken")
+  ) {
     localStorage.removeItem("authToken");
+    sessionStorage.removeItem("authToken");
+    history.push(`/home/`);
   }
 };
 
@@ -139,59 +142,16 @@ export const toCamelCase = (str) => {
     });
 };
 
-export const productfilter = (location) => {
-  if (
-    location === "wallpaper" ||
-    location === "sticker wallpaper" ||
-    location === "wall murals"
-  ) {
-    return productListingFilter.wallpaper.filter(
-      (data) => data.itemheader !== "Categories"
-    );
-  } else if (location === "all wallpaper") {
-    return productListingFilter.wallpaper;
-  } else if (location === "wooden flooring" || location === "lvp plank") {
-    return productListingFilter.flooring.filter(
-      (data) => data.itemheader !== "Categories"
-    );
-  } else if (location === "all flooring") {
-    return productListingFilter.flooring;
-  } else if (
-    location === "vertical blinds" ||
-    location === "roller blinds" ||
-    location === "zebra blinds" ||
-    location === "chick blinds" ||
-    location === "wooden blinds" ||
-    location === "customized blinds" ||
-    ""
-  ) {
-    return productListingFilter.blinds.filter(
-      (data) => data.itemheader !== "Categories"
-    );
-  } else if (location === "all blinds") {
-    return productListingFilter.blinds;
-  } else if (
-    location === "vertical gardens" ||
-    location === "hanging flowers" ||
-    location === "artificial grass"
-  ) {
-    return productListingFilter.artificial_grass.filter(
-      (data) => data.itemheader !== "Categories"
-    );
-  } else if (location === "all artificial grass") {
-    return productListingFilter.artificial_grass;
-  } else if (
-    location === "gym tiles square" ||
-    location === "gym tiles interlock" ||
-    location === "gym tiles hexagonal" ||
-    location === "gym rolls" ||
-    location === "sports flooring" ||
-    location === "yoga mat"
-  ) {
-    return productListingFilter.gym_flooring.filter(
-      (data) => data.itemheader !== "Categories"
-    );
-  } else if (location === "all gym flooring") {
-    return productListingFilter.gym_flooring;
-  }
+export const separateAndCapitalize = (input) => {
+  const nameStartIndex = input
+    .split("")
+    .findIndex((char) => char.toLowerCase() !== char);
+  const string1 = input.substring(0, nameStartIndex);
+  const string2 = input.substring(nameStartIndex);
+
+  // Capitalize the first letter
+  const capitalizedString1 = string1.charAt(0).toUpperCase() + string1.slice(1);
+  const capitalizedString2 = string2.charAt(0).toUpperCase() + string2.slice(1);
+
+  return capitalizedString1 + " " + capitalizedString2;
 };

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { CustomButton } from "component/common";
+import jwt_decode from "jwt-decode";
 import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { registationApi, verifyOTPApi } from "action/AuthAct";
+import { loginApi, registationApi, verifyOTPApi } from "action/AuthAct";
 import { conditionalLoad } from "service/helperFunctions";
 import PostRegister from "../PostRegister";
+import { GoogleLogin } from "@react-oauth/google";
 
-const RegisterComponentMain = ({ registationApiCall }) => {
+const RegisterComponentMain = ({ loginApiCall, registationApiCall }) => {
   const history = useHistory();
   const [showPostRegister, setShowPostRegister] = useState();
   const [currentEmail, setCurrentEmail] = useState("");
@@ -31,6 +33,35 @@ const RegisterComponentMain = ({ registationApiCall }) => {
         setShowPostRegister(true);
         setCurrentEmail(data.email);
       })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const googleSignUp = (OAuthRes) => {
+    const decoded = jwt_decode(OAuthRes.credential);
+    const name = decoded.given_name.split(" ");
+    let payload = {
+      firstName: name[0],
+      lastName: name[1],
+      emailId: decoded.email,
+      image: decoded.picture,
+      roleType: "home_owner",
+      socialId: decoded.sub,
+      loginType: 2,
+    };
+
+    registationApiCall(payload)
+      .then(() =>
+        loginApiCall({
+          username: decoded.sub,
+          loginType: 2,
+        }).then(({ response }) => {
+          let token = response.access_token;
+          sessionStorage.setItem("authToken", token);
+          history.push("/home/");
+        })
+      )
       .catch((err) => {
         console.log(err);
       });
@@ -62,6 +93,17 @@ const RegisterComponentMain = ({ registationApiCall }) => {
               >
                 Continue
               </CustomButton>
+              <div className="my-2 ">
+                <GoogleLogin
+                  text="signup_with"
+                  onSuccess={(res) => {
+                    googleSignUp(res);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
+              </div>
               <CustomButton
                 style={{
                   color: "#2A71F9",
@@ -94,6 +136,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       registationApiCall: registationApi,
       verifyOTPApiCall: verifyOTPApi,
+      loginApiCall: loginApi,
     },
     dispatch
   );

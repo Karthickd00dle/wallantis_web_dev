@@ -1,7 +1,5 @@
 import CardThree from "component/Home/subcomponents/CardThree";
 import { useLocation } from "react-router-dom";
-import { CustomSelect, CustomFilterAccordion } from "component/common";
-import { SortingMenuList, productItems, productBanner } from "config";
 import React, { useEffect, useState } from "react";
 import { history } from "service/helpers";
 import "./style.scss";
@@ -9,109 +7,9 @@ import { connect, useDispatch } from "react-redux";
 import { commonStateList } from "service/actionType";
 import { bindActionCreators } from "redux";
 import { sortingFunction } from "action/CommonAct";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import ExpandIcon from "assets/icons/ExpandIcon";
-import { CustomPriceRangeSlider } from "component/common/CustomPriceRangeSlider";
-import { productfilter } from "service/helperFunctions";
-
-export function ProductHeader({ bannerLabel }) {
-  const bannerImage = productBanner.filter((data) => data.type === bannerLabel);
-
-  return (
-    <div className="product-banner-container py-3">
-      <div className="product-banner-label-container">
-        <label className="product-banner-label">{bannerLabel}</label>
-      </div>
-
-      <img
-        width="100%"
-        height="505px"
-        src={bannerImage[0]?.image}
-        alt="product-banner"
-      />
-    </div>
-  );
-}
-
-export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
-  const dispatch = useDispatch();
-
-  const handleSorting = ({ target: { value } }) => {
-    let sortedData = sortingFunction(value, itemData);
-    dispatch({ type: commonStateList.productListing, payload: sortedData });
-  };
-  return (
-    <div className="sorting-container ">
-      <div>
-        <label className="label-item-count">{itemCount - 1}</label>
-        <label className="ps-1 label-item-label">{itemLabel}</label>
-      </div>
-      <div className="d-flex align-items-center">
-        <label className="sort-by-text">Sort by</label>
-        <CustomSelect
-          menuItemList={SortingMenuList}
-          inputStyle="sorting-menu-style"
-          menuItemStyle="menu-item"
-          name="sorting"
-          onChange={(e) => handleSorting(e)}
-        />
-      </div>
-    </div>
-  );
-};
-
-export const ProductListingGrid = ({
-  checkedValues,
-  setCheckedValues,
-  maximumPrice,
-  pricevalue,
-  setPriceValue,
-  locationLabel,
-}) => {
-  const handlePriceFilter = (event, newValue) => {
-    setPriceValue(newValue);
-  };
-
-  const handleCheck = ({ target: { name, checked } }) => {
-    if (checked) {
-      setCheckedValues([...checkedValues, name]);
-    } else {
-      setCheckedValues(checkedValues.filter((v) => v !== name));
-    }
-  };
-
-  return (
-    <>
-      <div className="filter-container">
-        {productfilter(locationLabel).map(
-          ({ itemheader, itemlist, itemlabel }, index) => (
-            <CustomFilterAccordion
-              key={index}
-              itemheader={itemheader}
-              itemlabel={itemlabel}
-              itemlist={itemlist}
-              index={index}
-              productItems={productItems}
-              onChange={handleCheck}
-            />
-          )
-        )}
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandIcon height={10} width={10} />}>
-            <label className="filter-title cursor-pointer">Price</label>
-          </AccordionSummary>
-          <AccordionDetails>
-            <CustomPriceRangeSlider
-              maxValue={maximumPrice}
-              pricevalue={pricevalue}
-              onChange={handlePriceFilter}
-            />
-          </AccordionDetails>
-        </Accordion>
-      </div>
-    </>
-  );
-};
+import { ProductHeader } from "./ProductHeader";
+import { ProductListingGrid } from "./ProductFilter";
+import { ProductSorting } from "./ProductSorting";
 
 const ProductListingFC = ({ cartItemData, productListingData }) => {
   const dispatch = useDispatch();
