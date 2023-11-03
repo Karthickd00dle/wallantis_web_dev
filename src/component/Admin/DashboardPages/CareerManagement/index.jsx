@@ -108,7 +108,7 @@ const TableDataBody = ({
         <CustomListMenu>
           <MenuItem
             className="d-flex align-items-center"
-            onClick={() => history.push(`/admin/careerDetailPage?id=${id}`)}
+            onClick={() => history.push(`/admin/view-career?id=${id}`)}
           >
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
@@ -182,6 +182,7 @@ const TableDataBody = ({
         <CustomButton
           className="add-new-installer-button ms-3 px-3"
           variant="contained"
+          onClick={() => history.push('/admin/add-edit-career')}
         >
           Add New Job
         </CustomButton>

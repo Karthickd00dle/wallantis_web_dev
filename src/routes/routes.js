@@ -544,6 +544,22 @@ const routers = [
         exact: false,
       },
       {
+      component: "AddEditCareerPage",
+      path: "/add-edit-career",
+      componentPath: "pages/Admin/AddEditCareerPage",
+      name: "AddEditCareerPage",
+      auth: false,
+      exact: false,
+    },
+    {
+      component: "ViewCareerPage",
+      path: "/view-career",
+      componentPath: "pages/Admin/ViewCareerPage",
+      name: "ViewCareerPage",
+      auth: false,
+      exact: false,
+    },
+      {
         component: "CatalogueManagementPage",
         path: "/catalogue-management",
         componentPath: "pages/Admin/CatalogueManagementPage",

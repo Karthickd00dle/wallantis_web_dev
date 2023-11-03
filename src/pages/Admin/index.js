@@ -19,7 +19,7 @@ export { LeadManagementPage } from "./LeadManagementPage";
 export { BlogManagementPage, AddEditBlogPage } from "./BlogManagementPage";
 export { StaffManagementPage } from "./StaffManagementPage";
 export { ContentManagementPage } from "./ContentManagementPage";
-export { CareerManagementPage } from "./CareerManagementPage";
+export { CareerManagementPage, AddEditCareerPage, ViewCareerPage } from "./CareerManagementPage";
 export {
   CatalogueManagementPage,
   AddEditCataloguePage,

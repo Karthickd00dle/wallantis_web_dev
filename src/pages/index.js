@@ -62,6 +62,8 @@ export {
   StaffManagementPage,
   ContentManagementPage,
   CareerManagementPage,
+  AddEditCareerPage,
+  ViewCareerPage,
   CatalogueManagementPage,
   AddEditCataloguePage,
   CustomerDetailPage,
