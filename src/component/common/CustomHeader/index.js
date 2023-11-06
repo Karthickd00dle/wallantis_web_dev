@@ -39,7 +39,7 @@ export const CustomHeaderComponent = ({
   const [currentData, setCurrentData] = useState();
   const [openReferFriend, setOpenReferFriend] = useState(false);
   const handleCartIcon = () => {
-    history.push("cart-summary");
+    history.push("/home/cart-summary");
   };
 
   const getAuthToken = () => {

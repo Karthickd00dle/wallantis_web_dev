@@ -6,7 +6,6 @@ export function ProductHeader({ bannerLabel, bannerImage }) {
       <div className="product-banner-label-container">
         <label className="product-banner-label">{bannerLabel}</label>
       </div>
-
       <img width="100%" height="375px" src={bannerImage} alt="product-banner" />
     </div>
   );

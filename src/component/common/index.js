@@ -1,4 +1,4 @@
-export { Pagination } from "./Pagination";
+export { CustomPagination } from "./CustomPagination";
 export { NormalButton } from "./NormalButton";
 export { NormalInput } from "./NormalInput";
 export { NormalSearch } from "./NormalSearch";

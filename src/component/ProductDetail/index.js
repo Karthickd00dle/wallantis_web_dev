@@ -51,11 +51,7 @@ const ColorFilter = ({
   );
 };
 
-function ProductDetailFC({
-  productDetailData,
-  cartItemData,
-  getProductDetailApi,
-}) {
+function ProductDetailFC({ productDetailData, getProductDetailApi }) {
   let params = useParams();
 
   const [productDetail, setProductDetail] = useState([]);

@@ -252,19 +252,19 @@ export const productListingFilter = {
 export const SortingMenuList = [
   {
     label: "Best Selling",
-    value: 1,
+    value: "bestselling",
   },
   {
     label: "Popularity",
-    value: 2,
+    value: "popularity",
   },
   {
     label: "High to Low",
-    value: 3,
+    value: "high_price",
   },
   {
     label: "Low to High",
-    value: 4,
+    value: "low_price",
   },
 ];
 

@@ -96,12 +96,12 @@ export const profileApi = {
 
 export const cartApi = {
   createCart: {
-    api: "cart/create",
+    api: "cart",
     method: "post",
     baseURL: "base",
   },
   cartList: {
-    api: "cart/cartList",
+    api: "cart",
     method: "get",
     baseURL: "base",
   },
@@ -120,7 +120,7 @@ export const cartApi = {
     },
   },
   updateCart: {
-    url: "cart/updateCart",
+    url: "cart",
     method: "put",
     baseURL: "base",
     query: {
@@ -137,9 +137,9 @@ export const cartApi = {
 
 export const productAPI = {
   getAllProducts: {
-    url: "list",
+    url: "products",
     method: "get",
-    baseURL: "products",
+    baseURL: "base",
     query: {
       page: null,
       pageCount: null,

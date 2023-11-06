@@ -10,6 +10,7 @@ import { ProductListingGrid } from "./ProductFilter";
 import { ProductHeader } from "./ProductHeader";
 import { history } from "service/helpers";
 import { getSubCategory } from "action/CategoryAct";
+import { CustomPagination } from "component/common";
 
 const ProductListSubCategoryFC = ({
   getFilteredProductListApi,
@@ -17,30 +18,32 @@ const ProductListSubCategoryFC = ({
 }) => {
   let params = useParams();
 
-  let maxValue = "10000";
   const [checkedValues, setCheckedValues] = useState({
-    subCategoryId: [],
-    roomId: [],
-    collectionId: [],
-    colorId: [],
+    roomNameId: [],
+    collectionNameId: [],
+    colorNameId: [],
   });
-  const [pricevalue, setPriceValue] = useState([0, maxValue]);
+
   const [productsData, setProductsData] = useState([]);
   const [subCategoryData, setSubCategoryData] = useState({});
   const [page, setPage] = useState({});
+  const [pricevalue, setPriceValue] = useState([1, 10000]);
+  const [sortType, setSortType] = useState();
 
   const getAllProductsAPI = () => {
-    const { roomId, collectionId, colorId } = checkedValues;
+    const { roomNameId, collectionNameId, colorNameId } = checkedValues;
 
     let body = {
-      page: 1,
+      page: page.page,
       limit: 10,
-      roomId: roomId,
-      collectionId: collectionId,
-      color: colorId,
-      start_price: "1",
-      end_price: "10000",
-      sort: "",
+      categoryId: [params.categoryId],
+      subCategoryId: [params.subCategoryId],
+      roomId: roomNameId,
+      collectionId: collectionNameId,
+      color: colorNameId,
+      start_price: pricevalue[0],
+      end_price: pricevalue[1],
+      sort: sortType,
     };
 
     getFilteredProductListApi(body)
@@ -66,7 +69,14 @@ const ProductListSubCategoryFC = ({
       });
   };
 
-  useEffect(() => getAllProductsAPI(), [params, checkedValues]);
+  const handlePagination = (e, value) => {
+    setPage((prevState) => ({ ...prevState, page: value }));
+  };
+
+  useEffect(
+    () => getAllProductsAPI(),
+    [params, checkedValues, , pricevalue, sortType, page.page]
+  );
   useEffect(() => getSubCategoryAPI(), [params]);
 
   const handleProductDetail = (prodData) => {
@@ -81,13 +91,17 @@ const ProductListSubCategoryFC = ({
       <div className="d-flex mt-4">
         <ProductListingGrid
           locationLabel={"wallpaper"}
-          maximumPrice={maxValue}
+          maximumPrice={10000}
           setCheckedValues={setCheckedValues}
           pricevalue={pricevalue}
           setPriceValue={setPriceValue}
         />
         <div className="d-flex flex-column w-100">
-          <ProductSorting itemCount={page.total} itemLabel={"wallpaper"} />
+          <ProductSorting
+            itemCount={page.total}
+            itemLabel={"wallpaper"}
+            setSortType={setSortType}
+          />
           <div className="card-container">
             <div className="row">
               {productsData.map((prodData) => (
@@ -99,6 +113,12 @@ const ProductListSubCategoryFC = ({
                 </div>
               ))}
             </div>
+            <CustomPagination
+              className="my-5"
+              currentPage={page.page}
+              pageCount={page.pageCount}
+              onChange={handlePagination}
+            />
           </div>
         </div>
       </div>

@@ -1,12 +1,11 @@
-import { sortingFunction } from "action/CommonAct";
 import { CustomSelect } from "component/common";
 import { SortingMenuList } from "config";
 
 import "./style.scss";
 
-export const ProductSorting = ({ itemCount, itemLabel, itemData }) => {
+export const ProductSorting = ({ itemCount, itemLabel, setSortType }) => {
   const handleSorting = ({ target: { value } }) => {
-    let sortedData = sortingFunction(value, itemData);
+    setSortType(value);
   };
   return (
     <div className="sorting-container ">

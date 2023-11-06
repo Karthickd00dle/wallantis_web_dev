@@ -156,3 +156,14 @@ export const separateAndCapitalize = (input) => {
 
   return capitalizedString1 + " " + capitalizedString2;
 };
+
+export function findMaxPrice(data) {
+  if (data.length === 0) {
+    return null;
+  }
+
+  return data.reduce(
+    (max, item) => (item.price > max ? item.price : max),
+    data[0].price
+  );
+}
