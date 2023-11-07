@@ -58,11 +58,12 @@ const ECatalogueBook = () => {
     <>
       <audio ref={audioRef} src={pageTurnSound} preload="auto" />
       <HTMLFlipBook
+        className="HTMLFlipBook"
         showCover={true}
         onFlip={onFlip}
         ref={book}
-        width={750}
-        height={620}
+        width={650}
+        height={500}
         onInit={({ object }) => {
           console.log(object.events);
         }}
@@ -107,7 +108,7 @@ export const ECatalogue = ({ isOpen, setOpenCatalogue }) => {
             <label className="label-wall">Wall</label>
             <label>antics</label>
           </div>
-          <div className="d-flex justify-content-center pt-5">
+          <div className="d-flex justify-content-center pt-5 e-catalogue-container">
             <ECatalogueBook />
           </div>
         </div>
