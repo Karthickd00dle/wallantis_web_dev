@@ -141,20 +141,6 @@ function HomeComponentMain({ getAllProductsAPI }) {
     getAllProducts();
   }, []);
 
-  const [newarrivalsProducts, setNewarrivalsProducts] = useState([]);
-  useEffect(() => {
-    // Make a fetch request to the API
-    fetch('http://doodlebluelive.com:2249/api/v1/products/arrival/list')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data,"data"); 
-        setNewarrivalsProducts(data.response);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
-
   return (
     <>
       <div className="home-content-container">
@@ -375,22 +361,20 @@ function HomeComponentMain({ getAllProductsAPI }) {
             </div>
           </div>
 
-          <div className="home-main-card-container">
-          {newarrivalsProducts.map((prodData) => (
-  prodData ? ( 
-    <CardThree
-      isHome
-      favData={favData}
-      setFavData={setFavData}
-      cartData={cartData}
-      setCartData={setCartData}
-      onClickCard={handleCardProduct}
-      prodData={prodData}
-      key={prodData._id}
-    />
-  ) : null 
-))}
-    </div>
+          {/* <div className="home-main-card-container">
+            {newarrivalsProducts.map((prodData) => (
+              <CardThree
+                isHome
+                favData={favData}
+                setFavData={setFavData}
+                cartData={cartData}
+                setCartData={setCartData}
+                onClickCard={handleCardProduct}
+                prodData={prodData}
+                key={prodData.id}
+              />
+            ))}
+          </div> */}
         </div>
 
         <div className="main-container main-container-bg">

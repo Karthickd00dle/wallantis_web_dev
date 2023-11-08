@@ -113,8 +113,7 @@ export default function RoomVisualizer() {
                 </div>
                 <div
                   className="texture-image-box"
-
-onClick={() => setActiveTexture(slickWeaveWall)}
+                  onClick={() => setActiveTexture(slickWeaveWall)}
                 >
                   <img
                     className="texture-img"

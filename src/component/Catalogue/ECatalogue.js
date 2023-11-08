@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useState, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import HTMLFlipBook from "react-pageflip";
-import "./style.scss";
+import "./style.scss"; // Update to your actual style file
 import { CustomButton } from "component/common";
 import { KeyboardArrowLeftOutlined } from "@mui/icons-material";
 import { eCatalogueProducts } from "config";

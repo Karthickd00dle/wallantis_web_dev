@@ -1,4 +1,3 @@
-export { Chatbot } from "./ChatBot";
 export { CustomPagination } from "./CustomPagination";
 export { NormalButton } from "./NormalButton";
 export { NormalInput } from "./NormalInput";
