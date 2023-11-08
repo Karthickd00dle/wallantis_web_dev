@@ -1,5 +1,4 @@
 import React from "react";
-import { history } from "service/helpers";
 import "./style.scss";
 import { NormalNavigate } from "component/common";
 import { ECatalogue } from "./ECatalogue";
