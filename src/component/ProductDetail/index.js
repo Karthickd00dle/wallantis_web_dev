@@ -252,6 +252,7 @@ function ProductDetailFC({
               </button>
             </div>
             <div className="info-title-2">Check availability in your area </div>
+            <div className="pincode-check"><input type="text" placeholder="PINCODE"></input><span>CHECK</span></div>
             <div className="instructions-box-container">
               <div className="ib-container">
                 <div>

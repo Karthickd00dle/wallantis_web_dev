@@ -450,3 +450,28 @@ img {
   font-size: 30px;
   cursor: pointer;
 }
+
+.pincode-check {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.pincode-check input {
+  border: none;
+  border-bottom: 2px solid #9A9999;
+  background: none;
+  width: 345px;
+  padding-bottom: 13px;
+}
+
+.pincode-check span {
+  position: absolute;
+  // bottom: 0;
+  left: 285px;
+  text-decoration: underline;
+  cursor: pointer;
+  @include fontRobotoStyle(16px, 400, #2A71F9);
+}
+.pincode-check input::placeholder {
+  @include fontRobotoStyle(20px, 400, #9A9999);
+}

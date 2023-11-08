@@ -107,6 +107,13 @@ function HomeComponentMain({ getAllProductsAPI }) {
     }, 3000);
   };
 
+  const [showAllBlogProducts, setShowAllBlogProducts] = useState(false);
+
+  const handleViewAllBlogClick = () => {
+    setShowAllBlogProducts(!showAllBlogProducts);
+  };
+  
+
   const [viewAllClicked, setViewAllClicked] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -121,7 +128,15 @@ function HomeComponentMain({ getAllProductsAPI }) {
       setCurrentIndex(currentIndex - 1);
     }
   };
-
+  useEffect(() => {
+    if (!viewAllClicked) {
+      const homeMainCardContainer = document.querySelector('.home-main-card-container');
+      if (homeMainCardContainer) {
+        homeMainCardContainer.classList.remove('show-scrollbar');
+      }
+    }
+  }, [viewAllClicked]);
+  
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -432,10 +447,10 @@ function HomeComponentMain({ getAllProductsAPI }) {
       <div className="slider-container">
         {viewAllClicked && (
           <button className="slider-arrow" onClick={() => handleSlide('prev')}>
-            &lt; {/* Left arrow */}
+            &lt; 
           </button>
         )}
-      <div className="home-main-card-container">
+      <div className="home-main-card-container show-scrollbar">
       {ecatalougeProducts.slice(currentIndex, currentIndex + (viewAllClicked ? ecatalougeProducts.length : 4)).map((prodData, index) => (
           <CardCatalogue
             onClickCard={handleCardProduct}
@@ -446,14 +461,14 @@ function HomeComponentMain({ getAllProductsAPI }) {
       </div>
       {viewAllClicked && (
           <button className="slider-arrow" onClick={() => handleSlide('next')}>
-            &gt; {/* Right arrow */}
+            &gt; 
           </button>
         )}
         </div>
     </div>
 
 
-        <div className="main-container">
+        {/* <div className="main-container">
           <div className="main-header">
             <div className="main-title">Latest Blog</div>
             <div
@@ -472,7 +487,38 @@ function HomeComponentMain({ getAllProductsAPI }) {
               />
             ))}
           </div>
-        </div>
+          {viewAllClicked && (
+          <button className="slider-arrow" onClick={() => handleSlide('next')}>
+            &gt; 
+          </button>
+        )}
+        </div> */}
+
+<div className="main-container">
+  <div className="main-header">
+    <div className="main-title">Latest Blog</div>
+    <div
+      className="view-all-but"
+      onClick={handleViewAllBlogClick}
+    >
+      VIEW ALL
+    </div>
+  </div>
+       <div className="home-main-card-container show-scrollbar">
+       {blogProducts.slice(0, showAllBlogProducts ? blogProducts.length : 4).map((prodData) => (
+         <CardBlog
+         onClickCard={handleCardProduct}
+         prodData={prodData}
+         key={prodData.id}
+       />
+        ))}
+      </div>
+      {viewAllClicked && (
+          <button className="slider-arrow" onClick={() => handleSlide('next')}>
+            &gt; 
+          </button>
+        )}
+</div>
 
         <div className="main-container footer-margin">
           <div className="main-header">
