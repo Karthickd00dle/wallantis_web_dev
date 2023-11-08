@@ -12,7 +12,8 @@ import {
   customMomentFormat,
   ternaryCondition,
 } from "service/helperFunctions";
-import { InstallerDateTime } from "component/common/InstallerDataTime";
+// import { InstallerDateTime } from "component/common/InstallerDataTime";
+import InstallerDateTime from "component/common/InstallerDataTime";
 
 export const OrderSummaryMain = ({
   cartData,

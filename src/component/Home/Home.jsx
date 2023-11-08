@@ -32,6 +32,7 @@ import WallpaperShopNow from "assets/images/Dashboard/Wallpaper_Shopnow.png";
 import WallmuralsShopNow from "assets/images/Dashboard/Wallmurals_Shopnow.png";
 import StickerWallpaperShopNow from "assets/images/Dashboard/Sticker_Wallpaper_Shopnow.png";
 
+
 const carouselData = [
   {
     name: "James Pradip 1",
@@ -106,6 +107,36 @@ function HomeComponentMain({ getAllProductsAPI }) {
     }, 3000);
   };
 
+  const [showAllBlogProducts, setShowAllBlogProducts] = useState(false);
+
+  const handleViewAllBlogClick = () => {
+    setShowAllBlogProducts(!showAllBlogProducts);
+  };
+  
+
+  const [viewAllClicked, setViewAllClicked] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleViewAllClick = () => {
+    setViewAllClicked(true);
+  };
+
+  const handleSlide = (direction) => {
+    if (direction === 'next' && currentIndex < ecatalougeProducts.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else if (direction === 'prev' && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+  useEffect(() => {
+    if (!viewAllClicked) {
+      const homeMainCardContainer = document.querySelector('.home-main-card-container');
+      if (homeMainCardContainer) {
+        homeMainCardContainer.classList.remove('show-scrollbar');
+      }
+    }
+  }, [viewAllClicked]);
+  
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -399,7 +430,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
           </div>
         </div>
 
-        <div className="main-container">
+        {/* <div className="main-container">
           <div className="main-header">
             <div className="main-title">E-Catalouge</div>
             <div
@@ -418,9 +449,42 @@ function HomeComponentMain({ getAllProductsAPI }) {
               />
             ))}
           </div>
+        </div> */}
+            <div className="main-container">
+      <div className="main-header">
+        <div className="main-title">E-Catalogue</div>
+        <div
+          className={`view-all-but ${viewAllClicked ? 'disabled' : ''}`}
+          onClick={handleViewAllClick}
+        >
+          VIEW ALL
         </div>
+      </div>
+      <div className="slider-container">
+        {viewAllClicked && (
+          <button className="slider-arrow" onClick={() => handleSlide('prev')}>
+            &lt; 
+          </button>
+        )}
+      <div className="home-main-card-container show-scrollbar">
+      {ecatalougeProducts.slice(currentIndex, currentIndex + (viewAllClicked ? ecatalougeProducts.length : 4)).map((prodData, index) => (
+          <CardCatalogue
+            onClickCard={handleCardProduct}
+            prodData={prodData}
+            key={prodData.id}
+          />
+        ))}
+      </div>
+      {viewAllClicked && (
+          <button className="slider-arrow" onClick={() => handleSlide('next')}>
+            &gt; 
+          </button>
+        )}
+        </div>
+    </div>
 
-        <div className="main-container">
+
+        {/* <div className="main-container">
           <div className="main-header">
             <div className="main-title">Latest Blog</div>
             <div
@@ -439,7 +503,38 @@ function HomeComponentMain({ getAllProductsAPI }) {
               />
             ))}
           </div>
-        </div>
+          {viewAllClicked && (
+          <button className="slider-arrow" onClick={() => handleSlide('next')}>
+            &gt; 
+          </button>
+        )}
+        </div> */}
+
+<div className="main-container">
+  <div className="main-header">
+    <div className="main-title">Latest Blog</div>
+    <div
+      className="view-all-but"
+      onClick={handleViewAllBlogClick}
+    >
+      VIEW ALL
+    </div>
+  </div>
+       <div className="home-main-card-container show-scrollbar">
+       {blogProducts.slice(0, showAllBlogProducts ? blogProducts.length : 4).map((prodData) => (
+         <CardBlog
+         onClickCard={handleCardProduct}
+         prodData={prodData}
+         key={prodData.id}
+       />
+        ))}
+      </div>
+      {viewAllClicked && (
+          <button className="slider-arrow" onClick={() => handleSlide('next')}>
+            &gt; 
+          </button>
+        )}
+</div>
 
         <div className="main-container footer-margin">
           <div className="main-header">

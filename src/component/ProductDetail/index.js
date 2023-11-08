@@ -22,6 +22,13 @@ import VideoModel from "component/common/VideoModel";
 import RoomPaints from "../../assets/video/RoomPaints.mp4"
 import { bindActionCreators } from "redux";
 import { getProductDetailApi } from "action/ProductsAct";
+import { FcFolder } from "react-icons/fc";
+import { FaTimes } from 'react-icons/fa';
+import IP_calculator from '../../assets/images/IP_calculator.jpg'
+import calculator_rolls from '../../assets/images/calculator_rolls.jpg'
+import InstallerDateTime from "../common/InstallerDataTime"
+
+
 
 const ColorFilter = ({
   selectColor,
@@ -121,6 +128,31 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
 
   console.log(productDetail, "prodd");
 
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupContent, setPopupContent] = useState([]);
+
+  const allProductInstructions = [
+    ...ProductInstructions1,
+    ...ProductInstructions2,
+    ...ProductInstructions3,
+    ...ProductInstructions4,
+  ];
+
+  const handleFolderIconClick = () => {
+    setPopupContent(allProductInstructions);
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+  };
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setShowPopup(!showPopup);
+  };
+
   return (
     <>
       <div className="product-detail-container">
@@ -212,17 +244,19 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
               <div className="info-heading-one">Quantity (Roll)</div>
             </div>
             <div className="button-container d-flex mb-3">
-              <button
-                className="product-btn"
+              <div
+                className="product-btn  d-flex"
                 onClick={() => setOpenCalculateRolls(true)}
               >
-                Calculate Rolls
-              </button>
+                <img src={calculator_rolls}></img> 
+                 <span> Calculate Rolls</span>
+              </div>
               <button
-                className="product-btn"
+                className="product-btn d-flex"
                 onClick={() => setOpenInstallerPriceCalculator(true)}
               >
-                Installer Price Calculator
+                   <img src={IP_calculator}></img> 
+              <span> Installer Price Calculator </span>
               </button>
             </div>
             <div className="info-title-2">Check availability in your area </div>
@@ -230,7 +264,17 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
             <div className="instructions-box-container">
               <div className="ib-container">
                 <div>
-                  <input className="ib-checkBox" type="checkbox" />
+                  <input className="ib-checkBox" type="checkbox"  onChange={handleCheckboxChange} />
+                  {showPopup && (
+        <div id="popup" className="popup">
+          <div className="popup-content">
+          <div className="close-icon-tips" onClick={closePopup}>
+      <span>&times;</span>
+      </div>
+            <InstallerDateTime />
+          </div>
+        </div>
+      )}
                 </div>
                 <div className="ib-body">
                   <div className="ib-body-title">
@@ -252,11 +296,15 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
                 <div className="travel-container">
                   <TravelGuideSVGComponent />
                 </div>
-                <div>
+                {/* <div>
                   <div>
                     <div className="ib-showmodel">
                     <div className="ib-body-2-title">
                       Insructions on Application of Wallpaper{" "}
+
+                    </div>
+                    <div>
+                      <FcFolder/>
                     </div>
                     <div className="show-video-model" onClick={handleOpenVideoModal}>
                      SHOW ALL
@@ -376,7 +424,58 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
                       time to fully cure.
                     </label>
                   </div>
-                </div>
+                </div> */}
+
+<div>
+      <div>
+        <div className="ib-body-2-title">Instructions on Application of Wallpaper</div>
+        <div>
+          <FcFolder onClick={handleFolderIconClick} className="folder-icon"/>
+        </div>
+      </div>
+      {isPopupOpen && (
+  <div id="popup" className="popup">
+    <div className="popup-content">
+      <div className="close-icon-tips" onClick={closePopup}>
+      <span>&times;</span>
+        {/* <FaTimes /> */}
+      </div>
+      {Array.isArray(popupContent) ? (
+        popupContent.map(({ info, steps, image, id }, index) => (
+          <div
+            className="card-instructions-container"
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          >
+            <label className="card-instructions-steps">
+              {steps}
+            </label>
+            <br />
+            <label className="card-instructions-info">
+              {info}
+            </label>
+          </div>
+        ))
+      ) : (
+        // Handle the case where popupContent is not an array
+        <div>Popup content is not available.</div>
+      )}
+      <div className="Product-tips">
+        <label>
+          Tip 1: When smoothing, work from the centre outwards to push bubbles to the edge of the panel. Use a rubber squeeze.
+        </label>
+        <label>
+          Tip 2: If you've recently painted the walls, make sure to wait a minimum of three weeks so that the paint has enough time to fully cure.
+        </label>
+      </div>
+    </div>
+  </div>
+)}
+
+
+    
+    </div>
               </div>
             </div>
             <div className="d-flex my-4 product-add-buttons">
