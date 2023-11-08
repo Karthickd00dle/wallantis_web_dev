@@ -5,7 +5,7 @@ import "./style.scss";
 import { CustomButton } from "component/common";
 import { KeyboardArrowLeftOutlined } from "@mui/icons-material";
 import { eCatalogueProducts } from "config";
-import pageTurnSound from "assets/audio/page-flip.mp3"; // Import the sound file
+import pageTurnSound from "assets/audio/page-flip.mp3";
 
 const Page = React.forwardRef((props, ref) => {
   return (
@@ -20,20 +20,17 @@ const ECatalogueBook = () => {
   const audioRef = useRef();
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Function to play the page turn sound
   const playPageTurnSound = () => {
     if (audioRef.current) {
-      audioRef.current.currentTime = 0; // Reset the audio to the beginning
+      audioRef.current.currentTime = 0;
       audioRef.current.play();
     }
   };
 
-  // Callback when a page is turned
   const onFlip = useCallback(
     (e) => {
       const currentPageNumber = e.data;
 
-      // Only play the sound if the page has actually turned
       if (currentPageNumber !== currentPage) {
         playPageTurnSound();
         setCurrentPage(currentPageNumber);
@@ -43,10 +40,8 @@ const ECatalogueBook = () => {
   );
 
   useEffect(() => {
-    // Preload the audio when the component mounts
     audioRef.current.load();
 
-    // Pause the audio when the component unmounts
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -57,32 +52,34 @@ const ECatalogueBook = () => {
   return (
     <>
       <audio ref={audioRef} src={pageTurnSound} preload="auto" />
-      <HTMLFlipBook
-        className="HTMLFlipBook"
-        showCover={true}
-        onFlip={onFlip}
-        ref={book}
-        width={650}
-        height={500}
-        onInit={({ object }) => {
-          console.log(object.events);
-        }}
-      >
-        {eCatalogueProducts.map(({ id, page_no, image }) => (
-          <Page
-            key={id}
-            number={page_no}
-            getPageCount={(c) => console.log(c, "count")}
-          >
-            <img
-              height="100%"
-              width="100%"
-              src={image}
-              alt={`img-${page_no}`}
-            />
-          </Page>
-        ))}
-      </HTMLFlipBook>
+      <div className="responsive-flipbook-container">
+        <HTMLFlipBook
+          className="HTMLFlipBook"
+          showCover={true}
+          onFlip={onFlip}
+          ref={book}
+          width={600}
+          height={500}
+          onInit={({ object }) => {
+            console.log(object.events);
+          }}
+        >
+          {eCatalogueProducts.map(({ id, page_no, image }) => (
+            <Page
+              key={id}
+              number={page_no}
+              getPageCount={(c) => console.log(c, "count")}
+            >
+              <img
+                height="100%"
+                width="100%"
+                src={image}
+                alt={`img-${page_no}`}
+              />
+            </Page>
+          ))}
+        </HTMLFlipBook>
+      </div>
     </>
   );
 };

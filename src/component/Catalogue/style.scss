@@ -1,13 +1,16 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
-.e-catalogue-container {
+.responsive-flipbook-container {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: contents;
 }
+
 .HTMLFlipBook {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  position: absolute;
 }
 
 .catalogue-container {
