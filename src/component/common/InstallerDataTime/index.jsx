@@ -65,7 +65,7 @@ const installerTimeData = [
   },
 ];
 
-export const InstallerDateTime = ({
+const InstallerDateTime = ({
   installerDate,
   setInstallerDate,
   installerTime,
@@ -124,3 +124,5 @@ export const InstallerDateTime = ({
     </div>
   );
 };
+
+export default InstallerDateTime
