@@ -649,6 +649,17 @@ export const ecatalougeProducts = [
     ],
 
     title: "Best of Living Walls",
+  }, {
+    id: 5,
+    image: ["https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg"],
+    title: "My Home. My Space",
+  },
+  {
+    id: 6,
+    image: [
+      "https://i.pinimg.com/originals/46/99/01/4699018ce744caf4efa072e4d2856be8.jpg",
+    ],
+    title: "Trendy Walls",
   },
 ];
 

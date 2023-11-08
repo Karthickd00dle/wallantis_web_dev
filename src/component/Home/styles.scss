@@ -80,6 +80,7 @@
       width: 100%;
       gap: 25px;
       padding: 20px;
+      overflow-x: scroll;
       .blog-container {
         width: 45%;
         .blog-post-img {
@@ -143,6 +144,24 @@
           @include fontLatoStyle(20px, 400, #838383, 24px);
         }
       }
+    }
+    .home-main-card-container::-webkit-scrollbar {
+      width: 8px; /* Adjust the width as needed */
+      height: 8px;
+    }
+    
+    .home-main-card-container::-webkit-scrollbar-thumb {
+      background-color: #888; /* Color of the scrollbar thumb */
+      border-radius: 4px;
+    }
+    
+    .home-main-card-container::-webkit-scrollbar-thumb:hover {
+      background-color: #555; /* Color of the scrollbar thumb on hover */
+    }
+    
+    .home-main-card-container::-webkit-scrollbar-track {
+      background-color: #f1f1f1; /* Color of the scrollbar track */
+      border-radius: 4px;
     }
 
     .main-header {
@@ -1038,4 +1057,25 @@
       margin-bottom: 200px;
     }
   }
+}
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+
+.slider-arrow {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the left arrow */
+.slider-arrow:first-child {
+  margin-right: 10px;
+}
+
+/* Style the right arrow */
+.slider-arrow:last-child {
+  margin-left: 10px;
 }
