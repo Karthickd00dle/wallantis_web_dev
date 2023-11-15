@@ -1,7 +1,7 @@
 import { addQuery } from "service/helperFunctions";
 import { cartApi } from "../service/apiVariables";
 
-export const CreateCartApi =
+export const createCartApi =
   (body) =>
   (dispatch, getState, { apiCall, Toast }) => {
     return new Promise((resolve, reject) => {

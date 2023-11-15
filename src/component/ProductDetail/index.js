@@ -26,6 +26,7 @@ import calculator_rolls from "../../assets/images/calculator_rolls.jpg";
 import InstallerDateTime from "../common/InstallerDataTime";
 import { useForm } from "react-hook-form";
 import { Rating } from "@mui/material";
+import { createCartApi } from "action/CartAct";
 
 const ColorFilter = ({
   colorData: { colorCode },
@@ -60,7 +61,7 @@ const ColorFilter = ({
   );
 };
 
-function ProductDetailFC({ getProductDetailApi }) {
+function ProductDetailFC({ getProductDetailApi, createCartApi }) {
   let params = useParams();
 
   const [productDetail, setProductDetail] = useState([]);
@@ -120,6 +121,24 @@ function ProductDetailFC({ getProductDetailApi }) {
 
   const closePopup = () => {
     setPopupOpen(false);
+  };
+
+  const handleAddToCart = () => {
+    let body = {
+      quantity: quantity,
+      colorId: getCurrentItem.colorId,
+      productId: params.id,
+    };
+    createCartApi(body)
+      .then(() =>
+        Toast({
+          type: "success",
+          message: "Item Added To Cart",
+        })
+      )
+      .catch(({ message }) => {
+        Toast({ type: "error", message });
+      });
   };
 
   const [showPopup, setShowPopup] = useState(false);
@@ -483,6 +502,7 @@ function ProductDetailFC({ getProductDetailApi }) {
                   color: "#A26220",
                 }}
                 className="py-3"
+                onClick={handleAddToCart}
               >
                 Add to Cart
               </CustomButton>
@@ -591,6 +611,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       getProductDetailApi: getProductDetailApi,
+      createCartApi: createCartApi,
     },
     dispatch
   );

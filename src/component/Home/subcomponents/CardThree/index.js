@@ -9,7 +9,7 @@ import {
   FavoriteBorder,
 } from "@mui/icons-material";
 import { bindActionCreators } from "redux";
-import { CreateCartApi } from "action/CartAct";
+import { CreateCartApi, createCartApi } from "action/CartAct";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
 
@@ -138,7 +138,7 @@ function CardThreeFC({ onClickCard, prodData, isHome, createCartApiCall }) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      createCartApiCall: CreateCartApi,
+      createCartApiCall: createCartApi,
     },
     dispatch
   );
