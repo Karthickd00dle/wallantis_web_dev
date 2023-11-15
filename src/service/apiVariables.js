@@ -22,6 +22,16 @@ export const authApi = {
     method: "post",
     baseURL: "auth",
   },
+  resendOTP: {
+    api: "resendMobileOtp",
+    method: "post",
+    baseURL: "auth",
+  },
+  resendOTPVerify: {
+    api: "resendOtpVerify",
+    method: "post",
+    baseURL: "auth",
+  },
 };
 
 export const profileApi = {

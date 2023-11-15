@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./style.scss";
-import { history } from "service/helpers";
 import jwt_decode from "jwt-decode";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -12,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
 import { GoogleLogin } from "@react-oauth/google";
+import { useHistory } from "react-router-dom";
 
 function LoginComponentMain({ loginApiCall, ownProps }) {
   const location = useLocation().pathname.split("/").slice(-1)[0];
@@ -20,6 +20,9 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const history = useHistory();
+
+  const [currentEmail, setCurrentEmail] = useState();
 
   function postLogin(isGoogle, response) {
     if (isGoogle) {
@@ -61,6 +64,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
             className="email-mobile-input-field mt-4"
             register={register}
             errors={errors}
+            onChange={(e) => setCurrentEmail(e.target.value)}
           />
           <CustomInput
             placeholder="Enter Password"
@@ -77,7 +81,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
                 <InputAdornment position="end">
                   <label
                     onClick={() => {
-                      history.push("/auth/forgotpassword");
+                      history.push("/auth/forgotpassword", 1);
                     }}
                     className="forget-text-inputfield cursor-pointer"
                   >
@@ -92,7 +96,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
             <div className="d-flex justify-content-end">
               <label
                 onClick={() => {
-                  history.push("/auth/forgot-password");
+                  history.push("/auth/forgot-password", currentEmail);
                 }}
                 className="forget-text-inputfield cursor-pointer pt-3"
               >

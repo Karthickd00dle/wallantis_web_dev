@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { loginApi, registationApi, verifyOTPApi } from "action/AuthAct";
-import { conditionalLoad } from "service/helperFunctions";
 import PostRegister from "../PostRegister";
 import { GoogleLogin } from "@react-oauth/google";
 

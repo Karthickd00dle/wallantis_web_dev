@@ -9,13 +9,13 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { verifyOTPApi } from "action/AuthAct";
 
-function PostRegisterComponentMain({ verifyOTPApiCall, currentEmail }) {
+function PostRegisterComponentMain({ verifyOTPApiCall, ownProps }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const { currentEmail } = ownProps;
   const verifyOTP = (data) => {
     let payload = {
       emailId: currentEmail,
@@ -26,9 +26,21 @@ function PostRegisterComponentMain({ verifyOTPApiCall, currentEmail }) {
       history.push("/auth/login");
     });
   };
+
+  console.log(currentEmail, "oww");
   return (
     <form onSubmit={handleSubmit(verifyOTP)}>
       <div className="post-register-container">
+        <CustomInput
+          type="email"
+          name="email"
+          variant="standard"
+          placeholder="Enter Email/Mobile number"
+          className="input-mobile-email"
+          register={register}
+          errors={errors}
+          defaultValue={currentEmail}
+        />
         <div className="otp-resend-container d-flex justify-content-between my-4">
           <label className="label-otp-sent"> OTP sent to Mobile</label>
           <label className="label-resend pe-1">Resend? </label>
