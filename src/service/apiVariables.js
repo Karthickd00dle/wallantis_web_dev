@@ -286,3 +286,32 @@ export const contactUsAPI = {
     baseURL: "base",
   },
 };
+
+export const wishlistApi = {
+  getWishList: {
+    api: "wishlist",
+    method: "get",
+    baseURL: "base",
+  },
+
+  addToWishlist: {
+    api: "wishlist",
+    method: "post",
+    baseURL: "base",
+  },
+
+  removeFromWishlist: {
+    url: "wishlist",
+    method: "delete",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};
