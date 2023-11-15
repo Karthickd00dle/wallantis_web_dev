@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import { NormalSearch } from "component/common";
 import "./index.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector  } from "react-redux";
 import { commonStateList } from "service/actionType";
 import { DeleteItemIcon } from "assets/svg/Profile";
 
@@ -43,12 +43,19 @@ const WishlistCard = ({
   );
 };
 
-export function WishList({ wishlistItemData }) {
+export function WishList() {
   const dispatch = useDispatch();
+  const wishlistItemData = useSelector((state) => state.wishlistItemData);
   const deleteFavItem = (id) => {
     const filteredData = wishlistItemData.filter((data) => data.id !== id);
+    console.log('Filtered Data:', filteredData);
     dispatch({ type: commonStateList.wishlistItem, payload: filteredData });
   };
+  useEffect(() => {
+    console.log('Wishlist Item Data:', wishlistItemData);
+  }, [wishlistItemData]);
+
+  console.log('Wishlist Item Data:', wishlistItemData);
   return (
     <div>
       <div className="d-flex align-items-center">
@@ -56,13 +63,21 @@ export function WishList({ wishlistItemData }) {
           <NormalSearch placeholder="Search For Orders" />
         </div>
       </div>
-      {wishlistItemData.map((wishlistData) => (
+      {/* {wishlistItemData.map((wishlistData) => (
         <WishlistCard
           key={wishlistData.id}
           wishlistData={wishlistData}
           deleteFavItem={deleteFavItem}
         />
-      ))}
+      ))} */}
+          {Array.isArray(wishlistItemData) &&
+        wishlistItemData.map((wishlistData) => (
+          <WishlistCard
+            key={wishlistData.id}
+            wishlistData={wishlistData}
+            deleteFavItem={deleteFavItem}
+          />
+        ))}
     </div>
   );
 }

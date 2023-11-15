@@ -421,7 +421,6 @@ function ProductDetailFC({
           </div>
         ))
       ) : (
-        // Handle the case where popupContent is not an array
         <div>Popup content is not available.</div>
       )}
       <div className="Product-tips">
