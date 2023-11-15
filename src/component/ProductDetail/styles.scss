@@ -1,7 +1,6 @@
 @import "assets/scss/abstracts/abstracts.scss";
 
 .product-detail-container {
-  padding-top: 100px;
   padding-left: 75px;
   padding-right: 150px;
   height: max-content;
@@ -19,6 +18,10 @@
     gap: 25px;
     // justify-content: space-between;
   }
+}
+
+.react-magnify {
+  z-index: 1;
 }
 
 .product-detail-inner-container {
@@ -123,7 +126,7 @@
     .info-title-2 {
       @include fontRobotoStyle(18px, 400, #000000, 22px);
       margin-bottom: 30px;
-      margin-top: 130px;
+
       display: flex;
       align-items: center;
       text-transform: uppercase;
@@ -317,15 +320,38 @@ img {
   border-radius: 3px;
 }
 
+.order-count-container {
+  width: 140px;
+
+  .order-count {
+    border: 1px solid #2a71f9;
+
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include fontRobotoStyle(20px, 400, #2a71f9, 22px);
+  }
+  .order-count-input {
+    min-width: 50px;
+    background: transparent;
+    width: 60px;
+    height: 20px;
+    min-height: 30px;
+    border: 1px solid #858585;
+    @include fontRobotoStyle(20px, 400, #000000, 22px);
+  }
+}
+
 .container .imgContainer {
   display: flex;
-  justify-content: space-between;
+
   flex-wrap: wrap;
   padding: 40px 0 0 0;
   /* width: 143px; */
   height: 150px;
   /* border-radius: 2px; */
-  flex-direction: column;
 }
 
 .container .imgContainer img {
@@ -354,7 +380,7 @@ img {
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: contain;
-  width: calc(33.33% - 10px); 
+  width: calc(33.33% - 10px);
   margin-bottom: 20px;
 
   .card-instructions-image-section {
@@ -438,7 +464,7 @@ img {
 .popup-content button:hover {
   background-color: #0056b3;
 }
-.folder-icon{
+.folder-icon {
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -451,27 +477,21 @@ img {
   cursor: pointer;
 }
 
-.pincode-check {
-  position: relative;
-  margin-bottom: 30px;
-}
-
 .pincode-check input {
   border: none;
-  border-bottom: 2px solid #9A9999;
+  border-bottom: 2px solid #9a9999;
   background: none;
   width: 345px;
   padding-bottom: 13px;
 }
 
 .pincode-check span {
-  position: absolute;
-  // bottom: 0;
-  left: 285px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #9a9999;
   text-decoration: underline;
   cursor: pointer;
-  @include fontRobotoStyle(16px, 400, #2A71F9);
+  @include fontRobotoStyle(16px, 400, #2a71f9);
 }
 .pincode-check input::placeholder {
-  @include fontRobotoStyle(20px, 400, #9A9999);
+  @include fontRobotoStyle(20px, 400, #9a9999);
 }

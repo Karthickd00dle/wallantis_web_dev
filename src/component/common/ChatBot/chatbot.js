@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import chatIcon from "assets/images/chatIcon.png";
-import "./style.scss";
-
 class Chatbox {
   constructor() {
+    this.args = {
+      openButton: document.querySelector(".chatbox__button"),
+      chatBox: document.querySelector(".chatbox__support"),
+      sendButton: document.querySelector(".send__button"),
+    };
+
     this.state = false;
     this.messages = [];
   }
 
   display() {
-    const openButton = document.querySelector(".chatbox__button");
-    const chatBox = document.querySelector(".chatbox__support");
-    const sendButton = document.querySelector(".send__button");
+    const { openButton, chatBox, sendButton } = this.args;
 
     openButton.addEventListener("click", () => this.toggleState(chatBox));
 
@@ -28,6 +28,7 @@ class Chatbox {
   toggleState(chatbox) {
     this.state = !this.state;
 
+    // show or hides the box
     if (this.state) {
       chatbox.classList.add("chatbox--active");
     } else {
@@ -45,9 +46,15 @@ class Chatbox {
     let msg1 = { name: "User", message: text1 };
     this.messages.push(msg1);
 
-    // Mock fetch since we can't actually perform a server request in this environment
-    // Replace this with your actual fetch code
-    Promise.resolve({ answer: "Mocked response" })
+    fetch("http://127.0.0.1:5000/predict", {
+      method: "POST",
+      body: JSON.stringify({ message: text1 }),
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((r) => r.json())
       .then((r) => {
         let msg2 = { name: "Sam", message: r.answer };
         this.messages.push(msg2);
@@ -66,7 +73,7 @@ class Chatbox {
     this.messages
       .slice()
       .reverse()
-      .forEach(function (item) {
+      .forEach(function (item, index) {
         if (item.name === "Sam") {
           html +=
             '<div class="messages__item messages__item--visitor">' +
@@ -85,41 +92,5 @@ class Chatbox {
   }
 }
 
-export function Chatbot() {
-  useEffect(() => {
-    const chatbox = new Chatbox();
-    chatbox.display();
-
-    return () => {
-      // Cleanup code if needed
-    };
-  }, []);
-
-  return (
-    <div className="container">
-      <div className="chatbox">
-        <div className="chatbox__support">
-          <div className="chatbox__header">
-            <div class="chatbox__content--header">
-              <h4 class="chatbox__heading--header">Ask Our Experts</h4>
-              <label>Welcome to Wallantics</label>
-              <p class="chatbox__description--header">
-                We are here to help you with our service related queries.
-              </p>
-            </div>
-          </div>
-          <div className="chatbox__messages" />
-          <div className="chatbox__footer">
-            <input type="text" placeholder="Write a message..." />
-            <button className="chatbox__send--footer send__button">Send</button>
-          </div>
-        </div>
-        <div className="chatbox__button">
-          <button>
-            <img src={chatIcon} alt="Chat Icon" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+const chatbox = new Chatbox();
+chatbox.display();
