@@ -1,34 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
 import { CustomButton } from "component/common";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { verifyOTPApi } from "action/AuthAct";
+import { resendOTPApi, verifyOTPApi } from "action/AuthAct";
+import { useLocation } from "react-router-dom";
+import { useTimer } from "hooks/useTimer";
+import { Toast } from "service/toast";
 
-function ForgotPasswordFC({ ownProps, verifyOTPApiCall }) {
+function ForgotPasswordFC({ ownProps, verifyOTPApiCall, resendOTPApi }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  let location = useLocation();
 
   const [changeMob, setChangeMob] = useState("disabled");
+  const [resendTime, setResendTime] = useTimer({
+    multiplier: 1,
+    startTime: 120,
+  });
   const handleChangeMob = () => {
     setChangeMob(!changeMob);
   };
 
+  const resendOTPApiCall = (data) => {
+    setResendTime(120);
+    let body = { emailId: data };
+    resendOTPApi(body);
+  };
+
+  useEffect(() => {
+    if (location.state != "") {
+      resendOTPApiCall(location.state);
+    }
+  }, []);
+
   return (
-    <form onSubmit={handleSubmit()}>
+    <form onSubmit={handleSubmit(resendOTPApiCall)}>
       <div className="forgot-password-container">
         <CustomInput
-          type="number"
+          variant="standard"
           className="input-phonenumber mb-3"
           disabled={changeMob}
-          name="mobileno"
+          name="mailId"
           register={register}
           errors={errors}
+          defaultValue={location.state}
           endAdornment={
             <label
               onClick={handleChangeMob}
@@ -38,9 +59,18 @@ function ForgotPasswordFC({ ownProps, verifyOTPApiCall }) {
             </label>
           }
         />
+
         <div className="otp-resend-container d-flex justify-content-between my-4">
-          <label className="label-otp-sent"> OTP sent to Mobile</label>
-          <label className="label-resend pe-1">Resend? </label>
+          {resendTime !== "00:00" && <label>{resendTime}</label>}
+          <label
+            className={`label-resend pe-1 cursor-pointer ${
+              resendTime !== "00:00" ? "resend-hidden" : ""
+            }`}
+            onClick={() => resendOTPApiCall()}
+            disabled={resendTime !== "00:00"}
+          >
+            Resend?
+          </label>
         </div>
         <CustomInput
           type="number"
@@ -79,6 +109,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       verifyOTPApiCall: verifyOTPApi,
+      resendOTPApi: resendOTPApi,
     },
     dispatch
   );

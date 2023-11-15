@@ -41,6 +41,7 @@ const ProductListingGridFC = ({
     let query = {
       categoryId: params.categoryId,
     };
+
     getProductFilterApi(query)
       .then(({ response }) => {
         let newResponse = [];
@@ -48,13 +49,15 @@ const ProductListingGridFC = ({
           ? (newResponse = response.slice(1))
           : (newResponse = response.slice(2));
 
+        if (newResponse.length > 0) {
+          newResponse.pop();
+        }
         setFilterData(newResponse);
       })
       .catch((error) => {
         console.error("Error fetching filter data:", error);
       });
   };
-
   useEffect(() => getProductFilterAPI(), [params]);
 
   return (

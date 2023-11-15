@@ -28,5 +28,8 @@
       @include fontLatoStyle(14px, 700, #2a71f9, 17px);
       padding: 0;
     }
+    .resend-hidden {
+      display: none;
+    }
   }
 }

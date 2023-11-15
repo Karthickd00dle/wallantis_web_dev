@@ -19,7 +19,9 @@ const ItemsRow = ({
   itemData: {
     _id,
     productId,
-    color,
+    productTitle,
+    productImages,
+    colorName,
     status,
     quantity,
     delivery_date,
@@ -27,7 +29,7 @@ const ItemsRow = ({
     installer,
     installerDate,
     installerTime,
-    cartAmount,
+    price,
   },
 }) => {
   const { register } = useForm();
@@ -39,7 +41,7 @@ const ItemsRow = ({
   useEffect(() => {
     updateCartCallBack({
       id: _id,
-      cartBody: { quantity: formData.quantity, color: color._id },
+      cartBody: { quantity: formData.quantity, color: colorName },
     });
   }, [formData]);
 
@@ -48,7 +50,7 @@ const ItemsRow = ({
       <div className="d-flex justify-content-between">
         <div className="d-flex">
           <img
-            src={productId?.images ? productId?.images[0] : ""}
+            src={productImages ? productImages[0] : ""}
             height="200px"
             width="200px"
             alt="product"
@@ -59,9 +61,9 @@ const ItemsRow = ({
               onClick={() =>
                 setActiveCartItem({
                   id: _id,
-                  title: productId.title,
+                  title: productTitle,
                   quantity: formData.quantity,
-                  color: color._id,
+                  color: colorName,
                   installer: installer,
                   installerDate: installerDate,
                   installerTime: installerTime,
@@ -70,7 +72,7 @@ const ItemsRow = ({
             >
               {productId?.title}
             </label>
-            <label className="py-2 item-color">{`Color - ${color?.colorName}`}</label>
+            <label className="py-2 item-color">{`Color - ${colorName}`}</label>
             <label className="py-2 item-status">
               {ternaryCondition(status, "In Stock", "Out of Stock")}
             </label>
@@ -88,7 +90,7 @@ const ItemsRow = ({
             </label>
           </div>
         </div>
-        <label className="pt-3 item-price">{`₹${cartAmount}`}</label>
+        <label className="pt-3 item-price">{`₹${price}`}</label>
       </div>
       <div className="d-flex justify-content-between align-items-center w-75 py-4">
         <div className="d-flex justify-content-between order-count-container">
@@ -141,9 +143,9 @@ const CartItemsMain = ({
     <div>
       <div className="cart-items-container">
         {ternaryCondition(
-          cartData?.product?.length > 0,
+          cartData?.products?.length > 0,
           <div className="cart-items-inner-container">
-            {cartData?.product?.map((itemData) => (
+            {cartData?.products?.map((itemData) => (
               <div className="item-container-main" key={itemData._id}>
                 <ItemsRow
                   setActiveCartItem={setActiveCartItem}
@@ -160,7 +162,7 @@ const CartItemsMain = ({
         )}
       </div>
       {conditionalLoad(
-        cartData?.product?.length > 0,
+        cartData?.products?.length > 0,
         <CustomButton
           className="mt-5"
           style={{ width: "245px", height: "50px", backgroundColor: "#A26220" }}

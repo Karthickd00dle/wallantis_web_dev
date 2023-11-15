@@ -1,6 +1,5 @@
 export {
   HomePage,
-  ProductListingPage,
   ProductListCategoryPage,
   ProductListSubCategoryPage,
   AboutWallanticsPage,

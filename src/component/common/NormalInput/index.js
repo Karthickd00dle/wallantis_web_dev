@@ -67,15 +67,14 @@ export const CustomInput = ({
   className,
   placeholder,
   type,
-  defaultValue,
   startAdornment,
   endAdornment,
   name,
   value,
   disabled,
-  onChange,
   register,
   errors,
+  ...otherProps
 }) => {
   return (
     <div>
@@ -83,16 +82,15 @@ export const CustomInput = ({
         label={label}
         name={name}
         value={value}
-        onChange={onChange}
         {...register(name, { required: true })}
         variant={variant}
         disabled={disabled}
-        defaultValue={defaultValue}
         placeholder={placeholder}
         className={className}
         startAdornment={startAdornment}
         endAdornment={endAdornment}
         type={type}
+        {...otherProps}
       />
 
       <div className="error-message">

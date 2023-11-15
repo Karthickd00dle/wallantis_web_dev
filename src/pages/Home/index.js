@@ -1,5 +1,4 @@
 export { HomePage } from "./HomePage";
-export { ProductListingPage } from "./ProductListingPage";
 export { AboutWallanticsPage } from "./AboutWallanticsPage";
 export { ContactusPage } from "./ContactusPage";
 

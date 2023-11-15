@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import { ternaryCondition } from "service/helperFunctions";
 import { Checkbox } from "@mui/material";
@@ -9,33 +9,128 @@ import {
   FavoriteBorder,
 } from "@mui/icons-material";
 import { bindActionCreators } from "redux";
-import { CreateCartApi } from "action/CartAct";
+import { createCartApi } from "action/CartAct";
 import { connect } from "react-redux";
 import { Toast } from "service/toast";
+import { addToWishlistApi, removeFromWishlistApi } from "action/wishlistAct";
 
-function CardThreeFC({ onClickCard, prodData, isHome, createCartApiCall }) {
+function CardThreeFC({
+  onClickCard,
+  prodData,
+  isHome,
+  createCartApiCall,
+  addToWishlist,
+  removeFromWishlist,
+}) {
+  // const { title, images, price } = prodData;
+  // const [iconVisibility, seticonVisibility] = useState(false);
+  // const [fav, setFav] = useState(false);
+  // const [cart, setCart] = useState(false);
+
+  // const handleFavorite = ({ target: { name, checked } }, prodData) => {
+  //   setFav(!fav);
+  //   if (checked) {
+  //     Toast({ type: "success", message: "Item added to Wishlist" });
+  //   } else {
+  //     Toast({ type: "info", message: "Item removed from Wishlist" });
+  //   }
+  // };
+
+  // const productId = prodData && prodData.id ? prodData.id.toString() : null;
+
+  // const handleFavorite = ({ target: { checked } }, prodData) => {
+  //   setFav((prevFav) => !prevFav); // Use the functional form of setFav
+
+  //   if (prodData && prodData._id) {
+  //     const productId = prodData._id.toString();
+
+  //     try {
+  //       if (checked) {
+  //         addToWishlist(productId);
+  //       } else {
+  //         removeFromWishlist(productId);
+  //       }
+  //     } catch (error) {
+  //       console.error('Wishlist API Error:', error);
+  //     }
+  //   } else {
+  //     console.error('Invalid prodData:', prodData);
+  //   }
+  // };
+
+  // const handleCart = ({ target: { name, checked } }, prodData) => {
+  //   setCart(!cart);
+  //   if (checked) {
+  //     let payload = {
+  //       productId: prodData.id.toString(),
+  //       quantity: 1,
+  //       color: prodData.color,
+  //     };
+  //     createCartApiCall(payload).then(() => {
+  //       Toast({
+  //         type: "success",
+  //         message: "Item Added To Cart",
+  //       });
+  //     });
+  //   } else {
+  //     Toast({ type: "info", message: "Item removed from Cart" });
+  //   }
+  // };
+
   const { title, images, price } = prodData;
   const [iconVisibility, seticonVisibility] = useState(false);
   const [fav, setFav] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const handleFavorite = ({ target: { name, checked } }, prodData) => {
-    setFav(!fav);
-    if (checked) {
-      Toast({ type: "success", message: "Item added to Wishlist" });
+  const handleFavorite = ({ target: { checked } }, prodData) => {
+    setFav((prevFav) => !prevFav);
+
+    if (prodData && prodData._id) {
+      const productId = prodData._id.toString();
+
+      if (checked) {
+        let body = {
+          productId: productId,
+        };
+        addToWishlist(body)
+          .then(() =>
+            Toast({
+              type: "success",
+              message: "Item Added To Wishlist",
+            })
+          )
+          .catch(({ message }) => {
+            Toast({ type: "error", message });
+          });
+      } else {
+        let query = {
+          url_id: productId,
+        };
+        removeFromWishlist(query)
+          .then(() =>
+            Toast({
+              type: "success",
+              message: "Item Removed from Wishlist",
+            })
+          )
+          .catch(({ message }) => {
+            Toast({ type: "error", message });
+          });
+      }
     } else {
-      Toast({ type: "info", message: "Item removed from Wishlist" });
+      console.error("Invalid prodData:", prodData);
     }
   };
+
   const handleCart = ({ target: { name, checked } }, prodData) => {
     setCart(!cart);
     if (checked) {
-      let payload = {
+      let body = {
         productId: prodData.id.toString(),
         quantity: 1,
         color: prodData.color,
       };
-      createCartApiCall(payload).then(() => {
+      createCartApiCall(body).then(() => {
         Toast({
           type: "success",
           message: "Item Added To Cart",
@@ -138,7 +233,9 @@ function CardThreeFC({ onClickCard, prodData, isHome, createCartApiCall }) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      createCartApiCall: CreateCartApi,
+      createCartApiCall: createCartApi,
+      addToWishlist: addToWishlistApi,
+      removeFromWishlist: removeFromWishlistApi,
     },
     dispatch
   );
