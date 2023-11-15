@@ -3,8 +3,11 @@ import "./style.scss";
 import { CustomInput } from "component/common/NormalInput";
 import { useForm } from "react-hook-form";
 import { CustomButton } from "component/common";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { verifyOTPApi } from "action/AuthAct";
 
-export default function ForgotPassword() {
+function ForgotPasswordFC({ ownProps, verifyOTPApiCall }) {
   const {
     register,
     handleSubmit,
@@ -65,3 +68,22 @@ export default function ForgotPassword() {
     </form>
   );
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ownProps: ownProps,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      verifyOTPApiCall: verifyOTPApi,
+    },
+    dispatch
+  );
+};
+
+const Login = connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordFC);
+
+export default Login;

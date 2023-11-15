@@ -1,11 +1,11 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Instructions } from "component/ProductDetail/Instructions";
 import { connect } from "react-redux";
 import { history } from "service/helpers";
 import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
-import { CustomButton } from "component/common";
+import { CustomButton, NormalInput } from "component/common";
 import { useParams } from "react-router-dom";
 import {
   ProductInstructions1,
@@ -16,29 +16,31 @@ import {
 import { Toast } from "service/toast";
 import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
-import { ternaryCondition } from "service/helperFunctions";
+import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 import { bindActionCreators } from "redux";
 import { getProductDetailApi } from "action/ProductsAct";
 import { FcFolder } from "react-icons/fc";
-import { FaTimes } from 'react-icons/fa';
-import IP_calculator from '../../assets/images/IP_calculator.jpg'
-import calculator_rolls from '../../assets/images/calculator_rolls.jpg'
-import InstallerDateTime from "../common/InstallerDataTime"
-
-
+import { FaTimes } from "react-icons/fa";
+import IP_calculator from "../../assets/images/IP_calculator.jpg";
+import calculator_rolls from "../../assets/images/calculator_rolls.jpg";
+import InstallerDateTime from "../common/InstallerDataTime";
+import { useForm } from "react-hook-form";
+import { Rating } from "@mui/material";
 
 const ColorFilter = ({
-  selectColor,
-  color,
+  colorData: { colorCode },
   index,
   activeColor,
   setActiveColor,
-  originalImage,
-  temporayImage,
 }) => {
-  const handleColor = (color, index) => {
-    selectColor(`${color}`);
-    setActiveColor(index);
+  const prevColorRef = useRef(activeColor);
+  const handleColor = (i) => {
+    if (i === "prev") {
+      setActiveColor(prevColorRef.current);
+    } else {
+      prevColorRef.current = activeColor;
+      setActiveColor(i);
+    }
   };
 
   return (
@@ -49,33 +51,34 @@ const ColorFilter = ({
     >
       <div
         className="render-color"
-        onMouseOver={() => temporayImage(`${color}`)}
-        onMouseOut={() => originalImage()}
-        onClick={() => handleColor(color, index)}
-        style={{ background: `${color}` }}
-      ></div>
+        onMouseOver={() => handleColor(index)}
+        onMouseOut={() => handleColor("prev")}
+        onClick={() => handleColor(index)}
+        style={{ background: `${colorCode}` }}
+      />
     </div>
   );
 };
 
-function ProductDetailFC({ productDetailData, getProductDetailApi }) {
+function ProductDetailFC({ getProductDetailApi }) {
   let params = useParams();
 
   const [productDetail, setProductDetail] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openInstruction, setOpenInstruction] = useState();
-  const [activeColor, setActiveColor] = useState();
+  const [activeColor, setActiveColor] = useState(0);
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
   const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
     useState();
-  const [wallpaperColor, setWallpaperColor] = useState(
-    productDetailData?.image_data[0]?.color
-  );
-  const [tempwallpaperColor, setTempWallpaperColor] = useState(null);
-
-  const [tempImage, setTempImage] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
-
+  const [quantity, setQuantity] = useState(1);
+  const [value, setValue] = React.useState(2);
+  const handleProductCount = ({ target: { name, value } }) => {
+    if (value === "" || (value >= 1 && /^\d+$/.test(value))) {
+      setQuantity(value === "" ? "" : parseInt(value, 10));
+    }
+  };
+  const { register } = useForm();
   const getProductDetailAPI = () => {
     let query = {
       url_id: params.id,
@@ -83,27 +86,6 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
     getProductDetailApi(query)
       .then(({ response }) => setProductDetail(response))
       .then(() => setLoading(false));
-  };
-
-  const selectColor = (color) => {
-    setWallpaperColor(color);
-    let selectedColor = productDetailData?.image_data?.filter(
-      (data) => data?.color === color
-    );
-    setSelectedImg(selectedColor[0]?.image[0]);
-  };
-
-  const originalImage = () => {
-    setTempImage(null);
-    setTempWallpaperColor(null);
-  };
-
-  const temporayImage = (color) => {
-    setTempWallpaperColor(color);
-    let selectedColor = productDetailData?.image_data?.filter(
-      (data) => data?.color === color
-    );
-    setTempImage(selectedColor[0]?.image[0]);
   };
 
   useEffect(() => {
@@ -114,7 +96,12 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
     getProductDetailAPI();
   }, []);
 
-  console.log(productDetail, "prodd");
+  const getCurrentItem = useMemo(
+    () => productDetail?.colors?.[activeColor],
+    [productDetail, activeColor]
+  );
+
+  console.log(getCurrentItem, "prodd");
 
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupContent, setPopupContent] = useState([]);
@@ -158,11 +145,15 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
                         alt: "selected_image",
 
                         isFluidWidth: true,
-                        src: productDetail?.images[0],
+                        src: selectedImg
+                          ? selectedImg
+                          : getCurrentItem?.images[0],
                         className: "small-image",
                       },
                       largeImage: {
-                        src: productDetail?.images[0],
+                        src: selectedImg
+                          ? selectedImg
+                          : getCurrentItem?.images[0],
                         width: 2400,
                         height: 1400,
                         className: "large-image",
@@ -174,12 +165,13 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
                 )}
               </div>
               <div className="imgContainer">
-                {/* {productState?.length > 0 ? (
-                  productState?.image?.map((img, index) => (
+                {getCurrentItem?.images?.length > 0 ? (
+                  getCurrentItem?.images?.map((img, index) => (
                     <img
                       style={{
                         border: selectedImg === img ? "4px solid purple" : "",
                       }}
+                      className="mx-1"
                       key={index}
                       src={img}
                       alt="dog"
@@ -188,7 +180,7 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
                   ))
                 ) : (
                   <></>
-                )} */}
+                )}
               </div>
             </div>
           </div>
@@ -202,27 +194,28 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
               especially well as a feature wall.
             </div>
             <div className="info-heading-one">₹{productDetail.price}/Roll</div>
+            <div className="d-flex align-items-center">
+              <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={(event, newValue) => {
+                  setValue(newValue);
+                }}
+              />
+              <label className="ps-2">(32)</label>
+            </div>
             <hr className="heading-line" />
-
             <div>
               <div className="info-heading-one">
-                Color -
-                {ternaryCondition(
-                  tempwallpaperColor,
-                  tempwallpaperColor,
-                  wallpaperColor
-                )}
+                Color - {getCurrentItem?.colorName}
               </div>
               <div className="color-picker-container">
-                {productDetailData?.image_data?.map(({ color }, index) => (
+                {productDetail?.colors?.map((colorData, index) => (
                   <ColorFilter
-                    key={index}
-                    selectColor={selectColor}
-                    temporayImage={temporayImage}
-                    originalImage={originalImage}
+                    colorData={colorData}
+                    key={colorData._id}
                     activeColor={activeColor}
                     setActiveColor={setActiveColor}
-                    color={color}
                     index={index}
                   />
                 ))}
@@ -230,39 +223,75 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
             </div>
             <div>
               <div className="info-heading-one">Quantity (Roll)</div>
+              <div className="d-flex justify-content-between order-count-container mb-5">
+                <div
+                  onClick={() => {
+                    if (quantity > 1) {
+                      setQuantity((prevState) => prevState - 1);
+                    }
+                  }}
+                  className="me-1 p-4 order-count cursor-pointer"
+                >
+                  -
+                </div>
+                <NormalInput
+                  name="quantity"
+                  type="number"
+                  value={quantity}
+                  onChange={handleProductCount}
+                  max="2"
+                  className="mx-1 p-4 text-center order-count-input"
+                  register={register}
+                />
+                <div
+                  onClick={() => setQuantity((prevState) => prevState + 1)}
+                  className="order-count ms-1 p-4 cursor-pointer"
+                >
+                  +
+                </div>
+              </div>
             </div>
             <div className="button-container d-flex mb-3">
               <div
                 className="product-btn  d-flex"
                 onClick={() => setOpenCalculateRolls(true)}
               >
-                <img src={calculator_rolls}></img> 
-                 <span> Calculate Rolls</span>
+                <img src={calculator_rolls}></img>
+                <span> Calculate Rolls</span>
               </div>
               <button
                 className="product-btn d-flex"
                 onClick={() => setOpenInstallerPriceCalculator(true)}
               >
-                   <img src={IP_calculator}></img> 
-              <span> Installer Price Calculator </span>
+                <img src={IP_calculator}></img>
+                <span> Installer Price Calculator </span>
               </button>
             </div>
-            <div className="info-title-2">Check availability in your area </div>
-            <div className="pincode-check"><input type="text" placeholder="PINCODE"></input><span>CHECK</span></div>
+            <div className="info-title-2 mt-5">
+              Check availability in your area{" "}
+            </div>
+            <div className="pincode-check mb-5">
+              <input type="text" placeholder="PINCODE"></input>
+              <span>CHECK</span>
+            </div>
             <div className="instructions-box-container">
               <div className="ib-container">
                 <div>
-                  <input className="ib-checkBox" type="checkbox"  onChange={handleCheckboxChange} />
+                  <input
+                    className="ib-checkBox"
+                    type="checkbox"
+                    onChange={handleCheckboxChange}
+                  />
                   {showPopup && (
-        <div id="popup" className="popup">
-          <div className="popup-content">
-          <div className="close-icon-tips" onClick={closePopup}>
-      <span>&times;</span>
-      </div>
-            <InstallerDateTime />
-          </div>
-        </div>
-      )}
+                    <div id="popup" className="popup">
+                      <div className="popup-content">
+                        <div className="close-icon-tips" onClick={closePopup}>
+                          <span>&times;</span>
+                        </div>
+                        <InstallerDateTime />
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="ib-body">
                   <div className="ib-body-title">
@@ -385,56 +414,64 @@ function ProductDetailFC({ productDetailData, getProductDetailApi }) {
                   </div>
                 </div> */}
 
-<div>
-      <div>
-        <div className="ib-body-2-title">Instructions on Application of Wallpaper</div>
-        <div>
-          <FcFolder onClick={handleFolderIconClick} className="folder-icon"/>
-        </div>
-      </div>
-      {isPopupOpen && (
-  <div id="popup" className="popup">
-    <div className="popup-content">
-      <div className="close-icon-tips" onClick={closePopup}>
-      <span>&times;</span>
-        {/* <FaTimes /> */}
-      </div>
-      {Array.isArray(popupContent) ? (
-        popupContent.map(({ info, steps, image, id }, index) => (
-          <div
-            className="card-instructions-container"
-            style={{
-              backgroundImage: `url(${image})`,
-            }}
-          >
-            <label className="card-instructions-steps">
-              {steps}
-            </label>
-            <br />
-            <label className="card-instructions-info">
-              {info}
-            </label>
-          </div>
-        ))
-      ) : (
-        // Handle the case where popupContent is not an array
-        <div>Popup content is not available.</div>
-      )}
-      <div className="Product-tips">
-        <label>
-          Tip 1: When smoothing, work from the centre outwards to push bubbles to the edge of the panel. Use a rubber squeeze.
-        </label>
-        <label>
-          Tip 2: If you've recently painted the walls, make sure to wait a minimum of three weeks so that the paint has enough time to fully cure.
-        </label>
-      </div>
-    </div>
-  </div>
-)}
-
-
-    
-    </div>
+                <div>
+                  <div>
+                    <div className="ib-body-2-title">
+                      Instructions on Application of Wallpaper
+                    </div>
+                    <div>
+                      <FcFolder
+                        onClick={handleFolderIconClick}
+                        className="folder-icon"
+                      />
+                    </div>
+                  </div>
+                  {isPopupOpen && (
+                    <div id="popup" className="popup">
+                      <div className="popup-content">
+                        <div className="close-icon-tips" onClick={closePopup}>
+                          <span>&times;</span>
+                          {/* <FaTimes /> */}
+                        </div>
+                        {Array.isArray(popupContent) ? (
+                          popupContent.map(
+                            ({ info, steps, image, id }, index) => (
+                              <div
+                                className="card-instructions-container"
+                                style={{
+                                  backgroundImage: `url(${image})`,
+                                }}
+                              >
+                                <label className="card-instructions-steps">
+                                  {steps}
+                                </label>
+                                <br />
+                                <label className="card-instructions-info">
+                                  {info}
+                                </label>
+                              </div>
+                            )
+                          )
+                        ) : (
+                          // Handle the case where popupContent is not an array
+                          <div>Popup content is not available.</div>
+                        )}
+                        <div className="Product-tips">
+                          <label>
+                            Tip 1: When smoothing, work from the centre outwards
+                            to push bubbles to the edge of the panel. Use a
+                            rubber squeeze.
+                          </label>
+                          <label>
+                            Tip 2: If you've recently painted the walls, make
+                            sure to wait a minimum of three weeks so that the
+                            paint has enough time to fully cure.
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             <div className="d-flex my-4 product-add-buttons">
