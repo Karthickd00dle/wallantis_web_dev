@@ -24,7 +24,7 @@ const ItemsRow = ({
     colorName,
     status,
     quantity,
-    delivery_date,
+    daliveryDate,
     delivery_price,
     installer,
     installerDate,
@@ -70,14 +70,17 @@ const ItemsRow = ({
                 })
               }
             >
-              {productId?.title}
+              {productTitle}
             </label>
             <label className="py-2 item-color">{`Color - ${colorName}`}</label>
             <label className="py-2 item-status">
               {ternaryCondition(status, "In Stock", "Out of Stock")}
             </label>
             <label className="py-2 item-delivery-info">
-              {`Delivery by ${delivery_date} | ${delivery_price}`}
+              {`Delivery by ${customMomentFormat(
+                daliveryDate,
+                "ddd MMM YY"
+              )} | ${delivery_price ? delivery_price : "Free"}`}
             </label>
             <label className="pt-2 item-delivery-info">
               {conditionalLoad(
