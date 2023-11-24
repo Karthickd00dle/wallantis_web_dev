@@ -325,3 +325,19 @@ export const wishlistApi = {
     },
   },
 };
+
+export const newArrivalAPI = {
+  createArrivals: {
+    api: "products/arrival",
+    method: "get",
+    baseURL: "base", 
+  },
+}
+
+export const BestsellerApi = {
+  getBestSeller: {
+    api: "products/bestSeller",
+    method: "get",
+    baseURL: "base",
+  }
+}

@@ -30,7 +30,9 @@ import { commonStateList } from "service/actionType";
 import { CustomButton } from "component/Admin/common/CustomButton";
 import WallpaperShopNow from "assets/images/Dashboard/Wallpaper_Shopnow.png";
 import WallmuralsShopNow from "assets/images/Dashboard/Wallmurals_Shopnow.png";
-import StickerWallpaperShopNow from "assets/images/Dashboard/Sticker_Wallpaper_Shopnow.png";
+import StickerWallpaperShopNow from "assets/images/Dashboard/Sticker_Wallpaper_Shopnow.png"; 
+import { getProductsOnArrivalApi } from "action/NewArrivalAct";
+import { getBestSellerProductsApi } from 'action/BestSellerAct';
 
 
 const carouselData = [
@@ -77,11 +79,14 @@ function CardBlog({ prodData }) {
   );
 }
 
-function HomeComponentMain({ getAllProductsAPI }) {
+function HomeComponentMain({ getAllProductsAPI , getProductsOnArrivalAPI , newArrivalsData, getBestSellerProductsAPI}) {
   const dispatch = useDispatch();
   const [favData, setFavData] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [productList, setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  // const [newArrivalsData, setNewArrivalsData] = useState([]);
+
 
   const handleCardProduct = (prodData) => {
     dispatch({
@@ -106,6 +111,31 @@ function HomeComponentMain({ getAllProductsAPI }) {
       });
     }, 3000);
   };
+
+  const getNewArrivals = () => {
+    // getProductsOnArrivalAPI().then((response) => {
+    //     console.log("newarrival", response);
+    //     // setNewArrivalsData(response?.response?.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching new arrivals data:", error);
+    //   });
+  };
+  const getBestSellerProducts = () => {
+    // dispatch({ type: 'BEST_SELLER_LOADING' }); // Dispatch a loading action if needed
+
+    // getBestSellerProductsAPI()
+    //   .then((response) => {
+    //     console.log('bestSeller', response);
+    //     dispatch({ type: 'BEST_SELLER_SUCCESS', payload: response }); // Dispatch a success action if needed
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching best seller data:', error);
+    //     dispatch({ type: 'BEST_SELLER_FAILURE', payload: error }); // Dispatch a failure action if needed
+    //   });
+  };
+
+  
 
   const [showAllBlogProducts, setShowAllBlogProducts] = useState(false);
 
@@ -139,6 +169,8 @@ function HomeComponentMain({ getAllProductsAPI }) {
   
   useEffect(() => {
     getAllProducts();
+    getNewArrivals();
+    getBestSellerProducts();
   }, []);
 
   return (
@@ -346,6 +378,25 @@ function HomeComponentMain({ getAllProductsAPI }) {
               />
             ))}
           </div> */}
+     {isLoading ? (
+  <div>Loading...</div>
+) : (
+  <div className="home-main-card-container">
+    {bestsellerProducts?.map((prodData) => (
+      <CardThree
+        isHome
+        favData={favData}
+        setFavData={setFavData}
+        cartData={cartData}
+        setCartData={setCartData}
+        onClickCard={handleCardProduct}
+        prodData={prodData}
+        key={prodData.id}
+      />
+    ))}
+  </div>
+)}
+
         </div>
 
         <div className="main-container">
@@ -375,6 +426,20 @@ function HomeComponentMain({ getAllProductsAPI }) {
               />
             ))}
           </div> */}
+              <div className="home-main-card-container">
+          {newArrivalsData?.map((prodData) => (
+            <CardThree
+              isHome
+              favData={favData}
+              setFavData={setFavData}
+              cartData={cartData}
+              setCartData={setCartData}
+              onClickCard={handleCardProduct}
+              prodData={prodData}
+              key={prodData._id} // Assuming _id is a unique identifier
+            />
+          ))}
+        </div>
         </div>
 
         <div className="main-container main-container-bg">
@@ -561,6 +626,8 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       getAllProductsAPI: getAllProductsApi,
+      getProductsOnArrivalAPI:getProductsOnArrivalApi,
+      getBestSellerProductsAPI: getBestSellerProductsApi,
     },
     dispatch
   );

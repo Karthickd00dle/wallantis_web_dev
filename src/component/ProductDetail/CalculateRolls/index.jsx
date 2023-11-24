@@ -115,6 +115,7 @@ export const CalculateRolls = ({ isOpen, handleClose }) => {
                   <CustomButton
                     variant="contained"
                     className="ms-5 continue-button"
+                    onClick={handleClose} 
                   >
                     Continue
                   </CustomButton>

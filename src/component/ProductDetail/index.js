@@ -120,7 +120,7 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
   };
 
   const closePopup = () => {
-    setPopupOpen(false);
+    setShowPopup(!showPopup)
   };
 
   const handleAddToCart = () => {

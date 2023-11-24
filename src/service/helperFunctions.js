@@ -5,7 +5,10 @@ import moment from "moment";
 
 //add Query
 export const addQuery = (dataObject, apiObject) => {
-  if (!dataObject) {
+  // if (!dataObject) {
+  //   return "";
+  // }
+  if (!dataObject || typeof dataObject !== "object") {
     return "";
   }
 
@@ -51,41 +54,88 @@ export const addQuery = (dataObject, apiObject) => {
 };
 
 //generate Query
+// export const generateQuery = (query) => {
+//   console.log("Original query:", query);
+//   let url = "";
+
+//   // if (query.hasOwnProperty("url_id")) {
+//   //   url = `/${query.url_id}`;
+//   // }
+//   if (query && query.hasOwnProperty("url_id")) {
+//     url = `/${query.url_id}`;
+//   }
+
+//   let emptyData = [];
+//   return (
+//     url +
+//     Object.keys(query).reduce((accumulator, key, index) => {
+//       if (
+//         query[key] !== "" &&
+//         query[key] !== null &&
+//         query[key] !== undefined
+//       ) {
+//         emptyData.push(key);
+//       }
+//       if (
+//         query[key] === "" ||
+//         query[key] == null ||
+//         key === "url_id" ||
+//         (query[key] !== null && query[key].toString().trim() === "")
+//       ) {
+//         return accumulator;
+//       } else {
+//         return (
+//           accumulator +
+//           `${index !== 0 && emptyData.length > 1 ? "&" : "?"}${key}=${
+//             query[key]
+//           }`
+//         );
+//       }
+//     }, "")
+//   );
+// };
 export const generateQuery = (query) => {
+  console.log("Original query:", query); // Add this line
   let url = "";
+
+  if (!query) {
+    console.error("Error: query is undefined or null"); // Add this line
+    return ""; // Add this line
+  }
 
   if (query.hasOwnProperty("url_id")) {
     url = `/${query.url_id}`;
   }
 
   let emptyData = [];
-  return (
-    url +
-    Object.keys(query).reduce((accumulator, key, index) => {
-      if (
-        query[key] !== "" &&
-        query[key] !== null &&
-        query[key] !== undefined
-      ) {
-        emptyData.push(key);
-      }
-      if (
-        query[key] === "" ||
-        query[key] == null ||
-        key === "url_id" ||
-        (query[key] !== null && query[key].toString().trim() === "")
-      ) {
-        return accumulator;
-      } else {
-        return (
-          accumulator +
-          `${index !== 0 && emptyData.length > 1 ? "&" : "?"}${key}=${
-            query[key]
-          }`
-        );
-      }
-    }, "")
-  );
+  const queryString = Object.keys(query).reduce((accumulator, key, index) => {
+    if (
+      query[key] !== "" &&
+      query[key] !== null &&
+      query[key] !== undefined
+    ) {
+      emptyData.push(key);
+    }
+    if (
+      query[key] === "" ||
+      query[key] == null ||
+      key === "url_id" ||
+      (query[key] !== null && query[key].toString().trim() === "")
+    ) {
+      return accumulator;
+    } else {
+      return (
+        accumulator +
+        `${index !== 0 && emptyData.length > 1 ? "&" : "?"}${key}=${
+          query[key]
+        }`
+      );
+    }
+  }, "");
+
+  console.log("Generated query:", queryString); // Add this line
+
+  return url + queryString;
 };
 
 export const routerAuthTokenGuard = () => {
