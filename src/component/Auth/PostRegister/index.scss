@@ -38,14 +38,23 @@
     }
   }
 
-  .otp-resend-container {
-    .label-otp-sent {
-      @include fontLatoStyle(14px, 500, #9a9999, 17px);
-      padding: 0;
-    }
-    .label-resend {
-      @include fontLatoStyle(14px, 700, #2a71f9, 17px);
-      padding: 0;
-    }
-  }
+}
+.input-otp{
+ width: 625px;
+}
+.input-password{
+  width: 625px;
+}
+.label-otp-sent {
+  @include fontLatoStyle(14px, 500, #9a9999, 17px);
+  padding: 0;
+}
+.label-resend {
+  @include fontLatoStyle(14px, 700, #2a71f9, 17px);
+  padding: 0;
+}
+.otp-resend-container {
+  // gap: 330px;
+  justify-content: space-between;
+
 }

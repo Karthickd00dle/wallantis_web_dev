@@ -68,6 +68,7 @@ function PostRegisterComponentMain({ verifyOTPApiCall, ownProps }) {
           >
             Verify OTP
           </CustomButton>
+          
           <CustomButton
             style={{
               color: "#2A71F9",
@@ -80,6 +81,7 @@ function PostRegisterComponentMain({ verifyOTPApiCall, ownProps }) {
             Existing User? Log in
           </CustomButton>
         </div>
+        
       </div>
     </form>
   );

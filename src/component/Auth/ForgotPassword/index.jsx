@@ -64,6 +64,7 @@ function ForgotPasswordFC({ verifyOTPApiCall, resendOTPApi }) {
           register={register}
           errors={errors}
           defaultValue={location.state}
+          placeholder="Enter Your Mobile Number"
           endAdornment={
             <label
               onClick={handleChangeMob}

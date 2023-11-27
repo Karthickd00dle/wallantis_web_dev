@@ -13,67 +13,97 @@
   .select-date-time-container {
     padding: 40px;
     width: 900px;
-    .title-label {
-      @include fontRobotoStyle(20px, 400, #000000, 22px);
-      text-transform: capitalize;
-    }
+    margin: 20px;
+  
     .date-container {
       padding-top: 25px;
-      .select-date-label {
-        @include fontRobotoStyle(20px, 400, #000000, 22px);
-        text-transform: uppercase;
-      }
+      border: 1px solid #d5d5d5;
+   
       .date-selection-container {
         width: 330px;
-        .date-selection {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid #ababab;
-          border-radius: 5px;
-          width: 62px;
-          height: 61px;
-          .day-label {
-            @include fontRobotoStyle(16px, 400, #000000, 22px);
-          }
-          .date-label {
-            @include fontRobotoStyle(16px, 500, #000000, 22px);
-          }
-          &.active {
-            background: rgba(179, 218, 254, 0.31);
-            border: 1px solid #2a71f9;
-            border-radius: 5px;
-          }
-        }
+        border: 1px solid #d5d5d5;
+    
       }
       .time-selection-container {
         flex-wrap: wrap;
-        .time-selection {
-          width: 252px;
-          height: 40px;
-          border: 1px solid #d5d5d5;
-          border-radius: 7px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-top: 12px;
-          margin-bottom: 12px;
-          .time-label {
-            @include fontLatoStyle(16px, 600, #4d4d4d, 19px);
-          }
-          &.active {
-            background: rgba(179, 218, 254, 0.31);
-            border: 1px solid #2a71f9;
-            border-radius: 5px;
-          }
-        }
+      
       }
     }
     .confirm-date-time-button {
       @include fontRobotoStyle(20px, 400, #ffffff, 22px);
       background: #a26220;
       border-radius: 6px;
+      margin-top: 20px;
     }
+  }
+}
+.date-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #D4D4D4;
+    width: 50px;
+    gap: 5px;
+}
+.date-selection-container{
+  display: flex;
+  gap: 20px;
+}
+.time-selection{
+  border: 1px solid #D4D4D4;
+  padding: 5px 35px 6px 22px;
+  border-radius: 7px;
+}
+.time-selection-container{
+  gap: 50px;
+}
+.title-label {
+  @include fontRobotoStyle(20px, 400, #000000, 22px);
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.select-date-label {
+  @include fontRobotoStyle(20px, 400, #000000, 22px);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.date-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // border: 1px solid #ababab;
+  border-radius: 5px;
+  width: 62px;
+  height: 61px;
+  .day-label {
+    @include fontRobotoStyle(16px, 400, #000000, 22px);
+  }
+  .date-label {
+    @include fontRobotoStyle(16px, 500, #000000, 22px);
+  }
+  &.active {
+    background: rgba(179, 218, 254, 0.31);
+    border: 1px solid #2a71f9;
+    border-radius: 5px;
+  }
+}
+.time-selection {
+  width: 252px;
+  height: 40px;
+  border: 1px solid #d5d5d5;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  .time-label {
+    @include fontLatoStyle(16px, 600, #4d4d4d, 19px);
+  }
+  &.active {
+    background: rgba(179, 218, 254, 0.31);
+    border: 1px solid #2a71f9;
+    border-radius: 5px;
   }
 }

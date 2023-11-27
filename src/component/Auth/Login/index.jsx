@@ -114,7 +114,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
         >
           Login
         </CustomButton>
-        <div className="mt-4">
+        <div className="mt-4 login-google">
           <GoogleLogin
             onSuccess={(res) => {
               googleSignIn(res);
