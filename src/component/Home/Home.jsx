@@ -109,13 +109,13 @@ function HomeComponentMain({ getAllProductsAPI,getAllNewArraivalAPI,getAllCatalo
   const getAllRecentView = () => {
     getAllRecentAPI().then((res) => {
       console.log("GET RECENT ", res?.response)
-      setAllRecentViewData(res?.response)
+      setAllRecentViewData(res?.response?.data)
     });
   }
   const getAllBestSeller = () => {
     getAllBestSellerViewAPI().then((res) => {
       console.log("BEST SELLER  ", res?.response)
-      setAllBestSellerData(res?.response)
+      setAllBestSellerData(res?.response?.data)
     });
   }
   const getAllBlog = () => {
@@ -316,7 +316,7 @@ function HomeComponentMain({ getAllProductsAPI,getAllNewArraivalAPI,getAllCatalo
           </div>
 
           <div className="home-main-card-container">
-            {allRecentViewData.slice(0, 4).map((prodData) => (
+            {allRecentViewData?.slice(0, 4).map((prodData) => (
               <CardThree
                 isHome
                 favData={favData}
