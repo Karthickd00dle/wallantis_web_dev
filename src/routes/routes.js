@@ -286,6 +286,14 @@ const routers = [
         exact: true,
       },
       {
+        component: "ProductListViewAllPage",
+        path: "/product-listing/ProductListViewAll",
+        componentPath: "pages/ProductListViewAllPage",
+        name: "ProductListViewAllPage",
+        auth: false,
+        exact: true,
+      },
+      {
         component: "ProductDetailPageUser",
         path: "/product-details/:id",
         componentPath: "pages/ProductDetailPageUser",

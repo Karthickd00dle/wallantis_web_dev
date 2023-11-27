@@ -10,7 +10,11 @@ import {
   blogProducts,
 } from "config";
 import "./styles.scss";
-import { getAllProducts, getAllProductsApi } from "action/ProductsAct";
+import { getAllProducts, getAllProductsApi,getNewArraivalApi,getRecentViewApi,getBestSellerViewApi } from "action/ProductsAct";
+import {getAllCatalogue} from "action/CatalogueAct"
+import {getAllBlogApi} from "action/BlogAct"
+
+
 import { bindActionCreators } from "redux";
 import AdvancedCarousel from "component/common/Carousel";
 import celebrate from "assets/images/celebrate.png";
@@ -71,17 +75,22 @@ function CardBlog({ prodData }) {
       <div className="blog-post-date">11.10.2022</div>
       <div className="blog-post-title">{prodData.title}</div>
       <div className="blog-post-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing sed do eiusmod tempor{" "}
+        {prodData.description}
       </div>
     </div>
   );
 }
 
-function HomeComponentMain({ getAllProductsAPI }) {
+function HomeComponentMain({ getAllProductsAPI,getAllNewArraivalAPI,getAllCatalogueAPI,getAllRecentAPI,getAllBestSellerViewAPI,getAllBlogAPI }) {
   const dispatch = useDispatch();
   const [favData, setFavData] = useState([]);
   const [cartData, setCartData] = useState([]);
   const [productList, setProductList] = useState([]);
+  const [newArraivalData,setNewArraivalData] = useState([]);
+  const [allCatalogueData,setAllCatalogueData] = useState([]);
+  const [allRecentViewData,setAllRecentViewData] = useState([]);
+  const [allBestSellerData,setAllBestSellerData] = useState([]);
+  const [allBlogData,setAllBlogData] = useState([]);
 
   const handleCardProduct = (prodData) => {
     dispatch({
@@ -89,8 +98,37 @@ function HomeComponentMain({ getAllProductsAPI }) {
       payload: prodData,
     });
 
-    history.push("/home/product-details");
+    history.push(`/home/product-details/${prodData._id}`);
   };
+
+  const getAllNewArraival = () => {
+    getAllNewArraivalAPI().then((res) => {
+      setNewArraivalData(res?.response)
+    });
+  }
+  const getAllRecentView = () => {
+    getAllRecentAPI().then((res) => {
+      console.log("GET RECENT ", res?.response)
+      setAllRecentViewData(res?.response)
+    });
+  }
+  const getAllBestSeller = () => {
+    getAllBestSellerViewAPI().then((res) => {
+      console.log("BEST SELLER  ", res?.response)
+      setAllBestSellerData(res?.response)
+    });
+  }
+  const getAllBlog = () => {
+    getAllBlogAPI().then((res) => {
+      console.log("ALL  BLOG  ", res?.response)
+      setAllBlogData(res?.response?.data)
+    });
+  }
+  const getAllCatalogue = () => {
+    getAllCatalogueAPI().then((res) => {
+      setAllCatalogueData(res?.response?.data)
+    });
+  }
 
   const getAllProducts = () => {
     getAllProductsAPI().then((res) => {
@@ -139,7 +177,19 @@ function HomeComponentMain({ getAllProductsAPI }) {
   
   useEffect(() => {
     getAllProducts();
+    getAllNewArraival();
+    getAllCatalogue();
+    getAllRecentView();
+    getAllBestSeller();
+    getAllBlog();
   }, []);
+
+  const viewAllHandler =(arg,id)=>{
+    history.push({
+      pathname: "/home/product-listing/ProductListViewAll",
+      state: { pageName: arg, categoryId: id },
+    })
+  }
 
   return (
     <>
@@ -259,16 +309,14 @@ function HomeComponentMain({ getAllProductsAPI }) {
             <div className="main-title">Recently Viewed</div>
             <div
               className="view-all-but"
-              onClick={() =>
-                history.push("/home/product-listing/all-wallpaper")
-              }
+              onClick={() =>viewAllHandler("Recently Viewed")}
             >
               VIEW ALL
             </div>
           </div>
 
-          {/* <div className="home-main-card-container">
-            {recentlyviewedProducts.map((prodData) => (
+          <div className="home-main-card-container">
+            {allRecentViewData.slice(0, 4).map((prodData) => (
               <CardThree
                 isHome
                 favData={favData}
@@ -277,10 +325,10 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
-                key={prodData.id}
+                key={prodData._id}
               />
             ))}
-          </div> */}
+          </div>
         </div>
 
         <div className="main-container main-container-bg">
@@ -288,9 +336,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
             <div className="main-title">Artificial Grass</div>
             <div
               className="view-all-but"
-              onClick={() =>
-                history.push("/home/product-listing/view-all-grass")
-              }
+              onClick={() =>viewAllHandler("Artificial Grass")}
             >
               VIEW ALL
             </div>
@@ -317,6 +363,15 @@ function HomeComponentMain({ getAllProductsAPI }) {
               />
             ))}
           </div> */}
+            <div className="home-main-card-container">
+           {ecatalougeProducts.slice(currentIndex, currentIndex + (viewAllClicked ? ecatalougeProducts.length : 4)).map((prodData, index) => (
+          <CardCatalogue
+            onClickCard={handleCardProduct}
+            prodData={prodData}
+            key={prodData.id}
+          />
+        ))}
+        </div>
         </div>
 
         <div className="main-container">
@@ -324,16 +379,14 @@ function HomeComponentMain({ getAllProductsAPI }) {
             <div className="main-title">Best Seller</div>
             <div
               className="view-all-but"
-              onClick={() =>
-                history.push("/home/product-listing/all-wallpaper")
-              }
+              onClick={() =>viewAllHandler("Best Seller")}
             >
               VIEW ALL
             </div>
           </div>
 
-          {/* <div className="home-main-card-container">
-            {bestsellerProducts.map((prodData) => (
+          <div className="home-main-card-container">
+            {allBestSellerData?.slice(0, 4).map((prodData) => (
               <CardThree
                 isHome
                 favData={favData}
@@ -342,10 +395,11 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
-                key={prodData.id}
+                key={prodData._id}
               />
             ))}
-          </div> */}
+          </div>
+
         </div>
 
         <div className="main-container">
@@ -353,16 +407,14 @@ function HomeComponentMain({ getAllProductsAPI }) {
             <div className="main-title">New Arrivals</div>
             <div
               className="view-all-but"
-              onClick={() =>
-                history.push("/home/product-listing/all-wallpaper")
-              }
+              onClick={() => viewAllHandler("New Arrival",newArraivalData[1].categoryId)}
             >
               VIEW ALL
             </div>
           </div>
 
-          {/* <div className="home-main-card-container">
-            {newarrivalsProducts.map((prodData) => (
+          <div className="home-main-card-container">
+            {newArraivalData.slice(0, 4).map((prodData) => (
               <CardThree
                 isHome
                 favData={favData}
@@ -371,10 +423,10 @@ function HomeComponentMain({ getAllProductsAPI }) {
                 setCartData={setCartData}
                 onClickCard={handleCardProduct}
                 prodData={prodData}
-                key={prodData.id}
+                key={prodData._id}
               />
             ))}
-          </div> */}
+          </div>
         </div>
 
         <div className="main-container main-container-bg">
@@ -468,31 +520,6 @@ function HomeComponentMain({ getAllProductsAPI }) {
     </div>
 
 
-        {/* <div className="main-container">
-          <div className="main-header">
-            <div className="main-title">Latest Blog</div>
-            <div
-              className="view-all-but"
-              onClick={() => history.push("/profile/latestblogs")}
-            >
-              VIEW ALL
-            </div>
-          </div>
-          <div className="home-main-card-container">
-            {blogProducts.map((prodData) => (
-              <CardBlog
-                onClickCard={handleCardProduct}
-                prodData={prodData}
-                key={prodData.id}
-              />
-            ))}
-          </div>
-          {viewAllClicked && (
-          <button className="slider-arrow" onClick={() => handleSlide('next')}>
-            &gt; 
-          </button>
-        )}
-        </div> */}
 
 <div className="main-container">
   <div className="main-header">
@@ -505,7 +532,7 @@ function HomeComponentMain({ getAllProductsAPI }) {
     </div>
   </div>
        <div className="home-main-card-container show-scrollbar">
-       {blogProducts.slice(0, showAllBlogProducts ? blogProducts.length : 4).map((prodData) => (
+       {allBlogData.slice(0,4).map((prodData) => (
          <CardBlog
          onClickCard={handleCardProduct}
          prodData={prodData}
@@ -561,6 +588,11 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       getAllProductsAPI: getAllProductsApi,
+      getAllNewArraivalAPI: getNewArraivalApi,
+      getAllCatalogueAPI: getAllCatalogue,
+      getAllRecentAPI: getRecentViewApi,
+      getAllBestSellerViewAPI: getBestSellerViewApi,
+      getAllBlogAPI: getAllBlogApi
     },
     dispatch
   );

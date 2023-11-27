@@ -18,6 +18,7 @@ export {
   CartSummaryPage,
   OrderSuccessPage,
   ProductDetailPageUser,
+  ProductListViewAllPage,
 } from "./Home";
 export {
   ProfilePage,
