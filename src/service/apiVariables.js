@@ -51,12 +51,12 @@ export const profileApi = {
     baseURL: "auth",
   },
   getAddressList: {
-    api: "address/addressList",
+    api: "address",
     method: "get",
     baseURL: "base",
   },
   createAddress: {
-    api: "address/create",
+    api: "address",
     method: "post",
     baseURL: "base",
   },
@@ -131,6 +131,66 @@ export const cartApi = {
   },
   updateCart: {
     url: "cart",
+    method: "put",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};
+
+export const orderApi = {
+  createOrder: {
+    api: "orders",
+    method: "post",
+    baseURL: "base",
+  },
+  verifyOrder: {
+    api: "orders/verify",
+    method: "post",
+    baseURL: "base",
+  },
+  getOrderList: {
+    api: "orders",
+    method: "get",
+    baseURL: "base",
+  },
+  getOrderDetails: {
+    url: "orders/details",
+    method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  getProductOrderDetails: {
+    url: "orders/productDetails",
+    method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  updateOrder: {
+    url: "orders",
     method: "put",
     baseURL: "base",
     query: {

@@ -35,9 +35,9 @@ import ctstickerwallpaper3 from "assets/images/eCatalogue/sticker-wallpaper-3.pn
 import ctstickerwallpaper4 from "assets/images/eCatalogue/sticker-wallpaper-4.png";
 
 export const StateList = [
-  { label: "Tamil Nadu", value: "tamilNadu" },
-  { label: "Delhi", value: "delhi" },
-  { label: "Kerala", value: "kerala" },
+  { label: "Tamil Nadu", value: "Tamil Nadu" },
+  { label: "Delhi", value: "Delhi" },
+  { label: "Kerala", value: "Kerala" },
 ];
 
 export const LanguageMenuList = [
@@ -116,10 +116,8 @@ export const FeaturesList = [
 ];
 
 export const paymentMethod = [
-  { id: 1, label: "UPI - Phonepe, Google Pay, Paytm" },
-  { id: 2, label: "Credit Cards / Debit Cards" },
-  { id: 3, label: "Net Banking" },
-  { id: 4, label: "Cash on Delivery" },
+  { id: 1, label: "Online Payment" },
+  { id: 2, label: "Cash on Delivery" },
 ];
 
 export const historyNavigation = [
@@ -649,7 +647,8 @@ export const ecatalougeProducts = [
     ],
 
     title: "Best of Living Walls",
-  }, {
+  },
+  {
     id: 5,
     image: ["https://images.olx.com.pk/thumbnails/259234973-400x300.jpeg"],
     title: "My Home. My Space",

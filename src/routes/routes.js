@@ -93,7 +93,7 @@ const routers = [
       },
       {
         component: "OrderDetailsPage",
-        path: "/order-details",
+        path: "/order-details/:id",
         componentPath: "pages/Profile/OrderDetailsPage",
         name: "OrderDetailsPage",
         auth: false,

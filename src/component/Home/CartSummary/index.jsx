@@ -86,14 +86,13 @@ const CartSummaryMain = ({
           updateCartCallBack={updateCartCallBack}
           setActiveCartItem={setActiveCartItem}
         />
-        {/* {conditionalLoad(
+        {conditionalLoad(
           cartData?.products?.length > 0,
           <OrderSummary
             activeCartItem={activeCartItem}
             updateCartCallBack={updateCartCallBack}
-            cartData={cartData}
           />
-        )} */}
+        )}
       </div>
     </>
   );

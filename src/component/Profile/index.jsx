@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import profileUser from "assets/images/profileUser.png";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import BreadCrumbs from "component/common/BreadCrumb";
 import ProfileForm from "./ProfileForm";
 import SavedAddresses from "./SavedAddress";
-import AddNewAddress from "component/Profile/AddNewAddress";
+
 import { bindActionCreators } from "redux";
 import ChangePassword from "./ChangePassword";
 import WishList from "./MyWishList";
 import MyOrders from "./MyOrders";
 import { history } from "service/helpers";
-import chatIcon from "assets/images/chatIcon.png";
 import { useLocation } from "react-router-dom";
 import {
   updateProfile,
@@ -80,7 +77,7 @@ const ActivePanel = ({
     setOpen,
     loader,
   },
-  wishListProps: { wishlistItemData },
+
   savedAddressProps: { showAddressForm },
   changePasswordProps: { changePassword, passwordError },
 }) => {
@@ -100,7 +97,7 @@ const ActivePanel = ({
     case 2:
       return <MyOrders />;
     case 3:
-      return <WishList wishlistItemData={wishlistItemData} />;
+      return <WishList />;
     case 4:
       return <SavedAddresses showAddressForm={showAddressForm} />;
     case 5:
@@ -118,7 +115,6 @@ const ActivePanel = ({
 };
 
 export function ProfileMain({
-  wishlistItemData,
   updateProfileAPICall,
   changeCurrentPasswordAPI,
   verifyOTPApiCall,
@@ -245,7 +241,6 @@ export function ProfileMain({
               setOpen,
               loader,
             }}
-            wishListProps={{ wishlistItemData }}
             savedAddressProps={{ showAddressForm }}
             changePasswordProps={{ changePassword, passwordError }}
           />
@@ -254,12 +249,6 @@ export function ProfileMain({
     </>
   );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    wishlistItemData: state.commonStore.wishlistItemState,
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
@@ -273,5 +262,5 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-const Profile = connect(mapStateToProps, mapDispatchToProps)(ProfileMain);
+const Profile = connect(null, mapDispatchToProps)(ProfileMain);
 export default Profile;

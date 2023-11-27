@@ -5,6 +5,10 @@ import { useForm } from "react-hook-form";
 import Dealershipimg from "assets/images/Dealership.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Toast } from "service/toast";
+import { bindActionCreators } from "redux";
+import { createContact } from "action/ContactAct";
+import { connect } from "react-redux";
 
 const ContactUsSchema = yup.object().shape({
   firstname: yup
@@ -13,7 +17,7 @@ const ContactUsSchema = yup.object().shape({
     .required("First Name is required"),
   lastname: yup
     .string()
-    .min(2, "Last Name must be atleast 2 characters")
+    .min(1, "Last Name must be atleast 1 character")
     .required("Last Name is required"),
   email: yup
     .string()
@@ -30,22 +34,65 @@ const ContactUsSchema = yup.object().shape({
   pincode: yup
     .number("Pincode should be number type")
     .required("Pincode is required"),
-  companyname: yup.string(),
-  companyregno: yup.string(),
+
+  companyname: yup.string().transform((originalValue, originalObject) => {
+    // Apply validation only if the 'message' field is not empty
+    if (originalObject.message && originalObject.message.length > 0) {
+      return yup
+        .string()
+        .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+        .validate(originalValue);
+    }
+    return originalValue;
+  }),
+  companyregno: yup.string().transform((originalValue, originalObject) => {
+    // Apply validation only if the 'message' field is not empty
+    if (originalObject.message && originalObject.message.length > 0) {
+      return yup
+        .string()
+        .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+        .validate(originalValue);
+    }
+    return originalValue;
+  }),
   message: yup
     .string()
     .max(240, "Maximum characters allowed is 240")
-    .required("Message is required"),
+    .transform((originalValue, originalObject) => {
+      // Apply validation only if the 'company' field is not empty
+      if (originalObject.company && originalObject.company.length > 0) {
+        return yup
+          .string()
+          .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+          .validate(originalValue);
+      }
+      return originalValue;
+    }),
 });
 
-export default function Dealership() {
+function DealershipFC({ createContactAPI }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(ContactUsSchema) });
   const onSubmit = (data) => {
-    console.log(data);
+    let payload = {
+      firstName: data.firstname,
+      lastName: data.lastname,
+      emailId: data.email,
+      phoneNumber: parseInt(data.mobilenumber),
+      country: data.country,
+      state: data.state,
+      city: data.city,
+      pinCode: data.pincode,
+      companyName: data.companyname || null,
+      companyRegistrationNumber: parseInt(data.companyregno) || null, // Use null or an empty string as a default value
+      message: data.message || null, // Use null or an empty string as a default value
+    };
+    createContactAPI(payload).then(() => {
+      Toast({ type: "success", message: "Form Submitted" });
+    });
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -273,3 +320,14 @@ export default function Dealership() {
     </form>
   );
 }
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      createContactAPI: createContact,
+    },
+    dispatch
+  );
+};
+
+const Dealership = connect(null, mapDispatchToProps)(DealershipFC);
+export default Dealership;

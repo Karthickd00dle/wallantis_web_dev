@@ -31,6 +31,9 @@
     @include fontLatoStyle(16px, 700, #000000, 24px);
   }
 }
+.login-entries.post-login {
+  position: unset;
+}
 
 .login-terms {
   padding: 55px 0 45px;

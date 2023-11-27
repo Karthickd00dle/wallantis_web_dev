@@ -14,17 +14,49 @@
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     margin-top: 20px;
-    padding: 28px 53px 20px 49px;
+    padding: 32px 28px 32px 28px;
+  }
+  .delivery-summary-card {
+    width: 900px;
+    background: #ffffff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-top: 20px;
+    padding: 32px 28px 32px 28px;
     display: flex;
     flex-direction: column;
   }
-
   .title {
-    @include fontLatoStyle(32px, 700, #000000, 38px);
-    cursor: pointer;
+    @include fontLatoStyle(24px, 700, #000000, 38px);
+
+    min-width: 150px;
+  }
+  .title:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 
+  .delivery-status {
+    @include fontRobotoStyle(13px, 500, #ffffff, 22px);
+
+    padding: 2px 10px 2px 10px;
+    border-radius: 15px;
+  }
+  .delivery-status.order-confirmed {
+    background-color: #2a71f9;
+  }
+  .delivery-status.out-for-delivery {
+    background-color: #f6a240;
+  }
+  .delivery-status.shipped {
+    background-color: #f6a240;
+  }
+  .delivery-status.order-cancelled {
+    background-color: #f6a240;
+  }
+  .delivery-status.delivered {
+    background-color: #6ac414;
+  }
   .del-date {
     @include fontLatoStyle(20px, 700, #000000, 29px);
     margin-top: 7px;
@@ -40,7 +72,9 @@
     display: flex;
     align-items: center;
   }
-
+  .order-placed-date {
+    @include fontLatoStyle(16px, 600, #696969);
+  }
   .del-confirmation {
     @include fontLatoStyle(20px, 500, #000000);
   }
@@ -82,19 +116,16 @@
   }
 
   .view-details-btn {
-    @include fontRobotoStyle(12px !important, 500 !important, #2a71f9);
-    font-family: "Roboto", sans-serif !important;
-    line-height: 22px;
+    @include fontRobotoStyle(12px !important, 600 !important, #2a71f9, 22px);
+
     border: 1px solid #2a71f9;
+    width: 125px;
     border-radius: 50px;
-    padding: 9px 32.5px;
-    margin-top: 7px;
-    margin-left: 152px;
+    padding: 9px 9px;
   }
 
   .deliver-head {
     @include fontLatoStyle(24px, 700, #000000);
-    margin-bottom: 16px;
   }
   .deliver-subtitle {
     @include fontLatoStyle(16px, 600, #696969);
@@ -157,13 +188,13 @@
       align-items: center;
       margin-bottom: 29px;
       .name {
-        @include fontLatoStyle(22px, 600, #7d7d7d);
+        @include fontLatoStyle(16px, 600, #7d7d7d);
       }
       .price {
-        @include fontLatoStyle(28px, 600, #4d4d4d);
+        @include fontLatoStyle(16px, 600, #4d4d4d);
       }
       .free {
-        @include fontLatoStyle(20px, 500, #48b715);
+        @include fontLatoStyle(16px, 500, #48b715);
         margin-right: 6px;
       }
     }

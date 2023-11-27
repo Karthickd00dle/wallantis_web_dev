@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CustomRecipeWallpaper from "assets/images/OrderSummary/custom-recipe-wallpaper.png";
 import "./style.scss";
 import { connect } from "react-redux";
 import { CustomDialog, NormalInput } from "component/common";
@@ -12,7 +11,7 @@ import {
   customMomentFormat,
   ternaryCondition,
 } from "service/helperFunctions";
-// import { InstallerDateTime } from "component/common/InstallerDataTime";
+
 import InstallerDateTime from "component/common/InstallerDataTime";
 
 export const OrderSummaryMain = ({
@@ -29,105 +28,105 @@ export const OrderSummaryMain = ({
 
   const [cartSummaryInfo, setCartSummaryInfo] = useState([]);
 
-  const [openinstallerDateTime, setOpeninstallerDateTime] = useState(false);
+  // const [openinstallerDateTime, setOpeninstallerDateTime] = useState(false);
 
   const getCartListing = () => {
     getCartListingAPI()
-      .then((res) => {
-        setCartSummaryInfo(res.response.product);
+      .then(({ response }) => {
+        setCartSummaryInfo(response);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  const [installerDate, setInstallerDate] = useState(
-    ternaryCondition(
-      activeCartItem,
-      activeCartItem?.installerDate,
-      cartSummaryInfo[0]?.installerDate
-    )
-  );
-  console.log(installerDate, "installer date");
-  const [installerTime, setInstallerTime] = useState(
-    ternaryCondition(
-      activeCartItem,
-      activeCartItem?.installerTime,
-      cartSummaryInfo[0]?.installerTime
-    )
-  );
-  const updateCart = () => {
-    let query = {
-      url_id: ternaryCondition(
-        activeCartItem,
-        activeCartItem?.id,
-        cartSummaryInfo[0]?._id
-      ),
-    };
-    let body = {
-      quantity: ternaryCondition(
-        activeCartItem,
-        activeCartItem?.quantity,
-        cartSummaryInfo[0]?.quantity
-      ),
-      color: ternaryCondition(
-        activeCartItem,
-        activeCartItem?.color,
-        cartSummaryInfo[0]?.color
-      ),
-      installer: ternaryCondition(
-        activeCartItem,
-        activeCartItem?.installer,
-        cartSummaryInfo[0]?.installer
-      ),
-    };
+  // const [installerDate, setInstallerDate] = useState(
+  //   ternaryCondition(
+  //     activeCartItem,
+  //     activeCartItem?.installerDate,
+  //     cartSummaryInfo[0]?.installerDate
+  //   )
+  // );
 
-    const getBody = (installer) => {
-      if (installer) {
-        return {
-          ...body,
-          installerDate: installerDate,
-          installerTime: installerTime,
-        };
-      } else {
-        return { ...body };
-      }
-    };
+  // const [installerTime, setInstallerTime] = useState(
+  //   ternaryCondition(
+  //     activeCartItem,
+  //     activeCartItem?.installerTime,
+  //     cartSummaryInfo[0]?.installerTime
+  //   )
+  // );
+  // const updateCart = () => {
+  //   let query = {
+  //     url_id: ternaryCondition(
+  //       activeCartItem,
+  //       activeCartItem?.id,
+  //       cartSummaryInfo[0]?._id
+  //     ),
+  //   };
+  //   let body = {
+  //     quantity: ternaryCondition(
+  //       activeCartItem,
+  //       activeCartItem?.quantity,
+  //       cartSummaryInfo[0]?.quantity
+  //     ),
+  //     color: ternaryCondition(
+  //       activeCartItem,
+  //       activeCartItem?.color,
+  //       cartSummaryInfo[0]?.color
+  //     ),
+  //     installer: ternaryCondition(
+  //       activeCartItem,
+  //       activeCartItem?.installer,
+  //       cartSummaryInfo[0]?.installer
+  //     ),
+  //   };
 
-    updateCartAPI(
-      query,
-      getBody(
-        ternaryCondition(
-          activeCartItem,
-          activeCartItem?.installer,
-          cartSummaryInfo[0]?.installer
-        )
-      )
-    )
-      .then(() => {
-        getCartListing();
-      })
-      .then((res) => {
-        setCartSummaryInfo(res.response.product);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //   const getBody = (installer) => {
+  //     if (installer) {
+  //       return {
+  //         ...body,
+  //         installerDate: installerDate,
+  //         installerTime: installerTime,
+  //       };
+  //     } else {
+  //       return { ...body };
+  //     }
+  //   };
+
+  //   updateCartAPI(
+  //     query,
+  //     getBody(
+  //       ternaryCondition(
+  //         activeCartItem,
+  //         activeCartItem?.installer,
+  //         cartSummaryInfo[0]?.installer
+  //       )
+  //     )
+  //   )
+  //     .then(() => {
+  //       getCartListing();
+  //     })
+  //     .then((res) => {
+  //       setCartSummaryInfo(res.response.product);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   useEffect(() => {
     getCartListing();
   }, [updateCartCallBack]);
 
-  const handleConfirmDateTime = () => {
-    updateCart();
-    setOpeninstallerDateTime(false);
-  };
+  // const handleConfirmDateTime = () => {
+  //   updateCart();
+  //   setOpeninstallerDateTime(false);
+  // };
 
   return (
     <div>
       <div className="order-summary">
         <label className="text-title pb-3">Order Summary</label>
-        <div
+        {/* <div
           className="d-flex align-items-center
       "
         >
@@ -163,9 +162,9 @@ export const OrderSummaryMain = ({
               <div className="order-count ms-1 cursor-pointer">+</div>
             </div>
           </div>
-        </div>
-        {console.log(activeCartItem, "acct")}
-        {conditionalLoad(
+        </div> */}
+
+        {/* {conditionalLoad(
           ternaryCondition(
             activeCartItem,
             activeCartItem?.installer,
@@ -196,7 +195,7 @@ export const OrderSummaryMain = ({
               Edit
             </p>
           </div>
-        )}
+        )} */}
         <div className="coupon-container py-4">
           <label className="coupon-text">Coupon</label>
           <TextField
@@ -224,7 +223,7 @@ export const OrderSummaryMain = ({
                   className="price-content-title
           "
                 >
-                  Price ({cartData.totalQuantity} items)
+                  Price ({cartSummaryInfo.totalQuantity} items)
                 </label>
                 <label
                   className=" price-content-title
@@ -238,12 +237,12 @@ export const OrderSummaryMain = ({
                 >
                   Packaging Charges
                 </label>
-                <label
+                {/* <label
                   className="price-content-title
           "
                 >
                   Installation Charges
-                </label>
+                </label> */}
                 <label
                   className="price-content-title
           "
@@ -256,31 +255,31 @@ export const OrderSummaryMain = ({
                   className="price-content-item
           "
                 >
-                  ₹ {cartData.cartAmount}
+                  ₹ {cartSummaryInfo.totalPrice}
                 </label>
                 <label
                   className="text-green-15 price-content-title
           "
                 >
-                  {`₹ ${cartData.deliveryCharge}`}
+                  {`₹ ${cartSummaryInfo.deliveryCharge}`}
                 </label>
                 <label
                   className="price-content-item
           "
                 >
-                  {`₹ ${cartData.packingCharges}`}
+                  {`₹ ${cartSummaryInfo.packingCharge}`}
                 </label>
-                <label
+                {/* <label
                   className="price-content-item
           "
                 >
                   ₹ 499
-                </label>
+                </label> */}
                 <label
                   className="price-content-item
           "
                 >
-                  ₹ {cartData.GSTCharges}
+                  ₹ {cartSummaryInfo.gstPrice}
                 </label>
               </div>
             </div>
@@ -304,13 +303,13 @@ export const OrderSummaryMain = ({
                   className="price-content-item
           "
                 >
-                  ₹ 3297
+                  ₹ {cartSummaryInfo.totalAmount}
                 </label>
                 <label
                   className="price-content-item
           "
                 >
-                  ₹ 298
+                  ₹ {cartSummaryInfo.discountPrice}
                 </label>
               </div>
             </div>
@@ -325,13 +324,13 @@ export const OrderSummaryMain = ({
                 className="text-light_bg fw-700 fs-24 price-content-item 
           "
               >
-                ₹ {cartData.totalPrice}
+                ₹ {cartSummaryInfo.totalPaidAmount}
               </label>
             </div>
           </div>
         </div>
       </div>
-      <CustomDialog
+      {/* <CustomDialog
         isOpen={openinstallerDateTime}
         handleClose={() => setOpeninstallerDateTime(false)}
       >
@@ -342,7 +341,7 @@ export const OrderSummaryMain = ({
           setInstallerTime={setInstallerTime}
           handleConfirm={handleConfirmDateTime}
         />
-      </CustomDialog>
+      </CustomDialog> */}
     </div>
   );
 };

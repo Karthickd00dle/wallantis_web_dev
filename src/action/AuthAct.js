@@ -26,7 +26,7 @@ export const loginApi =
         body,
       })
         .then((data) => {
-          localStorage.setItem("authToken", data);
+          sessionStorage.setItem("authToken", data);
           resolve(data);
         })
         .catch(({ message }) => {

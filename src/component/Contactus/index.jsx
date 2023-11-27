@@ -18,7 +18,7 @@ const ContactUsSchema = yup.object().shape({
   lastname: yup
     .string()
     .required("Last Name is required")
-    .min(2, "Last Name must be atleast 2 characters")
+    .min(1, "Last Name must be atleast 1 character")
     .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
 
   email: yup
@@ -58,11 +58,30 @@ const ContactUsSchema = yup.object().shape({
       if (val) return val.toString().length === 6;
     }),
 
-  company: yup
-    .string()
-    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+  company: yup.string().transform((originalValue, originalObject) => {
+    // Apply validation only if the 'message' field is not empty
+    if (originalObject.message && originalObject.message.length > 0) {
+      return yup
+        .string()
+        .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+        .validate(originalValue);
+    }
+    return originalValue;
+  }),
 
-  message: yup.string().max(240, "Maximum characters allowed is 240"),
+  message: yup
+    .string()
+    .max(240, "Maximum characters allowed is 240")
+    .transform((originalValue, originalObject) => {
+      // Apply validation only if the 'company' field is not empty
+      if (originalObject.company && originalObject.company.length > 0) {
+        return yup
+          .string()
+          .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+          .validate(originalValue);
+      }
+      return originalValue;
+    }),
 });
 
 export function ContactusFC({ createContactAPI }) {
@@ -77,13 +96,13 @@ export function ContactusFC({ createContactAPI }) {
       firstName: data.firstname,
       lastName: data.lastname,
       emailId: data.email,
-      phoneNumber: data.mobilenumber,
+      phoneNumber: parseInt(data.mobilenumber),
       country: data.country,
       state: data.state,
       city: data.city,
       pinCode: data.pincode,
-      companyName: data.company,
-      message: data.message,
+      companyName: data.company || null, // Use null or an empty string as a default value
+      message: data.message || null, // Use null or an empty string as a default value
     };
     createContactAPI(payload).then(() => {
       Toast({ type: "success", message: "Form Submitted" });

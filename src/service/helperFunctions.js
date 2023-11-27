@@ -108,14 +108,14 @@ export const conditionalLoad = (val, valToShow) => {
 };
 
 export const getUserDetailsBasedToken = () => {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   let decoded = {};
   decoded = token !== null && jwt_decode(token);
   return decoded;
 };
 
 export const getAuthToken = () => {
-  return localStorage.getItem("authToken");
+  return sessionStorage.getItem("authToken");
 };
 
 export const customMomentFormat = (date, formatType) => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import jwt_decode from "jwt-decode";
 import { bindActionCreators } from "redux";
@@ -8,10 +8,9 @@ import { CustomButton } from "component/common";
 import { CustomInput } from "component/common/NormalInput";
 import { InputAdornment } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { ternaryCondition } from "service/helperFunctions";
 import { GoogleLogin } from "@react-oauth/google";
-import { useHistory } from "react-router-dom";
 
 function LoginComponentMain({ loginApiCall, ownProps }) {
   const location = useLocation().pathname.split("/").slice(-1)[0];
@@ -24,12 +23,9 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
 
   const [currentEmail, setCurrentEmail] = useState();
 
-  function postLogin(isGoogle, response) {
-    if (isGoogle) {
-      sessionStorage.setItem("authToken", response?.access_token);
-    } else {
-      localStorage.setItem("authToken", response?.access_token);
-    }
+  function postLogin(response) {
+    sessionStorage.setItem("authToken", response?.access_token);
+
     ternaryCondition(
       location === "payment-page"
         ? ownProps.setActiveStep(1)
@@ -42,7 +38,7 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
       username: data.mailId,
       password: data.password,
       loginType: 3,
-    }).then(({ response }) => postLogin(false, response));
+    }).then(({ response }) => postLogin(response));
   };
 
   const googleSignIn = (OAuthRes) => {
@@ -50,12 +46,12 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
     loginApiCall({
       username: decoded.sub,
       loginType: 2,
-    }).then(({ response }) => postLogin(true, response));
+    }).then(({ response }) => postLogin(response));
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={`login-entries `}>
+      <div className={`login-entries ${ownProps.postLogin}post-login`}>
         <div className="d-flex flex-column">
           <CustomInput
             placeholder="Enter Email/Mobile number"

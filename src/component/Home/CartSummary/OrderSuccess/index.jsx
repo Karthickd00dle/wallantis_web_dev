@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as OrderSuccessLogo } from "assets/svg/OrderSuccess/order-confirm-logo.svg";
 import "./style.scss";
 import { CustomButton, NormalNavigate } from "component/common";
+import { history } from "service/helpers";
 
 export default function OrderSuccess() {
   return (
@@ -27,7 +28,10 @@ export default function OrderSuccess() {
               <label className="date-label">15 November, 2022</label>
             </div>
           </div>
-          <CustomButton className="mt-5 my-bookings-button">
+          <CustomButton
+            className="mt-5 my-bookings-button"
+            onClick={() => history.push("/profile/profile-page", 2)}
+          >
             My Bookings
           </CustomButton>
         </div>

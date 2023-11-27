@@ -9,8 +9,9 @@ import { resendOTPApi, verifyOTPApi } from "action/AuthAct";
 import { useLocation } from "react-router-dom";
 import { useTimer } from "hooks/useTimer";
 import { Toast } from "service/toast";
+import { history } from "service/helpers";
 
-function ForgotPasswordFC({ ownProps, verifyOTPApiCall, resendOTPApi }) {
+function ForgotPasswordFC({ verifyOTPApiCall, resendOTPApi }) {
   const {
     register,
     handleSubmit,
@@ -19,18 +20,30 @@ function ForgotPasswordFC({ ownProps, verifyOTPApiCall, resendOTPApi }) {
   let location = useLocation();
 
   const [changeMob, setChangeMob] = useState("disabled");
+  const [username, setUsername] = useState();
   const [resendTime, setResendTime] = useTimer({
     multiplier: 1,
-    startTime: 120,
+    startTime: 60,
   });
   const handleChangeMob = () => {
     setChangeMob(!changeMob);
   };
 
-  const resendOTPApiCall = (data) => {
-    setResendTime(120);
-    let body = { emailId: data };
+  const resendOTPApiCall = () => {
+    setResendTime(60);
+    let body = { emailId: username ? username : location.state };
     resendOTPApi(body);
+  };
+
+  const verifyOTPAPICall = (data) => {
+    let body = {
+      emailId: data.emailId,
+      otp: data.otp,
+      forgotPassword: data.password,
+    };
+    verifyOTPApiCall(body).then(() => {
+      history.push("/home/login");
+    });
   };
 
   useEffect(() => {
@@ -40,13 +53,14 @@ function ForgotPasswordFC({ ownProps, verifyOTPApiCall, resendOTPApi }) {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit(resendOTPApiCall)}>
+    <form onSubmit={handleSubmit(verifyOTPAPICall)}>
       <div className="forgot-password-container">
         <CustomInput
           variant="standard"
           className="input-phonenumber mb-3"
           disabled={changeMob}
           name="mailId"
+          onChange={(e) => setUsername(e.target.value)}
           register={register}
           errors={errors}
           defaultValue={location.state}

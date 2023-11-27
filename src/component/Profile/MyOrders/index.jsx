@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { NormalSearch, CustomSelect, CustomButton } from "component/common";
 import wallImage from "assets/images/wallImage.png";
 import greenDot from "assets/images/greenDot.png";
@@ -7,13 +7,51 @@ import ticked from "assets/images/ticked.png";
 import { useHistory } from "react-router-dom";
 import ChatIcon from "assets/icons/ChatIcon.js";
 import "./index.scss";
+import { ArrowBack } from "@mui/icons-material";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { getOrderDetail, getOrderListing } from "action/OrderAct";
+import { customMomentFormat } from "service/helperFunctions";
 
-export default function MyOrders() {
+function MyOrdersFC({ getOrderListingApi, getOrderDetailApi }) {
   const [showProductDetail, setShowProductDetail] = useState(false);
+  const [orderList, setOrderList] = useState();
+  const [orderDetail, setOrderDetail] = useState();
+
   let history = useHistory();
 
-  const handleViewDetails = () =>
+  const handleViewDetails = (id) => {
     setShowProductDetail((prevState) => !prevState);
+    getOrderDetailAPI(id);
+  };
+
+  const getOrderListingAPI = () => {
+    getOrderListingApi().then(({ response }) => setOrderList(response));
+  };
+
+  const getOrderDetailAPI = (id) => {
+    let query = {
+      url_id: id,
+    };
+    getOrderDetailApi(query).then(({ response }) => setOrderDetail(response));
+  };
+
+  console.log(orderDetail, "order detail");
+
+  const getDeliveryStatusCode = (status) => {
+    switch (status) {
+      case "order confirmed":
+        return "order-confirmed";
+      case "shipped":
+        return "shipped";
+      case "out for delivery":
+        return "out-for-delivery";
+      case "delivery":
+        return "delivered";
+      default:
+        return;
+    }
+  };
 
   const orderDetails = [
     {
@@ -29,6 +67,11 @@ export default function MyOrders() {
       price: "₹3500",
     },
   ];
+
+  useEffect(() => {
+    getOrderListingAPI();
+  }, []);
+
   return (
     <div className="profile-page">
       <div className="d-flex align-items-center">
@@ -52,82 +95,74 @@ export default function MyOrders() {
 
       {!showProductDetail ? (
         <>
-          <div className="orders-card">
-            <div className="flex">
-              <img src={wallImage} alt="wallimage" />
-              <div className="direction-col left-margin">
-                <div className="d-flex space-between">
-                  <div
-                    className="title"
-                    onClick={() => history.push("/profile/order-details")}
-                  >
-                    Diamond Wallpaper
-                  </div>
-                  <div>
-                    <CustomButton
-                      className={"view-details-btn"}
-                      onClick={handleViewDetails}
-                    >
-                      View Details
-                    </CustomButton>
-                  </div>
-                </div>
+          {orderList?.map(
+            ({
+              _id,
+              colorName,
+              price,
+              productImages,
+              productTitle,
+              status,
+              date,
+            }) => (
+              <div key={_id} className="orders-card">
+                <div className="d-flex align-items-center">
+                  <img
+                    height="185px"
+                    width="185px"
+                    src={productImages[0]}
+                    alt="wallimage"
+                  />
+                  <div className="direction-col left-margin">
+                    <div className="d-flex justify-content-between">
+                      <div
+                        className="d-flex w-100 align-items-start"
+                        onClick={() =>
+                          history.push(`/profile/order-details/${_id}`)
+                        }
+                      >
+                        <label className="title w-50">{productTitle}</label>
+                        <div
+                          className={`ms-2 mt-2 delivery-status ${getDeliveryStatusCode(
+                            status
+                          )}`}
+                        >
+                          {status}
+                        </div>
+                      </div>
+                    </div>
 
-                <div className="flex space-between">
-                  <div className="color">Color - Green </div>
-                </div>
-                <div className="flex space-between">
-                  <div className="amount">₹3500</div>
-                </div>
-                <div className="flex space-between">
-                  <div>
-                    <div className="payment-mode">Mode of Payment</div>
-                    <div className="payment-bank">Net Banking: Kotak Bank</div>
+                    <label className="color">Color - {colorName}</label>
+
+                    <label className="m-0 py-4 amount">₹{price}</label>
+                    <label className="order-placed-date">
+                      Placed on{" "}
+                      {customMomentFormat(date, "ddd, Do MMM, hh:mm A")}
+                    </label>
                   </div>
+                </div>
+                <div>
+                  <CustomButton
+                    className="view-details-btn"
+                    onClick={() => handleViewDetails(_id)}
+                  >
+                    View Details
+                  </CustomButton>
                 </div>
               </div>
-            </div>
-            <div className="flex space-between mt-4"></div>
-          </div>
-          <div className="orders-card">
-            <div className="flex">
-              <img src={wallImage} alt="walliMAGE" />
-              <div className="direction-col left-margin">
-                <div className="flex space-between">
-                  <div
-                    className="title"
-                    onClick={() => history.push("/profile/order-details")}
-                  >
-                    Diamond Wallpaper
-                  </div>
-                  <div>
-                    <CustomButton className={"view-details-btn"}>
-                      View Details
-                    </CustomButton>
-                  </div>
-                </div>
-
-                <div className="flex space-between">
-                  <div className="color">Color - Green </div>
-                </div>
-                <div className="flex space-between">
-                  <div className="amount">₹3500</div>
-                </div>
-                <div className="flex space-between">
-                  <div>
-                    <div className="payment-mode">Mode of Payment</div>
-                    <div className="payment-bank">Net Banking: Kotak Bank</div>
-                  </div>
-                  <div></div>
-                </div>
-              </div>
-            </div>
-          </div>
+            )
+          )}
         </>
       ) : (
-        <div className="orders-card">
-          <div className="deliver-head">
-            Yayy, Your order has been successfully delivered
+        <div className="delivery-summary-card">
+          <div className="d-flex align-items-center">
+            <ArrowBack
+              className="mt-1 cursor-pointer"
+              onClick={() => setShowProductDetail(false)}
+            />
+            <label className="deliver-head ms-1">
+              Yayy, Your order has been successfully delivered
+            </label>
           </div>
           <div className="deliver-subtitle">
             Placed on Fri, 25th Nov, 05:00PM
@@ -210,3 +245,16 @@ export default function MyOrders() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getOrderListingApi: getOrderListing,
+      getOrderDetailApi: getOrderDetail,
+    },
+    dispatch
+  );
+};
+
+const Profile = connect(null, mapDispatchToProps)(MyOrdersFC);
+export default Profile;

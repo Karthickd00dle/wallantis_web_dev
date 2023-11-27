@@ -6,7 +6,7 @@ export function PaymentPageClass() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {
-    const loadComp = await import("component/Home/ProductDetails/Payment");
+    const loadComp = await import("component/Home/OrderSummary/Payment");
     setComponent(() => loadComp.default);
   };
 

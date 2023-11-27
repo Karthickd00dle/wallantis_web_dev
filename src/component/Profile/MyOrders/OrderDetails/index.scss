@@ -21,7 +21,7 @@
   background: #ffffff;
   min-width: auto;
   padding: 20px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
   border-right: 1px solid #d5d5d5;
 }
 
@@ -83,6 +83,10 @@
   margin-top: 14px;
 }
 
+.last-item .grey-progress {
+  display: none;
+}
+
 .review-btn {
   width: 216px;
   height: 60px;
@@ -93,6 +97,7 @@
 
 .order-state-name {
   @include fontRobotoStyle(16px, 500, #000000);
+  text-transform: capitalize;
 }
 
 .order-state-date {

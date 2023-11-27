@@ -1,16 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import Paytm from "assets/images/Paytm.png";
 import downloadImage from "assets/images/downloadImage.png";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import BreadCrumbs from "component/common/BreadCrumb";
 import wallImage from "assets/images/wallImage.png";
 import Star from "assets/images/Star.png";
 import Cancel from "assets/images/Cancel.png";
 import Return from "assets/images/Return.png";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { getProductOrderDetail } from "action/OrderAct";
+import OrderStatusBar from "./OrderStatusBar";
+import OrderStatusTracker from "./OrderStatusBar";
 
-export default function OrderDetails() {
-  let history = useHistory();
+function OrderDetailsFC({ getProductOrderDetailApi }) {
+  const history = useHistory();
+  const params = useParams();
+  const [productOrderDetail, setProductOrderDetail] = useState();
+
+  const getProductOrderDetailAPI = () => {
+    let query = {
+      url_id: params.id,
+    };
+    getProductOrderDetailApi(query).then(({ response }) =>
+      setProductOrderDetail(response)
+    );
+  };
+
+  useEffect(() => {
+    getProductOrderDetailAPI();
+  }, []);
+
+  console.log(productOrderDetail, "det");
+
+  const getPaymentMode = (mode) => {
+    switch (mode) {
+      case "netbanking":
+        return `${productOrderDetail?.payment?.method} : ${productOrderDetail?.payment?.bank}`;
+      default:
+        return `${productOrderDetail?.payment?.method}`;
+    }
+  };
+
+  const orderStatusData = [
+    { name: "Order Confirmed", status: "Confirmed", date: "Sun, 9th Oct" },
+    { name: "Shipped", status: "Shipped", date: "Mon, 10th Oct" },
+    {
+      name: "Out for Delivery",
+    },
+    { name: "Delivered" },
+  ];
+
   return (
     <div>
       <div className="breadcrumbs">
@@ -22,22 +63,24 @@ export default function OrderDetails() {
         <div className="info-cards">
           <div>
             <p className="del-address">Delivery Address</p>
-            <p className="name">John Doe</p>
+            <p className="name">{productOrderDetail?.address?.fullName}</p>
 
             <p className="address">
-              104,NEW ARYA NAGAR,GHAZIABAD,UP,DISTGHAZIABAD201301
+              {`${productOrderDetail?.address?.flatNo},${productOrderDetail?.address?.area},${productOrderDetail?.address?.city},${productOrderDetail?.address?.state},${productOrderDetail?.address?.pincode},${productOrderDetail?.address?.country}`}
             </p>
 
             <div className="single-col">
               <p>Phone number </p>
-              <p>987654321</p>
+              <p>{productOrderDetail?.address?.mobileNumber}</p>
             </div>
           </div>
         </div>
         <div className="info-cards">
           <div>
             <p className="del-address">Payment Method</p>
-            <p className="name">Cash on Delivery</p>
+            <p className="name text-capitalize">
+              {getPaymentMode(productOrderDetail?.payment?.method)}
+            </p>
           </div>
         </div>
         <div className="info-cards">
@@ -79,9 +122,11 @@ export default function OrderDetails() {
             <img src={wallImage} />
             <div className="direction-col left-margin">
               <div className="">
-                <p className="name">Diamond Wallpaper</p>
+                <p className="name">{productOrderDetail?.product?.title}</p>
                 <p className="color">Color - Green </p>
-                <p className="amount mt-3">₹3500</p>
+                <p className="amount mt-3">
+                  ₹{productOrderDetail?.product?.price}
+                </p>
 
                 <p className="del-confirmation">Delivered on Oct 15</p>
               </div>
@@ -109,42 +154,10 @@ export default function OrderDetails() {
         </div>
 
         <div className="order-confirmation">
-          <div className="single-col">
-            <div className="order-status">
-              <div>
-                <p className="order-state-name">Order Confirmed</p>
-              </div>
-              <div className="success-circle">
-                <div className="green-progress"></div>
-              </div>
-              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
-            </div>
-            <div className="order-status">
-              <div>
-                <p className="order-state-name">Shipped</p>
-              </div>
-              <div className="pending-circle">
-                <div className="grey-progress"></div>
-              </div>
-              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
-            </div>
-            <div className="order-status">
-              <div>
-                <p className="order-state-name">Out for Delivery </p>
-              </div>
-              <div className="pending-circle">
-                <div className="grey-progress"></div>
-              </div>
-              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
-            </div>
-            <div className="order-status">
-              <div>
-                <p className="order-state-name">Delivered</p>
-              </div>
-              <div className="pending-circle"></div>
-              <p className="mt-3 order-state-date">Sun, 9th Oct </p>
-            </div>
-          </div>
+          <OrderStatusTracker
+            orderStatusData={productOrderDetail?.statusArray}
+          />
+
           <div className="order-status-details">
             <div className="mt-4">
               Your item has been picked up by courier partner.
@@ -180,3 +193,15 @@ export default function OrderDetails() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getProductOrderDetailApi: getProductOrderDetail,
+    },
+    dispatch
+  );
+};
+
+const OrderDetails = connect(null, mapDispatchToProps)(OrderDetailsFC);
+export default OrderDetails;
