@@ -197,6 +197,49 @@ export const productAPI = {
       this.query[key] = payload;
     },
   },
+  getNewArrival:{
+    url: "arrival",
+    method: "get",
+    baseURL: "products",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  getRecentView:{
+    url: "recentView",
+    method: "get",
+    baseURL: "products",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  getBestSellerView:{
+    url: "bestSeller",
+    method: "get",
+    baseURL: "products",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  }
+
 };
 
 export const categoryAPI = {
@@ -256,9 +299,9 @@ export const categoryAPI = {
 
 export const catalogueAPI = {
   getAllCatalogue: {
-    url: "AllCatalogue",
+    url: "Catalogue",
     method: "get",
-    baseURL: "catalogue",
+    baseURL: "Catalogue",
     query: {
       page: null,
       pageCount: null,
@@ -316,6 +359,28 @@ export const wishlistApi = {
     baseURL: "base",
     query: {
       url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};
+
+export const blogAPI = {
+  getAllBlog: {
+    url: "blog",
+    method: "get",
+    baseURL: "Blog",
+    query: {
+      page: null,
+      pageCount: null,
+      nextPage: null,
+      pageSize: null,
+      total: null,
+      wallPaperType: null,
     },
     get api() {
       return this.url + generateQuery(this.query);

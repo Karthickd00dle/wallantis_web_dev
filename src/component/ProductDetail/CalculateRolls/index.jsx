@@ -19,21 +19,40 @@ export const CalculateRolls = ({ isOpen, handleClose }) => {
     quantity: null,
     price: null,
   });
+  const [validationMsg,setValidationMsg] = useState(false);
   const { width, height } = rollsData;
   const { quantity, price } = calculatedData;
 
-  const handleChange = ({ target: { name, value } }) => {
+
+const handleChange = ({ target: { name, value } }) => {
+  if (value <= 0) {
+    setValidationMsg(true)
+    setTimeout(()=>{
+      setValidationMsg(false)
+    },2000)
+  }
     setRollsData({ ...rollsData, [name]: value });
-  };
+    if(showCalculated){
+      setRollsData(prevData => {
+        const updatedData = { ...prevData, [name]: value };
+        if (showCalculated) {
+          handleCalculateRolls(updatedData);
+        }
+        return updatedData;
+      });
+    }
+};
 
-  const handleCalculateRolls = () => {
-    let quantity = Math.round((width * height) / 40);
-    let price = width * height * 2 * quantity;
-    setCalculatedData({ ...calculatedData, quantity: quantity, price: price });
-    setShowCalculated(true);
-  };
+const handleCalculateRolls = (data) => {
+  const { width, height } = showCalculated ? data : rollsData;
 
+  let quantity = Math.round((width * height) / 40);
+  let price = width * height * 2 * quantity;
+  setCalculatedData({ ...calculatedData, quantity:quantity, price:price });
+  setShowCalculated(true);
+};
   const handleResetValue = () => {
+    handleClose();
     setRollsData({ width: "", height: "" });
     setShowCalculated(false);
   };
@@ -44,7 +63,7 @@ export const CalculateRolls = ({ isOpen, handleClose }) => {
         <div className="calculate-rolls-container p-5">
           <div className="header-container d-flex justify-content-between align-items-center">
             <label className="header-title ">Rolls Calculator</label>
-            <CloseRounded onClick={handleClose} />
+            <CloseRounded onClick={handleResetValue} />
           </div>
           <div className="calculator-container pt-3">
             <p className="calculator-subject">
@@ -76,6 +95,7 @@ export const CalculateRolls = ({ isOpen, handleClose }) => {
                   onChange={handleChange}
                 />
               </div>
+             
               {conditionalLoad(
                 !showCalculated,
                 <CustomButton
@@ -87,6 +107,7 @@ export const CalculateRolls = ({ isOpen, handleClose }) => {
                 </CustomButton>
               )}
             </div>
+            <p>{validationMsg?"Width and Height must be greater than zero.":null}</p>
             {conditionalLoad(
               showCalculated,
               <div>
