@@ -27,19 +27,19 @@ export const  InstallerPriceCalculator = ({ isOpen, handleClose }) => {
   const { width, height, rolls } = installerPriceData;
   const { quantity, price, charges } = calculatedData;
 
-  const handleChange = ({ target: { name, value } }) => {
-
-    setInstallerPriceData({...installerPriceData, [name]: value })
-    if(showCalculated){
-      setInstallerPriceData(prevData => {
-        const updatedData = {...installerPriceData, [name]: value };
-        if(showCalculated){
-          handleCalculateInstallerPrice(updatedData)
-        }
-        return updatedData
-      });
-    }
-  };
+const handleChange = ({ target: { name, value } }) => {
+  let updatedData = { ...installerPriceData, [name]: value };
+  if (name === 'rolls') {
+    updatedData.width = "";
+    updatedData.height = "";
+  } else if (name === 'width' || name === 'height') {
+    updatedData.rolls = "";
+  }
+  setInstallerPriceData(updatedData);
+  if (showCalculated) {
+    handleCalculateInstallerPrice(updatedData);
+  }
+};
 
   const handleCalculateInstallerPrice = (data) => {
     const { width, height, rolls } = showCalculated ? data : installerPriceData;

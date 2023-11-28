@@ -76,12 +76,12 @@ class Chatbox {
       .forEach(function (item, index) {
         if (item.name === "Sam") {
           html +=
-            '<div class="messages__item messages__item--visitor">' +
+            '<div className="messages__item messages__item--visitor">' +
             item.message +
             "</div>";
         } else {
           html +=
-            '<div class="messages__item messages__item--operator">' +
+            '<div className="messages__item messages__item--operator">' +
             item.message +
             "</div>";
         }

@@ -35,7 +35,7 @@ export const CustomSelect = (props) => {
         className={`w-100 d-flex align-items-center ${inputStyle}`}
         id="demo-customized-textbox"
         IconComponent={ExpandMoreRoundedIcon}
-        defaultValue={"placeholder"}
+        defaultValue={menuItemList && menuItemList.length > 0 ? menuItemList[0].value : "EN"}
         value={selectedValue}
         onFocus={() => setShowPlaceholder(false)}
         onClose={(e) => setShowPlaceholder(e.target.value === undefined)}

@@ -20,11 +20,11 @@ export default function BlogDetail() {
         <div className="addblog-status">
           <label>Status</label>
           <div className="addblog-in">
-            <div class="flex">
+            <div className="flex">
               <input type="radio" name="radio" id="Active" />
               <label for="radio2">Active</label>
             </div>
-            <div class="flex">
+            <div className="flex">
               <input type="radio" name="radio" id="Inactive" />
               <label for="radio3">Inactive</label>
             </div>

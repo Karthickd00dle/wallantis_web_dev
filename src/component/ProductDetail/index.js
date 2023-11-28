@@ -1,7 +1,7 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Instructions } from "component/ProductDetail/Instructions";
-import { connect } from "react-redux";
+import { connect,useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
@@ -18,7 +18,7 @@ import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
 import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 import { bindActionCreators } from "redux";
-import { getProductDetailApi } from "action/ProductsAct";
+import { getProductDetailApi,getNewArraivalApi } from "action/ProductsAct";
 import { FcFolder } from "react-icons/fc";
 import { FaTimes } from "react-icons/fa";
 import IP_calculator from "../../assets/images/IP_calculator.jpg";
@@ -27,6 +27,8 @@ import InstallerDateTime from "../common/InstallerDataTime";
 import { useForm } from "react-hook-form";
 import { Rating } from "@mui/material";
 import { createCartApi } from "action/CartAct";
+import CardThree from "../Home/subcomponents/CardThree";
+import { commonStateList } from "service/actionType";
 
 const ColorFilter = ({
   colorData: { colorCode },
@@ -61,8 +63,9 @@ const ColorFilter = ({
   );
 };
 
-function ProductDetailFC({ getProductDetailApi, createCartApi }) {
+function ProductDetailFC({ getProductDetailApi, getAllNewArraivalAPI,createCartApi }) {
   let params = useParams();
+  const dispatch = useDispatch();
 
   const [productDetail, setProductDetail] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,6 +77,9 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
   const [selectedImg, setSelectedImg] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [value, setValue] = React.useState(2);
+  const [newArraivalData,setNewArraivalData] = useState([]);
+  const [cartData, setCartData] = useState([]);
+
   const handleProductCount = ({ target: { name, value } }) => {
     if (value === "" || (value >= 1 && /^\d+$/.test(value))) {
       setQuantity(value === "" ? "" : parseInt(value, 10));
@@ -88,15 +94,29 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
       .then(({ response }) => setProductDetail(response))
       .then(() => setLoading(false));
   };
+  const handleCardProduct = (prodData) => {
+    dispatch({
+      type: commonStateList.productDetail,
+      payload: prodData,
+    });
 
+    history.push(`/home/product-details/${prodData._id}`);
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [selectedImg]);
 
   useEffect(() => {
     getProductDetailAPI();
-  }, []);
+    getAllNewArraival();
+  }, [params.id]);
 
+
+  const getAllNewArraival = () => {
+    getAllNewArraivalAPI().then((res) => {
+      setNewArraivalData(res?.response)
+    });
+  }
   const getCurrentItem = useMemo(
     () => productDetail?.colors?.[activeColor],
     [productDetail, activeColor]
@@ -305,7 +325,7 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
                     <div id="popup" className="popup">
                       <div className="popup-content">
                         <div className="close-icon-tips" onClick={closePopup}>
-                          <span>&times;</span>
+                          <span>&times;123</span>
                         </div>
                         <InstallerDateTime />
                       </div>
@@ -575,18 +595,17 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
         </div>
 
         <div className="other-products-title">You may also like </div>
-        {/* <div className="Product-detail-cards">
-          {bestsellerProducts.map((prodData) => (
-            // <CardThree prodData={prodData} key={prodData.id} />
+        <div className="Product-detail-cards">
+          {newArraivalData.slice(0,4).map((prodData) => (
             <CardThree
-              onClickCard={onClickCard}
+              onClickCard={handleCardProduct}
               prodData={prodData}
               setCartData={setCartData}
               cartData={cartData}
               key={prodData.id}
             />
           ))}
-        </div> */}
+        </div>
 
         <div className="other-products-list"></div>
       </div>
@@ -611,6 +630,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       getProductDetailApi: getProductDetailApi,
       createCartApi: createCartApi,
+      getAllNewArraivalAPI: getNewArraivalApi,
     },
     dispatch
   );
