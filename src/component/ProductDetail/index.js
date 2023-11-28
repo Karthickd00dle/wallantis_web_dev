@@ -44,6 +44,9 @@ const ColorFilter = ({
     }
   };
 
+
+
+
   return (
     <div
       className={`color-picker-item ${
@@ -69,11 +72,22 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
   const [openInstruction, setOpenInstruction] = useState();
   const [activeColor, setActiveColor] = useState(0);
   const [openCalculateRolls, setOpenCalculateRolls] = useState();
+  const [showAllInstructions, setShowAllInstructions] = useState(false);
   const [openInstallerPriceCalculator, setOpenInstallerPriceCalculator] =
     useState();
   const [selectedImg, setSelectedImg] = useState(null);
+  const [showAllContents, setShowAllContents] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [value, setValue] = React.useState(2);
+  const [installerDate, setInstallerDate] = useState();
+  const [installerTime, setInstallerTime] = useState();
+
+  const handleConfirm = () => {
+  };
+  
+  const handleShowAllInstructions = () => {
+    setShowAllInstructions(!showAllInstructions);
+  };
   const handleProductCount = ({ target: { name, value } }) => {
     if (value === "" || (value >= 1 && /^\d+$/.test(value))) {
       setQuantity(value === "" ? "" : parseInt(value, 10));
@@ -307,190 +321,93 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
                         <div className="close-icon-tips" onClick={closePopup}>
                           <span>&times;</span>
                         </div>
-                        <InstallerDateTime />
+                        <InstallerDateTime
+                         installerDate={installerDate}
+                         setInstallerDate={setInstallerDate}
+                         installerTime={installerTime}
+                         setInstallerTime={setInstallerTime}
+                         handleConfirm={handleConfirm} />
                       </div>
                     </div>
                   )}
                 </div>
+                
+
+
                 <div className="ib-body">
-                  <div className="ib-body-title">
-                    Installation by Wallantics
-                  </div>
-                  <div className="ib-body-txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut dolore magna aliqua. Ut enim
-                    ad minim veniam.
-                  </div>
-                  <div className="ib-body-price">
-                    ₹800/Roll &ensp;*Need to Pay at the time of booking the
-                    order{" "}
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <div className="ib-body-2">
-                <div className="travel-container">
-                  <TravelGuideSVGComponent />
-                </div>
-                {/* <div>
-                  <div>
-                    <div className="ib-body-2-title">
-                      Insructions on Application of Wallpaper{" "}
+        <div>
+          <div className="ib-body-title">Installation by Wallantics</div>
+          <div className="ib-body-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+dolore magna aliqua. Ut enim ad minim veniam. </div>
+          <div className="ib-body-price">
+          ₹800/Roll &ensp; *Need to Pay at the time of booking the order {""}
+          </div>
+         
+        </div>
+      </div>
+      </div>
+      <hr />
+      <div className="ib-body-2">
+        <div className="travel-container">
+          <TravelGuideSVGComponent />
+        </div>
+        <div>
+          <div>
+          <div className="Installtion-showall">
+            <div className="ib-body-2-title">
+              Instructions on Application of Wallpaper
+            </div>
+            <label onClick={handleShowAllInstructions}>
+            {showAllInstructions ? 'SHOW LESS' : 'SHOW ALL'}
+          </label>
+          </div>
+      
+<div className="allproducts-show">
+  {Array.isArray(allProductInstructions) ? (
+    allProductInstructions.slice(
+      0,
+      showAllInstructions
+        ? allProductInstructions.length
+        : 3
+    ).map(({ info, steps, image, id }, index) => (
+      <div
+        className="instructions-row-container"
+        style={{
+          backgroundImage: `url(${image})`,
+          border: "1px solid #000",
+          padding: "10px",
+          margin: "5px",
+          // flex: "1",
+        }}
+        key={id}
+      >
+        <label className="card-instructions-steps">{steps}</label>
+        <br />
+        <label className="card-instructions-info">{info}</label>
+      </div>
+    ))
+  ) : (
+    <div>Content is not available.</div>
+  )}
+</div>
 
-                    </div>
-                    <div>
-                      <FcFolder/>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="instructions-collab">
-                      {ProductInstructions1.map(({ info, steps, image }) => (
-                        <div
-                          className="card-instructions-container"
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                        >
-                          <label className="card-instructions-steps">
-                            {steps}
-                          </label>
-                          <br />
-                          <label className="card-instructions-info">
-                            {info}
-                          </label>
-                        </div>
-                      ))}
-                    </div>
 
-                    <div className="instructions-collab">
-                      {ProductInstructions2.map(({ info, steps, image }) => (
-                        <div
-                          className="card-instructions-container"
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                        >
-                          <label className="card-instructions-steps">
-                            {steps}
-                          </label>
-                          <br />
-                          <label className="card-instructions-info">
-                            {info}
-                          </label>
-                        </div>
-                      ))}
-                    </div>
 
-                    <div className="instructions-collab">
-                      {ProductInstructions3.map(({ info, steps, image }) => (
-                        <div
-                          className="card-instructions-container"
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                        >
-                          <label className="card-instructions-steps">
-                            {steps}
-                          </label>
-                          <br />
-                          <label className="card-instructions-info">
-                            {info}
-                          </label>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="instructions-collab">
-                      {ProductInstructions4.map(({ info, steps, image }) => (
-                        <div
-                          className="card-instructions-container"
-                          style={{
-                            backgroundImage: `url(${image})`,
-                          }}
-                        >
-                          <label className="card-instructions-steps">
-                            {steps}
-                          </label>
-                          <br />
-                          <label className="card-instructions-info">
-                            {info}
-                          </label>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="Product-tips">
-                    <label>
-                      Tip 1: When smoothing, work from the centre outwards to
-                      push bubbles to the edge of the panel. Use a rubber
-                      squeeze.
-                    </label>
-                    <label>
-                      Tip 2: If you've recently painted the walls, make sure to
-                      wait a minimum of three weeks so that the paint has enough
-                      time to fully cure.
-                    </label>
-                  </div>
-                </div> */}
-
-                <div>
-                  <div>
-                    <div className="ib-body-2-title">
-                      Instructions on Application of Wallpaper
-                    </div>
-                    <div>
-                      <FcFolder
-                        onClick={handleFolderIconClick}
-                        className="folder-icon"
-                      />
-                    </div>
-                  </div>
-                  {isPopupOpen && (
-                    <div id="popup" className="popup">
-                      <div className="popup-content">
-                        <div className="close-icon-tips" onClick={closePopup}>
-                          <span>&times;</span>
-                          {/* <FaTimes /> */}
-                        </div>
-                        {Array.isArray(popupContent) ? (
-                          popupContent.map(
-                            ({ info, steps, image, id }, index) => (
-                              <div
-                                className="card-instructions-container"
-                                style={{
-                                  backgroundImage: `url(${image})`,
-                                }}
-                              >
-                                <label className="card-instructions-steps">
-                                  {steps}
-                                </label>
-                                <br />
-                                <label className="card-instructions-info">
-                                  {info}
-                                </label>
-                              </div>
-                            )
-                          )
-                        ) : (
-                          <div>Popup content is not available.</div>
-                        )}
-                        <div className="Product-tips">
-                          <label>
-                            Tip 1: When smoothing, work from the centre outwards
-                            to push bubbles to the edge of the panel. Use a
-                            rubber squeeze.
-                          </label>
-                          <label>
-                            Tip 2: If you've recently painted the walls, make
-                            sure to wait a minimum of three weeks so that the
-                            paint has enough time to fully cure.
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
+          </div>
+          <div className="Product-tips">
+            <label>
+              Tip 1: When smoothing, work from the centre outwards to push
+              bubbles to the edge of the panel. Use a rubber squeeze.
+            </label>
+            <label>
+              Tip 2: If you've recently painted the walls, make sure to wait a
+              minimum of three weeks so that the paint has enough time to fully
+              cure.
+            </label>
+          </div>
+        </div>
+      </div>
+              
             </div>
             <div className="d-flex my-4 product-add-buttons">
               <CustomButton
