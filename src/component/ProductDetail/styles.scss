@@ -37,10 +37,11 @@
     margin-left: 20px;
     .instructions-box-container {
       width: 97%;
-      height: 25%;
+      height: 31%;
       padding: 25px;
       border: 1px solid #a2a2a2;
       border-radius: 3px;
+      overflow: scroll  ;
 
       .ib-container {
         display: flex;
@@ -370,7 +371,14 @@ img {
   padding: 20px;
 }
 
-.card-instructions-container {
+.allproducts-show{
+  display: flex;
+  // gap: 20px;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.instructions-row-container{
   // width: 202px;
   // height: 402px;
   // margin-bottom: 50px;
@@ -380,8 +388,10 @@ img {
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: contain;
-  width: calc(33.33% - 10px);
+  width: calc(33% - 10px); 
   margin-bottom: 20px;
+  box-sizing: border-box;
+
 
   .card-instructions-image-section {
     height: 233px;
@@ -489,4 +499,17 @@ img {
 }
 .pincode-check input::placeholder {
   @include fontRobotoStyle(20px, 400, #9a9999);
+}
+.Installtion-showall{
+  display: flex;
+  justify-content: space-between;
+  label{
+    font-size: 16px;
+    font-weight: 400;
+    color: #2A71F9;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 20px;
+
+  }
 }
