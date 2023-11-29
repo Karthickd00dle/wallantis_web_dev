@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
   IconButton,
@@ -22,6 +22,10 @@ import {
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "component/common";
 import { DownloadIcon } from "assets/svg/Admin/Common";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { getAllProductsApi } from "action/ProductsAct";
+import { customMomentFormat } from "service/helperFunctions";
 
 const totalInstallersData = [
   {
@@ -61,11 +65,9 @@ const TableDataHeader = () => {
           <label className="table-head-cell-label">Date</label>
         </TableCell>
         <TableCell align="left">
-          <label className="table-head-cell-label">Customer Name</label>
+          <label className="table-head-cell-label">Created By</label>
         </TableCell>
-        <TableCell align="left">
-          <label className="table-head-cell-label">Location</label>
-        </TableCell>
+
         <TableCell align="left">
           <label className="table-head-cell-label">Amount</label>
           <IconButton>
@@ -79,6 +81,12 @@ const TableDataHeader = () => {
           </IconButton>
         </TableCell>
         <TableCell align="left">
+          <label className="table-head-cell-label">Sub Category</label>
+          <IconButton>
+            <AscendingDescendingArrow />
+          </IconButton>
+        </TableCell>
+        <TableCell align="left">
           <label className="table-head-cell-label">Action</label>
         </TableCell>
       </TableRow>
@@ -87,30 +95,47 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { No, Title, Date, Customer_Name, Location, Amount, Category },
+  bodyData: {
+    _id,
+    title,
+    images,
+    createdAt,
+    createdBy,
+    price,
+    categoryId,
+    subCategoryId,
+  },
 }) => {
   return (
-    <TableRow key={No}>
+    <TableRow key={_id}>
       <TableCell component="th" scope="row">
-        <label className="table-body-cell-label">{No}</label>
+        <label className="table-body-cell-label">{_id}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Title}</label>
+        <div>
+          <img src={images[0]} height="65px" width="65px" alt="prod_img" />
+          <label className="ps-2 table-body-cell-label">{title}</label>
+        </div>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Date}</label>
+        <label className="table-body-cell-label">
+          {customMomentFormat(createdAt, "MMM Do, YYYY")}
+        </label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Customer_Name}</label>
+        <label className="table-body-cell-label">{createdBy}</label>
+      </TableCell>
+
+      <TableCell align="left">
+        <label className="table-body-cell-label">₹{price}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Location}</label>
+        <label className="table-body-cell-label">{categoryId.category}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{Amount}</label>
-      </TableCell>
-      <TableCell align="left">
-        <label className="table-body-cell-label">{Category}</label>
+        <label className="table-body-cell-label">
+          {subCategoryId.subCategory}
+        </label>
       </TableCell>
       <TableCell align="left">
         <CustomListMenu>
@@ -138,12 +163,27 @@ const TableDataBody = ({
   );
 };
 
-export default function ProductManagement() {
-  const [currentPage, setCurrentPage] = React.useState(1);
+function ProductManagementFC({ getAllProductsApiCall }) {
+  const [productList, setProductList] = useState([]);
+  const [pageMeta, setPageMeta] = useState({});
+  const [pageNo, setPageNo] = useState();
 
-  const handlePage = (event, value) => {
-    setCurrentPage(value);
+  const handlePagination = (e, value) => {
+    setPageNo((prevState) => ({ ...prevState, page: value }));
   };
+
+  const getCustomerListingApi = () => {
+    getAllProductsApiCall().then(({ response }) => {
+      setProductList(response.data);
+      setPageMeta(response.pageMeta);
+    });
+  };
+
+  useEffect(() => {
+    getCustomerListingApi();
+  }, []);
+
+  console.log(productList, "prod list");
 
   return (
     <div className="product-management">
@@ -168,17 +208,32 @@ export default function ProductManagement() {
         <CustomTable>
           <TableDataHeader />
           <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody bodyData={bodyData} />
+            {productList?.map((bodyData) => (
+              <TableDataBody key={bodyData._id} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>
       </div>
       <CustomPagination
-        pageCount={10}
-        currentPage={currentPage}
-        onChange={handlePage}
+        pageCount={pageMeta.pageCount}
+        currentPage={pageNo}
+        onChange={handlePagination}
       />
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getAllProductsApiCall: getAllProductsApi,
+    },
+    dispatch
+  );
+};
+
+const ProductManagement = connect(
+  null,
+  mapDispatchToProps
+)(ProductManagementFC);
+export default ProductManagement;

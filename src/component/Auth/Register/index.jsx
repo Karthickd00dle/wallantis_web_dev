@@ -72,7 +72,6 @@ const RegisterComponentMain = ({ loginApiCall, registationApiCall }) => {
         <div className="d-flex register-container">
           <form onSubmit={handleSubmit(handlePostRegister)}>
             <CustomInput
-              type="email"
               name="email"
               variant="standard"
               placeholder="Enter Email/Mobile number"
@@ -80,26 +79,26 @@ const RegisterComponentMain = ({ loginApiCall, registationApiCall }) => {
               register={register}
               errors={errors}
             />
-                 <div className="otp-resend-container d-flex  my-4">
-          <label className="label-otp-sent"> OTP sent to Mobile</label>
-          <label className="label-resend pe-1">Resend? </label>
-        </div>
-        <CustomInput
-          type="number"
-          placeholder="Enter OTP"
-          name="otp"
-          className="input-otp my-3"
-          register={register}
-          errors={errors}
-        />
-        <CustomInput
-          type="password"
-          placeholder="Set Password"
-          className="input-password my-3"
-          name="password"
-          register={register}
-          errors={errors}
-        />
+            <div className="otp-resend-container d-flex  my-4">
+              <label className="label-otp-sent"> OTP sent to Mobile</label>
+              <label className="label-resend pe-1">Resend? </label>
+            </div>
+            <CustomInput
+              type="number"
+              placeholder="Enter OTP"
+              name="otp"
+              className="input-otp my-3"
+              register={register}
+              errors={errors}
+            />
+            <CustomInput
+              type="password"
+              placeholder="Set Password"
+              className="input-password my-3"
+              name="password"
+              register={register}
+              errors={errors}
+            />
             {/* <label className="label-privacy-policy ">
               By continuing, you agree to Paperwall Terms of use and Privacy
               policy

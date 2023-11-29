@@ -83,7 +83,7 @@ export const CustomSelect = ({
         IconComponent={(props) => <DropDownIcon {...props} />}
         onChange={onChange}
       >
-        {menuItems.map(({ value, label }) => (
+        {menuItems?.map(({ value, label }) => (
           <MenuItem key={value} value={value}>
             {label}
           </MenuItem>

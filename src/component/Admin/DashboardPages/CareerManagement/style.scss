@@ -12,6 +12,17 @@
     background: #5d5fef;
   }
 }
+.status-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  &.active {
+    background-color: #26e044;
+  }
+  &.inactive {
+    background-color: #e11539;
+  }
+}
 .table-head-cell-label {
   @include fontLatoStyle(14px, 600, #ababab, 17px);
 }
@@ -20,4 +31,168 @@
 }
 .table-cell-menu-item {
   @include fontRobotoStyle(14px, 400, #ababab, 16px);
+}
+
+.AddNewJob {
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  width: 1110px;
+  height: 665px;
+  // margin: 30px;
+}
+
+.add-namejob {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 510px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+
+.add-postedby {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 510px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+
+.add-postingjob {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 510px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+
+.add-location {
+  margin-top: 50px;
+  label {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-left: 30px;
+  }
+  input {
+    border: 0.25px solid #c0c0c0;
+    width: 510px;
+    height: 51px;
+    margin-top: 15px;
+    margin-left: 30px;
+    padding: 20px;
+  }
+}
+.addjob-status {
+  label {
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 25px;
+  }
+  .addjob-in {
+    display: flex;
+    gap: 50px;
+    margin-left: 32px;
+    input[type="radio"]:checked + label {
+      color: #5d5fef;
+      cursor: pointer;
+    }
+    label {
+      color: #404040;
+      font-weight: 400;
+      font-size: 15px;
+      margin-left: 12px;
+    }
+    input {
+      cursor: pointer;
+      height: 16px;
+    }
+  }
+}
+.add-jobpublishbtn {
+  background: #5d5fef;
+  border-radius: 6px;
+  color: #ffffff;
+  width: 177px;
+  height: 51px;
+  margin-left: 30px;
+  font-weight: 400px;
+}
+.add-jobcancelbtn {
+  background: white;
+  border-radius: 6px;
+  color: black;
+  width: 177px;
+  font-weight: 400px;
+  height: 51px;
+  border: 1px solid black;
+  margin-left: 30px;
+  margin-top: 80px;
+}
+.viewJob {
+  height: 1100px;
+  width: 1110px;
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  .basic-info {
+    font-family: "Lato";
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .job-details {
+    height: 136px;
+    width: 480px;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .job-details-left {
+    font-family: "Avenir Next";
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    color: #828282;
+  }
+  .job-details-right {
+    font-family: "Lato";
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    color: #333333;
+  }
 }

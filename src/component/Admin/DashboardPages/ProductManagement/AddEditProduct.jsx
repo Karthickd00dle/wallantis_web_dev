@@ -11,9 +11,15 @@ import DragDropfiles from "component/Admin/common/DragDropfiles";
 import { MuiChipsInput } from "mui-chips-input";
 import { DeleteIcon } from "assets/svg/Admin/InventoryMangement";
 import CustomChipInput from "component/Admin/common/CustomChipInput";
+import CommonSelect, {
+  CustomSelect,
+} from "component/Admin/common/CommonSelect";
+import { CustomDialog } from "component/Admin/common/CustomDialog";
+import AddEditColor from "./AddEditColor";
 
 export const AddEditProductFC = () => {
   const [value, setValue] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -41,23 +47,40 @@ export const AddEditProductFC = () => {
               <label className="input-label">Price</label>
               <CommonInput />
             </div>
-            <div className="d-flex flex-column col-6 py-4">
-              <label className="input-label pb-2">Color</label>
-
-              <CustomChipInput
-                className="color-chip-input"
-                placeholder="Add tags"
-                helperText={
-                  value.length > 0 ? "Double click to edit a chip" : ""
-                }
-                clearInputOnBlur
-                value={value}
-                onChange={handleChange}
-              />
-            </div>
-            <div className="col-6 py-4">
-              <label className="input-label">Quantity</label>
-              <CommonInput />
+            <>
+              <div className="d-flex flex-column col-6 py-4">
+                <div>
+                  <label className="input-label pb-2">Color</label>
+                  <CustomSelect className="w-100" />
+                  <label
+                    className="pt-2 underlined-button cursor-pointer"
+                    onClick={() => setIsOpen(true)}
+                  >
+                    Add Color
+                  </label>
+                </div>
+                <label className="input-label mt-4 pb-1">Quantity</label>
+                <CommonInput />
+              </div>
+              <div className="col-6 py-4">
+                <label className="input-label pb-2">Image Upload</label>
+                <DragDropfiles />
+              </div>
+            </>
+            <div className="col-12">
+              <div className="d-flex align-items-center justify-content-between w-50">
+                <div>
+                  <label className="underlined-button cursor-pointer">
+                    Delete
+                  </label>
+                </div>
+                <CustomButton
+                  className="download-csv-button w-25 px-3 py-3 me-3"
+                  variant="outlined"
+                >
+                  Add More
+                </CustomButton>
+              </div>
             </div>
             <div className="col-6 py-4">
               <label className="input-label">Collection</label>
@@ -79,10 +102,7 @@ export const AddEditProductFC = () => {
               <label className="input-label">Features</label>
               <CKEditorInput placeholder="Type here" />
             </div>
-            <div className="col-12 py-4">
-              <label className="input-label pb-2">Image Upload</label>
-              <DragDropfiles />
-            </div>
+            <div className="col-12 py-4"></div>
           </div>
           <div className="button-container mt-5">
             <CustomButton variant="outlined" className="cancel-button">
@@ -93,6 +113,9 @@ export const AddEditProductFC = () => {
             </CustomButton>
           </div>
         </div>
+        <CustomDialog isOpen={isOpen} handleClose={() => setIsOpen(false)}>
+          <AddEditColor />
+        </CustomDialog>
       </div>
     </>
   );

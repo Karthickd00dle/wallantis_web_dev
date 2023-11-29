@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import "./style.scss";
 import {
@@ -21,6 +21,9 @@ import { history } from "service/helpers";
 import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "component/common";
 import { DownloadIcon } from "assets/svg/Admin/Common";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getOrderListing } from "action/OrderAct";
 
 const totalInstallersData = [
   {
@@ -175,12 +178,25 @@ const TableDataBody = ({
   );
 };
 
-export default function OrderManagement() {
-  const [currentPage, setCurrentPage] = React.useState(1);
+function OrderManagementFC({ getOrderListingApiCall }) {
+  const [orderList, setOrderList] = useState([]);
+  const [pageMeta, setPageMeta] = useState({});
+  const [pageNo, setPageNo] = useState();
 
-  const handlePage = (event, value) => {
-    setCurrentPage(value);
+  const handlePagination = (e, value) => {
+    setPageNo((prevState) => ({ ...prevState, page: value }));
   };
+
+  const getCustomerListingApi = () => {
+    getOrderListingApiCall().then(({ response }) => {
+      setOrderList(response);
+      setPageMeta(response.pageMeta);
+    });
+  };
+
+  useEffect(() => {
+    getCustomerListingApi();
+  }, []);
 
   return (
     <div className="product-management">
@@ -206,9 +222,21 @@ export default function OrderManagement() {
       </div>
       <CustomPagination
         pageCount={10}
-        currentPage={currentPage}
-        onChange={handlePage}
+        currentPage={pageNo}
+        onChange={handlePagination}
       />
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getOrderListingApiCall: getOrderListing,
+    },
+    dispatch
+  );
+};
+
+const CustomerManagement = connect(null, mapDispatchToProps)(OrderManagementFC);
+export default CustomerManagement;

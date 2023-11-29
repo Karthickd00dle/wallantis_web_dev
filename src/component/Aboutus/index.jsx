@@ -9,6 +9,7 @@ import team3 from "assets/images/Dashboard/team3.png";
 import team4 from "assets/images/Dashboard/team4.png";
 import Bedroomwallpaper from "assets/images/Bedroomwallpaper.png";
 import Newlaunchwallpaper from "assets/images/Newlaunchwallpaper.png";
+import { history } from "service/helpers";
 
 export default function AboutWallantics() {
   return (
@@ -133,7 +134,9 @@ export default function AboutWallantics() {
             <label>New Launch </label>
           </div>
         </div>
-        <button className="shopnow my-3">Shop Now</button>
+        <button className="shopnow my-3" onClick={() => history.push("/home/")}>
+          Shop Now
+        </button>
       </div>
 
       {/* </div> */}

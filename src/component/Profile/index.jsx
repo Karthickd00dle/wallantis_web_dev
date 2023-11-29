@@ -118,7 +118,6 @@ export function ProfileMain({
   updateProfileAPICall,
   changeCurrentPasswordAPI,
   verifyOTPApiCall,
-
   getCurrentProfileAPI,
 }) {
   let location = useLocation();

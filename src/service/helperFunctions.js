@@ -17,9 +17,10 @@ export const addQuery = (dataObject, apiObject) => {
     "limit",
     "pageNo",
     "size",
-    "search",
     "wallPaperType",
     "categoryId",
+    "search",
+    "range",
     "pageLimit",
     "pageCount",
     "nextPage",
@@ -109,11 +110,7 @@ export const generateQuery = (query) => {
 
   let emptyData = [];
   const queryString = Object.keys(query).reduce((accumulator, key, index) => {
-    if (
-      query[key] !== "" &&
-      query[key] !== null &&
-      query[key] !== undefined
-    ) {
+    if (query[key] !== "" && query[key] !== null && query[key] !== undefined) {
       emptyData.push(key);
     }
     if (
@@ -126,9 +123,7 @@ export const generateQuery = (query) => {
     } else {
       return (
         accumulator +
-        `${index !== 0 && emptyData.length > 1 ? "&" : "?"}${key}=${
-          query[key]
-        }`
+        `${index !== 0 && emptyData.length > 1 ? "&" : "?"}${key}=${query[key]}`
       );
     }
   }, "");

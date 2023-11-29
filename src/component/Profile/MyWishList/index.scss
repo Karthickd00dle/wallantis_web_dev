@@ -21,6 +21,10 @@
   }
 }
 
+.orders-card:nth-child(1) {
+  margin: 0;
+}
+
 .title {
   @include fontLatoStyle(28px, 700, #000000, 38px);
 }

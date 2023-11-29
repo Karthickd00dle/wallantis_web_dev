@@ -119,7 +119,12 @@ function OrderDetailsFC({ getProductOrderDetailApi }) {
       <div className="flex space-between order-updates">
         <div>
           <div className="flex">
-            <img src={wallImage} />
+            <img
+              src={productOrderDetail?.product?.images[0]}
+              alt="prod_image"
+              height="175px"
+              width="175px"
+            />
             <div className="direction-col left-margin">
               <div className="">
                 <p className="name">{productOrderDetail?.product?.title}</p>

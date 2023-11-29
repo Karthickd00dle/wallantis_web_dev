@@ -56,6 +56,7 @@ export function WishListFC({ getWishListApi, removeFromWishlistApi }) {
     let query = {
       url_id: id,
     };
+
     removeFromWishlistApi(query)
       .then(() => {
         Toast({
@@ -71,18 +72,19 @@ export function WishListFC({ getWishListApi, removeFromWishlistApi }) {
 
   return (
     <div>
-      <div className="d-flex align-items-center">
-        <div>
-          <NormalSearch placeholder="Search For Orders" />
+      {wishListData.length > 0 ? (
+        wishListData.map((wishlistData) => (
+          <WishlistCard
+            key={wishlistData._id}
+            wishlistData={wishlistData}
+            deleteFavItem={deleteFavItem}
+          />
+        ))
+      ) : (
+        <div className="orders-card d-flex justify-content-center align-items-center">
+          <h2>Your Wishlist is Empty</h2>
         </div>
-      </div>
-      {wishListData.map((wishlistData) => (
-        <WishlistCard
-          key={wishlistData._id}
-          wishlistData={wishlistData}
-          deleteFavItem={deleteFavItem}
-        />
-      ))}
+      )}
     </div>
   );
 }

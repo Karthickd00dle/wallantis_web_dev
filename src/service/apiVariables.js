@@ -157,9 +157,19 @@ export const orderApi = {
     baseURL: "base",
   },
   getOrderList: {
-    api: "orders",
+    url: "orders",
     method: "get",
     baseURL: "base",
+    query: {
+      search: "",
+      range: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
   },
   getOrderDetails: {
     url: "orders/details",
@@ -385,19 +395,67 @@ export const wishlistApi = {
     },
   },
 };
+export const careerAPI = {
+  getAllCareer: {
+    url: "career",
+    method: "get",
+    baseURL: "base",
+    query: {
+      page: null,
+      pageCount: null,
+      nextPage: null,
+      pageSize: null,
+      total: null,
+      wallPaperType: null,
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+  createCatalogue: {
+    api: "create",
+    method: "post",
+    baseURL: "create",
+  },
+  getCareerDetails: {
+    url: "career",
+    method: "get",
+    baseURL: "base",
+    query: {
+      url_id: "",
+    },
+    get api() {
+      return this.url + generateQuery(this.query);
+    },
+    set addQuery({ key, payload }) {
+      this.query[key] = payload;
+    },
+  },
+};
 
 export const newArrivalAPI = {
   createArrivals: {
     api: "products/arrival",
     method: "get",
-    baseURL: "base", 
+    baseURL: "base",
   },
-}
+};
 
 export const BestsellerApi = {
   getBestSeller: {
     api: "products/bestSeller",
     method: "get",
     baseURL: "base",
-  }
-}
+  },
+};
+
+export const customerApi = {
+  getCustomerList: {
+    api: "users",
+    method: "get",
+    baseURL: "base",
+  },
+};

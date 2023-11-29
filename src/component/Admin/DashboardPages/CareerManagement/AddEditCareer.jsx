@@ -3,64 +3,49 @@ import "./style.scss"
 import { getCareerDetailsApi } from "action/CareerAct";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { useLocation } from "react-router-dom";
 import CustomNavBar from "component/Admin/common/CustomNavBar";
+import { CommonHistoryNavigation } from "component/Admin/common/CommonHistoryNavigation";
 
 
- function CareerDetailFC({getCareerDetailsApi}) {
+
+ function AddEditCareerFC() {
 
    const [careerDetail, setCareerDetail] = useState();
 
-   const location = useLocation();
-   const id = new URLSearchParams(location.search).get("id");
-
-   const getCareerDetailAPI = () => {
-      let query = {
-        url_id: id,
-      };
-      getCareerDetailsApi(query)
-        .then(({ response }) => setCareerDetail(response))
-        .then();
-    };
-
-   //  useEffect(() => {
-   //    getCareerDetailAPI();
-   //  }, []);
   return (
     <div>
       <CustomNavBar label="Career Management" />
-    <div className="AddNewJob">
+      <CommonHistoryNavigation label="Add New Job" />
+    <div className="AddNewJob ms-4 my-3">
     <div className="d-flex">
     <div className="add-namejob">
         <label>Name of the Job</label><br/>
-        <input type="text" placeholder="John" value={careerDetail?.nameOfTheJob}/>
+        <input type="text" placeholder="John" />
      </div>
      <div className="add-postedby">
         <label>Posted By</label><br/>
-        <input type="text" placeholder="Doe" value={careerDetail?.postedBy}/>
+        <input type="text" placeholder="Doe" />
      </div>
      </div>
-
-
      <div className="d-flex">
     <div className="add-postingjob">
         <label>Date of posting Job</label><br/>
-        <input type="text" placeholder="18-10-2022" value={careerDetail?.dateOfPostingJob.split('T')[0]}/>
+        <input type="text" placeholder="18-10-2022" />
      </div>
      <div className="add-location">
         <label>Location</label><br/>
-        <input type="text" placeholder="Anna nagar, Chennai" value={careerDetail?.location}/>
+        <input type="text" placeholder="Anna nagar, Chennai" />
      </div>
      </div>
   <div className="addjob-status">
   <label>Status</label>
   <div className="addjob-in">
      <div class="flex align-items-baseline">
-<input type="radio" name="radio" id="Active" checked={careerDetail?.status === 1}/>
+<input type="radio" name="radio" id="Active" />
 <label for="radio2">Active</label>
 </div>
 <div class="flex align-items-baseline">
-<input type="radio" name="radio" id="Inactive" checked={careerDetail?.status === 0}/>
+<input type="radio" name="radio" id="Inactive" />
 <label for="radio3">Inactive</label>
 </div>
 </div>
@@ -75,12 +60,12 @@ import CustomNavBar from "component/Admin/common/CustomNavBar";
 const mapDispatchToProps = (dispatch) => {
    return bindActionCreators(
      {
-      getCareerDetailsApi: getCareerDetailsApi,
+      // getCareerDetailsApi: getCareerDetailsApi,
      },
      dispatch
    );
  };
 
- const CareerDetails = connect(null, mapDispatchToProps)(CareerDetailFC);
+ const AddEditCareer = connect(null, mapDispatchToProps)(AddEditCareerFC);
 
-export default CareerDetails;
+export default AddEditCareer;

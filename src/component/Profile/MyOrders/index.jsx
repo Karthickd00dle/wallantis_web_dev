@@ -17,6 +17,8 @@ function MyOrdersFC({ getOrderListingApi, getOrderDetailApi }) {
   const [showProductDetail, setShowProductDetail] = useState(false);
   const [orderList, setOrderList] = useState();
   const [orderDetail, setOrderDetail] = useState();
+  const [searchOrder, setSearchOrder] = useState();
+  const [sortDate, setSortDate] = useState();
 
   let history = useHistory();
 
@@ -26,7 +28,11 @@ function MyOrdersFC({ getOrderListingApi, getOrderDetailApi }) {
   };
 
   const getOrderListingAPI = () => {
-    getOrderListingApi().then(({ response }) => setOrderList(response));
+    let query = {
+      search: searchOrder,
+      range: sortDate,
+    };
+    getOrderListingApi(query).then(({ response }) => setOrderList(response));
   };
 
   const getOrderDetailAPI = (id) => {
@@ -35,8 +41,6 @@ function MyOrdersFC({ getOrderListingApi, getOrderDetailApi }) {
     };
     getOrderDetailApi(query).then(({ response }) => setOrderDetail(response));
   };
-
-  console.log(orderDetail, "order detail");
 
   const getDeliveryStatusCode = (status) => {
     switch (status) {
@@ -70,25 +74,31 @@ function MyOrdersFC({ getOrderListingApi, getOrderDetailApi }) {
 
   useEffect(() => {
     getOrderListingAPI();
-  }, []);
+  }, [searchOrder, sortDate]);
 
   return (
     <div className="profile-page">
       <div className="d-flex align-items-center">
         <div>
-          <NormalSearch placeholder="Search For Orders" />
+          <NormalSearch
+            value={searchOrder}
+            onChange={(e) => setSearchOrder(e.target.value)}
+            placeholder="Search For Orders"
+          />
         </div>
         <div className="custom-select">
           <CustomSelect
             menuItemList={[
-              { label: "This Month", value: "this" },
-              { label: "Current Month", value: "current" },
-              { label: "Previous Month", value: "previous" },
-              { label: "Daily", value: "daily" },
+              { label: "This Month", value: "thisMonth" },
+
+              { label: "Previous Month", value: "lastMonth" },
+              { label: "Daily", value: "today" },
               { label: "Yearly", value: "yearly" },
-              { label: "Last year", value: "last" },
-              { label: "Current year", value: "current" },
+              { label: "Last year", value: "lastYear" },
+              { label: "Current year", value: "thisYear" },
             ]}
+            value={sortDate}
+            onChange={(e) => setSortDate(e.target.value)}
           />
         </div>
       </div>
@@ -182,7 +192,7 @@ function MyOrdersFC({ getOrderListingApi, getOrderDetailApi }) {
                   <img
                     src={order.image}
                     alt="wallimage"
-                    width={66.64}
+                    width={70}
                     height={70}
                   />
                   <div className="products">

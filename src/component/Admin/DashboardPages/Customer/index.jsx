@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomTable from "component/Admin/common/CustomTable";
 import {
   MenuItem,
@@ -21,25 +21,9 @@ import CustomPagination from "component/Admin/common/CustomPagination";
 import { CustomButton } from "../../common/CustomButton";
 import { connect } from "react-redux";
 import { history } from "service/helpers";
-
-const customersData = [
-  {
-    no: 1,
-    customer_id: "#98765",
-    customer_name: "John Doe",
-    location: "Anna Nagar, Chennai",
-    date: "Oct 18th, 2022",
-    total_spent: 7000,
-  },
-  {
-    no: 2,
-    customer_id: "#98765",
-    customer_name: "John Doe",
-    location: "Anna Nagar, Chennai",
-    date: "Oct 18th, 2022",
-    total_spent: 7000,
-  },
-];
+import { getCustomerListing } from "action/CustomerAct";
+import { bindActionCreators } from "redux";
+import { customMomentFormat } from "service/helperFunctions";
 
 const TableDataHeader = () => {
   return (
@@ -74,24 +58,36 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { no, customer_id, customer_name, location, date, total_spent },
+  bodyData: {
+    _id,
+    customer_id,
+    firstName,
+    lastName,
+    location,
+    createdAt,
+    total_spent,
+  },
 }) => {
   return (
-    <TableRow key={no}>
+    <TableRow key={_id}>
       <TableCell component="th" scope="row">
-        <label className="table-body-cell-label">{no}</label>
+        <label className="table-body-cell-label">{_id}</label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{customer_id}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{customer_name}</label>
+        <label className="table-body-cell-label">
+          {firstName + " " + lastName}
+        </label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{location}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{date}</label>
+        <label className="table-body-cell-label">
+          {customMomentFormat(createdAt, "MMM Do, YYYY")}
+        </label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{`₹${total_spent}`}</label>
@@ -112,12 +108,24 @@ const TableDataBody = ({
     </TableRow>
   );
 };
-const CustomerManagementFC = () => {
-  const [currentPage, setCurrentPage] = React.useState(1);
-
-  const handlePage = (event, value) => {
-    setCurrentPage(value);
+const CustomerManagementFC = ({ getCustomerListingApiCall }) => {
+  const [userList, setUserList] = useState([]);
+  const [pageMeta, setPageMeta] = useState({});
+  const [pageNo, setPageNo] = useState();
+  const handlePagination = (e, value) => {
+    setPageNo((prevState) => ({ ...prevState, page: value }));
   };
+
+  const getCustomerListingApi = () => {
+    getCustomerListingApiCall().then(({ response }) => {
+      setUserList(response.data);
+      setPageMeta(response.pageMeta);
+    });
+  };
+
+  useEffect(() => {
+    getCustomerListingApi();
+  }, []);
 
   return (
     <div>
@@ -135,20 +143,32 @@ const CustomerManagementFC = () => {
         <CustomTable>
           <TableDataHeader />
           <TableBody>
-            {customersData?.map((bodyData) => (
-              <TableDataBody key={bodyData.No} bodyData={bodyData} />
+            {userList?.map((bodyData) => (
+              <TableDataBody key={bodyData._id} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>
       </div>
       <CustomPagination
-        pageCount={10}
-        currentPage={currentPage}
-        onChange={handlePage}
+        pageCount={pageMeta.pageCount}
+        currentPage={pageNo}
+        onChange={handlePagination}
       />
     </div>
   );
 };
 
-const CustomerManagement = connect(null, null)(CustomerManagementFC);
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      getCustomerListingApiCall: getCustomerListing,
+    },
+    dispatch
+  );
+};
+
+const CustomerManagement = connect(
+  null,
+  mapDispatchToProps
+)(CustomerManagementFC);
 export default CustomerManagement;
