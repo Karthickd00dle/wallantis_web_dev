@@ -79,39 +79,19 @@ const RegisterComponentMain = ({ loginApiCall, registationApiCall }) => {
               register={register}
               errors={errors}
             />
-            <div className="otp-resend-container d-flex  my-4">
-              <label className="label-otp-sent"> OTP sent to Mobile</label>
-              <label className="label-resend pe-1">Resend? </label>
-            </div>
-            <CustomInput
-              type="number"
-              placeholder="Enter OTP"
-              name="otp"
-              className="input-otp my-3"
-              register={register}
-              errors={errors}
-            />
-            <CustomInput
-              type="password"
-              placeholder="Set Password"
-              className="input-password my-3"
-              name="password"
-              register={register}
-              errors={errors}
-            />
-            {/* <label className="label-privacy-policy ">
+            <label className="label-privacy-policy ">
               By continuing, you agree to Paperwall Terms of use and Privacy
               policy
-            </label> */}
+            </label>
             <div className="d-flex flex-column">
               <CustomButton
                 style={{ backgroundColor: "#A26220", color: " #FFFFFF" }}
                 className="py-2 mb-3"
                 type="submit"
               >
-                Register
+                Continue
               </CustomButton>
-              <div className="my-2 register-google">
+              <div className="my-2 ">
                 <GoogleLogin
                   text="signup_with"
                   onSuccess={(res) => {
