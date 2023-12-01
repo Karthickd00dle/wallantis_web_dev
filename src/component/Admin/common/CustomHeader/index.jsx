@@ -10,6 +10,8 @@ import "./style.scss";
 import { BellIcon, SearchIcon } from "assets/svg/Admin/Header";
 import { Avatar, Badge, IconButton } from "@mui/material";
 import Notification from "component/Admin/Notification";
+import { getUserDetailsBasedToken } from "service/helperFunctions";
+import { history } from "service/helpers";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -78,6 +80,14 @@ export default function CustomHeader() {
     setNotification(null);
   };
 
+  const handleLogOut = () => {
+    setAnchorEl(null);
+    sessionStorage.removeItem("authToken");
+    history.push("/admin-auth/login");
+  };
+
+  const userDetail = getUserDetailsBasedToken();
+
   return (
     <>
       <AppBar className="px-3" position="static">
@@ -111,7 +121,9 @@ export default function CustomHeader() {
                 sx={{ marginLeft: "30px", width: "40px", height: "40px" }}
                 src="/broken-image.jpg"
               />
-              <label className="ps-2 admin-name-label">Admin User</label>
+              <label className="ps-2 admin-name-label">
+                {userDetail.firstName + " " + userDetail.lastName}
+              </label>
               <div className="expand-menu-icon-button">
                 <IconButton
                   aria-label="more"
@@ -138,7 +150,7 @@ export default function CustomHeader() {
                     },
                   }}
                 >
-                  <MenuItem onClick={handleClose}>Hello</MenuItem>
+                  <MenuItem onClick={handleLogOut}>Log Out</MenuItem>
                 </Menu>
               </div>
             </div>

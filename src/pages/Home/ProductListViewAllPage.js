@@ -2,12 +2,12 @@ import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-function ViewCareerPageFC() {
+export function ProductListViewPageClass() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {
     const loadComp = await import(
-      "component/Admin/DashboardPages/CareerManagement/ViewCareer"
+      "component/ProductListing/ProductListViewAll"
     );
     setComponent(() => loadComp.default);
   };
@@ -15,4 +15,7 @@ function ViewCareerPageFC() {
   useMemo(() => LoadComp(), []);
   return Component ? <Component /> : <></>;
 }
-export const ViewCareerPage = connect(null, null)(ViewCareerPageFC);
+export const ProductListViewAllPage = connect(
+  null,
+  null
+)(ProductListViewPageClass);

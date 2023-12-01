@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { TextField } from "@mui/material";
 import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 
-export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
+export const  InstallerPriceCalculator = ({ isOpen, handleClose }) => {
   const {
     register,
     handleSubmit,
@@ -27,11 +27,23 @@ export const InstallerPriceCalculator = ({ isOpen, handleClose }) => {
   const { width, height, rolls } = installerPriceData;
   const { quantity, price, charges } = calculatedData;
 
-  const handleChange = ({ target: { name, value } }) => {
-    setInstallerPriceData({ ...installerPriceData, [name]: value });
-  };
+const handleChange = ({ target: { name, value } }) => {
+  let updatedData = { ...installerPriceData, [name]: value };
+  if (name === 'rolls') {
+    updatedData.width = "";
+    updatedData.height = "";
+  } else if (name === 'width' || name === 'height') {
+    updatedData.rolls = "";
+  }
+  setInstallerPriceData(updatedData);
+  if (showCalculated) {
+    handleCalculateInstallerPrice(updatedData);
+  }
+};
 
-  const handleCalculateInstallerPrice = () => {
+  const handleCalculateInstallerPrice = (data) => {
+    const { width, height, rolls } = showCalculated ? data : installerPriceData;
+
     let quantity = ternaryCondition(
       rolls,
       rolls,

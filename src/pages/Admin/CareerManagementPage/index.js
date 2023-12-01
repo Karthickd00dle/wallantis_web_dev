@@ -1,3 +1,3 @@
-export { CareerManagementPage } from "./CareerManagementPage";
 export { AddEditCareerPage } from "./AddEditCareerPage";
-export {ViewCareerPage} from "./ViewCareerPage"
+export { CareerManagementPage } from "./CareerManagementPage";
+export { ViewCareerPage } from "./ViewCareerPage";

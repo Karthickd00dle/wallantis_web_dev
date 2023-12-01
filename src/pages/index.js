@@ -18,6 +18,7 @@ export {
   CartSummaryPage,
   OrderSuccessPage,
   ProductDetailPageUser,
+  ProductListViewAllPage,
 } from "./Home";
 export {
   ProfilePage,
@@ -57,12 +58,9 @@ export {
   LeadManagementPage,
   BlogManagementPage,
   AddEditBlogPage,
-  EditOrderDetailPage,
+  ViewEditOrderDetailPage,
   StaffManagementPage,
   ContentManagementPage,
-  CareerManagementPage,
-  AddEditCareerPage,
-  ViewCareerPage,
   CatalogueManagementPage,
   AddEditCataloguePage,
   CustomerDetailPage,
@@ -75,4 +73,7 @@ export {
   NewOrderPage,
   AddNewStaffPage,
   AddNewCouponPage,
+  CareerManagementPage,
+  AddEditCareerPage,
+  ViewCareerPage,
 } from "./Admin";

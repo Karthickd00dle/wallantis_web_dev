@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export function AddEditCareerPageFC() {
+function AddEditCareerPageFC() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {

@@ -27,7 +27,7 @@ const ForgetPassword = ({ open, handleClose }) => {
             <div className="d-flex flex-column">
               <label className="email-label">Email</label>
               <TextField
-                placeholder="Type Password"
+                placeholder="Enter Email"
                 variant="outlined"
                 className="email-input-field pt-2"
               />

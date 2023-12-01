@@ -183,8 +183,6 @@ function ProductManagementFC({ getAllProductsApiCall }) {
     getCustomerListingApi();
   }, []);
 
-  console.log(productList, "prod list");
-
   return (
     <div className="product-management">
       <CustomNavBar label="Product Management" />

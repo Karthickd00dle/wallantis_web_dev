@@ -141,8 +141,8 @@ export default function RoomVisualizer() {
             <h2>Select a Room Space to Visualise</h2>
 
             <div className="upload-picture">
-              <div class="upload-btn-wrapper">
-                <img class="btn" alt="uploadBtn" src={uploadImage} />
+              <div className="upload-btn-wrapper">
+                <img className="btn" alt="uploadBtn" src={uploadImage} />
                 <input type="file" name="myfile" onChange={handleImageUpload} />
               </div>
               <p>Drag & Drop Or Upload your Room Pic</p>

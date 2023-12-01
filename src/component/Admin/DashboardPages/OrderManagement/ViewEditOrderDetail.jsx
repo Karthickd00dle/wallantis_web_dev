@@ -98,7 +98,7 @@ const TableDataBody = ({
   );
 };
 
-const EditOrderDetailFC = () => {
+const ViewEditOrderDetailFC = () => {
   const { id } = useParams();
   const [openOrderTrackingDialog, setOpenOrderTrackingDialog] = useState(false);
   const [openInstallerDetailsDialog, setOpenInstallerDetailsDialog] =
@@ -389,6 +389,9 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({}, dispatch);
 };
 
-const EditOrderDetail = connect(null, mapDispatchToProps)(EditOrderDetailFC);
+const ViewEditOrderDetail = connect(
+  null,
+  mapDispatchToProps
+)(ViewEditOrderDetailFC);
 
-export default EditOrderDetail;
+export default ViewEditOrderDetail;

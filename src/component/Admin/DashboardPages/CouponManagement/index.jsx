@@ -179,7 +179,7 @@ export default function CouponManagement() {
           className="add-new-installer-button ms-3 px-3"
           variant="contained"
         >
-          Add New Installer
+          Add New Coupon
         </CustomButton>
       </div>
 

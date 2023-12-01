@@ -69,12 +69,12 @@ class Chatbox {
       .forEach(function (item) {
         if (item.name === "Sam") {
           html +=
-            '<div class="messages__item messages__item--visitor">' +
+            '<div className="messages__item messages__item--visitor">' +
             item.message +
             "</div>";
         } else {
           html +=
-            '<div class="messages__item messages__item--operator">' +
+            '<div className="messages__item messages__item--operator">' +
             item.message +
             "</div>";
         }
@@ -100,10 +100,10 @@ export function Chatbot() {
       <div className="chatbox">
         <div className="chatbox__support">
           <div className="chatbox__header">
-            <div class="chatbox__content--header">
-              <h4 class="chatbox__heading--header">Ask Our Experts</h4>
+            <div className="chatbox__content--header">
+              <h4 className="chatbox__heading--header">Ask Our Experts</h4>
               <label>Welcome to Wallantics</label>
-              <p class="chatbox__description--header">
+              <p className="chatbox__description--header">
                 We are here to help you with our service related queries.
               </p>
             </div>

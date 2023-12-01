@@ -2,12 +2,12 @@ import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-function EditOrderDetailFC() {
+function ViewEditOrderDetailFC() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {
     const loadComp = await import(
-      "component/Admin/DashboardPages/OrderManagement/EditOrderDetail"
+      "component/Admin/DashboardPages/OrderManagement/ViewEditOrderDetail"
     );
     setComponent(() => loadComp.default);
   };
@@ -15,4 +15,7 @@ function EditOrderDetailFC() {
   useMemo(() => LoadComp(), []);
   return Component ? <Component /> : <></>;
 }
-export const EditOrderDetailPage = connect(null, null)(EditOrderDetailFC);
+export const ViewEditOrderDetailPage = connect(
+  null,
+  null
+)(ViewEditOrderDetailFC);

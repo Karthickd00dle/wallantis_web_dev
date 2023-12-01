@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 // Redux Connection
 import { connect } from "react-redux";
 
-export function CareerManagementFunction() {
+function CareerManagementFC() {
   const [Component, setComponent] = useState(null);
 
   const LoadComp = async () => {
@@ -15,7 +15,4 @@ export function CareerManagementFunction() {
   useMemo(() => LoadComp(), []);
   return Component ? <Component /> : <></>;
 }
-export const CareerManagementPage = connect(
-  null,
-  null
-)(CareerManagementFunction);
+export const CareerManagementPage = connect(null, null)(CareerManagementFC);

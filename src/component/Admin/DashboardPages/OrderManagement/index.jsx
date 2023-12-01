@@ -24,6 +24,7 @@ import { DownloadIcon } from "assets/svg/Admin/Common";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getOrderListing } from "action/OrderAct";
+import { customMomentFormat } from "service/helperFunctions";
 
 const totalInstallersData = [
   {
@@ -57,11 +58,11 @@ const totalInstallersData = [
 
 const getOrderStatus = (status) => {
   switch (status) {
-    case 1:
+    case "order confirmed":
       return { color: "pending", value: "New Order" };
-    case 2:
+    case "shipped":
       return { color: "ongoing", value: "On the way" };
-    case 3:
+    case "delivered":
       return { color: "completed", value: "Delivered" };
     default:
       return null;
@@ -114,18 +115,20 @@ const TableDataHeader = () => {
 };
 
 const TableDataBody = ({
-  bodyData: { no, id, date, customer_name, location, amount, order_status },
+  bodyData: { _id, orderUUID, date, customer_name, location, amount, status },
 }) => {
   return (
-    <TableRow key={no}>
+    <TableRow key={_id}>
       <TableCell component="th" scope="row">
-        <label className="table-body-cell-label">{no}</label>
+        <label className="table-body-cell-label">{_id}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">#{id}</label>
+        <label className="table-body-cell-label">#{orderUUID}</label>
       </TableCell>
       <TableCell align="left">
-        <label className="table-body-cell-label">{date}</label>
+        <label className="table-body-cell-label">
+          {customMomentFormat(date, "MMM Do, YYYY")}
+        </label>
       </TableCell>
       <TableCell align="left">
         <label className="table-body-cell-label">{customer_name}</label>
@@ -137,18 +140,14 @@ const TableDataBody = ({
         <label className="table-body-cell-label">{`₹${amount}`}</label>
       </TableCell>
       <TableCell align="left">
-        <div
-          className={`status-container ${getOrderStatus(order_status).color}`}
-        >
-          <div
-            className={`status-indicator ${getOrderStatus(order_status).color}`}
-          />
+        <div className={`status-container ${getOrderStatus(status).color}`}>
+          <div className={`status-indicator ${getOrderStatus(status).color}`} />
           <label
             className={`ps-2 order-status-label ${
-              getOrderStatus(order_status).color
+              getOrderStatus(status).color
             }`}
           >
-            {getOrderStatus(order_status).value}
+            {getOrderStatus(status).value}
           </label>
         </div>
       </TableCell>
@@ -156,14 +155,14 @@ const TableDataBody = ({
         <CustomListMenu>
           <MenuItem
             className="d-flex align-items-center"
-            onClick={() => history.push("/admin/productDetailPage")}
+            onClick={() => history.push(`/admin/view-order-detail/${_id}`)}
           >
             <EyeIcon />
             <label className="table-cell-menu-item ps-2">View Details</label>
           </MenuItem>
           <MenuItem
             className="d-flex align-items-center"
-            onClick={() => history.push(`/admin/edit-order-detail/${id}`)}
+            onClick={() => history.push(`/admin/edit-order-detail/${_id}`)}
           >
             <PencilIcon />
             <label className="table-cell-menu-item ps-2">Edit</label>
@@ -214,8 +213,8 @@ function OrderManagementFC({ getOrderListingApiCall }) {
         <CustomTable>
           <TableDataHeader />
           <TableBody>
-            {totalInstallersData?.map((bodyData) => (
-              <TableDataBody key={bodyData.No} bodyData={bodyData} />
+            {orderList?.map((bodyData) => (
+              <TableDataBody key={bodyData._id} bodyData={bodyData} />
             ))}
           </TableBody>
         </CustomTable>

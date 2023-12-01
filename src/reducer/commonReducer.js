@@ -9,10 +9,6 @@ const initialState = {
   currentUserState: {},
 };
 const commonReducer = (state = initialState, { type, payload } = {}) => {
-  console.log('Current State:', state);
-  console.log('Action Type:', type);
-  console.log('Action Payload:', payload);
-
   switch (type) {
     case commonStateList.productListing:
       return {
@@ -31,26 +27,15 @@ const commonReducer = (state = initialState, { type, payload } = {}) => {
         cartItemState: payload,
       };
 
-    // case commonStateList.wishlistItem:
-    //   return {
-    //     ...state,
-    //     wishlistItemState: payload,
-    //   };
- 
     case commonStateList.wishlistItem:
-  console.log('Wishlist Reducer Payload:', payload);
-
-  if (payload.success) {
-    
-    return {
-      ...state,
-      wishlistItemState: payload,
-    };
-  } else {
-    console.log('Wishlist operation failed:', payload.message);
-    return state;
-  }
-
+      if (payload.success) {
+        return {
+          ...state,
+          wishlistItemState: payload,
+        };
+      } else {
+        return state;
+      }
 
     case commonStateList.currentUser:
       return {

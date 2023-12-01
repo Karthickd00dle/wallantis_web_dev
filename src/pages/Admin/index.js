@@ -4,7 +4,7 @@ export { DashboardPage } from "./DashboardPage";
 export { CustomerPage } from "./CustomerPage";
 export {
   OrderManagementPage,
-  EditOrderDetailPage,
+  ViewEditOrderDetailPage,
 } from "./OrderManagementPage";
 export {
   ProductManagementPage,
@@ -19,7 +19,7 @@ export { LeadManagementPage } from "./LeadManagementPage";
 export { BlogManagementPage, AddEditBlogPage } from "./BlogManagementPage";
 export { StaffManagementPage } from "./StaffManagementPage";
 export { ContentManagementPage } from "./ContentManagementPage";
-export { CareerManagementPage, AddEditCareerPage, ViewCareerPage } from "./CareerManagementPage";
+
 export {
   CatalogueManagementPage,
   AddEditCataloguePage,
@@ -34,3 +34,8 @@ export { AdminLoginPage } from "./Auth/AdminLoginPage";
 export { NewOrderPage } from "./NewOrderPage";
 export { AddNewStaffPage } from "./AddNewStaff";
 export { AddNewCouponPage } from "./AddNewCoupon";
+export {
+  CareerManagementPage,
+  AddEditCareerPage,
+  ViewCareerPage,
+} from "./CareerManagementPage";

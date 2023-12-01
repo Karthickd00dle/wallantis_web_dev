@@ -1,2 +1,2 @@
 export { OrderManagementPage } from "./OrderManagementPage";
-export { EditOrderDetailPage } from "./EditOrderDetailPage";
+export { ViewEditOrderDetailPage } from "./EditOrderDetailPage";

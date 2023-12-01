@@ -4,10 +4,10 @@ import "./index.scss";
 export default function CommonCheckbox({ label }) {
   return (
     <div>
-      <label class="container">
+      <label className="container">
         <p>{label}</p>
         <input className="common-checkbox" type="checkbox" />
-        <span class="checkmark"></span>
+        <span className="checkmark"></span>
       </label>
     </div>
   );

@@ -38,8 +38,8 @@ export default function ReviewAndFeedback() {
           <p className="overall-rating">Add a photo or video </p>
 
           <div className="add-photos align-center">
-            <div class="upload-btn-wrapper">
-              <button class="upload-button">Choose File</button>
+            <div className="upload-btn-wrapper">
+              <button className="upload-button">Choose File</button>
               <input type="file" name="myfile" />
             </div>
           </div>

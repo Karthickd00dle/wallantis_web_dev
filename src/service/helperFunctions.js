@@ -96,11 +96,9 @@ export const addQuery = (dataObject, apiObject) => {
 //   );
 // };
 export const generateQuery = (query) => {
-  console.log("Original query:", query); // Add this line
   let url = "";
 
   if (!query) {
-    console.error("Error: query is undefined or null"); // Add this line
     return ""; // Add this line
   }
 
@@ -127,8 +125,6 @@ export const generateQuery = (query) => {
       );
     }
   }, "");
-
-  console.log("Generated query:", queryString); // Add this line
 
   return url + queryString;
 };

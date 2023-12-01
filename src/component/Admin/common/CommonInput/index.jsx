@@ -14,7 +14,7 @@ export function CommonInput({ label, placeholder, name, value, onChange }) {
         name={name}
         value={value}
         onChange={onChange}
-        className="common-input"
+        className="common-input ps-2"
       />
     </div>
   );

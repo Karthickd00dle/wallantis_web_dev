@@ -82,10 +82,19 @@ export const CustomSelect = ({
         input={<BootstrapInput />}
         IconComponent={(props) => <DropDownIcon {...props} />}
         onChange={onChange}
+        MenuProps={{
+          PaperProps: {
+            style: {
+              maxHeight: 200,
+              overflowY: "auto",
+            },
+          },
+        }}
       >
-        {menuItems?.map(({ value, label }) => (
+        {menuItems?.map(({ value, label, Component }) => (
           <MenuItem key={value} value={value}>
-            {label}
+            {label && label}
+            {Component && <div>{Component}</div>}
           </MenuItem>
         ))}
       </Select>

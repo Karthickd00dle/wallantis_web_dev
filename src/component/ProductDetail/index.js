@@ -1,7 +1,7 @@
 import TravelGuideSVGComponent from "assets/svg/ProductDetails/travelGuide";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Instructions } from "component/ProductDetail/Instructions";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { history } from "service/helpers";
 import ReactImageMagnify from "react-image-magnify";
 import "./styles.scss";
@@ -18,7 +18,7 @@ import { CalculateRolls } from "./CalculateRolls";
 import { InstallerPriceCalculator } from "./InstallerPriceCalculator";
 import { conditionalLoad, ternaryCondition } from "service/helperFunctions";
 import { bindActionCreators } from "redux";
-import { getProductDetailApi } from "action/ProductsAct";
+import { getProductDetailApi, getNewArraivalApi } from "action/ProductsAct";
 import { FcFolder } from "react-icons/fc";
 import { FaTimes } from "react-icons/fa";
 import IP_calculator from "../../assets/images/IP_calculator.jpg";
@@ -27,6 +27,8 @@ import InstallerDateTime from "../common/InstallerDataTime";
 import { useForm } from "react-hook-form";
 import { Rating } from "@mui/material";
 import { createCartApi } from "action/CartAct";
+import CardThree from "../Home/subcomponents/CardThree";
+import { commonStateList } from "service/actionType";
 
 const ColorFilter = ({
   colorData: { colorCode },
@@ -43,9 +45,6 @@ const ColorFilter = ({
       setActiveColor(i);
     }
   };
-
-
-
 
   return (
     <div
@@ -64,8 +63,13 @@ const ColorFilter = ({
   );
 };
 
-function ProductDetailFC({ getProductDetailApi, createCartApi }) {
+function ProductDetailFC({
+  getProductDetailApi,
+  getAllNewArraivalAPI,
+  createCartApi,
+}) {
   let params = useParams();
+  const dispatch = useDispatch();
 
   const [productDetail, setProductDetail] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -82,12 +86,14 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
   const [installerDate, setInstallerDate] = useState();
   const [installerTime, setInstallerTime] = useState();
 
-  const handleConfirm = () => {
-  };
-  
+  const handleConfirm = () => {};
+
   const handleShowAllInstructions = () => {
     setShowAllInstructions(!showAllInstructions);
   };
+  const [newArraivalData, setNewArraivalData] = useState([]);
+  const [cartData, setCartData] = useState([]);
+
   const handleProductCount = ({ target: { name, value } }) => {
     if (value === "" || (value >= 1 && /^\d+$/.test(value))) {
       setQuantity(value === "" ? "" : parseInt(value, 10));
@@ -102,15 +108,28 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
       .then(({ response }) => setProductDetail(response))
       .then(() => setLoading(false));
   };
+  const handleCardProduct = (prodData) => {
+    dispatch({
+      type: commonStateList.productDetail,
+      payload: prodData,
+    });
 
+    history.push(`/home/product-details/${prodData._id}`);
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [selectedImg]);
 
   useEffect(() => {
     getProductDetailAPI();
-  }, []);
+    getAllNewArraival();
+  }, [params.id]);
 
+  const getAllNewArraival = () => {
+    getAllNewArraivalAPI().then((res) => {
+      setNewArraivalData(res?.response);
+    });
+  };
   const getCurrentItem = useMemo(
     () => productDetail?.colors?.[activeColor],
     [productDetail, activeColor]
@@ -134,7 +153,7 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
   };
 
   const closePopup = () => {
-    setShowPopup(!showPopup)
+    setShowPopup(!showPopup);
   };
 
   const handleAddToCart = () => {
@@ -319,95 +338,102 @@ function ProductDetailFC({ getProductDetailApi, createCartApi }) {
                     <div id="popup" className="popup">
                       <div className="popup-content">
                         <div className="close-icon-tips" onClick={closePopup}>
-                          <span>&times;</span>
+                          <span>&times;123</span>
                         </div>
                         <InstallerDateTime
-                         installerDate={installerDate}
-                         setInstallerDate={setInstallerDate}
-                         installerTime={installerTime}
-                         setInstallerTime={setInstallerTime}
-                         handleConfirm={handleConfirm} />
+                          installerDate={installerDate}
+                          setInstallerDate={setInstallerDate}
+                          installerTime={installerTime}
+                          setInstallerTime={setInstallerTime}
+                          handleConfirm={handleConfirm}
+                        />
                       </div>
                     </div>
                   )}
                 </div>
-                
-
 
                 <div className="ib-body">
-        <div>
-          <div className="ib-body-title">Installation by Wallantics</div>
-          <div className="ib-body-txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-dolore magna aliqua. Ut enim ad minim veniam. </div>
-          <div className="ib-body-price">
-          ₹800/Roll &ensp; *Need to Pay at the time of booking the order {""}
-          </div>
-         
-        </div>
-      </div>
-      </div>
-      <hr />
-      <div className="ib-body-2">
-        <div className="travel-container">
-          <TravelGuideSVGComponent />
-        </div>
-        <div>
-          <div>
-          <div className="Installtion-showall">
-            <div className="ib-body-2-title">
-              Instructions on Application of Wallpaper
-            </div>
-            <label onClick={handleShowAllInstructions}>
-            {showAllInstructions ? 'SHOW LESS' : 'SHOW ALL'}
-          </label>
-          </div>
-      
-<div className="allproducts-show">
-  {Array.isArray(allProductInstructions) ? (
-    allProductInstructions.slice(
-      0,
-      showAllInstructions
-        ? allProductInstructions.length
-        : 3
-    ).map(({ info, steps, image, id }, index) => (
-      <div
-        className="instructions-row-container"
-        style={{
-          backgroundImage: `url(${image})`,
-          border: "1px solid #000",
-          padding: "10px",
-          margin: "5px",
-          // flex: "1",
-        }}
-        key={id}
-      >
-        <label className="card-instructions-steps">{steps}</label>
-        <br />
-        <label className="card-instructions-info">{info}</label>
-      </div>
-    ))
-  ) : (
-    <div>Content is not available.</div>
-  )}
-</div>
+                  <div>
+                    <div className="ib-body-title">
+                      Installation by Wallantics
+                    </div>
+                    <div className="ib-body-txt">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut dolore magna aliqua.
+                      Ut enim ad minim veniam.{" "}
+                    </div>
+                    <div className="ib-body-price">
+                      ₹800/Roll &ensp; *Need to Pay at the time of booking the
+                      order {""}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div className="ib-body-2">
+                <div className="travel-container">
+                  <TravelGuideSVGComponent />
+                </div>
+                <div>
+                  <div>
+                    <div className="Installtion-showall">
+                      <div className="ib-body-2-title">
+                        Instructions on Application of Wallpaper
+                      </div>
+                      <label onClick={handleShowAllInstructions}>
+                        {showAllInstructions ? "SHOW LESS" : "SHOW ALL"}
+                      </label>
+                    </div>
 
-
-
-          </div>
-          <div className="Product-tips">
-            <label>
-              Tip 1: When smoothing, work from the centre outwards to push
-              bubbles to the edge of the panel. Use a rubber squeeze.
-            </label>
-            <label>
-              Tip 2: If you've recently painted the walls, make sure to wait a
-              minimum of three weeks so that the paint has enough time to fully
-              cure.
-            </label>
-          </div>
-        </div>
-      </div>
-              
+                    <div className="allproducts-show">
+                      {Array.isArray(allProductInstructions) ? (
+                        allProductInstructions
+                          .slice(
+                            0,
+                            showAllInstructions
+                              ? allProductInstructions.length
+                              : 3
+                          )
+                          .map(({ info, steps, image, id }, index) => (
+                            <div
+                              className="instructions-row-container"
+                              style={{
+                                backgroundImage: `url(${image})`,
+                                border: "1px solid #000",
+                                padding: "10px",
+                                margin: "5px",
+                                // flex: "1",
+                              }}
+                              key={id}
+                            >
+                              <label className="card-instructions-steps">
+                                {steps}
+                              </label>
+                              <br />
+                              <label className="card-instructions-info">
+                                {info}
+                              </label>
+                            </div>
+                          ))
+                      ) : (
+                        <div>Content is not available.</div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="Product-tips">
+                    <label>
+                      Tip 1: When smoothing, work from the centre outwards to
+                      push bubbles to the edge of the panel. Use a rubber
+                      squeeze.
+                    </label>
+                    <label>
+                      Tip 2: If you've recently painted the walls, make sure to
+                      wait a minimum of three weeks so that the paint has enough
+                      time to fully cure.
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="d-flex my-4 product-add-buttons">
               <CustomButton
@@ -492,18 +518,17 @@ dolore magna aliqua. Ut enim ad minim veniam. </div>
         </div>
 
         <div className="other-products-title">You may also like </div>
-        {/* <div className="Product-detail-cards">
-          {bestsellerProducts.map((prodData) => (
-            // <CardThree prodData={prodData} key={prodData.id} />
+        <div className="Product-detail-cards">
+          {newArraivalData.slice(0, 4).map((prodData) => (
             <CardThree
-              onClickCard={onClickCard}
+              onClickCard={handleCardProduct}
               prodData={prodData}
               setCartData={setCartData}
               cartData={cartData}
               key={prodData.id}
             />
           ))}
-        </div> */}
+        </div>
 
         <div className="other-products-list"></div>
       </div>
@@ -528,6 +553,7 @@ const mapDispatchToProps = (dispatch) => {
     {
       getProductDetailApi: getProductDetailApi,
       createCartApi: createCartApi,
+      getAllNewArraivalAPI: getNewArraivalApi,
     },
     dispatch
   );

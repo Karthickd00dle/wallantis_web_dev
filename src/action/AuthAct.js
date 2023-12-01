@@ -25,9 +25,9 @@ export const loginApi =
         ...authApi.loginApi,
         body,
       })
-        .then((data) => {
-          sessionStorage.setItem("authToken", data);
-          resolve(data);
+        .then(({ response }) => {
+          sessionStorage.setItem("authToken", response.access_token);
+          resolve(response);
         })
         .catch(({ message }) => {
           reject(Toast({ type: "error", message }));

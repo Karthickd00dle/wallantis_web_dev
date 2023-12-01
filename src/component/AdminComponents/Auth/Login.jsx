@@ -6,20 +6,23 @@ import { useState } from "react";
 import { history } from "service/helpers";
 import ForgetPassword from "./ForgetPassword";
 import "./style.scss";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { loginApi } from "action/AuthAct";
 
 const PaperwallLogo = React.lazy(() => import("assets/svg/PaperwallLogo"));
 
-export default function Login() {
+function LoginFC({ loginApiCall }) {
   const [checked, setChecked] = useState(false);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState({
     name: false,
     password: false,
-  })
+  });
 
   const [userDetails, setUserDetails] = useState({
     name: null,
-    password: null
+    password: null,
   });
 
   const handleChange = (event) => {
@@ -31,23 +34,41 @@ export default function Login() {
 
   const handleLogin = () => {
     let newErrors = { ...error };
-    if(userDetails.name === null || userDetails.name === "" || userDetails.name === undefined) {
+    if (
+      userDetails.name === null ||
+      userDetails.name === "" ||
+      userDetails.name === undefined
+    ) {
       newErrors = { ...newErrors, name: true };
     } else {
       newErrors = { ...newErrors, name: false };
     }
-    if (userDetails.password === null || userDetails.password === "" || userDetails.password === undefined) {
+    if (
+      userDetails.password === null ||
+      userDetails.password === "" ||
+      userDetails.password === undefined
+    ) {
       newErrors = { ...newErrors, password: true };
     } else {
       newErrors = { ...newErrors, password: false };
     }
     setError(newErrors);
 
-    if (userDetails.name && userDetails.password && !newErrors.name && !newErrors.password) {
-      history.push("/admin/dashboard");
-      console.log(userDetails)
+    if (
+      userDetails.name &&
+      userDetails.password &&
+      !newErrors.name &&
+      !newErrors.password
+    ) {
+      console.log(userDetails);
+      let body = {
+        username: userDetails.name,
+        password: userDetails.password,
+        loginType: 3,
+      };
+      loginApiCall(body).then(() => history.push("/admin/dashboard"));
     }
-  }  
+  };
 
   return (
     <div className="login-container">
@@ -62,7 +83,9 @@ export default function Login() {
             variant="outlined"
             name="name"
             className="username-input-field pt-2"
-            onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value})}
+            onChange={(e) =>
+              setUserDetails({ ...userDetails, name: e.target.value })
+            }
           />
           {error.name && <ErrorComponent message="Username cannot be empty" />}
         </div>
@@ -70,13 +93,15 @@ export default function Login() {
           <label className="password-label">Password</label>
           <TextField
             name="password"
+            type="password"
             placeholder="Type Password"
             variant="outlined"
             className="password-input-field pt-2"
-            onChange={(e) => setUserDetails({ ...userDetails, password: e.target.value})}
+            onChange={(e) =>
+              setUserDetails({ ...userDetails, password: e.target.value })
+            }
           />
           {error.password && <ErrorComponent message="password is *required" />}
-
         </div>
         <div className="rememberme-forgot-password-container mt-4">
           <div className="d-flex align-items-center">
@@ -106,3 +131,16 @@ export default function Login() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      loginApiCall: loginApi,
+    },
+    dispatch
+  );
+};
+
+const Login = connect(null, mapDispatchToProps)(LoginFC);
+
+export default Login;

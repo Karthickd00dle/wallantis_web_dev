@@ -18,3 +18,4 @@ export { OrderSuccessPage } from "./OrderSuccessPage";
 export { ProductDetailPageUser } from "./ProductDetailPageUser";
 export { ProductListCategoryPage } from "./ProductListCategoryPage";
 export { ProductListSubCategoryPage } from "./ProductListSubCategoryPage";
+export { ProductListViewAllPage } from "./ProductListViewAllPage";

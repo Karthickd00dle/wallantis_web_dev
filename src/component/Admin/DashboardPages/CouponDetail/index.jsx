@@ -37,11 +37,11 @@ export default function CouponDetail() {
               <div className="adddiscount-status">
                 <label>Discount</label>
                 <div className="adddiscount-in">
-                  <div class="flex">
+                  <div className="flex">
                     <input type="radio" name="radio" id="Active" />
                     <label for="radio2">Price</label>
                   </div>
-                  <div class="flex">
+                  <div className="flex">
                     <input type="radio" name="radio" id="Inactive" />
                     <label for="radio3">Percentage</label>
                   </div>
@@ -64,11 +64,11 @@ export default function CouponDetail() {
           <div className="coupon-status">
             <label>Status</label>
             <div className="coupon-in">
-              <div class="flex">
+              <div className="flex">
                 <input type="radio" name="radio" id="Active" />
                 <label for="radio2">Active</label>
               </div>
-              <div class="flex">
+              <div className="flex">
                 <input type="radio" name="radio" id="Inactive" />
                 <label for="radio3">Inactive</label>
               </div>
