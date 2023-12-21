@@ -24,8 +24,12 @@ function LoginComponentMain({ loginApiCall, ownProps }) {
   const [currentEmail, setCurrentEmail] = useState();
 
   function postLogin(response) {
-    sessionStorage.setItem("authToken", response?.access_token);
-
+    const authToken = response?.access_token;
+    if (authToken) {
+      sessionStorage.setItem("authToken", authToken);
+    } else {
+      console.log("Access token is generated from credential");
+    }
     ternaryCondition(
       location === "payment-page"
         ? ownProps.setActiveStep(1)

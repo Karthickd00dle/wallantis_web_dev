@@ -342,7 +342,7 @@ function HomeComponentMain({
             />
           </div>
         </div>
-
+        { sessionStorage.getItem("authToken") ? (
         <div className="main-container">
           <div className="main-header">
             <div className="main-title">Recently Viewed</div>
@@ -369,7 +369,7 @@ function HomeComponentMain({
             ))}
           </div>
         </div>
-
+        ) : null }
         <div className="main-container main-container-bg">
           <div className="main-header">
             <div className="main-title">Artificial Grass</div>
