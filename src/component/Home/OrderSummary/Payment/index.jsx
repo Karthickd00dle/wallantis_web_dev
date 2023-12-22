@@ -84,6 +84,14 @@ export function DeliveryAddress({
           </>
         ))}
       </RadioGroup>
+      <CustomButton 
+        className="mt-4 py-3 px-5 saved-address-button"
+        variant="outlined"
+        onClick={() =>
+          history.push(`/profile/add-new-address`)
+        }
+        >Add New Delivery Address
+      </CustomButton>
     </div>
   );
 }

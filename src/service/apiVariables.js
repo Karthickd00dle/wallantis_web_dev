@@ -75,7 +75,7 @@ export const profileApi = {
     },
   },
   deleteAddress: {
-    url: "address/remove",
+    url: "address",
     method: "delete",
     baseURL: "base",
     query: {
@@ -89,7 +89,7 @@ export const profileApi = {
     },
   },
   updateAddress: {
-    url: "address/update",
+    url: "address",
     method: "put",
     baseURL: "base",
     query: {
