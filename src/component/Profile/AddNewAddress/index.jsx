@@ -93,7 +93,7 @@ const AddNewAddressFC = ({
       });
   };
 
-  const createAddress = (data) => {
+  const createAddressFunc = (data) => {
     createAddressAPI(data)
       .then((res) => {
         setAddressData(res.response);
@@ -105,7 +105,7 @@ const AddNewAddressFC = ({
       });
   };
 
-  const updateAddress = (data) => {
+  const updateAddressFunc = (data) => {
     let query = {
       url_id: id,
     };
@@ -154,7 +154,7 @@ const AddNewAddressFC = ({
         {ternaryCondition(
           loader,
           <div>Loading...</div>,
-          <form>
+          <form onSubmit={id ? handleSubmit(updateAddressFunc) : handleSubmit(createAddressFunc)}>
             <div className="address-form">
               <label className="add-new-address-label">
                 {ternaryCondition(id, locationLabel, "Add New Address")}
@@ -232,11 +232,12 @@ const AddNewAddressFC = ({
                     inputStyle="mt-3 select-input"
                     menuItemList={[
                       { label: "Rahul, Rs. 150", value: "Rahul, Rs. 150" },
+                      { label: "Test, Rs. 150", value: "Test, Rs. 150" },
                     ]}
                   />
 
-                  {errors.country && (
-                    <span className="error-text">{errors.country.message}</span>
+                  {errors.installer && (
+                    <span className="error-text">{errors.installer.message}</span>
                   )}
                 </div>
               </div>
@@ -321,7 +322,7 @@ const AddNewAddressFC = ({
                     {...register("country")}
                     placeholder="Country"
                     inputStyle="mt-3 select-input"
-                    menuItemList={[{ label: "India", value: "India" }]}
+                    menuItemList={[{ label: "India", value: "India" },{ label: "Test", value: "Test" }]}
                   />
 
                   {errors.country && (
@@ -386,27 +387,14 @@ const AddNewAddressFC = ({
                   Make this my default address
                 </label>
               </div>
-
               <div className="mt-5 mb-4">
-                {ternaryCondition(
-                  id,
-                  <CustomButton
-                    type="submit"
-                    onClick={handleSubmit(updateAddress)}
-                    className="add-address-button"
-                    variant="contained"
-                  >
-                    Save Address
-                  </CustomButton>,
-                  <CustomButton
-                    type="submit"
-                    onClick={handleSubmit(createAddress)}
-                    className="add-address-button"
-                    variant="contained"
-                  >
-                    Add Address
-                  </CustomButton>
-                )}
+                <CustomButton
+                  type="submit"
+                  className="add-address-button"
+                  variant="contained"
+                >
+                  {id ? "Save Address" : "Add Address"}
+                </CustomButton>
               </div>
             </div>
           </form>
